@@ -27,8 +27,12 @@ extensions to the core SigMF specification.
 
 - [`ntia-core`](ntia-core.sigmf-ext.md) adds generally useful metadata fields
 - [`ntia-sensor`](ntia-sensor.sigmf-ext.md) defines hardware components and settings
-- [`ntia-measurement`](ntia-measurement.sigmf-ext.md) describes the measurement performed (detectors, algorithms, etc)
+- [`ntia-algorithm`](ntia-algorithm.sigmf-ext.md) describes the measurement performed (detectors, algorithms, etc)
 - [`ntia-calibration`](ntia-calibration.sigmf-ext.md) provides information about calibration factors applied to the data
 - [`ntia-emitter`](ntia-emitter.sigmf-ext.md) gives additional information about the emitter being measured
+- [`ntia-environment`](ntia-environment.sigmf-ext.md) gives additional information about the environment around a sensor or emitter
+- [`ntia-antenna`](ntia-antenna.sigmf-ext.md) provides additional metadata to describe an antenna
+- [`ntia-scos`](ntia-scos.sigmf-ext.md) provides metadata extensions for the NTIA/ITS Spectrum Characterization and Occupancy Sensing (SCOS) system
+
 
 See also [`sigmf-ns-scos`](https://github.com/NTIA/sigmf-ns-scos), which adds fields applicable to an [IEEE 802.22.3](https://github.com/NTIA/sigmf-ns-scos) Spectrum Characterization and Occupancy Sensing (SCOS) system.
