@@ -1,4 +1,4 @@
-# ntia-sensor SigMF Extension v0.0.1
+# ntia-antenna SigMF Extension v0.0.1
 
 The ntia-antenna namespace defines static sensor parameters that extend the global SigMF object and dynamic sensor parameters that extend the annotations SigMF object. The ntia-sensor extensions requires the [ntia-antenna](https://github.com/ntia/sigmf-ext-ntia-antenna) extension to describe the sensor antenna. 
 
