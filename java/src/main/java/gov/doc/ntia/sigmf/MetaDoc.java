@@ -1,8 +1,11 @@
 package gov.doc.ntia.sigmf;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 import java.util.ArrayList;
 import java.util.List;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class MetaDoc {
 
     protected Global global;

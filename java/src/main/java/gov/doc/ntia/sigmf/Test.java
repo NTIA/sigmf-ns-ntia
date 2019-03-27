@@ -29,6 +29,17 @@ public class Test {
 
         global.setSensor(sensor);
         metaDoc.setGlobal(global);
+        Extensions extensions = new Extensions();
+        Extension ext = new Extension();
+        ext.setName("ntia-scos");
+        ext.setVersion("optional");
+        extensions.addExtension(ext);
+        Extension emitter = new Extension();
+        emitter.setName("ntia-emitter");
+        emitter.setVersion("optionsl");
+        extensions.addExtension(emitter);
+        global.setExtensions(extensions);
+
         ObjectMapper mapper = new ObjectMapper();
         try {
             mapper.writeValue(new File("C:\\Users\\dboulware\\Documents\\sigmf-ns-scos\\example.json"),metaDoc);

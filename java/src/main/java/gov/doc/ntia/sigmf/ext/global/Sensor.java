@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Sensor {
 
-    @JsonProperty(value="ntia-sensor", required=true)
+    @JsonProperty(value="ntia-sensor:id", required=true)
     protected String id;
 
     @JsonProperty(value="ntia-antenna:antenna", required = true)

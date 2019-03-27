@@ -1,9 +1,11 @@
 package gov.doc.ntia.sigmf.ext.global;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.Date;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Schedule {
 
     @JsonProperty(value="ntia-scos:id", required = true)

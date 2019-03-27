@@ -1,8 +1,10 @@
 package gov.doc.ntia.sigmf.ext.annotation.environment;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.Annotation;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Environment extends Annotation {
 
     @JsonProperty(value="ntia-environment:temperature", required = false)

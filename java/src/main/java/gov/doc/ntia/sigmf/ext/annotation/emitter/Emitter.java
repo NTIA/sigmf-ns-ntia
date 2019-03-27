@@ -1,9 +1,11 @@
 package gov.doc.ntia.sigmf.ext.annotation.emitter;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.Annotation;
 import gov.doc.ntia.sigmf.ext.global.Antenna;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Emitter extends Annotation {
 
     @JsonProperty(value="ntia-emitter:id", required = true)

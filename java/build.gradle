@@ -6,6 +6,7 @@ plugins {
 
 group = 'gov.doc.ntia'
 version = '0.0.1-SNAPSHOT'
+
 sourceCompatibility = 1.8
 
 repositories {
@@ -21,5 +22,9 @@ dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine'
+}
+
+jar{
+    archiveBaseName = 'sigmf-ns-ntia'
 }
 
