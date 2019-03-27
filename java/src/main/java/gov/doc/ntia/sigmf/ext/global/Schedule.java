@@ -1,5 +1,6 @@
 package gov.doc.ntia.sigmf.ext.global;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -17,6 +18,8 @@ public class Schedule {
     @JsonProperty(value="ntia-scos:relative_stop", required = false)
     protected Integer relativeStop;
 
+    @JsonFormat
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm'Z'")
     @JsonProperty(value="ntia-scos:absolute_stop", required = false)
     protected Date absoluteStop;
 
