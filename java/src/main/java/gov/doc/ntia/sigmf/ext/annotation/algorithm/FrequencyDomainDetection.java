@@ -3,9 +3,12 @@ package gov.doc.ntia.sigmf.ext.annotation.algorithm;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class FrequencyDomainDetection extends DomainDetection {
+import java.io.Serializable;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class FrequencyDomainDetection extends DomainDetection implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @JsonProperty(value="ntia-algorithm:number_of_ffts", required =  true)
     protected int numberOfFfts;

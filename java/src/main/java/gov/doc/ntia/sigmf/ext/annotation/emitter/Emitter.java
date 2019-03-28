@@ -5,8 +5,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.Annotation;
 import gov.doc.ntia.sigmf.ext.global.Antenna;
 
+import java.io.Serializable;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Emitter extends Annotation {
+public class Emitter extends Annotation implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @JsonProperty(value="ntia-emitter:id", required = true)
     protected String id;

@@ -9,11 +9,13 @@ import gov.doc.ntia.sigmf.ext.global.Emitter;
 import gov.doc.ntia.sigmf.ext.global.Schedule;
 import gov.doc.ntia.sigmf.ext.global.Sensor;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @JsonInclude(Include.NON_NULL)
-public class Global {
+public class Global implements Serializable {
 
+    private static final long serialVersionUID = 1L;
 
     //string	The format of the stored samples in the dataset file.
     //Its value must be a valid SigMF dataset format type string.

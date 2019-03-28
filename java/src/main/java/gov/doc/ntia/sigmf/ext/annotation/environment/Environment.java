@@ -4,8 +4,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.Annotation;
 
+import java.io.Serializable;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Environment extends Annotation {
+public class Environment extends Annotation implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @JsonProperty(value="ntia-environment:temperature", required = false)
     protected Double temperature;

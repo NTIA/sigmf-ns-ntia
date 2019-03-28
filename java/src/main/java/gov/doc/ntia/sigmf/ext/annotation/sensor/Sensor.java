@@ -4,8 +4,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.Annotation;
 
+import java.io.Serializable;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Sensor extends Annotation {
+public class Sensor extends Annotation implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @JsonProperty(value="ntia-sensor:altitude", required = false)
     protected Double altitude;

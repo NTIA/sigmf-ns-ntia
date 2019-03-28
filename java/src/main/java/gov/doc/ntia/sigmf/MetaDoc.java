@@ -2,11 +2,14 @@ package gov.doc.ntia.sigmf;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class MetaDoc {
+public class MetaDoc implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     protected Global global;
 
@@ -35,8 +38,7 @@ public class MetaDoc {
     public void setAnnotations(List<Annotation> annotations) {
         this.annotations = annotations;
     }
-
-
+    
 
     public Global getGlobal() {
         return global;

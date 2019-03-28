@@ -4,9 +4,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class Capture {
+import java.io.Serializable;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class Capture implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @JsonProperty("core:sample-start")
     protected long sampleStart;

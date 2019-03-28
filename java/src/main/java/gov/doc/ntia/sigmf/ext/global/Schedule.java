@@ -4,10 +4,13 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Schedule {
+public class Schedule implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @JsonProperty(value="ntia-scos:id", required = true)
     protected String id;

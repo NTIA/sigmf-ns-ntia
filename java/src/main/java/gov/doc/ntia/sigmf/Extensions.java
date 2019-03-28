@@ -6,12 +6,16 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.serialization.ExtensionsDeserializer;
 import gov.doc.ntia.sigmf.serialization.ExtensionsSerializer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 @JsonSerialize(using = ExtensionsSerializer.class)
 @JsonDeserialize(using = ExtensionsDeserializer.class)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Extensions {
+public class Extensions implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     protected ArrayList<Extension> extensions;
 
     public Extensions(){
