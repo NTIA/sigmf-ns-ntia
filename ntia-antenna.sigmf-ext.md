@@ -38,7 +38,9 @@ The `Antenna` object contains the following name/value pairs:
 |`vertical_beam_width`|false|double|degrees|Vertical 3-dB beamwidth.|
 |`voltage_standing_wave_ratio`|false|double|volts|Voltage standing wave ratio.|
 |`cable_loss`|false|double|dB|Cable loss for cable connecting antenna and preselector.|
-|`steerable`|false|boolean|N/A|Defines if the antenna is steerable. If steerable, then |
+|`steerable`|false|boolean|N/A|Defines if the antenna is steerable. If steerable, then `azimuth_angle` and `elevation_angle` are specified in annotation segment.|
+|`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
+|`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 |`mobile`|false|boolean|N/A|Defines if the antenna is mobile or not.|
 
 ## 5 Example
