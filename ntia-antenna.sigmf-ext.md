@@ -5,11 +5,11 @@ The `ntia-antenna` namespace provides antenna definition and configuration param
 `ntia-antenna` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
- `ntia-antenna` does not add additional keys to `Global`. Rather, it defines an [Antenna object](#61-antenna-object) type that may be referenced by Global extensions, e.g.,  `ntia-sensor` and `ntia-emitter`.
+ `ntia-antenna` does not provide additional keys to `Global`. Rather, it defines an [Antenna object](#61-antenna-object) type that may be referenced by Global extensions, e.g.,  `ntia-sensor` and `ntia-emitter`.
 
 
 ## 2 Captures
-`ntia-antenna` does not add additional keys to `Captures`.
+`ntia-antenna` does not provide additional keys to `Captures`.
 
 ## 3 Annotations
 `ntia-antenna` defines the following segments that extend the [Annotation segment object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array). 
