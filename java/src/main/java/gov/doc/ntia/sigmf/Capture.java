@@ -14,6 +14,9 @@ public class Capture implements Serializable {
     @JsonProperty("core:sample-start")
     protected long sampleStart;
 
+    @JsonProperty(value = "core:sample_count", required =  true)
+    protected long sampleCount;
+
     @JsonProperty(value = "core:global_index", required= false)
     protected Long globalIndex;
 
@@ -58,5 +61,12 @@ public class Capture implements Serializable {
         this.sampleStart = sampleStart;
     }
 
+    public long getSampleCount() {
+        return sampleCount;
+    }
+
+    public void setSampleCount(long sampleCount) {
+        this.sampleCount = sampleCount;
+    }
 
 }
