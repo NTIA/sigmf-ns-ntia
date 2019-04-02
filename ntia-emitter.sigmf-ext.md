@@ -1,28 +1,22 @@
 # ntia-emitter Extension v1.0.0
 
-The ntia-emitter namespace extension extends the global object to describe static emitter properties and the annotations object to describe dynamic emitter properties. 
+The ntia-emitter namespace provides emiter defintion and properties. 
 
-## 2. Conventions Used in this Document
+`ntia-emitter` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
-The SCOS specification uses and is fully compliant with the SigMF specification and conventions. Building upon the [SigMF core namespace](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces), the specification is enhanced through the implementation of a `ntia-emitter` namespace, the details of which follow.  
-
-## 3. Global
-Global information is applicable to the entire dataset. The ntia-emitter namespace defines the followin extensions to the global object:
+## 1 Global
+`ntia-emitter` extends the [Global object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`emitter`|false|[Emitter](#61-emitter-object) |N/A|The description of the static properties of an emitter. The attributes specified in this global object are applicable to the entire dataset.|
+emitter|false|[Emitter]()|N/A|Emitter metada
 
-
-## 4. Captures
-Per SigMF, the `Captures` value is an array of capture segment objects that describe the parameters of the signal capture. The `ntia-emitter` specification does not add any enhancements to this section.
-
-## 5. Annotations
-Per SigMF, the `Annotations` value is an array of annotation segment objects that describe anything regarding the signal data not part of the `global` and `captures` objects. As dictated by the SigMF specification, each annotation segment object must contain a `core:sample_start` name/value pair, which indicates the first index at which the rest of the segment's name/value pairs apply.  In addition, each of the annotation extensions below must include the id of the emitter. The ntia-emitter extension defines the following additional annotations:
-
-|name|required|type|unit|description|
+### 1.1 Emitter Object
+`Emitter` object has the following properties:
+|properties|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|The id of the emitter.|
+|`id`|true|string|N/A|The unique id of the emitter.|
+|`description`|false|string|N/A|A description of the emitter.|
 |`power`|false|double|dBm|Emitter power going into antenna.|
 |`antenna`|false|[Antenna](#antenna-object) |N/A|See [ntia-antenna](#antenna-object) extension.|
 |`waveform`|false| [Waveform](https://github.com/NTIA/sigmf-ns-waveform)|N/A|See [ntia-waveform extension](https://github.com/NTIA/sigmf-ns-waveform)
@@ -32,13 +26,26 @@ Per SigMF, the `Annotations` value is an array of annotation segment objects tha
 |`speed`|false|double|m/s|Speed at which the antenna is moving.|
 |`bearing`|false|double|degrees|Angle relative to true North.|
 
-## 6. Object Definitions
+## 2 Captures
+`ntia-emitter` does not provide additional keys to `Captures`.
 
-### 6.1 Emitter Object
-The `Emitter` object contains the following name/value pairs:  
+## 3 Annotations
+`ntia-emitter` extends the `ntia-core` annotation with an `EmitterAnnotation` object.
 
-|name|required|type|unit|description|
+### 3.1 EmitterAnnotation Object
+`EmitterAnnotation` object has the following properties:  
+
+|property|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|The unique id of the emitter.|
-|`description`|false|string|N/A|A description of the emitter.|
+|`id`|true|string|N/A|Unique id of an emitter defined in global.|
+|`power`|false|double|dBm|Emitter power going into antenna.|
+|`antenna`|false|[Antenna](#antenna-object) |N/A|See [ntia-antenna](#antenna-object) extension.|
+|`waveform`|false| [Waveform](https://github.com/NTIA/sigmf-ns-waveform)|N/A|See [ntia-waveform extension](https://github.com/NTIA/sigmf-ns-waveform)
+|`latitude`|false|double|decimal degrees|Latitude of emitter.|
+|`longitude`|false|double|decimal degrees|Longitude of emitter.|
+|`altitude`|false|double|meters|The height of the antenna above mean sea level.|
+|`speed`|false|double|m/s|Speed at which the antenna is moving.|
+|`bearing`|false|double|degrees|Angle relative to true North.|
 
+## 5 Example
+[TODO] Provide and example of `ntia-emitter`
