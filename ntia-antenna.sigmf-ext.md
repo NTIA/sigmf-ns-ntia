@@ -5,11 +5,11 @@ The `ntia-antenna` namespace provides antenna definition and configuration param
 `ntia-antenna` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1. Global
- `ntia-antenna` does not directly extend `Global`. Rather, it defines an [Antenna object](#61-antenna-object) type that may be referenced by Global extensions, e.g.,  `ntia-sensor` and `ntia-emitter`.
+ `ntia-antenna` does not add additional keys to `Global`. Rather, it defines an [Antenna object](#61-antenna-object) type that may be referenced by Global extensions, e.g.,  `ntia-sensor` and `ntia-emitter`.
 
 
 ## 2. Captures
-`ntia-antenna` does not add enhancements to `Captures`.
+`ntia-antenna` does not add additional keys to `Captures`.
 
 ## 3. Annotations
 `ntia-antenna` defines the following segments that extend the [Annotation segment object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array). 
@@ -36,8 +36,6 @@ The `Antenna` object contains the following name/value pairs:
 |`vertical_beam_width`|false|double|degrees|Vertical 3-dB beamwidth.|
 |`cross_polar_discrimination`|false|double|N/A|Cross-polarization discrimination.|
 |`voltage_standing_wave_ratio`|false|double|volts|Voltage standing wave ratio.|
-|`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
-|`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 |`polarization`|false|double|string|E.g. `"vertical"`, `"horizontal"`, `"slant-45"`, `"left-hand circular"`, `"right-hand circular"`.|
 |`cable_loss`|false|double|dB|Cable loss for cable connecting antenna and preselector.|
 |`steerable`|false|boolean|N/A|Defines if the antenna is steerable. If steerable, then |
