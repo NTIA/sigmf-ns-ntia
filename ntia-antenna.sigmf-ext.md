@@ -29,14 +29,14 @@ The `Antenna` object contains the following name/value pairs:
 |`type`|false|string|N/A|Antenna type. E.g. `"dipole"`, `"biconical"`, `"monopole"`, `"conical monopole"`.|
 |`low_frequency`|false|double|Hz|Low frequency of operational range.|
 |`high_frequency`|false|double|Hz|High frequency of operational range.|
+|`polarization`|false|double|string|E.g. `"vertical"`, `"horizontal"`, `"slant-45"`, `"left-hand circular"`, `"right-hand circular"`.|
+|`cross_polar_discrimination`|false|double|N/A|Cross-polarization discrimination.|
 |`gain`|false|double|dBi|Antenna gain in direction of maximum radiation or reception.|
 |`horizontal_gain_pattern`|false|array of doubles|dBi|Antenna gain pattern in horizontal plane from 0 to 359 degrees in 1 degree steps.|
 |`vertical_gain_pattern`|false|array of double|dBi|Antenna gain pattern in vertical plane from -90 to +90 degrees in 1 degree steps.|
 |`horizontal_beam_width`|false|double|degrees|Horizontal 3-dB beamwidth.|
 |`vertical_beam_width`|false|double|degrees|Vertical 3-dB beamwidth.|
-|`cross_polar_discrimination`|false|double|N/A|Cross-polarization discrimination.|
 |`voltage_standing_wave_ratio`|false|double|volts|Voltage standing wave ratio.|
-|`polarization`|false|double|string|E.g. `"vertical"`, `"horizontal"`, `"slant-45"`, `"left-hand circular"`, `"right-hand circular"`.|
 |`cable_loss`|false|double|dB|Cable loss for cable connecting antenna and preselector.|
 |`steerable`|false|boolean|N/A|Defines if the antenna is steerable. If steerable, then |
 |`mobile`|false|boolean|N/A|Defines if the antenna is mobile or not.|
