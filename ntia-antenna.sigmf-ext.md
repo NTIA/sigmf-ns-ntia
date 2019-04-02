@@ -1,9 +1,10 @@
 # ntia-antenna SigMF Extension v0.0.1
 
+## 1. Description
 The ntia-antenna namespace defines static sensor parameters that extend the global SigMF object and dynamic sensor parameters that extend the annotations SigMF object. The ntia-sensor extensions requires the [ntia-antenna](https://github.com/ntia/sigmf-ext-ntia-antenna) extension to describe the sensor antenna. 
 
 ## 2. Conventions Used in this Document
-The SCOS specification uses and is fully compliant with the SigMF specification and conventions. Building upon the [SigMF core namespace](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces), the specification is enhanced through the implementation of a `ntia-antenna` namespace, the details of which follow.  
+The `ntia-antenna` fully compliant with the SigMF specification and conventions. Building upon the [SigMF core namespace](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces).  
 
 ## 3. Global
 Global information is applicable to the entire dataset. The ntia-antenna namespace does not directly extend the global object, but rather defines an [Antenna object](#61-antenna-object) type that may be referenced by Global extensions found in the `ntia-sensor` and the `ntia-emitter` extensions.
@@ -17,13 +18,9 @@ Per SigMF, the `Annotations` value is an array of annotation segment objects tha
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
-|`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
-|`polarization`|false|double|string|E.g. `"vertical"`, `"horizontal"`, `"slant-45"`, `"left-hand circular"`, `"right-hand circular"`.|
 
 ## 6. Object Definitions
 
-### 6.1 Antenna Object
 The `Antenna` object contains the following name/value pairs:
 
 |name|required|type|unit|description|
@@ -39,6 +36,9 @@ The `Antenna` object contains the following name/value pairs:
 |`vertical_beam_width`|false|double|degrees|Vertical 3-dB beamwidth.|
 |`cross_polar_discrimination`|false|double|N/A|Cross-polarization discrimination.|
 |`voltage_standing_wave_ratio`|false|double|volts|Voltage standing wave ratio.|
+|`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
+|`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
+|`polarization`|false|double|string|E.g. `"vertical"`, `"horizontal"`, `"slant-45"`, `"left-hand circular"`, `"right-hand circular"`.|
 |`cable_loss`|false|double|dB|Cable loss for cable connecting antenna and preselector.|
 |`steerable`|false|boolean|N/A|Defines if the antenna is steerable or not.|
 |`mobile`|false|boolean|N/A|Defines if the antenna is mobile or not.|
