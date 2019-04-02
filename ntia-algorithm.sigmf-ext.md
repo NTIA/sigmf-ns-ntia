@@ -4,13 +4,13 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 `ntia-algorithm` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
-`ntia-algorithm` does not add additional keys to `Global`. 
+`ntia-algorithm` does not provide additional keys to `Global`. 
 
 ## 2 Captures
-`ntia-algorithm` does not add addional keys to `Captures`.
+`ntia-algorithm` does not provide additional keys to `Captures`.
 
 ## 3 Annotations
-`ntia-algorithm` defines the following segments that extend the [Annotation segment object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
+`ntia-algorithm` defines the following segments that extend the [Annotation segment object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array):
 
 ### 3.1 TimeDomainDetection annotation segments
 Time-domain detection algorithms are applied to gap-free IQ time series captured at a single frequency. The `TimeDomainDetection` annotation segments contains the following name/value pairs:  
