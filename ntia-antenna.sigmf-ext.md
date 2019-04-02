@@ -1,25 +1,25 @@
 # ntia-antenna SigMF Extension v0.0.1
 
-## 1. Description
 The `ntia-antenna` namespace provides antenna definition and configuration parameters.
 
-## 2. Conventions Used in this Document
 `ntia-antenna` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
-## 3. Global
-`Global` information is applicable to the entire SigMF dataset. `ntia-antenna` does not directly extend `Global`. Rather, it defines an [Antenna object](#61-antenna-object) type that may be referenced by Global extensions, e.g.,  `ntia-sensor` and `ntia-emitter`.
+## 1. Global
+ `ntia-antenna` does not directly extend `Global`. Rather, it defines an [Antenna object](#61-antenna-object) type that may be referenced by Global extensions, e.g.,  `ntia-sensor` and `ntia-emitter`.
 
 
-## 4. Captures
-`Captures` information describes parameters of the SigMF signal capture. `ntia-antenna` does not add enhancements to `Captures`.
+## 2. Captures
+`ntia-antenna` does not add enhancements to `Captures`.
 
-## 5. Annotations
-`Annotations` information provides parameters at sample resolution. `ntia-antenna` provides the following enhancements to `Annotations` .
+## 3. Annotations
+`ntia-antenna` defines the following segments that extend the [Annotation segment object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array). 
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
+|`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
+|`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
-## 6. Object Definitions
+## 4. Object Definitions
 
 The `Antenna` object contains the following name/value pairs:
 
@@ -40,5 +40,5 @@ The `Antenna` object contains the following name/value pairs:
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 |`polarization`|false|double|string|E.g. `"vertical"`, `"horizontal"`, `"slant-45"`, `"left-hand circular"`, `"right-hand circular"`.|
 |`cable_loss`|false|double|dB|Cable loss for cable connecting antenna and preselector.|
-|`steerable`|false|boolean|N/A|Defines if the antenna is steerable or not.|
+|`steerable`|false|boolean|N/A|Defines if the antenna is steerable. If steerable, then |
 |`mobile`|false|boolean|N/A|Defines if the antenna is mobile or not.|
