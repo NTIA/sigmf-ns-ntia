@@ -4,14 +4,14 @@ The `ntia-antenna` namespace provides antenna definition and configuration param
 
 `ntia-antenna` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
-## 1. Global
+## 1 Global
  `ntia-antenna` does not add additional keys to `Global`. Rather, it defines an [Antenna object](#61-antenna-object) type that may be referenced by Global extensions, e.g.,  `ntia-sensor` and `ntia-emitter`.
 
 
-## 2. Captures
+## 2 Captures
 `ntia-antenna` does not add additional keys to `Captures`.
 
-## 3. Annotations
+## 3 Annotations
 `ntia-antenna` defines the following segments that extend the [Annotation segment object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array). 
 
 |name|required|type|unit|description|
@@ -19,7 +19,7 @@ The `ntia-antenna` namespace provides antenna definition and configuration param
 |`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
-## 4. Object Definitions
+## 4 Object Definitions
 
 The `Antenna` object contains the following name/value pairs:
 
@@ -40,3 +40,6 @@ The `Antenna` object contains the following name/value pairs:
 |`cable_loss`|false|double|dB|Cable loss for cable connecting antenna and preselector.|
 |`steerable`|false|boolean|N/A|Defines if the antenna is steerable. If steerable, then |
 |`mobile`|false|boolean|N/A|Defines if the antenna is mobile or not.|
+
+## 5 Example
+[TODO] Provide example of `ntia-antenna`
