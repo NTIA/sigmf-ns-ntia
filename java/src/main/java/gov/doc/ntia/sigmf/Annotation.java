@@ -9,6 +9,8 @@ import gov.doc.ntia.sigmf.ext.annotation.algorithm.TimeDomainDetection;
 import gov.doc.ntia.sigmf.ext.annotation.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.annotation.environment.EmitterEnvironment;
 import gov.doc.ntia.sigmf.ext.annotation.environment.SensorEnvironment;
+import gov.doc.ntia.sigmf.ext.annotation.sensor.Sensor;
+import gov.doc.ntia.sigmf.ext.annotation.sensor.SystemNoise;
 
 import java.io.Serializable;
 
@@ -23,7 +25,10 @@ import java.io.Serializable;
         @JsonSubTypes.Type(value = TimeDomainDetection.class, name = "TimeDomainDetection"),
         @JsonSubTypes.Type(value = Emitter.class, name = "Emitter"),
         @JsonSubTypes.Type(value = SensorEnvironment.class, name = "SensorEnvironment"),
-        @JsonSubTypes.Type(value = EmitterEnvironment.class, name = "EmitterEnvironment")
+        @JsonSubTypes.Type(value = EmitterEnvironment.class, name = "EmitterEnvironment"),
+        @JsonSubTypes.Type(value = Sensor.class, name = "Sensor"),
+        @JsonSubTypes.Type(value = SystemNoise.class, name = "SystemNoise")
+
 
 })
 public class Annotation implements Serializable {
