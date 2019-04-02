@@ -12,23 +12,21 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 ## 3 Annotations
 `ntia-algorithm` defines the following segments that extend the [Annotation segment object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array):
 
-### 3.1 TimeDomainDetection annotation segments
-Time-domain detection algorithms are applied to gap-free IQ time series captured at a single frequency. The `TimeDomainDetection` annotation segments contains the following name/value pairs:  
+### 3.1 TimeDomainDetection Annotation Segment
+Time-domain detection algorithms are applied to gap-free IQ time series captured at a single frequency. The `TimeDomainDetection` annotation segments have the following properties:  
 
-|name|required|type|unit|description|
+|properties|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`type`|true|string|N/A|Annotation segment type|
 |`detector`|true|string|N/A|E.g. `"sample_power"`, `"mean_power"`, `"max_power"`, `"min_power"`, `"median_power"`, `"m4s_power"`.|
 |`detection_domain`|true|string|N/A|Domain in which detector is applied, i.e., `"time"`.|
 |`number_of_samples`|true|integer|N/A|Number of samples to be integrated over by detector.|
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
 
-### 3.2 FrequencyDomainDetection annotation segments
-Frequency-domain detection algorithms are applied to discrete Fourier transforms of gap-free IQ time series captured at a single frequency. The `FrequencyDomainDetection` annotation segments contain the following name/value pairs:  
-|name|required|type|unit|description|
+### 3.2 FrequencyDomainDetection Annotation Segment
+Frequency-domain detection algorithms are applied to discrete Fourier transforms of gap-free IQ time series captured at a single frequency. The `FrequencyDomainDetection` annotation segments contain the following name/value pairs:
+|properties|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`type`|true|string|N/A|Annotation segment type|
 |`detector`|true|string|N/A|E.g. `"fft_sample_iq"`, `"fft_sample_power"`, `"fft_mean_power"`, `"fft_max_power"`, `"fft_min_power"`, `"fft_median_power"`.|
 |`detection_domain`|true|string|N/A|Domain in which detector is applied, i.e., `"frequency"`.|
 |`number_of_ffts`|true|integer|N/A|Number of FFTs to be integrated over by detector.|
