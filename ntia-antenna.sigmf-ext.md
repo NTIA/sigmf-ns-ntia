@@ -19,7 +19,7 @@ Per SigMF, the `Annotations` value is an array of annotation segment objects tha
 |----|--------------|-------|-------|-----------|
 |`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
-|`polarization`|false|double|string|E.g. `"vertical"`, `"horizontal"`, `"slant-45"`, `"left-hand circular"`, `"right-hand circular"`.|
+|`polarization`|false|string|N/A|E.g. `"vertical"`, `"horizontal"`, `"slant-45"`, `"left-hand circular"`, `"right-hand circular"`.|
 
 ## 6. Object Definitions
 
