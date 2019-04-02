@@ -3,6 +3,7 @@ package gov.doc.ntia.sigmf.ext.annotation.algorithm;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -10,19 +11,17 @@ public class FrequencyDomainDetection extends DomainDetection implements Seriali
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="ntia-algorithm:number_of_ffts", required =  true)
+    @JsonProperty(value="number_of_ffts", required =  true)
     protected int numberOfFfts;
 
-    @JsonProperty(value="ntia-algorithm:number_of_samples_in_fft", required = true)
+    @JsonProperty(value="number_of_samples_in_fft", required = true)
     protected int numberOfSamplesInFft;
 
-    @JsonProperty(value="ntia-algorithm:window", required = true)
+    @JsonProperty(value="window", required = true)
     protected String window;
 
     @JsonProperty(value = "ntia-algorithm:equivalent_noise_bandwidth", required = false)
     protected Double equivalentNoiseBandwidth;
-
-
 
 
     public int getNumberOfFfts() {

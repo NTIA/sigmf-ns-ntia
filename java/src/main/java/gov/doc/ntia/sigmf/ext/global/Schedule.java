@@ -12,27 +12,27 @@ public class Schedule implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="ntia-scos:id", required = true)
+    @JsonProperty(value="id", required = true)
     protected String id;
 
-    @JsonProperty(value="ntia-scos:action", required = true)
+    @JsonProperty(value="action", required = true)
     protected String action;
 
-    @JsonProperty(value="ntia-scos:relative_stop", required = false)
+    @JsonProperty(value="relative_stop", required = false)
     protected Integer relativeStop;
 
     @JsonFormat
             (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm'Z'")
-    @JsonProperty(value="ntia-scos:absolute_stop", required = false)
+    @JsonProperty(value="absolute_stop", required = false)
     protected Date absoluteStop;
 
-    @JsonProperty(value="ntia-scos:interval", required=false)
+    @JsonProperty(value="interval", required=false)
     protected Integer interval;
 
-    @JsonProperty(value="ntia-scos:priority", required = false)
+    @JsonProperty(value="priority", required = false)
     protected Integer priority;
 
-    @JsonProperty(value="ntia-scos:callback_url", required = false)
+    @JsonProperty(value="callback_url", required = false)
     protected String callbackURL;
 
     public String getId() {

@@ -10,10 +10,10 @@ public class Emitter implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="ntia-emitter:id", required = false)
+    @JsonProperty(value="id", required = false)
     protected String id;
 
-    @JsonProperty(value="ntia-emitter:description", required = false)
+    @JsonProperty(value="description", required = false)
     protected String description;
 
     public String getId() {

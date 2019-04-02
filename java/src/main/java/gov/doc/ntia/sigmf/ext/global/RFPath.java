@@ -10,25 +10,25 @@ public class RFPath implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="ntia-sensor:rf_path_number", required = false)
+    @JsonProperty(value="rf_path_number", required = false)
     protected Long rfPathNumber;
 
-    @JsonProperty(value="ntia-sensor:low_frequency_passband", required = false)
+    @JsonProperty(value="low_frequency_passband", required = false)
     protected Double lowFrequencyPassband;
 
-    @JsonProperty(value="ntia-sensor:hig_frequency_passband", required = false)
+    @JsonProperty(value="hig_frequency_passband", required = false)
     protected Double highFrequencyPassband;
 
-    @JsonProperty(value="ntia-sensor:low_frequency_stopband", required = false)
+    @JsonProperty(value="low_frequency_stopband", required = false)
     protected Double getLowFrequencyStopband;
 
-    @JsonProperty(value ="ntia-sensor:high_frequency_stopband", required = false)
+    @JsonProperty(value ="high_frequency_stopband", required = false)
     protected Double getHighFrequencyStopband;
 
-    @JsonProperty(value="ntia-sensor:lna_noise_figure", required = false)
+    @JsonProperty(value="lna_noise_figure", required = false)
     protected Double lnaNoiseFigure;
 
-    @JsonProperty(value = "value=ntia-sensor:cal_source_type", required = false)
+    @JsonProperty(value = "cal_source_type", required = false)
     protected String calSourceType;
 
     public Long getRfPathNumber() {

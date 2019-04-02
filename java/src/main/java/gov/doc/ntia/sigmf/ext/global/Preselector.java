@@ -10,7 +10,7 @@ public class Preselector implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="ntia-sensor:rf_paths", required = false)
+    @JsonProperty(value="rf_paths", required = false)
     protected RFPath[] rfPaths;
 
     public RFPath[] getRfPaths() {

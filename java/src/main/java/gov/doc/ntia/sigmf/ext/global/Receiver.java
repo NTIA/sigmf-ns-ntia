@@ -10,22 +10,22 @@ public class Receiver implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="ntia-sensor:receiver_model", required = true)
+    @JsonProperty(value="receiver_model", required = true)
     protected String model;
 
-    @JsonProperty(value="ntia-sensor:low_frequency", required = false)
+    @JsonProperty(value="low_frequency", required = false)
     protected  Double lowFrequency;
 
-    @JsonProperty(value="ntia-sensor:high_frequency", required = false)
+    @JsonProperty(value="high_frequency", required = false)
     protected Double highFrequency;
 
-    @JsonProperty(value="ntia-sensor:noise_figure", required = false)
+    @JsonProperty(value="noise_figure", required = false)
     protected Double noiseFigure;
 
-    @JsonProperty(value="ntia-sensor:max_power", required = false)
+    @JsonProperty(value="max_power", required = false)
     protected Double maxPower;
 
-    @JsonProperty(value="ntia-sensor:a2d_bits", required = false)
+    @JsonProperty(value="a2d_bits", required = false)
     protected Long a2dBits;
 
 

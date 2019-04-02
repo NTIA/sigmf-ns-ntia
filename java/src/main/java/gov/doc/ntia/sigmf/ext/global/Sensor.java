@@ -11,22 +11,22 @@ public class Sensor implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="ntia-sensor:id", required=true)
+    @JsonProperty(value="id", required=true)
     protected String id;
 
-    @JsonProperty(value="ntia-antenna:antenna", required = true)
+    @JsonProperty(value="antenna", required = true)
     protected Antenna antenna;
 
-    @JsonProperty(value="ntia-sensor:preselector", required = false)
+    @JsonProperty(value="preselector", required = false)
     protected Preselector preselector;
 
-    @JsonProperty(value="ntia-sensor:receiveer", required = true)
+    @JsonProperty(value="receiveer", required = true)
     protected Receiver receiver;
 
-    @JsonProperty(value="ntia-sensor:host_controller", required = false)
+    @JsonProperty(value="host_controller", required = false)
     protected String hostController;
 
-    @JsonProperty(value ="ntia-sensor:anti_aliasing_filter", required = false)
+    @JsonProperty(value ="anti_aliasing_filter", required = false)
     protected DigitalFilter antiAliasingFilter;
 
 

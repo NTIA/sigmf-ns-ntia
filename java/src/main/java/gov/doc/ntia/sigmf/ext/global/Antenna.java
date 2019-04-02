@@ -10,46 +10,46 @@ public class Antenna implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="ntia-antenna:model", required = true)
+    @JsonProperty(value="model", required = true)
     protected String model;
 
-    @JsonProperty(value="ntia-antenna:type", required=false)
+    @JsonProperty(value="type", required=false)
     protected  String type;
 
-    @JsonProperty(value="ntia-antenna:low_frequency", required = false)
+    @JsonProperty(value="low_frequency", required = false)
     protected Double lowFrequency;
 
-    @JsonProperty(value="ntia-antenna:high_frequency", required = false)
+    @JsonProperty(value="high_frequency", required = false)
     protected Double highFrequency;
 
-    @JsonProperty(value="ntia-antenna:gain", required=false)
+    @JsonProperty(value="gain", required=false)
     protected Double gain;
 
-    @JsonProperty(value="ntia-antenna:horizontal_gain_pattern", required = false)
+    @JsonProperty(value="horizontal_gain_pattern", required = false)
     protected Double[] horizontalGainPattern;
 
-    @JsonProperty(value="ntia-antenna:vertical_gain_pattern", required = false)
+    //@JsonProperty(value="ntia-antenna:vertical_gain_pattern", required = false)
     protected  Double[] verticalGainPattern;
 
-    @JsonProperty(value="ntia-antenna:horizontal_beam_width", required = false)
+    @JsonProperty(value="horizontal_beam_width", required = false)
     protected Double horizontalBeamWidth;
 
-    @JsonProperty(value="ntia-antenna:vertical_beam_width", required = false)
+    @JsonProperty(value="vertical_beam_width", required = false)
     protected Double verticalBeamWidth;
 
-    @JsonProperty(value="ntia-antenna:cross_polar_discrimination", required = false)
+    @JsonProperty(value="cross_polar_discrimination", required = false)
     protected Double crossPolarDiscrimination;
 
-    @JsonProperty(value="ntia-antenna:voltage_standing_wave_ratio", required = false)
+    @JsonProperty(value="voltage_standing_wave_ratio", required = false)
     protected Double voltageStandingWaveRatio;
 
-    @JsonProperty(value="ntia-antenna:cable_loss", required = false)
+    @JsonProperty(value="cable_loss", required = false)
     protected Double cableLoss;
 
-    @JsonProperty(value="ntia-antenna:steerable", required = false)
+    @JsonProperty(value="steerable", required = false)
     protected Boolean steerable;
 
-    @JsonProperty(value="ntia-antenna:mobile", required = false)
+    @JsonProperty(value="mobile", required = false)
     protected Boolean mobile;
 
 
