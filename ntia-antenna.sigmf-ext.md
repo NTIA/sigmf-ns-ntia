@@ -1,20 +1,20 @@
 # ntia-antenna SigMF Extension v0.0.1
 
 ## 1. Description
-The ntia-antenna namespace defines static sensor parameters that extend the global SigMF object and dynamic sensor parameters that extend the annotations SigMF object. The ntia-sensor extensions requires the [ntia-antenna](https://github.com/ntia/sigmf-ext-ntia-antenna) extension to describe the sensor antenna. 
+The `ntia-antenna` namespace provides antenna definition and configuration parameters.
 
 ## 2. Conventions Used in this Document
-The `ntia-antenna` fully compliant with the SigMF specification and conventions. Building upon the [SigMF core namespace](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces).  
+`ntia-antenna` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 3. Global
-Global information is applicable to the entire dataset. The ntia-antenna namespace does not directly extend the global object, but rather defines an [Antenna object](#61-antenna-object) type that may be referenced by Global extensions found in the `ntia-sensor` and the `ntia-emitter` extensions.
+`Global` information is applicable to the entire SigMF dataset. `ntia-antenna` does not directly extend `Global`. Rather, it defines an [Antenna object](#61-antenna-object) type that may be referenced by Global extensions, e.g.,  `ntia-sensor` and `ntia-emitter`.
 
 
 ## 4. Captures
-Per SigMF, the `Captures` value is an array of capture segment objects that describe the parameters of the signal capture. The `ntia-antenna` specification does not add any enhancements to this section.
+`Captures` information describes parameters of the SigMF signal capture. `ntia-antenna` does not add enhancements to `Captures`.
 
 ## 5. Annotations
-Per SigMF, the `Annotations` value is an array of annotation segment objects that describe anything regarding the signal data not part of the `global` and `captures` objects. Each SigMF annotation segment object must contain a `core:sample_start` name/value pair, which indicates the first index at which the rest of the segment's name/value pairs apply.  The ntia-antenna namespace provides the following additional annotations. 
+`Annotations` information provides parameters at sample resolution. `ntia-antenna` provides the following enhancements to `Annotations` .
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
