@@ -10,10 +10,10 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 `ntia-algorithm` does not provide additional keys to `Captures`.
 
 ## 3 Annotations
-`ntia-algorithm` defines the following segments that extend the [Annotation segment object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array):
+`ntia-algorithm` defines the following segments that extend `ntia-core`.
 
-### 3.1 TimeDomainDetection Annotation Segment
-Time-domain detection algorithms are applied to gap-free IQ time series captured at a single frequency. The `TimeDomainDetection` annotation segments have the following properties:  
+### 3.1 TimeDomainDetection Segment
+Time-domain detection algorithms are applied to gap-free IQ time series captured at a single frequency. The `TimeDomainDetection` has the following properties:  
 
 |properties|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
@@ -23,8 +23,8 @@ Time-domain detection algorithms are applied to gap-free IQ time series captured
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
 
-### 3.2 FrequencyDomainDetection Annotation Segment
-Frequency-domain detection algorithms are applied to discrete Fourier transforms of gap-free IQ time series captured at a single frequency. The `FrequencyDomainDetection` annotation segments contain the following name/value pairs:
+### 3.2 FrequencyDomainDetection Segment
+Frequency-domain detection algorithms are applied to discrete Fourier transforms of gap-free IQ time series captured at a single frequency. The `FrequencyDomainDetection` has the following properties:
 |properties|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`detector`|true|string|N/A|E.g. `"fft_sample_iq"`, `"fft_sample_power"`, `"fft_mean_power"`, `"fft_max_power"`, `"fft_min_power"`, `"fft_median_power"`.|
@@ -35,6 +35,19 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
 |`equivalent_noise_bandwidth`|false|double|Hz|Bandwidth of brickwall filter that has same integrated noise power as that of the actual filter.|
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
+
+### 3.3 DigitalFilter Segment
+`DigitalFilter` has the following properties:
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`: Finite impulse response|
+|`length`|false|integer|N/A|Number of taps.|
+|`frequency_cutoff`|false|double|Hz|Frequency at which the magnitude response decreases (from its maximum) by `attenuation_cutoff`.|
+|`attenuation_cutoff`|false|double|dB|Magnitude response threshold (below maximum) that specifies `frequency_cutoff`.|
+|`ripple_passband`|false|double|dB|Ripple in passband.|
+|`attenuation_stopband`|false|double|dB|Attenuation of stopband.|
+|`frequency_stopband`|false|double|Hz|Point in filter frequency response where stopband starts.|
 
 ## 4 Example
 [TODO] Provide and example of `ntia-algoritm`
