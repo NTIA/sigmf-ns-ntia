@@ -17,9 +17,9 @@ The ntia-calibration namespace provides information about calibration factors ap
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`receiver-scaling_factor`|false|double|N/A|Factor that converts receiver A/D output to volts.|
-|`receiver-1db_compression_point`|false|double|dBm|Maximum input of receiver.|
-|`receiver-system_noise_power`|false|[SystemNoise](#66-systemnoise-object)|N/A|The system noise power. This object is RECOMMENDED.|
+|`receiver_scaling_factor`|false|double|N/A|Factor that converts receiver A/D output to volts.|
+|`receiver_1db_compression_point`|false|double|dBm|Maximum input of receiver.|
+|`receiver_system_noise_power`|false|[SystemNoise](#66-systemnoise-object)|N/A|The system noise power. This object is RECOMMENDED.|
 
 ### 3.2 SystemNoise Object 
 `SystemNoise` has the following properties:  
