@@ -15,7 +15,7 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 ### 3.1 TimeDomainDetection Segment
 Time-domain detection algorithms are applied to gap-free IQ time series captured at a single frequency. The `TimeDomainDetection` has the following properties:  
 
-|properties|required|type|unit|description|
+|name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`detector`|true|string|N/A|E.g. `"sample_power"`, `"mean_power"`, `"max_power"`, `"min_power"`, `"median_power"`, `"m4s_power"`.|
 |`detection_domain`|true|string|N/A|Domain in which detector is applied, i.e., `"time"`.|
@@ -25,7 +25,8 @@ Time-domain detection algorithms are applied to gap-free IQ time series captured
 
 ### 3.2 FrequencyDomainDetection Segment
 Frequency-domain detection algorithms are applied to discrete Fourier transforms of gap-free IQ time series captured at a single frequency. The `FrequencyDomainDetection` has the following properties:
-|properties|required|type|unit|description|
+
+|name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`detector`|true|string|N/A|E.g. `"fft_sample_iq"`, `"fft_sample_power"`, `"fft_mean_power"`, `"fft_max_power"`, `"fft_min_power"`, `"fft_median_power"`.|
 |`detection_domain`|true|string|N/A|Domain in which detector is applied, i.e., `"frequency"`.|
