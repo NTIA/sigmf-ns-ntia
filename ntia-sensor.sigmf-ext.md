@@ -71,10 +71,10 @@ Each `RFPath` object may contain the following name/value pairs:
 |`altitude`|false|double|meters|The height of the antenna above mean sea level.|
 |`speed`|false|double|m/s|Speed at which the antenna is moving.|
 |`bearing`|false|double|degrees|Angle relative to true North.|
-|`preselector-rf_path_number`|false|integer|N/A|The preselector RF path number.|
-|`gps-fix-quality`|false|string|N/A|NMEA string denoting the quality of the GPS fix.|
-|`overload-flag`|false|boolean|N/A|Flag indicator of system signal overload.|
-|`receiver-attenuation`|false|double|dB|Attenuation of the receiver.|
+|`preselector_rf_path_number`|false|integer|N/A|The preselector RF path number.|
+|`gps_fix_quality`|false|string|N/A|NMEA string denoting the quality of the GPS fix.|
+|`overload_flag`|false|boolean|N/A|Flag indicator of system signal overload.|
+|`receiver_attenuation`|false|double|dB|Attenuation of the receiver.|
 
 ## 4 Example
 [TODO] Provide and example of `ntia-sensor`

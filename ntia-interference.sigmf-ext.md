@@ -35,7 +35,7 @@ The ntia-inteference namespace provides information about calibration factors ap
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique id of the interference report.|
 |`description`|false|string|N/A|Description of the interference.|
-|`security-classification`|false|string|N/A|Classification of interference report. I.e., `"UNCLASSIFIED"`, `"CONFIDENTIAL"`, or `"SECRET"`.|
+|`security_classification`|false|string|N/A|Classification of interference report. I.e., `"UNCLASSIFIED"`, `"CONFIDENTIAL"`, or `"SECRET"`.|
 |`type`|false|string|N/A|Type of interference. I.e., `"GPS"`, `"SATCOM"`, or `"Terrestrial"`.|
 |`aor`|false|string|N/A|Area of responsibility. E.g., `"NORTHCOM"`.|
 |`service`|false|string|N/A|Military service reporting inteference. I.e., `"Army"`, `"Navy"`, or `"Air Force"`.|
