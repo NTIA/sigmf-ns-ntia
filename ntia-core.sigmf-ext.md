@@ -3,11 +3,8 @@ The ntia-core namespace adds generally useful metadata fields.
 `ntia-core` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
-`ntia-core` extends the [Global object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
+`ntia-core` doe not directly extend the [Global object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). ntia-core defines an `Antenna` object that is referenced through other global extensions ([ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md), [ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-emtter.sigmf-ext.md))
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-antenna|false|[Antenna]()|N/A|Antenna metada
 
 ## 1.1 Antenna Object
 `Antenna` object has the following properties:
