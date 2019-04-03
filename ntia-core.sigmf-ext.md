@@ -37,13 +37,15 @@ antenna|false|[Antenna]()|N/A|Antenna metada
 `ntia-core` does not provide additional keys to `Captures`.
 
 ## 3 Annotations
-`ntia-core` extends [Annotation](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array) with the following name/value pairs:
+`ntia-core` extends [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array) with segments of different types defined throughout the set of ntia extensions to the core SigMF specification. `annotation_type` is defined with the following name/value pair:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`annotation_type`|true|string|N/A|Annotation type, e.g., `AntennaAnnotation`|
 
-### 3.1 AntennaAnnotation Object
+`ntia-core`  defines the following segments that extends `Annotations`. These segments are used across the set of ntia extensions. 
+
+### 3.1 AntennaAnnotation Segment
 `AntennaAnnotation` has the following properties:  
 
 |name|required|type|unit|description|
