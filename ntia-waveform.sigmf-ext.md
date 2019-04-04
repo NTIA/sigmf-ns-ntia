@@ -4,20 +4,22 @@ The ntia-waveform namespace provides models and parameters for textbook and stan
 `ntia-waveform` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
-`ntia-waveform` extends the [Global object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
+`ntia-waveform` does not directly extend the [Global object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). `ntia-waveform` defines a waveform object and additional extensions of the waveform object.  The waveform objects may be utilized within the `emitter` object provided by [ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/cotton-updates/ntia-emitter.sigmf-ext.md)
 
+### 3.2 Waveform Object
+The waveform object has the following properties:
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`waveform_model`|true|object|N/A|Waveform model and parameters. E.g. [IEEE80211p Object](#31-ieee80211p-object).|
+|`model`|true|string|N/A|The type of the waveform E.g. IEEE80211p|
 
-### 3.1 IEEE80211p Object
+
+### 3.2 IEEE80211p Object
 IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wireless access in vehicular environments (WAVE), a vehicular communication system. It defines enhancements to 802.11 (the basis of products marketed as Wi-Fi) required to support Intelligent Transportation Systems (ITS) applications. This includes data exchange between high-speed vehicles and between the vehicles and the roadside infrastructure, so called V2X communication, in the licensed ITS band of 5.9 GHz (5.85-5.925 GHz). 
 
-`IEEE80211p` object contains the following name/value pairs:
+`IEEE80211p` extends Waveform with the following additional properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`waveform_name`|true|string|N/A|Waveform name, i.e., `"IEEE 802.11p"`.|
 |`info_bit_generation`|false|string|N/A|Model that defines information bit generation. E.g. `"PN"`.|
 |`coding_rate`|false|array [k, n]|bits|For every k bits of useful information the coder generates n bits of data. E.g. [1, 2], [2, 3], [3, 4].|
 |`packet_length`|false|integer|bits|Packet length.|
