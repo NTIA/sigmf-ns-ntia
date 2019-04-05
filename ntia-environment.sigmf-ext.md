@@ -4,10 +4,10 @@ The ntia-environment extension provides SigMF metadata extensions to characteriz
 `ntia-environment` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
-`ntia-environment` does not provide additional keys to `Global`. 
+`ntia-environment` does not provide additional keys to [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). 
 
 ## 2 Captures
-`ntia-environment` does not provide additional keys to `Captures`.
+`ntia-environment` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
 `ntia-environment` defines the following segments that extend `ntia-core`.

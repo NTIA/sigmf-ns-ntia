@@ -4,7 +4,7 @@ The ntia-waveform namespace provides models and parameters for textbook and stan
 `ntia-waveform` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
-`ntia-waveform` does not directly extend the [Global object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). `ntia-waveform` defines a waveform object and additional extensions of the waveform object.  The waveform objects may be utilized within the `emitter` object provided by [ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/cotton-updates/ntia-emitter.sigmf-ext.md)
+`ntia-waveform` does not directly extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). `ntia-waveform` defines a waveform object and additional extensions of the waveform object.  The waveform objects may be utilized within the `emitter` object provided by [ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/cotton-updates/ntia-emitter.sigmf-ext.md)
 
 ### 3.2 Waveform Object
 The waveform object has the following properties:
@@ -35,7 +35,7 @@ IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wire
 |`signal_to_noise_ratio`|false|float|dB|Signal-to-noise ratio. If unspecified, assumed no noise present.|
 
 ## 2 Captures
-`ntia-waveform` does not provide additional keys to `Captures`.
+`ntia-waveform` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
 `ntia-waveform` does not provide additional segments to extend `ntia-core`.

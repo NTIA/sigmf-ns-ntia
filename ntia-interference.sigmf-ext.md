@@ -4,11 +4,11 @@ The ntia-inteference namespace provides information about calibration factors ap
 `ntia-interference` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
-`ntia-interference` extends the [Global object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
+`ntia-interference` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`interference_report`|true|object|N/A|Interference report. E.g. [NTIA-Interference-Report](#31-ntia-inteferencereport-object).|
+|`interference_report_type`|true|string|N/A|Interference report type. E.g. `"NTIA"`.|
 
 ### 3.1 NTIA-InteferenceReport Object
 `NTIA-InteferenceReport` has the following properties:
@@ -59,7 +59,7 @@ The ntia-inteference namespace provides information about calibration factors ap
 |`antenna`|false|string|N/A|Antenna of affected system.|
 
 ## 2 Captures
-`ntia-interference` does not provide additional keys to `Captures`.
+`ntia-interference` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
 `ntia-interference` does not provide additional segments to extend `ntia-core`.

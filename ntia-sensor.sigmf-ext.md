@@ -1,14 +1,14 @@
 # ntia-sensor extension v1.0.0
-The ntia-sensor namespace provides metadata to describe RF sensors. The ntia-sensor extensions requires the [ntia-antenna](https://github.com/ntia/sigmf-ext-ntia-antenna) extension to describe the sensor antenna. 
+The ntia-sensor namespace provides metadata to describe RF sensors. 
 
 `ntia-sensor` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
-`ntia-sensor` extends the [Global object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
+`ntia-sensor` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`sensor`|false|[Sensor](#61-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
+|`sensor`|false|[Sensor](#11-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
 
 ### 1.1 Sensor Object
 Sensor definition follows a simplified hardware model comprised of the following elements: Antenna, Preselector, Receiver, and Host Controller. The antenna converts electromagnetic energy to a voltage. The preselector can provide local calibration signals, RF filtering to protect from strong out-of-band signals, and low-noise amplification to improve sensitivity. The receiver (e.g., software defined radio) provides tuning, down conversion, sampling, and digital signal processing. Sensor implementations are not required to have each component, but metadata SHOULD specify the presence, model numbers, and operational parameters associated with each.
@@ -18,11 +18,10 @@ Sensor definition follows a simplified hardware model comprised of the following
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique name for the sensor.|
-|`antenna`|true|[Antenna](#antenna-object) |N/A|The collection of metadata that describes the sensor's antenna.|
-|`preselector`|false| [Preselector](#63-preselector-object) |N/A|The collection of metadata to describe the preselector.|
-|`receiver`|true| [Receiver](#62-receiver-object) |N/A|The collection of metadata to describe the receiver.|
+|`antenna`|true|[Antenna](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-core.sigmf-ext.md#antenna) |N/A|Metadata that describes the sensor's antenna.|
+|`preselector`|false| [Preselector](#13-preselector-object) |N/A|Metadata to describe the preselector.|
+|`receiver`|true| [Receiver](#12-receiver-object) |N/A|Metadata to describe the receiver.|
 |`host_controller`|false|string|N/A|Description of host computer. E.g. Make, model, and configuration.|
-|`anti_aliasing_filter`|false|[DigitalFilter](#65-digitalfilter-object) |N/A|Describes anti-aliasing low-pass filter applied to IQ captures. |
 
 ### 1.2 Receiver Object
 `Receiver` the following properties:
@@ -41,10 +40,10 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`rf_paths`|false| [RFPath Object](#64-rfpath-object) array|N/A|Specification of the preselector RF paths via [RFPath Object](#rfpath-object).|
+|`rf_paths`|false| Array of [RFPath](#14-rfpath-object)|N/A|Specification of the preselector RF paths.|
 
 ### 1.4 RFPath Object
-Each `RFPath` object may contain the following name/value pairs:
+`RFPath` has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
@@ -58,7 +57,7 @@ Each `RFPath` object may contain the following name/value pairs:
 |`cal_source_type`|false|string|N/A|E.g., `"calibrated noise source"`.|
 
 ## 2 Captures
-`ntia-sensor` does not provide additional keys to `Captures`.
+`ntia-sensor` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
 `ntia-sensor` defines the following segments that extend `ntia-core`.

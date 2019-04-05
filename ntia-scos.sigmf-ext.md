@@ -4,7 +4,7 @@ The ntia-scos namespace provides SigMF metadata extensions for the NTIA/ITS Spec
 `ntia-scos` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
-`ntia-scos` defines the following keys that extend the [Global object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object):
+`ntia-scos` defines the following keys that extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object):
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
@@ -22,7 +22,7 @@ The ntia-scos namespace provides SigMF metadata extensions for the NTIA/ITS Spec
 ### 1.2 ScheduleEntry Object
 The `ScheduleEntry` object is associated with the SCOS control plane, which is implemented through the use of a RESTful API residing on the sensor, see [SCOS Sensor](https://github.com/NTIA/scos-sensor) and [SCOS Control Plane API Reference](https://ntia.github.io/scos-sensor/). A sensor advertises its **capabilities**, among which are **actions** that users can schedule the sensor to do. Sensor actions are scheduled by posting a **schedule entry** to the sensor's **schedule**. The scheduler periodically reads the schedule and populates a task queue in priority order. A **task** represents an action at a _specific_ time. Therefore, a schedule entry represents a range of tasks. The scheduler continues populating its task queue until the schedule is exhausted. When executing the task queue, the scheduler makes a best effort to run each task at its designated time, but the scheduler SHOULD NOT in most cases cancel a running task to start another task, even of higher priority. **priority** is used to disambiguate two or more tasks that are scheduled to start at the same time.
 
-The `ScheduleEntry` object contains the following name/value pairs:
+`ScheduleEntry` has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
@@ -38,10 +38,10 @@ The `ScheduleEntry` object contains the following name/value pairs:
 \* If both `relative_stop` and `absolute_stop` are unspecified, the task will carry on forever. Specifying both `relative_stop` and `absolute_stop` will result in an error.
 
 ## 2 Captures
-`ntia-scos` does not provide additional keys to `Captures`.
+`ntia-scos` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
-`ntia-scos` does not provide additional segments to `Annotations`.
+`ntia-scos` does not provide additional segments to [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
 
 ## 4 Example
 [TODO] Provide and example of `ntia-scos`

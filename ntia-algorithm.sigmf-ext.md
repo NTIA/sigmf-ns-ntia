@@ -4,10 +4,29 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 `ntia-algorithm` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
-`ntia-algorithm` does not provide additional keys to `Global`. 
+`ntia-algorithm` does not provide additional keys to [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). 
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`anti_aliasing_filter`|false|[DigitalFilter](#11-digitalfilter-object)|N/A|Digital filter applied to data to avoid aliasing|
+
+### 1.1 DigitalFilter Object
+`DigitalFilter` has the following properties:
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`, `"IIR"`|
+|`FIR_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
+|`IIR_numerator_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
+|`IIR_denominator_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
+|`frequency_cutoff`|false|double|Hz|Frequency at which the magnitude response decreases (from its maximum) by `attenuation_cutoff`.|
+|`attenuation_cutoff`|false|double|dB|Magnitude response threshold (below maximum) that specifies `frequency_cutoff`.|
+|`ripple_passband`|false|double|dB|Ripple in passband.|
+|`attenuation_stopband`|false|double|dB|Attenuation of stopband.|
+|`frequency_stopband`|false|double|Hz|Point in filter frequency response where stopband starts.|
 
 ## 2 Captures
-`ntia-algorithm` does not provide additional keys to `Captures`.
+`ntia-algorithm` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
 `ntia-algorithm` defines the following segments that extend `ntia-core`.
@@ -37,13 +56,15 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
 
-### 3.3 DigitalFilter Segment
-`DigitalFilter` has the following properties:
+### 3.3 DigitalFilterAnnotation Segment
+`DigitalFilterAnnotation` has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`: Finite impulse response|
-|`length`|false|integer|N/A|Number of taps.|
+|`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`, `"IIR"`|
+|`FIR_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
+|`IIR_numerator_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
+|`IIR_denominator_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
 |`frequency_cutoff`|false|double|Hz|Frequency at which the magnitude response decreases (from its maximum) by `attenuation_cutoff`.|
 |`attenuation_cutoff`|false|double|dB|Magnitude response threshold (below maximum) that specifies `frequency_cutoff`.|
 |`ripple_passband`|false|double|dB|Ripple in passband.|
@@ -52,4 +73,3 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
 
 ## 4 Example
 [TODO] Provide and example of `ntia-algoritm`
-

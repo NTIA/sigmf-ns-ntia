@@ -3,7 +3,7 @@ The ntia-core namespace adds generally useful metadata fields.
 `ntia-core` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
-`ntia-core` doe not directly extend the [Global object](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). ntia-core defines an `Antenna` object that is referenced through other global extensions ([ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md), [ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-emtter.sigmf-ext.md))
+`ntia-core` doe not directly extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). ntia-core defines an `Antenna` object that is referenced through other global extensions ([ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md), [ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-emtter.sigmf-ext.md))
 
 
 ## 1.1 Antenna Object
@@ -11,12 +11,12 @@ The ntia-core namespace adds generally useful metadata fields.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|The unique id of the antenna.|
+|`id`|true|string|N/A|Unique id of the antenna.|
 |`model`|true|string|N/A|Antenna make and model number. E.g. `"ARA CSB-16"`, `"L-com HG3512UP-NF"`.|
 |`type`|false|string|N/A|Antenna type. E.g. `"dipole"`, `"biconical"`, `"monopole"`, `"conical monopole"`.|
 |`low_frequency`|false|double|Hz|Low frequency of operational range.|
 |`high_frequency`|false|double|Hz|High frequency of operational range.|
-|`polarization`|false|double|string|E.g. `"vertical"`, `"horizontal"`, `"slant-45"`, `"left-hand circular"`, `"right-hand circular"`.|
+|`polarization`|false|double|string|Antenna polarization. E.g. `"vertical"`, `"horizontal"`, `"slant-45"`, `"left-hand circular"`, `"right-hand circular"`.|
 |`cross_polar_discrimination`|false|double|N/A|Cross-polarization discrimination.|
 |`gain`|false|double|dBi|Antenna gain in direction of maximum radiation or reception.|
 |`horizontal_gain_pattern`|false|array of doubles|dBi|Antenna gain pattern in horizontal plane from 0 to 359 degrees in 1 degree steps.|
@@ -31,7 +31,7 @@ The ntia-core namespace adds generally useful metadata fields.
 |`mobile`|false|boolean|N/A|Defines if the antenna is mobile or not.|
 
 ## 2 Captures
-`ntia-core` does not provide additional keys to `Captures`.
+`ntia-core` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
 `ntia-core` extends [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array) with segments of different types defined throughout the set of ntia extensions to the core SigMF specification. `annotation_type` is defined with the following name/value pair:
@@ -40,7 +40,7 @@ The ntia-core namespace adds generally useful metadata fields.
 |----|--------------|-------|-------|-----------|
 |`annotation_type`|true|string|N/A|Annotation type, e.g., `AntennaAnnotation`|
 
-`ntia-core`  defines the following segments that extends `Annotations`. These segments are used across the set of ntia extensions. 
+The following segments are of general use across the set of ntia extensions. 
 
 ### 3.1 AntennaAnnotation Segment
 `AntennaAnnotation` has the following properties:  
