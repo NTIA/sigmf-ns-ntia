@@ -1,6 +1,7 @@
 package gov.doc.ntia.sigmf;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 import gov.doc.ntia.sigmf.ext.global.Antenna;
 import gov.doc.ntia.sigmf.ext.global.Receiver;
 import gov.doc.ntia.sigmf.ext.global.Sensor;
@@ -9,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.rmi.server.ServerNotActiveException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Test {
     public static void main(String[] args){
@@ -22,7 +24,15 @@ public class Test {
 
         Receiver receiver = new Receiver();
         receiver.setModel("Model123");
-
+        List<Annotation> annotations = new ArrayList<>();
+        FrequencyDomainDetection fdd = new FrequencyDomainDetection();
+        fdd.setEquivalentNoiseBandwidth(2.0);
+        fdd.setUnits("Units");
+        fdd.setNumberOfFfts(1000);
+        fdd.setWindow("window");
+        fdd.setNumberOfSamplesInFft(1000);
+        annotations.add(fdd);
+        metaDoc.setAnnotations(annotations);
 
         sensor.setAntenna(antenna);
         sensor.setReceiver(receiver);

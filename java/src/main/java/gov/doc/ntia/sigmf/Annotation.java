@@ -2,10 +2,35 @@ package gov.doc.ntia.sigmf;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
+import gov.doc.ntia.sigmf.ext.annotation.algorithm.TimeDomainDetection;
+import gov.doc.ntia.sigmf.ext.annotation.emitter.Emitter;
+import gov.doc.ntia.sigmf.ext.annotation.environment.EmitterEnvironment;
+import gov.doc.ntia.sigmf.ext.annotation.environment.SensorEnvironment;
+import gov.doc.ntia.sigmf.ext.annotation.sensor.Sensor;
+import gov.doc.ntia.sigmf.ext.annotation.sensor.SystemNoise;
 
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+//@JsonTypeInfo(use=JsonTypeInfo.Id.class, include=JsonTypeInfo.As.PROPERTY, property="type")
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type")
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = FrequencyDomainDetection.class, name ="FrequencyDomainDetection"),
+        @JsonSubTypes.Type(value = TimeDomainDetection.class, name = "TimeDomainDetection"),
+        @JsonSubTypes.Type(value = Emitter.class, name = "Emitter"),
+        @JsonSubTypes.Type(value = SensorEnvironment.class, name = "SensorEnvironment"),
+        @JsonSubTypes.Type(value = EmitterEnvironment.class, name = "EmitterEnvironment"),
+        @JsonSubTypes.Type(value = Sensor.class, name = "Sensor"),
+        @JsonSubTypes.Type(value = SystemNoise.class, name = "SystemNoise")
+
+
+})
 public class Annotation implements Serializable {
 
     private static final long serialVersionUID = 1L;

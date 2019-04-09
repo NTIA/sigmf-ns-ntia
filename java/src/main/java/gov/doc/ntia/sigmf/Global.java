@@ -92,12 +92,12 @@ public class Global implements Serializable {
     protected Long taskId;
 
     @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm'Z'")
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
     @JsonProperty(value="ntia-scos:start_time", required = false)
     protected Date startTime;
 
     @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm'Z'")
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
     @JsonProperty(value="ntia-scos:end_time", required = false)
     protected Date endTime;
 
