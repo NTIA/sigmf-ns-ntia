@@ -8,55 +8,20 @@ The ntia-inteference namespace provides information about calibration factors ap
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`interference_report_type`|true|string|N/A|Interference report type. E.g. `"NTIA"`.|
-
-### 3.1 NTIA-InteferenceReport Object
-`NTIA-InteferenceReport` has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-
-### 3.2 FAA-InteferenceReport Object
-`FAA-InteferenceReport` has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-
-### 3.3 FCC-InteferenceReport Object
-`FCC-InteferenceReport` has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-
-### 3.3 DOD-InteferenceReport Object
-`DOD-InteferenceReport` has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique id of the interference report.|
 |`description`|false|string|N/A|Description of the interference.|
 |`security_classification`|false|string|N/A|Classification of interference report. I.e., `"UNCLASSIFIED"`, `"CONFIDENTIAL"`, or `"SECRET"`.|
-|`type`|false|string|N/A|Type of interference. I.e., `"GPS"`, `"SATCOM"`, or `"Terrestrial"`.|
-|`aor`|false|string|N/A|Area of responsibility. E.g., `"NORTHCOM"`.|
-|`service`|false|string|N/A|Military service reporting inteference. I.e., `"Army"`, `"Navy"`, or `"Air Force"`.|
 |`name`|false|string|N/A|Name of person reporting inteference. E.g., `"Jane Doe".|
-|`title`|false|string|N/A|Title of person reporting inteference. E.g., `"Private".|
 |`telephone`|false|string|N/A|Phone number of person/office reporting inteference. E.g., `"123-456-7890".|
 |`email`|false|string|N/A|Email of person/office reporting inteference. E.g., `"janedoe@agency.mil".|
-|`unit`|false|string|N/A|Unit of person/office reporting inteference. E.g., `"JSC".|
-|`call_sign`|false|string|N/A|Email of person/office reporting inteference. E.g., `"J3 OPS".|
-|`frequency`|false|double|Hz|Frequency affected by interference.|
-|`frequency_high`|false|double|N/A|High frequency affected by interference.|
-|`channel`|false|string|N/A|Channel affected by inteference.|
+|`system`|false|string|N/A|Name of affected system.|
 |`latitude`|false|double|decimal degrees|Latitude of affected receiver.|
 |`longitude`|false|double|decimal degrees|Longitude of affected receiver.|
 |`altitude`|false|double|meters|Height above mean sea level of affected receiver.|
-|`location`|false|string|N/A|Location of affected receiver. E.g., `"Annapolis, Camp Victory Front Gate".|
-|`country`|false|string|N/A|Country where affected receiver is located. E.g., `"United States".|
-|`state`|false|string|N/A|State where affected receiver is located. E.g., `"Maryland".|
-|`system`|false|string|N/A|Name of affected system.|
-|`bandwidth`|false|double|N/A|Bandwidth of affected channel.|
-|`antenna`|false|string|N/A|Antenna of affected system.|
+|`frequency_low`|false|double|Hz|Low frequency affected by interference.|
+|`frequency_high`|false|double|Hz|High frequency affected by interference.|
+|`time_start`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Start date/time of interference.|
+|`time_end`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|End date/time of interference.|
 
 ## 2 Captures
 `ntia-interference` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
