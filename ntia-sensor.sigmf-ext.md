@@ -40,7 +40,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`rf_paths`|false| Array of [RFPath](#14-rfpath-object)|N/A|Specification of the preselector RF paths.|
+|`rf_paths`|false| Array of [RFPath](#14-rfpath-object)|N/A|Metadata that describes preselector RF paths.|
 
 ### 1.4 RFPath Object
 `RFPath` has the following properties:

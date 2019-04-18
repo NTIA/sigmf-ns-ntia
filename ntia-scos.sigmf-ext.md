@@ -8,9 +8,9 @@ The ntia-scos namespace provides SigMF metadata extensions for the NTIA/ITS Spec
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`action`|true|[Action](#11-action-object)|N/A|Describes a sensor action.|
-|`schedule`|false| [ScheduleEntry](#12-scheduleentry-object)|N/A|Describes the schedule that caused an action to be performed|
-|`task_id`|true|integer|N/A|A unique identifier that increments with each task performed as a result of a `schedule_entry`.|
+|`action`|true|[Action](#11-action-object)|N/A|Metadata that describes a sensor action.|
+|`schedule`|false| [ScheduleEntry](#12-scheduleentry-object)|N/A|Metadata that describes the schedule that caused an action to be performed.|
+|`task_id`|true|integer|N/A|Unique identifier that increments with each task performed as a result of a `schedule_entry`.|
 
 ### 1.1 Action Object
 |name|required|type|unit|description|
