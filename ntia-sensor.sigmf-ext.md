@@ -18,7 +18,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique name for the sensor.|
-|`antenna`|true|[Antenna](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-core.sigmf-ext.md#antenna) |N/A|Metadata that describes the sensor's antenna.|
+|`antenna`|true|[Antenna](ntia-core.sigmf-ext.md#antenna) |N/A|Metadata that describes the sensor's antenna.|
 |`preselector`|false| [Preselector](#13-preselector-object) |N/A|Metadata to describe the preselector.|
 |`receiver`|true| [Receiver](#12-receiver-object) |N/A|Metadata to describe the receiver.|
 |`host_controller`|false|string|N/A|Description of host computer. E.g. Make, model, and configuration.|
@@ -67,11 +67,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`altitude`|false|double|meters|The height of the antenna above mean sea level.|
-|`speed`|false|double|m/s|Speed at which the antenna is moving.|
-|`bearing`|false|double|degrees|Angle relative to true North.|
 |`preselector_rf_path_number`|false|integer|N/A|The preselector RF path number.|
-|`gps_fix_quality`|false|string|N/A|NMEA string denoting the quality of the GPS fix.|
 |`overload_flag`|false|boolean|N/A|Flag indicator of system signal overload.|
 |`receiver_attenuation`|false|double|dB|Attenuation of the receiver.|
 
