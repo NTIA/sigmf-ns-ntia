@@ -28,11 +28,6 @@ The ntia-core namespace adds generally useful metadata fields.
 |`steerable`|false|boolean|N/A|Defines if the antenna is steerable. If steerable, then `azimuth_angle` and `elevation_angle` are specified in annotation segment.|
 |`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
-|`mobile`|false|boolean|N/A|Defines if the antenna is mobile or not.|
-|`altitude`|false|double|meters|Height of the antenna above mean sea level.|
-|`speed`|false|double|m/s|Speed at which the antenna is moving.|
-|`bearing`|false|double|degrees|Direction (angle relative to true North) at which the antenna is moving.|
-|`gps_nmea`|false|string|NMEA|Data from gps receiver.|
 
 ## 2 Captures
 `ntia-core` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
@@ -54,10 +49,6 @@ The following segments are of general use across the set of ntia extensions.
 |`id`|true|string|N/A|Unique id of an antenna defined in global.|
 |`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
-|`altitude`|false|double|meters|Height of the antenna above mean sea level.|
-|`speed`|false|double|m/s|Speed at which the antenna is moving.|
-|`bearing`|false|double|degrees|Direction (angle relative to true North) at which the antenna is moving.|
-|`gps_nmea`|false|string|NMEA|Data from gps receiver.|
 
 ## 4 Example
 [TODO] Provide and example of `ntia-core`
