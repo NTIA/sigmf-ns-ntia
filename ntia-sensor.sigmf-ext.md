@@ -138,3 +138,31 @@ Sensor definition follows a simplified hardware model comprised of the following
    ...
   ]
 }
+
+
+### 4.2 SensorAnnotation Example
+
+{
+  "global": {
+	...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "SensorAnnotation",
+      "core:sample_start": 0,
+      "core:sample_count": 100,
+      "core:latitude": 40.5,
+      "core:longitude": -105
+    },
+    {
+      "ntia-core:annotation_type": "SensorAnnotation",
+      "core:sample_start": 100,
+      "core:sample_count": 100,
+      "core:latitude": 40.56,
+      "core:longitude": -105.03
+    }
+  ]
+}
