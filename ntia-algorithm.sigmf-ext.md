@@ -74,7 +74,7 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
 ## 4 Example
 
 ### 4.1 anti_aliasing_filter example
-
+```json
 {
   "global": {
     "core:datatype": "rf32_le",
@@ -102,9 +102,10 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
     ...
   ]
 }
+```
 
 ### 4.2 TimeDomainDetection Annotation Example
-
+```json
 {
   "global": {
 	...
@@ -125,9 +126,10 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
     }
   ]
 }
+```
 
 ### 4.3 FrequencyDomainDetection Annotation Example
-
+```json
 {
   "global": {
 	...
@@ -158,6 +160,7 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
     }
   ]
 }
+```
 
 ### 4.4  DigitalFilterAnnotation  Example
 ```json
