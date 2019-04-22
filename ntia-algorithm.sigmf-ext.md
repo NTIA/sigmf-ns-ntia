@@ -72,4 +72,26 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
 |`frequency_stopband`|false|double|Hz|Point in filter frequency response where stopband starts.|
 
 ## 4 Example
-[TODO] Provide and example of `ntia-algoritm`
+
+### 4.1 TimeDomainDetection Annotation Example
+
+{
+  "global": {
+	...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "TimeDomainDetection",
+      "core:sample_start": 0,
+      "core:sample_count": 1024,
+      "ntia-algorithm:detector": "mean",
+      "ntia-algorithm:detection_domain": "time",
+      "ntia-algorithm:units": "dBm",
+      "ntia-algorithm:reference": "antenna output",
+      "ntia-algorithm:number_of_samples": 1024
+    }
+  ]
+}
