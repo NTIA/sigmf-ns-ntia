@@ -34,4 +34,57 @@ The ntia-environment extension provides SigMF metadata extensions to characteriz
 |`weather`|false|string|N/A|Weather around the emitter (rain, snow...)|
 
 ## 4 Example
-[TODO] Provide and example of `ntia-environment`
+
+### 4.1 SensorEnvironment Example
+```json
+{
+  "global": {
+   ...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "SensorEnvironment",
+      "core:sample_start": 0,
+      "core:sample_count": 1024,
+      "ntia-environment:category": "indoor"
+    },
+    {
+      "ntia-core:annotation_type": "SensorEnvironment",
+      "core:sample_start": 1024,
+      "core:sample_count": 1024,
+      "ntia-environment:category": "outdoor"
+    }
+  ]
+}
+```
+
+
+### 4.1 EmitterEnvironment Example
+```json
+
+  "global": {
+	...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "EmitterEnvironment",
+      "core:sample_count": 0,
+      "ntia-environment:category": "outdoor-urban",
+      "ntia-environment:emitter_id": "emitter_123"
+    },
+    {
+      "ntia-core:annotation_type": "EmitterEnvironment",
+      "core:sample_start": 1024,
+      "core:sample_count": 1024,
+      "ntia-environment:category": "indoor",
+      "ntia-environment:emitter_id": "emitter_123"
+    }
+  ]
+}
+```
