@@ -31,4 +31,24 @@ The ntia-calibration namespace provides information about calibration factors ap
 |`units`|true|string|N/A|Units, e.g., `"dBm/Hz"`.|
 
 ## 4 Example
-[TODO] Provide and example of `ntia-calibration`
+
+{
+  "global": {
+    ...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "CallibrationAnnotation",
+      "ntia-callibration:receiver_scaling_factor": 10,
+      "ntia-callibration:receiver_ldb_compression_point": 2,
+      "ntia-callibration:receiver_system_noise_power": {
+        "mean_power_density": 2,
+        "reference": "antenna output",
+        "units": "dBm/Hz"
+      }
+    }
+  ]
+}
