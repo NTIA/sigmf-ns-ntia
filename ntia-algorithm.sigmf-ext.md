@@ -161,3 +161,30 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
 
 ### 4.4  DigitalFilterAnnotation  Example
 
+{
+  "global": {
+	...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "DigitalFilterAnnotation",
+      "core:sample_start": 0,
+      "core:sample_count": 1000,
+      "ntia-algorithm:filter_type": "FIR",
+      "ntia-algorithm:FIR_coefficients": [
+        1.0,
+        4.0,
+        5.0,
+        3.2
+      ],
+      "ntia-algorithm:frequency_cutoff": 7500000,
+      "ntia-algorithm:attenuation_cutoff": -6,
+      "ntia-algorithm:ripple_passband": -5,
+      "ntia-algorithm:attenuation_stopband": -10,
+      "ntia-algorithm:frequency_stopband": 7000000
+    }
+  ]
+}
