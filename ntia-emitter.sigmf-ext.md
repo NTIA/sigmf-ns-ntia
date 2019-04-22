@@ -9,7 +9,7 @@ The ntia-emitter namespace provides emiter defintion and properties.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-emitter|false|[Emitter](#11-emitter-object)|N/A|Metadata that describes emitter
+emitters|false|Array of [Emitter](#11-emitter-object)|N/A|Metadata that describe emitters
 
 ### 1.1 Emitter Object
 `Emitter` object has the following properties:
