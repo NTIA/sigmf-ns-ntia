@@ -32,7 +32,7 @@ extensions to the core SigMF specification.
 - [`ntia-emitter`](ntia-emitter.sigmf-ext.md) gives information about the emitter being measured
 - [`ntia-environment`](ntia-environment.sigmf-ext.md) gives information about the environment around a sensor or emitter
 - [`ntia-waveform`](ntia-waveform.sigmf-ext.md) provides metadata to describe measured or transmitted waveforms
-- [`ntia-interference`](ntia-interfeerence.sigmf-ext.md) provides metadata interference reporting
+- [`ntia-interference`](ntia-interfeerence.sigmf-ext.md) provides metadata for interference reporting
 
 
 See also [`sigmf-ns-scos`](https://github.com/NTIA/sigmf-ns-scos), which adds fields applicable to an [IEEE 802.22.3](https://github.com/NTIA/sigmf-ns-scos) Spectrum Characterization and Occupancy Sensing (SCOS) system.
