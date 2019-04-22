@@ -73,7 +73,37 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
 
 ## 4 Example
 
-### 4.1 TimeDomainDetection Annotation Example
+### 4.1 anti_aliasing_filter example
+
+{
+  "global": {
+    "core:datatype": "rf32_le",
+    "core:sample_rate": 15360000,
+    "core:version": "0.0.2",
+    "ntia-algorithm:anti_aliasing_filter": {
+      "filter_type": "FIR",
+      "FIR_coefficients": [
+        1.0,
+        4.0,
+        5.0,
+        3.2
+      ],
+      "frequency_cutoff": 7500000,
+      "attenuation_cutoff": -6,
+      "ripple_passband": -5,
+      "attenuation_stopband": -10,
+      "frequency_stopband": 7000000
+    }
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    ...
+  ]
+}
+
+### 4.2 TimeDomainDetection Annotation Example
 
 {
   "global": {
