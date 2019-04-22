@@ -85,4 +85,56 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`gps_nmea`|false|string|NMEA|Data from gps receiver.|
 
 ## 4 Example
-[TODO] Provide and example of `ntia-sensor`
+
+### 4.1 Sensor Global Object Example
+
+{
+  "global": {
+    "core:datatype": "rf32_le",
+    "core:sample_rate": 15360000,
+    "ntia-sensor:sensor": {
+      "id": "Greyhound_1",
+      "ntia-core:antenna": {
+        "model": "model_X",
+        "type": "omnidirectional",
+        "low_frequency": 300000000,
+        "high_frequency": 3000000000,
+        "gain": 2,
+        "cross_polar_discrimination": 9.1,
+        "cable_loss": 1,
+        "azimuth_angle": 45,
+        "elevation_angle": 10.3
+      },
+      "preselector": {
+        "rf_paths": [
+          {
+            "rf_path_number": 1,
+            "low_frequency_passband": 700000000,
+            "high_frequency_passband": 750000000,
+            "low_frequency_stopband": 700000000,
+            "high_frequency_stopband": 750000000,
+            "lna_noise_figure": 2.5,
+            "cal_source_type": "calibrated noise source"
+          }
+        ]
+      },
+      "receiver": {
+        "model": "Receiver 123xyz",
+        "low_frequency": 300000000,
+        "high_frequency": 3000000000,
+        "noise_figure": 2,
+        "max_power": -5,
+        "a2d_bits": 256
+      },
+      "host_controller": "Host Controller 123"
+    },
+    "ntia-scos:task_id": 88438,
+    "ntia-scos:end_time": "2019-04-22T15:41:52Z"
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+   ...
+  ]
+}
