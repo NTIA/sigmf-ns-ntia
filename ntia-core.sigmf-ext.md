@@ -53,7 +53,7 @@ The following segments are of general use across the set of ntia extensions.
 ## 4 Example
 
 ### 4.1 Antenna Global Example
-
+```json
 {
   "global": {
     "core:datatype": "rf32_le",
@@ -81,9 +81,9 @@ The following segments are of general use across the set of ntia extensions.
    ...
   ]
 }
-
+```
 ### 4.2 AntennaAnnotation Example
-
+```json
 {
   "global": {
     ...
@@ -102,3 +102,4 @@ The following segments are of general use across the set of ntia extensions.
     }
   ]
 }
+```

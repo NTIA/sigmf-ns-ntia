@@ -160,7 +160,7 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
 }
 
 ### 4.4  DigitalFilterAnnotation  Example
-
+```json
 {
   "global": {
 	...
@@ -188,3 +188,4 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
     }
   ]
 }
+```

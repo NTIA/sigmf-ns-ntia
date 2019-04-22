@@ -13,6 +13,7 @@ emitter|false|[Emitter](#11-emitter-object)|N/A|Metadata that describes emitter
 
 ### 1.1 Emitter Object
 `Emitter` object has the following properties:
+
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique id of the emitter.|
@@ -48,4 +49,27 @@ emitter|false|[Emitter](#11-emitter-object)|N/A|Metadata that describes emitter
 |`bearing`|false|double|degrees|Direction (angle relative to true North).|
 
 ## 5 Example
-[TODO] Provide and example of `ntia-emitter`
+
+### 5.1 Emitter Global Example
+```json
+{
+  "global": {
+    "core:datatype": "rf32_le",
+    "core:sample_rate": 15360000,
+    "ntia-emitter:emitters": [
+      {
+        "id": "EmitterXYZ",
+        "description": "A fictitious emitter to demonstrate the extensions format.",
+        "power": -60
+      }
+    ]
+
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    ...
+  ]
+}
+```

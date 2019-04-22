@@ -87,7 +87,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 ## 4 Example
 
 ### 4.1 Sensor Global Object Example
-
+```json
 {
   "global": {
     "core:datatype": "rf32_le",
@@ -138,10 +138,10 @@ Sensor definition follows a simplified hardware model comprised of the following
    ...
   ]
 }
-
+```
 
 ### 4.2 SensorAnnotation Example
-
+```json
 {
   "global": {
 	...
@@ -166,3 +166,4 @@ Sensor definition follows a simplified hardware model comprised of the following
     }
   ]
 }
+```
