@@ -51,4 +51,54 @@ The following segments are of general use across the set of ntia extensions.
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
 ## 4 Example
-[TODO] Provide and example of `ntia-core`
+
+### 4.1 Antenna Global Example
+
+{
+  "global": {
+    "core:datatype": "rf32_le",
+    "core:sample_rate": 15360000,
+    "ntia-sensor:sensor": {
+      "id": "Greyhound_1",
+      "ntia-core:antenna": {
+        "id": "antenna1",
+        "model": "model_X",
+        "type": "omnidirectional",
+        "low_frequency": 300000000,
+        "high_frequency": 3000000000,
+        "gain": 2,
+        "cross_polar_discrimination": 9.1,
+        "cable_loss": 1,
+        "azimuth_angle": 45,
+        "elevation_angle": 10.3
+      }
+      ...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+   ...
+  ]
+}
+
+### 4.2 AntennaAnnotation Example
+
+{
+  "global": {
+    ...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "AntennaAnnotation",
+      "core:sample_start": 0,
+      "core:sample_count": 1024,
+      "ntia-core:antenna_id": "antenna1",
+      "ntia-core:azimuth_angle": 15,
+      "ntia-core:elevation_angle": 20
+    }
+  ]
+}

@@ -42,6 +42,8 @@ The ntia-calibration namespace provides information about calibration factors ap
   "annotations": [
     {
       "ntia-core:annotation_type": "CallibrationAnnotation",
+      "core:sample_start": 0,
+      "core:sample_count": 1024,
       "ntia-callibration:receiver_scaling_factor": 10,
       "ntia-callibration:receiver_ldb_compression_point": 2,
       "ntia-callibration:receiver_system_noise_power": {
