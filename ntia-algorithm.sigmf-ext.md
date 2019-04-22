@@ -125,3 +125,39 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
     }
   ]
 }
+
+### 4.3 FrequencyDomainDetection Annotation Example
+
+{
+  "global": {
+	...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "FrequencyDomainDetection",
+      "core:sample_start": 0,
+      "core:sample_count": 1024,
+      "ntia-algorithm:detector": "fft_mean_power",
+      "ntia-algorithm:detection_domain": "frequency",
+      "ntia-algorithm:reference": "antenna output",
+      "ntia-algorithm:number_of_ffts": 300,
+      "ntia-algorithm:number_of_samples_in_fft": 1024
+    },
+    {
+      "ntia-core:annotation_type": "FrequencyDomainDetection",
+      "core:sample_start": 1024,
+      "core:sample_count": 1024,
+      "ntia-algorithm:detector": "fft_max_power",
+      "ntia-algorithm:detection_domain": "frequency",
+      "ntia-algorithm:reference": "antenna output",
+      "ntia-algorithm:number_of_ffts": 300,
+      "ntia-algorithm:number_of_samples_in_fft": 1024
+    }
+  ]
+}
+
+### 4.4  DigitalFilterAnnotation  Example
+
