@@ -73,3 +73,35 @@ emitter|false|[Emitter](#11-emitter-object)|N/A|Metadata that describes emitter
   ]
 }
 ```
+
+### 5.2 EmitterAnnotation Example
+```json
+{
+  "global": {
+    ...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "EmitterAnnotation",
+      "core:sample_start": 0,
+      "core:sample_count": 1024,
+      "core:latitude": 40.5,
+      "core:longitude": -105.7,
+      "ntia-emitter:id": "emiter_1"
+    },
+    {
+      "ntia-core:annotation_type": "EmitterAnnotation",
+      "core:sample_start": 1024,
+      "core:sample_count": 1024,
+      "core:latitude": 41.5,
+      "core:longitude": -105.3,
+      "ntia-emitter:id": "emiter_1"
+    }
+  ]
+}
+
+}
+```
