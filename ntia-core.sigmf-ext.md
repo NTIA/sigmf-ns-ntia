@@ -39,7 +39,7 @@ The `ntia-core` namespace adds generally useful metadata fields.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`annotation_type`|true|string|N/A|Annotation type, e.g., `AntennaAnnotation`|
+|`annotation_type`|true|string|N/A|Annotation type, e.g. [`AntennaAnnotation`](#31-antennaannotation-segment),[`CalibrationAnnotation`](ntia-calibration.sigmf-ext.md#31-calibrationannotation-segment), [`DigitalFilterAnnotation`](ntia-algorithm.sigmf-ext.md#33-digitalfilterannotation-segment), [`EmitterAnnotation`](ntia-emitter.sigmf-ext.md#31-emitterannotation-segment), [`EmitterEnvironment`](ntia-environment.sigmf-ext.md#32-emitterenvironment-segment), [`FrequencyDomainDetection`](ntia-algorithm.sigmf-ext.md#32-frequencydomaindetection-segment), [`SensorAnnotation`](ntia-sensor.sigmf-ext.md#31-sensorannotation-segment), [`SensorEnvironment`](ntia-environment.sigmf-ext.md#31-sensorenvironment-segment), [`TimeDomainDetection`](ntia-algorithm.sigmf-ext.md#31-timedomaindetection-segment)|
 
 The following segments are of general use across the set of NTIA extensions. 
 
