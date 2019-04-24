@@ -1,5 +1,5 @@
 # ntia-environment extension v1.0.0
-The ntia-environment extension provides SigMF metadata extensions to characterize the environment factors around a sensor and\or emitter. 
+The `ntia-environment` extension provides SigMF metadata extensions to characterize the environment factors around a sensor and\or emitter. 
 
 `ntia-environment` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
@@ -18,9 +18,9 @@ The ntia-environment extension provides SigMF metadata extensions to characteriz
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`category`|false|string|N/A|Categorical description of the environment where sensor is mounted. E.g. `"indoor"`, `"outdoor-urban"`, `"outdoor-rural"`.|
-|`temperature`|false|float|celsius|Environmental temparature.|
+|`temperature`|false|float|celsius|Environmental temperature.|
 |`humidity`|false|float|%|Relative humidity.|
-|`weather`|false|string|N/A|Weather around the sensor (rain, snow...)|
+|`weather`|false|string|N/A|Weather around the sensor. E.g. `"rain"`, `"snow"`.)|
 
 ### 3.2 EmitterEnvironment Segment
 `EmitterEnvironment` has the following properties:
@@ -31,11 +31,12 @@ The ntia-environment extension provides SigMF metadata extensions to characteriz
 |`category`|false|string|N/A|Categorical description of the environment where sensor is mounted. E.g. `"indoor"`, `"outdoor-urban"`, `"outdoor-rural"`.|
 |`temperature`|false|float|celsius|Environmental temparature.|
 |`humidity`|false|float|%|Relative humidity.|
-|`weather`|false|string|N/A|Weather around the emitter (rain, snow...)|
+|`weather`|false|string|N/A|Weather around the sensor. E.g. `"rain"`, `"snow"`.)|
 
 ## 4 Example
 
 ### 4.1 SensorEnvironment Example
+
 ```json
 {
   "global": {
@@ -61,8 +62,8 @@ The ntia-environment extension provides SigMF metadata extensions to characteriz
 }
 ```
 
-
 ### 4.1 EmitterEnvironment Example
+
 ```json
 
   "global": {
