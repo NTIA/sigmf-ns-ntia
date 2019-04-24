@@ -17,8 +17,8 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 |----|--------------|-------|-------|-----------|
 |`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`, `"IIR"`|
 |`FIR_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
-|`IIR_numerator_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
-|`IIR_denominator_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
+|`IIR_numerator_coefficients`|false|array of doubles|N/A|Coefficients that defines IIR filter.|
+|`IIR_denominator_coefficients`|false|array of doubles|N/A|Coefficients that defines IIR filter.|
 |`frequency_cutoff`|false|double|Hz|Frequency at which the magnitude response decreases (from its maximum) by `attenuation_cutoff`.|
 |`attenuation_cutoff`|false|double|dB|Magnitude response threshold (below maximum) that specifies `frequency_cutoff`.|
 |`ripple_passband`|false|double|dB|Ripple in passband.|
