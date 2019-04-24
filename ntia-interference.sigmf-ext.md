@@ -17,7 +17,7 @@ The following information is to be provided by spectrum user to report an intefe
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique id of the interference report.|
 |`description`|false|string|N/A|Description of the interference.|
-|`security_classification`|false|string|N/A|Classification of interference report. I.e., `"UNCLASSIFIED"`, `"CONFIDENTIAL"`, or `"SECRET"`.|
+|`security_classification`|false|string|N/A|[Classification](https://en.wikipedia.org/wiki/Classified_information) of interference report. I.e., `"UNCLASSIFIED"`, `"CONFIDENTIAL"`, or `"SECRET"`.|
 |`name`|false|string|N/A|Name of person reporting inteference. E.g., `"Jane Doe".|
 |`telephone`|false|string|N/A|Phone number of person/office reporting inteference. E.g., `"123-456-7890".|
 |`email`|false|string|N/A|Email of person/office reporting inteference. E.g., `"janedoe@agency.mil".|
