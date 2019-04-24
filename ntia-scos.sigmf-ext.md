@@ -1,5 +1,5 @@
 # ntia-scos extension v1.0.0
-The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Spectrum Characterization and Occupancy Sensing (SCOS) system. It defines the control plane for [scos-sensor](https://github.com/NTIA/scos-sensor).
+The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Spectrum Characterization and Occupancy Sensing (SCOS) system.
 
 `ntia-scos` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
