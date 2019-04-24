@@ -17,6 +17,7 @@ The ntia-calibration namespace provides information about calibration factors ap
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
+|`calibration_datetime`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Time of last calibration. This is RECOMMENDED.|
 |`receiver_scaling_factor`|false|double|N/A|Factor that converts receiver A/D output to volts.|
 |`receiver_1db_compression_point`|false|double|dBm|Maximum input of receiver.|
 |`receiver_system_noise_power`|false|[SystemNoise](#32-systemnoise-object)|N/A|Metadata that describes sytems noise. This object is RECOMMENDED.|
@@ -32,6 +33,7 @@ The ntia-calibration namespace provides information about calibration factors ap
 
 ## 4 Example
 
+```json
 {
   "global": {
     ...
@@ -54,3 +56,4 @@ The ntia-calibration namespace provides information about calibration factors ap
     }
   ]
 }
+```
