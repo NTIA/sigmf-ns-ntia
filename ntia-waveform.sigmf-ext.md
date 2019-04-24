@@ -8,6 +8,7 @@ The ntia-waveform namespace provides models and parameters for textbook and stan
 
 ### 3.2 Waveform Object
 The waveform object has the following properties:
+
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`model`|true|string|N/A|The type of the waveform E.g. IEEE80211p|
