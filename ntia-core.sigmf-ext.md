@@ -1,9 +1,11 @@
-The ntia-core namespace adds generally useful metadata fields. 
+# ntia-core Extension v1.0.0
+
+The `ntia-core` namespace adds generally useful metadata fields. 
 
 `ntia-core` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
-`ntia-core` doe not directly extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). ntia-core defines an `Antenna` object that is referenced through other global extensions ([ntia-sensor](ntia-sensor.sigmf-ext.md), [ntia-emitter](ntia-emitter.sigmf-ext.md))
+`ntia-core` does not directly extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) object. ntia-core defines an `Antenna` object that is referenced through other global extensions ([ntia-sensor](ntia-sensor.sigmf-ext.md), [ntia-emitter](ntia-emitter.sigmf-ext.md))
 
 
 ## 1.1 Antenna Object
@@ -20,7 +22,7 @@ The ntia-core namespace adds generally useful metadata fields.
 |`cross_polar_discrimination`|false|double|N/A|Cross-polarization discrimination.|
 |`gain`|false|double|dBi|Antenna gain in direction of maximum radiation or reception.|
 |`horizontal_gain_pattern`|false|array of doubles|dBi|Antenna gain pattern in horizontal plane from 0 to 359 degrees in 1 degree steps.|
-|`vertical_gain_pattern`|false|array of double|dBi|Antenna gain pattern in vertical plane from -90 to +90 degrees in 1 degree steps.|
+|`vertical_gain_pattern`|false|array of doubles|dBi|Antenna gain pattern in vertical plane from -90 to +90 degrees in 1 degree steps.|
 |`horizontal_beam_width`|false|double|degrees|Horizontal 3-dB beamwidth.|
 |`vertical_beam_width`|false|double|degrees|Vertical 3-dB beamwidth.|
 |`voltage_standing_wave_ratio`|false|double|volts|Voltage standing wave ratio.|
@@ -33,13 +35,13 @@ The ntia-core namespace adds generally useful metadata fields.
 `ntia-core` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
-`ntia-core` extends [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array) with segments of different types defined throughout the set of ntia extensions to the core SigMF specification. `annotation_type` is defined with the following name/value pair:
+`ntia-core` extends [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array) with segments of different types defined throughout the set of NTIA extensions to the core SigMF specification. `annotation_type` is defined with the following name/value pair:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`annotation_type`|true|string|N/A|Annotation type, e.g., `AntennaAnnotation`|
 
-The following segments are of general use across the set of ntia extensions. 
+The following segments are of general use across the set of NTIA extensions. 
 
 ### 3.1 AntennaAnnotation Segment
 `AntennaAnnotation` has the following properties:  
