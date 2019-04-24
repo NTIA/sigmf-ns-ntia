@@ -1,6 +1,6 @@
 # ntia-emitter Extension v1.0.0
 
-The ntia-emitter namespace provides emiter defintion and properties. 
+The ntia-emitter namespace provides emitter defintion and properties. 
 
 `ntia-emitter` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
@@ -19,13 +19,21 @@ The ntia-emitter namespace provides emiter defintion and properties.
 |`id`|true|string|N/A|Unique id of the emitter.|
 |`description`|false|string|N/A|Description of the emitter.|
 |`power`|false|double|dBm|Power referenced to antenna input.|
-|`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#antenna)|N/A|Metadata that describes the emitter's antenna|
-|`waveform`|false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes transmitted waveform.
+|`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#antenna)|N/A|Metadata that describes the antenna.|
+|`transmitter`|false|[Transmitter](#12-transmitter-object)|N/A|Metadata that describes the transmitter.|
+|`waveform`|false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes transmitted waveform.|
 |`latitude`|false|double|decimal degrees|Latitude.|
 |`longitude`|false|double|decimal degrees|Longitude.|
 |`altitude`|false|double|meters|Height above mean sea level.|
 |`speed`|false|double|m/s|Speed.|
 |`bearing`|false|double|degrees|Direction (angle relative to true North).|
+
+### 1.2 Transmitter Object
+`Transmitter` object has the following properties:
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`model`|true|string|N/A|Make and model of the transmitter. E.g. `"Agilent E4438C"`|
 
 ## 2 Captures
 `ntia-emitter` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
@@ -46,10 +54,9 @@ The ntia-emitter namespace provides emiter defintion and properties.
 |`speed`|false|double|m/s|Speed.|
 |`bearing`|false|double|degrees|Direction (angle relative to true North).|
 
-## 5 Example
-<<<<<<< HEAD
+## 4 Example
 
-### 5.1 Emitter Global Example
+### 4.1 Emitter Global Example
 ```json
 {
   "global": {
@@ -73,7 +80,30 @@ The ntia-emitter namespace provides emiter defintion and properties.
 }
 ```
 
-### 5.2 EmitterAnnotation Example
+### 4.2 Transmitter Global Example
+
+```json
+{
+  "global": {
+    "core:datatype": "rf32_le",
+    "core:sample_rate": 15360000,
+    "ntia-emitter:transmitter": [
+      {
+        "model": "Agilent E4438C",
+      }
+    ]
+
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    ...
+  ]
+}
+```
+
+### 4.3 EmitterAnnotation Example
 ```json
 {
   "global": {
@@ -89,7 +119,7 @@ The ntia-emitter namespace provides emiter defintion and properties.
       "core:sample_count": 1024,
       "core:latitude": 40.5,
       "core:longitude": -105.7,
-      "ntia-emitter:id": "emiter_1"
+      "ntia-emitter:id": "emitter_1"
     },
     {
       "ntia-core:annotation_type": "EmitterAnnotation",
@@ -97,7 +127,7 @@ The ntia-emitter namespace provides emiter defintion and properties.
       "core:sample_count": 1024,
       "core:latitude": 41.5,
       "core:longitude": -105.3,
-      "ntia-emitter:id": "emiter_1"
+      "ntia-emitter:id": "emitter_1"
     }
   ]
 }
