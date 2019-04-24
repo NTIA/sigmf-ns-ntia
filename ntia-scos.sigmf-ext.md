@@ -1,5 +1,5 @@
 # ntia-scos extension v1.0.0
-The ntia-scos namespace provides SigMF metadata extensions for the NTIA/ITS Spectrum Characterization and Occupancy Sensing (SCOS) system. It defines the control plane for [scos-sensor](https://github.com/NTIA/scos-sensor).
+The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Spectrum Characterization and Occupancy Sensing (SCOS) system. It defines the control plane for [scos-sensor](https://github.com/NTIA/scos-sensor).
 
 `ntia-scos` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
@@ -15,9 +15,11 @@ The ntia-scos namespace provides SigMF metadata extensions for the NTIA/ITS Spec
 ### 1.1 Action Object
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`name`|true|string|N/A|The identification string assigned to the schedule entry. MUST be unique on the sensor.|
+|`name`|true|string|N/A|Name of the action assigned to the schedule entry. MUST be unique on the sensor.|
 |`description`|false|string|N/A|A description of what the action does.|
 |`type`|true|string array|N/A|The type(s) of measurements the action produces.|
+
+[TODO] Capture Control Plane from Greyhound. Figure out `name` v. `id` (primary key choice).
 
 ### 1.2 ScheduleEntry Object
 The `ScheduleEntry` object is associated with the SCOS control plane, which is implemented through the use of a RESTful API residing on the sensor, see [SCOS Sensor](https://github.com/NTIA/scos-sensor) and [SCOS Control Plane API Reference](https://ntia.github.io/scos-sensor/). A sensor advertises its **capabilities**, among which are **actions** that users can schedule the sensor to do. Sensor actions are scheduled by posting a **schedule entry** to the sensor's **schedule**. The scheduler periodically reads the schedule and populates a task queue in priority order. A **task** represents an action at a _specific_ time. Therefore, a schedule entry represents a range of tasks. The scheduler continues populating its task queue until the schedule is exhausted. When executing the task queue, the scheduler makes a best effort to run each task at its designated time, but the scheduler SHOULD NOT in most cases cancel a running task to start another task, even of higher priority. **priority** is used to disambiguate two or more tasks that are scheduled to start at the same time.
