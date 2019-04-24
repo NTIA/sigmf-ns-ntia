@@ -54,7 +54,6 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`rf_path_number`|false|integer|N/A|RF path number.|
 |`low_frequency_passband`|false|double|Hz|Low frequency of filter 1-dB passband.|
 |`high_frequency_passband`|false|double|Hz|High frequency of filter 1-dB passband.|
 |`low_frequency_stopband`|false|double|Hz|Low frequency of filter 60-dB stopband.|
@@ -74,7 +73,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`preselector_rf_path_number`|false|integer|N/A|The preselector RF path number.|
+|`rf_path_index`|false|integer|N/A|Index of the [RFPath](#14-rfpath-object) object.|
 |`overload_flag`|false|boolean|N/A|Flag indicator of system signal overload.|
 |`receiver_attenuation`|false|double|dB|Attenuation of the receiver.|
 |`altitude`|false|double|meters|Height above mean sea level.|
@@ -106,7 +105,6 @@ Sensor definition follows a simplified hardware model comprised of the following
       "preselector": {
         "rf_paths": [
           {
-            "rf_path_number": 1,
             "low_frequency_passband": 700000000,
             "high_frequency_passband": 750000000,
             "low_frequency_stopband": 700000000,
