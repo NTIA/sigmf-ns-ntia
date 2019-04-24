@@ -1,44 +1,137 @@
 # ntia-emitter Extension v1.0.0
 
-The ntia-emitter namespace extension extends the global object to describe static emitter properties and the annotations object to describe dynamic emitter properties. 
+The ntia-emitter namespace provides emitter defintion and properties. 
 
-## 2. Conventions Used in this Document
+`ntia-emitter` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
-The SCOS specification uses and is fully compliant with the SigMF specification and conventions. Building upon the [SigMF core namespace](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces), the specification is enhanced through the implementation of a `ntia-emitter` namespace, the details of which follow.  
-
-## 3. Global
-Global information is applicable to the entire dataset. The ntia-emitter namespace defines the followin extensions to the global object:
+## 1 Global
+`ntia-emitter` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`emitter`|false|[Emitter](#61-emitter-object) |N/A|The description of the static properties of an emitter. The attributes specified in this global object are applicable to the entire dataset.|
+`emitters`|false|Array of [Emitter](#11-emitter-object)|N/A|Metadata that describe emitters
 
-
-## 4. Captures
-Per SigMF, the `Captures` value is an array of capture segment objects that describe the parameters of the signal capture. The `ntia-emitter` specification does not add any enhancements to this section.
-
-## 5. Annotations
-Per SigMF, the `Annotations` value is an array of annotation segment objects that describe anything regarding the signal data not part of the `global` and `captures` objects. As dictated by the SigMF specification, each annotation segment object must contain a `core:sample_start` name/value pair, which indicates the first index at which the rest of the segment's name/value pairs apply.  In addition, each of the annotation extensions below must include the id of the emitter. The ntia-emitter extension defines the following additional annotations:
+### 1.1 Emitter Object
+`Emitter` object has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|The id of the emitter.|
-|`power`|false|double|dBm|Emitter power going into antenna.|
-|`antenna`|false|[Antenna](#antenna-object) |N/A|See [ntia-antenna](#antenna-object) extension.|
-|`waveform`|false| [Waveform](https://github.com/NTIA/sigmf-ns-waveform)|N/A|See [ntia-waveform extension](https://github.com/NTIA/sigmf-ns-waveform)
-|`latitude`|false|double|decimal degrees|Latitude of emitter.|
-|`longitude`|false|double|decimal degrees|Longitude of emitter.|
-|`altitude`|false|double|meters|The height of the antenna above mean sea level.|
-|`speed`|false|double|m/s|Speed at which the antenna is moving.|
-|`bearing`|false|double|degrees|Angle relative to true North.|
+|`id`|true|string|N/A|Unique id of the emitter.|
+|`description`|false|string|N/A|Description of the emitter.|
+|`power`|false|double|dBm|Power referenced to antenna input.|
+|`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#antenna)|N/A|Metadata that describes the antenna.|
+|`transmitter`|false|[Transmitter](#12-transmitter-object)|N/A|Metadata that describes the transmitter.|
+|`waveform`|false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes transmitted waveform.|
+|`latitude`|false|double|decimal degrees|Latitude.|
+|`longitude`|false|double|decimal degrees|Longitude.|
+|`altitude`|false|double|meters|Height above mean sea level.|
+|`speed`|false|double|m/s|Speed.|
+|`bearing`|false|double|degrees|Direction (angle relative to true North).|
 
-## 6. Object Definitions
-
-### 6.1 Emitter Object
-The `Emitter` object contains the following name/value pairs:  
+### 1.2 Transmitter Object
+`Transmitter` object has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|The unique id of the emitter.|
-|`description`|false|string|N/A|A description of the emitter.|
+|`model`|true|string|N/A|Make and model of the transmitter. E.g. `"Agilent E4438C"`|
+
+## 2 Captures
+`ntia-emitter` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+
+## 3 Annotations
+`ntia-emitter` defines the following segments that extend `ntia-core`.
+
+### 3.1 EmitterAnnotation Segment
+`EmitterAnnotation` has the following properties:  
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`id`|true|string|N/A|Unique id of the emitter.|
+|`power`|false|double|dBm|Power referenced to antenna input.|
+|`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#antenna)|N/A|Metadata that describes the emitter's antenna|
+|`waveform`|false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes transmitted waveform.
+|`altitude`|false|double|meters|Height above mean sea level.|
+|`speed`|false|double|m/s|Speed.|
+|`bearing`|false|double|degrees|Direction (angle relative to true North).|
+
+## 4 Example
+
+### 4.1 Emitter Global Example
+```json
+{
+  "global": {
+    "core:datatype": "rf32_le",
+    "core:sample_rate": 15360000,
+    "ntia-emitter:emitters": [
+      {
+        "id": "EmitterXYZ",
+        "description": "A fictitious emitter to demonstrate the extensions format.",
+        "power": -60
+      }
+    ]
+
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    ...
+  ]
+}
+```
+
+### 4.2 Transmitter Global Example
+
+```json
+{
+  "global": {
+    "core:datatype": "rf32_le",
+    "core:sample_rate": 15360000,
+    "ntia-emitter:transmitter": [
+      {
+        "model": "Agilent E4438C",
+      }
+    ]
+
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    ...
+  ]
+}
+```
+
+### 4.3 EmitterAnnotation Example
+```json
+{
+  "global": {
+    ...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "EmitterAnnotation",
+      "core:sample_start": 0,
+      "core:sample_count": 1024,
+      "core:latitude": 40.5,
+      "core:longitude": -105.7,
+      "ntia-emitter:id": "emitter_1"
+    },
+    {
+      "ntia-core:annotation_type": "EmitterAnnotation",
+      "core:sample_start": 1024,
+      "core:sample_count": 1024,
+      "core:latitude": 41.5,
+      "core:longitude": -105.3,
+      "ntia-emitter:id": "emitter_1"
+    }
+  ]
+}
+
+}
+```
 
