@@ -22,6 +22,13 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`preselector`|false| [Preselector](#13-preselector-object) |N/A|Metadata to describe the preselector.|
 |`receiver`|true| [Receiver](#12-receiver-object) |N/A|Metadata to describe the receiver.|
 |`host_controller`|false|string|N/A|Description of host computer. E.g. Make, model, and configuration.|
+|`mobile`|false|boolean|N/A|Defines if the sensor is mobile.|
+|`latitude`|false|double|decimal degrees|Latitude.|
+|`longitude`|false|double|decimal degrees|Longitude.|
+|`altitude`|false|double|meters|Height above mean sea level.|
+|`speed`|false|double|m/s|Speed.|
+|`bearing`|false|double|degrees|Direction (angle relative to true North).|
+|`gps_nmea`|false|string|NMEA|Data from gps receiver.|
 
 ### 1.2 Receiver Object
 `Receiver` the following properties:
@@ -34,13 +41,6 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`noise_figure`|false|double|dB|Noise figure of the receiver.|
 |`max_power`|false|double|dBm|Maximum input power of the receiver.|
 |`a2d_bits`|false|int|bits|Number of bits in A/D converter.|
-|`mobile`|false|boolean|N/A|Defines if the sensor is mobile.|
-|`latitude`|false|double|decimal degrees|Latitude.|
-|`longitude`|false|double|decimal degrees|Longitude.|
-|`altitude`|false|double|meters|Height above mean sea level.|
-|`speed`|false|double|m/s|Speed.|
-|`bearing`|false|double|degrees|Direction (angle relative to true North).|
-|`gps_nmea`|false|string|NMEA|Data from gps receiver.|
 
 ### 1.3 Preselector Object
 `Preselector` has the following properties:
@@ -77,8 +77,6 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`preselector_rf_path_number`|false|integer|N/A|The preselector RF path number.|
 |`overload_flag`|false|boolean|N/A|Flag indicator of system signal overload.|
 |`receiver_attenuation`|false|double|dB|Attenuation of the receiver.|
-|`latitude`|false|double|decimal degrees|Latitude.|
-|`longitude`|false|double|decimal degrees|Longitude.|
 |`altitude`|false|double|meters|Height above mean sea level.|
 |`speed`|false|double|m/s|Speed.|
 |`bearing`|false|double|degrees|Direction (angle relative to true North).|

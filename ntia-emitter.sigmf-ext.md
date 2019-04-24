@@ -9,7 +9,7 @@ The ntia-emitter namespace provides emiter defintion and properties.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-emitter|false|[Emitter](#11-emitter-object)|N/A|Metadata that describes emitter
+`emitters`|false|Array of [Emitter](#11-emitter-object)|N/A|Metadata that describe emitters
 
 ### 1.1 Emitter Object
 `Emitter` object has the following properties:
@@ -42,13 +42,12 @@ emitter|false|[Emitter](#11-emitter-object)|N/A|Metadata that describes emitter
 |`power`|false|double|dBm|Power referenced to antenna input.|
 |`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#antenna)|N/A|Metadata that describes the emitter's antenna|
 |`waveform`|false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes transmitted waveform.
-|`latitude`|false|double|decimal degrees|Latitude.|
-|`longitude`|false|double|decimal degrees|Longitude.|
 |`altitude`|false|double|meters|Height above mean sea level.|
 |`speed`|false|double|m/s|Speed.|
 |`bearing`|false|double|degrees|Direction (angle relative to true North).|
 
 ## 5 Example
+<<<<<<< HEAD
 
 ### 5.1 Emitter Global Example
 ```json
@@ -105,3 +104,4 @@ emitter|false|[Emitter](#11-emitter-object)|N/A|Metadata that describes emitter
 
 }
 ```
+

@@ -1,10 +1,17 @@
 # ntia-interference Extension v1.0.0
-The ntia-inteference namespace provides information about calibration factors applied to the data.
+The ntia-inteference namespace provides information that comprises an interference report.
 
 `ntia-interference` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
 `ntia-interference` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`interference_report`|false|[InterferenceReport](#11-interference-report-object)|N/A|Describes inteference event.|
+
+### 1.1 InterferenceReport Object
+The following information is to be provided by spectrum user to report an inteference event.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|

@@ -4,7 +4,7 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 `ntia-algorithm` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
-`ntia-algorithm` does not provide additional keys to [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). 
+`ntia-algorithm` extends [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs: 
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
