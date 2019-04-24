@@ -1,16 +1,14 @@
 # SigMF-NS-NTIA
 
-This Signal Metadata Format (SigMF) namespace extension describes the National
+This Signal Metadata Format [SigMF](https://github.com/gnuradio/SigMF) namespace extension describes the National
 Telecommunications and Information Administration (NTIA)'s open data format for
 recorded signal datasets.
 
-[NTIA Core SigMF Namespace Extension](ntia-core.sigmf-ext.md)
-
 ## Introduction
 
-[SigMF](https://github.com/gnuradio/SigMF) is a simple, extensible standard for
+SigMF is a simple, extensible standard for
 storing recorded signal datasets. The
-[Introduction](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#introduction)
+[introduction](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#introduction)
 to the core specification document explains why such a standard is useful:
 
 > Sharing sets of recorded signal data is an important part of science and engineering. It enables multiple parties to collaborate, is often a necessary part of reproducing scientific results (a requirement of scientific rigor), and enables sharing data with those who do not have direct access to the equipment required to capture it.
