@@ -28,7 +28,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`altitude`|false|double|meters|Height above mean sea level.|
 |`speed`|false|double|m/s|Speed.|
 |`bearing`|false|double|degrees|Direction (angle relative to true North).|
-|`gps_nmea`|false|string|NMEA|Data from gps receiver.|
+|`gps_nmea`|false|string|NMEA|[NMEA message](https://en.wikipedia.org/wiki/NMEA_0183) from gps receiver.|
 
 ### 1.2 Receiver Object
 `Receiver` the following properties:
@@ -80,7 +80,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`altitude`|false|double|meters|Height above mean sea level.|
 |`speed`|false|double|m/s|Speed.|
 |`bearing`|false|double|degrees|Direction (angle relative to true North).|
-|`gps_nmea`|false|string|NMEA|Data from gps receiver.|
+|`gps_nmea`|false|string|NMEA|[NMEA message](https://en.wikipedia.org/wiki/NMEA_0183) from gps receiver.|
 
 ## 4 Example
 
