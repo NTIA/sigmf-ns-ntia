@@ -19,8 +19,8 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 |`FIR_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
 |`IIR_numerator_coefficients`|false|array of doubles|N/A|Coefficients that defines IIR filter.|
 |`IIR_denominator_coefficients`|false|array of doubles|N/A|Coefficients that defines IIR filter.|
-|`frequency_cutoff`|false|double|Hz|Frequency at which the magnitude response decreases (from its maximum) by `attenuation_cutoff`.|
-|`attenuation_cutoff`|false|double|dB|Magnitude response threshold (below maximum) that specifies `frequency_cutoff`.|
+|`cutoff_attenuation`|false|double|dB|Attenuation that specifies the `cutoff_frequency` (typically 3 dB).|
+|`cutoff_frequency`|false|double|Hz|Frequency that characterizes boundary between passband and stopband.|
 |`ripple_passband`|false|double|dB|Ripple in passband.|
 |`attenuation_stopband`|false|double|dB|Attenuation of stopband.|
 |`frequency_stopband`|false|double|Hz|Point in filter frequency response where stopband starts.|
@@ -65,8 +65,8 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
 |`FIR_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
 |`IIR_numerator_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
 |`IIR_denominator_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
-|`frequency_cutoff`|false|double|Hz|Frequency at which the magnitude response decreases (from its maximum) by `attenuation_cutoff`.|
-|`attenuation_cutoff`|false|double|dB|Magnitude response threshold (below maximum) that specifies `frequency_cutoff`.|
+|`cutoff_attenuation`|false|double|dB|Attenuation that specifies the `cutoff_frequency` (typically 3 dB).|
+|`cutoff_frequency`|false|double|Hz|Frequency that characterizes boundary between passband and stopband.|
 |`ripple_passband`|false|double|dB|Ripple in passband.|
 |`attenuation_stopband`|false|double|dB|Attenuation of stopband.|
 |`frequency_stopband`|false|double|Hz|Point in filter frequency response where stopband starts.|
@@ -88,8 +88,8 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
         5.0,
         3.2
       ],
-      "frequency_cutoff": 7500000,
-      "attenuation_cutoff": -6,
+      "cutoff_attenuation": -3,
+      "cutoff_frequency": 7500000,
       "ripple_passband": -5,
       "attenuation_stopband": -10,
       "frequency_stopband": 7000000
@@ -183,8 +183,8 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
         5.0,
         3.2
       ],
-      "ntia-algorithm:frequency_cutoff": 7500000,
-      "ntia-algorithm:attenuation_cutoff": -6,
+      "cutoff_attenuation": -3,
+      "cutoff_frequency": 7500000,
       "ntia-algorithm:ripple_passband": -5,
       "ntia-algorithm:attenuation_stopband": -10,
       "ntia-algorithm:frequency_stopband": 7000000
