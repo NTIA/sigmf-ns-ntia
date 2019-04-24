@@ -8,7 +8,7 @@ recorded signal datasets.
 
 SigMF is a simple, extensible standard for
 storing recorded signal datasets. The
-[introduction](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#introduction)
+[Introduction](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#introduction)
 to the core specification document explains why such a standard is useful:
 
 > Sharing sets of recorded signal data is an important part of science and engineering. It enables multiple parties to collaborate, is often a necessary part of reproducing scientific results (a requirement of scientific rigor), and enables sharing data with those who do not have direct access to the equipment required to capture it.
