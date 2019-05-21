@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'gov.doc.ntia'
-version = '0.0.3-SNAPSHOT'
+version = '0.0.4-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
@@ -26,5 +26,8 @@ dependencies {
 
 jar{
     archiveBaseName = 'sigmf-ns-ntia'
+}
+task myJavadocs(type: Javadoc) {
+    source = sourceSets.main.allJava
 }
 

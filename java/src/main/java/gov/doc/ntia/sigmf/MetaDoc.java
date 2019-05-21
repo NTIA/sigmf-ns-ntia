@@ -1,7 +1,10 @@
 package gov.doc.ntia.sigmf;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +51,17 @@ public class MetaDoc implements Serializable {
         this.global = global;
     }
 
+    public void saveToFile(String filename){
 
+        ObjectMapper mapper = new ObjectMapper();
+         try {
+             mapper.writeValue(new File(filename),this);
+         } catch (IOException e) {
+            e.printStackTrace();
+         }
+
+
+    }
 
 
 }

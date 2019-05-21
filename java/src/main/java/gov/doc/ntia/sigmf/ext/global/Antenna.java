@@ -2,6 +2,8 @@ package gov.doc.ntia.sigmf.ext.global;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
 
@@ -10,48 +12,101 @@ public class Antenna implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @JsonProperty(value="id", required = true)
+    protected String id;
+
     @JsonProperty(value="model", required = true)
     protected String model;
 
     @JsonProperty(value="type", required=false)
     protected  String type;
 
+    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="low_frequency", required = false)
     protected Double lowFrequency;
 
+    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="high_frequency", required = false)
     protected Double highFrequency;
 
+    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="gain", required=false)
     protected Double gain;
+
+    @JsonProperty(value="polarization", required = false)
+    protected String polarization;
+
+    @JsonSerialize(using= DoubleSerializer.class)
+    @JsonProperty(value="cross_polar_discrimination", required = false)
+    protected Double crossPolarDiscrimination;
 
     @JsonProperty(value="horizontal_gain_pattern", required = false)
     protected Double[] horizontalGainPattern;
 
-    //@JsonProperty(value="ntia-antenna:vertical_gain_pattern", required = false)
+    @JsonProperty(value="vertical_gain_pattern", required = false)
     protected  Double[] verticalGainPattern;
 
+    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="horizontal_beam_width", required = false)
     protected Double horizontalBeamWidth;
 
+    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="vertical_beam_width", required = false)
     protected Double verticalBeamWidth;
 
-    @JsonProperty(value="cross_polar_discrimination", required = false)
-    protected Double crossPolarDiscrimination;
-
+    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="voltage_standing_wave_ratio", required = false)
     protected Double voltageStandingWaveRatio;
 
+    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="cable_loss", required = false)
     protected Double cableLoss;
 
     @JsonProperty(value="steerable", required = false)
     protected Boolean steerable;
 
+    @JsonSerialize(using= DoubleSerializer.class)
+    @JsonProperty(value="azimuth_angle", required = false)
+    protected Double azimuthAngle;
+
+    @JsonSerialize(using= DoubleSerializer.class)
+    @JsonProperty(value="elevation_angle", required = false)
+    protected Double elevationAngle;
+
     @JsonProperty(value="mobile", required = false)
     protected Boolean mobile;
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getPolarization() {
+        return polarization;
+    }
+
+    public void setPolarization(String polarization) {
+        this.polarization = polarization;
+    }
+
+    public Double getAzimuthAngle() {
+        return azimuthAngle;
+    }
+
+    public void setAzimuthAngle(Double azimuthAngle) {
+        this.azimuthAngle = azimuthAngle;
+    }
+
+    public Double getElevationAngle() {
+        return elevationAngle;
+    }
+
+    public void setElevationAngle(Double elevationAngle) {
+        this.elevationAngle = elevationAngle;
+    }
 
     public String getModel() {
         return model;
