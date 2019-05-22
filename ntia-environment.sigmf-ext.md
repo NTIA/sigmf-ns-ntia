@@ -1,41 +1,91 @@
 # ntia-environment extension v1.0.0
-The ntia-environment extension provides SigMF metadata extensions to characterize the environment factors around a sensor and\or emitter. 
+The `ntia-environment` extension provides SigMF metadata extensions to characterize the environment factors around a sensor and\or emitter. 
 
-## 2. Conventions Used in this Document
+`ntia-environment` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
-The SCOS specification uses and is fully compliant with the SigMF specification and conventions. Building upon the [SigMF core namespace](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces), the specification is enhanced through the implementation of a `ntia-scos` namespace, the details of which follow.  
+## 1 Global
+`ntia-environment` does not provide additional keys to [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). 
 
+## 2 Captures
+`ntia-environment` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
-## 3. Global
-Global information is applicable to the entire dataset. The ntia-environment namespace does not provide any global extensions.
+## 3 Annotations
+`ntia-environment` defines the following segments that extend `ntia-core`.
 
-## 4. Captures
-Per SigMF, the `Captures` value is an array of capture segment objects that describe the parameters of the signal capture. The `ntia-environment` specification does not add any enhancements to this section.
+### 3.1 SensorEnvironment Segment
+`SensorEnvironment` has the following properties:
 
-## 5. Annotations
-Per SigMF, the `Annotations` value is an array of annotation segment objects that describe anything regarding the signal data not part of the `global` and `captures` objects. The ntia-environment namespace provides the following annotations to describe the environment around sensors and\or emitters, and any changes to that may occur throughout the dataset. 
-
-
-### 5.1 SensorEnvironment Segment Object
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`sensor-id`|true|string|N/A|The unique id of the sensor around which the environemnt has changed|
-|`temperature`|false|float|celsius|The environmental temparature.|
-|`humidity`|false|float|?|Specific or relative humidity?.|
-|`weather`|false|string|N/A|The weather around the sensor(rain, snow...)|
-|`environment`|false|string|N/A|A description of the environment where antenna is mounted. E.g. `"indoor"` or `"outdoor"`.|
+|`category`|false|string|N/A|Categorical description of the environment where sensor is mounted. E.g. `"indoor"`, `"outdoor-urban"`, `"outdoor-rural"`.|
+|`temperature`|false|float|celsius|Environmental temperature.|
+|`humidity`|false|float|%|Relative humidity.|
+|`weather`|false|string|N/A|Weather around the sensor. E.g. `"rain"`, `"snow"`.)|
 
-### 5.2 EmitterEnvironment Segment Object
+### 3.2 EmitterEnvironment Segment
+`EmitterEnvironment` has the following properties:
+
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`emitter-id`|true|string|N/A|The unique id of the sensor around which the environemnt is being reported|
-|`temperature`|false|float|celsius|The environmental temparature.|
-|`humidity`|false|float|?|Specific or relative humidity?.|
-|`weather`|false|string|N/A|The weather around the emitter(rain, snow...)|
+|`emitter_id`|true|string|N/A|Unique emitter id|
+|`category`|false|string|N/A|Categorical description of the environment where sensor is mounted. E.g. `"indoor"`, `"outdoor-urban"`, `"outdoor-rural"`.|
+|`temperature`|false|float|celsius|Environmental temparature.|
+|`humidity`|false|float|%|Relative humidity.|
+|`weather`|false|string|N/A|Weather around the sensor. E.g. `"rain"`, `"snow"`.)|
 
+## 4 Example
 
+### 4.1 SensorEnvironment Example
 
+```json
+{
+  "global": {
+   ...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "SensorEnvironment",
+      "core:sample_start": 0,
+      "core:sample_count": 1024,
+      "ntia-environment:category": "indoor"
+    },
+    {
+      "ntia-core:annotation_type": "SensorEnvironment",
+      "core:sample_start": 1024,
+      "core:sample_count": 1024,
+      "ntia-environment:category": "outdoor"
+    }
+  ]
+}
+```
 
+### 4.1 EmitterEnvironment Example
 
+```json
 
-
+  "global": {
+	...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "EmitterEnvironment",
+      "core:sample_count": 0,
+      "ntia-environment:category": "outdoor-urban",
+      "ntia-environment:emitter_id": "emitter_123"
+    },
+    {
+      "ntia-core:annotation_type": "EmitterEnvironment",
+      "core:sample_start": 1024,
+      "core:sample_count": 1024,
+      "ntia-environment:category": "indoor",
+      "ntia-environment:emitter_id": "emitter_123"
+    }
+  ]
+}
+```

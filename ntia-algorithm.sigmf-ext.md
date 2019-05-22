@@ -1,21 +1,38 @@
 # ntia-algorithm Extension v1.0.0
-The ntia-algorithm namespace defines additional metadata elements useful in describing algorithms that have been applied to measurements. 
+The ntia-algorithm namespace describes algorithms applied to measurements. 
 
-## 2. Conventions Used in this Document
+`ntia-algorithm` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
-The SCOS specification uses and is fully compliant with the SigMF specification and conventions. Building upon the [SigMF core namespace](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces), the specification is enhanced through the implementation of a `ntia-algorithm` namespace, the details of which follow.  
+## 1 Global
+`ntia-algorithm` extends [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs: 
 
-## 3. Global
-The ntia-algorithm namespace does not provide any additional keys for the global object. 
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`anti_aliasing_filter`|false|[DigitalFilter](#11-digitalfilter-object)|N/A|Digital filter applied to data to avoid aliasing|
 
-## 4. Captures
-Per SigMF, the `Captures` value is an array of capture segment objects that describe the parameters of the signal capture. The `ntia-algorithm` namespace does not add any enhancements to this section.
+### 1.1 DigitalFilter Object
+`DigitalFilter` has the following properties:
 
-## 5. Annotations
-Per SigMF, the `Annotations` value is an array of annotation segment objects that describe anything regarding the signal data not part of the `global` and `captures` objects. Each SigMF annotation segment object must contain a `core:sample_start` name/value pair, which indicates the first index at which the rest of the segment's name/value pairs apply. The `ntia-algorithm` extension defines two additonal annotation segment types:  `TimeDomainDetection` and  `FrequencyDomainDetection` segments.
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`, `"IIR"`|
+|`FIR_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
+|`IIR_numerator_coefficients`|false|array of doubles|N/A|Coefficients that defines IIR filter.|
+|`IIR_denominator_coefficients`|false|array of doubles|N/A|Coefficients that defines IIR filter.|
+|`cutoff_attenuation`|false|double|dB|Attenuation that specifies the `cutoff_frequency` (typically 3 dB).|
+|`cutoff_frequency`|false|double|Hz|Frequency that characterizes boundary between passband and stopband.|
+|`ripple_passband`|false|double|dB|Ripple in passband.|
+|`attenuation_stopband`|false|double|dB|Attenuation of stopband.|
+|`frequency_stopband`|false|double|Hz|Point in filter frequency response where stopband starts.|
 
-### 5.1 TimeDomainDetection annotation segments
-Time-domain detection algorithms are applied to IQ time series captured at a single frequency. The `TimeDomainDetection` annotation segments contains the following name/value pairs:  
+## 2 Captures
+`ntia-algorithm` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+
+## 3 Annotations
+`ntia-algorithm` defines the following segments that extend `ntia-core`.
+
+### 3.1 TimeDomainDetection Segment
+Time-domain detection algorithms are applied to gap-free IQ time series captured at a single frequency. The `TimeDomainDetection` has the following properties:  
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
@@ -25,16 +42,153 @@ Time-domain detection algorithms are applied to IQ time series captured at a sin
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
 
-### 5.2 FrequencyDomainDetection annotation segments
-Frequency-domain detection algorithms are applied to discrete Fourier transforms of IQ time series captured at a single frequency. The `FrequencyDomainDetection` annotation segments contain the following name/value pairs in addition to the name/value pairs required of all annotation segments:  
+### 3.2 FrequencyDomainDetection Segment
+Frequency-domain detection algorithms are applied to discrete Fourier transforms of gap-free IQ time series captured at a single frequency. The `FrequencyDomainDetection` has the following properties:
+
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`detector`|true|string|N/A|E.g. `"fft_sample_iq"`, `"fft_sample_power"`, `"fft_mean_power"`, `"fft_max_power"`, `"fft_min_power"`, `"fft_median_power"`.|
 |`detection_domain`|true|string|N/A|Domain in which detector is applied, i.e., `"frequency"`.|
 |`number_of_ffts`|true|integer|N/A|Number of FFTs to be integrated over by detector.|
-|`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
-|`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
 |`number_of_samples_in_fft`|true|integer|N/A|Number of samples in FFT to calcluate delta_f = [`samplerate`](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object)/`number_of_samples_in_fft`.|
 |`window`|true|string|N/A|E.g. `"blackman-harris"`, `"flattop"`, `"gaussian_a3.5"`, `"gauss top"`, `"hamming"`, `"hanning"`, `"rectangular"`.|
 |`equivalent_noise_bandwidth`|false|double|Hz|Bandwidth of brickwall filter that has same integrated noise power as that of the actual filter.|
+|`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
+|`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
 
+### 3.3 DigitalFilterAnnotation Segment
+`DigitalFilterAnnotation` has the following properties:
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`, `"IIR"`|
+|`FIR_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
+|`IIR_numerator_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
+|`IIR_denominator_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
+|`cutoff_attenuation`|false|double|dB|Attenuation that specifies the `cutoff_frequency` (typically 3 dB).|
+|`cutoff_frequency`|false|double|Hz|Frequency that characterizes boundary between passband and stopband.|
+|`ripple_passband`|false|double|dB|Ripple in passband.|
+|`attenuation_stopband`|false|double|dB|Attenuation of stopband.|
+|`frequency_stopband`|false|double|Hz|Point in filter frequency response where stopband starts.|
+
+## 4 Example
+
+### 4.1 anti_aliasing_filter example
+```json
+{
+  "global": {
+    "core:datatype": "rf32_le",
+    "core:sample_rate": 15360000,
+    "core:version": "0.0.2",
+    "ntia-algorithm:anti_aliasing_filter": {
+      "filter_type": "FIR",
+      "FIR_coefficients": [
+        1.0,
+        4.0,
+        5.0,
+        3.2
+      ],
+      "cutoff_attenuation": -3,
+      "cutoff_frequency": 7500000,
+      "ripple_passband": -5,
+      "attenuation_stopband": -10,
+      "frequency_stopband": 7000000
+    }
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    ...
+  ]
+}
+```
+
+### 4.2 TimeDomainDetection Annotation Example
+```json
+{
+  "global": {
+	...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "TimeDomainDetection",
+      "core:sample_start": 0,
+      "core:sample_count": 1024,
+      "ntia-algorithm:detector": "mean",
+      "ntia-algorithm:detection_domain": "time",
+      "ntia-algorithm:units": "dBm",
+      "ntia-algorithm:reference": "antenna output",
+      "ntia-algorithm:number_of_samples": 1024
+    }
+  ]
+}
+```
+
+### 4.3 FrequencyDomainDetection Annotation Example
+```json
+{
+  "global": {
+	...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "FrequencyDomainDetection",
+      "core:sample_start": 0,
+      "core:sample_count": 1024,
+      "ntia-algorithm:detector": "fft_mean_power",
+      "ntia-algorithm:detection_domain": "frequency",
+      "ntia-algorithm:reference": "antenna output",
+      "ntia-algorithm:number_of_ffts": 300,
+      "ntia-algorithm:number_of_samples_in_fft": 1024
+    },
+    {
+      "ntia-core:annotation_type": "FrequencyDomainDetection",
+      "core:sample_start": 1024,
+      "core:sample_count": 1024,
+      "ntia-algorithm:detector": "fft_max_power",
+      "ntia-algorithm:detection_domain": "frequency",
+      "ntia-algorithm:reference": "antenna output",
+      "ntia-algorithm:number_of_ffts": 300,
+      "ntia-algorithm:number_of_samples_in_fft": 1024
+    }
+  ]
+}
+```
+
+### 4.4  DigitalFilterAnnotation  Example
+```json
+{
+  "global": {
+	...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "DigitalFilterAnnotation",
+      "core:sample_start": 0,
+      "core:sample_count": 1000,
+      "ntia-algorithm:filter_type": "FIR",
+      "ntia-algorithm:FIR_coefficients": [
+        1.0,
+        4.0,
+        5.0,
+        3.2
+      ],
+      "cutoff_attenuation": -3,
+      "cutoff_frequency": 7500000,
+      "ntia-algorithm:ripple_passband": -5,
+      "ntia-algorithm:attenuation_stopband": -10,
+      "ntia-algorithm:frequency_stopband": 7000000
+    }
+  ]
+}
+```
