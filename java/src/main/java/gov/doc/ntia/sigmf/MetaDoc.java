@@ -63,5 +63,9 @@ public class MetaDoc implements Serializable {
 
     }
 
+    public void addAnnotation(Annotation annotation){
+        annotations.add(annotation);
+    }
+
 
 }

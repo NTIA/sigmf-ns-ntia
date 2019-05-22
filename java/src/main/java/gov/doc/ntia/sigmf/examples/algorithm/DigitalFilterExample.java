@@ -5,7 +5,7 @@ import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
 import gov.doc.ntia.sigmf.examples.ExampleUtils;
-import gov.doc.ntia.sigmf.ext.global.DigitalFilter;
+import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 
 import java.util.ArrayList;
 import java.util.Calendar;

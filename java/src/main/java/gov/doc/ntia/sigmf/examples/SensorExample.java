@@ -4,7 +4,7 @@ import gov.doc.ntia.sigmf.Annotation;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
-import gov.doc.ntia.sigmf.ext.global.Antenna;
+import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.sensor.Preselector;
 import gov.doc.ntia.sigmf.ext.global.sensor.RFPath;
 import gov.doc.ntia.sigmf.ext.global.sensor.Receiver;

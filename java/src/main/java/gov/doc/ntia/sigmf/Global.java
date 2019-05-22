@@ -1,13 +1,11 @@
 package gov.doc.ntia.sigmf;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import gov.doc.ntia.sigmf.ext.global.*;
+import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
-import gov.doc.ntia.sigmf.ext.global.interference.InterferenceReport;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
 import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
@@ -98,18 +96,6 @@ public class Global implements Serializable {
 
     @JsonProperty(value ="ntia-algorithm:anti_aliasing_filter", required = false)
     protected DigitalFilter antiAliasingFilter;
-
-
-    public InterferenceReport getInterferenceReport() {
-        return interferenceReport;
-    }
-
-    public void setInterferenceReport(InterferenceReport interferenceReport) {
-        this.interferenceReport = interferenceReport;
-    }
-
-    @JsonProperty(value="ntia-interference:interference_report", required = false)
-    protected InterferenceReport interferenceReport;
 
 
     public DigitalFilter getAntiAliasingFilter() {

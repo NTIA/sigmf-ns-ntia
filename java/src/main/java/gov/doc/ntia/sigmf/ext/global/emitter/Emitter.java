@@ -3,7 +3,7 @@ package gov.doc.ntia.sigmf.ext.global.emitter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import gov.doc.ntia.sigmf.ext.global.Antenna;
+import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.Mover;
 import gov.doc.ntia.sigmf.ext.global.waveform.Waveform;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;

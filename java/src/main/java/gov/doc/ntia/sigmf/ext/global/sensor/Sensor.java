@@ -2,7 +2,7 @@ package gov.doc.ntia.sigmf.ext.global.sensor;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import gov.doc.ntia.sigmf.ext.global.Antenna;
+import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.Mover;
 
 import java.io.Serializable;
