@@ -13,8 +13,9 @@ gov.doc.ntia.sigmf.ext.annotation.emitter
 gov.doc.ntia.sigmf.ext.annotation.environment
 gov.doc.ntia.sigmf.ext.annotation.sensor
 gov.doc.ntia.sigmf.ext.global
+gov.doc.ntia.sigmf.ext.global.algorithm
+gov.doc.ntia.sigmf.ext.global.core
 gov.doc.ntia.sigmf.ext.global.emitter
-gov.doc.ntia.sigmf.ext.global.interference
 gov.doc.ntia.sigmf.ext.global.scos
 gov.doc.ntia.sigmf.ext.global.sensor
 gov.doc.ntia.sigmf.ext.global.waveform

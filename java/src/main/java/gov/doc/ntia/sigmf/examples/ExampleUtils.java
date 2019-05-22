@@ -1,11 +1,8 @@
 package gov.doc.ntia.sigmf.examples;
 
-import gov.doc.ntia.sigmf.Annotation;
 import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.Global;
-import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
-import gov.doc.ntia.sigmf.ext.global.Antenna;
+import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
 import gov.doc.ntia.sigmf.ext.global.sensor.Receiver;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;

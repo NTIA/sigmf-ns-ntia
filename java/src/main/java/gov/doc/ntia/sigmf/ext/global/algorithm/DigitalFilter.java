@@ -1,4 +1,4 @@
-package gov.doc.ntia.sigmf.ext.global;
+package gov.doc.ntia.sigmf.ext.global.algorithm;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
