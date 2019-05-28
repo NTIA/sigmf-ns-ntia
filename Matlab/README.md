@@ -74,7 +74,7 @@ Utilizing the Java library from within Matlab mostly requires you to create inst
   setSampleCount(detection, java.lang.Long(1024));
 
   setSensor(globalExample, sensor);
-  setGlobal(metaDoc, global);
+  setGlobal(metaDoc, globalExample);
 
   saveToFile(metaDoc, "C:\Users\dboulware\Documents\sigmf-ns-ntia\example.json");
 
