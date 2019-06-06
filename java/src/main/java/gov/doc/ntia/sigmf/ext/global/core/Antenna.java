@@ -1,11 +1,15 @@
 package gov.doc.ntia.sigmf.ext.global.core;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Antenna implements Serializable {
@@ -75,6 +79,8 @@ public class Antenna implements Serializable {
 
     @JsonProperty(value="mobile", required = false)
     protected Boolean mobile;
+
+    protected Map<String, Object> otherFields = new HashMap<>();
 
     public String getId() {
         return id;
@@ -220,5 +226,14 @@ public class Antenna implements Serializable {
         this.mobile = mobile;
     }
 
+    @JsonAnyGetter
+    public Map<String, Object> getOtherFields(){
+        return otherFields;
+    }
+
+    @JsonAnySetter
+    public void add(String key, Object value){
+        otherFields.put(key, value);
+    }
 
 }

@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class IEEE80211p extends Waveform implements Serializable {
@@ -52,6 +54,7 @@ public class IEEE80211p extends Waveform implements Serializable {
     @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="signal_to_noise_ratio", required =false)
     protected Double signalToNoiseRation;
+
 
     public IEEE80211p(){
 

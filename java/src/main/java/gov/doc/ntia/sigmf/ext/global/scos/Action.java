@@ -1,11 +1,11 @@
 package gov.doc.ntia.sigmf.ext.global.scos;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Action implements Serializable {
@@ -48,6 +48,12 @@ public class Action implements Serializable {
     @JsonProperty(value="start_time", required = false)
     protected Date startTime;
 
+
+    @JsonProperty(value="model", required =  false)
+    protected String model;
+
+    protected Map<String, Object> otherFields = new HashMap<>();
+
     public String[] getType() {
         return type;
     }
@@ -70,6 +76,16 @@ public class Action implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @JsonAnyGetter
+    public Map<String, Object> getOtherFields(){
+        return otherFields;
+    }
+
+    @JsonAnySetter
+    public void add(String key, Object value){
+        otherFields.put(key, value);
     }
 
 }

@@ -1,13 +1,13 @@
 package gov.doc.ntia.sigmf;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Capture implements Serializable {
@@ -29,6 +29,8 @@ public class Capture implements Serializable {
             (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
     @JsonProperty(value ="core:datetime",required=false )
     protected Date dateTime;
+
+    protected Map<String, Object> otherFields = new HashMap<>();
 
 
     public Date getDateTime() {
@@ -62,5 +64,16 @@ public class Capture implements Serializable {
     public void setSampleStart(int sampleStart) {
         this.sampleStart = sampleStart;
     }
+
+    @JsonAnyGetter
+    public Map<String, Object> getOtherFields(){
+        return otherFields;
+    }
+
+    @JsonAnySetter
+    public void add(String key, Object value){
+        otherFields.put(key, value);
+    }
+
 
 }

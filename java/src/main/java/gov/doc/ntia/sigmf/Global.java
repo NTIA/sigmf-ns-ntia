@@ -1,5 +1,7 @@
 package gov.doc.ntia.sigmf;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -12,7 +14,9 @@ import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @JsonInclude(Include.NON_NULL)
 public class Global implements Serializable {
@@ -94,8 +98,13 @@ public class Global implements Serializable {
     protected Long taskId;
 
 
+    protected Map<String, Object> otherFields = new HashMap<>();
+
+
     @JsonProperty(value ="ntia-algorithm:anti_aliasing_filter", required = false)
     protected DigitalFilter antiAliasingFilter;
+
+
 
 
     public DigitalFilter getAntiAliasingFilter() {
@@ -255,6 +264,18 @@ public class Global implements Serializable {
     public void setSensor(Sensor sensor) {
         this.sensor = sensor;
     }
+
+    @JsonAnyGetter
+    public Map<String, Object> getOtherFields(){
+        return otherFields;
+    }
+
+    @JsonAnySetter
+    public void add(String key, Object value){
+        otherFields.put(key, value);
+    }
+
+
 
 
 }

@@ -1,11 +1,15 @@
 package gov.doc.ntia.sigmf.ext.global.sensor;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Receiver implements Serializable {
@@ -34,6 +38,7 @@ public class Receiver implements Serializable {
     @JsonProperty(value="a2d_bits", required = false)
     protected Long a2dBits;
 
+    protected Map<String, Object> otherFields = new HashMap<>();
 
     public String getModel() {
         return model;
@@ -83,6 +88,15 @@ public class Receiver implements Serializable {
         this.a2dBits = a2dBits;
     }
 
+    @JsonAnyGetter
+    public Map<String, Object> getOtherFields(){
+        return otherFields;
+    }
+
+    @JsonAnySetter
+    public void add(String key, Object value){
+        otherFields.put(key, value);
+    }
 
 
 

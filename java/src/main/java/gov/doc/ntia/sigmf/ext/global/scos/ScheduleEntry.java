@@ -1,11 +1,11 @@
 package gov.doc.ntia.sigmf.ext.global.scos;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ScheduleEntry implements Serializable {
@@ -34,6 +34,14 @@ public class ScheduleEntry implements Serializable {
 
     @JsonProperty(value="callback_url", required = false)
     protected String callbackURL;
+
+    @JsonFormat
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
+    @JsonProperty(value="start_time", required = false)
+    protected Date startTime;
+
+    protected Map<String, Object> otherFields = new HashMap<>();
+
 
     public String getId() {
         return id;
@@ -89,6 +97,16 @@ public class ScheduleEntry implements Serializable {
 
     public void setCallbackURL(String callbackURL) {
         this.callbackURL = callbackURL;
+    }
+
+    @JsonAnyGetter
+    public Map<String, Object> getOtherFields(){
+        return otherFields;
+    }
+
+    @JsonAnySetter
+    public void add(String key, Object value){
+        otherFields.put(key, value);
     }
 
 

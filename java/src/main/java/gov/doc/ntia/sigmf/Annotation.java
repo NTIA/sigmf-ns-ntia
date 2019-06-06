@@ -1,9 +1,6 @@
 package gov.doc.ntia.sigmf;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.TimeDomainDetection;
@@ -16,6 +13,8 @@ import gov.doc.ntia.sigmf.ext.annotation.callibration.SystemNoise;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 //@JsonTypeInfo(use=JsonTypeInfo.Id.class, include=JsonTypeInfo.As.PROPERTY, property="type")
@@ -63,6 +62,8 @@ public class Annotation implements Serializable {
     @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="core:longitude", required = false)
     protected  Double longitude;
+
+    protected Map<String, Object> otherFields = new HashMap<>();
 
     public Long getSampleStart() {
         return sampleStart;
@@ -128,6 +129,16 @@ public class Annotation implements Serializable {
         this.longitude = longitude;
     }
 
+
+    @JsonAnyGetter
+    public Map<String, Object> getOtherFields(){
+        return otherFields;
+    }
+
+    @JsonAnySetter
+    public void add(String key, Object value){
+        otherFields.put(key, value);
+    }
 
 
 

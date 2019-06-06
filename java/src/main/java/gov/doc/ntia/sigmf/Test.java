@@ -28,14 +28,14 @@ public class Test {
 
         MetaDoc metaDoc =  getMetaDoc();
         ObjectMapper mapper = new ObjectMapper();
-       // try {
-       //     mapper.writeValue(new File("C:\\Users\\dboulware\\Documents\\sigmf-ns-scos\\example.json"),metaDoc);
-       // } catch (IOException e) {
-        //    e.printStackTrace();
-       // }
+        try {
+            mapper.writeValue(new File("example.json"),metaDoc);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         try {
-            MetaDoc readMetaDoc = (MetaDoc)mapper.readValue(new File("C:\\Users\\dboulware\\Documents\\sigmf-ns-scos\\example.json"), MetaDoc.class);
+            MetaDoc readMetaDoc = (MetaDoc)mapper.readValue(new File("example.json"), MetaDoc.class);
             System.out.println(readMetaDoc.getGlobal().getSensor().getId());
         } catch (IOException e) {
             e.printStackTrace();
@@ -78,6 +78,7 @@ public class Test {
         global.setTaskId(1l);
         global.setAntiAliasingFilter(getDigitalFilter());
         global.setEmitters(getEmitters());
+        global.add("SomeNamespace:SomeExtraField", 123.4);
         return global;
     }
 

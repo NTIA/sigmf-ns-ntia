@@ -1,11 +1,15 @@
 package gov.doc.ntia.sigmf.ext.global.algorithm;
 
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DigitalFilter implements Serializable {
@@ -43,6 +47,9 @@ public class DigitalFilter implements Serializable {
     @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="frequency_stopband", required = false)
     protected Double frequencyStopband;
+
+
+    protected Map<String, Object> otherFields = new HashMap<>();
 
     public String getFilterType() {
         return filterType;
@@ -116,7 +123,15 @@ public class DigitalFilter implements Serializable {
         this.frequencyStopband = frequencyStopband;
     }
 
+    @JsonAnyGetter
+    public Map<String, Object> getOtherFields(){
+        return otherFields;
+    }
 
+    @JsonAnySetter
+    public void add(String key, Object value){
+        otherFields.put(key, value);
+    }
 
 
 
