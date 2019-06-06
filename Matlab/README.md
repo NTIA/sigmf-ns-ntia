@@ -29,7 +29,7 @@ This section provides examples of the common ways to interact with the `sigmf-ns
 
 #### Java library Overview
 
-The `sigmf-ns-ntia` java library consists of a number classes that define an object oriented approach to modeling the `sigmf-ns-ntia` extensions to SigMF. As such, to get and set values of within the SigMF you will primarily be creating instances of the different objects definine within the library and calling various get and set methods on those objects to get and set the various values. In Java, classes can be organized into a set of packages and the `sigmf-ns-ntia` library is organized in packages that mimic the extensions defined in [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia).  The base package in the java library is `gov.doc.ntia.sigmf` so all objects you utilize will begin with `gov.doc.ntia.sigmf`. The `gov.doc.ntia.sigmf.ext.global` package includes subpackages to organize the global objects defined in  [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia) and `gov.doc.ntia.sigmf.ext.annotation` package includes subpackages to organize the annoation extensions defined in [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia).  The table below shows the mapping between Java packages and the extensions defined in  [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia) 
+The `sigmf-ns-ntia` java library consists of a number classes that define an object oriented approach to modeling the `sigmf-ns-ntia` extensions to SigMF. As such, to get and set values  within the SigMF you will primarily be creating instances of the different objects defined within the library and calling various get and set methods on those objects to get and set the various values. In Java, classes can be organized into a set of packages and the `sigmf-ns-ntia` library is organized in packages that mimic the extensions defined in [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia).  The base package in the java library is `gov.doc.ntia.sigmf` so all objects you utilize will begin with `gov.doc.ntia.sigmf`. The `gov.doc.ntia.sigmf.ext.global` package includes subpackages to organize the global objects defined in  [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia) and `gov.doc.ntia.sigmf.ext.annotation` package includes subpackages to organize the annoation extensions defined in [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia).  The table below shows the mapping between Java packages and the extensions defined in  [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia) 
 
 |Package|Extension|Description|
 |----|--------|-----------|
@@ -74,7 +74,7 @@ Utilizing the Java library from within Matlab mostly requires you to create inst
   setSampleCount(detection, java.lang.Long(1024));
 
   setSensor(globalExample, sensor);
-  setGlobal(metaDoc, global);
+  setGlobal(metaDoc, globalExample);
 
   saveToFile(metaDoc, "C:\Users\dboulware\Documents\sigmf-ns-ntia\example.json");
 
@@ -114,13 +114,11 @@ Now, if we open the file we will see the following:
 
 ```
 
-Setting values in the MetaDoc is achieved though various set methods. To call a method on a Java class instance in Matlab you simply use the method name and pass in the instance of the object and any arguments. For example, above we created a MetaDoc and a Global, but we did not set the global field in the MetaDoc to myGlobal. To call MetaDoc's setGlobal method with myGlobal you would use the following commnad:
-
 Finally, if we simply wanted to read the example.json in Matlab we would use the static read method provided by the SifMFReader class. Because it is a static method you must call it slightly differently, as shown below:
 
 `readMetaDoc = javaMethod('read', 'gov.doc.ntia.sigmf.SigMFReader',' 'C:\Users\dboulware\Documents\sigmf-ns-ntia\example.json');`
 
-#### Static methods 
+
 
 
 
