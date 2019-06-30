@@ -15,7 +15,7 @@ The ntia-calibration namespace provides information about calibration factors ap
 |`gain_sensor`|false|double|N/A|Gain of sensor.|
 |`noise_figure_sensor`|false|double|dB|Noise figure of sensor.|
 |`1db_compression_point_sensor`|false|double|dBm|Maximum input of sensor.|
-|`system_noise_power_sensor`|false|double|dBm/Hz|Metadata that describes sytems noise.|
+|`system_noise_power_sensor`|false|double|dBm/Hz|System noise powwer of sensor.|
 
 ## 2 Captures
 `ntia-calibration` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
@@ -35,9 +35,10 @@ The ntia-calibration namespace provides information about calibration factors ap
 |`gain_sensor`|false|double|N/A|Gain of sensor.|
 |`noise_figure_sensor`|false|double|dB|Noise figure of sensor.|
 |`1db_compression_point_sensor`|false|double|dBm|Maximum input of sensor.|
-|`system_noise_power_sensor`|false|[SystemNoise](#32-systemnoise-object)|N/A|Metadata that describes sytems noise. This object is RECOMMENDED.|
+|`system_noise_power_sensor`|false|double|dBm/Hz|System noise power of sensor.|
 
 ## 4 Example
 
-```<updated example needed>
+```
+updated example needed
 ```
