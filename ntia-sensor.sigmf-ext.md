@@ -75,7 +75,8 @@ Sensor definition follows a simplified hardware model comprised of the following
 |----|--------------|-------|-------|-----------|
 |`rf_path_index`|false|integer|N/A|Index of the [RFPath](#14-rfpath-object) object.|
 |`overload_flag`|false|boolean|N/A|Flag indicator of system signal overload.|
-|`attenuation_sigan`|false|double|dB|Attenuation of the signal analyzer.|
+|`attenuation_sigan`|false|double|dB|Attenuation setting of the signal analyzer.|
+|`gain_sigan`|false|double|dB|Gain setting of the signal analyzer.|
 |`altitude`|false|double|meters|Height above mean sea level.|
 |`speed`|false|double|m/s|Speed.|
 |`bearing`|false|double|degrees|Direction (angle relative to true North).|
