@@ -11,7 +11,7 @@ The ntia-sensor namespace provides metadata to describe RF sensors.
 |`sensor`|false|[Sensor](#11-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
 
 ### 1.1 Sensor Object
-Sensor definition follows a simplified hardware model comprised of the following elements: Antenna, Preselector, Receiver, and Host Controller. The antenna converts electromagnetic energy to a voltage. The preselector can provide local calibration signals, RF filtering to protect from strong out-of-band signals, and low-noise amplification to improve sensitivity. The receiver (e.g., software defined radio) provides tuning, down conversion, sampling, and digital signal processing. Sensor implementations are not required to have each component, but metadata SHOULD specify the presence, model numbers, and operational parameters associated with each.
+Sensor definition follows a simplified hardware model comprised of the following elements: Antenna, Preselector, Signal Analyzer, and Host Controller. The antenna converts electromagnetic energy to a voltage. The preselector can provide local calibration signals, RF filtering to protect from strong out-of-band signals, and low-noise amplification to improve sensitivity. The signal analyzer (e.g., software defined radio) provides tuning, down conversion, sampling, and digital signal processing. Sensor implementations are not required to have each component, but metadata SHOULD specify the presence, model numbers, and operational parameters associated with each.
 
 `Sensor` has the following properties:
 
@@ -20,7 +20,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`id`|true|string|N/A|Unique name for the sensor.|
 |`antenna`|true|[Antenna](ntia-core.sigmf-ext.md#antenna) |N/A|Metadata that describes the sensor's antenna.|
 |`preselector`|false| [Preselector](#13-preselector-object) |N/A|Metadata to describe the preselector.|
-|`receiver`|true| [Receiver](#12-receiver-object) |N/A|Metadata to describe the receiver.|
+|`signal_analyzer`|true| [SignalAnalyzer](#12-signal-analyzer-object) |N/A|Metadata to describe the signal analyzer.|
 |`host_controller`|false|string|N/A|Description of host computer. E.g. Make, model, and configuration.|
 |`mobile`|false|boolean|N/A|Defines if the sensor is mobile.|
 |`latitude`|false|double|decimal degrees|Latitude.|
@@ -30,16 +30,16 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`bearing`|false|double|degrees|Direction (angle relative to true North).|
 |`gps_nmea`|false|string|NMEA|[NMEA message](https://en.wikipedia.org/wiki/NMEA_0183) from gps receiver.|
 
-### 1.2 Receiver Object
-`Receiver` the following properties:
+### 1.2 SignalAnalyzer Object
+`SignalAnalyzer` the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`model`|true|string|N/A|Make and model of the receiver. E.g., `"Ettus N210"`, `"Ettus B200"`, `"Keysight N6841A"`, `"Tektronix B206B"`.|
-|`low_frequency`|false|double|Hz|Low frequency of operational range of the receiver.|
-|`high_frequency`|false|double|Hz|High frequency of operational range of the receiver.|
-|`noise_figure`|false|double|dB|Noise figure of the receiver.|
-|`max_power`|false|double|dBm|Maximum input power of the receiver.|
+|`model`|true|string|N/A|Make and model of the signal analyzer. E.g., `"Ettus N210"`, `"Ettus B200"`, `"Keysight N6841A"`, `"Tektronix B206B"`.|
+|`low_frequency`|false|double|Hz|Low frequency of operational range of the signal analyzer.|
+|`high_frequency`|false|double|Hz|High frequency of operational range of the signal analyzer.|
+|`noise_figure`|false|double|dB|Noise figure of the signal analyzer.|
+|`max_power`|false|double|dBm|Maximum input power of the signal analyzer.|
 |`a2d_bits`|false|int|bits|Number of bits in A/D converter.|
 
 ### 1.3 Preselector Object
@@ -75,7 +75,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |----|--------------|-------|-------|-----------|
 |`rf_path_index`|false|integer|N/A|Index of the [RFPath](#14-rfpath-object) object.|
 |`overload_flag`|false|boolean|N/A|Flag indicator of system signal overload.|
-|`receiver_attenuation`|false|double|dB|Attenuation of the receiver.|
+|`attenuation_sigan`|false|double|dB|Attenuation of the signal analyzer.|
 |`altitude`|false|double|meters|Height above mean sea level.|
 |`speed`|false|double|m/s|Speed.|
 |`bearing`|false|double|degrees|Direction (angle relative to true North).|
@@ -114,8 +114,8 @@ Sensor definition follows a simplified hardware model comprised of the following
           }
         ]
       },
-      "receiver": {
-        "model": "Receiver 123xyz",
+      "signal_analyzer": {
+        "model": "SDR 123xyz",
         "low_frequency": 300000000,
         "high_frequency": 3000000000,
         "noise_figure": 2,
