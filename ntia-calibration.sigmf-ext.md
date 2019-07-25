@@ -12,10 +12,11 @@ The ntia-calibration namespace provides information about calibration factors ap
 |`scaling_factor_sigan`|false|double|N/A|Factor that converts signal analyzer A/D output to volts.|
 |`noise_figure_sigan`|false|double|dB|Noise figure of signal analyzer.|
 |`1db_compression_point_sigan`|false|double|dBm|Maximum input of signal analyzer.|
-|`gain_sensor`|false|double|N/A|Gain of sensor.|
+|`enbw_sigan`|false|double|Hz|Equivalent noise bandwidth of signal analyzer.|
+|`gain_sensor`|false|double|dB|Gain of sensor.|
 |`noise_figure_sensor`|false|double|dB|Noise figure of sensor.|
 |`1db_compression_point_sensor`|false|double|dBm|Maximum input of sensor.|
-|`system_noise_power_sensor`|false|double|dBm/Hz|System noise powwer density of sensor. RECOMMENDED.|
+|`system_noise_power_sensor`|false|double|dBm/Hz|System noise power density of sensor. RECOMMENDED.|
 
 ## 2 Captures
 `ntia-calibration` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
@@ -32,7 +33,8 @@ The ntia-calibration namespace provides information about calibration factors ap
 |`scaling_factor_sigan`|false|double|N/A|Factor that converts signal analyzer A/D output to volts.|
 |`noise_figure_sigan`|false|double|dB|Noise figure of signal analyzer.|
 |`1db_compression_point_sigan`|false|double|dBm|Maximum input of signal analyzer.|
-|`gain_sensor`|false|double|N/A|Gain of sensor.|
+|`enbw_sigan`|false|double|Hz|Equivalent noise bandwidth of signal analyzer.|
+|`gain_sensor`|false|double|dB|Gain of sensor.|
 |`noise_figure_sensor`|false|double|dB|Noise figure of sensor.|
 |`1db_compression_point_sensor`|false|double|dBm|Maximum input of sensor.|
 |`system_noise_power_sensor`|false|double|dBm/Hz|System noise power density of sensor. RECOMMENDED.|
