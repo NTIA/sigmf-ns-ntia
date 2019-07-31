@@ -34,10 +34,12 @@ The ntia-calibration namespace provides information about calibration factors ap
 |`noise_figure_sigan`|false|double|dB|Noise figure of signal analyzer.|
 |`1db_compression_point_sigan`|false|double|dBm|Maximum input of signal analyzer.|
 |`enbw_sigan`|false|double|Hz|Equivalent noise bandwidth of signal analyzer.|
+|`overload_sigan`|false|boolean|N/A|Indicator that received signal is outside signal analyzer dynamic range.|
 |`gain_sensor`|false|double|dB|Gain of sensor.|
 |`noise_figure_sensor`|false|double|dB|Noise figure of sensor.|
 |`1db_compression_point_sensor`|false|double|dBm|Maximum input of sensor.|
 |`system_noise_power_sensor`|false|double|dBm/Hz|System noise power density of sensor.|
+|`overload_sensor`|false|boolean|N/A|Indicator that received signal is outside sensor dynamic range.|
 
 ## 4 Example
 
