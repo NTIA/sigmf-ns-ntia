@@ -17,11 +17,11 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`sensor_specification`|true|[HardwareSpecification](ntia-core.sigmf-ext.md#12-hardwarespecification-object)|N/A|Metadata that describes the sensor.|
+|`sensor_spec`|true|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata that describes the sensor.|
 |`antenna`|true|[Antenna](ntia-core.sigmf-ext.md#11-antenna-object)|N/A|Metadata to describe/specify the antenna.|
 |`preselector`|false| [Preselector](#13-preselector-object)|N/A|Metadata to describe/specify the preselector.|
 |`signal_analyzer`|true| [SignalAnalyzer](#12-signal-analyzer-object) |N/A|Metadata to describe/specify the signal analyzer.|
-|`computer_specification`|false|[HardwareSpecification](ntia-core.sigmf-ext.md#12-hardwarespecification-object)|N/A|Metadata to describe/specify onboard computer.|
+|`computer_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify onboard computer.|
 |`mobile`|false|boolean|N/A|Defines if the sensor is mobile.|
 |`latitude`|false|double|decimal degrees|Latitude.|
 |`longitude`|false|double|decimal degrees|Longitude.|
@@ -35,7 +35,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`sigan_specification`|false|[HardwareSpecification](ntia-core.sigmf-ext.md#12-hardwarespecification-object)|N/A|Metadata to describe/specify the signal analyzer.|
+|`sigan_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the signal analyzer.|
 |`low_frequency`|false|double|Hz|Low frequency of operational range of the signal analyzer.|
 |`high_frequency`|false|double|Hz|High frequency of operational range of the signal analyzer.|
 |`noise_figure`|false|double|dB|Noise figure of the signal analyzer.|
@@ -47,10 +47,10 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`preselector_specification`|false|[HardwareSpecification](ntia-core.sigmf-ext.md#12-hardwarespecification-object)|N/A|Metadata to describe/specify the preselector.|
-|`cal_source_specification`|false|[HardwareSpecification](ntia-core.sigmf-ext.md#12-hardwarespecification-object)|N/A|Metadata to describe/specify the preselector calibration source.|
-|`lna_specification`|false|[HardwareSpecification](ntia-core.sigmf-ext.md#12-hardwarespecification-object)|N/A|Metadata to describe/specify the preselector low noise amplifier.|
-|`filter_specification`|false|Array of HardwareSpecification](ntia-core.sigmf-ext.md#12-hardwarespecification-object)|N/A|Metadata to describe/specify the preselector RF bandpass filters.|
+|`preselector_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the preselector.|
+|`cal_source_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the preselector calibration source.|
+|`lna_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the preselector low noise amplifier.|
+|`filter_spec`|false|Array of HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the preselector RF bandpass filters.|
 |`rf_paths`|false|Array of [RFPath](#14-rfpath-object)|N/A|Metadata that describes preselector RF paths.|
 
 ### 1.4 RFPath Object
