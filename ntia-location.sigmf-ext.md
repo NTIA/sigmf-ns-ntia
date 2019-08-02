@@ -1,7 +1,7 @@
 # ntia-location extension v1.0.0
-The ntia-location namespace provides metadata to describe an object's location. 
+The ntia-location namespace provides metadata to define a coordinate system, and record an object's location. 
 
-`ntia-location` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions. `ntia-location` supplants lat/log in `sigmf-core` allows the use of custom coordinte systems
+`ntia-location` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions. `ntia-location` can be used instead of lat/long in `sigmf-core`, where the use of custom coordinate system is required.
 
 ## 1 Global
 `ntia-location` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
@@ -21,24 +21,14 @@ The ntia-location namespace provides metadata to describe an object's location.
 |`origin`|false|string|N/A|Origin of coordinate system. E.g. (0,0)|
 |`unit`|true|string|N/A|Unit of distance of coordinate system. E.g. Meters, feet, decimal degrees, DMS, city blocks.|
 
-### 1.2 Geographic Coordinate System Object
-`Geographic Coordinate System` (GCS) has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique id for GCS.|
-|`description`|false|string|N/A|Description of GCS.|
-|`datum`|false|string|N/A|Datum of sphereoid or sphere. E.g. |
-|`spheroid`|false|[Geographic](#13-spheroid-object)|N/A|Underlying sphere/spheroid of GCS.|
-
-### 1.3 Projected Coordinate System Object
+### 1.2 Projected Coordinate System Object
 `Projected Coordinate System` (PCS) has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique id for PCS.|
 |`description`|false|string|N/A|Description of the PCS.|
-|`geographic_coordinate_system`|true|[Geographic](#12-geographic-coordinate-system-object)|N/A|Underlying geographic coordinate system of PCS.| 
+|`geographic_coordinate_system`|false|[Geographic](#13-geographic-coordinate-system-object)|N/A|Underlying geographic coordinate system of PCS.| 
 |`projection`|false|string|N/A|Type of projection. E.g. Conical, cylandrical, transverse mercator.|
 |`false_easting`|false|double|N/A|False easting of PCS.|
 |`false_northing`|false|double|N/A|False northing of PCS.|
@@ -46,7 +36,17 @@ The ntia-location namespace provides metadata to describe an object's location.
 |`scale_factor`|false|double|N/A|Scale factor of PCS.|
 |`origin_latitude`|false|double|decimal degrees|Latitude of origin of PCS.|
 
-### 1.3 Spheroid Object
+### 1.3 Geographic Coordinate System Object
+`Geographic Coordinate System` (GCS) has the following properties:
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`id`|true|string|N/A|Unique id for GCS.|
+|`description`|false|string|N/A|Description of GCS.|
+|`datum`|false|string|N/A|Datum of sphereoid or sphere. E.g. |
+|`spheroid`|false|[Geographic](#14-spheroid-object)|N/A|Underlying sphere/spheroid of GCS.|
+
+### 1.4 Spheroid Object
 For simplicity, a Spheroid can define either a sphere or a spheroid.
 
 `Spheroid` has the following properties:
@@ -72,13 +72,9 @@ For simplicity, a Spheroid can define either a sphere or a spheroid.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`rf_path_index`|false|integer|N/A|Index of the [RFPath](#14-rfpath-object) object.|
-|`overload_flag`|false|boolean|N/A|Flag indicator of system signal overload.|
-|`receiver_attenuation`|false|double|dB|Attenuation of the receiver.|
-|`altitude`|false|double|meters|Height above mean sea level.|
-|`speed`|false|double|m/s|Speed.|
-|`bearing`|false|double|degrees|Direction (angle relative to true North).|
-|`gps_nmea`|false|string|NMEA|[NMEA message](https://en.wikipedia.org/wiki/NMEA_0183) from gps receiver.|
+|`x`|false|double|N/A|Location of object releative to x-axis origin.|
+|`y`|false|double|N/A|Location of object releative to y-axis origin.|
+|`z`|false|double|N/A|Location of object releative to z-axis origin.|
 
 ## 4 Example
 
