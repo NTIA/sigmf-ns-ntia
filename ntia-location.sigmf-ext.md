@@ -6,23 +6,19 @@ The ntia-location namespace provides metadata to define a coordinate system, and
 ## 1 Global
 `ntia-location` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`coordinate_system`|false|[Coordinate System](#11-coordinate-system-object)|N/A|Defines a coordinate system used by an object (e.g. Sensor). This object is RECOMMENDED.|
-
 ### 1.1 Coordinate System Object
-`Coordinate System` has the following properties:
+`CoordinateSystem` the coordinate system used by an object (e.g. Sensor):
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique id for coordinate system.|
 |`description`|false|string|N/A|Description of coordinate system.|
-|`type`|true|string|N/A|Type of coordinate system. E.g. Number line, cartesian, polar, [Geographic](#13-geographic-coordinate-system-object), [Projected](#12-projected-coordinate-system-object).|
+|`type`|false|string|N/A|Type of coordinate system. E.g. Number line, cartesian, polar, [Geographic](#13-geographic-coordinate-system-object), [Projected](#12-projected-coordinate-system-object).|
 |`origin`|false|string|N/A|Origin of coordinate system. E.g. (0,0)|
 |`unit`|true|string|N/A|Unit of distance of coordinate system. E.g. Meters, feet, decimal degrees, DMS, city blocks.|
 
 ### 1.2 Projected Coordinate System Object
-`Projected Coordinate System` (PCS) has the following properties:
+`Projected` Coordinate System (PCS) has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
@@ -37,7 +33,7 @@ The ntia-location namespace provides metadata to define a coordinate system, and
 |`origin_latitude`|false|double|decimal degrees|Latitude of origin of PCS.|
 
 ### 1.3 Geographic Coordinate System Object
-`Geographic Coordinate System` (GCS) has the following properties:
+`Geographic` Coordinate System (GCS) has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
@@ -47,9 +43,7 @@ The ntia-location namespace provides metadata to define a coordinate system, and
 |`spheroid`|false|[Geographic](#14-spheroid-object)|N/A|Underlying sphere/spheroid of GCS.|
 
 ### 1.4 Spheroid Object
-For simplicity, a Spheroid can define either a sphere or a spheroid.
-
-`Spheroid` has the following properties:
+`Spheroid` covers the definition of both a sphere or a spheroid. It has the following properties: 
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
@@ -78,7 +72,7 @@ For simplicity, a Spheroid can define either a sphere or a spheroid.
 
 ## 4 Example
 
-### 4.1 Sensor Global Object Example
+### 4.1 Coordinate System Object Example
 ```json
 {
   "global": {
@@ -86,39 +80,13 @@ For simplicity, a Spheroid can define either a sphere or a spheroid.
     "core:sample_rate": 15360000,
     "ntia-sensor:sensor": {
       "id": "Greyhound_1",
-      "ntia-core:antenna": {
-        "model": "model_X",
-        "type": "omnidirectional",
-        "low_frequency": 300000000,
-        "high_frequency": 3000000000,
-        "gain": 2,
-        "cross_polar_discrimination": 9.1,
-        "cable_loss": 1,
-        "azimuth_angle": 45,
-        "elevation_angle": 10.3
-      },
-      "preselector": {
-        "rf_paths": [
-          {
-            "low_frequency_passband": 700000000,
-            "high_frequency_passband": 750000000,
-            "low_frequency_stopband": 700000000,
-            "high_frequency_stopband": 750000000,
-            "lna_noise_figure": 2.5,
-            "cal_source_type": "calibrated noise source"
-          }
-        ]
-      },
-      "receiver": {
-        "model": "Receiver 123xyz",
-        "low_frequency": 300000000,
-        "high_frequency": 3000000000,
-        "noise_figure": 2,
-        "max_power": -5,
-        "a2d_bits": 256
-      },
-      "host_controller": "Host Controller 123"
-    },
+      "ntia-location:coordinate_system": {
+        "id": "Colorado State Plane",
+	"description": "Colorado State Plane Coordinate system",
+	"type": "Projected",
+	"unit": "Meters"
+      }
+    }  
     "ntia-scos:task_id": 88438,
     "ntia-scos:end_time": "2019-04-22T15:41:52Z"
   },
@@ -131,7 +99,7 @@ For simplicity, a Spheroid can define either a sphere or a spheroid.
 }
 ```
 
-### 4.2 SensorAnnotation Example
+### 4.2 LocationAnnotation Example
 ```json
 {
   "global": {
@@ -145,15 +113,17 @@ For simplicity, a Spheroid can define either a sphere or a spheroid.
       "ntia-core:annotation_type": "SensorAnnotation",
       "core:sample_start": 0,
       "core:sample_count": 100,
-      "core:latitude": 40.5,
-      "core:longitude": -105
+      "ntia-location:x": 40.5,
+      "ntia-location:y": -105
+      "ntia-location:z": 0
     },
     {
       "ntia-core:annotation_type": "SensorAnnotation",
       "core:sample_start": 100,
       "core:sample_count": 100,
-      "core:latitude": 40.56,
-      "core:longitude": -105.03
+      "ntia-location:x": 40.56,
+      "ntia-location:y": -105.03
+      "ntia-location:z": -0.5
     }
   ]
 }
