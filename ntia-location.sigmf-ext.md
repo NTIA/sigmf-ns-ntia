@@ -40,7 +40,7 @@ The ntia-location namespace provides metadata to describe a coordinate system an
 |`id`|true|string|N/A|Unique id for GCS.|
 |`description`|false|string|N/A|Description of GCS.|
 |`datum`|false|string|N/A|Datum of sphereoid or sphere. E.g. |
-|`spheroid`|false|[Geographic](#14-spheroid-object)|N/A|Underlying sphere/spheroid of GCS.|
+|`spheroid`|false|[Spheroid](#14-spheroid-object)|N/A|Underlying sphere/spheroid of GCS.|
 
 ### 1.4 Spheroid Object
 `Spheroid` covers the definition of both a sphere or a spheroid. It has the following properties: 
