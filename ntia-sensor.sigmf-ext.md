@@ -50,7 +50,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`preselector_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the preselector.|
 |`cal_source_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the preselector calibration source.|
 |`lna_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the preselector low noise amplifier.|
-|`filter_spec`|false|Array of HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the preselector RF bandpass filters.|
+|`filter_spec`|false|Array of [HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the preselector RF bandpass filters.|
 |`rf_paths`|false|Array of [RFPath](#14-rfpath-object)|N/A|Metadata that describes preselector RF paths.|
 
 ### 1.4 RFPath Object
