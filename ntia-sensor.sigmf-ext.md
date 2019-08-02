@@ -17,11 +17,11 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique name for the sensor.|
-|`antenna`|true|[Antenna](ntia-core.sigmf-ext.md#antenna) |N/A|Metadata that describes the sensor's antenna.|
-|`preselector`|false| [Preselector](#13-preselector-object) |N/A|Metadata to describe the preselector.|
-|`signal_analyzer`|true| [SignalAnalyzer](#12-signal-analyzer-object) |N/A|Metadata to describe the signal analyzer.|
-|`host_controller`|false|string|N/A|Description of host computer. E.g. Make, model, and configuration.|
+|`sensor_specification`|true|[HardwareSpecification](ntia-core.sigmf-ext.md#12-hardwarespecification-object)|N/A|Metadata that describes the sensor.|
+|`antenna`|true|[Antenna](ntia-core.sigmf-ext.md#11-antenna-object)|N/A|Metadata to describe/specify the antenna.|
+|`preselector`|false| [Preselector](#13-preselector-object)|N/A|Metadata to describe/specify the preselector.|
+|`signal_analyzer`|true| [SignalAnalyzer](#12-signal-analyzer-object) |N/A|Metadata to describe/specify the signal analyzer.|
+|`computer_specification`|false|[HardwareSpecification](ntia-core.sigmf-ext.md#12-hardwarespecification-object)|N/A|Metadata to describe/specify onboard computer.|
 |`mobile`|false|boolean|N/A|Defines if the sensor is mobile.|
 |`latitude`|false|double|decimal degrees|Latitude.|
 |`longitude`|false|double|decimal degrees|Longitude.|
@@ -35,7 +35,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`model`|true|string|N/A|Make and model of the signal analyzer. E.g., `"Ettus N210"`, `"Ettus B200"`, `"Keysight N6841A"`, `"Tektronix B206B"`.|
+|`sigan_specification`|false|[HardwareSpecification](ntia-core.sigmf-ext.md#12-hardwarespecification-object)|N/A|Metadata to describe/specify the signal analyzer.|
 |`low_frequency`|false|double|Hz|Low frequency of operational range of the signal analyzer.|
 |`high_frequency`|false|double|Hz|High frequency of operational range of the signal analyzer.|
 |`noise_figure`|false|double|dB|Noise figure of the signal analyzer.|
@@ -47,6 +47,10 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
+|`preselector_specification`|false|[HardwareSpecification](ntia-core.sigmf-ext.md#12-hardwarespecification-object)|N/A|Metadata to describe/specify the preselector.|
+|`cal_source_specification`|false|[HardwareSpecification](ntia-core.sigmf-ext.md#12-hardwarespecification-object)|N/A|Metadata to describe/specify the preselector calibration source.|
+|`lna_specification`|false|[HardwareSpecification](ntia-core.sigmf-ext.md#12-hardwarespecification-object)|N/A|Metadata to describe/specify the preselector low noise amplifier.|
+|`filter_specification`|false|[HardwareSpecification](ntia-core.sigmf-ext.md#12-hardwarespecification-object)|N/A|Metadata to describe/specify the preselector RF bandpass filters.|
 |`rf_paths`|false| Array of [RFPath](#14-rfpath-object)|N/A|Metadata that describes preselector RF paths.|
 
 ### 1.4 RFPath Object
@@ -54,13 +58,13 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`low_frequency_passband`|false|double|Hz|Low frequency of filter 1-dB passband.|
-|`high_frequency_passband`|false|double|Hz|High frequency of filter 1-dB passband.|
-|`low_frequency_stopband`|false|double|Hz|Low frequency of filter 60-dB stopband.|
-|`high_frequency_stopband`|false|double|Hz|High frequency of filter 60-dB stopband.|
-|`lna_gain`|false|double|dB|Gain of low noise amplifier.|
-|`lna_noise_figure`|false|double|dB|Noise figure of low noise amplifier.|
-|`cal_source_type`|false|string|N/A|E.g., `"calibrated noise source"`.|
+|`low_frequency_passband_filter`|false|double|Hz|Low frequency of filter 1-dB passband.|
+|`high_frequency_passband_filter`|false|double|Hz|High frequency of filter 1-dB passband.|
+|`low_frequency_stopband_filter`|false|double|Hz|Low frequency of filter 60-dB stopband.|
+|`high_frequency_stopband_filter`|false|double|Hz|High frequency of filter 60-dB stopband.|
+|`gain_lna`|false|double|dB|Gain of low noise amplifier.|
+|`noise_figure_lna`|false|double|dB|Noise figure of low noise amplifier.|
+|`type_cal_source`|false|string|N/A|E.g., `"calibrated noise source"`.|
 
 ## 2 Captures
 `ntia-sensor` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
@@ -74,7 +78,8 @@ Sensor definition follows a simplified hardware model comprised of the following
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`rf_path_index`|false|integer|N/A|Index of the [RFPath](#14-rfpath-object) object.|
-|`overload_flag`|false|boolean|N/A|Flag indicator of system signal overload.|
+|`overload_sensor`|false|boolean|N/A|Indicator of sensor overload.|
+|`overload_sigan`|false|boolean|N/A|Indicator of signal analyzer overload.|
 |`attenuation_sigan`|false|double|dB|Attenuation setting of the signal analyzer.|
 |`gain_sigan`|false|double|dB|Gain setting of the signal analyzer.|
 |`altitude`|false|double|meters|Height above mean sea level.|
