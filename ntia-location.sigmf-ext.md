@@ -1,7 +1,7 @@
 # ntia-location extension v1.0.0
 The ntia-location namespace provides metadata to describe a coordinate system and an object's location. 
 
-`ntia-location` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions. `ntia-location` SHOULD be used instead of lat/long in `sigmf-core`, where the use of custom coordinate system is required.
+`ntia-location` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions. `ntia-location` SHOULD be used instead of lat/long in `sigmf-core`, where the use of a custom coordinate system is required.
 
 ## 1 Global
 `ntia-location` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
