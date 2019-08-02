@@ -15,6 +15,8 @@ The `ntia-core` namespace adds generally useful metadata fields.
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique id of the antenna.|
 |`model`|true|string|N/A|Antenna make and model number. E.g. `"ARA CSB-16"`, `"L-com HG3512UP-NF"`.|
+|`description`|false|string|N/A|Description of the antenna.|
+|`supplemental_information`|false|string|N/A|Information abouut the antenna, e.g., url to on-line data sheets.|
 |`type`|false|string|N/A|Antenna type. E.g. `"dipole"`, `"biconical"`, `"monopole"`, `"conical monopole"`.|
 |`low_frequency`|false|double|Hz|Low frequency of operational range.|
 |`high_frequency`|false|double|Hz|High frequency of operational range.|
