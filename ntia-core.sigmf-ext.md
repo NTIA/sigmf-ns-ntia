@@ -7,16 +7,12 @@ The `ntia-core` namespace adds generally useful metadata fields.
 ## 1 Global
 `ntia-core` does not directly extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) object. ntia-core defines an `Antenna` object that is referenced through other global extensions ([ntia-sensor](ntia-sensor.sigmf-ext.md), [ntia-emitter](ntia-emitter.sigmf-ext.md))
 
-
 ## 1.1 Antenna Object
 `Antenna` object has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique id of the antenna.|
-|`model`|true|string|N/A|Antenna make and model number. E.g. `"ARA CSB-16"`, `"L-com HG3512UP-NF"`.|
-|`description`|false|string|N/A|Description of the antenna.|
-|`supplemental_information`|false|string|N/A|Information abouut the antenna, e.g., url to on-line data sheets.|
+|`antenna_specification`|true| [HardwareSpecification](#12-hardwarespecification-object) |N/A|Metadata that describes the sensor's antenna.|
 |`type`|false|string|N/A|Antenna type. E.g. `"dipole"`, `"biconical"`, `"monopole"`, `"conical monopole"`.|
 |`low_frequency`|false|double|Hz|Low frequency of operational range.|
 |`high_frequency`|false|double|Hz|High frequency of operational range.|
@@ -32,6 +28,17 @@ The `ntia-core` namespace adds generally useful metadata fields.
 |`steerable`|false|boolean|N/A|Defines if the antenna is steerable. If steerable, then `azimuth_angle` and `elevation_angle` are specified in annotation segment.|
 |`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
+
+## 1.2 HardwareSpecification Object
+`HardwareSpecification` object has the following properties:
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`id`|true|string|N/A|Unique id of hardware. E.g., serial number.|
+|`model`|false|string|N/A|Hardware make and model.|
+|`version`|false|string|N/A|Hardware version.|
+|`description`|false|string|N/A|Description of the hardware.|
+|`supplemental_information`|false|string|N/A|Information about hardware, e.g., url to on-line data sheets.|
 
 ## 2 Captures
 `ntia-core` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
