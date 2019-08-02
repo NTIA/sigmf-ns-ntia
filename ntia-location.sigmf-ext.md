@@ -17,7 +17,7 @@ The ntia-location namespace provides metadata to define a coordinate system, and
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique id for coordinate system.|
 |`description`|false|string|N/A|Description of coordinate system.|
-|`type`|true|string|N/A|Type of coordinate system. E.g. Number line, cartesian, polar, [Geographic](#12-geographic-coordinate-system-object), [Projected](#13-projected-coordinate-system-object).|
+|`type`|true|string|N/A|Type of coordinate system. E.g. Number line, cartesian, polar, [Geographic](#13-geographic-coordinate-system-object), [Projected](#12-projected-coordinate-system-object).|
 |`origin`|false|string|N/A|Origin of coordinate system. E.g. (0,0)|
 |`unit`|true|string|N/A|Unit of distance of coordinate system. E.g. Meters, feet, decimal degrees, DMS, city blocks.|
 
