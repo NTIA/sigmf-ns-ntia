@@ -12,7 +12,7 @@ The `ntia-core` namespace adds generally useful metadata fields.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`antenna_specification`|true| [HardwareSpecification](#12-hardwarespecification-object) |N/A|Metadata that describes the sensor's antenna.|
+|`antenna_spec`|true| [HardwareSpec](#12-hardwarespec-object) |N/A|Metadata to describe antenna.|
 |`type`|false|string|N/A|Antenna type. E.g. `"dipole"`, `"biconical"`, `"monopole"`, `"conical monopole"`.|
 |`low_frequency`|false|double|Hz|Low frequency of operational range.|
 |`high_frequency`|false|double|Hz|High frequency of operational range.|
@@ -29,8 +29,8 @@ The `ntia-core` namespace adds generally useful metadata fields.
 |`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
-## 1.2 HardwareSpecification Object
-`HardwareSpecification` object has the following properties:
+## 1.2 HardwareSpec Object
+`HardwareSpec` object has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
