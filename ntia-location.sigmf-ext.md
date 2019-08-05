@@ -1,5 +1,5 @@
 # ntia-location extension v1.0.0
-The ntia-location namespace provides metadata to describe a coordinate system and an object's location. 
+The ntia-location namespace provides metadata to describe a coordinate system and annotate an associated object's location. 
 
 `ntia-location` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions. `ntia-location` SHOULD be used instead of lat/long in `sigmf-core`, where an alternative coordinate system is required.
 
@@ -14,7 +14,7 @@ The ntia-location namespace provides metadata to describe a coordinate system an
 |`id`|true|string|N/A|Unique id for coordinate system.|
 |`description`|false|string|N/A|Description of coordinate system.|
 |`type`|false|string|N/A|Type of coordinate system. E.g. Number line, cartesian, polar, [Geographic](#13-geographic-coordinate-system-object), [Projected](#12-projected-coordinate-system-object).|
-|`origin`|false|string|N/A|Origin of coordinate system. Typically used in simpler coordinate systems. E.g. (0,0)|
+|`origin`|false|string|N/A|Origin of coordinate system. Typically used in simpler coordinate systems. E.g. (0,0,0)|
 |`unit`|true|string|N/A|Unit of distance of coordinate system. E.g. Meters, feet, decimal degrees, DMS, city blocks.|
 
 ### 1.2 Projected Coordinate System Object
