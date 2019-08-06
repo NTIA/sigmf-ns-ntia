@@ -16,6 +16,7 @@ The ntia-location namespace provides metadata to describe a coordinate system an
 |`type`|false|string|N/A|Type of coordinate system. E.g. Number line, cartesian, polar, [Geographic](#13-geographic-coordinate-system-object), [Projected](#12-projected-coordinate-system-object).|
 |`origin`|false|string|N/A|Origin of coordinate system. Typically used in simpler coordinate systems. E.g. (0,0,0)|
 |`unit`|true|string|N/A|Unit of distance of coordinate system. E.g. Meters, feet, decimal degrees, DMS, city blocks.|
+|`z-ref`|false|string|N/A|Z-axis reference datum. E.g. Mean Sea Level, Above ground level, Antenna elevation.| 
 
 ### 1.2 Projected Coordinate System Object
 `Projected` Coordinate System (PCS) has the following properties:
