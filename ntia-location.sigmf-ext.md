@@ -96,7 +96,7 @@ Geographic Coordinate System (`gcs`) has the following properties:
         "id": "1",
 	"description": "Lab-test coordinate system",
 	"type": "Cartesian",
-	"distance-unit": "mm"
+	"distance-unit": "mm",
 	"origin": "SW corner of lab",
 	"orientation-ref": "Magnetic north",
 	"elevation-ref": "Lab floor",
@@ -245,7 +245,7 @@ Geographic Coordinate System (`gcs`) has the following properties:
     "core:sample_rate": 15360000,
     "ntia-sensor:sensor": {
       "id": "Greyhound_1",
-      "type: "gcs",
+      "type": "gcs",
       "ntia-location:gcs": {
         "id": "EPSG 4326",
 	"description": "WGS 84",
@@ -288,7 +288,7 @@ Geographic Coordinate System (`gcs`) has the following properties:
     "core:sample_rate": 15360000,
     "ntia-sensor:sensor": {
       "id": "Greyhound_1",
-      "type: "gcs",
+      "type": "gcs",
       "ntia-location:gcs": {
         "id": "EPSG 4326",
 	"description": "WGS 84",
