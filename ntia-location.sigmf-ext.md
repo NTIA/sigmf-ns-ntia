@@ -13,7 +13,7 @@ The ntia-location namespace provides metadata to describe a coordinate system an
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique id for coordinate system.|
 |`description`|false|string|N/A|Description of coordinate system.|
-|`type`|false|string|N/A|Type of coordinate system. E.g. Number line, cartesian, polar, [gcs](#13-geographic-coordinate-system-object), [pcs](#12-projected-coordinate-system-object).|
+|`type`|false|string|N/A|Type of coordinate system. E.g. Number line, cartesian, polar, [Geographic](#13-geographic-coordinate-system-object), [Projected](#12-projected-coordinate-system-object).|
 |`distance-unit`|true|string|N/A|Unit of horizontal distance for coordinate system. E.g. Meters, feet, decimal degrees, DMS, city blocks.|
 |`origin`|false|string|N/A|Origin of cartesian coordinate system. E.g. State of CO, survey marker #MT 127.|
 |`orientation-ref`|false|string|N/A|Reference vector for orientation. E.g. Magnetic north
