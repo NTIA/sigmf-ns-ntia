@@ -46,7 +46,8 @@ Geographic Coordinate System (`gcs`) has the following properties:
 |`datum`|false|[Datum](#14-datum-object)|N/A|Datum of sphereoid or sphere. E.g. NAD27, NAD83, WGS84 |
 
 ### 1.4 Datum Object
-`Datum` has the following properties: 
+`Datum` has the following properties:
+
 |`id`|true|string|N/A|Unique id for datum, the [ESPG](http://www.epsg.org/) number is RECOMMENDED.|
 |`description`|false|string|N/A|Description of datum.|
 |`spheroid`|false|[Spheroid](#15-spheroid-object)|N/A|Underlying sphere or spheroid of datum.|
