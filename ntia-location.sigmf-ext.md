@@ -48,6 +48,8 @@ Geographic Coordinate System (`gcs`) has the following properties:
 ### 1.4 Datum Object
 `Datum` has the following properties:
 
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique id for datum, the [ESPG](http://www.epsg.org/) number is RECOMMENDED.|
 |`description`|false|string|N/A|Description of datum.|
 |`spheroid`|false|[Spheroid](#15-spheroid-object)|N/A|Underlying sphere or spheroid of datum.|
