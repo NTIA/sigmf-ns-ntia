@@ -300,7 +300,7 @@ Geographic Coordinate System (`gcs`) has the following properties:
 	        "description": "WGS 84"
 	      }
 	    },
-	"distance-unit": "Decimal degrees"
+	"distance-unit": "Decimal degrees",
 	"elevation-ref": "Above ground level",
 	"elevation-unit": "Feet"
       }
