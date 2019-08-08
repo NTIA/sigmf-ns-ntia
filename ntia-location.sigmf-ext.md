@@ -147,7 +147,7 @@ Geographic Coordinate System (`gcs`) has the following properties:
 	  "description": "Colorado North",
 	},
 	"elevation-ref": "MSL",
-        "elevation-unit": "Meters"
+        "elevation-unit": "us-ft"
       }
     },  
     "ntia-scos:task_id": 88438,
@@ -205,9 +205,9 @@ Geographic Coordinate System (`gcs`) has the following properties:
 	    }
 	  }
 	},
-	"distance-unit": "Meters",
+	"distance-unit": "us-ft",
 	"elevation-ref": "MSL",
-        "elevation-unit": "Meters"
+        "elevation-unit": "us-ft"
       }
     },  
     "ntia-scos:task_id": 88438,
