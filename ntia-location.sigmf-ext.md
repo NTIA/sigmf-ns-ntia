@@ -192,6 +192,9 @@ Geographic Coordinate System (`gcs`) has the following properties:
         "ntia-location:pcs": {
 	  "id": "EPSG:26753",
 	  "description": "Colorado North",
+	  "projection": "Lambert Conformal Conic",
+	  "false_easting": "+609601.2192024384",
+	  "false_northing": "+0",
 	  "ntia-location:gcs": {
 	    "id": "EPSG 4267",
 	    "description": "NAD27",
