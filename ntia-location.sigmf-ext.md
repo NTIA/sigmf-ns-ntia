@@ -83,7 +83,7 @@ Geographic Coordinate System (`gcs`) has the following properties:
 |`y`|false|double|N/A|Location of object releative to y-axis origin.|
 |`z`|false|double|N/A|Location of object releative to z-axis origin.|
 |`speed`|false|double|`distance_unit`/`time_unit`|Speed.|
-|`bearing`|false|double|degrees|Direction (angle relative to `orientation-ref`.|
+|`bearing`|false|double|degrees|Direction (angle relative to `orientation-ref`).|
 
 ## 4 Example
 
