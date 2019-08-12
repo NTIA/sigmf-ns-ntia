@@ -13,8 +13,9 @@ The ntia-location namespace provides metadata to describe a coordinate system an
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique id for coordinate system.|
 |`description`|false|string|N/A|Description of coordinate system.|
-|`type`|false|string|N/A|Type of coordinate system. E.g. Number line, cartesian, polar, [Geographic](#13-geographic-coordinate-system-object), [Projected](#12-projected-coordinate-system-object).|
+|`type`|false|string|N/A|Type of coordinate system. E.g. Speed and bearing, number line, cartesian, polar, [Geographic](#13-geographic-coordinate-system-object), [Projected](#12-projected-coordinate-system-object).|
 |`distance-unit`|true|string|N/A|Unit of horizontal distance for coordinate system. E.g. Meters, feet, decimal degrees, DMS, city blocks.|
+|`time-unit`|true|string|N/A|Unit of time for speed measurements. E.g. Hours, seconds.|
 |`origin`|false|string|N/A|Origin of cartesian coordinate system. E.g. State of CO, survey marker #MT 127.|
 |`orientation-ref`|false|string|N/A|Reference vector for orientation. E.g. Magnetic north
 |`orientation`|false|string|N/A|Rotation of cartesian coordinate system, from `orientation-ref` (in degrees). E.g. Annotating values as true north instead of magnetic north by including a magnetic declination (0,0,0.35)|
@@ -81,10 +82,59 @@ Geographic Coordinate System (`gcs`) has the following properties:
 |`x`|false|double|N/A|Location of object releative to x-axis origin.|
 |`y`|false|double|N/A|Location of object releative to y-axis origin.|
 |`z`|false|double|N/A|Location of object releative to z-axis origin.|
+|`speed`|false|double|`distance_unit`/`time_unit`|Speed.|
+|`bearing`|false|double|degrees|Direction (angle relative to `orientation-ref`.|
 
 ## 4 Example
 
-### 4.1 Cartesian Coordinate System - Simple Example
+### 4.1 Speed and Bearing - Simple Example
+```json
+{
+  "global": {
+    "core:datatype": "rf32_le",
+    "core:sample_rate": 15360000,
+    "ntia-sensor:sensor": {
+      "id": "Greyhound_1",
+      "ntia-location:coordinate_system": {
+        "id": "1",
+	"description": "Tunnel coordinate system",
+	"type": "Speed and bearing",
+	"distance-unit": "miles",
+	"time-unit": "hours",
+	"origin": "Tunnel entrance",
+	"orientation-ref": "Magnetic north",
+	"elevation-ref": "Tunnel entrance",
+	"elevation-units": "feet",
+      }
+    },  
+    "ntia-scos:task_id": 88438,
+    "ntia-scos:end_time": "2019-04-22T15:41:52Z"
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "SensorAnnotation",
+      "core:sample_start": 0,
+      "core:sample_count": 100,
+      "ntia-location:speed": 3,
+      "ntia-location:bearing": 89.7,
+      "ntia-location:z": -3.23
+    },
+    {
+      "ntia-core:annotation_type": "SensorAnnotation",
+      "core:sample_start": 0,
+      "core:sample_count": 100,
+      "ntia-location:speed": 4.5,
+      "ntia-location:bearing": 94.3,
+      "ntia-location:z": -5.77
+    },
+  ]
+}
+```
+
+### 4.2 Cartesian Coordinate System - Simple Example
 ```json
 {
   "global": {
@@ -130,7 +180,7 @@ Geographic Coordinate System (`gcs`) has the following properties:
 }
 ```
 
-### 4.2 Projected Coordinate System - Simple Example
+### 4.3 Projected Coordinate System - Simple Example
 ```json
 {
   "global": {
@@ -177,7 +227,7 @@ Geographic Coordinate System (`gcs`) has the following properties:
 }
 ```
 
-### 4.3 Projected Coordinate System - Complex Example
+### 4.4 Projected Coordinate System - Complex Example
 ```json
 {
   "global": {
@@ -240,7 +290,7 @@ Geographic Coordinate System (`gcs`) has the following properties:
 }
 ```
 
-### 4.4 Geographic Coordinate System - Simple Example
+### 4.5 Geographic Coordinate System - Simple Example
 ```json
 {
   "global": {
@@ -283,7 +333,7 @@ Geographic Coordinate System (`gcs`) has the following properties:
 }
 ```
 
-### 4.5 Geographic Coordinate System - Complex Example
+### 4.6 Geographic Coordinate System - Complex Example
 ```json
 {
   "global": {
