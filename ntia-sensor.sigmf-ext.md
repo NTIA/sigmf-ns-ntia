@@ -98,7 +98,7 @@ Sensor definition follows a simplified hardware model comprised of the following
     "ntia-sensor:sensor": {
       "id": "Greyhound_1",
       "ntia-core:antenna": {
-        "model": "model_X",
+        "model": "Greyhound",
         "type": "omnidirectional",
         "low_frequency": 300000000,
         "high_frequency": 3000000000,
@@ -121,14 +121,14 @@ Sensor definition follows a simplified hardware model comprised of the following
         ]
       },
       "signal_analyzer": {
-        "model": "SDR 123xyz",
+        "model": "USRP B210",
         "low_frequency": 300000000,
         "high_frequency": 3000000000,
         "noise_figure": 2,
         "max_power": -5,
         "a2d_bits": 256
       },
-      "host_controller": "Host Controller 123"
+      "host_controller": "Intel NUC"
     },
     "ntia-scos:task_id": 88438,
     "ntia-scos:end_time": "2019-04-22T15:41:52Z"
