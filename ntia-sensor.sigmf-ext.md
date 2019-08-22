@@ -116,7 +116,7 @@ Sensor definition follows a simplified hardware model comprised of the following
             "low_frequency_stopband": 700000000,
             "high_frequency_stopband": 750000000,
             "lna_noise_figure": 2.5,
-            "cal_source_type": "calibrated noise source"
+            "cal_source_type": "sdr calibration"
           }
         ]
       },
