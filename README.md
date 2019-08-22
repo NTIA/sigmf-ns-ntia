@@ -28,6 +28,7 @@ extensions to the core SigMF specification.
 - [`ntia-algorithm`](ntia-algorithm.sigmf-ext.md) describes the measurement performed (detectors, algorithms, etc)
 - [`ntia-calibration`](ntia-calibration.sigmf-ext.md) provides information about calibration factors applied to the data
 - [`ntia-emitter`](ntia-emitter.sigmf-ext.md) gives information about the emitter being measured
+- [`ntia-location`](ntia-location.sigmf-ext.md) gives information about the types of coordinate systems used in the metadata. 
 - [`ntia-environment`](ntia-environment.sigmf-ext.md) gives information about the environment around a sensor or emitter
 - [`ntia-waveform`](ntia-waveform.sigmf-ext.md) provides metadata to describe measured or transmitted waveforms
 - [`ntia-scos`](ntia-scos.sigmf-ext.md) provides metadata for the NTIA Spectrum Characterization and Occupancy Sensing (SCOS) implementation
