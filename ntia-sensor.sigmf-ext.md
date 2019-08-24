@@ -23,12 +23,6 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`signal_analyzer`|true| [SignalAnalyzer](#12-signal-analyzer-object) |N/A|Metadata to describe/specify the signal analyzer.|
 |`computer_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify onboard computer.|
 |`mobile`|false|boolean|N/A|Defines if the sensor is mobile.|
-|`latitude`|false|double|decimal degrees|Latitude.|
-|`longitude`|false|double|decimal degrees|Longitude.|
-|`altitude`|false|double|meters|Height above mean sea level.|
-|`speed`|false|double|m/s|Speed.|
-|`bearing`|false|double|degrees|Direction (angle relative to true North).|
-|`gps_nmea`|false|string|NMEA|[NMEA message](https://en.wikipedia.org/wiki/NMEA_0183) from gps receiver.|
 
 ### 1.2 SignalAnalyzer Object
 `SignalAnalyzer` the following properties:
@@ -82,6 +76,8 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`overload_sigan`|false|boolean|N/A|Indicator of signal analyzer overload.|
 |`attenuation_sigan`|false|double|dB|Attenuation setting of the signal analyzer.|
 |`gain_sigan`|false|double|dB|Gain setting of the signal analyzer.|
+|`latitude`|false|double|decimal degrees|Latitude.|
+|`longitude`|false|double|decimal degrees|Longitude.|
 |`altitude`|false|double|meters|Height above mean sea level.|
 |`speed`|false|double|m/s|Speed.|
 |`bearing`|false|double|degrees|Direction (angle relative to true North).|
