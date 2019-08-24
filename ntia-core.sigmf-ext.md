@@ -26,8 +26,6 @@ The `ntia-core` namespace adds generally useful metadata fields.
 |`voltage_standing_wave_ratio`|false|double|volts|Voltage standing wave ratio.|
 |`cable_loss`|false|double|dB|Cable loss for cable connecting antenna and preselector.|
 |`steerable`|false|boolean|N/A|Defines if the antenna is steerable. If steerable, then `azimuth_angle` and `elevation_angle` are specified in annotation segment.|
-|`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
-|`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
 ## 1.2 HardwareSpec Object
 `HardwareSpec` object has the following properties:
