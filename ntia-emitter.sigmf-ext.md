@@ -21,7 +21,6 @@ The ntia-emitter namespace provides emitter defintion and properties.
 |`power`|false|double|dBm|Power referenced to antenna input.|
 |`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#antenna)|N/A|Metadata that describes the antenna.|
 |`transmitter`|false|[Transmitter](#12-transmitter-object)|N/A|Metadata that describes the transmitter.|
-|`waveform`|false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes transmitted waveform.|
 
 ### 1.2 Transmitter Object
 `Transmitter` object has the following properties:
@@ -42,8 +41,6 @@ The ntia-emitter namespace provides emitter defintion and properties.
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique id of the emitter.|
-|`power`|false|double|dBm|Power referenced to antenna input.|
-|`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#antenna)|N/A|Metadata that describes the emitter's antenna|
 |`waveform`|false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes transmitted waveform.
 |`latitude`|false|double|decimal degrees|Latitude.|
 |`longitude`|false|double|decimal degrees|Longitude.|
