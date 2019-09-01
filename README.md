@@ -26,7 +26,6 @@ extensions to the core SigMF specification.
 - [`ntia-core`](ntia-core.sigmf-ext.md) adds generally useful metadata fields
 - [`ntia-sensor`](ntia-sensor.sigmf-ext.md) defines hardware components and settings
 - [`ntia-algorithm`](ntia-algorithm.sigmf-ext.md) describes the measurement performed (detectors, algorithms, etc)
-- [`ntia-calibration`](ntia-calibration.sigmf-ext.md) provides information about calibration factors applied to the data
 - [`ntia-emitter`](ntia-emitter.sigmf-ext.md) gives information about the emitter being measured
 - [`ntia-environment`](ntia-environment.sigmf-ext.md) gives information about the environment around a sensor or emitter
 - [`ntia-waveform`](ntia-waveform.sigmf-ext.md) provides metadata to describe measured or transmitted waveforms
