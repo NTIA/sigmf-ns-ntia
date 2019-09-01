@@ -9,6 +9,7 @@ The ntia-sensor namespace provides metadata to describe RF sensors.
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`sensor`|false|[Sensor](#11-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
+|`calibration_datetime`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Time of last calibration. RECOMMENDED.|
 
 ### 1.1 Sensor Object
 Sensor definition follows a simplified hardware model comprised of the following elements: Antenna, Preselector, Signal Analyzer, and Host Controller. The antenna converts electromagnetic energy to a voltage. The preselector can provide local calibration signals, RF filtering to protect from strong out-of-band signals, and low-noise amplification to improve sensitivity. The signal analyzer (e.g., software defined radio) provides tuning, down conversion, sampling, and digital signal processing. Sensor implementations are not required to have each component, but metadata SHOULD specify the presence, model numbers, and operational parameters associated with each.
@@ -82,6 +83,20 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`speed`|false|double|m/s|Speed.|
 |`bearing`|false|double|degrees|Direction (angle relative to true North).|
 |`gps_nmea`|false|string|NMEA|[NMEA message](https://en.wikipedia.org/wiki/NMEA_0183) from gps receiver.|
+
+### 3.2 CalibrationAnnotation Segment
+`CalibrationAnnotation` has the following properties:
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`scaling_factor_sigan`|false|double|N/A|Factor that converts signal analyzer A/D output to volts.|
+|`noise_figure_sigan`|false|double|dB|Noise figure of signal analyzer.|
+|`1db_compression_point_sigan`|false|double|dBm|Maximum input of signal analyzer.|
+|`enbw_sigan`|false|double|Hz|Equivalent noise bandwidth of signal analyzer.|
+|`gain_sensor`|false|double|dB|Gain of sensor.|
+|`noise_figure_sensor`|false|double|dB|Noise figure of sensor.|
+|`1db_compression_point_sensor`|false|double|dBm|Maximum input of sensor.|
+|`mean_noise_power_sensor`|false|double|dBm/Hz|Mean noise power density of sensor.|
 
 ## 4 Example
 
