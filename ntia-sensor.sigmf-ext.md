@@ -89,13 +89,14 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`scaling_factor_sigan`|false|double|N/A|Factor that converts signal analyzer A/D output to volts.|
+|`gain_sigan`|false|double|N/A|Physical gain of signal analyzer (may differ from gain setting).|
 |`noise_figure_sigan`|false|double|dB|Noise figure of signal analyzer.|
 |`1db_compression_point_sigan`|false|double|dBm|Maximum input of signal analyzer.|
 |`enbw_sigan`|false|double|Hz|Equivalent noise bandwidth of signal analyzer.|
 |`gain_sensor`|false|double|dB|Gain of sensor.|
 |`noise_figure_sensor`|false|double|dB|Noise figure of sensor.|
 |`1db_compression_point_sensor`|false|double|dBm|Maximum input of sensor.|
+|`enbw_sensor`|false|double|Hz|Equivalent noise bandwidth of sensor.|
 |`mean_noise_power_sensor`|false|double|dBm/Hz|Mean noise power density of sensor.|
 
 ## 4 Example
@@ -176,6 +177,30 @@ Sensor definition follows a simplified hardware model comprised of the following
       "core:sample_count": 100,
       "core:latitude": 40.56,
       "core:longitude": -105.03
+    }
+  ]
+}
+```
+
+### 4.3 CalibrationAnnotation Example
+```json
+{
+  "global": {
+	...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "CalibrationAnnotation",
+      "core:gain_sigan": 41.464266174671376,
+      "core:noise_figure_sigan": 10.59849353429361,
+      "core:enbw_sigan": 9173161.088949349,
+      "core:gain_sensor": 39.974129616887843,
+      "core:noise_figure_sensor": 12.66185043866723,
+      "core:enbw_sensor": 7767553.942299673,
+      "core:mean_noise_power_sensor": -161.338149561,
     }
   ]
 }
