@@ -75,8 +75,8 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`rf_path_index`|false|integer|N/A|Index of the [RFPath](#14-rfpath-object) object.|
 |`overload_sensor`|false|boolean|N/A|Indicator of sensor overload.|
 |`overload_sigan`|false|boolean|N/A|Indicator of signal analyzer overload.|
-|`attenuation_sigan`|false|double|dB|Attenuation setting of the signal analyzer.|
-|`gain_sigan`|false|double|dB|Gain setting of the signal analyzer.|
+|`attenuation_setting_sigan`|false|double|dB|Attenuation setting of the signal analyzer.|
+|`gain_setting_sigan`|false|double|dB|Gain setting of the signal analyzer.|
 |`latitude`|false|double|decimal degrees|Latitude.|
 |`longitude`|false|double|decimal degrees|Longitude.|
 |`altitude`|false|double|meters|Height above mean sea level.|
@@ -89,11 +89,11 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`gain_sigan`|false|double|N/A|Physical gain of signal analyzer (may differ from gain setting).|
+|`gain_sigan`|false|double|N/A|Gain of signal analzyer (may differ with signal analyzer gain setting).|
 |`noise_figure_sigan`|false|double|dB|Noise figure of signal analyzer.|
 |`1db_compression_point_sigan`|false|double|dBm|Maximum input of signal analyzer.|
 |`enbw_sigan`|false|double|Hz|Equivalent noise bandwidth of signal analyzer.|
-|`gain_sensor`|false|double|dB|Gain of sensor.|
+|`gain_preselector`|false|double|dB|Gain of sensor preselector.|
 |`noise_figure_sensor`|false|double|dB|Noise figure of sensor.|
 |`1db_compression_point_sensor`|false|double|dBm|Maximum input of sensor.|
 |`enbw_sensor`|false|double|Hz|Equivalent noise bandwidth of sensor.|
