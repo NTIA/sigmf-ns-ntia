@@ -32,9 +32,6 @@ public class Emitter extends Mover implements Serializable  {
     @JsonProperty(value="antenna", required = false)
     protected Antenna antenna;
 
-    @JsonProperty(value="waveform", required = false)
-    protected Waveform waveform;
-
     @JsonProperty(value="transmitter", required = false)
     protected Transmitter transmitter;
 
@@ -55,14 +52,6 @@ public class Emitter extends Mover implements Serializable  {
 
     public void setAntenna(Antenna antenna) {
         this.antenna = antenna;
-    }
-
-    public Waveform getWaveform() {
-        return waveform;
-    }
-
-    public void setWaveform(Waveform waveform) {
-        this.waveform = waveform;
     }
 
     public String getId() {

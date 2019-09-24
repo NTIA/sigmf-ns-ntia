@@ -17,76 +17,93 @@ public class RFPath implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="low_frequency_passband", required = false)
-    protected Double lowFrequencyPassband;
+    @JsonProperty(value="low_frequency_passband_filter", required = false)
+    protected Double lowFrequencyPassbandFilter;
 
     @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="high_frequency_passband", required = false)
-    protected Double highFrequencyPassband;
+    @JsonProperty(value="high_frequency_passband_filter", required = false)
+    protected Double highFrequencyPassbandFilter;
 
     @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="low_frequency_stopband", required = false)
-    protected Double lowFrequencyStopband;
+    @JsonProperty(value="low_frequency_stopband_filter", required = false)
+    protected Double lowFrequencyStopbandFilter;
 
     @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value ="high_frequency_stopband", required = false)
-    protected Double highFrequencyStopband;
+    @JsonProperty(value ="high_frequency_stopband_filter", required = false)
+    protected Double highFrequencyStopbandFilter;
 
     @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="lna_noise_figure", required = false)
-    protected Double lnaNoiseFigure;
+    @JsonProperty(value ="gain_lna", required = false)
+    protected Double gainLna;
 
-    @JsonProperty(value = "cal_source_type", required = false)
-    protected String calSourceType;
+    @JsonSerialize(using= DoubleSerializer.class)
+    @JsonProperty(value="noise_figure_lna", required = false)
+    protected Double noiseFigureLna;
+
+    @JsonProperty(value = "type_cal_source", required = false)
+    protected String typeCalSource;
+
+    public Double getGainLna() {
+        return gainLna;
+    }
+
+    public void setGainLna(Double gainLna) {
+        this.gainLna = gainLna;
+    }
+
+    public void setOtherFields(Map<String, Object> otherFields) {
+        this.otherFields = otherFields;
+    }
+
 
     protected Map<String, Object> otherFields = new HashMap<>();
 
-    public Double getLowFrequencyPassband() {
-        return lowFrequencyPassband;
+    public Double getLowFrequencyPassbandFilter() {
+        return lowFrequencyPassbandFilter;
     }
 
-    public void setLowFrequencyPassband(Double lowFrequencyPassband) {
-        this.lowFrequencyPassband = lowFrequencyPassband;
+    public void setLowFrequencyPassbandFilter(Double lowFrequencyPassbandFilter) {
+        this.lowFrequencyPassbandFilter = lowFrequencyPassbandFilter;
     }
 
-    public Double getHighFrequencyPassband() {
-        return highFrequencyPassband;
+    public Double getHighFrequencyPassbandFilter() {
+        return highFrequencyPassbandFilter;
     }
 
-    public void setHighFrequencyPassband(Double highFrequencyPassband) {
-        this.highFrequencyPassband = highFrequencyPassband;
+    public void setHighFrequencyPassbandFilter(Double highFrequencyPassbandFilter) {
+        this.highFrequencyPassbandFilter = highFrequencyPassbandFilter;
     }
 
-    public Double getLowFrequencyStopband() {
-        return lowFrequencyStopband;
+    public Double getLowFrequencyStopbandFilter() {
+        return lowFrequencyStopbandFilter;
     }
 
-    public void setLowFrequencyStopband(Double getLowFrequencyStopband) {
-        this.lowFrequencyStopband = getLowFrequencyStopband;
+    public void setLowFrequencyStopbandFilter(Double getLowFrequencyStopband) {
+        this.lowFrequencyStopbandFilter = getLowFrequencyStopband;
     }
 
-    public Double getHighFrequencyStopband() {
-        return highFrequencyStopband;
+    public Double getHighFrequencyStopbandFilter() {
+        return highFrequencyStopbandFilter;
     }
 
-    public void setHighFrequencyStopband(Double getHighFrequencyStopband) {
-        this.highFrequencyStopband = getHighFrequencyStopband;
+    public void setHighFrequencyStopbandFilter(Double getHighFrequencyStopband) {
+        this.highFrequencyStopbandFilter = getHighFrequencyStopband;
     }
 
-    public Double getLnaNoiseFigure() {
-        return lnaNoiseFigure;
+    public Double getNoiseFigureLna() {
+        return noiseFigureLna;
     }
 
-    public void setLnaNoiseFigure(Double lnaNoiseFigure) {
-        this.lnaNoiseFigure = lnaNoiseFigure;
+    public void setNoiseFigureLna(Double noiseFigureLna) {
+        this.noiseFigureLna = noiseFigureLna;
     }
 
-    public String getCalSourceType() {
-        return calSourceType;
+    public String getTypeCalSource() {
+        return typeCalSource;
     }
 
-    public void setCalSourceType(String calSourceType) {
-        this.calSourceType = calSourceType;
+    public void setTypeCalSource(String typeCalSource) {
+        this.typeCalSource = typeCalSource;
     }
 
     @JsonAnyGetter
