@@ -1,10 +1,7 @@
 package gov.doc.ntia.sigmf;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
@@ -14,6 +11,7 @@ import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -105,11 +103,16 @@ public class Global implements Serializable {
     protected DigitalFilter antiAliasingFilter;
 
 
+    @JsonFormat
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
+    @JsonProperty(value="ntia-sensor:calibration_datetime", required = false)
+    protected Date calibrationDate;
 
 
     public DigitalFilter getAntiAliasingFilter() {
         return antiAliasingFilter;
     }
+
 
 
 
@@ -275,7 +278,12 @@ public class Global implements Serializable {
         otherFields.put(key, value);
     }
 
+    public Date getCalibrationDate() {
+        return calibrationDate;
+    }
 
-
+    public void setCalibrationDate(Date calibrationDate) {
+        this.calibrationDate = calibrationDate;
+    }
 
 }

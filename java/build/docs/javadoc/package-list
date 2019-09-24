@@ -7,7 +7,6 @@ gov.doc.ntia.sigmf.examples.emitter
 gov.doc.ntia.sigmf.examples.environment
 gov.doc.ntia.sigmf.examples.waveform
 gov.doc.ntia.sigmf.ext.annotation.algorithm
-gov.doc.ntia.sigmf.ext.annotation.callibration
 gov.doc.ntia.sigmf.ext.annotation.core
 gov.doc.ntia.sigmf.ext.annotation.emitter
 gov.doc.ntia.sigmf.ext.annotation.environment

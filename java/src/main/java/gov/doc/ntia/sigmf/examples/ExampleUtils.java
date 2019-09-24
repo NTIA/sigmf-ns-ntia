@@ -44,15 +44,9 @@ public class ExampleUtils {
         Sensor sensor = new Sensor();
         sensor.setId(id);
         sensor.setAntenna(getAntenna());
-        sensor.setReceiver(getReceiver());
         return sensor;
     }
 
-    public static Receiver getReceiver() {
-        Receiver r = new Receiver();
-        r.setModel("Model " + Math.random()*100);
-        return r;
-    }
 
     public static Antenna getAntenna() {
         Antenna antenna = new Antenna();

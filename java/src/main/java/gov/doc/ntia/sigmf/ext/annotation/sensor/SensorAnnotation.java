@@ -18,6 +18,31 @@ public class SensorAnnotation extends Annotation implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @JsonProperty(value="ntia-sensor:rf_path_index", required = false)
+    protected Integer rfPathIndex;
+
+    @JsonProperty(value="ntia-sensor:overload_sensor", required = false)
+    protected Boolean overloadSensor;
+
+    @JsonProperty(value="ntia-sensor:overload_sigan", required = false)
+    protected Boolean overloadSigan;
+
+    @JsonSerialize(using= DoubleSerializer.class)
+    @JsonProperty(value="ntia-sensor:attenuation_setting_sigan", required = false)
+    protected Double attenuationSettingSigan;
+
+    @JsonSerialize(using= DoubleSerializer.class)
+    @JsonProperty(value="ntia-sensor:gain_setting_sigan", required = false)
+    protected Double gainSettingSigan;
+
+    @JsonSerialize(using= DoubleSerializer.class)
+    @JsonProperty(value="ntia-sensor:latitude", required = false)
+    protected Double latitude;
+
+    @JsonSerialize(using= DoubleSerializer.class)
+    @JsonProperty(value="ntia-sensor:longitude", required = false)
+    protected Double longitude;
+
     @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="ntia-sensor:altitude", required = false)
     protected Double altitude;
@@ -30,18 +55,69 @@ public class SensorAnnotation extends Annotation implements Serializable {
     @JsonProperty(value="ntia-sensor:bearing", required = false)
     protected Double bearing;
 
-    @JsonProperty(value="ntia-sensor:preselector_rf_path_number", required = false)
-    protected Integer preselectorPathNumber;
-
     @JsonProperty(value="ntia-sensor:gps_nmea", required = false)
     protected String gpsNmea;
 
-    @JsonProperty(value="ntia-sensor:overload_flag", required = false)
-    protected Boolean overload;
 
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="ntia-sensor:receiver_attenuation", required = false)
-    protected Double receiverAttenuation;
+    public Integer getRfPathIndex() {
+        return rfPathIndex;
+    }
+
+    public void setRfPathIndex(Integer rfPathIndex) {
+        this.rfPathIndex = rfPathIndex;
+    }
+
+    public Boolean getOverloadSensor() {
+        return overloadSensor;
+    }
+
+    public void setOverloadSensor(Boolean overloadSensor) {
+        this.overloadSensor = overloadSensor;
+    }
+
+    public Boolean getOverloadSigan() {
+        return overloadSigan;
+    }
+
+    public void setOverloadSigan(Boolean overloadSigan) {
+        this.overloadSigan = overloadSigan;
+    }
+
+    public Double getAttenuationSettingSigan() {
+        return attenuationSettingSigan;
+    }
+
+    public void setAttenuationSettingSigan(Double attenuationSettingSigan) {
+        this.attenuationSettingSigan = attenuationSettingSigan;
+    }
+
+    public Double getGainSettingSigan() {
+        return gainSettingSigan;
+    }
+
+    public void setGainSettingSigan(Double gainSettingSigan) {
+        this.gainSettingSigan = gainSettingSigan;
+    }
+
+    @Override
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    @Override
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    @Override
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    @Override
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
 
     public Double getAltitude() {
         return altitude;
@@ -68,11 +144,11 @@ public class SensorAnnotation extends Annotation implements Serializable {
     }
 
     public Integer getPreselectorPathNumber() {
-        return preselectorPathNumber;
+        return rfPathIndex;
     }
 
     public void setPreselectorPathNumber(Integer preselectorPathNumber) {
-        this.preselectorPathNumber = preselectorPathNumber;
+        this.rfPathIndex = preselectorPathNumber;
     }
 
     public String getGpsNmea() {
@@ -83,20 +159,6 @@ public class SensorAnnotation extends Annotation implements Serializable {
         this.gpsNmea = gpsNmea;
     }
 
-    public Boolean getOverload() {
-        return overload;
-    }
 
-    public void setOverload(Boolean overload) {
-        this.overload = overload;
-    }
-
-    public Double getReceiverAttenuation() {
-        return receiverAttenuation;
-    }
-
-    public void setReceiverAttenuation(Double receiverAttenuation) {
-        this.receiverAttenuation = receiverAttenuation;
-    }
 
 }

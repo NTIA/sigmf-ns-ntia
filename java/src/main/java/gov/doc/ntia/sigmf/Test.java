@@ -2,18 +2,15 @@ package gov.doc.ntia.sigmf;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
-import gov.doc.ntia.sigmf.ext.annotation.callibration.CalibrationAnnotation;
-import gov.doc.ntia.sigmf.ext.annotation.callibration.SystemNoise;
+import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.emitter.EmitterAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
+import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
-import gov.doc.ntia.sigmf.ext.global.sensor.Preselector;
-import gov.doc.ntia.sigmf.ext.global.sensor.RFPath;
-import gov.doc.ntia.sigmf.ext.global.sensor.Receiver;
-import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
+import gov.doc.ntia.sigmf.ext.global.sensor.*;
 import gov.doc.ntia.sigmf.ext.global.waveform.CodingRate;
 import gov.doc.ntia.sigmf.ext.global.waveform.IEEE80211p;
 import gov.doc.ntia.sigmf.ext.global.waveform.Waveform;
@@ -97,6 +94,25 @@ public class Test {
         return filter;
     }
 
+
+    private static SignalAnalyzer getSignalAnalyzer(){
+        SignalAnalyzer sigan = new SignalAnalyzer();
+        sigan.setA2dBits(16);
+        sigan.setHighFrequency(700000000d);
+        sigan.setLowFrequency(100000000d);
+        sigan.setNoiseFigure(20.0);
+        sigan.setSiganSpec(getSiganSpec());
+        return sigan;
+    }
+
+
+    private static HardwareSpec getSiganSpec(){
+        HardwareSpec siganSpec = new HardwareSpec();
+        siganSpec.setId("875649305NLDKDJN");
+        siganSpec.setModel("Etus B210");
+        return siganSpec;
+    }
+
     private static Sensor getSensor() {
         Sensor sensor = new Sensor();
         sensor.setId("GH123");
@@ -105,10 +121,8 @@ public class Test {
         sensor.setBearing(12d);
         sensor.setLatitude(12d);
         sensor.setLongitude(180d);
-        sensor.setHostController("host controller");
+        sensor.setSignalAnalyzer(getSignalAnalyzer());
         sensor.setAntenna(getAntenna());
-        sensor.setReceiver(getReceiver());
-        sensor.setGpsNmea("gps fix");
         sensor.setMobile(true);
         sensor.setPreselector(getPreselector());
         return sensor;
@@ -121,7 +135,6 @@ public class Test {
         e1.setAntenna(getAntenna());
         e1.setId("e1");
         e1.setPower(12.0);
-        e1.setWaveform(getWaveform());
         emitters.add(e1);
         return emitters;
     }
@@ -151,12 +164,12 @@ public class Test {
         Preselector preselector = new Preselector();
         RFPath[] rfPaths = new RFPath[1];
         RFPath rfPath = new RFPath();
-        rfPath.setCalSourceType("calibrated noise source");
-        rfPath.setHighFrequencyPassband(750000000d);
-        rfPath.setHighFrequencyStopband(750000000d);
-        rfPath.setLnaNoiseFigure(2.5);
-        rfPath.setLowFrequencyPassband(700000000d);
-        rfPath.setLowFrequencyStopband(700000000d);
+        rfPath.setTypeCalSource("calibrated noise source");
+        rfPath.setHighFrequencyPassbandFilter(750000000d);
+        rfPath.setHighFrequencyStopbandFilter(750000000d);
+        rfPath.setNoiseFigureLna(2.5);
+        rfPath.setLowFrequencyPassbandFilter(700000000d);
+        rfPath.setLowFrequencyStopbandFilter(700000000d);
         rfPaths[0] = rfPath;
         preselector.setRfPaths(rfPaths);
         return preselector;
@@ -308,16 +321,17 @@ public class Test {
 
     private static Annotation getCalibrationAnnotation() {
         CalibrationAnnotation cal = new CalibrationAnnotation();
-        cal.setCalibrationDate(Calendar.getInstance().getTime());
-        cal.setReceiverLdbCompressionPoint(12.0);
-        cal.setReceiverScalingFactor(2.0);
-        SystemNoise noise = new SystemNoise();
-        noise.setUnits("dB");
-        noise.setReference("reference");
-        noise.setMeanPowerDensity(1.0);
+        cal.setGainSigan(2.0);
+        cal.setNoiseFigureSigan(1.0);
+        cal.setOneDbCompressionPointSigan(12.0);
+        cal.setEnbwSigan(2.0);
+        cal.setGainPreselector(6.0);
+        cal.setNoiseFigureSensor(5.0);
+        cal.setOneDbCompressionPointSensor(20.0);
+        cal.setEnbwSensor(3.0);
+        cal.setMeanNoisePowerSensor(5.0);
         cal.setSampleCount(100l);
         cal.setSampleStart(0l);
-        cal.setReceiverSystemNoisePower(noise);
         return cal;
     }
 

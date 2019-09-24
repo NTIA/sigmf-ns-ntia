@@ -109,6 +109,18 @@ public class ScheduleEntry implements Serializable {
         otherFields.put(key, value);
     }
 
+    @JsonIgnore
+    public String getScheduleName(){
+        String scheduleName = "";
+        if(id != null){
+            if(id.endsWith("/")) {
+                scheduleName = id.substring(0, id.length() - 1);
+            }
+            int index = scheduleName.lastIndexOf("/");
+            scheduleName = scheduleName.substring(index+1);
+        }
+        return scheduleName;
+    }
 
 
 

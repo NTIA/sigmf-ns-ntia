@@ -5,10 +5,8 @@ import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
-import gov.doc.ntia.sigmf.ext.global.sensor.Preselector;
-import gov.doc.ntia.sigmf.ext.global.sensor.RFPath;
-import gov.doc.ntia.sigmf.ext.global.sensor.Receiver;
-import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
+import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
+import gov.doc.ntia.sigmf.ext.global.sensor.*;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -32,9 +30,8 @@ public class SensorExample implements Example {
         Sensor sensor = new Sensor();
         sensor.setId("Greyhound_1");
         sensor.setAntenna(getAntenna());
-        sensor.setHostController("Host Controller 123");
+        sensor.setSignalAnalyzer(getSignalAnalyzer());
         sensor.setPreselector(getPreselector());
-        sensor.setReceiver(getReceiver());
         return sensor;
     }
 
@@ -53,15 +50,32 @@ public class SensorExample implements Example {
         Preselector preselector = new Preselector();
         RFPath[] rfPaths = new RFPath[1];
         RFPath rfPath = new RFPath();
-        rfPath.setCalSourceType("calibrated noise source");
-        rfPath.setHighFrequencyPassband(750000000d);
-        rfPath.setHighFrequencyStopband(750000000d);
-        rfPath.setLnaNoiseFigure(2.5);
-        rfPath.setLowFrequencyPassband(700000000d);
-        rfPath.setLowFrequencyStopband(700000000d);
+        rfPath.setTypeCalSource("calibrated noise source");
+        rfPath.setHighFrequencyPassbandFilter(750000000d);
+        rfPath.setHighFrequencyStopbandFilter(750000000d);
+        rfPath.setNoiseFigureLna(2.5);
+        rfPath.setLowFrequencyPassbandFilter(700000000d);
+        rfPath.setLowFrequencyStopbandFilter(700000000d);
         rfPaths[0] = rfPath;
         preselector.setRfPaths(rfPaths);
         return preselector;
+    }
+
+    private SignalAnalyzer getSignalAnalyzer(){
+        SignalAnalyzer sigan = new SignalAnalyzer();
+        sigan.setA2dBits(16);
+        sigan.setHighFrequency(700000000d);
+        sigan.setLowFrequency(100000000d);
+        sigan.setNoiseFigure(20.0);
+        sigan.setSiganSpec(getSiganSpec());
+        return sigan;
+    }
+
+    private HardwareSpec getSiganSpec(){
+        HardwareSpec siganSpec = new HardwareSpec();
+        siganSpec.setId("875649305NLDKDJN");
+        siganSpec.setModel("Etus B210");
+        return siganSpec;
     }
 
     private Antenna getAntenna() {

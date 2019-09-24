@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.Mover;
+import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -17,20 +18,56 @@ public class Sensor extends Mover implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="id", required=true)
+    @JsonProperty(value = "id", required = true)
     protected String id;
 
-    @JsonProperty(value="ntia-core:antenna", required = true)
+    @JsonProperty(value = "sensor_spec", required = true)
+    protected HardwareSpec sensorSpec;
+
+    @JsonProperty(value="antenna", required = true)
     protected Antenna antenna;
 
     @JsonProperty(value="preselector", required = false)
     protected Preselector preselector;
 
-    @JsonProperty(value="receiver", required = true)
-    protected Receiver receiver;
+    @JsonProperty(value="signal_analyzer", required = true)
+    protected SignalAnalyzer signalAnalyzer;
 
-    @JsonProperty(value="host_controller", required = false)
-    protected String hostController;
+    @JsonProperty(value="computer_spec", required = true)
+    protected HardwareSpec computerSpec;
+
+    @JsonProperty(value="mobile", required=false)
+    protected Boolean mobile;
+
+
+    public HardwareSpec getSensorSpec() {
+        return sensorSpec;
+    }
+
+    public void setSensorSpec(HardwareSpec sensorSpec) {
+        this.sensorSpec = sensorSpec;
+    }
+
+
+    public void setSignalAnalyzer(SignalAnalyzer signalAnalyzer) {
+        this.signalAnalyzer = signalAnalyzer;
+    }
+
+    public HardwareSpec getComputerSpec() {
+        return computerSpec;
+    }
+
+    public void setComputerSpec(HardwareSpec computerSpec) {
+        this.computerSpec = computerSpec;
+    }
+
+    public Boolean getMobile() {
+        return mobile;
+    }
+
+    public void setOtherFields(Map<String, Object> otherFields) {
+        this.otherFields = otherFields;
+    }
 
     public Boolean isMobile() {
         return mobile;
@@ -39,20 +76,6 @@ public class Sensor extends Mover implements Serializable {
     public void setMobile(Boolean mobile) {
         this.mobile = mobile;
     }
-
-    @JsonProperty(value="mobile", required=false)
-    protected Boolean mobile;
-
-    public String getGpsNmea() {
-        return gpsNmea;
-    }
-
-    public void setGpsNmea(String gpsNmea) {
-        this.gpsNmea = gpsNmea;
-    }
-
-    @JsonProperty(value="gps_nmea", required = false)
-    protected String gpsNmea;
 
     protected Map<String, Object> otherFields = new HashMap<>();
 
@@ -80,21 +103,11 @@ public class Sensor extends Mover implements Serializable {
         this.preselector = preselector;
     }
 
-    public Receiver getReceiver() {
-        return receiver;
+
+    public SignalAnalyzer getSignalAnalyzer() {
+        return signalAnalyzer;
     }
 
-    public void setReceiver(Receiver receiver) {
-        this.receiver = receiver;
-    }
-
-    public String getHostController() {
-        return hostController;
-    }
-
-    public void setHostController(String hostController) {
-        this.hostController = hostController;
-    }
 
     @JsonAnyGetter
     public Map<String, Object> getOtherFields(){

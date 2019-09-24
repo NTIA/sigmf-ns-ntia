@@ -4,12 +4,11 @@ import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.TimeDomainDetection;
-import gov.doc.ntia.sigmf.ext.annotation.callibration.CalibrationAnnotation;
+import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.emitter.EmitterAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.environment.EmitterEnvironment;
 import gov.doc.ntia.sigmf.ext.annotation.environment.SensorEnvironment;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
-import gov.doc.ntia.sigmf.ext.annotation.callibration.SystemNoise;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
