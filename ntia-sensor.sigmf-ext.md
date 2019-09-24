@@ -18,6 +18,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
+|`id`|true|string|N/A|Unique name for the sensor.|
 |`sensor_spec`|true|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the sensor.|
 |`antenna`|true|[Antenna](ntia-core.sigmf-ext.md#11-antenna-object)|N/A|Metadata to describe/specify the antenna.|
 |`preselector`|false| [Preselector](#13-preselector-object)|N/A|Metadata to describe/specify the preselector.|
@@ -109,7 +110,7 @@ Sensor definition follows a simplified hardware model comprised of the following
     "core:sample_rate": 15360000,
     "ntia-sensor:sensor": {
       "id": "Greyhound_1",
-      "ntia-core:antenna": {
+      "antenna": {
         "model": "Greyhound",
         "type": "omnidirectional",
         "low_frequency": 300000000,
@@ -194,13 +195,13 @@ Sensor definition follows a simplified hardware model comprised of the following
   "annotations": [
     {
       "ntia-core:annotation_type": "CalibrationAnnotation",
-      "core:gain_sigan": 41.464266174671376,
-      "core:noise_figure_sigan": 10.59849353429361,
-      "core:enbw_sigan": 9173161.088949349,
-      "core:gain_sensor": 39.974129616887843,
-      "core:noise_figure_sensor": 12.66185043866723,
-      "core:enbw_sensor": 7767553.942299673,
-      "core:mean_noise_power_sensor": -161.338149561,
+      "ntia-sensor:gain_sigan": 41.464266174671376,
+      "ntia-sensor:noise_figure_sigan": 10.59849353429361,
+      "ntia-sensor:enbw_sigan": 9173161.088949349,
+      "ntia-sensor:gain_sensor": 39.974129616887843,
+      "ntia-sensor:noise_figure_sensor": 12.66185043866723,
+      "ntia-sensor:enbw_sensor": 7767553.942299673,
+      "ntia-sensor:mean_noise_power_sensor": -161.338149561,
     }
   ]
 }
