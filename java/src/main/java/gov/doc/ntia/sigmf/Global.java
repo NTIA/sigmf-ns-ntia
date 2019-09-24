@@ -1,16 +1,22 @@
 package gov.doc.ntia.sigmf;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonAnyGetter;
+import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import gov.doc.ntia.sigmf.ext.global.Action;
-import gov.doc.ntia.sigmf.ext.global.Emitter;
-import gov.doc.ntia.sigmf.ext.global.Schedule;
-import gov.doc.ntia.sigmf.ext.global.Sensor;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
+import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
+import gov.doc.ntia.sigmf.ext.global.scos.Action;
+import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
+import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
+import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @JsonInclude(Include.NON_NULL)
 public class Global implements Serializable {
@@ -24,6 +30,7 @@ public class Global implements Serializable {
 
 
     //The sample rate of the signal in samples per second.
+    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="core:sample_rate", required = false)
     protected Double sampleRate;
 
@@ -71,7 +78,6 @@ public class Global implements Serializable {
     @JsonProperty(value="core:hw", required = false)
     protected String hw;
 
-
     @JsonProperty(value="core:extensions", required = false)
     protected Extensions extensions;
 
@@ -79,43 +85,39 @@ public class Global implements Serializable {
     @JsonProperty(value="ntia-sensor:sensor", required = false)
     protected Sensor sensor;
 
-    @JsonProperty(value="ntia-emitter:emitter", required = false)
-    protected Emitter emitter;
+    @JsonProperty(value="ntia-emitter:emitters", required = false)
+    protected List<Emitter> emitters;
 
     @JsonProperty(value="ntia-scos:action", required = false)
     protected Action action;
 
     @JsonProperty(value="ntia-scos:schedule", required = false)
-    protected Schedule schedule;
+    protected ScheduleEntry schedule;
 
     @JsonProperty(value="ntia-scos:task_id", required = false)
     protected Long taskId;
 
-    @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
-    @JsonProperty(value="ntia-scos:start_time", required = false)
-    protected Date startTime;
 
-    @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
-    @JsonProperty(value="ntia-scos:end_time", required = false)
-    protected Date endTime;
+    protected Map<String, Object> otherFields = new HashMap<>();
 
-    public Date getStartTime() {
-        return startTime;
+
+    @JsonProperty(value ="ntia-algorithm:anti_aliasing_filter", required = false)
+    protected DigitalFilter antiAliasingFilter;
+
+
+
+
+    public DigitalFilter getAntiAliasingFilter() {
+        return antiAliasingFilter;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+
+
+    public void setAntiAliasingFilter(DigitalFilter antiAliasingFilter) {
+        this.antiAliasingFilter = antiAliasingFilter;
     }
 
-    public Date getEndTime() {
-        return endTime;
-    }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
 
     public String getSha512() {
         return sha512;
@@ -231,12 +233,12 @@ public class Global implements Serializable {
         this.version = version;
     }
 
-    public Emitter getEmitter() {
-        return emitter;
+    public List<Emitter> getEmitters() {
+        return emitters;
     }
 
-    public void setEmitter(Emitter emitter) {
-        this.emitter = emitter;
+    public void setEmitters(List<Emitter> emitters) {
+        this.emitters = emitters;
     }
 
     public Action getAction() {
@@ -247,11 +249,11 @@ public class Global implements Serializable {
         this.action = action;
     }
 
-    public Schedule getSchedule() {
+    public ScheduleEntry getSchedule() {
         return schedule;
     }
 
-    public void setSchedule(Schedule schedule) {
+    public void setSchedule(ScheduleEntry schedule) {
         this.schedule = schedule;
     }
 
@@ -262,6 +264,18 @@ public class Global implements Serializable {
     public void setSensor(Sensor sensor) {
         this.sensor = sensor;
     }
+
+    @JsonAnyGetter
+    public Map<String, Object> getOtherFields(){
+        return otherFields;
+    }
+
+    @JsonAnySetter
+    public void add(String key, Object value){
+        otherFields.put(key, value);
+    }
+
+
 
 
 }

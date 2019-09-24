@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'gov.doc.ntia'
-version = '0.0.3-SNAPSHOT'
+version = '0.0.4-SNAPSHOT'
 
 sourceCompatibility = 1.8
 
@@ -20,11 +20,15 @@ configurations {
 dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.9.8'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.9.8'
+    implementation 'com.fasterxml.jackson.module:jackson-module-jsonSchema:2.9.0'
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testImplementation 'org.junit.jupiter:junit-jupiter-engine'
 }
 
 jar{
     archiveBaseName = 'sigmf-ns-ntia'
+}
+task myJavadocs(type: Javadoc) {
+    source = sourceSets.main.allJava
 }
 

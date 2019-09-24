@@ -1,35 +1,35 @@
 package gov.doc.ntia.sigmf;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.TimeDomainDetection;
-import gov.doc.ntia.sigmf.ext.annotation.emitter.Emitter;
+import gov.doc.ntia.sigmf.ext.annotation.callibration.CalibrationAnnotation;
+import gov.doc.ntia.sigmf.ext.annotation.emitter.EmitterAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.environment.EmitterEnvironment;
 import gov.doc.ntia.sigmf.ext.annotation.environment.SensorEnvironment;
-import gov.doc.ntia.sigmf.ext.annotation.sensor.Sensor;
-import gov.doc.ntia.sigmf.ext.annotation.sensor.SystemNoise;
+import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
+import gov.doc.ntia.sigmf.ext.annotation.callibration.SystemNoise;
+import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 //@JsonTypeInfo(use=JsonTypeInfo.Id.class, include=JsonTypeInfo.As.PROPERTY, property="type")
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
-        property = "type")
+        property = "ntia-core:annotation_type")
 @JsonSubTypes({
         @JsonSubTypes.Type(value = FrequencyDomainDetection.class, name ="FrequencyDomainDetection"),
         @JsonSubTypes.Type(value = TimeDomainDetection.class, name = "TimeDomainDetection"),
-        @JsonSubTypes.Type(value = Emitter.class, name = "Emitter"),
+        @JsonSubTypes.Type(value = EmitterAnnotation.class, name = "EmitterAnnotation"),
         @JsonSubTypes.Type(value = SensorEnvironment.class, name = "SensorEnvironment"),
         @JsonSubTypes.Type(value = EmitterEnvironment.class, name = "EmitterEnvironment"),
-        @JsonSubTypes.Type(value = Sensor.class, name = "Sensor"),
-        @JsonSubTypes.Type(value = SystemNoise.class, name = "SystemNoise")
-
-
+        @JsonSubTypes.Type(value = SensorAnnotation.class, name = "SensorAnnotation"),
+        @JsonSubTypes.Type(value = CalibrationAnnotation.class, name = "CalibrationAnnotation")
 })
 public class Annotation implements Serializable {
 
@@ -47,17 +47,23 @@ public class Annotation implements Serializable {
     @JsonProperty(value="core:comment", required=false)
     protected String comment;
 
+    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="core:freq_lower_edge", required = false)
     protected Double freqLowerEdge;
 
+    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="core:freq_upper_edge", required = false)
     protected Double freqUpperEdge;
 
+    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="core:latitude", required = false)
     protected Double latitude;
 
+    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="core:longitude", required = false)
     protected  Double longitude;
+
+    protected Map<String, Object> otherFields = new HashMap<>();
 
     public Long getSampleStart() {
         return sampleStart;
@@ -123,6 +129,16 @@ public class Annotation implements Serializable {
         this.longitude = longitude;
     }
 
+
+    @JsonAnyGetter
+    public Map<String, Object> getOtherFields(){
+        return otherFields;
+    }
+
+    @JsonAnySetter
+    public void add(String key, Object value){
+        otherFields.put(key, value);
+    }
 
 
 
