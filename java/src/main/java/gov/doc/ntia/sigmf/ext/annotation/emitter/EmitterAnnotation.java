@@ -18,12 +18,6 @@ public class EmitterAnnotation extends Annotation implements Serializable {
     @JsonProperty(value="ntia-emitter:id", required = true)
     protected String id;
 
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="ntia-emitter:power", required = false)
-    protected Double power;
-
-    @JsonProperty(value="ntia-emitter:antenna", required = false)
-    protected Antenna antenna;
 
     @JsonProperty(value="ntia-emitter:waveform", required = false)
     protected Waveform waveform;
@@ -46,22 +40,6 @@ public class EmitterAnnotation extends Annotation implements Serializable {
 
     public void setId(String id) {
         this.id = id;
-    }
-
-    public Double getPower() {
-        return power;
-    }
-
-    public void setPower(Double power) {
-        this.power = power;
-    }
-
-    public Antenna getAntenna() {
-        return antenna;
-    }
-
-    public void setAntenna(Antenna antenna) {
-        this.antenna = antenna;
     }
 
     public Waveform getWaveform() {

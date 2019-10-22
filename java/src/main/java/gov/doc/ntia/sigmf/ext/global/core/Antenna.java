@@ -16,11 +16,8 @@ public class Antenna implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="id", required = true)
-    protected String id;
-
-    @JsonProperty(value="model", required = true)
-    protected String model;
+    @JsonProperty(value="antenna_spec", required = true)
+    protected HardwareSpec antennaSpec;
 
     @JsonProperty(value="type", required=false)
     protected  String type;
@@ -82,12 +79,12 @@ public class Antenna implements Serializable {
 
     protected Map<String, Object> otherFields = new HashMap<>();
 
-    public String getId() {
-        return id;
+    public HardwareSpec getAntennaSpec() {
+        return antennaSpec;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setAntennaSpec(HardwareSpec antennaSpec) {
+        this.antennaSpec = antennaSpec;
     }
 
     public String getPolarization() {
@@ -112,14 +109,6 @@ public class Antenna implements Serializable {
 
     public void setElevationAngle(Double elevationAngle) {
         this.elevationAngle = elevationAngle;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
     }
 
     public String getType() {
