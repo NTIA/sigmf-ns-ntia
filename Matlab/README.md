@@ -41,8 +41,7 @@ The `sigmf-ns-ntia` java library consists of a number classes that define an obj
 |`gov.doc.ntia.sigmf.ext.global.waveform`|[ntia-waveform](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-waveform.sigmf-ext.md)|Contains objects to represent the global objects defined in [ntia-waveform](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-waveform.sigmf-ext.md) including `Waveform`|
 |`gov.doc.ntia.sigmf.ext.annotation.core`|[ntia-core](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-core.sigmf-ext.md)|Contains objects to represent annotation objects defined in [ntia-core](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-core.sigmf-ext.md) including `AntennaAnnotation`|
 |`gov.doc.ntia.sigmf.ext.annotation.sensor`|[ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md) including `SensorAnnotation`|
-|`gov.doc.ntia.sigmf.ext.annotation.algorithm`|[ntia-annotation](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-annotation.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-annotation](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-algorithm.sigmf-ext.md) including `TimeDomainDetection`, `FrequencyDomainDetection`, and `DigitalFilterAnnotation`|
-|`gov.doc.ntia.sigmf.ext.annotation.calibration`|[ntia-calibration](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-calibration.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-calibration](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-calibration.sigmf-ext.md) including `CalibrationAnnotation` and `SystemNoise`|
+|`gov.doc.ntia.sigmf.ext.annotation.algorithm`|[ntia-algorithm](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-algorithm.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-algorithm](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-algorithm.sigmf-ext.md) including `TimeDomainDetection`, `FrequencyDomainDetection`, and `DigitalFilterAnnotation`|
 |`gov.doc.ntia.sigmf.ext.annotation.emitter`|[ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-calibration.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-calibration.sigmf-ext.md) including `EmitterAnnotation`|
 |`gov.doc.ntia.sigmf.ext.annotation.environment`|[ntia-environment](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-calibration.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-environment](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-calibration.sigmf-ext.md) including `EmitterEnvironment` and `SensorEnvironment`|
 
@@ -61,7 +60,7 @@ Utilizing the Java library from within Matlab mostly requires you to create inst
   setType(antenna, "dipole"); 
   setGain(antenna, java.lang.Double(7)); 
 
-  setId(sensor, "grehound-1");
+  setId(sensor, "greyhound-1");
   setAntenna(sensor, antenna);
 
   detection = gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection();
@@ -87,11 +86,13 @@ Now, if we open the file we will see the following:
   "global": {
     "ntia-sensor:sensor": {
       "id": "greyhound-1",
-      "ntia-core:antenna": {
-        "id": "antenna_1",
-        "model": "ARA CSB-16",
+     antenna": {
+        "antenna_spec": {
+          "id": "antenna_1",
+          "model": "ARA CSB-16"
+        },
         "type": "dipole",
-        "gain": 7
+        "gain": 7,
       }
     }
   },
