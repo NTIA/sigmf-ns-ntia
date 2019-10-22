@@ -55,12 +55,15 @@ Utilizing the Java library from within Matlab mostly requires you to create inst
   globalExample = gov.doc.ntia.sigmf.Global();
   sensor = gov.doc.ntia.sigmf.ext.global.sensor.Sensor(); 
   antenna = gov.doc.ntia.sigmf.ext.global.core.Antenna(); 
-  setId(antenna, "antenna_1"); 
-  setModel(antenna, "ARA CSB-16"); 
+  
   setType(antenna, "dipole"); 
   setGain(antenna, java.lang.Double(7)); 
+  hardwareSpec = gov.doc.ntia.sigmf.ext.global.core.HardwareSpec();
+  setModel(hardwareSpec, "ARA CSB-16");
+  setId(hardwareSpec, "antenna_1");
+  setAntennaSpec(antenna, hardwareSpec);
 
-  setId(sensor, "grehound-1");
+  setId(sensor, "greyhound-1");
   setAntenna(sensor, antenna);
 
   detection = gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection();
@@ -86,9 +89,11 @@ Now, if we open the file we will see the following:
   "global": {
     "ntia-sensor:sensor": {
       "id": "greyhound-1",
-      "ntia-core:antenna": {
-        "id": "antenna_1",
-        "model": "ARA CSB-16",
+      "antenna": {
+        "antenna_spec": {
+            "id": "antenna_1",
+            "model": "ARA CSB-16",
+        },
         "type": "dipole",
         "gain": 7
       }
