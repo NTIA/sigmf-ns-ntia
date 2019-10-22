@@ -71,6 +71,7 @@ public class SensorExample implements Example {
         Antenna antenna = new Antenna();
         HardwareSpec spec = new HardwareSpec();
         spec.setModel("antenna123");
+        spec.setId("123-xyxpdq");
         antenna.setAntennaSpec(spec);
         antenna.setType("omnidirectional");
         antenna.setAzimuthAngle(45.0);
