@@ -10,7 +10,19 @@ public class SensorEnvironment extends Environment implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="ntia-environment:sensor_id", required = true)
-    protected String sensorId;
+    @JsonProperty(value="ntia-environment:category", required = false)
+    protected String category;
+
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+
+
 
 }
