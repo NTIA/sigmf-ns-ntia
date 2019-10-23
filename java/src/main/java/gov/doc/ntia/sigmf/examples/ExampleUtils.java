@@ -3,8 +3,8 @@ package gov.doc.ntia.sigmf.examples;
 import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
+import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
-import gov.doc.ntia.sigmf.ext.global.sensor.Receiver;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 
 import java.text.SimpleDateFormat;
@@ -50,7 +50,9 @@ public class ExampleUtils {
 
     public static Antenna getAntenna() {
         Antenna antenna = new Antenna();
-        antenna.setModel("Model " + Math.random()*100);
+        HardwareSpec spec = new HardwareSpec();
+        spec.setModel("model xyz");
+        antenna.setAntennaSpec(spec);
         return antenna;
     }
     private Action getAction(){

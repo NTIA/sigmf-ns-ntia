@@ -37,6 +37,17 @@ public class Emitter extends Mover implements Serializable  {
 
     protected Map<String, Object> otherFields = new HashMap<>();
 
+    public Transmitter getTransmitter() {
+        return transmitter;
+    }
+
+    public void setTransmitter(Transmitter transmitter) {
+        this.transmitter = transmitter;
+    }
+
+    public void setOtherFields(Map<String, Object> otherFields) {
+        this.otherFields = otherFields;
+    }
 
     public Double getPower() {
         return power;

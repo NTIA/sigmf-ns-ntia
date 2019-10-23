@@ -174,21 +174,12 @@ public class Test {
         preselector.setRfPaths(rfPaths);
         return preselector;
     }
-    private static Receiver getReceiver() {
-        Receiver r = new Receiver();
-        r.setModel("Model " + Math.random()*100);
-        r.setLowFrequency(12d);
-        r.setHighFrequency(1d);
-        r.setNoiseFigure(12d);
-        r.setMaxPower(12d);
-        r.setA2dBits(123l);
-        return r;
-    }
 
     private static Antenna getAntenna() {
         Antenna antenna = new Antenna();
-        antenna.setModel("Model " + Math.random()*100);
-        antenna.setId("antenna123");
+        HardwareSpec spec = new HardwareSpec();
+        spec.setModel("antenna123");
+        antenna.setAntennaSpec(spec);
         antenna.setLowFrequency(123d);
         antenna.setHighFrequency(123d);
         antenna.setGain(12d);

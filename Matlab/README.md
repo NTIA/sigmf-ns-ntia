@@ -33,17 +33,17 @@ The `sigmf-ns-ntia` java library consists of a number classes that define an obj
 
 |Package|Extension|Description|
 |----|--------|-----------|
-|`gov.doc.ntia.sigmf`|NA|Contains the objects that are part of the core [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md) including MetaDoc to describe the entire metadata document, Global to represent the Global section within the MetaDoc, and Annotation and Capture to represent annotation and captures respectiveley |
-|`gov.doc.ntia.sigmf.ext.global.core`|[ntia-core](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-core.sigmf-ext.md)|Contains objects to represent global objects defined in [ntia-core](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-core.sigmf-ext.md) including `Antenna`|
-|`gov.doc.ntia.sigmf.ext.global.sensor`|[ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md)|Contains objects to represent the global objects defined in [ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md) including `Sensor`, `Preselector`, `Receiver`, and `RFPath`|
+|`gov.doc.ntia.sigmf`|NA|Contains the objects that are part of the core [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md) including MetaDoc to describe the entire metadata document, Global to represent the Global section within the MetaDoc, and Annotation and Capture to represent annotation and captures respectively |
+|`gov.doc.ntia.sigmf.ext.global.core`|[ntia-core](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-core.sigmf-ext.md)|Contains objects to represent global objects defined in [ntia-core](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-core.sigmf-ext.md) including `Antenna` and `HardwareSpec`|
+|`gov.doc.ntia.sigmf.ext.global.sensor`|[ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md)|Contains objects to represent the global objects defined in [ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md) including `Sensor`, `Preselector`, `SignalAnalyzer`, and `RFPath`|
 |`gov.doc.ntia.sigmf.ext.global.algorithm`|[ntia-algorithm](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-algorithm.sigmf-ext.md)|Contains objects to represent the global objects defined in [ntia-algorithm](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-algorithm.sigmf-ext.md) including `DigitalFilter`|
 |`gov.doc.ntia.sigmf.ext.global.emitter`|[ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-emitter.sigmf-ext.md)|Contains objects to represent the global objects defined in [ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-emitter.sigmf-ext.md) including `Emitter`, and `Transmitter`|
-|`gov.doc.ntia.sigmf.ext.global.waveform`|[ntia-waveform](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-waveform.sigmf-ext.md)|Contains objects to represent the global objects defined in [ntia-waveform](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-waveform.sigmf-ext.md) including `Waveform`|
+|`gov.doc.ntia.sigmf.ext.global.waveform`|[ntia-waveform](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-waveform.sigmf-ext.md)|Contains objects to represent the global objects defined in [ntia-waveform](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-waveform.sigmf-ext.md) including `Waveform` and `IEEE80211p`|
 |`gov.doc.ntia.sigmf.ext.annotation.core`|[ntia-core](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-core.sigmf-ext.md)|Contains objects to represent annotation objects defined in [ntia-core](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-core.sigmf-ext.md) including `AntennaAnnotation`|
-|`gov.doc.ntia.sigmf.ext.annotation.sensor`|[ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md) including `SensorAnnotation`|
+|`gov.doc.ntia.sigmf.ext.annotation.sensor`|[ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md) including `SensorAnnotation` and `CalibrationAnnotation`|
 |`gov.doc.ntia.sigmf.ext.annotation.algorithm`|[ntia-algorithm](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-algorithm.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-algorithm](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-algorithm.sigmf-ext.md) including `TimeDomainDetection`, `FrequencyDomainDetection`, and `DigitalFilterAnnotation`|
-|`gov.doc.ntia.sigmf.ext.annotation.emitter`|[ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-calibration.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-calibration.sigmf-ext.md) including `EmitterAnnotation`|
-|`gov.doc.ntia.sigmf.ext.annotation.environment`|[ntia-environment](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-calibration.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-environment](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-calibration.sigmf-ext.md) including `EmitterEnvironment` and `SensorEnvironment`|
+|`gov.doc.ntia.sigmf.ext.annotation.emitter`|[ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-emitter.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-emitter.sigmf-ext.md) including `EmitterAnnotation`|
+|`gov.doc.ntia.sigmf.ext.annotation.environment`|[ntia-environment](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-environment.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-environment](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-environment.sigmf-ext.md) including `EmitterEnvironment` and `SensorEnvironment`|
 
 
 #### Using the Java library
@@ -55,10 +55,13 @@ Utilizing the Java library from within Matlab mostly requires you to create inst
   globalExample = gov.doc.ntia.sigmf.Global();
   sensor = gov.doc.ntia.sigmf.ext.global.sensor.Sensor(); 
   antenna = gov.doc.ntia.sigmf.ext.global.core.Antenna(); 
-  setId(antenna, "antenna_1"); 
-  setModel(antenna, "ARA CSB-16"); 
+  
   setType(antenna, "dipole"); 
   setGain(antenna, java.lang.Double(7)); 
+  hardwareSpec = gov.doc.ntia.sigmf.ext.global.core.HardwareSpec();
+  setModel(hardwareSpec, "ARA CSB-16");
+  setId(hardwareSpec, "antenna_1");
+  setAntennaSpec(antenna, hardwareSpec);
 
   setId(sensor, "greyhound-1");
   setAntenna(sensor, antenna);
@@ -86,7 +89,7 @@ Now, if we open the file we will see the following:
   "global": {
     "ntia-sensor:sensor": {
       "id": "greyhound-1",
-     antenna": {
+      "antenna": {
         "antenna_spec": {
           "id": "antenna_1",
           "model": "ARA CSB-16"

@@ -35,17 +35,6 @@ public class SensorExample implements Example {
         return sensor;
     }
 
-    private Receiver getReceiver() {
-        Receiver receiver = new Receiver();
-        receiver.setA2dBits(256l);
-        receiver.setHighFrequency(3000000000d);
-        receiver.setLowFrequency(300000000d);
-        receiver.setModel("Receiver 123xyz");
-        receiver.setMaxPower(-5d);
-        receiver.setNoiseFigure(2.0);
-        return receiver;
-    }
-
     private Preselector getPreselector() {
         Preselector preselector = new Preselector();
         RFPath[] rfPaths = new RFPath[1];
@@ -80,8 +69,10 @@ public class SensorExample implements Example {
 
     private Antenna getAntenna() {
         Antenna antenna = new Antenna();
-        antenna.setId("antenna1");
-        antenna.setModel("model_X");
+        HardwareSpec spec = new HardwareSpec();
+        spec.setModel("antenna123");
+        spec.setId("123-xyxpdq");
+        antenna.setAntennaSpec(spec);
         antenna.setType("omnidirectional");
         antenna.setAzimuthAngle(45.0);
         antenna.setCableLoss(1.0);
