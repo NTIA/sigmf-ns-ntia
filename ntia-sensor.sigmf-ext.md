@@ -108,15 +108,18 @@ Sensor definition follows a simplified hardware model comprised of the following
   "global": {
     "core:datatype": "rf32_le",
     "core:sample_rate": 15360000,
-    "ntia-sensor:sensor": {
+       "ntia-sensor:sensor": {
       "id": "Greyhound_1",
       "antenna": {
-        "model": "Greyhound",
+        "antenna_spec": {
+          "id": "123-xyxpdq",
+          "model": "antenna123"
+        },
         "type": "omnidirectional",
         "low_frequency": 300000000,
         "high_frequency": 3000000000,
         "gain": 2,
-        "cross_polar_discrimination": 9.1,
+        "cross_polar_discrimination": 9.0,
         "cable_loss": 1,
         "azimuth_angle": 45,
         "elevation_angle": 10.3
@@ -124,27 +127,26 @@ Sensor definition follows a simplified hardware model comprised of the following
       "preselector": {
         "rf_paths": [
           {
-            "low_frequency_passband": 700000000,
-            "high_frequency_passband": 750000000,
-            "low_frequency_stopband": 700000000,
-            "high_frequency_stopband": 750000000,
-            "lna_noise_figure": 2.5,
-            "cal_source_type": "sdr calibration"
+            "low_frequency_passband_filter": 700000000,
+            "high_frequency_passband_filter": 750000000,
+            "low_frequency_stopband_filter": 700000000,
+            "high_frequency_stopband_filter": 750000000,
+            "noise_figure_lna": 2.5,
+            "type_cal_source": "calibrated noise source"
           }
         ]
       },
       "signal_analyzer": {
-        "model": "USRP B210",
-        "low_frequency": 300000000,
-        "high_frequency": 3000000000,
-        "noise_figure": 2,
-        "max_power": -5,
-        "a2d_bits": 256
-      },
-      "host_controller": "Intel NUC"
-    },
-    "ntia-scos:task_id": 88438,
-    "ntia-scos:end_time": "2019-04-22T15:41:52Z"
+        "sigan_spec": {
+          "id": "875649305NLDKDJN",
+          "model": "Etus B210"
+        },
+        "low_frequency": 100000000,
+        "high_frequency": 700000000,
+        "noise_figure": 20.0,
+        "a2d_bits": 16
+      }
+    }
   },
   "captures": [
     ...
