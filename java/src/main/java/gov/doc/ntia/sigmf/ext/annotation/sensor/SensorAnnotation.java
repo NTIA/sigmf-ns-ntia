@@ -37,11 +37,11 @@ public class SensorAnnotation extends Annotation implements Serializable {
 
     @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="ntia-sensor:latitude", required = false)
-    protected Double latitude;
+    protected Double sensorLatitude;
 
     @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="ntia-sensor:longitude", required = false)
-    protected Double longitude;
+    protected Double sensorLongitude;
 
     @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="ntia-sensor:altitude", required = false)
