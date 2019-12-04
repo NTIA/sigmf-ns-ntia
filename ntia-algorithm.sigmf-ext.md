@@ -41,10 +41,10 @@ Time-domain detection algorithms are applied to gap-free IQ time series captured
 |`number_of_samples`|true|integer|N/A|Number of samples to be integrated over by detector.|
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
-|`time`|false|array of floats|seconds|Time array corresponding to detected data.|
-|`time_start`|false|float|seconds|Time of first data point.|
-|`time_stop`|false|float|seconds|Time of last data point.|
-|`time_step`|false|float|seconds|Time step between data points.|
+|`time`|false|array of doubles|seconds|Time array corresponding to detected data.|
+|`time_start`|false|double|seconds|Time of first data point.|
+|`time_stop`|false|double|seconds|Time of last data point.|
+|`time_step`|false|double|seconds|Time step between data points.|
 
 ### 3.2 FrequencyDomainDetection Segment
 Frequency-domain detection algorithms are applied to discrete Fourier transforms of gap-free IQ time series captured at a single frequency. The `FrequencyDomainDetection` has the following properties:
@@ -60,7 +60,7 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
 |`equivalent_noise_bandwidth`|false|double|Hz|Bandwidth of brickwall filter that has same integrated noise power as that of the actual filter.|
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
-|`frequency`|false|array of floats|Hertz|Frequency array corresponding to detected data.|
+|`frequency`|false|array of doubles|Hertz|Frequency array corresponding to detected data.|
 |`frequency_start`|false|double|Hertz|Frequency of first data point.|
 |`frequency_stop`|false|double|Hertz|Frequency of last data point.|
 |`frequency_step`|false|double|Hertz|Frequency step between data points.|
