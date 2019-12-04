@@ -47,7 +47,9 @@ Time-domain detection algorithms are applied to gap-free IQ time series captured
 |`time_step`|false|double|seconds|Time step between data points.|
 
 ### 3.2 FrequencyDomainDetection Segment
-Frequency-domain detection algorithms are applied to discrete Fourier transforms of gap-free IQ time series captured at a single frequency. The `FrequencyDomainDetection` has the following properties:
+Frequency-domain detection algorithms are applied to discrete Fourier transforms of gap-free IQ time series. The IQ time series can be measured at a single center frequency, a set of center frequencies, or a scan of center frequencies. Scans result in frequency-domain data with a constant frequency step for a span greater than the bandwidth of the signal analyzer, similar to the traditional spectrum analyzer swept-tuned measurement. 
+
+The `FrequencyDomainDetection` has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
