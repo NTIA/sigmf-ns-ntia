@@ -51,7 +51,7 @@ Frequency-domain detection algorithms are applied to discrete Fourier transforms
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`measurement_type`|true|string|N/A|E.g. `"single-frequency"`, `"survey"`, `"scan"`.|
+|`measurement_type`|true|string|N/A|Method that signal analyzer acquires data, e.g. `"single-frequency"`, `"survey"`, `"scan"`.|
 |`detector`|true|string|N/A|E.g. `"fft_sample_iq"`, `"fft_sample_power"`, `"fft_mean_power"`, `"fft_max_power"`, `"fft_min_power"`, `"fft_median_power"`.|
 |`detection_domain`|true|string|N/A|Domain in which detector is applied, i.e., `"frequency"`.|
 |`number_of_ffts`|true|integer|N/A|Number of FFTs to be integrated over by detector.|
