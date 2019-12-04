@@ -90,7 +90,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`gain_sigan`|false|double|N/A|Gain of signal analzyer (may differ with signal analyzer gain setting).|
+|`gain_sigan`|false|double|N/A|Gain of signal analyzer (may differ with signal analyzer gain setting).|
 |`noise_figure_sigan`|false|double|dB|Noise figure of signal analyzer.|
 |`1db_compression_point_sigan`|false|double|dBm|Maximum input of signal analyzer.|
 |`enbw_sigan`|false|double|Hz|Equivalent noise bandwidth of signal analyzer.|
