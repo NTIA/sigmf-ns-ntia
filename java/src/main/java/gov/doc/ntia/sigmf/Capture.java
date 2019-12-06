@@ -1,39 +1,43 @@
 package gov.doc.ntia.sigmf;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Capture implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty("core:sample-start")
+    @JsonProperty(value = "core:sample_start", required = true)
     protected long sampleStart;
-
-    @JsonProperty(value = "core:sample_count", required =  true)
-    protected long sampleCount;
 
     @JsonProperty(value = "core:global_index", required= false)
     protected Long globalIndex;
 
+    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="core:frequency", required= false)
     protected Double frequency;
 
+    //2019-04-30T15:24:24.153922Z
     @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm'Z'")
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
     @JsonProperty(value ="core:datetime",required=false )
-    protected String dateTime;
+    protected Date dateTime;
+
+    protected Map<String, Object> otherFields = new HashMap<>();
 
 
-    public String getDateTime() {
+    public Date getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(String dateTime) {
+    public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
     }
 
@@ -61,12 +65,15 @@ public class Capture implements Serializable {
         this.sampleStart = sampleStart;
     }
 
-    public long getSampleCount() {
-        return sampleCount;
+    @JsonAnyGetter
+    public Map<String, Object> getOtherFields(){
+        return otherFields;
     }
 
-    public void setSampleCount(long sampleCount) {
-        this.sampleCount = sampleCount;
+    @JsonAnySetter
+    public void add(String key, Object value){
+        otherFields.put(key, value);
     }
+
 
 }
