@@ -5,6 +5,9 @@ The ntia-location namespace provides metadata to describe a coordinate system an
 
 ## 1 Global
 `ntia-location` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`coordinate_system`|false|[CoordinateSystem](11-coorinate-system-object)|N/A|Unique id for coordinate system.|
 
 ### 1.1 Coordinate System Object
 `CoordinateSystem` the coordinate system used by an object (e.g. [Sensor](ntia-sensor.sigmf-ext.md)):
@@ -14,13 +17,13 @@ The ntia-location namespace provides metadata to describe a coordinate system an
 |`id`|true|string|N/A|Unique id for coordinate system.|
 |`description`|false|string|N/A|Description of coordinate system.|
 |`type`|false|string|N/A|Type of coordinate system. E.g. Speed and bearing, number line, cartesian, polar, [Geographic](#13-geographic-coordinate-system-object), [Projected](#12-projected-coordinate-system-object).|
-|`distance-unit`|true|string|N/A|Unit of horizontal distance for coordinate system. E.g. Meters, feet, decimal degrees, DMS, city blocks.|
-|`time-unit`|true|string|N/A|Unit of time for speed measurements. E.g. Hours, seconds.|
+|`distance_unit`|true|string|N/A|Unit of horizontal distance for coordinate system. E.g. Meters, feet, decimal degrees, DMS, city blocks.|
+|`time_unit`|true|string|N/A|Unit of time for speed measurements. E.g. Hours, seconds.|
 |`origin`|false|string|N/A|Origin of cartesian coordinate system. E.g. State of CO, survey marker #MT 127.|
-|`orientation-ref`|false|string|N/A|Reference vector for orientation. E.g. Magnetic north
-|`orientation`|false|string|N/A|Rotation of cartesian coordinate system, from `orientation-ref` (in degrees). E.g. Annotating values as true north instead of magnetic north by including a magnetic declination (0,0,0.35)|
-|`elevation-ref`|false|string|N/A|Elevation reference datum. E.g. Mean Sea Level, Above ground level, Antenna elevation.| 
-|`elevation-units`|false|string|N/A|Unit of elevation for coordinate system. E.g. Meters, feet.|
+|`orientation_ref`|false|string|N/A|Reference vector for orientation. E.g. Magnetic north
+|`orientation`|false|string|N/A|Rotation of cartesian coordinate system, from `orientation_ref` (in degrees). E.g. Annotating values as true north instead of magnetic north by including a magnetic declination (0,0,0.35)|
+|`elevation_ref`|false|string|N/A|Elevation reference datum. E.g. Mean Sea Level, Above ground level, Antenna elevation.| 
+|`elevation_unit`|false|string|N/A|Unit of elevation for coordinate system. E.g. Meters, feet.|
 
 ### 1.2 Projected Coordinate System Object
 Projected Coordinate System (`pcs`) has the following properties:
@@ -83,7 +86,7 @@ Geographic Coordinate System (`gcs`) has the following properties:
 |`y`|false|double|N/A|Location of object releative to y-axis origin.|
 |`z`|false|double|N/A|Location of object releative to z-axis origin.|
 |`speed`|false|double|`distance_unit`/`time_unit`|Speed.|
-|`bearing`|false|double|degrees|Direction (angle relative to `orientation-ref`).|
+|`bearing`|false|double|degrees|Direction (angle relative to `orientation_ref`).|
 
 ## 4 Example
 
