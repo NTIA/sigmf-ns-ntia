@@ -101,22 +101,22 @@ public class SensorAnnotation extends Annotation implements Serializable {
 
     @Override
     public Double getLatitude() {
-        return latitude;
+        return sensorLatitude;
     }
 
     @Override
     public void setLatitude(Double latitude) {
-        this.latitude = latitude;
+        sensorLatitude = latitude;
     }
 
     @Override
     public Double getLongitude() {
-        return longitude;
+        return sensorLongitude;
     }
 
     @Override
     public void setLongitude(Double longitude) {
-        this.longitude = longitude;
+        sensorLongitude = longitude;
     }
 
     public Double getAltitude() {
