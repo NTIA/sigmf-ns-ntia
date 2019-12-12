@@ -7,16 +7,16 @@ The ntia-location namespace provides metadata to describe a coordinate system an
 `ntia-location` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`coordinate_system`|false|[CoordinateSystem](11-coorinate-system-object)|N/A|Unique id for coordinate system.|
+|`spatial_reference`|false|[SpatialReference](#11-spatialreference-object)|N/A|Unique id for coordinate system.|
 
-### 1.1 Coordinate System Object
-`CoordinateSystem` the coordinate system used by an object (e.g. [Sensor](ntia-sensor.sigmf-ext.md)):
+### 1.1 SpatialReference Object
+The spatial reference system used to specify locations. 
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique id for coordinate system.|
-|`description`|false|string|N/A|Description of coordinate system.|
-|`type`|false|string|N/A|Type of coordinate system. E.g. Speed and bearing, number line, cartesian, polar, [Geographic](#13-geographic-coordinate-system-object), [Projected](#12-projected-coordinate-system-object).|
+|`id`|true|string|N/A|Unique id for the spatial reference system.|
+|`description`|false|string|N/A|Description of the spatial reference system.|
+|`type`|false|string|N/A|Type of the spatial reference system. E.g. Speed and bearing, number line, cartesian, polar, geographic, projected|
 |`distance_unit`|true|string|N/A|Unit of horizontal distance for coordinate system. E.g. Meters, feet, decimal degrees, DMS, city blocks.|
 |`time_unit`|true|string|N/A|Unit of time for speed measurements. E.g. Hours, seconds.|
 |`origin`|false|string|N/A|Origin of cartesian coordinate system. E.g. State of CO, survey marker #MT 127.|
@@ -24,37 +24,40 @@ The ntia-location namespace provides metadata to describe a coordinate system an
 |`orientation`|false|string|N/A|Rotation of cartesian coordinate system, from `orientation_ref` (in degrees). E.g. Annotating values as true north instead of magnetic north by including a magnetic declination (0,0,0.35)|
 |`elevation_ref`|false|string|N/A|Elevation reference datum. E.g. Mean Sea Level, Above ground level, Antenna elevation.| 
 |`elevation_unit`|false|string|N/A|Unit of elevation for coordinate system. E.g. Meters, feet.|
+|`gcs`|false|[GeographicCoordinateSystem](#13-geographiccoordinatesystem-object)|N/A|Geographic coordinate system.|
+|`pcs`|false|[Projection](#13-geographiccoordinatesystem-object)|N/A|Geographic coordinate system.|
 
-### 1.2 Projected Coordinate System Object
-Projected Coordinate System (`pcs`) has the following properties:
+### 1.2 Projection Object
+The Projection object has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique id for PCS, the [ESPG](http://www.epsg.org/) number is RECOMMENDED.|
+|`id`|true|string|N/A|Unique id for PCS, the [EPSG](http://www.epsg.org/) number is RECOMMENDED.|
 |`description`|false|string|N/A|Description of the PCS.|
-|`gcs`|false|[Geographic](#13-geographic-coordinate-system-object)|N/A|Underlying geographic coordinate system of PCS.| 
-|`projection`|false|string|N/A|Type of projection. E.g. Conical, cylandrical, transverse mercator.|
+|`type`|false|string|N/A|Type of projection. E.g. Conical, cylandrical, transverse mercator.|
 |`false_easting`|false|double|N/A|False easting of PCS.|
 |`false_northing`|false|double|N/A|False northing of PCS.|
 |`central_meridian`|false|double|N/A|Central meridian of PCS.|
 |`scale_factor`|false|double|N/A|Scale factor of PCS.|
 |`origin_latitude`|false|double|decimal degrees|Latitude of origin of PCS.|
 
-### 1.3 Geographic Coordinate System Object
-Geographic Coordinate System (`gcs`) has the following properties:
+### 1.3 GeographicCoordinateSystem Object
+A Geographic Coordinate System has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique id for GCS, the [ESPG](http://www.epsg.org/) number is RECOMMENDED. |
 |`description`|false|string|N/A|Description of GCS.|
-|`datum`|false|[Datum](#14-datum-object)|N/A|Datum of sphereoid or sphere. E.g. NAD27, NAD83, WGS84 |
+|`prime_meridian`|false|string|N/A|The longitude origin.|
+|`datum`|fpalse|[Datum](#14-datum-object)|N/A|Datum of sphereoid or sphere. E.g. NAD27, NAD83, WGS84 |
+|`angular_unit`|false|string|N/A|Angular unit of measure of spheroid. E.g. degrees, radians, grads|
 
 ### 1.4 Datum Object
 `Datum` has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique id for datum, the [ESPG](http://www.epsg.org/) number is RECOMMENDED.|
+|`id`|false|string|N/A|Unique id for datum, the [ESPG](http://www.epsg.org/) number is RECOMMENDED.|
 |`description`|false|string|N/A|Description of datum.|
 |`spheroid`|false|[Spheroid](#15-spheroid-object)|N/A|Underlying sphere or spheroid of datum.|
 
@@ -63,13 +66,13 @@ Geographic Coordinate System (`gcs`) has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique id for the spheroid, the [ESPG](http://www.epsg.org/) number is RECOMMENDED.|
+|`id`|false|string|N/A|Unique id for the spheroid, the [ESPG](http://www.epsg.org/) number is RECOMMENDED.|
 |`description`|false|string|N/A|Description of the spheroid. Eg. Clarke 1866, WGS84|
 |`semiminor`|false|double|N/A|Semiminor axis radii of spheroid.|
 |`semimajor`|false|double|N/A|Semimajor axis radii of spheroid.|
 |`flattening`|false|double|N/A|Flattening value of spheroid.|
-|`angular_unit`|false|string|N/A|Angular unit of measure of spheroid. E.g. degrees, radians, grads|
-|`prime_meridian`|false|double|N/A|Longitude that passes through Greenwich, England.|
+
+
 
 ## 2 Captures
 `ntia-location` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
