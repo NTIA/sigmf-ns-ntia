@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
-import gov.doc.ntia.sigmf.ext.global.location.SpatialReference;
+import gov.doc.ntia.sigmf.ext.global.location.CoordinateSystem;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
 import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
@@ -96,8 +96,8 @@ public class Global implements Serializable {
     @JsonProperty(value="ntia-scos:task_id", required = false)
     protected Long taskId;
 
-    @JsonProperty(value="ntia-location:spatial_reference", required = false)
-    private SpatialReference spatialReference;
+    @JsonProperty(value="ntia-location:coordinate_system", required = false)
+    private CoordinateSystem coordinateSystem;
 
     protected Map<String, Object> otherFields = new HashMap<>();
 
@@ -290,12 +290,12 @@ public class Global implements Serializable {
     }
 
 
-    public SpatialReference getSpatialReference() {
-        return spatialReference;
+    public CoordinateSystem getCoordinateSystem() {
+        return coordinateSystem;
     }
 
-    public void setSpatialReference(SpatialReference spatialReference) {
-        this.spatialReference = spatialReference;
+    public void setCoordinateSystem(CoordinateSystem coordinateSystem) {
+        this.coordinateSystem = coordinateSystem;
     }
 
 

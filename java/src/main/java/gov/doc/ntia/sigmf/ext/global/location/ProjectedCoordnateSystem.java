@@ -4,17 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ProjectedCoordnateSystem {
-
-
-    @JsonProperty(value="id", required = true)
-    protected String id;
-
-    @JsonProperty(value="description", required = false)
-    protected String description;
-
-    @JsonProperty(value="type", required = false)
-    protected String type;
+public class ProjectedCoordnateSystem extends CoordinateSystem {
 
     @JsonProperty(value="false_easting", required = false)
     protected Double falseEasting;
@@ -31,28 +21,16 @@ public class ProjectedCoordnateSystem {
     @JsonProperty(value="origin_latitude", required = false)
     protected Double originLatitude;
 
-    public String getId() {
-        return id;
+
+    @JsonProperty(value="gcs", required = true)
+    protected GeographicCoordinateSystem gcs;
+
+    public GeographicCoordinateSystem getGcs() {
+        return gcs;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+    public void setGcs(GeographicCoordinateSystem gcs) {
+        this.gcs = gcs;
     }
 
     public Double getFalseEasting() {

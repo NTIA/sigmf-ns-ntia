@@ -7,7 +7,7 @@ import gov.doc.ntia.sigmf.examples.Example;
 import gov.doc.ntia.sigmf.examples.ExampleUtils;
 import gov.doc.ntia.sigmf.ext.global.location.Datum;
 import gov.doc.ntia.sigmf.ext.global.location.GeographicCoordinateSystem;
-import gov.doc.ntia.sigmf.ext.global.location.SpatialReference;
+import gov.doc.ntia.sigmf.ext.global.location.CoordinateSystem;
 import gov.doc.ntia.sigmf.ext.global.location.Spheroid;
 
 import java.util.Calendar;
@@ -27,24 +27,16 @@ public class GcsWithSpheroidExample implements Example {
         GeographicCoordinateSystem gcs = new GeographicCoordinateSystem();
         gcs.setId("EPSG:4326");
         Datum datum = new Datum();
-
-
-        gcs.setPrimeMeridian("Greenwich");
-
         Spheroid spheroid = new Spheroid();
         spheroid.setSemimajor(6378137.0);
         spheroid.setSemiminor(6356752.3142);
         spheroid.setFlattening((1/298.257223563));
+        spheroid.setPrimeMeridian("Greenwich");
         datum.setSpheroid(spheroid);
         gcs.setDatum(datum);
-
         gcs.setDescription("World Geodetic System 1984 - Horizontal component of 3D system. Used by the GPS satellite navigation system and for NATO military geodetic surveying.");
-        SpatialReference spatialReference = new SpatialReference();
-        spatialReference.setGcs(gcs);
-        spatialReference.setId("EPSG:4326");
-        spatialReference.setSystemType("Geographic");
 
-        global.setSpatialReference(spatialReference);
+        global.setCoordinateSystem(gcs);
 
         return metadoc;
     }

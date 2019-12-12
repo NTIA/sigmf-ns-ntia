@@ -16,6 +16,8 @@ import gov.doc.ntia.sigmf.examples.environment.EmitterEnvironmentExample;
 import gov.doc.ntia.sigmf.examples.environment.SensorEnvironmentExample;
 import gov.doc.ntia.sigmf.examples.location.GcsWithSpheroidExample;
 import gov.doc.ntia.sigmf.examples.location.ProjectedExample;
+import gov.doc.ntia.sigmf.examples.location.SimpleGCS;
+import gov.doc.ntia.sigmf.examples.location.SpeedAndBearingExample;
 import gov.doc.ntia.sigmf.examples.waveform.WaveformExample;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 
@@ -68,6 +70,12 @@ public class ExampleGenerator {
 
         ProjectedExample projectedExample = new ProjectedExample();
         save("projectedSpatialRef.json", projectedExample.getExample());
+
+        SpeedAndBearingExample speedAndBearingExample = new SpeedAndBearingExample();
+        save("speedAndBearing.json", speedAndBearingExample.getExample());
+
+        SimpleGCS simpleGCS = new SimpleGCS();
+        save("simpleGCS.json", simpleGCS.getExample());
     }
 
     private static void save(String filename, MetaDoc example) {

@@ -21,6 +21,12 @@ public class Spheroid {
     @JsonProperty(value = "flattening", required = false)
     protected Double flattening;
 
+    @JsonProperty(value = "angular_unit", required = false)
+    protected String angularUnit;
+
+    @JsonProperty(value="prime_meridian", required = false)
+    protected String primeMeridian;
+
     public String getId() {
         return id;
     }
@@ -61,9 +67,21 @@ public class Spheroid {
         this.flattening = flattening;
     }
 
+    public String getAngularUnit() {
+        return angularUnit;
+    }
 
+    public void setAngularUnit(String angularUnit) {
+        this.angularUnit = angularUnit;
+    }
 
+    public String getPrimeMeridian() {
+        return primeMeridian;
+    }
 
+    public void setPrimeMeridian(String primeMeridian) {
+        this.primeMeridian = primeMeridian;
+    }
 
 
 

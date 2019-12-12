@@ -8,6 +8,7 @@ import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
+import gov.doc.ntia.sigmf.ext.global.location.GeographicCoordinateSystem;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.sensor.*;
@@ -24,6 +25,9 @@ public class Test {
     public static void main(String[] args){
 
         MetaDoc metaDoc =  getMetaDoc();
+        GeographicCoordinateSystem gcs = new GeographicCoordinateSystem();
+        gcs.setId("WGS84");
+        metaDoc.getGlobal().setCoordinateSystem(gcs);
         ObjectMapper mapper = new ObjectMapper();
         try {
             mapper.writeValue(new File("example.json"),metaDoc);
@@ -34,6 +38,7 @@ public class Test {
         try {
             MetaDoc readMetaDoc = (MetaDoc)mapper.readValue(new File("example.json"), MetaDoc.class);
             System.out.println(readMetaDoc.getGlobal().getSensor().getId());
+            System.out.print(readMetaDoc.getGlobal().getCoordinateSystem() instanceof GeographicCoordinateSystem);
         } catch (IOException e) {
             e.printStackTrace();
         }
