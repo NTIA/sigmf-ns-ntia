@@ -1,5 +1,6 @@
 package gov.doc.ntia.sigmf.ext.annotation.sensor;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -99,24 +100,34 @@ public class SensorAnnotation extends Annotation implements Serializable {
         this.gainSettingSigan = gainSettingSigan;
     }
 
+
     @Override
-    public Double getLatitude() {
+    public void setLatitude(Double latitude) {
+        this.sensorLatitude = latitude;
+    }
+    @Override
+    public void setLongitude(Double longitude) {
+       this.sensorLongitude = longitude;
+    }
+
+    public Double getSensorLongitude(){
+        return sensorLongitude;
+    }
+
+    public Double getSensorLatitude(){
         return sensorLatitude;
     }
 
     @Override
-    public void setLatitude(Double latitude) {
-        sensorLatitude = latitude;
-    }
-
-    @Override
+    @JsonIgnore
     public Double getLongitude() {
-        return sensorLongitude;
+      return sensorLongitude;
     }
 
     @Override
-    public void setLongitude(Double longitude) {
-        sensorLongitude = longitude;
+    @JsonIgnore
+    public Double getLatitude() {
+        return sensorLatitude;
     }
 
     public Double getAltitude() {
