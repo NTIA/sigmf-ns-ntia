@@ -65,8 +65,8 @@ A GeographicCoordinateSystem extends CoordinateSystem and adds the following pro
 |`semimajor`|false|double|N/A|Semimajor axis radii of spheroid.|
 |`flattening`|false|double|N/A|Flattening value of spheroid.|
 |`angular_unit`|false|string|N/A|Angular unit of measure of spheroid. E.g. degrees, radians, grads|
-|`prime_meridian`|false|string|N/A|the name of the prime meridian.|
-|`meridian_offset`|false|double|N/A| the offset of the prime meridian from greenwich in degrees.|
+|`prime_meridian`|false|string|N/A|The name of the prime meridian.|
+|`meridian_offset`|false|double|N/A|The offset of the prime meridian from Greenwich in degrees.|
 
 
 ## 2 Captures
