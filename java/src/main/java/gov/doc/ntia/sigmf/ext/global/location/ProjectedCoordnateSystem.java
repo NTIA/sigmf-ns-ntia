@@ -25,6 +25,10 @@ public class ProjectedCoordnateSystem extends CoordinateSystem {
     @JsonProperty(value="gcs", required = true)
     protected GeographicCoordinateSystem gcs;
 
+
+    @JsonProperty(value="projection", required = false)
+    protected String projection;
+
     public GeographicCoordinateSystem getGcs() {
         return gcs;
     }
@@ -73,7 +77,13 @@ public class ProjectedCoordnateSystem extends CoordinateSystem {
         this.originLatitude = originLatitude;
     }
 
+    public String getProjection() {
+        return projection;
+    }
 
+    public void setProjection(String projection) {
+        this.projection = projection;
+    }
 
 
 

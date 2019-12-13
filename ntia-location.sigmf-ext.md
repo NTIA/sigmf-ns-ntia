@@ -14,9 +14,9 @@ The base CoordinateSystem object used to describe the coordinate system.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique id for the spatial reference system.|
-|`description`|false|string|N/A|Description of the spatial reference system.|
-|`coordinate_system_type`|true|string|N/A|Type of the spatial reference system. CoordinateSystem, GeographicCoordinateSystem, or ProjectedCoordinateSystem|
+|`id`|true|string|N/A|Unique id for the coordinate system.|
+|`description`|false|string|N/A|Description of the coordinate system.|
+|`coordinate_system_type`|true|string|N/A|Type of the coordinate system: CoordinateSystem, GeographicCoordinateSystem, or ProjectedCoordinateSystem|
 |`distance_unit`|true|string|N/A|Unit of horizontal distance for coordinate system. E.g. Meters, feet, decimal degrees, DMS, city blocks.|
 |`time_unit`|true|string|N/A|Unit of time for speed measurements. E.g. Hours, seconds.|
 |`origin`|false|string|N/A|Origin of cartesian coordinate system. E.g. State of CO, survey marker #MT 127.|
@@ -36,6 +36,7 @@ The ProjectedCoordinateSystem object extends CoordinateSystem and adds the follo
 |`central_meridian`|false|double|N/A|Central meridian of PCS.|
 |`scale_factor`|false|double|N/A|Scale factor of PCS.|
 |`origin_latitude`|false|double|decimal degrees|Latitude of origin of PCS.|
+|`projection`|false|string|N/A|Type of projection. E.g. Conical, cylandrical, transverse mercator.|
 
 ### 1.3 GeographicCoordinateSystem Object
 A GeographicCoordinateSystem extends CoordinateSystem and adds the following properties:
