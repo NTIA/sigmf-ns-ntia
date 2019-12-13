@@ -27,6 +27,9 @@ public class Spheroid {
     @JsonProperty(value="prime_meridian", required = false)
     protected String primeMeridian;
 
+    @JsonProperty(value="meridian_offset", required = false)
+    protected Double meridianOffset;
+
     public String getId() {
         return id;
     }
@@ -83,6 +86,13 @@ public class Spheroid {
         this.primeMeridian = primeMeridian;
     }
 
+    public Double getMeridianOffset() {
+        return meridianOffset;
+    }
+
+    public void setMeridianOffset(Double meridianOffset) {
+        this.meridianOffset = meridianOffset;
+    }
 
 
 

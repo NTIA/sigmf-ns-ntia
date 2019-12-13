@@ -32,6 +32,7 @@ public class GcsWithSpheroidExample implements Example {
         spheroid.setSemiminor(6356752.3142);
         spheroid.setFlattening((1/298.257223563));
         spheroid.setPrimeMeridian("Greenwich");
+        spheroid.setMeridianOffset(0.0);
         datum.setSpheroid(spheroid);
         gcs.setDatum(datum);
         gcs.setDescription("World Geodetic System 1984 - Horizontal component of 3D system. Used by the GPS satellite navigation system and for NATO military geodetic surveying.");

@@ -65,7 +65,8 @@ A GeographicCoordinateSystem extends CoordinateSystem and adds the following pro
 |`semimajor`|false|double|N/A|Semimajor axis radii of spheroid.|
 |`flattening`|false|double|N/A|Flattening value of spheroid.|
 |`angular_unit`|false|string|N/A|Angular unit of measure of spheroid. E.g. degrees, radians, grads|
-|`prime_meridian`|false|string|N/A|The longitude origin.|
+|`prime_meridian`|false|string|N/A|the name of the prime meridian.|
+|`meridian_offset`|false|double|N/A| the offset of the prime meridian from greenwich in degrees.|
 
 
 ## 2 Captures
@@ -165,7 +166,7 @@ A GeographicCoordinateSystem extends CoordinateSystem and adds the following pro
   "global": {
     "core:datatype": "rf32_le",
     "core:sample_rate": 15360000,
-    "ntia-scos:task_id": 162782,
+    "ntia-scos:task_id": 212393,
     "ntia-location:coordinate_system": {
       "coordinate_system_type": "GeographicCoordinateSystem",
       "id": "EPSG:4326",
@@ -175,7 +176,8 @@ A GeographicCoordinateSystem extends CoordinateSystem and adds the following pro
           "semiminor": 6356752.3142,
           "semimajor": 6378137.0,
           "flattening": 0.0033528106647474805,
-          "prime_meridian": "Greenwich"
+          "prime_meridian": "Greenwich",
+          "meridian_offset": 0.0
         }
       }
     }
@@ -184,12 +186,11 @@ A GeographicCoordinateSystem extends CoordinateSystem and adds the following pro
     {
       "core:sample_start": 0,
       "core:frequency": 700000000,
-      "core:datetime": "2019-12-12T22:01:59.000289Z"
+      "core:datetime": "2019-12-13T21:58:14.000587Z"
     }
   ],
   "annotations": [
     
   ]
 }
-
 ```
