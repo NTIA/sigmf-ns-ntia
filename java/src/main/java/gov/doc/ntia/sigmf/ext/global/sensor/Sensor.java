@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
-import gov.doc.ntia.sigmf.ext.global.Mover;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 
 import java.io.Serializable;
@@ -14,7 +13,7 @@ import java.util.Map;
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Sensor extends Mover implements Serializable {
+public class Sensor  implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

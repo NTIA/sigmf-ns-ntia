@@ -121,11 +121,6 @@ public class Test {
     private static Sensor getSensor() {
         Sensor sensor = new Sensor();
         sensor.setId("GH123");
-        sensor.setSpeed(124.0);
-        sensor.setAltitude(12d);
-        sensor.setBearing(12d);
-        sensor.setLatitude(12d);
-        sensor.setLongitude(180d);
         sensor.setSignalAnalyzer(getSignalAnalyzer());
         sensor.setAntenna(getAntenna());
         sensor.setMobile(true);
