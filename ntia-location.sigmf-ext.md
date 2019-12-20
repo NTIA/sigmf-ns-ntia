@@ -5,9 +5,10 @@ The ntia-location namespace provides metadata to describe a coordinate system an
 
 ## 1 Global
 `ntia-location` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
+
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`coordinate_system`|false|[CoordinateSystem](#11-coordinatesystem-object)|N/A|Unique id for coordinate system.|
+|`coordinate_system`|false| [CoordinateSystem](#11-coordinatesystem-object) |N/A|Unique id for coordinate system.|
 
 ### 1.1 CoordinateSystem Object
 The base CoordinateSystem object used to describe the coordinate system. 
@@ -37,6 +38,8 @@ The ProjectedCoordinateSystem object extends CoordinateSystem and adds the follo
 |`scale_factor`|false|double|N/A|Scale factor of PCS.|
 |`origin_latitude`|false|double|decimal degrees|Latitude of origin of PCS.|
 |`projection`|false|string|N/A|Type of projection. E.g. Conical, cylandrical, transverse mercator.|
+|`gcs`|false|[GeographicCoordinateSystem](#13-geographiccoordinatesystem-object)|N/A|Underlying geographic coordinate system of PCS.| 
+
 
 ### 1.3 GeographicCoordinateSystem Object
 A GeographicCoordinateSystem extends CoordinateSystem and adds the following properties:
