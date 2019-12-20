@@ -22,7 +22,7 @@ public class ProjectedCoordnateSystem extends CoordinateSystem {
     protected Double originLatitude;
 
 
-    @JsonProperty(value="gcs", required = true)
+    @JsonProperty(value="gcs", required = false)
     protected GeographicCoordinateSystem gcs;
 
 
