@@ -42,6 +42,7 @@ public class FrequencyDomainDetection extends DomainDetection implements Seriali
     @JsonProperty(value="ntia-algorithm:frequency_step", required = false)
     protected Double frequencyStep;
 
+
     public Double[] getFrequency() {
         return frequency;
     }
@@ -120,8 +121,6 @@ public class FrequencyDomainDetection extends DomainDetection implements Seriali
     public void setEquivalentNoiseBandwidth(Double equivalentNoiseBandwidth) {
         this.equivalentNoiseBandwidth = equivalentNoiseBandwidth;
     }
-
-
 
 
 
