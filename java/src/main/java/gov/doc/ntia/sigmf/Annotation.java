@@ -16,7 +16,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-//@JsonTypeInfo(use=JsonTypeInfo.Id.class, include=JsonTypeInfo.As.PROPERTY, property="type")
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
@@ -46,19 +45,19 @@ public class Annotation implements Serializable {
     @JsonProperty(value="core:comment", required=false)
     protected String comment;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+    
     @JsonProperty(value="core:freq_lower_edge", required = false)
     protected Double freqLowerEdge;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+    
     @JsonProperty(value="core:freq_upper_edge", required = false)
     protected Double freqUpperEdge;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+    
     @JsonProperty(value="core:latitude", required = false)
     protected Double latitude;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+    
     @JsonProperty(value="core:longitude", required = false)
     protected  Double longitude;
 

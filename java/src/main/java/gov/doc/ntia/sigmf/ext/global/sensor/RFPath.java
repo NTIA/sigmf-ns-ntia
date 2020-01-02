@@ -16,32 +16,37 @@ public class RFPath implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="low_frequency_passband_filter", required = false)
     protected Double lowFrequencyPassbandFilter;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="high_frequency_passband_filter", required = false)
     protected Double highFrequencyPassbandFilter;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="low_frequency_stopband_filter", required = false)
     protected Double lowFrequencyStopbandFilter;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value ="high_frequency_stopband_filter", required = false)
     protected Double highFrequencyStopbandFilter;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value ="gain_lna", required = false)
     protected Double gainLna;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="noise_figure_lna", required = false)
     protected Double noiseFigureLna;
 
     @JsonProperty(value = "type_cal_source", required = false)
     protected String typeCalSource;
+
+
+    @JsonProperty(value= "max_power_lna", required = false)
+    protected  Double maxPowerLna;
+
 
     public Double getGainLna() {
         return gainLna;
@@ -116,6 +121,12 @@ public class RFPath implements Serializable {
         otherFields.put(key, value);
     }
 
+    public Double getMaxPowerLna() {
+        return maxPowerLna;
+    }
 
+    public void setMaxPowerLna(Double maxPowerLna) {
+        this.maxPowerLna = maxPowerLna;
+    }
 
 }

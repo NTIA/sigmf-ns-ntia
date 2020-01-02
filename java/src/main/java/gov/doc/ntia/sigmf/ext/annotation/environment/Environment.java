@@ -13,11 +13,11 @@ public class Environment extends Annotation implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-environment:temperature", required = false)
     protected Double temperature;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-environment:humidity", required = false)
     protected Double humidity;
 

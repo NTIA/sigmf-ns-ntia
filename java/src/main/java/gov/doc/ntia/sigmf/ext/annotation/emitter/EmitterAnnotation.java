@@ -22,15 +22,15 @@ public class EmitterAnnotation extends Annotation implements Serializable {
     @JsonProperty(value="ntia-emitter:waveform", required = false)
     protected Waveform waveform;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-emitter:altitude", required = false)
     protected Double altitude;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-emitter:speed", required = false)
     protected Double speed;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-emitter:bearing", required = false)
     protected Double bearing;
 

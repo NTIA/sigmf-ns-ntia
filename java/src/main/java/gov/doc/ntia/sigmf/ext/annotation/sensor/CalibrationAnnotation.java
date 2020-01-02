@@ -9,41 +9,45 @@ import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CalibrationAnnotation extends Annotation {
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-sensor:gain_sigan", required = false)
     protected Double gainSigan;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-sensor:noise_figure_sigan", required = false)
     protected Double noiseFigureSigan;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-sensor:ldb_compression_point_sigan", required = false)
     protected Double oneDbCompressionPointSigan;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-sensor:enbw_sigan", required = false)
     protected Double enbwSigan;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-sensor:gain_preselector", required = false)
     protected Double gainPreselector;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-sensor:noise_figure_sensor", required = false)
     protected Double noiseFigureSensor;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-sensor:1db_compression_point_sensor", required = false)
     protected Double oneDbCompressionPointSensor;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value = "ntia-sensor:enbw_sensor", required = false)
     protected Double enbwSensor;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value = "ntia-sensor:mean_noise_power_sensor", required = false)
     protected Double meanNoisePowerSensor;
+
+    @JsonProperty(value="ntia-sensor:temperature, required=false")
+    protected Double temperature;
+
 
     public void setGainSigan(Double gainSigan) {
         this.gainSigan = gainSigan;
@@ -119,6 +123,14 @@ public class CalibrationAnnotation extends Annotation {
 
     public void setNoiseFigureSigan(Double noiseFigureSigan) {
         this.noiseFigureSigan = noiseFigureSigan;
+    }
+
+    public Double getTemperature() {
+        return temperature;
+    }
+
+    public void setTemperature(Double temperature) {
+        this.temperature = temperature;
     }
 
 }

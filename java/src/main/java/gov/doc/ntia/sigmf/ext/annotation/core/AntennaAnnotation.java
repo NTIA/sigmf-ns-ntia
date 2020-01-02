@@ -13,11 +13,11 @@ public class AntennaAnnotation extends Annotation {
     @JsonProperty(value="ntia-core:antenna_id", required = true)
     protected String id;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-core:azimuth_angle", required = false)
     protected Double azimuthAngle;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-core:elevation_angle", required = false)
     protected Double elevationAngle;
 

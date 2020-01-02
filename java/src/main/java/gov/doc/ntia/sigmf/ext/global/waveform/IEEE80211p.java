@@ -41,7 +41,7 @@ public class IEEE80211p extends Waveform implements Serializable {
     @JsonProperty(value = "cyclic_prefix", required = false)
     protected Long cyclicPrefix;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="short_inter_frame_space", required = false)
     protected Double shortInterFrameSpace;
 
@@ -51,7 +51,7 @@ public class IEEE80211p extends Waveform implements Serializable {
     @JsonProperty(value="number_of_info_bits", required = false)
     protected Long numberOfInfoBits;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="signal_to_noise_ratio", required =false)
     protected Double signalToNoiseRation;
 

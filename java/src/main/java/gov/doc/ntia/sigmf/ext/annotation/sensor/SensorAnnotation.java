@@ -28,31 +28,31 @@ public class SensorAnnotation extends Annotation implements Serializable {
     @JsonProperty(value="ntia-sensor:overload_sigan", required = false)
     protected Boolean overloadSigan;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-sensor:attenuation_setting_sigan", required = false)
     protected Double attenuationSettingSigan;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-sensor:gain_setting_sigan", required = false)
     protected Double gainSettingSigan;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-sensor:latitude", required = false)
     protected Double sensorLatitude;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-sensor:longitude", required = false)
     protected Double sensorLongitude;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-sensor:altitude", required = false)
     protected Double altitude;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-sensor:speed", required = false)
     protected Double speed;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-sensor:bearing", required = false)
     protected Double bearing;
 

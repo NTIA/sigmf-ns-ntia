@@ -28,23 +28,23 @@ public class DigitalFilter implements Serializable {
     @JsonProperty(value="IIR_denominator_coefficients", required = false)
     protected Double[] iirDenominatorCoefficients;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="cutoff_frequency", required = false)
     protected Double cutoffFrequency;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="cutoff_attenuation", required = false)
     protected Double cutoffAttenuation;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ripple_passband", required = false)
     protected Double ripplePassband;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="attenuation_stopband", required = false)
     protected Double attenuationStopband;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="frequency_stopband", required = false)
     protected Double frequencyStopband;
 

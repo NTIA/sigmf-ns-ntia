@@ -22,7 +22,7 @@ public class FrequencyDomainDetection extends DomainDetection implements Seriali
     @JsonProperty(value="ntia-algorithm:window", required = true)
     protected String window;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value = "ntia-algorithm:equivalent_noise_bandwidth", required = false)
     protected Double equivalentNoiseBandwidth;
 
@@ -30,15 +30,15 @@ public class FrequencyDomainDetection extends DomainDetection implements Seriali
     @JsonProperty(value="ntia-algorithm:frequency", required = false)
     protected Double[] frequency;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-algorithm:frequency_start", required = false)
     protected Double frequencyStart;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-algorithm:frequency_stop", required = false)
     protected Double frequencyStop;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-algorithm:frequency_step", required = false)
     protected Double frequencyStep;
 

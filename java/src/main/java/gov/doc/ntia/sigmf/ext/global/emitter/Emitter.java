@@ -25,7 +25,7 @@ public class Emitter extends Mover implements Serializable  {
     @JsonProperty(value="description", required = false)
     protected String description;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="power", required = false)
     protected Double power;
 

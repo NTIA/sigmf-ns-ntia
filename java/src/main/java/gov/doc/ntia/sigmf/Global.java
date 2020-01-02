@@ -28,7 +28,7 @@ public class Global implements Serializable {
 
 
     //The sample rate of the signal in samples per second.
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="core:sample_rate", required = false)
     protected Double sampleRate;
 

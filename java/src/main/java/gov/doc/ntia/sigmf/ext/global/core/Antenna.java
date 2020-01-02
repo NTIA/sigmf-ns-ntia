@@ -22,22 +22,22 @@ public class Antenna implements Serializable {
     @JsonProperty(value="type", required=false)
     protected  String type;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="low_frequency", required = false)
     protected Double lowFrequency;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="high_frequency", required = false)
     protected Double highFrequency;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="gain", required=false)
     protected Double gain;
 
     @JsonProperty(value="polarization", required = false)
     protected String polarization;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="cross_polar_discrimination", required = false)
     protected Double crossPolarDiscrimination;
 
@@ -47,30 +47,30 @@ public class Antenna implements Serializable {
     @JsonProperty(value="vertical_gain_pattern", required = false)
     protected  Double[] verticalGainPattern;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="horizontal_beam_width", required = false)
     protected Double horizontalBeamWidth;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="vertical_beam_width", required = false)
     protected Double verticalBeamWidth;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="voltage_standing_wave_ratio", required = false)
     protected Double voltageStandingWaveRatio;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="cable_loss", required = false)
     protected Double cableLoss;
 
     @JsonProperty(value="steerable", required = false)
     protected Boolean steerable;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="azimuth_angle", required = false)
     protected Double azimuthAngle;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="elevation_angle", required = false)
     protected Double elevationAngle;
 

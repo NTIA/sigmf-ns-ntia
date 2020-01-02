@@ -20,7 +20,7 @@ public class Capture implements Serializable {
     @JsonProperty(value = "core:global_index", required= false)
     protected Long globalIndex;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="core:frequency", required= false)
     protected Double frequency;
 
