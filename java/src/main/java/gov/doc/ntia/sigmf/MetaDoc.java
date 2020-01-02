@@ -1,7 +1,12 @@
 package gov.doc.ntia.sigmf;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.data.annotation.Id;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +15,9 @@ import java.util.List;
 public class MetaDoc implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @Id
+    protected String id;
 
     protected Global global;
 
@@ -23,6 +31,13 @@ public class MetaDoc implements Serializable {
         annotations = new ArrayList<>();
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
     public List<Capture> getCaptures() {
         return captures;
     }
@@ -48,6 +63,21 @@ public class MetaDoc implements Serializable {
         this.global = global;
     }
 
+    public void saveToFile(String filename){
+
+        ObjectMapper mapper = new ObjectMapper();
+         try {
+             mapper.writeValue(new File(filename),this);
+         } catch (IOException e) {
+            e.printStackTrace();
+         }
+
+
+    }
+
+    public void addAnnotation(Annotation annotation){
+        annotations.add(annotation);
+    }
 
 
 

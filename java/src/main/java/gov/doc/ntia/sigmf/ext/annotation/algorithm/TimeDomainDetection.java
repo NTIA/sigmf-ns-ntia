@@ -6,13 +6,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TimeDomainDetection implements Serializable {
+public class TimeDomainDetection extends DomainDetection implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @JsonProperty(value="ntia-algorithm:number_of_samples", required = true)
     protected Long numberOfSamples;
 
+    public TimeDomainDetection(){
+        this.detectionDomain="time";
+    }
 
     public Long getNumberOfSamples() {
         return numberOfSamples;

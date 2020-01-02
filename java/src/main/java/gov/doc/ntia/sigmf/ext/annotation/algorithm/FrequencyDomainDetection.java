@@ -2,6 +2,9 @@ package gov.doc.ntia.sigmf.ext.annotation.algorithm;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
+
 
 import java.io.Serializable;
 
@@ -19,10 +22,13 @@ public class FrequencyDomainDetection extends DomainDetection implements Seriali
     @JsonProperty(value="ntia-algorithm:window", required = true)
     protected String window;
 
+    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value = "ntia-algorithm:equivalent_noise_bandwidth", required = false)
     protected Double equivalentNoiseBandwidth;
 
-
+    public FrequencyDomainDetection(){
+        this.detectionDomain = "frequency";
+    }
 
 
     public int getNumberOfFfts() {
@@ -65,6 +71,8 @@ public class FrequencyDomainDetection extends DomainDetection implements Seriali
     public void setEquivalentNoiseBandwidth(Double equivalentNoiseBandwidth) {
         this.equivalentNoiseBandwidth = equivalentNoiseBandwidth;
     }
+
+
 
 
 
