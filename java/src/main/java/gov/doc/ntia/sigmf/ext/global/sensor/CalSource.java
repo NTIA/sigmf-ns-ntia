@@ -1,8 +1,10 @@
 package gov.doc.ntia.sigmf.ext.global.sensor;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CalSource {
 
     @JsonProperty(value="cal_source_spec", required = false)
@@ -10,6 +12,9 @@ public class CalSource {
 
     @JsonProperty(value="type", required = false)
     protected String type;
+
+    @JsonProperty(value="enr", required = false)
+    protected String enr;
 
     public HardwareSpec getCalSourceSpec() {
         return calSourceSpec;
@@ -35,8 +40,7 @@ public class CalSource {
         this.enr = enr;
     }
 
-    @JsonProperty(value="enr", required = false)
-    protected String enr;
+
 
 
 }
