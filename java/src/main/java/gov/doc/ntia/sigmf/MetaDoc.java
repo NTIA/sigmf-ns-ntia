@@ -3,6 +3,7 @@ package gov.doc.ntia.sigmf;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.data.annotation.Id;
 
 import java.io.File;
@@ -66,6 +67,7 @@ public class MetaDoc implements Serializable {
     public void saveToFile(String filename){
 
         ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
          try {
              mapper.writeValue(new File(filename),this);
          } catch (IOException e) {

@@ -44,23 +44,54 @@ Sensor definition follows a simplified hardware model comprised of the following
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`preselector_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the preselector.|
-|`cal_source_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the preselector calibration source.|
-|`lna_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the preselector low noise amplifier.|
-|`filter_spec`|false|Array of [HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the preselector RF bandpass filters.|
+|`cal_source`|false|[CalSource](#14-calsource-object)|N/A|Metadata to describe/specify the preselector calibration source.|
+|`amplifiers`|false|[Amplifier[]](#12-amplifier-object)|N/A|Metadata to describe/specify the preselector low noise amplifiers.|
+|`filters`|false|[Filter[]](#12-hardwarespec-object)|N/A|Metadata to describe the preselector RF filters.|
 |`rf_paths`|false|Array of [RFPath](#14-rfpath-object)|N/A|Metadata that describes preselector RF paths.|
 
-### 1.4 RFPath Object
+### 1.4 CalSource Object
+`CalSource` has the following properties:
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`cal_source_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe the calibration source specification.|
+|`type`|false|String|Hz|The type of the calibration source.|
+
+
+### 1.5 Amplifier Object
+`Amplifier` has the following properties:
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`amplifier_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe the amplifier specification.|
+|`gain`|false|double|dB|Gain of low noise amplifier.|
+|`noise_figure`|false|double|dB|Noise figure of low noise amplifier.|
+|`max_power`|false|double|dB|The maximum power of the low noise amplifier.|
+
+
+
+### 1.6 Filter Object
+`Filter` has the following properties:
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`filter_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the filter specification.|
+|`low_frequency_passband`|false|double|Hz|Low frequency of filter 1-dB passband.|
+|`high_frequency_passband`|false|double|Hz|High frequency of filter 1-dB passband.|
+|`low_frequency_stopband`|false|double|Hz|Low frequency of filter 60-dB stopband.|
+|`high_frequency_stopband`|false|double|Hz|High frequency of filter 60-dB stopband.|
+
+
+
+### 1.7 RFPath Object
 `RFPath` has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`low_frequency_passband_filter`|false|double|Hz|Low frequency of filter 1-dB passband.|
-|`high_frequency_passband_filter`|false|double|Hz|High frequency of filter 1-dB passband.|
-|`low_frequency_stopband_filter`|false|double|Hz|Low frequency of filter 60-dB stopband.|
-|`high_frequency_stopband_filter`|false|double|Hz|High frequency of filter 60-dB stopband.|
-|`gain_lna`|false|double|dB|Gain of low noise amplifier.|
-|`noise_figure_lna`|false|double|dB|Noise figure of low noise amplifier.|
-|`type_cal_source`|false|string|N/A|E.g., `"calibrated noise source"`.|
+|`cal_source_id`|true|String|N/A|The id of the calibration source.|
+|`filter_id`|true|String|N/A|The id of the filter.|
+|`amplifier_id`|true|String|N/A|The id of the amplifier.|
+
 
 ## 2 Captures
 `ntia-sensor` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).

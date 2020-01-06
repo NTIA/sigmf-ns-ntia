@@ -2,6 +2,7 @@ package gov.doc.ntia.sigmf.examples;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import gov.doc.ntia.sigmf.Annotation;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.algorithm.DigitalFilterAnnotationExample;
@@ -60,11 +61,15 @@ public class ExampleGenerator {
 
         WaveformExample waveformExample = new WaveformExample();
         save("waveformExample.json", waveformExample.getExample());
+
+        RadarExample radarExample = new RadarExample();
+        save("radarExample.json", radarExample.getExample());
     }
 
     private static void save(String filename, MetaDoc example) {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN, true);
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
         try {
             mapper.writeValue(new File(filename),example);
         } catch (IOException e) {

@@ -19,7 +19,7 @@ public class HardwareSpec {
     protected String description;
 
     @JsonProperty(value="supplemental_information", required = false)
-    protected String supplemental_information;
+    protected String supplementalInformation;
 
 
     public String getId() {
@@ -54,12 +54,12 @@ public class HardwareSpec {
         this.description = description;
     }
 
-    public String getSupplemental_information() {
-        return supplemental_information;
+    public String getSupplementalInformation() {
+        return supplementalInformation;
     }
 
-    public void setSupplemental_information(String supplemental_information) {
-        this.supplemental_information = supplemental_information;
+    public void setSupplementalInformation(String supplementalInformation) {
+        this.supplementalInformation = supplementalInformation;
     }
 
 }

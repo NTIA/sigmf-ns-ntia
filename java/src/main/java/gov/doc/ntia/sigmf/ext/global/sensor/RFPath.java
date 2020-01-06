@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -17,44 +15,14 @@ public class RFPath implements Serializable {
     private static final long serialVersionUID = 1L;
 
 
-    @JsonProperty(value="low_frequency_passband_filter", required = false)
-    protected Double lowFrequencyPassbandFilter;
+    @JsonProperty(value = "cal_source_id", required = false)
+    protected String calSourceId;
 
+    @JsonProperty(value="filter_id", required = false)
+    protected String filterId;
 
-    @JsonProperty(value="high_frequency_passband_filter", required = false)
-    protected Double highFrequencyPassbandFilter;
-
-
-    @JsonProperty(value="low_frequency_stopband_filter", required = false)
-    protected Double lowFrequencyStopbandFilter;
-
-
-    @JsonProperty(value ="high_frequency_stopband_filter", required = false)
-    protected Double highFrequencyStopbandFilter;
-
-
-    @JsonProperty(value ="gain_lna", required = false)
-    protected Double gainLna;
-
-
-    @JsonProperty(value="noise_figure_lna", required = false)
-    protected Double noiseFigureLna;
-
-    @JsonProperty(value = "type_cal_source", required = false)
-    protected String typeCalSource;
-
-
-    @JsonProperty(value= "max_power_lna", required = false)
-    protected  Double maxPowerLna;
-
-
-    public Double getGainLna() {
-        return gainLna;
-    }
-
-    public void setGainLna(Double gainLna) {
-        this.gainLna = gainLna;
-    }
+    @JsonProperty(value="amplifier_id", required = false)
+    protected String amplifierId;
 
     public void setOtherFields(Map<String, Object> otherFields) {
         this.otherFields = otherFields;
@@ -63,52 +31,13 @@ public class RFPath implements Serializable {
 
     protected Map<String, Object> otherFields = new HashMap<>();
 
-    public Double getLowFrequencyPassbandFilter() {
-        return lowFrequencyPassbandFilter;
+
+    public String getCalSourceId() {
+        return calSourceId;
     }
 
-    public void setLowFrequencyPassbandFilter(Double lowFrequencyPassbandFilter) {
-        this.lowFrequencyPassbandFilter = lowFrequencyPassbandFilter;
-    }
-
-    public Double getHighFrequencyPassbandFilter() {
-        return highFrequencyPassbandFilter;
-    }
-
-    public void setHighFrequencyPassbandFilter(Double highFrequencyPassbandFilter) {
-        this.highFrequencyPassbandFilter = highFrequencyPassbandFilter;
-    }
-
-    public Double getLowFrequencyStopbandFilter() {
-        return lowFrequencyStopbandFilter;
-    }
-
-    public void setLowFrequencyStopbandFilter(Double getLowFrequencyStopband) {
-        this.lowFrequencyStopbandFilter = getLowFrequencyStopband;
-    }
-
-    public Double getHighFrequencyStopbandFilter() {
-        return highFrequencyStopbandFilter;
-    }
-
-    public void setHighFrequencyStopbandFilter(Double getHighFrequencyStopband) {
-        this.highFrequencyStopbandFilter = getHighFrequencyStopband;
-    }
-
-    public Double getNoiseFigureLna() {
-        return noiseFigureLna;
-    }
-
-    public void setNoiseFigureLna(Double noiseFigureLna) {
-        this.noiseFigureLna = noiseFigureLna;
-    }
-
-    public String getTypeCalSource() {
-        return typeCalSource;
-    }
-
-    public void setTypeCalSource(String typeCalSource) {
-        this.typeCalSource = typeCalSource;
+    public void setCalSourceId(String calSourceId) {
+        this.calSourceId = calSourceId;
     }
 
     @JsonAnyGetter
@@ -121,12 +50,22 @@ public class RFPath implements Serializable {
         otherFields.put(key, value);
     }
 
-    public Double getMaxPowerLna() {
-        return maxPowerLna;
+    public String getFilterId() {
+        return filterId;
     }
 
-    public void setMaxPowerLna(Double maxPowerLna) {
-        this.maxPowerLna = maxPowerLna;
+    public void setFilterId(String filterId) {
+        this.filterId = filterId;
     }
+
+    public String getAmplifierId() {
+        return amplifierId;
+    }
+
+    public void setAmplifierId(String ampId) {
+        this.amplifierId = ampId;
+    }
+
+
 
 }
