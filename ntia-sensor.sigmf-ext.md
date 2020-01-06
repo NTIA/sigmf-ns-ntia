@@ -22,7 +22,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`sensor_spec`|true|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the sensor.|
 |`antenna`|true|[Antenna](ntia-core.sigmf-ext.md#11-antenna-object)|N/A|Metadata to describe/specify the antenna.|
 |`preselector`|false| [Preselector](#13-preselector-object)|N/A|Metadata to describe/specify the preselector.|
-|`signal_analyzer`|true| [SignalAnalyzer](#12-signal-analyzer-object) |N/A|Metadata to describe/specify the signal analyzer.|
+|`signal_analyzer`|true| [SignalAnalyzer](#12-signalanalyzer-object) |N/A|Metadata to describe/specify the signal analyzer.|
 |`computer_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify onboard computer.|
 |`mobile`|false|boolean|N/A|Defines if the sensor is mobile.|
 
@@ -47,7 +47,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`cal_source`|false|[CalSource](#14-calsource-object)|N/A|Metadata to describe/specify the preselector calibration source.|
 |`amplifiers`|false|[Amplifier[]](#12-amplifier-object)|N/A|Metadata to describe/specify the preselector low noise amplifiers.|
 |`filters`|false|[Filter[]](#12-hardwarespec-object)|N/A|Metadata to describe the preselector RF filters.|
-|`rf_paths`|false|Array of [RFPath](#14-rfpath-object)|N/A|Metadata that describes preselector RF paths.|
+|`rf_paths`|false|[RFPath[]](#17-rfpath-object)|N/A|Metadata that describes preselector RF paths.|
 
 ### 1.4 CalSource Object
 `CalSource` has the following properties:
@@ -56,6 +56,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |----|--------------|-------|-------|-----------|
 |`cal_source_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe the calibration source specification.|
 |`type`|false|String|Hz|The type of the calibration source.|
+|`enr`|false|double|Hz|The type of the calibration source.|
 
 
 ### 1.5 Amplifier Object
@@ -130,6 +131,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`1db_compression_point_sensor`|false|double|dBm|Maximum input of sensor.|
 |`enbw_sensor`|false|double|Hz|Equivalent noise bandwidth of sensor.|
 |`mean_noise_power_sensor`|false|double|dBm/Hz|Mean noise power density of sensor.|
+|`temperature`|false|double|celsius|The temperature during calibration.|
 
 ## 4 Example
 
