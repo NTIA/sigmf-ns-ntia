@@ -56,7 +56,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |----|--------------|-------|-------|-----------|
 |`cal_source_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe the calibration source specification.|
 |`type`|false|String|Hz|The type of the calibration source.|
-|`enr`|false|double|Hz|The type of the calibration source.|
+|`enr`|false|double|dB|The excess noise ratio.|
 
 
 ### 1.5 Amplifier Object
