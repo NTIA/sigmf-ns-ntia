@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.TimeDomainDetection;
+import gov.doc.ntia.sigmf.ext.annotation.location.LocationAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.emitter.EmitterAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.environment.EmitterEnvironment;
@@ -28,7 +29,8 @@ import java.util.Map;
         @JsonSubTypes.Type(value = SensorEnvironment.class, name = "SensorEnvironment"),
         @JsonSubTypes.Type(value = EmitterEnvironment.class, name = "EmitterEnvironment"),
         @JsonSubTypes.Type(value = SensorAnnotation.class, name = "SensorAnnotation"),
-        @JsonSubTypes.Type(value = CalibrationAnnotation.class, name = "CalibrationAnnotation")
+        @JsonSubTypes.Type(value = CalibrationAnnotation.class, name = "CalibrationAnnotation"),
+        @JsonSubTypes.Type(value = LocationAnnotation.class, name ="LocationAnnotation")
 })
 public class Annotation implements Serializable {
 
