@@ -45,7 +45,7 @@ public class CalibrationAnnotation extends Annotation {
     @JsonProperty(value = "ntia-sensor:mean_noise_power_sensor", required = false)
     protected Double meanNoisePowerSensor;
 
-    @JsonProperty(value="ntia-sensor:temperature, required=false")
+    @JsonProperty(value="ntia-sensor:temperature", required=false)
     protected Double temperature;
 
 
