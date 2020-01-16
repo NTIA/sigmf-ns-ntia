@@ -15,8 +15,8 @@ public class ScheduleEntry implements Serializable {
     @JsonProperty(value="id", required = true)
     protected String id;
 
-    @JsonProperty(value="action", required = true)
-    protected String action;
+    @JsonProperty(value="name", required = false)
+    protected String name;
 
     @JsonProperty(value="relative_stop", required = false)
     protected Integer relativeStop;
@@ -51,13 +51,6 @@ public class ScheduleEntry implements Serializable {
         this.id = id;
     }
 
-    public String getAction() {
-        return action;
-    }
-
-    public void setAction(String action) {
-        this.action = action;
-    }
 
     public Integer getRelativeStop() {
         return relativeStop;
@@ -110,7 +103,7 @@ public class ScheduleEntry implements Serializable {
     }
 
     @JsonIgnore
-    public String getScheduleName(){
+    public String getScheduleNameFromUrl(){
         String scheduleName = "";
         if(id != null){
             if(id.endsWith("/")) {

@@ -18,49 +18,7 @@ public class Action implements Serializable {
     @JsonProperty(value="description", required =  false)
     protected  String description;
 
-    @JsonProperty(value="type", required = true)
-    protected String[] type;
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
-    @JsonProperty(value="end_time", required =  false)
-    protected Date endTime;
-
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-
-    @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
-    @JsonProperty(value="start_time", required = false)
-    protected Date startTime;
-
-
-    @JsonProperty(value="model", required =  false)
-    protected String model;
-
     protected Map<String, Object> otherFields = new HashMap<>();
-
-    public String[] getType() {
-        return type;
-    }
-
-    public void setType(String[] type) {
-        this.type = type;
-    }
 
     public String getName() {
         return name;

@@ -8,16 +8,45 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`action`|true|[Action](#11-action-object)|N/A|Metadata that describes a sensor action.|
-|`schedule`|false| [ScheduleEntry](#12-scheduleentry-object)|N/A|Metadata that describes the schedule that caused an action to be performed.|
-|`task_id`|true|integer|N/A|Unique identifier that increments with each task performed as a result of a `schedule_entry`.|
+|`schedule`|true| [ScheduleEntry](#11-scheduleentry-object)|N/A|Metadata that describes the schedule that caused an action to be performed.|
+|`action`|true|[Action](#12-action-object)|N/A|Metadata that describes the action that was performed.|
+|`task`|true|[Task](#13-task-object)|N/A|Metadata that describes the task that was performed.|
 
-### 1.1 Action Object
+
+### 1.1 ScheduleEntry Object
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`id`|true|string|N/A|Unique identifier for the `ScheduleEntry`|
+|`name`|true|string|N/A|User specified name of the schedule.|
+|`start`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Requested time to schedule the first task.|
+|`stop`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Requested time to end execution of tasks under the schedule.|
+|`relative_stop`|false|integer|Seconds|Seconds after start when the schedule will end.|
+|`interval`|false|integer|Seconds|Seconds between tasks. If unspecified, the task will execute once and the schedule will becom inactive|
+|`priority`|false|integer|N.A|The priority of the schedule. Lower numbers indicate higher priority.|
+
+
+
+### 1.2 Action Object
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`name`|true|string|N/A|Name of the action assigned to the schedule entry. MUST be unique on the sensor.|
 |`description`|false|string|N/A|A description of what the action does.|
-|`type`|true|string array|N/A|The type(s) of measurements the action produces.|
+
+
+### 1.3 Task Object
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`id`|true|integer|N/A|Unique identifier that increments with each task performed as a result of a `schedule_entry`.|
+|`recording`|false|integer|N/A|Unique identifier that increments with each recording performed in a task. The recording should be indicated for task that perform multiple recordings. |
+|`start_time`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  began execution.|
+|`end_time`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  finished execution.|
+|`low_frequency`|true|double|Hertz|Frequency of first data point.|
+|`center_frequency`|true|double|Hertz|Frequency of last data point.|
+|`high_frequency`|true|double|Hertz|The highest frequency in the .|
+|`domain`|true|string|N/A|Time or Frequency|
+|`measurement_type`|true|string|N/A|Method that signal analyzer acquires data, e.g. `"single-frequency"`, `"survey"`, `"scan"`.|
+
+
 
 [TODO] Capture Control Plane from Greyhound. Figure out `name` v. `id` (primary key choice).
 

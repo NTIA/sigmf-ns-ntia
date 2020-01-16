@@ -53,7 +53,6 @@ The `FrequencyDomainDetection` has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`measurement_type`|true|string|N/A|Method that signal analyzer acquires data, e.g. `"single-frequency"`, `"survey"`, `"scan"`.|
 |`detector`|true|string|N/A|E.g. `"fft_sample_iq"`, `"fft_sample_power"`, `"fft_mean_power"`, `"fft_max_power"`, `"fft_min_power"`, `"fft_median_power"`.|
 |`detection_domain`|true|string|N/A|Domain in which detector is applied, i.e., `"frequency"`.|
 |`number_of_ffts`|true|integer|N/A|Number of FFTs to be integrated over by detector.|
@@ -63,8 +62,6 @@ The `FrequencyDomainDetection` has the following properties:
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
 |`frequency`|false|array of doubles|Hertz|Frequency array corresponding to detected data.|
-|`frequency_start`|false|double|Hertz|Frequency of first data point.|
-|`frequency_stop`|false|double|Hertz|Frequency of last data point.|
 |`frequency_step`|false|double|Hertz|Frequency step between data points.|
 
 ### 3.3 DigitalFilterAnnotation Segment

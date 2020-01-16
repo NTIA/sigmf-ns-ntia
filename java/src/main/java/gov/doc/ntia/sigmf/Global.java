@@ -7,6 +7,7 @@ import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
 import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
+import gov.doc.ntia.sigmf.ext.global.scos.Task;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
@@ -86,18 +87,14 @@ public class Global implements Serializable {
     @JsonProperty(value="ntia-emitter:emitters", required = false)
     protected List<Emitter> emitters;
 
-    @JsonProperty(value="ntia-scos:action", required = false)
+    @JsonProperty(value="ntia-scos:action", required = true)
     protected Action action;
 
-    @JsonProperty(value="ntia-scos:schedule", required = false)
+    @JsonProperty(value="ntia-scos:schedule", required = true)
     protected ScheduleEntry schedule;
 
-    @JsonProperty(value="ntia-scos:task_id", required = false)
-    protected Long taskId;
-
-
-    @JsonProperty(value="ntia-scos:recording", required = false)
-    protected Long recording;
+    @JsonProperty(value="ntia-scos:task", required = true)
+    protected Task task;
 
 
     protected Map<String, Object> otherFields = new HashMap<>();
@@ -114,6 +111,8 @@ public class Global implements Serializable {
 
     @JsonProperty(value="ntia-scos:data_file_path", required = false)
     protected String dataFilePath;
+
+
 
 
 
@@ -210,16 +209,6 @@ public class Global implements Serializable {
         this.extensions = extensions;
     }
 
-
-    public Long getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
-    }
-
-
     public String getDatatype() {
         return datatype;
     }
@@ -268,6 +257,14 @@ public class Global implements Serializable {
         this.schedule = schedule;
     }
 
+    public Task getTask() {
+        return task;
+    }
+
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
     public Sensor getSensor() {
         return sensor;
     }
@@ -293,15 +290,6 @@ public class Global implements Serializable {
     public void setCalibrationDate(Date calibrationDate) {
         this.calibrationDate = calibrationDate;
     }
-
-    public Long getRecording() {
-        return recording;
-    }
-
-    public void setRecording(Long recording) {
-        this.recording = recording;
-    }
-
 
     public String getDataFilePath() {
         return dataFilePath;
