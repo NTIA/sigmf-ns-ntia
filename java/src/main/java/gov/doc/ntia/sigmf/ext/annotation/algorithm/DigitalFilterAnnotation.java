@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.Annotation;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
+import java.io.Serializable;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DigitalFilterAnnotation extends Annotation {
 

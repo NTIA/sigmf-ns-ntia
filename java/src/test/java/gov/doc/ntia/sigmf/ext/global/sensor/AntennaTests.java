@@ -1,6 +1,6 @@
 package gov.doc.ntia.sigmf.ext.global.sensor;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
@@ -9,91 +9,166 @@ import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import org.junit.jupiter.api.Test;
 
 import java.io.File;
+import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AntennaTests {
-/*
-    @Test
-    public void testAntennaSpec(){
+
+    private MetaDoc getMetaDocWithSensorAndAntenna(){
         MetaDoc metaDoc = new MetaDoc();
         Global global = new Global();
         Sensor sensor = new Sensor();
-        String sensorId = "TestSensor123";
-        sensor.setId(sensorId);
+        Antenna antenna = new Antenna();
+        sensor.setAntenna(antenna);
         global.setSensor(sensor);
         metaDoc.setGlobal(global);
-        Antenna antenna = new Antenna();
+        return metaDoc;
+    }
+
+    @Test
+    public void testAntennaSpec() throws IOException {
+
+        MetaDoc metaDoc = getMetaDocWithSensorAndAntenna();
         HardwareSpec antennaSpec = new HardwareSpec();
         antennaSpec.setSupplementalInformation("supplemental info");
         antennaSpec.setModel("model");
         antennaSpec.setId("antenna123");
         antennaSpec.setDescription("description");
+        metaDoc.getGlobal().getSensor().getAntenna().setAntennaSpec(antennaSpec);
         ObjectMapper mapper = new ObjectMapper();
         File output = File.createTempFile ("output", ".json");
         output.deleteOnExit();
         mapper.writeValue(output,metaDoc);
         MetaDoc readMetaDoc = (MetaDoc)mapper.readValue(output, MetaDoc.class);
-        assertEquals(sensorId, metaDoc.getGlobal().getSensor().getId());
+        assertEquals(metaDoc.getGlobal().getSensor().getAntenna().getAntennaSpec().getId(), readMetaDoc.getGlobal().getSensor().getAntenna().getAntennaSpec().getId());
+        assertEquals(metaDoc.getGlobal().getSensor().getAntenna().getAntennaSpec().getDescription(), readMetaDoc.getGlobal().getSensor().getAntenna().getAntennaSpec().getDescription());
+        assertEquals(metaDoc.getGlobal().getSensor().getAntenna().getAntennaSpec().getModel(), readMetaDoc.getGlobal().getSensor().getAntenna().getAntennaSpec().getModel());
+    }
+
+
+    @Test
+    public void testType() throws IOException {
+        MetaDoc metaDoc = getMetaDocWithSensorAndAntenna();
+        metaDoc.getGlobal().getSensor().getAntenna().setType("antennaType");
+        ObjectMapper mapper = new ObjectMapper();
+        File output = File.createTempFile ("output", ".json");
+        output.deleteOnExit();
+        mapper.writeValue(output,metaDoc);
+        MetaDoc readMetaDoc = (MetaDoc)mapper.readValue(output, MetaDoc.class);
+        assertEquals(metaDoc.getGlobal().getSensor().getAntenna().getType(), readMetaDoc.getGlobal().getSensor().getAntenna().getType());
 
     }
 
-    @JsonProperty(value="type", required=false)
-    protected  String type;
+    @Test
+    public void testLowFrequency() throws IOException {
+        MetaDoc metaDoc = getMetaDocWithSensorAndAntenna();
+        metaDoc.getGlobal().getSensor().getAntenna().setLowFrequency(100.0);
+        ObjectMapper mapper = new ObjectMapper();
+        File output = File.createTempFile ("output", ".json");
+        output.deleteOnExit();
+        mapper.writeValue(output,metaDoc);
+        MetaDoc readMetaDoc = (MetaDoc)mapper.readValue(output, MetaDoc.class);
+        assertEquals(metaDoc.getGlobal().getSensor().getAntenna().getLowFrequency(), readMetaDoc.getGlobal().getSensor().getAntenna().getLowFrequency());
+
+    }
 
 
-    @JsonProperty(value="low_frequency", required = false)
-    protected Double lowFrequency;
+    @Test
+    public void testHighFrequency() throws IOException {
+        MetaDoc metaDoc = getMetaDocWithSensorAndAntenna();
+        metaDoc.getGlobal().getSensor().getAntenna().setHighFrequency(100.0);
+        ObjectMapper mapper = new ObjectMapper();
+        File output = File.createTempFile ("output", ".json");
+        output.deleteOnExit();
+        mapper.writeValue(output,metaDoc);
+        MetaDoc readMetaDoc = (MetaDoc)mapper.readValue(output, MetaDoc.class);
+        assertEquals(metaDoc.getGlobal().getSensor().getAntenna().getHighFrequency(), readMetaDoc.getGlobal().getSensor().getAntenna().getHighFrequency());
+    }
 
 
-    @JsonProperty(value="high_frequency", required = false)
-    protected Double highFrequency;
+    @Test
+    public void testGain() throws IOException {
+        MetaDoc metaDoc = getMetaDocWithSensorAndAntenna();
+        metaDoc.getGlobal().getSensor().getAntenna().setGain(100.0);
+        ObjectMapper mapper = new ObjectMapper();
+        File output = File.createTempFile ("output", ".json");
+        output.deleteOnExit();
+        mapper.writeValue(output,metaDoc);
+        MetaDoc readMetaDoc = (MetaDoc)mapper.readValue(output, MetaDoc.class);
+        assertEquals(metaDoc.getGlobal().getSensor().getAntenna().getGain(), readMetaDoc.getGlobal().getSensor().getAntenna().getGain());
+
+    }
+
+    @Test
+    public void testPolarization() throws IOException {
+        MetaDoc metaDoc = getMetaDocWithSensorAndAntenna();
+        metaDoc.getGlobal().getSensor().getAntenna().setPolarization("horizontal");
+        ObjectMapper mapper = new ObjectMapper();
+        File output = File.createTempFile ("output", ".json");
+        output.deleteOnExit();
+        mapper.writeValue(output,metaDoc);
+        MetaDoc readMetaDoc = (MetaDoc)mapper.readValue(output, MetaDoc.class);
+        assertEquals(metaDoc.getGlobal().getSensor().getAntenna().getPolarization(), readMetaDoc.getGlobal().getSensor().getAntenna().getPolarization());
+
+    }
+
+    @Test
+    public void testCrossPolarDiscrimination(){
+
+    }
 
 
-    @JsonProperty(value="gain", required=false)
-    protected Double gain;
+    @Test
+    public void testHorizontalGainPattern(){
 
-    @JsonProperty(value="polarization", required = false)
-    protected String polarization;
-
-
-    @JsonProperty(value="cross_polar_discrimination", required = false)
-    protected Double crossPolarDiscrimination;
-
-    @JsonProperty(value="horizontal_gain_pattern", required = false)
-    protected Double[] horizontalGainPattern;
-
-    @JsonProperty(value="vertical_gain_pattern", required = false)
-    protected  Double[] verticalGainPattern;
+    }
 
 
-    @JsonProperty(value="horizontal_beam_width", required = false)
-    protected Double horizontalBeamWidth;
+    @Test
+    public void testVerticalGainPattern(){
+
+    }
+
+    @Test
+    public void testHorizontalBeamWidth(){
+
+    }
+
+    @Test
+    public void testVerticalBeamWidth(){
+
+    }
+
+    @Test
+    public void testVoltageStandingWaveRatio(){
+
+    }
+
+    @Test
+    public void testCableLoss(){
+
+    }
+
+    @Test
+    public void testSteerable(){
+
+    }
 
 
-    @JsonProperty(value="vertical_beam_width", required = false)
-    protected Double verticalBeamWidth;
+    @Test
+    public void testAzimuthAngle(){
 
+    }
 
-    @JsonProperty(value="voltage_standing_wave_ratio", required = false)
-    protected Double voltageStandingWaveRatio;
+    @Test
+    public void testElevationAngle(){
 
+    }
 
-    @JsonProperty(value="cable_loss", required = false)
-    protected Double cableLoss;
+    @Test
+    public void testMobile(){
 
-    @JsonProperty(value="steerable", required = false)
-    protected Boolean steerable;
+    }
 
-
-    @JsonProperty(value="azimuth_angle", required = false)
-    protected Double azimuthAngle;
-
-
-    @JsonProperty(value="elevation_angle", required = false)
-    protected Double elevationAngle;
-
-    @JsonProperty(value="mobile", required = false)
-    protected Boolean mobile;
-    */
 }

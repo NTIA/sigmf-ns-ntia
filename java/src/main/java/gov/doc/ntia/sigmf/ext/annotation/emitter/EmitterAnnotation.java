@@ -11,7 +11,7 @@ import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class EmitterAnnotation extends Annotation implements Serializable {
+public class EmitterAnnotation extends Annotation  {
 
     private static final long serialVersionUID = 1L;
 

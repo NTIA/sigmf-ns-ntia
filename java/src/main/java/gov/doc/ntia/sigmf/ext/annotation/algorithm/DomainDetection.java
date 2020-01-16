@@ -7,7 +7,7 @@ import gov.doc.ntia.sigmf.Annotation;
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DomainDetection extends Annotation implements Serializable {
+public class DomainDetection extends Annotation  {
 
     private static final long serialVersionUID = 1L;
 

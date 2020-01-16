@@ -307,6 +307,10 @@ java.io.IOException</span></div>
 <pre>java.lang.String dataDoi</pre>
 </li>
 <li class="blockList">
+<h5>dataFilePath</h5>
+<pre>java.lang.String dataFilePath</pre>
+</li>
+<li class="blockList">
 <h5>datatype</h5>
 <pre>java.lang.String datatype</pre>
 </li>
@@ -345,6 +349,10 @@ java.io.IOException</span></div>
 <li class="blockList">
 <h5>recorder</h5>
 <pre>java.lang.String recorder</pre>
+</li>
+<li class="blockList">
+<h5>recording</h5>
+<pre>java.lang.Long recording</pre>
 </li>
 <li class="blockList">
 <h5>sampleRate</h5>
@@ -619,6 +627,10 @@ java.io.IOException</span></div>
 <!--   -->
 </a>
 <h3>Class <a href="gov/doc/ntia/sigmf/ext/annotation/core/AntennaAnnotation.html" title="class in gov.doc.ntia.sigmf.ext.annotation.core">gov.doc.ntia.sigmf.ext.annotation.core.AntennaAnnotation</a> extends <a href="gov/doc/ntia/sigmf/Annotation.html" title="class in gov.doc.ntia.sigmf">Annotation</a> implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
 <ul class="blockList">
 <li class="blockList">
 <section class="detail">
@@ -792,6 +804,10 @@ java.io.IOException</span></div>
 <!--   -->
 </a>
 <h3>Class <a href="gov/doc/ntia/sigmf/ext/annotation/sensor/CalibrationAnnotation.html" title="class in gov.doc.ntia.sigmf.ext.annotation.sensor">gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation</a> extends <a href="gov/doc/ntia/sigmf/Annotation.html" title="class in gov.doc.ntia.sigmf">Annotation</a> implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
 <ul class="blockList">
 <li class="blockList">
 <section class="detail">
@@ -816,6 +832,10 @@ java.io.IOException</span></div>
 <li class="blockList">
 <h5>meanNoisePowerSensor</h5>
 <pre>java.lang.Double meanNoisePowerSensor</pre>
+</li>
+<li class="blockList">
+<h5>meanNoisePowerUnits</h5>
+<pre>java.lang.String meanNoisePowerUnits</pre>
 </li>
 <li class="blockList">
 <h5>noiseFigureSensor</h5>
@@ -878,12 +898,8 @@ java.io.IOException</span></div>
 <pre>java.lang.String gpsNmea</pre>
 </li>
 <li class="blockList">
-<h5>overloadSensor</h5>
-<pre>java.lang.Boolean overloadSensor</pre>
-</li>
-<li class="blockList">
-<h5>overloadSigan</h5>
-<pre>java.lang.Boolean overloadSigan</pre>
+<h5>overload</h5>
+<pre>java.lang.Boolean overload</pre>
 </li>
 <li class="blockList">
 <h5>rfPathIndex</h5>
@@ -896,6 +912,53 @@ java.io.IOException</span></div>
 <li class="blockList">
 <h5>sensorLongitude</h5>
 <pre>java.lang.Double sensorLongitude</pre>
+</li>
+<li class="blockList">
+<h5>speed</h5>
+<pre>java.lang.Double speed</pre>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="serializedPackageContainer">
+<h2 title="Package">Package&nbsp;gov.doc.ntia.sigmf.ext.global</h2>
+<ul class="blockList">
+<li class="blockList">
+<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.Mover">
+<!--   -->
+</a>
+<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/Mover.html" title="class in gov.doc.ntia.sigmf.ext.global">gov.doc.ntia.sigmf.ext.global.Mover</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h4>Serialized Fields</h4>
+<ul class="blockList">
+<li class="blockList">
+<h5>altitude</h5>
+<pre>java.lang.Double altitude</pre>
+</li>
+<li class="blockList">
+<h5>bearing</h5>
+<pre>java.lang.Double bearing</pre>
+</li>
+<li class="blockList">
+<h5>latitude</h5>
+<pre>java.lang.Double latitude</pre>
+</li>
+<li class="blockList">
+<h5>longitude</h5>
+<pre>java.lang.Double longitude</pre>
 </li>
 <li class="blockList">
 <h5>speed</h5>
@@ -1073,6 +1136,46 @@ java.io.IOException</span></div>
 </ul>
 </section>
 </li>
+<li class="blockList">
+<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.core.HardwareSpec">
+<!--   -->
+</a>
+<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.global.core">gov.doc.ntia.sigmf.ext.global.core.HardwareSpec</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h4>Serialized Fields</h4>
+<ul class="blockList">
+<li class="blockList">
+<h5>description</h5>
+<pre>java.lang.String description</pre>
+</li>
+<li class="blockList">
+<h5>id</h5>
+<pre>java.lang.String id</pre>
+</li>
+<li class="blockList">
+<h5>model</h5>
+<pre>java.lang.String model</pre>
+</li>
+<li class="blockList">
+<h5>supplementalInformation</h5>
+<pre>java.lang.String supplementalInformation</pre>
+</li>
+<li class="blockList">
+<h5>version</h5>
+<pre>java.lang.String version</pre>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</li>
 </ul>
 </section>
 </li>
@@ -1117,6 +1220,34 @@ java.io.IOException</span></div>
 <li class="blockList">
 <h5>transmitter</h5>
 <pre><a href="gov/doc/ntia/sigmf/ext/global/emitter/Transmitter.html" title="class in gov.doc.ntia.sigmf.ext.global.emitter">Transmitter</a> transmitter</pre>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.emitter.Transmitter">
+<!--   -->
+</a>
+<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/emitter/Transmitter.html" title="class in gov.doc.ntia.sigmf.ext.global.emitter">gov.doc.ntia.sigmf.ext.global.emitter.Transmitter</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h4>Serialized Fields</h4>
+<ul class="blockList">
+<li class="blockList">
+<h5>model</h5>
+<pre>java.lang.String model</pre>
+</li>
+<li class="blockList">
+<h5>otherFields</h5>
+<pre>java.util.Map&lt;java.lang.String,&#8203;java.lang.Object&gt; otherFields</pre>
 </li>
 </ul>
 </section>
@@ -1243,6 +1374,114 @@ java.io.IOException</span></div>
 <h2 title="Package">Package&nbsp;gov.doc.ntia.sigmf.ext.global.sensor</h2>
 <ul class="blockList">
 <li class="blockList">
+<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.sensor.Amplifier">
+<!--   -->
+</a>
+<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/sensor/Amplifier.html" title="class in gov.doc.ntia.sigmf.ext.global.sensor">gov.doc.ntia.sigmf.ext.global.sensor.Amplifier</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h4>Serialized Fields</h4>
+<ul class="blockList">
+<li class="blockList">
+<h5>amplifierSpec</h5>
+<pre><a href="gov/doc/ntia/sigmf/ext/global/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.global.core">HardwareSpec</a> amplifierSpec</pre>
+</li>
+<li class="blockList">
+<h5>gain</h5>
+<pre>java.lang.Double gain</pre>
+</li>
+<li class="blockList">
+<h5>maxPower</h5>
+<pre>java.lang.Double maxPower</pre>
+</li>
+<li class="blockList">
+<h5>noiseFigure</h5>
+<pre>java.lang.Double noiseFigure</pre>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.sensor.CalSource">
+<!--   -->
+</a>
+<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/sensor/CalSource.html" title="class in gov.doc.ntia.sigmf.ext.global.sensor">gov.doc.ntia.sigmf.ext.global.sensor.CalSource</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h4>Serialized Fields</h4>
+<ul class="blockList">
+<li class="blockList">
+<h5>calSourceSpec</h5>
+<pre><a href="gov/doc/ntia/sigmf/ext/global/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.global.core">HardwareSpec</a> calSourceSpec</pre>
+</li>
+<li class="blockList">
+<h5>enr</h5>
+<pre>java.lang.String enr</pre>
+</li>
+<li class="blockList">
+<h5>type</h5>
+<pre>java.lang.String type</pre>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.sensor.Filter">
+<!--   -->
+</a>
+<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/sensor/Filter.html" title="class in gov.doc.ntia.sigmf.ext.global.sensor">gov.doc.ntia.sigmf.ext.global.sensor.Filter</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h4>Serialized Fields</h4>
+<ul class="blockList">
+<li class="blockList">
+<h5>filterSpec</h5>
+<pre><a href="gov/doc/ntia/sigmf/ext/global/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.global.core">HardwareSpec</a> filterSpec</pre>
+</li>
+<li class="blockList">
+<h5>highFrequencyPassband</h5>
+<pre>java.lang.Double highFrequencyPassband</pre>
+</li>
+<li class="blockList">
+<h5>highFrequencyStopband</h5>
+<pre>java.lang.Double highFrequencyStopband</pre>
+</li>
+<li class="blockList">
+<h5>lowFrequencyPassband</h5>
+<pre>java.lang.Double lowFrequencyPassband</pre>
+</li>
+<li class="blockList">
+<h5>lowFrequencyStopband</h5>
+<pre>java.lang.Double lowFrequencyStopband</pre>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
 <section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.sensor.Preselector">
 <!--   -->
 </a>
@@ -1367,6 +1606,50 @@ java.io.IOException</span></div>
 <li class="blockList">
 <h5>signalAnalyzer</h5>
 <pre><a href="gov/doc/ntia/sigmf/ext/global/sensor/SignalAnalyzer.html" title="class in gov.doc.ntia.sigmf.ext.global.sensor">SignalAnalyzer</a> signalAnalyzer</pre>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.sensor.SignalAnalyzer">
+<!--   -->
+</a>
+<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/sensor/SignalAnalyzer.html" title="class in gov.doc.ntia.sigmf.ext.global.sensor">gov.doc.ntia.sigmf.ext.global.sensor.SignalAnalyzer</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h4>Serialized Fields</h4>
+<ul class="blockList">
+<li class="blockList">
+<h5>a2dBits</h5>
+<pre>int a2dBits</pre>
+</li>
+<li class="blockList">
+<h5>highFrequency</h5>
+<pre>java.lang.Double highFrequency</pre>
+</li>
+<li class="blockList">
+<h5>lowFrequency</h5>
+<pre>java.lang.Double lowFrequency</pre>
+</li>
+<li class="blockList">
+<h5>maxPower</h5>
+<pre>java.lang.Double maxPower</pre>
+</li>
+<li class="blockList">
+<h5>noiseFigure</h5>
+<pre>java.lang.Double noiseFigure</pre>
+</li>
+<li class="blockList">
+<h5>siganSpec</h5>
+<pre><a href="gov/doc/ntia/sigmf/ext/global/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.global.core">HardwareSpec</a> siganSpec</pre>
 </li>
 </ul>
 </section>

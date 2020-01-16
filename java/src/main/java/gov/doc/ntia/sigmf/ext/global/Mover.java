@@ -2,7 +2,12 @@ package gov.doc.ntia.sigmf.ext.global;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Mover {
+import java.io.Serializable;
+
+public class Mover implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
     @JsonProperty(value="latitude", required = false)
     protected Double latitude;
 

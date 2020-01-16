@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class TimeDomainDetection extends DomainDetection implements Serializable {
+public class TimeDomainDetection extends DomainDetection  {
 
     private static final long serialVersionUID = 1L;
 

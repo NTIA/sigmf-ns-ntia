@@ -5,11 +5,14 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Transmitter {
+public class Transmitter implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @JsonProperty(value="model", required =  false)
     protected String model;

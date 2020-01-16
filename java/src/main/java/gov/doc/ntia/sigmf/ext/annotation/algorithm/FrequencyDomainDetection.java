@@ -2,14 +2,13 @@ package gov.doc.ntia.sigmf.ext.annotation.algorithm;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
+
 
 
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class FrequencyDomainDetection extends DomainDetection implements Serializable {
+public class FrequencyDomainDetection extends DomainDetection  {
 
     private static final long serialVersionUID = 1L;
 

@@ -6,9 +6,12 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.Annotation;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class CalibrationAnnotation extends Annotation {
+import java.io.Serializable;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class CalibrationAnnotation extends Annotation  {
+
+    private static final long serialVersionUID = 1L;
 
     @JsonProperty(value="ntia-sensor:gain_sigan", required = false)
     protected Double gainSigan;
@@ -47,6 +50,10 @@ public class CalibrationAnnotation extends Annotation {
 
     @JsonProperty(value="ntia-sensor:temperature", required=false)
     protected Double temperature;
+
+
+    @JsonProperty(value="ntia-sensor:mean_noise_power_units", required = false)
+    protected String meanNoisePowerUnits;
 
 
     public void setGainSigan(Double gainSigan) {
@@ -131,6 +138,14 @@ public class CalibrationAnnotation extends Annotation {
 
     public void setTemperature(Double temperature) {
         this.temperature = temperature;
+    }
+
+    public String getMeanNoisePowerUnits() {
+        return meanNoisePowerUnits;
+    }
+
+    public void setMeanNoisePowerUnits(String meanNoisePowerUnits) {
+        this.meanNoisePowerUnits = meanNoisePowerUnits;
     }
 
 }

@@ -96,6 +96,10 @@ public class Global implements Serializable {
     protected Long taskId;
 
 
+    @JsonProperty(value="ntia-scos:recording", required = false)
+    protected Long recording;
+
+
     protected Map<String, Object> otherFields = new HashMap<>();
 
 
@@ -107,6 +111,10 @@ public class Global implements Serializable {
             (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
     @JsonProperty(value="ntia-sensor:calibration_datetime", required = false)
     protected Date calibrationDate;
+
+    @JsonProperty(value="ntia-scos:data_file_path", required = false)
+    protected String dataFilePath;
+
 
 
     public DigitalFilter getAntiAliasingFilter() {
@@ -285,5 +293,23 @@ public class Global implements Serializable {
     public void setCalibrationDate(Date calibrationDate) {
         this.calibrationDate = calibrationDate;
     }
+
+    public Long getRecording() {
+        return recording;
+    }
+
+    public void setRecording(Long recording) {
+        this.recording = recording;
+    }
+
+
+    public String getDataFilePath() {
+        return dataFilePath;
+    }
+
+    public void setDataFilePath(String dataFilePath) {
+        this.dataFilePath = dataFilePath;
+    }
+
 
 }

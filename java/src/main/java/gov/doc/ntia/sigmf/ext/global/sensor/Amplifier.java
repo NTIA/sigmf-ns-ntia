@@ -4,8 +4,12 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 
+import java.io.Serializable;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Amplifier {
+public class Amplifier implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @JsonProperty(value="amplifier_spec", required = false)
     protected HardwareSpec amplifierSpec;

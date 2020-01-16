@@ -15,18 +15,16 @@ import java.io.Serializable;
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
         property = "ntia-core:annotation_type")
-public class SensorAnnotation extends Annotation implements Serializable {
+public class SensorAnnotation extends Annotation  {
 
     private static final long serialVersionUID = 1L;
 
     @JsonProperty(value="ntia-sensor:rf_path_index", required = false)
     protected Integer rfPathIndex;
 
-    @JsonProperty(value="ntia-sensor:overload_sensor", required = false)
-    protected Boolean overloadSensor;
 
-    @JsonProperty(value="ntia-sensor:overload_sigan", required = false)
-    protected Boolean overloadSigan;
+    @JsonProperty(value="ntia-sensor:overload", required = false)
+    protected Boolean overload;
 
 
     @JsonProperty(value="ntia-sensor:attenuation_setting_sigan", required = false)
@@ -68,20 +66,13 @@ public class SensorAnnotation extends Annotation implements Serializable {
         this.rfPathIndex = rfPathIndex;
     }
 
-    public Boolean getOverloadSensor() {
-        return overloadSensor;
+
+    public Boolean getOverload() {
+        return overload;
     }
 
-    public void setOverloadSensor(Boolean overloadSensor) {
-        this.overloadSensor = overloadSensor;
-    }
-
-    public Boolean getOverloadSigan() {
-        return overloadSigan;
-    }
-
-    public void setOverloadSigan(Boolean overloadSigan) {
-        this.overloadSigan = overloadSigan;
+    public void setOverload(Boolean overload) {
+        this.overload = overload;
     }
 
     public Double getAttenuationSettingSigan() {

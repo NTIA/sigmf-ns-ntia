@@ -6,9 +6,13 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.Annotation;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
+import java.io.Serializable;
+
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AntennaAnnotation extends Annotation {
+public class AntennaAnnotation extends Annotation  {
+
+    private static final long serialVersionUID = 1L;
 
     @JsonProperty(value="ntia-core:antenna_id", required = true)
     protected String id;

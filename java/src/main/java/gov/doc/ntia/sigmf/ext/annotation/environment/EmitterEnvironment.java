@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class EmitterEnvironment extends Environment implements Serializable {
+public class EmitterEnvironment extends Environment {
 
     private static final long serialVersionUID = 1L;
 

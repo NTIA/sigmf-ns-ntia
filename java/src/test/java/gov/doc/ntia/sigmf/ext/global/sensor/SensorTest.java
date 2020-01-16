@@ -51,8 +51,10 @@ class SensorTest {
         mapper.writeValue(output,metaDoc);
         MetaDoc readMetaDoc = (MetaDoc)mapper.readValue(output, MetaDoc.class);
         assertEquals(Boolean.TRUE, metaDoc.getGlobal().getSensor().getMobile());
-
     }
+
+
+
 
 
 

@@ -9,7 +9,7 @@ import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Environment extends Annotation implements Serializable {
+public class Environment extends Annotation  {
 
     private static final long serialVersionUID = 1L;
 

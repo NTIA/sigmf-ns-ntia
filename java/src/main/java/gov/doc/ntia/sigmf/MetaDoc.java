@@ -1,14 +1,16 @@
 package gov.doc.ntia.sigmf;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.data.annotation.Id;
+import org.apache.commons.io.IOUtils;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
+
+
+import java.io.*;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,6 +41,7 @@ public class MetaDoc implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
+
     public List<Capture> getCaptures() {
         return captures;
     }
@@ -79,6 +82,16 @@ public class MetaDoc implements Serializable {
 
     public void addAnnotation(Annotation annotation){
         annotations.add(annotation);
+    }
+
+    @JsonIgnore
+    public Acquisition getAcquisition() throws IOException {
+        Acquisition acquisition = new Acquisition();
+        acquisition.setMetaDoc(this);
+        BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(global.getDataFilePath()));
+        byte[] sensedData = IOUtils.toByteArray(inputStream);
+        acquisition.setData(ByteBuffer.wrap(sensedData));
+        return acquisition;
     }
 
 
