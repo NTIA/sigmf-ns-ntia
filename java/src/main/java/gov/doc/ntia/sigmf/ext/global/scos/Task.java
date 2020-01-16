@@ -1,14 +1,19 @@
 package gov.doc.ntia.sigmf.ext.global.scos;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
 import java.util.Date;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Task implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @JsonProperty(value="id", required = true)
+    protected Integer id;
 
     @JsonFormat
             (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
@@ -40,6 +45,14 @@ public class Task implements Serializable {
     @JsonProperty(value="measurement_type", required = true)
     protected String measuremenType;
 
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getRecording() {
         return recording;

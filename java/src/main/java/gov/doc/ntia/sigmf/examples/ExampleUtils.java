@@ -30,7 +30,6 @@ public class ExampleUtils {
 
     public static Global getGlobal(Date date) {
         Global global = new Global();
-        global.setTaskId((long)(Math.random() *1000000));
         global.setDatatype("rf32_le");
         global.setSampleRate(15360000.);
         Calendar c = Calendar.getInstance();

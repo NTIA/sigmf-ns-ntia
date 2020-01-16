@@ -66,13 +66,11 @@ public class Test {
         Global global = new Global();
         global.setSensor(getSensor());
         global.setAction(getAction());
-        global.setTaskId((long)(Math.random() *1000000));
         global.setDatatype("rf32_le");
         global.setSampleRate(15360000.011967678);
         Calendar c = Calendar.getInstance();
         c.setTimeInMillis(System.currentTimeMillis() - (int)( Math.random()* 1000000));
         c.setTimeInMillis(c.getTimeInMillis() + (int)(Math.random() * 10000000));
-        global.setTaskId(1l);
         global.setAntiAliasingFilter(getDigitalFilter());
         global.setEmitters(getEmitters());
         global.add("SomeNamespace:SomeExtraField", 123.4);
