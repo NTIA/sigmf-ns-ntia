@@ -106,8 +106,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`rf_path_index`|false|integer|N/A|Index of the [RFPath](#14-rfpath-object) object.|
-|`overload_sensor`|false|boolean|N/A|Indicator of sensor overload.|
-|`overload_sigan`|false|boolean|N/A|Indicator of signal analyzer overload.|
+|`overload`|false|boolean|N/A|Indicator of sensor overload.|
 |`attenuation_setting_sigan`|false|double|dB|Attenuation setting of the signal analyzer.|
 |`gain_setting_sigan`|false|double|dB|Gain setting of the signal analyzer.|
 |`latitude`|false|double|decimal degrees|Latitude.|
@@ -130,7 +129,8 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`noise_figure_sensor`|false|double|dB|Noise figure of sensor.|
 |`1db_compression_point_sensor`|false|double|dBm|Maximum input of sensor.|
 |`enbw_sensor`|false|double|Hz|Equivalent noise bandwidth of sensor.|
-|`mean_noise_power_sensor`|false|double|dBm/Hz|Mean noise power density of sensor.|
+|`mean_noise_power_sensor`|false|double|Defined in `mean_noise_power_units`|Mean noise power density of sensor.|
+|`mean_noise_power_units`|false|string|N/A|The units of the mean_noise_power|
 |`temperature`|false|double|celsius|The temperature during calibration.|
 
 ## 4 Example
