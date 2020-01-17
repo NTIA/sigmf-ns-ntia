@@ -40,9 +40,9 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
 |`recording`|false|integer|N/A|Unique identifier that increments with each recording performed in a task. The recording should be indicated for task that perform multiple recordings. |
 |`start_time`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  began execution.|
 |`end_time`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  finished execution.|
-|`low_frequency`|true|double|Hertz|Frequency of first data point.|
-|`center_frequency`|true|double|Hertz|Frequency of last data point.|
-|`high_frequency`|true|double|Hertz|The highest frequency in the .|
+|`low_frequency`|false|double|Hertz|The lowest frequency specified for a sensing task. This SHOULD be included for all sensing tasks. |
+|`center_frequency`|false|double|Hertz|The center frequency specified for a sensing task. This SHOULD be included for all sensing tasks.|
+|`high_frequency`|false|double|Hertz|The highest frequency specified for a sensing task. This SHOULD be included for all sensing tasks.|
 |`domain`|true|string|N/A|Time or Frequency|
 |`measurement_type`|true|string|N/A|Method that signal analyzer acquires data, e.g. `"single-frequency"`, `"survey"`, `"scan"`.|
 

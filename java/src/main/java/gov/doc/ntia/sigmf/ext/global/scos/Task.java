@@ -29,13 +29,13 @@ public class Task implements Serializable {
     @JsonProperty(value="recording", required = false)
     protected Integer recording;
 
-    @JsonProperty(value="low_frequency", required = true)
+    @JsonProperty(value="low_frequency", required = false)
     protected Double lowFrequency;
 
-    @JsonProperty(value="high_frequency", required = true)
+    @JsonProperty(value="high_frequency", required = false)
     protected Double highFrequency;
 
-    @JsonProperty(value="center_frequency", required = true)
+    @JsonProperty(value="center_frequency", required = false)
     protected Double centerFrequency;
 
     @JsonProperty(value="domain", required = true)
