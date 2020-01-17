@@ -18,9 +18,6 @@ public class ScheduleEntry implements Serializable {
     @JsonProperty(value="name", required = false)
     protected String name;
 
-    @JsonProperty(value="relative_stop", required = false)
-    protected Integer relativeStop;
-
     @JsonFormat
             (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm'Z'")
     @JsonProperty(value="absolute_stop", required = false)
@@ -50,16 +47,7 @@ public class ScheduleEntry implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
-
-
-    public Integer getRelativeStop() {
-        return relativeStop;
-    }
-
-    public void setRelativeStop(Integer relativeStop) {
-        this.relativeStop = relativeStop;
-    }
-
+    
     public Date getAbsoluteStop() {
         return absoluteStop;
     }
