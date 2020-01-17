@@ -57,11 +57,6 @@ public class TimeDomainDetection extends DomainDetection  {
         this.timeStep = timeStep;
     }
 
-
-    public TimeDomainDetection(){
-        this.detectionDomain="time";
-    }
-
     public Long getNumberOfSamples() {
         return numberOfSamples;
     }

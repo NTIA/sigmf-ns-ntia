@@ -39,11 +39,11 @@ public class Task implements Serializable {
     protected Double centerFrequency;
 
     @JsonProperty(value="domain", required = true)
-    protected String domeain;
+    protected String domain;
 
 
     @JsonProperty(value="measurement_type", required = false)
-    protected String measuremenType;
+    protected String measurementType;
 
 
     public Integer getId() {
@@ -86,20 +86,20 @@ public class Task implements Serializable {
         this.centerFrequency = centerFrequency;
     }
 
-    public String getDomeain() {
-        return domeain;
+    public String getDomain() {
+        return domain;
     }
 
-    public void setDomeain(String domeain) {
-        this.domeain = domeain;
+    public void setDomain(String domain) {
+        this.domain = domain;
     }
 
-    public String getMeasuremenType() {
-        return measuremenType;
+    public String getMeasurementType() {
+        return measurementType;
     }
 
-    public void setMeasuremenType(String measuremenType) {
-        this.measuremenType = measuremenType;
+    public void setMeasurementType(String measurementType) {
+        this.measurementType = measurementType;
     }
 
     public Date getEndTime() {

@@ -108,7 +108,6 @@ public class ExampleGenerator {
             annotation.setNumberOfFfts(300);
             annotation.setNumberOfSamplesInFft(1024);
             annotation.setDetector(names.get((int) i));
-            annotation.setDetectionDomain("m4");
             annotation.setReference("um, very");
             annotation.setUnits("DB");
             annotation.setLatitude( 40.5);

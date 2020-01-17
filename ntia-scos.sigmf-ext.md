@@ -21,7 +21,7 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
 |`start`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Requested time to schedule the first task.|
 |`stop`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Requested time to end execution of tasks under the schedule.|
 |`relative_stop`|false|integer|Seconds|Seconds after start when the schedule will end.|
-|`interval`|false|integer|Seconds|Seconds between tasks. If unspecified, the task will execute once and the schedule will becom inactive|
+|`interval`|false|integer|Seconds|Seconds between tasks. If unspecified, the task will execute once and the schedule will become inactive|
 |`priority`|false|integer|N.A|The priority of the schedule. Lower numbers indicate higher priority.|
 
 
@@ -37,7 +37,7 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`id`|true|integer|N/A|Unique identifier that increments with each task performed as a result of a `schedule_entry`.|
-|`recording`|false|integer|N/A|Unique identifier that increments with each recording performed in a task. The recording should be indicated for task that perform multiple recordings. |
+|`recording`|false|integer|N/A|Unique identifier that increments with each recording performed in a task. The recording should be indicated for tasks that perform multiple recordings. |
 |`start_time`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  began execution.|
 |`end_time`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  finished execution.|
 |`low_frequency`|false|double|Hertz|The lowest frequency specified for a sensing task. This SHOULD be included for all sensing tasks. |

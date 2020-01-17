@@ -58,16 +58,16 @@ public class Filter implements Serializable {
         return lowFrequencyStopband;
     }
 
-    public void setLowFrequencyStopband(Double getLowFrequencyStopband) {
-        this.lowFrequencyStopband = getLowFrequencyStopband;
+    public void setLowFrequencyStopband(Double lowFrequencyStopband) {
+        this.lowFrequencyStopband = lowFrequencyStopband;
     }
 
     public Double getHighFrequencyStopband() {
         return highFrequencyStopband;
     }
 
-    public void setHighFrequencyStopband(Double getHighFrequencyStopband) {
-        this.highFrequencyStopband = getHighFrequencyStopband;
+    public void setHighFrequencyStopband(Double highFrequencyStopband) {
+        this.highFrequencyStopband = highFrequencyStopband;
     }
 
 

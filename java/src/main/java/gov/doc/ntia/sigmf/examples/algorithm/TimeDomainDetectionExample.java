@@ -23,7 +23,6 @@ public class TimeDomainDetectionExample implements Example {
         tdd.setNumberOfSamples(1024l);
         tdd.setSampleStart(0l);
         tdd.setDetector("mean");
-        tdd.setDetectionDomain("time");
         tdd.setSampleCount(1024l);
         tdd.setUnits("dBm");
         tdd.setReference("antenna output");

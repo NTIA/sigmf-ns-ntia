@@ -22,7 +22,6 @@ public class FrequencyDomainDetectionExample implements Example {
         fdd.setNumberOfSamplesInFft(1024);
         fdd.setSampleStart(0l);
         fdd.setDetector("fft_mean_power");
-        fdd.setDetectionDomain("frequency");
         fdd.setSampleCount(1024l);
         fdd.setReference("antenna output");
         annotations.add(fdd);
@@ -31,7 +30,6 @@ public class FrequencyDomainDetectionExample implements Example {
         fdd2.setNumberOfSamplesInFft(1024);
         fdd2.setSampleStart(1024l);
         fdd2.setDetector("fft_max_power");
-        fdd2.setDetectionDomain("frequency");
         fdd2.setSampleCount(1024l);
         fdd2.setReference("antenna output");
         fdd2.setFrequency(new Double[]{700.0,800.0,900.0});

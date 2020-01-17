@@ -14,9 +14,6 @@ public class DomainDetection extends Annotation  {
     @JsonProperty(value="ntia-algorithm:detector", required =  true)
     protected String detector;
 
-    @JsonProperty(value ="ntia-algorithm:detection_domain", required = true)
-    protected String detectionDomain;
-
     @JsonProperty(value="ntia-algorithm:units", required = true)
     protected String units;
 
@@ -32,14 +29,6 @@ public class DomainDetection extends Annotation  {
 
     public void setDetector(String detector) {
         this.detector = detector;
-    }
-
-    public String getDetectionDomain() {
-        return detectionDomain;
-    }
-
-    public void setDetectionDomain(String detectionDomain) {
-        this.detectionDomain = detectionDomain;
     }
 
     public String getUnits() {

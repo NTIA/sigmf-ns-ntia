@@ -47,7 +47,7 @@ public class ScheduleEntry implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
-    
+
     public Date getAbsoluteStop() {
         return absoluteStop;
     }
