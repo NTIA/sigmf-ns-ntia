@@ -42,7 +42,7 @@ public class Task implements Serializable {
     protected String domeain;
 
 
-    @JsonProperty(value="measurement_type", required = true)
+    @JsonProperty(value="measurement_type", required = false)
     protected String measuremenType;
 
 

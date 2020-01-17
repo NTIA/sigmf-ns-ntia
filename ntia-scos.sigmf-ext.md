@@ -44,7 +44,7 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
 |`center_frequency`|false|double|Hertz|The center frequency specified for a sensing task. This SHOULD be included for all sensing tasks.|
 |`high_frequency`|false|double|Hertz|The highest frequency specified for a sensing task. This SHOULD be included for all sensing tasks.|
 |`domain`|true|string|N/A|Time or Frequency|
-|`measurement_type`|true|string|N/A|Method that signal analyzer acquires data, e.g. `"single-frequency"`, `"survey"`, `"scan"`.|
+|`measurement_type`|false|string|N/A|Method that signal analyzer acquires data, e.g. `"single-frequency"`, `"survey"`, `"scan"`. This SHOULD be specified for all sensing tasks.|
 
 
 
