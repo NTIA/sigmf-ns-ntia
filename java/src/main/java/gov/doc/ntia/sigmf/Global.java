@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
+import gov.doc.ntia.sigmf.ext.global.location.CoordinateSystem;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
 import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
 import gov.doc.ntia.sigmf.ext.global.scos.Task;
@@ -22,14 +23,13 @@ public class Global implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    //string	The format of the stored samples in the dataset file.
+    //The format of the stored samples in the dataset file.
     //Its value must be a valid SigMF dataset format type string.
     @JsonProperty(value="core:datatype", required = true)
     protected String datatype;
 
 
     //The sample rate of the signal in samples per second.
-
     @JsonProperty(value="core:sample_rate", required = false)
     protected Double sampleRate;
 
@@ -96,6 +96,8 @@ public class Global implements Serializable {
     @JsonProperty(value="ntia-scos:task", required = true)
     protected Task task;
 
+    @JsonProperty(value="ntia-location:coordinate_system", required = false)
+    private CoordinateSystem coordinateSystem;
 
     protected Map<String, Object> otherFields = new HashMap<>();
 
@@ -114,20 +116,14 @@ public class Global implements Serializable {
 
 
 
-
-
     public DigitalFilter getAntiAliasingFilter() {
         return antiAliasingFilter;
     }
 
 
-
-
     public void setAntiAliasingFilter(DigitalFilter antiAliasingFilter) {
         this.antiAliasingFilter = antiAliasingFilter;
     }
-
-
 
     public String getSha512() {
         return sha512;
@@ -291,12 +287,21 @@ public class Global implements Serializable {
         this.calibrationDate = calibrationDate;
     }
 
+
     public String getDataFilePath() {
         return dataFilePath;
     }
 
     public void setDataFilePath(String dataFilePath) {
         this.dataFilePath = dataFilePath;
+    }
+
+    public CoordinateSystem getCoordinateSystem() {
+        return coordinateSystem;
+    }
+
+    public void setCoordinateSystem(CoordinateSystem coordinateSystem) {
+        this.coordinateSystem = coordinateSystem;
     }
 
 

@@ -29,7 +29,7 @@ The `ntia-environment` extension provides SigMF metadata extensions to character
 |----|--------------|-------|-------|-----------|
 |`emitter_id`|true|string|N/A|Unique emitter id|
 |`category`|false|string|N/A|Categorical description of the environment where sensor is mounted. E.g. `"indoor"`, `"outdoor-urban"`, `"outdoor-rural"`.|
-|`temperature`|false|float|celsius|Environmental temparature.|
+|`temperature`|false|float|celsius|Environmental temperature.|
 |`humidity`|false|float|%|Relative humidity.|
 |`weather`|false|string|N/A|Weather around the sensor. E.g. `"rain"`, `"snow"`.)|
 
