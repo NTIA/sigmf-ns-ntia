@@ -180,6 +180,7 @@ public class RadarExample  implements Example {
         sensorAnnotation.setAttenuationSettingSigan(6.0);
         sensorAnnotation.setOverload(false);
         sensorAnnotation.setRfPathIndex(0);
+        annotations.add(sensorAnnotation);
 
         Environment environment = new Environment();
         environment.setCategory("Outside. Coastal");
