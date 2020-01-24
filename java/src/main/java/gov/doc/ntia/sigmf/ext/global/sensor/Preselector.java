@@ -18,8 +18,8 @@ public class Preselector implements Serializable {
     @JsonProperty(value="preselector_spec", required =  false)
     protected HardwareSpec preselectorSpec;
 
-    @JsonProperty(value="cal_source", required = false)
-    protected CalSource calSource;
+    @JsonProperty(value="cal_sources", required = false)
+    protected CalSource[] calSources;
 
     @JsonProperty(value="filters", required = false)
     protected Filter[] filters;
@@ -38,12 +38,12 @@ public class Preselector implements Serializable {
         this.preselectorSpec = preselectorSpec;
     }
 
-    public CalSource getCalSource() {
-        return calSource;
+    public CalSource[] getCalSources() {
+        return calSources;
     }
 
-    public void setCalSource(CalSource calSource) {
-        this.calSource = calSource;
+    public void setCalSources(CalSource[] calSources) {
+        this.calSources = calSources;
     }
 
     public void setFilters(Filter[] filters) {

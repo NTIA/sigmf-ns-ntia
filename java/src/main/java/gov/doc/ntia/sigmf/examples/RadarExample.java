@@ -106,8 +106,9 @@ public class RadarExample  implements Example {
 
         CalSource calSource = new CalSource();
         calSource.setCalSourceSpec(calSourceSpec);
-
-        preselector.setCalSource(calSource);
+        CalSource[] calSources = new CalSource[1];
+        calSources[0] = calSource;
+        preselector.setCalSources(calSources);
         Amplifier amplifier = new Amplifier();
         HardwareSpec lnaSpec = new HardwareSpec();
         lnaSpec.setId("1904043");
