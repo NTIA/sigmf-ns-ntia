@@ -1,11 +1,16 @@
 package gov.doc.ntia.sigmf.examples;
 
-import gov.doc.ntia.sigmf.Global;
-import gov.doc.ntia.sigmf.MetaDoc;
+import gov.doc.ntia.sigmf.*;
+import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
+import gov.doc.ntia.sigmf.ext.annotation.environment.Environment;
+import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
+import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
+import gov.doc.ntia.sigmf.ext.global.core.Measurement;
 import gov.doc.ntia.sigmf.ext.global.sensor.*;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 
 public class RadarExample  implements Example {
@@ -15,10 +20,49 @@ public class RadarExample  implements Example {
     public MetaDoc getExample() {
         MetaDoc metaDoc = new MetaDoc();
         Global global = ExampleUtils.getGlobal(Calendar.getInstance().getTime());
+        global.setExtensions(getExtensions());
         Sensor sensor = getSensor();
         global.setSensor(getSensor());
+        global.setMeasurement(getMeasurement());
         metaDoc.setGlobal(global);
+        metaDoc.setAnnotations(getAnnotations());
+        metaDoc.setCaptures(getCaptures());
         return metaDoc;
+    }
+
+    public static Measurement getMeasurement(){
+        Measurement measurement = new Measurement();
+        measurement.setCenterFrequency(3.5501875E9);
+        measurement.setLowFrequency(3.45021875E9);
+        measurement.setHighFrequency(3.65015625E9);
+        measurement.setDomain("frequency");
+        measurement.setMeasurementType("scan");
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(2018,02, 01, 07, 01, 00);
+        measurement.setStartTime(calendar.getTime());
+        calendar.add(Calendar.MILLISECOND, 30);
+        measurement.setEndTime(calendar.getTime());
+        return measurement;
+    }
+
+    public static Extensions getExtensions(){
+        Extensions extensions = new Extensions();
+        Extension sensorExtension = new Extension();
+        sensorExtension.setName("ntia-sensor");
+        sensorExtension.setVersion("v1.0.0");
+
+        Extension algorithmExtension = new Extension();
+        algorithmExtension.setName("ntia-slgorithm");
+        algorithmExtension.setVersion("v1.0.0");
+
+        Extension envExtension = new Extension();
+        envExtension.setName("ntia-environment");
+        envExtension.setVersion("v1.0.0");
+
+        extensions.addExtension(sensorExtension);
+        extensions.addExtension(algorithmExtension);
+        extensions.addExtension(envExtension);
+        return extensions;
     }
 
     public static Sensor getSensor(){
@@ -36,8 +80,8 @@ public class RadarExample  implements Example {
         antSpec.setDescription("RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications");
         antenna.setAntennaSpec(antSpec);
         antenna.setType("omni-directional");
-        antenna.setLowFrequency(2000000000d);
-        antenna.setHighFrequency(6000000000d);
+        antenna.setLowFrequency(2.0E9);
+        antenna.setHighFrequency(6.0E9);
         antenna.setGain(0d);
         antenna.setPolarization("slant");
         antenna.setCrossPolarDiscrimination(13d);
@@ -106,5 +150,54 @@ public class RadarExample  implements Example {
         return preselector;
 
     }
+
+    private static ArrayList<Capture> getCaptures(){
+        ArrayList<Capture> captures = new ArrayList<>();
+        Capture capture = new Capture();
+        capture.setFrequency(3.5501875E9);
+        Calendar calendar = Calendar.getInstance();
+        //"2018-02-01T07:01:00.000001Z"
+        calendar.set(2018,02, 01, 07, 01, 00);
+        capture.setDateTime(calendar.getTime());
+        capture.setSampleStart(0);
+        captures.add(capture);
+
+        return captures;
+    }
+
+    private static ArrayList<Annotation> getAnnotations(){
+        ArrayList<Annotation> annotations = new ArrayList<>();
+        CalibrationAnnotation calibrationAnnotation = new CalibrationAnnotation();
+        calibrationAnnotation.setSampleStart(0l);
+        calibrationAnnotation.setComment("Calibration is done every 6 hours.");
+        calibrationAnnotation.setNoiseFigureSensor(9.892);
+        calibrationAnnotation.setMeanNoisePowerSensor(-92.21948908296943);
+        calibrationAnnotation.setTemperature(18.556);
+        calibrationAnnotation.setGainPreselector(25.931);
+        annotations.add(calibrationAnnotation);
+
+        SensorAnnotation sensorAnnotation = new SensorAnnotation();
+        sensorAnnotation.setAttenuationSettingSigan(6.0);
+        sensorAnnotation.setOverload(false);
+        sensorAnnotation.setRfPathIndex(0);
+
+        Environment environment = new Environment();
+        environment.setCategory("Outside. Coastal");
+        environment.setSampleStart(0l);
+        annotations.add(environment);
+
+        FrequencyDomainDetection fdd = new FrequencyDomainDetection();
+        fdd.setDetector("fft_max_power");
+        fdd.setNumberOfFfts(458);
+        fdd.setNumberOfSamplesInFft(64);
+        fdd.setWindow("Gauss-top");
+        fdd.setEquivalentNoiseBandwidth(962500.0);
+        fdd.setFrequencyStep(437500.0);
+
+        annotations.add(fdd );
+        return annotations;
+    }
+
+
 
 }

@@ -2,15 +2,13 @@ package gov.doc.ntia.sigmf;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.global.location.CoordinateSystem;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
 import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
-import gov.doc.ntia.sigmf.ext.global.scos.Task;
+import gov.doc.ntia.sigmf.ext.global.core.Measurement;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
-import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -93,9 +91,6 @@ public class Global implements Serializable {
     @JsonProperty(value="ntia-scos:schedule", required = true)
     protected ScheduleEntry schedule;
 
-    @JsonProperty(value="ntia-scos:task", required = true)
-    protected Task task;
-
     @JsonProperty(value="ntia-location:coordinate_system", required = false)
     private CoordinateSystem coordinateSystem;
 
@@ -114,6 +109,25 @@ public class Global implements Serializable {
     @JsonProperty(value="ntia-scos:data_file_path", required = false)
     protected String dataFilePath;
 
+
+    @JsonProperty(value="ntia-scos:task", required = false)
+    protected Integer task;
+
+
+    @JsonProperty(value="ntia-scos:recording", required = false)
+    protected Integer recording;
+
+    @JsonProperty(value="ntia-core:measurement", required = true)
+    protected Measurement measurement;
+
+
+    public Integer getRecording() {
+        return recording;
+    }
+
+    public void setRecording(Integer recording) {
+        this.recording = recording;
+    }
 
 
     public DigitalFilter getAntiAliasingFilter() {
@@ -253,11 +267,11 @@ public class Global implements Serializable {
         this.schedule = schedule;
     }
 
-    public Task getTask() {
+    public Integer getTask() {
         return task;
     }
 
-    public void setTask(Task task) {
+    public void setTask(Integer task) {
         this.task = task;
     }
 
@@ -305,4 +319,11 @@ public class Global implements Serializable {
     }
 
 
+    public Measurement getMeasurement() {
+        return measurement;
+    }
+
+    public void setMeasurement(Measurement measurement) {
+        this.measurement = measurement;
+    }
 }

@@ -37,14 +37,13 @@ Time-domain detection algorithms are applied to gap-free IQ time series captured
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`detector`|true|string|N/A|E.g. `"sample_power"`, `"mean_power"`, `"max_power"`, `"min_power"`, `"median_power"`, `"m4s_power"`.|
-|`detection_domain`|true|string|N/A|Domain in which detector is applied, i.e., `"time"`.|
 |`number_of_samples`|true|integer|N/A|Number of samples to be integrated over by detector.|
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
 |`time`|false|array of doubles|seconds|Time array corresponding to detected data.|
-|`time_start`|false|double|seconds|Time of first data point.|
-|`time_stop`|false|double|seconds|Time of last data point.|
-|`time_step`|false|double|seconds|Time step between data points.|
+|`time_start`|false|double|seconds|Time of first data point refrenced by the annotation.|
+|`time_stop`|false|double|seconds|Time of last data point referenced by the annotation.|
+|`time_step`|false|double|seconds|Time step between data points referenced by the annotation.|
 
 ### 3.2 FrequencyDomainDetection Segment
 Frequency-domain detection algorithms are applied to discrete Fourier transforms of gap-free IQ time series. The IQ time series can be measured at a single center frequency, a set of center frequencies, or a scan of center frequencies. Scans result in frequency-domain data with a constant frequency step for a span greater than the bandwidth of the signal analyzer, similar to the traditional spectrum analyzer swept-tuned measurement. 
@@ -54,15 +53,16 @@ The `FrequencyDomainDetection` has the following properties:
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`detector`|true|string|N/A|E.g. `"fft_sample_iq"`, `"fft_sample_power"`, `"fft_mean_power"`, `"fft_max_power"`, `"fft_min_power"`, `"fft_median_power"`.|
-|`detection_domain`|true|string|N/A|Domain in which detector is applied, i.e., `"frequency"`.|
 |`number_of_ffts`|true|integer|N/A|Number of FFTs to be integrated over by detector.|
 |`number_of_samples_in_fft`|true|integer|N/A|Number of samples in FFT to calcluate delta_f = [`samplerate`](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object)/`number_of_samples_in_fft`.|
 |`window`|true|string|N/A|E.g. `"blackman-harris"`, `"flattop"`, `"gaussian_a3.5"`, `"gauss top"`, `"hamming"`, `"hanning"`, `"rectangular"`.|
 |`equivalent_noise_bandwidth`|false|double|Hz|Bandwidth of brickwall filter that has same integrated noise power as that of the actual filter.|
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
-|`frequency`|false|array of doubles|Hertz|Frequency array corresponding to detected data.|
-|`frequency_step`|false|double|Hertz|Frequency step between data points.|
+|`frequencies`|false|array of doubles|Hertz|Frequency array corresponding to detected data.|
+|`frequency_start`|false|double|Hertz|Frequency of first data point referenced by the annotation.|
+|`frequency_stop`|false|double|Hertz|Frequency of last data point referenced by the annotation.|
+|`frequency_step`|false|double|Hertz|Frequency step between data points referenced by the annoation.|
 
 ### 3.3 DigitalFilterAnnotation Segment
 `DigitalFilterAnnotation` has the following properties:
@@ -127,7 +127,6 @@ The `FrequencyDomainDetection` has the following properties:
       "core:sample_start": 0,
       "core:sample_count": 1024,
       "ntia-algorithm:detector": "mean",
-      "ntia-algorithm:detection_domain": "time",
       "ntia-algorithm:units": "dBm",
       "ntia-algorithm:reference": "antenna output",
       "ntia-algorithm:number_of_samples": 1024
@@ -151,7 +150,6 @@ The `FrequencyDomainDetection` has the following properties:
       "core:sample_start": 0,
       "core:sample_count": 1024,
       "ntia-algorithm:detector": "fft_mean_power",
-      "ntia-algorithm:detection_domain": "frequency",
       "ntia-algorithm:reference": "antenna output",
       "ntia-algorithm:number_of_ffts": 300,
       "ntia-algorithm:number_of_samples_in_fft": 1024
@@ -161,7 +159,6 @@ The `FrequencyDomainDetection` has the following properties:
       "core:sample_start": 1024,
       "core:sample_count": 1024,
       "ntia-algorithm:detector": "fft_max_power",
-      "ntia-algorithm:detection_domain": "frequency",
       "ntia-algorithm:reference": "antenna output",
       "ntia-algorithm:number_of_ffts": 300,
       "ntia-algorithm:number_of_samples_in_fft": 1024

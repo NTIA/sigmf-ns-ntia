@@ -32,6 +32,28 @@ public class FrequencyDomainDetection extends DomainDetection  {
     @JsonProperty(value="ntia-algorithm:frequency_step", required = false)
     protected Double frequencyStep;
 
+    @JsonProperty(value="ntia-algorithm:frequency_start", required = false)
+    protected Double frequencyStart;
+
+    @JsonProperty(value="ntia-algorithm:frequency_stop", required = false)
+    protected Double frequencyStop;
+
+    public Double getFrequencyStart() {
+        return frequencyStart;
+    }
+
+    public void setFrequencyStart(Double frequencyStart) {
+        this.frequencyStart = frequencyStart;
+    }
+
+    public Double getFrequencyStop() {
+        return frequencyStop;
+    }
+
+    public void setFrequencyStop(Double frequencyStop) {
+        this.frequencyStop = frequencyStop;
+    }
+
 
     public Double[] getFrequency() {
         return frequency;

@@ -1,21 +1,16 @@
 package gov.doc.ntia.sigmf.ext.annotation.sensor;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.Annotation;
-import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
-
-import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
         property = "ntia-core:annotation_type")
-public class SensorAnnotation extends Annotation  {
+public class SensorAnnotation extends Annotation {
 
     private static final long serialVersionUID = 1L;
 
@@ -35,28 +30,8 @@ public class SensorAnnotation extends Annotation  {
     protected Double gainSettingSigan;
 
 
-    @JsonProperty(value="ntia-sensor:latitude", required = false)
-    protected Double sensorLatitude;
-
-
-    @JsonProperty(value="ntia-sensor:longitude", required = false)
-    protected Double sensorLongitude;
-
-
-    @JsonProperty(value="ntia-sensor:altitude", required = false)
-    protected Double altitude;
-
-
-    @JsonProperty(value="ntia-sensor:speed", required = false)
-    protected Double speed;
-
-
-    @JsonProperty(value="ntia-sensor:bearing", required = false)
-    protected Double bearing;
-
     @JsonProperty(value="ntia-sensor:gps_nmea", required = false)
     protected String gpsNmea;
-
 
     public Integer getRfPathIndex() {
         return rfPathIndex;
@@ -91,68 +66,6 @@ public class SensorAnnotation extends Annotation  {
         this.gainSettingSigan = gainSettingSigan;
     }
 
-
-    @Override
-    public void setLatitude(Double latitude) {
-        this.sensorLatitude = latitude;
-    }
-    @Override
-    public void setLongitude(Double longitude) {
-       this.sensorLongitude = longitude;
-    }
-
-    public Double getSensorLongitude(){
-        return sensorLongitude;
-    }
-
-    public Double getSensorLatitude(){
-        return sensorLatitude;
-    }
-
-    @Override
-    @JsonIgnore
-    public Double getLongitude() {
-      return sensorLongitude;
-    }
-
-    @Override
-    @JsonIgnore
-    public Double getLatitude() {
-        return sensorLatitude;
-    }
-
-    public Double getAltitude() {
-        return altitude;
-    }
-
-    public void setAltitude(Double altitude) {
-        this.altitude = altitude;
-    }
-
-    public Double getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(Double speed) {
-        this.speed = speed;
-    }
-
-    public Double getBearing() {
-        return bearing;
-    }
-
-    public void setBearing(Double bearing) {
-        this.bearing = bearing;
-    }
-
-    public Integer getPreselectorPathNumber() {
-        return rfPathIndex;
-    }
-
-    public void setPreselectorPathNumber(Integer preselectorPathNumber) {
-        this.rfPathIndex = preselectorPathNumber;
-    }
-
     public String getGpsNmea() {
         return gpsNmea;
     }
@@ -160,7 +73,4 @@ public class SensorAnnotation extends Annotation  {
     public void setGpsNmea(String gpsNmea) {
         this.gpsNmea = gpsNmea;
     }
-
-
-
 }

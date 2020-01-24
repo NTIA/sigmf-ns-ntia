@@ -8,10 +8,11 @@ The ntia-sensor namespace provides metadata to describe RF sensors.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`sensor`|false|[Sensor](#11-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
+|`sensor`|false|[Sensor](#12-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
 |`calibration_datetime`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Time of last calibration. RECOMMENDED.|
 
-### 1.1 Sensor Object
+
+### 1.2 Sensor Object
 Sensor definition follows a simplified hardware model comprised of the following elements: Antenna, Preselector, Signal Analyzer, and Host Controller. The antenna converts electromagnetic energy to a voltage. The preselector can provide local calibration signals, RF filtering to protect from strong out-of-band signals, and low-noise amplification to improve sensitivity. The signal analyzer (e.g., software defined radio) provides tuning, down conversion, sampling, and digital signal processing. Sensor implementations are not required to have each component, but metadata SHOULD specify the presence, model numbers, and operational parameters associated with each.
 
 `Sensor` has the following properties:
@@ -20,7 +21,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique name for the sensor.|
 |`sensor_spec`|true|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the sensor.|
-|`antenna`|true|[Antenna](ntia-core.sigmf-ext.md#11-antenna-object)|N/A|Metadata to describe/specify the antenna.|
+|`antenna`|true|[Antenna](ntia-core.sigmf-ext.md#12-antenna-object)|N/A|Metadata to describe/specify the antenna.|
 |`preselector`|false| [Preselector](#13-preselector-object)|N/A|Metadata to describe/specify the preselector.|
 |`signal_analyzer`|true| [SignalAnalyzer](#12-signalanalyzer-object) |N/A|Metadata to describe/specify the signal analyzer.|
 |`computer_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify onboard computer.|
@@ -44,7 +45,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`preselector_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the preselector.|
-|`cal_source`|false|[CalSource](#14-calsource-object)|N/A|Metadata to describe/specify the preselector calibration source.|
+|`cal_sources`|false|[CalSource[]](#14-calsource-object)|N/A|Metadata to describe/specify the preselector calibration source.|
 |`amplifiers`|false|[Amplifier[]](#12-amplifier-object)|N/A|Metadata to describe/specify the preselector low noise amplifiers.|
 |`filters`|false|[Filter[]](#12-hardwarespec-object)|N/A|Metadata to describe the preselector RF filters.|
 |`rf_paths`|false|[RFPath[]](#17-rfpath-object)|N/A|Metadata that describes preselector RF paths.|
@@ -95,7 +96,9 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 
 ## 2 Captures
+
 `ntia-sensor` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+
 
 ## 3 Annotations
 `ntia-sensor` defines the following segments that extend `ntia-core`.
@@ -109,11 +112,6 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`overload`|false|boolean|N/A|Indicator of sensor overload.|
 |`attenuation_setting_sigan`|false|double|dB|Attenuation setting of the signal analyzer.|
 |`gain_setting_sigan`|false|double|dB|Gain setting of the signal analyzer.|
-|`latitude`|false|double|decimal degrees|Latitude.|
-|`longitude`|false|double|decimal degrees|Longitude.|
-|`altitude`|false|double|meters|Height above mean sea level.|
-|`speed`|false|double|m/s|Speed.|
-|`bearing`|false|double|degrees|Direction (angle relative to true North).|
 |`gps_nmea`|false|string|NMEA|[NMEA message](https://en.wikipedia.org/wiki/NMEA_0183) from gps receiver.|
 
 ### 3.2 CalibrationAnnotation Segment
@@ -133,6 +131,8 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`mean_noise_power_units`|false|string|N/A|The units of the mean_noise_power|
 |`temperature`|false|double|celsius|The temperature during calibration.|
 
+
+
 ## 4 Example
 
 ### 4.1 Sensor Global Object Example
@@ -141,45 +141,65 @@ Sensor definition follows a simplified hardware model comprised of the following
   "global": {
     "core:datatype": "rf32_le",
     "core:sample_rate": 15360000,
-       "ntia-sensor:sensor": {
-      "id": "Greyhound_1",
-      "antenna": {
-        "antenna_spec": {
-          "id": "123-xyxpdq",
-          "model": "antenna123"
+    "ntia-sensor:sensor" : {
+      "id" : "Radar_Sensor_1",
+      "antenna" : {
+        "antenna_spec" : {
+          "model" : "ARA BSB-26",
+          "description" : "RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications"
         },
-        "type": "omnidirectional",
-        "low_frequency": 300000000,
-        "high_frequency": 3000000000,
-        "gain": 2,
-        "cross_polar_discrimination": 9.0,
-        "cable_loss": 1,
-        "azimuth_angle": 45,
-        "elevation_angle": 10.3
+        "type" : "omni-directional",
+        "low_frequency" : 2.0E9,
+        "high_frequency" : 6.0E9,
+        "gain" : 0.0,
+        "polarization" : "slant",
+        "cross_polar_discrimination" : 13.0,
+        "horizontal_beam_width" : 360.0,
+        "vertical_beam_width" : 68.38,
+        "voltage_standing_wave_ratio" : 2.0,
+        "cable_loss" : 0.62,
+        "steerable" : false,
+        "azimuth_angle" : 90.0,
+        "elevation_angle" : 0.0,
+        "mobile" : false
       },
-      "preselector": {
-        "rf_paths": [
-          {
-            "low_frequency_passband_filter": 700000000,
-            "high_frequency_passband_filter": 750000000,
-            "low_frequency_stopband_filter": 700000000,
-            "high_frequency_stopband_filter": 750000000,
-            "noise_figure_lna": 2.5,
-            "type_cal_source": "calibrated noise source"
+      "preselector" : {
+        "cal_source" : {
+          "cal_source_spec" : {
+            "id" : "MY53400510",
+            "model" : "Keysight 346B",
+            "supplemental_information" : "https://www.keysight.com/en/pd-1000001299%3Aepsg%3Apro-pn-346B/noise-source-10-mhz-to-18-ghz-nominal-enr-15-db?cc=US&lc=eng"
           }
-        ]
-      },
-      "signal_analyzer": {
-        "sigan_spec": {
-          "id": "875649305NLDKDJN",
-          "model": "Etus B210"
         },
-        "low_frequency": 100000000,
-        "high_frequency": 700000000,
-        "noise_figure": 20.0,
-        "a2d_bits": 16
+        "filters" : [ {
+          "filter_spec" : {
+            "id" : "13FV40-00014",
+            "model" : "K&L 13FV40-3550/U200-o/o",
+            "supplemental_information" : "http://www.klfilterwizard.com/klfwpart.aspx?FWS=1112001&PN=13FV40-3550%2fU200-O%2fO"
+          },
+          "low_frequency_passband" : 3.43E9,
+          "high_frequency_passband" : 3.67E9,
+          "low_frequency_stopband" : 3.39E9,
+          "high_frequency_stopband" : 3.71E9
+        } ],
+        "amplifiers" : [ {
+          "amplifier_spec" : {
+            "id" : "1904043",
+            "model" : "MITEQ AFS3-02000400-30-25P-6",
+            "supplemental_information" : "https://nardamiteq.com/docs/MITEQ_Amplifier-AFS.JS_c41.pdf"
+          },
+          "gain" : 30.61,
+          "noise_figure" : 2.76,
+          "max_power" : 13.0
+        } ],
+        "rf_paths" : [ {
+          "cal_source_id" : "Calibrated noise source",
+          "filter_id" : "13FV40-00014",
+          "amplifier_id" : "1904043"
+        } ]
       }
-    }
+    },
+    ...
   },
   "captures": [
     ...

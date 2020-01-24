@@ -339,6 +339,10 @@ java.io.IOException</span></div>
 <pre>java.lang.String license</pre>
 </li>
 <li class="blockList">
+<h5>measurement</h5>
+<pre><a href="gov/doc/ntia/sigmf/ext/global/core/Measurement.html" title="class in gov.doc.ntia.sigmf.ext.global.core">Measurement</a> measurement</pre>
+</li>
+<li class="blockList">
 <h5>metaDoi</h5>
 <pre>java.lang.String metaDoi</pre>
 </li>
@@ -353,6 +357,10 @@ java.io.IOException</span></div>
 <li class="blockList">
 <h5>recorder</h5>
 <pre>java.lang.String recorder</pre>
+</li>
+<li class="blockList">
+<h5>recording</h5>
+<pre>java.lang.Integer recording</pre>
 </li>
 <li class="blockList">
 <h5>sampleRate</h5>
@@ -372,7 +380,7 @@ java.io.IOException</span></div>
 </li>
 <li class="blockList">
 <h5>task</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/global/scos/Task.html" title="class in gov.doc.ntia.sigmf.ext.global.scos">Task</a> task</pre>
+<pre>java.lang.Integer task</pre>
 </li>
 <li class="blockList">
 <h5>version</h5>
@@ -502,10 +510,6 @@ java.io.IOException</span></div>
 <pre>java.lang.String detector</pre>
 </li>
 <li class="blockList">
-<h5>measurementType</h5>
-<pre>java.lang.String measurementType</pre>
-</li>
-<li class="blockList">
 <h5>reference</h5>
 <pre>java.lang.String reference</pre>
 </li>
@@ -542,8 +546,16 @@ java.io.IOException</span></div>
 <pre>java.lang.Double[] frequency</pre>
 </li>
 <li class="blockList">
+<h5>frequencyStart</h5>
+<pre>java.lang.Double frequencyStart</pre>
+</li>
+<li class="blockList">
 <h5>frequencyStep</h5>
 <pre>java.lang.Double frequencyStep</pre>
+</li>
+<li class="blockList">
+<h5>frequencyStop</h5>
+<pre>java.lang.Double frequencyStop</pre>
 </li>
 <li class="blockList">
 <h5>numberOfFfts</h5>
@@ -909,16 +921,8 @@ java.io.IOException</span></div>
 <h4>Serialized Fields</h4>
 <ul class="blockList">
 <li class="blockList">
-<h5>altitude</h5>
-<pre>java.lang.Double altitude</pre>
-</li>
-<li class="blockList">
 <h5>attenuationSettingSigan</h5>
 <pre>java.lang.Double attenuationSettingSigan</pre>
-</li>
-<li class="blockList">
-<h5>bearing</h5>
-<pre>java.lang.Double bearing</pre>
 </li>
 <li class="blockList">
 <h5>gainSettingSigan</h5>
@@ -935,18 +939,6 @@ java.io.IOException</span></div>
 <li class="blockList">
 <h5>rfPathIndex</h5>
 <pre>java.lang.Integer rfPathIndex</pre>
-</li>
-<li class="blockList">
-<h5>sensorLatitude</h5>
-<pre>java.lang.Double sensorLatitude</pre>
-</li>
-<li class="blockList">
-<h5>sensorLongitude</h5>
-<pre>java.lang.Double sensorLongitude</pre>
-</li>
-<li class="blockList">
-<h5>speed</h5>
-<pre>java.lang.Double speed</pre>
 </li>
 </ul>
 </section>
@@ -1207,6 +1199,54 @@ java.io.IOException</span></div>
 </ul>
 </section>
 </li>
+<li class="blockList">
+<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.core.Measurement">
+<!--   -->
+</a>
+<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/core/Measurement.html" title="class in gov.doc.ntia.sigmf.ext.global.core">gov.doc.ntia.sigmf.ext.global.core.Measurement</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h4>Serialized Fields</h4>
+<ul class="blockList">
+<li class="blockList">
+<h5>centerFrequency</h5>
+<pre>java.lang.Double centerFrequency</pre>
+</li>
+<li class="blockList">
+<h5>domain</h5>
+<pre>java.lang.String domain</pre>
+</li>
+<li class="blockList">
+<h5>endTime</h5>
+<pre>java.util.Date endTime</pre>
+</li>
+<li class="blockList">
+<h5>highFrequency</h5>
+<pre>java.lang.Double highFrequency</pre>
+</li>
+<li class="blockList">
+<h5>lowFrequency</h5>
+<pre>java.lang.Double lowFrequency</pre>
+</li>
+<li class="blockList">
+<h5>measurementType</h5>
+<pre>java.lang.String measurementType</pre>
+</li>
+<li class="blockList">
+<h5>startTime</h5>
+<pre>java.util.Date startTime</pre>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</li>
 </ul>
 </section>
 </li>
@@ -1319,6 +1359,10 @@ java.io.IOException</span></div>
 <h5>otherFields</h5>
 <pre>java.util.Map&lt;java.lang.String,&#8203;java.lang.Object&gt; otherFields</pre>
 </li>
+<li class="blockList">
+<h5>summary</h5>
+<pre>java.lang.String summary</pre>
+</li>
 </ul>
 </section>
 </li>
@@ -1366,62 +1410,6 @@ java.io.IOException</span></div>
 <li class="blockList">
 <h5>priority</h5>
 <pre>java.lang.Integer priority</pre>
-</li>
-<li class="blockList">
-<h5>startTime</h5>
-<pre>java.util.Date startTime</pre>
-</li>
-</ul>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li class="blockList">
-<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.scos.Task">
-<!--   -->
-</a>
-<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/scos/Task.html" title="class in gov.doc.ntia.sigmf.ext.global.scos">gov.doc.ntia.sigmf.ext.global.scos.Task</a> extends java.lang.Object implements Serializable</h3>
-<dl class="nameValue">
-<dt>serialVersionUID:</dt>
-<dd>1L</dd>
-</dl>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h4>Serialized Fields</h4>
-<ul class="blockList">
-<li class="blockList">
-<h5>centerFrequency</h5>
-<pre>java.lang.Double centerFrequency</pre>
-</li>
-<li class="blockList">
-<h5>domain</h5>
-<pre>java.lang.String domain</pre>
-</li>
-<li class="blockList">
-<h5>endTime</h5>
-<pre>java.util.Date endTime</pre>
-</li>
-<li class="blockList">
-<h5>highFrequency</h5>
-<pre>java.lang.Double highFrequency</pre>
-</li>
-<li class="blockList">
-<h5>id</h5>
-<pre>java.lang.Integer id</pre>
-</li>
-<li class="blockList">
-<h5>lowFrequency</h5>
-<pre>java.lang.Double lowFrequency</pre>
-</li>
-<li class="blockList">
-<h5>measurementType</h5>
-<pre>java.lang.String measurementType</pre>
-</li>
-<li class="blockList">
-<h5>recording</h5>
-<pre>java.lang.Integer recording</pre>
 </li>
 <li class="blockList">
 <h5>startTime</h5>

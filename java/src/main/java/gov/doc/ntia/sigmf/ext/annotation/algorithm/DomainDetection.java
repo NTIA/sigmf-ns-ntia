@@ -20,8 +20,6 @@ public class DomainDetection extends Annotation  {
     @JsonProperty(value="ntia-algorithm:reference", required = false)
     protected String reference;
 
-    @JsonProperty(value="ntia-algorithm:measurement_type", required = false)
-    protected String measurementType;
 
     public String getDetector() {
         return detector;
@@ -47,11 +45,4 @@ public class DomainDetection extends Annotation  {
         this.reference = reference;
     }
 
-    public String getMeasurementType() {
-        return measurementType;
-    }
-
-    public void setMeasurementType(String measurementType) {
-        this.measurementType = measurementType;
-    }
 }

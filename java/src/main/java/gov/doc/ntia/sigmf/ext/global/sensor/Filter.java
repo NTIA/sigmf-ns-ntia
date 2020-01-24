@@ -3,7 +3,6 @@ package gov.doc.ntia.sigmf.ext.global.sensor;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
-
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

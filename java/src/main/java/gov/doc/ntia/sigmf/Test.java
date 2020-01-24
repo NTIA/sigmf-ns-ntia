@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.emitter.EmitterAnnotation;
-import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
@@ -232,14 +231,11 @@ public class Test {
         emitterAnnotation2.setSampleCount(2000l);
         annotations.add(emitterAnnotation2);
 
-        SensorAnnotation sensorAnnotation = new SensorAnnotation();
-        sensorAnnotation.setGpsNmea("Poor GPS");
-        sensorAnnotation.setSampleStart(1000l);
-        sensorAnnotation.setSampleCount(2000l);
+
 
         Annotation calAnnotation = getCalibrationAnnotation();
         annotations.add(calAnnotation);
-        annotations.add(sensorAnnotation);
+
 
         /*
         "single_frequency_fft_detection": {

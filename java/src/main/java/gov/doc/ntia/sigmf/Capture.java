@@ -30,8 +30,6 @@ public class Capture implements Serializable {
     @JsonProperty(value ="core:datetime",required=false )
     protected Date dateTime;
 
-    protected Map<String, Object> otherFields = new HashMap<>();
-
 
     public Date getDateTime() {
         return dateTime;
@@ -76,4 +74,6 @@ public class Capture implements Serializable {
     }
 
 
+
+    protected Map<String, Object> otherFields = new HashMap<>();
 }

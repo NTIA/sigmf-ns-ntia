@@ -4,13 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
-import gov.doc.ntia.sigmf.ext.annotation.algorithm.TimeDomainDetection;
-import gov.doc.ntia.sigmf.ext.annotation.emitter.EmitterAnnotation;
-import gov.doc.ntia.sigmf.ext.annotation.environment.EmitterEnvironment;
-import gov.doc.ntia.sigmf.ext.annotation.environment.SensorEnvironment;
-import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
-import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,

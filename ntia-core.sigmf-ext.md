@@ -5,9 +5,26 @@ The `ntia-core` namespace adds generally useful metadata fields.
 `ntia-core` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
-`ntia-core` does not directly extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) object. ntia-core defines an `Antenna` object that is referenced through other global extensions ([ntia-sensor](ntia-sensor.sigmf-ext.md), [ntia-emitter](ntia-emitter.sigmf-ext.md))
+`ntia-core` defines an `Antenna` object that is referenced through other global extensions ([ntia-sensor](ntia-sensor.sigmf-ext.md), [ntia-emitter](ntia-emitter.sigmf-ext.md)) and extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
-## 1.1 Antenna Object
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`measurement`|false|[Measurement](#11-measurement-object)|N/A|Summarizes the basic information of the measurement. This object SHOULD be included for any measurement.|. ntia-core 
+
+
+### 1.1 Measurement Object
+The Measurement object summarizes the basic measurement information including  when the measurement was conducted, the frequency range, the domain of the sensed data and the type of measurement that was conducted. 
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`start_time`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  began execution.|
+|`end_time`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  finished execution.|
+|`low_frequency`|false|double|Hertz|The lowest frequency specified for a sensing task. This SHOULD be included for all sensing tasks. |
+|`center_frequency`|false|double|Hertz|The center frequency specified for a sensing task. This SHOULD be included for all sensing tasks.|
+|`high_frequency`|false|double|Hertz|The highest frequency specified for a sensing task. This SHOULD be included for all sensing tasks.|
+|`domain`|true|string|N/A|Time or Frequency|
+|`measurement_type`|false|string|N/A|Method that signal analyzer acquires data, e.g. `"single-frequency"`, `"survey"`, `"scan"`. This SHOULD be specified for all sensing tasks.|
+
+## 1.2 Antenna Object
 `Antenna` object has the following properties:
 
 |name|required|type|unit|description|
@@ -59,27 +76,97 @@ The following segments are of general use across the set of NTIA extensions.
 |`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
-## 4 Example
+## 4 Examples
 
-### 4.1 Antenna Global Example
+### 4.1 Measurement Example
+```json
+{
+  "global" : {
+    "core:datatype" : "rf32_le",
+    "core:sample_rate" : 2.8E7,
+    "core:extensions" : {
+      "ntia-core" : "v1.0.0",
+    },
+    "ntia-core:measurement" : {
+      "start_time" : "2018-03-01T14:01:00.000874Z",
+      "end_time" : "2018-03-01T14:01:00.000904Z",
+      "low_frequency" : 3.45021875E9,
+      "high_frequency" : 3.65015625E9,
+      "center_frequency" : 3.5501875E9,
+      "domain" : "frequency",
+      "measurement_type" : "scan"
+    }
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+   ...
+  ]
+}
+  ```
+### 4.2 Antenna Global Example
 ```json
 {
   "global": {
     "core:datatype": "rf32_le",
     "core:sample_rate": 15360000,
-    "ntia-sensor:sensor": {
-      "id": "Greyhound_1",
-      "ntia-core:antenna": {
-        "id": "antenna1",
-        "model": "model_X",
-        "type": "omnidirectional",
-        "low_frequency": 300000000,
-        "high_frequency": 3000000000,
-        "gain": 2,
-        "cross_polar_discrimination": 9.1,
-        "cable_loss": 1,
-        "azimuth_angle": 45,
-        "elevation_angle": 10.3
+    "ntia-sensor:sensor" : {
+      "id" : "Radar_Sensor_1",
+      "antenna" : {
+        "antenna_spec" : {
+          "model" : "ARA BSB-26",
+          "description" : "RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications"
+        },
+        "type" : "omni-directional",
+        "low_frequency" : 2.0E9,
+        "high_frequency" : 6.0E9,
+        "gain" : 0.0,
+        "polarization" : "slant",
+        "cross_polar_discrimination" : 13.0,
+        "horizontal_beam_width" : 360.0,
+        "vertical_beam_width" : 68.38,
+        "voltage_standing_wave_ratio" : 2.0,
+        "cable_loss" : 0.62,
+        "steerable" : false,
+        "azimuth_angle" : 90.0,
+        "elevation_angle" : 0.0,
+        "mobile" : false
+      },
+      "preselector" : {
+        "cal_source" : {
+          "cal_source_spec" : {
+            "id" : "MY53400510",
+            "model" : "Keysight 346B",
+            "supplemental_information" : "https://www.keysight.com/en/pd-1000001299%3Aepsg%3Apro-pn-346B/noise-source-10-mhz-to-18-ghz-nominal-enr-15-db?cc=US&lc=eng"
+          }
+        },
+        "filters" : [ {
+          "filter_spec" : {
+            "id" : "13FV40-00014",
+            "model" : "K&L 13FV40-3550/U200-o/o",
+            "supplemental_information" : "http://www.klfilterwizard.com/klfwpart.aspx?FWS=1112001&PN=13FV40-3550%2fU200-O%2fO"
+          },
+          "low_frequency_passband" : 3.43E9,
+          "high_frequency_passband" : 3.67E9,
+          "low_frequency_stopband" : 3.39E9,
+          "high_frequency_stopband" : 3.71E9
+        } ],
+        "amplifiers" : [ {
+          "amplifier_spec" : {
+            "id" : "1904043",
+            "model" : "MITEQ AFS3-02000400-30-25P-6",
+            "supplemental_information" : "https://nardamiteq.com/docs/MITEQ_Amplifier-AFS.JS_c41.pdf"
+          },
+          "gain" : 30.61,
+          "noise_figure" : 2.76,
+          "max_power" : 13.0
+        } ],
+        "rf_paths" : [ {
+          "cal_source_id" : "Calibrated noise source",
+          "filter_id" : "13FV40-00014",
+          "amplifier_id" : "1904043"
+        } ]
       }
       ...
   },
@@ -91,7 +178,7 @@ The following segments are of general use across the set of NTIA extensions.
   ]
 }
 ```
-### 4.2 AntennaAnnotation Example
+### 4.3 AntennaAnnotation Example
 ```json
 {
   "global": {
@@ -105,9 +192,7 @@ The following segments are of general use across the set of NTIA extensions.
       "ntia-core:annotation_type": "AntennaAnnotation",
       "core:sample_start": 0,
       "core:sample_count": 1024,
-      "ntia-core:antenna_id": "antenna1",
-      "ntia-core:azimuth_angle": 15,
-      "ntia-core:elevation_angle": 20
+
     }
   ]
 }

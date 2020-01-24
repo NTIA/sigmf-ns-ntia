@@ -1,4 +1,4 @@
-package gov.doc.ntia.sigmf.ext.global.scos;
+package gov.doc.ntia.sigmf.ext.global.core;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -7,27 +7,23 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.util.Date;
 
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Task implements Serializable {
+public class Measurement implements Serializable {
 
     private static final long serialVersionUID = 1L;
-
-    @JsonProperty(value="id", required = true)
-    protected Integer id;
-
-    @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
-    @JsonProperty(value="end_time", required =  true)
-    protected Date endTime;
 
     @JsonFormat
             (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
     @JsonProperty(value="start_time", required = true)
     protected Date startTime;
 
+    @JsonFormat
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
+    @JsonProperty(value="end_time", required =  true)
+    protected Date endTime;
 
-    @JsonProperty(value="recording", required = false)
-    protected Integer recording;
+
 
     @JsonProperty(value="low_frequency", required = false)
     protected Double lowFrequency;
@@ -44,23 +40,6 @@ public class Task implements Serializable {
 
     @JsonProperty(value="measurement_type", required = false)
     protected String measurementType;
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getRecording() {
-        return recording;
-    }
-
-    public void setRecording(Integer recording) {
-        this.recording = recording;
-    }
 
     public Double getLowFrequency() {
         return lowFrequency;
@@ -110,8 +89,6 @@ public class Task implements Serializable {
         this.endTime = endTime;
     }
 
-
-
     public Date getStartTime() {
         return startTime;
     }
@@ -119,7 +96,5 @@ public class Task implements Serializable {
     public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
-
-
 
 }

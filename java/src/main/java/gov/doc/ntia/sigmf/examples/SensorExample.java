@@ -1,16 +1,13 @@
 package gov.doc.ntia.sigmf.examples;
 
-import gov.doc.ntia.sigmf.Annotation;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
+import gov.doc.ntia.sigmf.ext.global.core.Measurement;
 import gov.doc.ntia.sigmf.ext.global.sensor.*;
 
-import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.List;
 
 public class SensorExample implements Example {
 
@@ -22,7 +19,7 @@ public class SensorExample implements Example {
         Sensor sensor = getSensor();
         global.setSensor(getSensor());
         metaDoc.setGlobal(global);
-        metaDoc.setAnnotations(getAnnotations());
+      //  metaDoc.setCaptures(getCaptures());
         return metaDoc;
     }
 
@@ -94,22 +91,10 @@ public class SensorExample implements Example {
         return antenna;
     }
 
-    private List<Annotation> getAnnotations(){
-        SensorAnnotation annotation= new SensorAnnotation();
-        annotation.setSampleStart(0l);
-        annotation.setSampleCount(100l);
-        annotation.setLatitude(40.5);
-        annotation.setLongitude(-105.0);
-        SensorAnnotation annotation2= new SensorAnnotation();
-        annotation2.setSampleStart(100l);
-        annotation2.setSampleCount(100l);
-        annotation2.setLatitude(40.56);
-        annotation2.setLongitude(-105.03);
-        List<Annotation> annotations = new ArrayList<>();
-        annotations.add(annotation);
-        annotations.add(annotation2);
-        return annotations;
-
-
+    private Measurement getMeasurement(){
+        Measurement measurement = new Measurement();
+        return measurement;
     }
+
+
 }

@@ -106,7 +106,7 @@ public class Acquisition implements Serializable {
     }
 
     private  String getTaskId(){
-        String taskId = metaDoc.getGlobal().getTask().getId().toString();
+        String taskId = metaDoc.getGlobal().getTask().toString();
         if(taskId == null){
             taskId = "unknown";
         }

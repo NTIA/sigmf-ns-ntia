@@ -84,6 +84,11 @@ public class MetaDoc implements Serializable {
         annotations.add(annotation);
     }
 
+    public void addCapture(Capture capture){
+        captures.add(capture);
+    }
+
+
     @JsonIgnore
     public Acquisition getAcquisition() throws IOException {
         Acquisition acquisition = new Acquisition();
@@ -93,6 +98,7 @@ public class MetaDoc implements Serializable {
         acquisition.setData(ByteBuffer.wrap(sensedData));
         return acquisition;
     }
+
 
 
 

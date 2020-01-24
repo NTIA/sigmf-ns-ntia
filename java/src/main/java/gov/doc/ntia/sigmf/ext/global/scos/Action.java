@@ -18,6 +18,10 @@ public class Action implements Serializable {
     @JsonProperty(value="description", required =  false)
     protected  String description;
 
+
+    @JsonProperty(value="summary", required =false)
+    protected String summary;
+
     protected Map<String, Object> otherFields = new HashMap<>();
 
     public String getName() {
@@ -46,4 +50,11 @@ public class Action implements Serializable {
         otherFields.put(key, value);
     }
 
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
 }
