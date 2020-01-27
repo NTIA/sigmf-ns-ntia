@@ -14,7 +14,7 @@ The `ntia-core` namespace adds generally useful metadata fields.
 
 ### 1.1 Measurement Object
 The Measurement object summarizes the basic measurement information including  when the measurement was conducted, the frequency range, the domain of the sensed data and the type of measurement that was conducted.
- 
+
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`start_time`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  began execution.|
@@ -37,8 +37,8 @@ The Measurement object summarizes the basic measurement information including  w
 |`polarization`|false|double|string|Antenna polarization. E.g. `"vertical"`, `"horizontal"`, `"slant-45"`, `"left-hand circular"`, `"right-hand circular"`.|
 |`cross_polar_discrimination`|false|double|N/A|Cross-polarization discrimination.|
 |`gain`|false|double|dBi|Antenna gain in direction of maximum radiation or reception.|
-|`horizontal_gain_pattern`|false|array of doubles|dBi|Antenna gain pattern in horizontal plane from 0 to 359 degrees in 1 degree steps.|
-|`vertical_gain_pattern`|false|array of doubles|dBi|Antenna gain pattern in vertical plane from -90 to +90 degrees in 1 degree steps.|
+|`horizontal_gain_pattern`|false|double[]|dBi|Antenna gain pattern in horizontal plane from 0 to 359 degrees in 1 degree steps.|
+|`vertical_gain_pattern`|false|double[]|dBi|Antenna gain pattern in vertical plane from -90 to +90 degrees in 1 degree steps.|
 |`horizontal_beam_width`|false|double|degrees|Horizontal 3-dB beamwidth.|
 |`vertical_beam_width`|false|double|degrees|Vertical 3-dB beamwidth.|
 |`voltage_standing_wave_ratio`|false|double|volts|Voltage standing wave ratio.|

@@ -22,7 +22,7 @@ IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wire
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`info_bit_generation`|false|string|N/A|Model that defines information bit generation. E.g. `"PN"`.|
-|`coding_rate`|false|array [k, n]|bits|For every k bits of useful information the coder generates n bits of data. E.g. [1, 2], [2, 3], [3, 4].|
+|`coding_rate`|false|integer[]|bits|An integer[] of length 2 of the form [k, n] that describes an encoder that generates n bits of data for every k bits of useful information.|
 |`packet_length`|false|integer|bits|Packet length.|
 |`modulation`|false|string|N/A|Modulation, e.g., `"BPSK"`, `"QPSK"`, `"16QAM"`, `"64QAM"`.|
 |`encoder`|false|string|N/A|Description of encoder. E.g. `"Convolutional"`.|
@@ -31,9 +31,13 @@ IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wire
 |`number_of_pilots`|false|integer|N/A|Number of pilots.|
 |`cyclic_prefix`|false|integer|bits|Size of cyclic prefix.|
 |`short_inter_frame_space`|false|float|microseconds|Time required to process a received frame and to respond with a response frame.|
-|`preamble_frame`|false|array|N/A|Preamble of 0's and 1's used for synchronization and id beginning of frame.|
+|`preamble_frame`|false|integer[]|N/A|Preamble of 0's and 1's used for synchronization and id beginning of frame.|
 |`number_of_info_bits`|false|integer|N/A|Number of information bits.|
 |`signal_to_noise_ratio`|false|float|dB|Signal-to-noise ratio. If unspecified, assumed no noise present.|
+
+### 3.2 CodingRate Object
+The coding rate object is an integer[] of length two of the form [k,n] that describes an encoder that generates n bits of data for every k bits of useful information. 
+
 
 ## 2 Captures
 `ntia-waveform` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).

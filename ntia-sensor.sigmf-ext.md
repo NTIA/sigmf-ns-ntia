@@ -37,7 +37,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`high_frequency`|false|double|Hz|High frequency of operational range of the signal analyzer.|
 |`noise_figure`|false|double|dB|Noise figure of the signal analyzer.|
 |`max_power`|false|double|dBm|Maximum input power of the signal analyzer.|
-|`a2d_bits`|false|int|bits|Number of bits in A/D converter.|
+|`a2d_bits`|false|integer|bits|Number of bits in A/D converter.|
 
 ### 1.3 Preselector Object
 `Preselector` has the following properties:
@@ -56,7 +56,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`cal_source_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe the calibration source specification.|
-|`type`|false|String|N/A|The type of the calibration source.|
+|`type`|false|string|N/A|The type of the calibration source.|
 |`enr`|false|double|dB|The excess noise ratio.|
 
 
@@ -90,9 +90,9 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`cal_source_id`|true|String|N/A|The id of the calibration source.|
-|`filter_id`|true|String|N/A|The id of the filter.|
-|`amplifier_id`|true|String|N/A|The id of the amplifier.|
+|`cal_source_id`|true|string|N/A|The id of the calibration source.|
+|`filter_id`|true|string|N/A|The id of the filter.|
+|`amplifier_id`|true|string|N/A|The id of the amplifier.|
 
 
 ## 2 Captures

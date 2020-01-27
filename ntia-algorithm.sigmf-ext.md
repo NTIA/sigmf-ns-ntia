@@ -16,9 +16,9 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`, `"IIR"`|
-|`FIR_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
-|`IIR_numerator_coefficients`|false|array of doubles|N/A|Coefficients that defines IIR filter.|
-|`IIR_denominator_coefficients`|false|array of doubles|N/A|Coefficients that defines IIR filter.|
+|`FIR_coefficients`|false|double[]|N/A|Coefficients that defines FIR filter.|
+|`IIR_numerator_coefficients`|false|double[]|N/A|Coefficients that defines IIR filter.|
+|`IIR_denominator_coefficients`|false|double[]|N/A|Coefficients that defines IIR filter.|
 |`cutoff_attenuation`|false|double|dB|Attenuation that specifies the `cutoff_frequency` (typically 3 dB).|
 |`cutoff_frequency`|false|double|Hz|Frequency that characterizes boundary between passband and stopband.|
 |`ripple_passband`|false|double|dB|Ripple in passband.|
@@ -40,7 +40,7 @@ Time-domain detection algorithms are applied to gap-free IQ time series captured
 |`number_of_samples`|true|integer|N/A|Number of samples to be integrated over by detector.|
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
-|`time`|false|array of doubles|seconds|Time array corresponding to detected data.|
+|`time`|false|double[]|seconds|Time array corresponding to detected data.|
 |`time_start`|false|double|seconds|Time of first data point refrenced by the annotation.|
 |`time_stop`|false|double|seconds|Time of last data point referenced by the annotation.|
 |`time_step`|false|double|seconds|Time step between data points referenced by the annotation.|
@@ -59,7 +59,7 @@ The `FrequencyDomainDetection` has the following properties:
 |`equivalent_noise_bandwidth`|false|double|Hz|Bandwidth of brickwall filter that has same integrated noise power as that of the actual filter.|
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
-|`frequencies`|false|array of doubles|Hertz|Frequency array corresponding to detected data.|
+|`frequencies`|false|double[]|Hertz|Frequency array corresponding to detected data.|
 |`frequency_start`|false|double|Hertz|Frequency of first data point referenced by the annotation.|
 |`frequency_stop`|false|double|Hertz|Frequency of last data point referenced by the annotation.|
 |`frequency_step`|false|double|Hertz|Frequency step between data points referenced by the annoation.|
@@ -70,9 +70,9 @@ The `FrequencyDomainDetection` has the following properties:
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`, `"IIR"`|
-|`FIR_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
-|`IIR_numerator_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
-|`IIR_denominator_coefficients`|false|array of doubles|N/A|Coefficients that defines FIR filter.|
+|`FIR_coefficients`|false|double[]|N/A|Coefficients that defines FIR filter.|
+|`IIR_numerator_coefficients`|false|double[]|N/A|Coefficients that defines FIR filter.|
+|`IIR_denominator_coefficients`|false|double[]|N/A|Coefficients that defines FIR filter.|
 |`cutoff_attenuation`|false|double|dB|Attenuation that specifies the `cutoff_frequency` (typically 3 dB).|
 |`cutoff_frequency`|false|double|Hz|Frequency that characterizes boundary between passband and stopband.|
 |`ripple_passband`|false|double|dB|Ripple in passband.|
