@@ -13,7 +13,8 @@ The `ntia-core` namespace adds generally useful metadata fields.
 
 
 ### 1.1 Measurement Object
-The Measurement object summarizes the basic measurement information including  when the measurement was conducted, the frequency range, the domain of the sensed data and the type of measurement that was conducted. 
+The Measurement object summarizes the basic measurement information including  when the measurement was conducted, the frequency range, the domain of the sensed data and the type of measurement that was conducted.
+ 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`start_time`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  began execution.|
