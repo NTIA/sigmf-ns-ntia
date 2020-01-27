@@ -35,9 +35,6 @@ IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wire
 |`number_of_info_bits`|false|integer|N/A|Number of information bits.|
 |`signal_to_noise_ratio`|false|float|dB|Signal-to-noise ratio. If unspecified, assumed no noise present.|
 
-### 3.2 CodingRate Object
-The coding rate object is an integer[] of length two of the form [k,n] that describes an encoder that generates n bits of data for every k bits of useful information. 
-
 
 ## 2 Captures
 `ntia-waveform` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
