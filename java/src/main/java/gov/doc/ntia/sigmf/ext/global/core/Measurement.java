@@ -31,9 +31,6 @@ public class Measurement implements Serializable {
     @JsonProperty(value="high_frequency", required = false)
     protected Double highFrequency;
 
-    @JsonProperty(value="center_frequency", required = false)
-    protected Double centerFrequency;
-
     @JsonProperty(value="domain", required = true)
     protected String domain;
 
@@ -55,14 +52,6 @@ public class Measurement implements Serializable {
 
     public void setHighFrequency(Double highFrequency) {
         this.highFrequency = highFrequency;
-    }
-
-    public Double getCenterFrequency() {
-        return centerFrequency;
-    }
-
-    public void setCenterFrequency(Double centerFrequency) {
-        this.centerFrequency = centerFrequency;
     }
 
     public String getDomain() {

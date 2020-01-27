@@ -32,7 +32,6 @@ public class RadarExample  implements Example {
 
     public static Measurement getMeasurement(){
         Measurement measurement = new Measurement();
-        measurement.setCenterFrequency(3.5501875E9);
         measurement.setLowFrequency(3.45021875E9);
         measurement.setHighFrequency(3.65015625E9);
         measurement.setDomain("frequency");

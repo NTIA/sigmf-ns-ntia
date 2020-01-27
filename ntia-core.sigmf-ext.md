@@ -20,7 +20,6 @@ The Measurement object summarizes the basic measurement information including  w
 |`start_time`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  began execution.|
 |`end_time`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  finished execution.|
 |`low_frequency`|false|double|Hz|The lowest frequency specified for a sensing task. This SHOULD be included for all sensing tasks. |
-|`center_frequency`|false|double|Hz|The center frequency specified for a sensing task. This SHOULD be included for all sensing tasks.|
 |`high_frequency`|false|double|Hz|The highest frequency specified for a sensing task. This SHOULD be included for all sensing tasks.|
 |`domain`|true|string|N/A|Time or Frequency|
 |`measurement_type`|false|string|N/A|Method that signal analyzer acquires data, e.g. `"single-frequency"`, `"survey"`, `"scan"`. This SHOULD be specified for all sensing tasks.|
@@ -92,7 +91,6 @@ The following segments are of general use across the set of NTIA extensions.
       "start_time" : "2018-03-01T14:01:00.000874Z",
       "end_time" : "2018-03-01T14:01:00.000904Z",
       "low_frequency" : 3.45021875E9,
-      "high_frequency" : 3.65015625E9,
       "center_frequency" : 3.5501875E9,
       "domain" : "frequency",
       "measurement_type" : "scan"
