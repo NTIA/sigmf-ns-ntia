@@ -19,7 +19,7 @@
 <script type="text/javascript" src="../../../../../../../script-dir/jquery-ui.js"></script>
 </head>
 <body class="class-declaration">
-<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10};
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -128,16 +128,6 @@ implements java.io.Serializable</pre>
 </thead>
 <tbody>
 <tr class="altColor">
-<td class="colFirst"><code>protected java.util.Date</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#absoluteStop">absoluteStop</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#callbackURL">callbackURL</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
 <td class="colFirst"><code>protected java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#id">id</a></span></code></th>
 <td class="colLast">&nbsp;</td>
@@ -164,7 +154,12 @@ implements java.io.Serializable</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected java.util.Date</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startTime">startTime</a></span></code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#start">start</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected java.util.Date</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#stop">stop</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </tbody>
@@ -222,63 +217,73 @@ java.lang.Object&nbsp;value)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i1">
-<td class="colFirst"><code>java.util.Date</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getAbsoluteStop()">getAbsoluteStop</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor" id="i2">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getCallbackURL()">getCallbackURL</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor" id="i3">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getId()">getId</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor" id="i4">
+<tr class="altColor" id="i2">
 <td class="colFirst"><code>java.lang.Integer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getInterval()">getInterval</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor" id="i5">
+<tr class="rowColor" id="i3">
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getName()">getName</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i4">
 <td class="colFirst"><code>java.util.Map&lt;java.lang.String,&#8203;java.lang.Object&gt;</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getOtherFields()">getOtherFields</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor" id="i6">
+<tr class="rowColor" id="i5">
 <td class="colFirst"><code>java.lang.Integer</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getPriority()">getPriority</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="rowColor" id="i7">
+<tr class="altColor" id="i6">
 <td class="colFirst"><code>java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getScheduleNameFromUrl()">getScheduleNameFromUrl</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
+<tr class="rowColor" id="i7">
+<td class="colFirst"><code>java.util.Date</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStart()">getStart</a></span>()</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
 <tr class="altColor" id="i8">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setAbsoluteStop(java.util.Date)">setAbsoluteStop</a></span>&#8203;(java.util.Date&nbsp;absoluteStop)</code></th>
+<td class="colFirst"><code>java.util.Date</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStop()">getStop</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i9">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setCallbackURL(java.lang.String)">setCallbackURL</a></span>&#8203;(java.lang.String&nbsp;callbackURL)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setId(java.lang.String)">setId</a></span>&#8203;(java.lang.String&nbsp;id)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i10">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setId(java.lang.String)">setId</a></span>&#8203;(java.lang.String&nbsp;id)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setInterval(java.lang.Integer)">setInterval</a></span>&#8203;(java.lang.Integer&nbsp;interval)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i11">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setInterval(java.lang.Integer)">setInterval</a></span>&#8203;(java.lang.Integer&nbsp;interval)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setName(java.lang.String)">setName</a></span>&#8203;(java.lang.String&nbsp;name)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i12">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setPriority(java.lang.Integer)">setPriority</a></span>&#8203;(java.lang.Integer&nbsp;priority)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setStart(java.util.Date)">setStart</a></span>&#8203;(java.util.Date&nbsp;start)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i14">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setStop(java.util.Date)">setStop</a></span>&#8203;(java.util.Date&nbsp;stop)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </tbody>
@@ -317,8 +322,8 @@ java.lang.Object&nbsp;value)</code></th>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="absoluteStop">absoluteStop</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">absoluteStop</span></div>
+<h3><a id="stop">stop</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">stop</span></div>
 </section>
 </li>
 <li class="blockList">
@@ -335,14 +340,8 @@ java.lang.Object&nbsp;value)</code></th>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="callbackURL">callbackURL</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.lang.String</span>&nbsp;<span class="memberName">callbackURL</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="startTime">startTime</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">startTime</span></div>
+<h3><a id="start">start</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">start</span></div>
 </section>
 </li>
 <li class="blockList">
@@ -391,14 +390,14 @@ java.lang.Object&nbsp;value)</code></th>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="getAbsoluteStop()">getAbsoluteStop</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">getAbsoluteStop</span>()</div>
+<h3><a id="getStop()">getStop</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">getStop</span>()</div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="setAbsoluteStop(java.util.Date)">setAbsoluteStop</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setAbsoluteStop</span>&#8203;(<span class="arguments">java.util.Date&nbsp;absoluteStop)</span></div>
+<h3><a id="setStop(java.util.Date)">setStop</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setStop</span>&#8203;(<span class="arguments">java.util.Date&nbsp;stop)</span></div>
 </section>
 </li>
 <li class="blockList">
@@ -427,14 +426,26 @@ java.lang.Object&nbsp;value)</code></th>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="getCallbackURL()">getCallbackURL</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.lang.String</span>&nbsp;<span class="memberName">getCallbackURL</span>()</div>
+<h3><a id="getName()">getName</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.lang.String</span>&nbsp;<span class="memberName">getName</span>()</div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="setCallbackURL(java.lang.String)">setCallbackURL</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setCallbackURL</span>&#8203;(<span class="arguments">java.lang.String&nbsp;callbackURL)</span></div>
+<h3><a id="setName(java.lang.String)">setName</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setName</span>&#8203;(<span class="arguments">java.lang.String&nbsp;name)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getStart()">getStart</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">getStart</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setStart(java.util.Date)">setStart</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setStart</span>&#8203;(<span class="arguments">java.util.Date&nbsp;start)</span></div>
 </section>
 </li>
 <li class="blockList">

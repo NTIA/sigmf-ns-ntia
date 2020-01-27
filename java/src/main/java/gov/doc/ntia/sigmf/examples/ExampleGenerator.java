@@ -19,6 +19,7 @@ import gov.doc.ntia.sigmf.examples.location.GcsWithSpheroidExample;
 import gov.doc.ntia.sigmf.examples.location.ProjectedExample;
 import gov.doc.ntia.sigmf.examples.location.SimpleGCS;
 import gov.doc.ntia.sigmf.examples.location.SpeedAndBearingExample;
+import gov.doc.ntia.sigmf.examples.scos.ScosExample;
 import gov.doc.ntia.sigmf.examples.waveform.WaveformExample;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 
@@ -80,6 +81,9 @@ public class ExampleGenerator {
 
         SimpleGCS simpleGCS = new SimpleGCS();
         save("simpleGCS.json", simpleGCS.getExample());
+
+        ScosExample scosExample = new ScosExample();
+        save("scos.json", scosExample.getExample());
 
     }
 

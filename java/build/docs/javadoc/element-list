@@ -6,6 +6,7 @@ gov.doc.ntia.sigmf.examples.core
 gov.doc.ntia.sigmf.examples.emitter
 gov.doc.ntia.sigmf.examples.environment
 gov.doc.ntia.sigmf.examples.location
+gov.doc.ntia.sigmf.examples.scos
 gov.doc.ntia.sigmf.examples.waveform
 gov.doc.ntia.sigmf.ext.annotation.algorithm
 gov.doc.ntia.sigmf.ext.annotation.core

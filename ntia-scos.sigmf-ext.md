@@ -43,22 +43,25 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
 ## 4 Example
 ```json
 {
-  "global": {
-    "core:datatype": "rf32_le",
-    "core:sample_rate": 15360000,
-    "core:version": "0.0.2",
-    "ntia-scos:action" :{
-        "name": "acquire_m4s_700MHz_Verizon_UL",
-        "summary": "Apply m4s detector over 300 1024-pt FFTs at 782 MHz."
+  "global" : {
+    ...
+    "core:extensions" : {
+      "ntia-scos" : "v1.0.0"
     },
-    "ntia-scos:task" : 0,
-    "ntia-scos:recording" : 0
+    "ntia-scos:action" : {
+      "name" : "acquire_m4s_700MHz_Verizon_UL",
+      "summary" : "Apply m4s detector over 300 1024-pt FFTs at 782 MHz."
+    },
+    "ntia-scos:schedule" : {
+      "id" : "m4_123",
+      "name" : "M4 every Second",
+      "stop" : "2020-02-03T15:35Z",
+      "interval" : 1,
+      "start" : "2020-01-27T15:35:45.000610Z"
+    }
+    ...
   },
-  "captures": [
-    ...
-  ],
-  "annotations": [
-    ...
-  ]
+  "captures" : [... ],
+  "annotations" : [ ...]
 }
 ```
