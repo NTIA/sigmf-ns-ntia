@@ -84,7 +84,6 @@ public class ScosExample  implements Example {
         antenna.setVoltageStandingWaveRatio(2d);
         antenna.setCableLoss(.62);
         antenna.setSteerable(Boolean.FALSE);
-        antenna.setMobile(Boolean.FALSE);
         return antenna;
 
     }

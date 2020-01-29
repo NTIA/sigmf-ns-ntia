@@ -196,7 +196,6 @@ public class Test {
         antenna.setHorizontalBeamWidth(12d);
         antenna.setHorizontalGainPattern(new Double[]{12.0});
         antenna.setVerticalGainPattern(new Double[]{12.0});
-        antenna.setMobile(true);
         antenna.setVerticalBeamWidth(12d);
         antenna.setPolarization("horizontal");
         antenna.setVoltageStandingWaveRatio(1d);
