@@ -91,7 +91,7 @@ The following segments are of general use across the set of NTIA extensions.
       "start_time" : "2018-03-01T14:01:00.000874Z",
       "end_time" : "2018-03-01T14:01:00.000904Z",
       "low_frequency" : 3.45021875E9,
-      "center_frequency" : 3.5501875E9,
+      "high_frequency" : 3.5501875E9,
       "domain" : "frequency",
       "measurement_type" : "scan"
     }
@@ -127,10 +127,7 @@ The following segments are of general use across the set of NTIA extensions.
         "vertical_beam_width" : 68.38,
         "voltage_standing_wave_ratio" : 2.0,
         "cable_loss" : 0.62,
-        "steerable" : false,
-        "azimuth_angle" : 90.0,
-        "elevation_angle" : 0.0,
-        "mobile" : false
+        "steerable" : false
       },
       "preselector" : {
         "cal_source" : {

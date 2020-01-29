@@ -190,10 +190,8 @@ public class Test {
         antenna.setLowFrequency(123d);
         antenna.setHighFrequency(123d);
         antenna.setGain(12d);
-        antenna.setElevationAngle(12d);
         antenna.setCrossPolarDiscrimination(123d);
         antenna.setCableLoss(12d);
-        antenna.setAzimuthAngle(12d);
         antenna.setType("horizontal");
         antenna.setHorizontalBeamWidth(12d);
         antenna.setHorizontalGainPattern(new Double[]{12.0});

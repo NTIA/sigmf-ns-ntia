@@ -132,7 +132,6 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`temperature`|false|double|celsius|The temperature during calibration.|
 
 
-
 ## 4 Example
 
 ### 4.1 Sensor Global Object Example
@@ -145,6 +144,7 @@ Sensor definition follows a simplified hardware model comprised of the following
       "id" : "Radar_Sensor_1",
       "antenna" : {
         "antenna_spec" : {
+          "id" : "antenna_1",
           "model" : "ARA BSB-26",
           "description" : "RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications"
         },
@@ -158,10 +158,7 @@ Sensor definition follows a simplified hardware model comprised of the following
         "vertical_beam_width" : 68.38,
         "voltage_standing_wave_ratio" : 2.0,
         "cable_loss" : 0.62,
-        "steerable" : false,
-        "azimuth_angle" : 90.0,
-        "elevation_angle" : 0.0,
-        "mobile" : false
+        "steerable" : false
       },
       "preselector" : {
         "cal_source" : {
@@ -225,6 +222,7 @@ Sensor definition follows a simplified hardware model comprised of the following
       "id" : "Radar_Sensor_1",
       "antenna" : {
         "antenna_spec" : {
+          "id" : "antenna_1",
           "model" : "ARA BSB-26",
           "description" : "RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications"
         },
@@ -238,10 +236,7 @@ Sensor definition follows a simplified hardware model comprised of the following
         "vertical_beam_width" : 68.38,
         "voltage_standing_wave_ratio" : 2.0,
         "cable_loss" : 0.62,
-        "steerable" : false,
-        "azimuth_angle" : 90.0,
-        "elevation_angle" : 0.0,
-        "mobile" : false
+        "steerable" : false
       },
       "preselector" : {
         "cal_source" : {
@@ -284,7 +279,6 @@ Sensor definition follows a simplified hardware model comprised of the following
       "end_time" : "2018-03-01T14:01:00.000107Z",
       "low_frequency" : 3.45021875E9,
       "high_frequency" : 3.65015625E9,
-      "center_frequency" : 3.5501875E9,
       "domain" : "frequency",
       "measurement_type" : "scan"
     }

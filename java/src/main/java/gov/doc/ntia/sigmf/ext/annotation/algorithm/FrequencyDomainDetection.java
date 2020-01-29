@@ -26,8 +26,8 @@ public class FrequencyDomainDetection extends DomainDetection  {
     protected Double equivalentNoiseBandwidth;
 
 
-    @JsonProperty(value="ntia-algorithm:frequency", required = false)
-    protected Double[] frequency;
+    @JsonProperty(value="ntia-algorithm:frequencies", required = false)
+    protected Double[] frequencies;
 
     @JsonProperty(value="ntia-algorithm:frequency_step", required = false)
     protected Double frequencyStep;
@@ -55,12 +55,12 @@ public class FrequencyDomainDetection extends DomainDetection  {
     }
 
 
-    public Double[] getFrequency() {
-        return frequency;
+    public Double[] getFrequencies() {
+        return frequencies;
     }
 
-    public void setFrequency(Double[] frequency) {
-        this.frequency = frequency;
+    public void setFrequencies(Double[] frequency) {
+        this.frequencies = frequency;
     }
 
     public Double getFrequencyStep() {

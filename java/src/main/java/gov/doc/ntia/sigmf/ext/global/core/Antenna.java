@@ -64,13 +64,6 @@ public class Antenna implements Serializable {
     protected Boolean steerable;
 
 
-    @JsonProperty(value="azimuth_angle", required = false)
-    protected Double azimuthAngle;
-
-
-    @JsonProperty(value="elevation_angle", required = false)
-    protected Double elevationAngle;
-
     @JsonProperty(value="mobile", required = false)
     protected Boolean mobile;
 
@@ -90,22 +83,6 @@ public class Antenna implements Serializable {
 
     public void setPolarization(String polarization) {
         this.polarization = polarization;
-    }
-
-    public Double getAzimuthAngle() {
-        return azimuthAngle;
-    }
-
-    public void setAzimuthAngle(Double azimuthAngle) {
-        this.azimuthAngle = azimuthAngle;
-    }
-
-    public Double getElevationAngle() {
-        return elevationAngle;
-    }
-
-    public void setElevationAngle(Double elevationAngle) {
-        this.elevationAngle = elevationAngle;
     }
 
     public String getType() {

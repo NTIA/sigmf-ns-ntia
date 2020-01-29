@@ -2,6 +2,7 @@ package gov.doc.ntia.sigmf.examples;
 
 import gov.doc.ntia.sigmf.*;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
+import gov.doc.ntia.sigmf.ext.annotation.core.AntennaAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.environment.Environment;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
@@ -51,7 +52,7 @@ public class RadarExample  implements Example {
         sensorExtension.setVersion("v1.0.0");
 
         Extension algorithmExtension = new Extension();
-        algorithmExtension.setName("ntia-slgorithm");
+        algorithmExtension.setName("ntia-algorithm");
         algorithmExtension.setVersion("v1.0.0");
 
         Extension envExtension = new Extension();
@@ -89,8 +90,7 @@ public class RadarExample  implements Example {
         antenna.setVoltageStandingWaveRatio(2d);
         antenna.setCableLoss(.62);
         antenna.setSteerable(Boolean.FALSE);
-        antenna.setAzimuthAngle(90d);
-        antenna.setElevationAngle(0d);
+
         antenna.setMobile(Boolean.FALSE);
         return antenna;
 
@@ -174,17 +174,28 @@ public class RadarExample  implements Example {
         calibrationAnnotation.setMeanNoisePowerSensor(-92.21948908296943);
         calibrationAnnotation.setTemperature(18.556);
         calibrationAnnotation.setGainPreselector(25.931);
+        calibrationAnnotation.setSampleCount(458l);
         annotations.add(calibrationAnnotation);
+
+
+        AntennaAnnotation antennaAnnotation = new AntennaAnnotation();
+        antennaAnnotation.setAzimuthAngle(90d);
+        antennaAnnotation.setElevationAngle(0d);
+        antennaAnnotation.setSampleCount(458l);
+        antennaAnnotation.setSampleStart(0l);
 
         SensorAnnotation sensorAnnotation = new SensorAnnotation();
         sensorAnnotation.setAttenuationSettingSigan(6.0);
         sensorAnnotation.setOverload(false);
         sensorAnnotation.setRfPathIndex(0);
+        sensorAnnotation.setSampleStart(0l);
+        sensorAnnotation.setSampleCount(458l);
         annotations.add(sensorAnnotation);
 
         Environment environment = new Environment();
         environment.setCategory("Outside. Coastal");
         environment.setSampleStart(0l);
+        sensorAnnotation.setSampleCount(458l);
         annotations.add(environment);
 
         FrequencyDomainDetection fdd = new FrequencyDomainDetection();
@@ -194,7 +205,7 @@ public class RadarExample  implements Example {
         fdd.setWindow("Gauss-top");
         fdd.setEquivalentNoiseBandwidth(962500.0);
         fdd.setFrequencyStep(437500.0);
-
+        fdd.setSampleCount(458l);
         annotations.add(fdd );
         return annotations;
     }

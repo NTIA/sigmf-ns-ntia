@@ -81,10 +81,8 @@ public class SensorExample implements Example {
         spec.setId("123-xyxpdq");
         antenna.setAntennaSpec(spec);
         antenna.setType("omnidirectional");
-        antenna.setAzimuthAngle(45.0);
         antenna.setCableLoss(1.0);
         antenna.setCrossPolarDiscrimination(9.1);
-        antenna.setElevationAngle(10.3);
         antenna.setGain(2.0);
         antenna.setHighFrequency(3000000000d);
         antenna.setLowFrequency(300000000d);
