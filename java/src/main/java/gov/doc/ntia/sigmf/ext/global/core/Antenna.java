@@ -63,10 +63,6 @@ public class Antenna implements Serializable {
     @JsonProperty(value="steerable", required = false)
     protected Boolean steerable;
 
-
-    @JsonProperty(value="mobile", required = false)
-    protected Boolean mobile;
-
     protected Map<String, Object> otherFields = new HashMap<>();
 
     public HardwareSpec getAntennaSpec() {
@@ -179,14 +175,6 @@ public class Antenna implements Serializable {
 
     public void setSteerable(Boolean steerable) {
         this.steerable = steerable;
-    }
-
-    public Boolean getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(Boolean mobile) {
-        this.mobile = mobile;
     }
 
     @JsonAnyGetter
