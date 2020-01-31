@@ -4,11 +4,8 @@ import com.fasterxml.jackson.annotation.*;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.TimeDomainDetection;
 import gov.doc.ntia.sigmf.ext.annotation.core.AntennaAnnotation;
-import gov.doc.ntia.sigmf.ext.annotation.location.LocationAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.emitter.EmitterAnnotation;
-import gov.doc.ntia.sigmf.ext.annotation.environment.EmitterEnvironment;
-import gov.doc.ntia.sigmf.ext.annotation.environment.SensorEnvironment;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 
 import java.io.Serializable;
@@ -25,10 +22,7 @@ import java.util.Map;
         @JsonSubTypes.Type(value = FrequencyDomainDetection.class, name ="FrequencyDomainDetection"),
         @JsonSubTypes.Type(value = TimeDomainDetection.class, name = "TimeDomainDetection"),
         @JsonSubTypes.Type(value = EmitterAnnotation.class, name = "EmitterAnnotation"),
-        @JsonSubTypes.Type(value = SensorEnvironment.class, name = "SensorEnvironment"),
-        @JsonSubTypes.Type(value = EmitterEnvironment.class, name = "EmitterEnvironment"),
         @JsonSubTypes.Type(value = CalibrationAnnotation.class, name = "CalibrationAnnotation"),
-        @JsonSubTypes.Type(value = LocationAnnotation.class, name ="LocationAnnotation"),
         @JsonSubTypes.Type(value = SensorAnnotation.class, name ="SensorAnnotation")
 })
 public class Annotation implements Serializable {

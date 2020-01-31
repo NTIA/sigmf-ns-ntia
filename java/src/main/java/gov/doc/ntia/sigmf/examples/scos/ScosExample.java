@@ -3,10 +3,6 @@ package gov.doc.ntia.sigmf.examples.scos;
 import gov.doc.ntia.sigmf.*;
 import gov.doc.ntia.sigmf.examples.Example;
 import gov.doc.ntia.sigmf.examples.ExampleUtils;
-import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
-import gov.doc.ntia.sigmf.ext.annotation.environment.Environment;
-import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
-import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
@@ -157,39 +153,7 @@ public class ScosExample  implements Example {
         return captures;
     }
 
-    private static ArrayList<Annotation> getAnnotations(){
-        ArrayList<Annotation> annotations = new ArrayList<>();
-        CalibrationAnnotation calibrationAnnotation = new CalibrationAnnotation();
-        calibrationAnnotation.setSampleStart(0l);
-        calibrationAnnotation.setComment("Calibration is done every 6 hours.");
-        calibrationAnnotation.setNoiseFigureSensor(9.892);
-        calibrationAnnotation.setMeanNoisePowerSensor(-92.21948908296943);
-        calibrationAnnotation.setTemperature(18.556);
-        calibrationAnnotation.setGainPreselector(25.931);
-        annotations.add(calibrationAnnotation);
 
-        SensorAnnotation sensorAnnotation = new SensorAnnotation();
-        sensorAnnotation.setAttenuationSettingSigan(6.0);
-        sensorAnnotation.setOverload(false);
-        sensorAnnotation.setRfPathIndex(0);
-        annotations.add(sensorAnnotation);
-
-        Environment environment = new Environment();
-        environment.setCategory("Outside. Coastal");
-        environment.setSampleStart(0l);
-        annotations.add(environment);
-
-        FrequencyDomainDetection fdd = new FrequencyDomainDetection();
-        fdd.setDetector("fft_max_power");
-        fdd.setNumberOfFfts(458);
-        fdd.setNumberOfSamplesInFft(64);
-        fdd.setWindow("Gauss-top");
-        fdd.setEquivalentNoiseBandwidth(962500.0);
-        fdd.setFrequencyStep(437500.0);
-
-        annotations.add(fdd );
-        return annotations;
-    }
 
 
 

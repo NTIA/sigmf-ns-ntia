@@ -41,8 +41,6 @@ Time-domain detection algorithms are applied to gap-free IQ time series captured
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
 |`time`|false|double[]|seconds|Time array corresponding to detected data.|
-|`time_start`|false|double|seconds|Time of first data point refrenced by the annotation.|
-|`time_stop`|false|double|seconds|Time of last data point referenced by the annotation.|
 |`time_step`|false|double|seconds|Time step between data points referenced by the annotation.|
 
 ### 3.2 FrequencyDomainDetection Segment
@@ -59,10 +57,9 @@ The `FrequencyDomainDetection` has the following properties:
 |`equivalent_noise_bandwidth`|false|double|Hz|Bandwidth of brickwall filter that has same integrated noise power as that of the actual filter.|
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
-|`frequencies`|false|double[]|Hertz|Frequency array corresponding to detected data.|
-|`frequency_start`|false|double|Hertz|Frequency of first data point referenced by the annotation.|
-|`frequency_stop`|false|double|Hertz|Frequency of last data point referenced by the annotation.|
-|`frequency_step`|false|double|Hertz|Frequency step between data points referenced by the annoation.|
+|`frequencies`|false|double[]|Hz|Frequency array corresponding to detected data.|
+|`frequency_step`|false|double|Hz|Frequency step between data points referenced by the annoation.|
+
 
 ### 3.3 DigitalFilterAnnotation Segment
 `DigitalFilterAnnotation` has the following properties:

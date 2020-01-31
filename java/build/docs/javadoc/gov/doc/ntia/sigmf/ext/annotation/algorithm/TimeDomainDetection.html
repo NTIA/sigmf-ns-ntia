@@ -19,7 +19,7 @@
 <script type="text/javascript" src="../../../../../../../script-dir/jquery-ui.js"></script>
 </head>
 <body class="class-declaration">
-<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10};
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -137,22 +137,7 @@ extends <a href="DomainDetection.html" title="class in gov.doc.ntia.sigmf.ext.an
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected java.lang.Double[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#time">time</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected java.lang.Double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#timeStart">timeStart</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor">
-<td class="colFirst"><code>protected java.lang.Double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#timeStep">timeStep</a></span></code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor">
-<td class="colFirst"><code>protected java.lang.Double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#timeStop">timeStop</a></span></code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#times">times</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </tbody>
@@ -220,47 +205,17 @@ extends <a href="DomainDetection.html" title="class in gov.doc.ntia.sigmf.ext.an
 </tr>
 <tr class="rowColor" id="i1">
 <td class="colFirst"><code>java.lang.Double[]</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTime()">getTime</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimes()">getTimes</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i2">
-<td class="colFirst"><code>java.lang.Double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeStart()">getTimeStart</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor" id="i3">
-<td class="colFirst"><code>java.lang.Double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeStep()">getTimeStep</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor" id="i4">
-<td class="colFirst"><code>java.lang.Double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeStop()">getTimeStop</a></span>()</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor" id="i5">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNumberOfSamples(java.lang.Long)">setNumberOfSamples</a></span>&#8203;(java.lang.Long&nbsp;numberOfSamples)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
-<tr class="altColor" id="i6">
+<tr class="rowColor" id="i3">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTime(java.lang.Double%5B%5D)">setTime</a></span>&#8203;(java.lang.Double[]&nbsp;time)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor" id="i7">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTimeStart(java.lang.Double)">setTimeStart</a></span>&#8203;(java.lang.Double&nbsp;timeStart)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="altColor" id="i8">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTimeStep(java.lang.Double)">setTimeStep</a></span>&#8203;(java.lang.Double&nbsp;timeStep)</code></th>
-<td class="colLast">&nbsp;</td>
-</tr>
-<tr class="rowColor" id="i9">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTimeStop(java.lang.Double)">setTimeStop</a></span>&#8203;(java.lang.Double&nbsp;timeStop)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTimes(java.lang.Double%5B%5D)">setTimes</a></span>&#8203;(java.lang.Double[]&nbsp;times)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </tbody>
@@ -303,26 +258,8 @@ extends <a href="DomainDetection.html" title="class in gov.doc.ntia.sigmf.ext.an
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="time">time</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.lang.Double[]</span>&nbsp;<span class="memberName">time</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="timeStart">timeStart</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">timeStart</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="timeStop">timeStop</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">timeStop</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="timeStep">timeStep</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">timeStep</span></div>
+<h3><a id="times">times</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.lang.Double[]</span>&nbsp;<span class="memberName">times</span></div>
 </section>
 </li>
 </ul>
@@ -353,50 +290,14 @@ extends <a href="DomainDetection.html" title="class in gov.doc.ntia.sigmf.ext.an
 <ul class="blockList">
 <li class="blockList">
 <section class="detail">
-<h3><a id="getTime()">getTime</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.lang.Double[]</span>&nbsp;<span class="memberName">getTime</span>()</div>
+<h3><a id="getTimes()">getTimes</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.lang.Double[]</span>&nbsp;<span class="memberName">getTimes</span>()</div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="setTime(java.lang.Double[])">setTime</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setTime</span>&#8203;(<span class="arguments">java.lang.Double[]&nbsp;time)</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getTimeStart()">getTimeStart</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">getTimeStart</span>()</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="setTimeStart(java.lang.Double)">setTimeStart</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setTimeStart</span>&#8203;(<span class="arguments">java.lang.Double&nbsp;timeStart)</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getTimeStop()">getTimeStop</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">getTimeStop</span>()</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="setTimeStop(java.lang.Double)">setTimeStop</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setTimeStop</span>&#8203;(<span class="arguments">java.lang.Double&nbsp;timeStop)</span></div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="getTimeStep()">getTimeStep</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">getTimeStep</span>()</div>
-</section>
-</li>
-<li class="blockList">
-<section class="detail">
-<h3><a id="setTimeStep(java.lang.Double)">setTimeStep</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setTimeStep</span>&#8203;(<span class="arguments">java.lang.Double&nbsp;timeStep)</span></div>
+<h3><a id="setTimes(java.lang.Double[])">setTimes</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setTimes</span>&#8203;(<span class="arguments">java.lang.Double[]&nbsp;times)</span></div>
 </section>
 </li>
 <li class="blockList">

@@ -17,12 +17,13 @@ The Measurement object summarizes the basic measurement information including  w
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`start_time`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  began execution.|
-|`end_time`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  finished execution.|
-|`low_frequency`|false|double|Hz|The lowest frequency specified for a sensing task. This SHOULD be included for all sensing tasks. |
-|`high_frequency`|false|double|Hz|The highest frequency specified for a sensing task. This SHOULD be included for all sensing tasks.|
+|`time_start`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  began execution.|
+|`time_stop`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  finished execution.|
+|`frequency_low`|false|double|Hz|Used to covey frequency information dependant on the `measurement_type` and `domain`.  This property SHOULD be included for all sensing tasks. When used with `"center-frequency"`, or `"survey"` `time` domain measurments, the `frequency_low` should indicate the tuned center frequncy. When used with `"center-frequency"`, or `"survey"`  `frequency ` domain measurements, the `frequency_low` should indicate the lowest frequency in the [FrequencyDomainDetection](ntia-algorithm.sigmf-ext.md#31-frequencydomaindetection-segment). When used with `"scan"` mesurements, the `frequency_low` should indicate the lowest frequency in the `"scan"`|
+|`frequency_high`|false|double|Hz|Used to covey frequency information dependant on the `measurement_type` and `domain`.  This property SHOULD be included for all sensing tasks. When used with `"center-frequency"`, or `"survey"` `time` domain measurments, the `frequency_high` should indicate the tuned center frequncy. When used with `"center-frequency"`, or `"survey"`  `frequency ` domain measurements, the `frequency_high` should indicate the highest frequency in the [FrequencyDomainDetection](ntia-algorithm.sigmf-ext.md#31-frequencydomaindetection-segment). When used with `"scan"` mesurements, the `frequency_high` should indicate the highest frequency in the `"scan"`|
 |`domain`|true|string|N/A|Time or Frequency|
-|`measurement_type`|false|string|N/A|Method that signal analyzer acquires data, e.g. `"single-frequency"`, `"survey"`, `"scan"`. This SHOULD be specified for all sensing tasks.|
+|`measurement_type`|false|string|N/A|Method that signal analyzer acquires data, e.g. `"center-frequency"`, `"survey"`, `"scan"`. This SHOULD be specified for all sensing tasks.|
+|`frequency_step`|false|double|Hz|Frequency step between`"scan"` center frequencies. The `frequency_step` SHOULD be included for all`"scan"` measurements.|
 
 ## 1.2 Antenna Object
 `Antenna` object has the following properties:
@@ -31,8 +32,8 @@ The Measurement object summarizes the basic measurement information including  w
 |----|--------------|-------|-------|-----------|
 |`antenna_spec`|true| [HardwareSpec](#12-hardwarespec-object) |N/A|Metadata to describe antenna.|
 |`type`|false|string|N/A|Antenna type. E.g. `"dipole"`, `"biconical"`, `"monopole"`, `"conical monopole"`.|
-|`low_frequency`|false|double|Hz|Low frequency of operational range.|
-|`high_frequency`|false|double|Hz|High frequency of operational range.|
+|`frequency_low`|false|double|Hz|Low frequency of operational range.|
+|`frequency_high`|false|double|Hz|High frequency of operational range.|
 |`polarization`|false|double|string|Antenna polarization. E.g. `"vertical"`, `"horizontal"`, `"slant-45"`, `"left-hand circular"`, `"right-hand circular"`.|
 |`cross_polar_discrimination`|false|double|N/A|Cross-polarization discrimination.|
 |`gain`|false|double|dBi|Antenna gain in direction of maximum radiation or reception.|
@@ -63,7 +64,7 @@ The Measurement object summarizes the basic measurement information including  w
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`annotation_type`|true|string|N/A|Annotation type, e.g. [`"AntennaAnnotation"`](#31-antennaannotation-segment),[`"CalibrationAnnotation"`](ntia-calibration.sigmf-ext.md#31-calibrationannotation-segment), [`"DigitalFilterAnnotation"`](ntia-algorithm.sigmf-ext.md#33-digitalfilterannotation-segment), [`"EmitterAnnotation"`](ntia-emitter.sigmf-ext.md#31-emitterannotation-segment), [`"EmitterEnvironment"`](ntia-environment.sigmf-ext.md#32-emitterenvironment-segment), [`"FrequencyDomainDetection"`](ntia-algorithm.sigmf-ext.md#32-frequencydomaindetection-segment), [`"SensorAnnotation"`](ntia-sensor.sigmf-ext.md#31-sensorannotation-segment), [`"SensorEnvironment"`](ntia-environment.sigmf-ext.md#31-sensorenvironment-segment), [`"TimeDomainDetection"`](ntia-algorithm.sigmf-ext.md#31-timedomaindetection-segment)|
+|`annotation_type`|true|string|N/A|Annotation type, e.g. [`"AntennaAnnotation"`](#31-antennaannotation-segment),[`"CalibrationAnnotation"`](ntia-calibration.sigmf-ext.md#31-calibrationannotation-segment), [`"DigitalFilterAnnotation"`](ntia-algorithm.sigmf-ext.md#33-digitalfilterannotation-segment), [`"EmitterAnnotation"`](ntia-emitter.sigmf-ext.md#31-emitterannotation-segment), [`"FrequencyDomainDetection"`](ntia-algorithm.sigmf-ext.md#32-frequencydomaindetection-segment), [`"SensorAnnotation"`](ntia-sensor.sigmf-ext.md#31-sensorannotation-segment), [`"TimeDomainDetection"`](ntia-algorithm.sigmf-ext.md#31-timedomaindetection-segment)|
 
 The following segments are of general use across the set of NTIA extensions. 
 
@@ -88,10 +89,10 @@ The following segments are of general use across the set of NTIA extensions.
       "ntia-core" : "v1.0.0",
     },
     "ntia-core:measurement" : {
-      "start_time" : "2018-03-01T14:01:00.000874Z",
-      "end_time" : "2018-03-01T14:01:00.000904Z",
-      "low_frequency" : 3.45021875E9,
-      "high_frequency" : 3.5501875E9,
+      "time_start" : "2018-03-01T14:01:00.000874Z",
+      "time_stop" : "2018-03-01T14:01:00.000904Z",
+      "frequency_low" : 3.45021875E9,
+      "frequency_high" : 3.5501875E9,
       "domain" : "frequency",
       "measurement_type" : "scan"
     }
@@ -188,6 +189,8 @@ The following segments are of general use across the set of NTIA extensions.
       "ntia-core:annotation_type": "AntennaAnnotation",
       "core:sample_start": 0,
       "core:sample_count": 1024,
+      "elevation_angle": 25.0, 
+      "azimuth_angle": 70.0
 
     }
   ]

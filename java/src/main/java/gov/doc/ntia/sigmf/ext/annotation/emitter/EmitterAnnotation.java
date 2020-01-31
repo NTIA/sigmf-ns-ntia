@@ -23,17 +23,6 @@ public class EmitterAnnotation extends Annotation  {
     protected Waveform waveform;
 
 
-    @JsonProperty(value="ntia-emitter:altitude", required = false)
-    protected Double altitude;
-
-
-    @JsonProperty(value="ntia-emitter:speed", required = false)
-    protected Double speed;
-
-
-    @JsonProperty(value="ntia-emitter:bearing", required = false)
-    protected Double bearing;
-
     public String getId() {
         return id;
     }
@@ -49,32 +38,5 @@ public class EmitterAnnotation extends Annotation  {
     public void setWaveform(Waveform waveform) {
         this.waveform = waveform;
     }
-
-    public Double getAltitude() {
-        return altitude;
-    }
-
-    public void setAltitude(Double altitude) {
-        this.altitude = altitude;
-    }
-
-    public Double getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(Double speed) {
-        this.speed = speed;
-    }
-
-    public Double getBearing() {
-        return bearing;
-    }
-
-    public void setBearing(Double bearing) {
-        this.bearing = bearing;
-    }
-
-
-
 
 }

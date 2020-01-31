@@ -19,7 +19,7 @@
 <script type="text/javascript" src="../../../../../../../script-dir/jquery-ui.js"></script>
 </head>
 <body class="class-declaration">
-<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10};
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -133,18 +133,18 @@ implements java.io.Serializable</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected java.util.Date</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#endTime">endTime</a></span></code></th>
+<td class="colFirst"><code>protected java.lang.Double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#frequencyHigh">frequencyHigh</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
 <td class="colFirst"><code>protected java.lang.Double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#highFrequency">highFrequency</a></span></code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#frequencyLow">frequencyLow</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected java.lang.Double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#lowFrequency">lowFrequency</a></span></code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#frequencyStep">frequencyStep</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
@@ -154,7 +154,12 @@ implements java.io.Serializable</pre>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected java.util.Date</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#startTime">startTime</a></span></code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#timeStart">timeStart</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor">
+<td class="colFirst"><code>protected java.util.Date</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#timeStop">timeStop</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </tbody>
@@ -211,18 +216,18 @@ implements java.io.Serializable</pre>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i1">
-<td class="colFirst"><code>java.util.Date</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getEndTime()">getEndTime</a></span>()</code></th>
+<td class="colFirst"><code>java.lang.Double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFrequencyLow()">getFrequencyLow</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i2">
 <td class="colFirst"><code>java.lang.Double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHighFrequency()">getHighFrequency</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFrequencyStep()">getFrequencyStep</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i3">
 <td class="colFirst"><code>java.lang.Double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getLowFrequency()">getLowFrequency</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getHighFrequency()">getHighFrequency</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i4">
@@ -232,37 +237,47 @@ implements java.io.Serializable</pre>
 </tr>
 <tr class="rowColor" id="i5">
 <td class="colFirst"><code>java.util.Date</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getStartTime()">getStartTime</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeStart()">getTimeStart</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i6">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDomain(java.lang.String)">setDomain</a></span>&#8203;(java.lang.String&nbsp;domain)</code></th>
+<td class="colFirst"><code>java.util.Date</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getTimeStop()">getTimeStop</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i7">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEndTime(java.util.Date)">setEndTime</a></span>&#8203;(java.util.Date&nbsp;endTime)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setDomain(java.lang.String)">setDomain</a></span>&#8203;(java.lang.String&nbsp;domain)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i8">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setHighFrequency(java.lang.Double)">setHighFrequency</a></span>&#8203;(java.lang.Double&nbsp;highFrequency)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFrequencyHigh(java.lang.Double)">setFrequencyHigh</a></span>&#8203;(java.lang.Double&nbsp;highFrequency)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i9">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setLowFrequency(java.lang.Double)">setLowFrequency</a></span>&#8203;(java.lang.Double&nbsp;lowFrequency)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFrequencyLow(java.lang.Double)">setFrequencyLow</a></span>&#8203;(java.lang.Double&nbsp;lowFrequency)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i10">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMeasurementType(java.lang.String)">setMeasurementType</a></span>&#8203;(java.lang.String&nbsp;measurementType)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFrequencyStep(java.lang.Double)">setFrequencyStep</a></span>&#8203;(java.lang.Double&nbsp;frequencyStep)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i11">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setStartTime(java.util.Date)">setStartTime</a></span>&#8203;(java.util.Date&nbsp;startTime)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setMeasurementType(java.lang.String)">setMeasurementType</a></span>&#8203;(java.lang.String&nbsp;measurementType)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i12">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTimeStart(java.util.Date)">setTimeStart</a></span>&#8203;(java.util.Date&nbsp;timeStart)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i13">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setTimeStop(java.util.Date)">setTimeStop</a></span>&#8203;(java.util.Date&nbsp;timeStop)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 </tbody>
@@ -289,26 +304,26 @@ implements java.io.Serializable</pre>
 <ul class="blockList">
 <li class="blockList">
 <section class="detail">
-<h3><a id="startTime">startTime</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">startTime</span></div>
+<h3><a id="timeStart">timeStart</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">timeStart</span></div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="endTime">endTime</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">endTime</span></div>
+<h3><a id="timeStop">timeStop</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">timeStop</span></div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="lowFrequency">lowFrequency</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">lowFrequency</span></div>
+<h3><a id="frequencyLow">frequencyLow</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">frequencyLow</span></div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="highFrequency">highFrequency</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">highFrequency</span></div>
+<h3><a id="frequencyHigh">frequencyHigh</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">frequencyHigh</span></div>
 </section>
 </li>
 <li class="blockList">
@@ -321,6 +336,12 @@ implements java.io.Serializable</pre>
 <section class="detail">
 <h3><a id="measurementType">measurementType</a></h3>
 <div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.lang.String</span>&nbsp;<span class="memberName">measurementType</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="frequencyStep">frequencyStep</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">frequencyStep</span></div>
 </section>
 </li>
 </ul>
@@ -351,14 +372,14 @@ implements java.io.Serializable</pre>
 <ul class="blockList">
 <li class="blockList">
 <section class="detail">
-<h3><a id="getLowFrequency()">getLowFrequency</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">getLowFrequency</span>()</div>
+<h3><a id="getFrequencyLow()">getFrequencyLow</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">getFrequencyLow</span>()</div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="setLowFrequency(java.lang.Double)">setLowFrequency</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setLowFrequency</span>&#8203;(<span class="arguments">java.lang.Double&nbsp;lowFrequency)</span></div>
+<h3><a id="setFrequencyLow(java.lang.Double)">setFrequencyLow</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setFrequencyLow</span>&#8203;(<span class="arguments">java.lang.Double&nbsp;lowFrequency)</span></div>
 </section>
 </li>
 <li class="blockList">
@@ -369,8 +390,8 @@ implements java.io.Serializable</pre>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="setHighFrequency(java.lang.Double)">setHighFrequency</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setHighFrequency</span>&#8203;(<span class="arguments">java.lang.Double&nbsp;highFrequency)</span></div>
+<h3><a id="setFrequencyHigh(java.lang.Double)">setFrequencyHigh</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setFrequencyHigh</span>&#8203;(<span class="arguments">java.lang.Double&nbsp;highFrequency)</span></div>
 </section>
 </li>
 <li class="blockList">
@@ -399,26 +420,38 @@ implements java.io.Serializable</pre>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="getEndTime()">getEndTime</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">getEndTime</span>()</div>
+<h3><a id="getTimeStop()">getTimeStop</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">getTimeStop</span>()</div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="setEndTime(java.util.Date)">setEndTime</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setEndTime</span>&#8203;(<span class="arguments">java.util.Date&nbsp;endTime)</span></div>
+<h3><a id="setTimeStop(java.util.Date)">setTimeStop</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setTimeStop</span>&#8203;(<span class="arguments">java.util.Date&nbsp;timeStop)</span></div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="getStartTime()">getStartTime</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">getStartTime</span>()</div>
+<h3><a id="getTimeStart()">getTimeStart</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.util.Date</span>&nbsp;<span class="memberName">getTimeStart</span>()</div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="setStartTime(java.util.Date)">setStartTime</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setStartTime</span>&#8203;(<span class="arguments">java.util.Date&nbsp;startTime)</span></div>
+<h3><a id="setTimeStart(java.util.Date)">setTimeStart</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setTimeStart</span>&#8203;(<span class="arguments">java.util.Date&nbsp;timeStart)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="getFrequencyStep()">getFrequencyStep</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">getFrequencyStep</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setFrequencyStep(java.lang.Double)">setFrequencyStep</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setFrequencyStep</span>&#8203;(<span class="arguments">java.lang.Double&nbsp;frequencyStep)</span></div>
 </section>
 </li>
 </ul>

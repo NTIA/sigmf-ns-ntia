@@ -3,12 +3,12 @@ package gov.doc.ntia.sigmf.examples;
 import gov.doc.ntia.sigmf.*;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 import gov.doc.ntia.sigmf.ext.annotation.core.AntennaAnnotation;
-import gov.doc.ntia.sigmf.ext.annotation.environment.Environment;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.core.Measurement;
+import gov.doc.ntia.sigmf.ext.global.environment.Environment;
 import gov.doc.ntia.sigmf.ext.global.sensor.*;
 
 import java.util.ArrayList;
@@ -33,15 +33,16 @@ public class RadarExample  implements Example {
 
     public static Measurement getMeasurement(){
         Measurement measurement = new Measurement();
-        measurement.setLowFrequency(3.45021875E9);
-        measurement.setHighFrequency(3.65015625E9);
+        measurement.setFrequencyLow(3.45021875E9);
+        measurement.setFrequencyHigh(3.65015625E9);
         measurement.setDomain("frequency");
         measurement.setMeasurementType("scan");
         Calendar calendar = Calendar.getInstance();
         calendar.set(2018,02, 01, 07, 01, 00);
-        measurement.setStartTime(calendar.getTime());
+        measurement.setTimeStart(calendar.getTime());
         calendar.add(Calendar.MILLISECOND, 30);
-        measurement.setEndTime(calendar.getTime());
+        measurement.setTimeStop(calendar.getTime());
+        measurement.setFrequencyStep(437500.0);
         return measurement;
     }
 
@@ -70,6 +71,10 @@ public class RadarExample  implements Example {
         sensor.setId("Radar_Sensor_1");
         sensor.setAntenna(getAntenna());
         sensor.setPreselector(getPreselector());
+        Environment environment = new Environment();
+        environment.setCategory("Outside. Coastal");
+        sensor.setEnvironment(environment);
+
         return sensor;
     }
 
@@ -190,19 +195,12 @@ public class RadarExample  implements Example {
         sensorAnnotation.setSampleCount(458l);
         annotations.add(sensorAnnotation);
 
-        Environment environment = new Environment();
-        environment.setCategory("Outside. Coastal");
-        environment.setSampleStart(0l);
-        sensorAnnotation.setSampleCount(458l);
-        annotations.add(environment);
-
         FrequencyDomainDetection fdd = new FrequencyDomainDetection();
         fdd.setDetector("fft_max_power");
         fdd.setNumberOfFfts(458);
         fdd.setNumberOfSamplesInFft(64);
         fdd.setWindow("Gauss-top");
         fdd.setEquivalentNoiseBandwidth(962500.0);
-        fdd.setFrequencyStep(437500.0);
         fdd.setSampleCount(458l);
         annotations.add(fdd );
         return annotations;

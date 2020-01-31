@@ -19,13 +19,15 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique name for the sensor.|
+|`id`|true|string|N/A|Unique logical id for the sensor.|
 |`sensor_spec`|true|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the sensor.|
 |`antenna`|true|[Antenna](ntia-core.sigmf-ext.md#12-antenna-object)|N/A|Metadata to describe/specify the antenna.|
 |`preselector`|false| [Preselector](#13-preselector-object)|N/A|Metadata to describe/specify the preselector.|
 |`signal_analyzer`|true| [SignalAnalyzer](#12-signalanalyzer-object) |N/A|Metadata to describe/specify the signal analyzer.|
 |`computer_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify onboard computer.|
 |`mobile`|false|boolean|N/A|Defines if the sensor is mobile.|
+|`location`|false|[Location](ntia-location.sigmf-ext.md#16-location-object)|N/A|Specifies the location, speed, and bearing of the `Sensor`.|
+|`environment`|false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A|Specifies the environment surrounding the `Sensor`.|
 
 ### 1.2 SignalAnalyzer Object
 `SignalAnalyzer` the following properties:
@@ -275,8 +277,8 @@ Sensor definition follows a simplified hardware model comprised of the following
       }
     },
     "ntia-core:measurement" : {
-      "start_time" : "2018-03-01T14:01:00.000077Z",
-      "end_time" : "2018-03-01T14:01:00.000107Z",
+      "time_start" : "2018-03-01T14:01:00.000077Z",
+      "time_stop" : "2018-03-01T14:01:00.000107Z",
       "low_frequency" : 3.45021875E9,
       "high_frequency" : 3.65015625E9,
       "domain" : "frequency",

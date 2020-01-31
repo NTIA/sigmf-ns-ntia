@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
+import gov.doc.ntia.sigmf.ext.global.environment.Environment;
+import gov.doc.ntia.sigmf.ext.global.location.Location;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -23,7 +25,7 @@ public class Sensor  implements Serializable {
     @JsonProperty(value = "sensor_spec", required = true)
     protected HardwareSpec sensorSpec;
 
-    @JsonProperty(value="antenna", required = true)
+    @JsonProperty(value="ntia-core:antenna", required = true)
     protected Antenna antenna;
 
     @JsonProperty(value="preselector", required = false)
@@ -38,6 +40,11 @@ public class Sensor  implements Serializable {
     @JsonProperty(value="mobile", required=false)
     protected Boolean mobile;
 
+    @JsonProperty(value="location", required = false)
+    protected Location location;
+
+    @JsonProperty(value="environment", required = false)
+    protected Environment environment;
 
     public HardwareSpec getSensorSpec() {
         return sensorSpec;
@@ -46,7 +53,6 @@ public class Sensor  implements Serializable {
     public void setSensorSpec(HardwareSpec sensorSpec) {
         this.sensorSpec = sensorSpec;
     }
-
 
     public void setSignalAnalyzer(SignalAnalyzer signalAnalyzer) {
         this.signalAnalyzer = signalAnalyzer;
@@ -107,6 +113,21 @@ public class Sensor  implements Serializable {
         return signalAnalyzer;
     }
 
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Environment getEnvironment() {
+        return environment;
+    }
+
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
+    }
 
     @JsonAnyGetter
     public Map<String, Object> getOtherFields(){

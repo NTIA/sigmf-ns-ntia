@@ -38,7 +38,7 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
 `ntia-scos` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
-`ntia-scos` does not provide additional segments to [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
+`ntia-scos` does not provide extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
 
 ## 4 Example
 ```json

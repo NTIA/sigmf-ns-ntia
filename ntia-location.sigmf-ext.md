@@ -1,10 +1,10 @@
 # ntia-location extension v1.0.0
-The ntia-location namespace provides metadata to describe a coordinate system and annotate an associated object's location. 
+The ntia-location namespace provides metadata to describe a coordinate system and specify location. 
 
-`ntia-location` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions. `ntia-location` SHOULD be used instead of lat/long in `sigmf-core`, where an alternative coordinate system is required.
+`ntia-location` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions. `ntia-location` SHOULD be used instead of lat/long in `sigmf-core`.
 
 ## 1 Global
-`ntia-location` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
+`ntia-location` defines the [CoordinateSystem](#11-coordinatesystem-object), [ProjectedCoordinateSystem](#12-projectedcoordinatesystem-object) , [GeographicCoordinateSystem](#13-geographiccoordinatesystem-object), [Datum](#14-datum-object), [Spheroid](#15-spheroid-object), and [Location](#) objects and extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
@@ -71,15 +71,8 @@ A GeographicCoordinateSystem extends CoordinateSystem and adds the following pro
 |`prime_meridian`|false|string|N/A|The name of the prime meridian.|
 |`meridian_offset`|false|double|N/A|The offset of the prime meridian from Greenwich in degrees.|
 
-
-## 2 Captures
-`ntia-location` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
-
-## 3 Annotations
-`ntia-location` defines the following segments:
-
-### 3.1 LocationAnnotation Segment
-`LocationAnnotation` has the following properties:
+### 1.6 Location Object
+The `Location` object is used within the [Sensor](ntia-sensor.sigmf-ext.md#12-sensor-object), and [Emitter](ntia-emitter.sigmf-ext.md#11-emitter-object) objects to specify their locations. The `Location` object has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
@@ -88,6 +81,15 @@ A GeographicCoordinateSystem extends CoordinateSystem and adds the following pro
 |`z`|false|double|N/A|Location of object releative to z-axis origin.|
 |`speed`|false|double|`distance_unit`/`time_unit`|Speed.|
 |`bearing`|false|double|degrees|Direction (angle relative to `orientation_ref`).|
+|`description`|false|string|N/A|A brief textual description of the location.|
+
+
+## 2 Captures
+`ntia-location` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+
+## 3 Annotations
+`ntia-location` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
+
 
 ## 4 Example
 
@@ -99,15 +101,20 @@ A GeographicCoordinateSystem extends CoordinateSystem and adds the following pro
     "core:sample_rate": 15360000,
     "ntia-scos:task_id": 418350,
     "ntia-location:coordinate_system": {
-      "coordinate_system_type": "CoordinateSystem",
-      "id": "SpeedAndBearing_1",
-      "description": "System used for relative positioning in tunnels.",
-      "distance_unit": "miles",
+      "coordinate_system_type": "GeographicCoordinateSystem",
+      "id": "WGS 1984",
+      "distance_unit": "km",
       "time_unit": "hours",
-      "origin": "Tunnel Entrance",
-      "orientation_ref": "Magnetic north",
-      "elevation_ref": "Tunnel Entrance",
-      "elevation_unit": "feet"
+      "elevation_unit": "km"
+    }
+    "ntia-sensor:sensor": {
+      "id":"Greyhound 10",
+      "location" : {
+        "x": -106.5,
+        "y": 40.5,
+        "speed": 35.0,
+        "bearing": 90.0
+      }
     }
   },
   "captures": [
@@ -118,14 +125,7 @@ A GeographicCoordinateSystem extends CoordinateSystem and adds the following pro
     }
   ],
   "annotations": [
-    {
-      "ntia-core:annotation_type": "LocationAnnotation",
-      "core:sample_start": 0,
-      "core:sample_count": 100,
-      "z": -3.23,
-      "speed": 3.0,
-      "bearing": 89.7
-    }
+    ...
   ]
 }
 ```
@@ -158,7 +158,7 @@ A GeographicCoordinateSystem extends CoordinateSystem and adds the following pro
     }
   ],
   "annotations": [
-    
+    ...
   ]
 }
 ```

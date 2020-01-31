@@ -15,21 +15,19 @@ public class Measurement implements Serializable {
 
     @JsonFormat
             (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
-    @JsonProperty(value="start_time", required = true)
-    protected Date startTime;
+    @JsonProperty(value="time_start", required = true)
+    protected Date timeStart;
 
     @JsonFormat
             (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
-    @JsonProperty(value="end_time", required =  true)
-    protected Date endTime;
+    @JsonProperty(value="time_stop", required =  true)
+    protected Date timeStop;
 
+    @JsonProperty(value="frequency_low", required = false)
+    protected Double frequencyLow;
 
-
-    @JsonProperty(value="low_frequency", required = false)
-    protected Double lowFrequency;
-
-    @JsonProperty(value="high_frequency", required = false)
-    protected Double highFrequency;
+    @JsonProperty(value="frequency_high", required = false)
+    protected Double frequencyHigh;
 
     @JsonProperty(value="domain", required = true)
     protected String domain;
@@ -38,20 +36,24 @@ public class Measurement implements Serializable {
     @JsonProperty(value="measurement_type", required = false)
     protected String measurementType;
 
-    public Double getLowFrequency() {
-        return lowFrequency;
+    @JsonProperty(value="frequency_step", required = false)
+    protected Double frequencyStep;
+
+
+    public Double getFrequencyLow() {
+        return frequencyLow;
     }
 
-    public void setLowFrequency(Double lowFrequency) {
-        this.lowFrequency = lowFrequency;
+    public void setFrequencyLow(Double lowFrequency) {
+        this.frequencyLow = lowFrequency;
     }
 
     public Double getHighFrequency() {
-        return highFrequency;
+        return frequencyHigh;
     }
 
-    public void setHighFrequency(Double highFrequency) {
-        this.highFrequency = highFrequency;
+    public void setFrequencyHigh(Double highFrequency) {
+        this.frequencyHigh = highFrequency;
     }
 
     public String getDomain() {
@@ -70,20 +72,28 @@ public class Measurement implements Serializable {
         this.measurementType = measurementType;
     }
 
-    public Date getEndTime() {
-        return endTime;
+    public Date getTimeStop() {
+        return timeStop;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public void setTimeStop(Date timeStop) {
+        this.timeStop = timeStop;
     }
 
-    public Date getStartTime() {
-        return startTime;
+    public Date getTimeStart() {
+        return timeStart;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+    public void setTimeStart(Date timeStart) {
+        this.timeStart = timeStart;
+    }
+
+    public Double getFrequencyStep() {
+        return frequencyStep;
+    }
+
+    public void setFrequencyStep(Double frequencyStep) {
+        this.frequencyStep = frequencyStep;
     }
 
 }

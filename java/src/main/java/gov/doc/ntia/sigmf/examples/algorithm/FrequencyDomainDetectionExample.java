@@ -32,7 +32,6 @@ public class FrequencyDomainDetectionExample implements Example {
         fdd2.setDetector("fft_max_power");
         fdd2.setSampleCount(1024l);
         fdd2.setReference("antenna output");
-        fdd2.setFrequencies(new Double[]{700.0,800.0,900.0});
         annotations.add(fdd2);
         metaDoc.setGlobal(global);
         metaDoc.setAnnotations(annotations);

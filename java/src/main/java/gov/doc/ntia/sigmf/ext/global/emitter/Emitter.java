@@ -6,6 +6,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
+import gov.doc.ntia.sigmf.ext.global.environment.Environment;
+import gov.doc.ntia.sigmf.ext.global.location.Location;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
@@ -32,6 +34,12 @@ public class Emitter implements Serializable  {
 
     @JsonProperty(value="transmitter", required = false)
     protected Transmitter transmitter;
+
+    @JsonProperty(value="location", required = false)
+    protected Location location;
+
+    @JsonProperty(value="environment", required = false)
+    protected Environment environment;
 
     protected Map<String, Object> otherFields = new HashMap<>();
 
@@ -77,6 +85,22 @@ public class Emitter implements Serializable  {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+
+    public Environment getEnvironment() {
+        return environment;
+    }
+
+    public void setEnvironment(Environment environment) {
+        this.environment = environment;
     }
 
     @JsonAnyGetter

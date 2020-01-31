@@ -1,31 +1,29 @@
-package gov.doc.ntia.sigmf.ext.annotation.environment;
+package gov.doc.ntia.sigmf.ext.global.environment;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import gov.doc.ntia.sigmf.Annotation;
-import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Environment extends Annotation  {
+public class Environment implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-
-    @JsonProperty(value="ntia-environment:temperature", required = false)
+    @JsonProperty(value="temperature", required = false)
     protected Double temperature;
 
-
-    @JsonProperty(value="ntia-environment:humidity", required = false)
+    @JsonProperty(value="humidity", required = false)
     protected Double humidity;
 
-    @JsonProperty(value="ntia-environment:weather", required = false)
+    @JsonProperty(value="weather", required = false)
     protected String weather;
 
-    @JsonProperty(value="ntia-environment:category", required =true)
+    @JsonProperty(value="category", required =true)
     protected String category;
+
+    @JsonProperty(value="description", required =false)
+    protected String description;
 
     public Double getTemperature() {
         return temperature;
@@ -59,6 +57,12 @@ public class Environment extends Annotation  {
         this.category = environment;
     }
 
+    public String getDescription() {
+        return description;
+    }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
 }

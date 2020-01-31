@@ -1,11 +1,12 @@
-package gov.doc.ntia.sigmf.ext.annotation.location;
+package gov.doc.ntia.sigmf.ext.global.location;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import gov.doc.ntia.sigmf.Annotation;
+
+import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class LocationAnnotation extends Annotation {
+public class Location implements Serializable {
 
     @JsonProperty(value="x", required = false)
     protected Double x;
@@ -21,6 +22,9 @@ public class LocationAnnotation extends Annotation {
 
     @JsonProperty(value="bearing", required = false)
     protected Double bearing;
+
+    @JsonProperty(value="description", required =false)
+    protected String description;
 
     public Double getX() {
         return x;
@@ -62,7 +66,11 @@ public class LocationAnnotation extends Annotation {
         this.bearing = bearing;
     }
 
+    public String getDescription() {
+        return description;
+    }
 
-
-
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
