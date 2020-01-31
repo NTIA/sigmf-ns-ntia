@@ -20,12 +20,12 @@ public class Antenna implements Serializable {
     protected  String type;
 
 
-    @JsonProperty(value="low_frequency", required = false)
-    protected Double lowFrequency;
+    @JsonProperty(value="frequency_low", required = false)
+    protected Double frequencyLow;
 
 
-    @JsonProperty(value="high_frequency", required = false)
-    protected Double highFrequency;
+    @JsonProperty(value="frequency_high", required = false)
+    protected Double frequencyHigh;
 
 
     @JsonProperty(value="gain", required=false)
@@ -89,20 +89,20 @@ public class Antenna implements Serializable {
         this.type = type;
     }
 
-    public Double getLowFrequency() {
-        return lowFrequency;
+    public Double getFrequencyLow() {
+        return frequencyLow;
     }
 
-    public void setLowFrequency(Double lowFrequency) {
-        this.lowFrequency = lowFrequency;
+    public void setFrequencyLow(Double frequencyLow) {
+        this.frequencyLow = frequencyLow;
     }
 
-    public Double getHighFrequency() {
-        return highFrequency;
+    public Double getFrequencyHigh() {
+        return frequencyHigh;
     }
 
-    public void setHighFrequency(Double highFrequency) {
-        this.highFrequency = highFrequency;
+    public void setFrequencyHigh(Double frequencyHigh) {
+        this.frequencyHigh = frequencyHigh;
     }
 
     public Double getGain() {

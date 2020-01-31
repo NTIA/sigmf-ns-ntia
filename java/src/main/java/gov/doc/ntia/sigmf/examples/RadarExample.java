@@ -85,8 +85,8 @@ public class RadarExample  implements Example {
         antSpec.setDescription("RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications");
         antenna.setAntennaSpec(antSpec);
         antenna.setType("omni-directional");
-        antenna.setLowFrequency(2.0E9);
-        antenna.setHighFrequency(6.0E9);
+        antenna.setFrequencyLow(2.0E9);
+        antenna.setFrequencyHigh(6.0E9);
         antenna.setGain(0d);
         antenna.setPolarization("slant");
         antenna.setCrossPolarDiscrimination(13d);
@@ -128,10 +128,10 @@ public class RadarExample  implements Example {
         filterSpec.setSupplementalInformation("http://www.klfilterwizard.com/klfwpart.aspx?FWS=1112001&PN=13FV40-3550%2fU200-O%2fO");
         filter.setFilterSpec(filterSpec);
 
-        filter.setHighFrequencyPassband(3670000000d);
-        filter.setLowFrequencyPassband(3430000000d);
-        filter.setHighFrequencyStopband(3710000000d);
-        filter.setLowFrequencyStopband(3390000000d);
+        filter.setFrequencyHighPassband(3670000000d);
+        filter.setFrequencyLowPassband(3430000000d);
+        filter.setFrequencyHighStopband(3710000000d);
+        filter.setFrequencyLowStopband(3390000000d);
 
         Filter[] filters = new Filter[1];
         filters[0] = filter;

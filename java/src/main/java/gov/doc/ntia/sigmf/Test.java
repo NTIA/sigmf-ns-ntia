@@ -100,8 +100,8 @@ public class Test {
     private static SignalAnalyzer getSignalAnalyzer(){
         SignalAnalyzer sigan = new SignalAnalyzer();
         sigan.setA2dBits(16);
-        sigan.setHighFrequency(700000000d);
-        sigan.setLowFrequency(100000000d);
+        sigan.setFrequencyHigh(700000000d);
+        sigan.setFrequencyLow(100000000d);
         sigan.setNoiseFigure(20.0);
         sigan.setSiganSpec(getSiganSpec());
         return sigan;
@@ -170,11 +170,11 @@ public class Test {
         lnaSpec.setId("lna_1");
         amplifier.setAmplifierSpec(lnaSpec);
         rfPath.setCalSourceId("calibrated noise source");
-        filter.setHighFrequencyPassband(750000000d);
-        filter.setHighFrequencyStopband(750000000d);
+        filter.setFrequencyHighPassband(750000000d);
+        filter.setFrequencyHighStopband(750000000d);
         amplifier.setNoiseFigure(2.5);
-        filter.setLowFrequencyPassband(700000000d);
-        filter.setLowFrequencyStopband(700000000d);
+        filter.setFrequencyLowPassband(700000000d);
+        filter.setFrequencyLowStopband(700000000d);
         rfPath.setAmplifierId("lna_1");
         rfPath.setFilterId("filter_1");
         rfPaths[0] = rfPath;
@@ -187,8 +187,8 @@ public class Test {
         HardwareSpec spec = new HardwareSpec();
         spec.setModel("antenna123");
         antenna.setAntennaSpec(spec);
-        antenna.setLowFrequency(123d);
-        antenna.setHighFrequency(123d);
+        antenna.setFrequencyLow(123d);
+        antenna.setFrequencyHigh(123d);
         antenna.setGain(12d);
         antenna.setCrossPolarDiscrimination(123d);
         antenna.setCableLoss(12d);

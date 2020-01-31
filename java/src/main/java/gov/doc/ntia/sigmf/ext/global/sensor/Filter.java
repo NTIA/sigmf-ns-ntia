@@ -13,20 +13,20 @@ public class Filter implements Serializable {
     @JsonProperty(value="filter_spec", required = false)
     protected HardwareSpec filterSpec;
 
-    @JsonProperty(value="low_frequency_passband", required = false)
-    protected Double lowFrequencyPassband;
+    @JsonProperty(value="frequency_low_passband", required = false)
+    protected Double frequencyLowPassband;
 
 
-    @JsonProperty(value="high_frequency_passband", required = false)
-    protected Double highFrequencyPassband;
+    @JsonProperty(value="frequency_high_passband", required = false)
+    protected Double frequencyHighPassband;
 
 
-    @JsonProperty(value="low_frequency_stopband", required = false)
-    protected Double lowFrequencyStopband;
+    @JsonProperty(value="frequency_low_stopband", required = false)
+    protected Double frequencyLowStopband;
 
 
-    @JsonProperty(value ="high_frequency_stopband", required = false)
-    protected Double highFrequencyStopband;
+    @JsonProperty(value ="frequency_high_stopband", required = false)
+    protected Double frequencyHighStopband;
 
 
     public HardwareSpec getFilterSpec() {
@@ -37,36 +37,36 @@ public class Filter implements Serializable {
         this.filterSpec = filterSpec;
     }
 
-    public Double getLowFrequencyPassband() {
-        return lowFrequencyPassband;
+    public Double getFrequencyLowPassband() {
+        return frequencyLowPassband;
     }
 
-    public void setLowFrequencyPassband(Double lowFrequencyPassband) {
-        this.lowFrequencyPassband = lowFrequencyPassband;
+    public void setFrequencyLowPassband(Double frequencyLowPassband) {
+        this.frequencyLowPassband = frequencyLowPassband;
     }
 
-    public Double getHighFrequencyPassband() {
-        return highFrequencyPassband;
+    public Double getFrequencyHighPassband() {
+        return frequencyHighPassband;
     }
 
-    public void setHighFrequencyPassband(Double highFrequencyPassband) {
-        this.highFrequencyPassband = highFrequencyPassband;
+    public void setFrequencyHighPassband(Double frequencyHighPassband) {
+        this.frequencyHighPassband = frequencyHighPassband;
     }
 
-    public Double getLowFrequencyStopband() {
-        return lowFrequencyStopband;
+    public Double getFrequencyLowStopband() {
+        return frequencyLowStopband;
     }
 
-    public void setLowFrequencyStopband(Double lowFrequencyStopband) {
-        this.lowFrequencyStopband = lowFrequencyStopband;
+    public void setFrequencyLowStopband(Double frequencyLowStopband) {
+        this.frequencyLowStopband = frequencyLowStopband;
     }
 
-    public Double getHighFrequencyStopband() {
-        return highFrequencyStopband;
+    public Double getFrequencyHighStopband() {
+        return frequencyHighStopband;
     }
 
-    public void setHighFrequencyStopband(Double highFrequencyStopband) {
-        this.highFrequencyStopband = highFrequencyStopband;
+    public void setFrequencyHighStopband(Double frequencyHighStopband) {
+        this.frequencyHighStopband = frequencyHighStopband;
     }
 
 

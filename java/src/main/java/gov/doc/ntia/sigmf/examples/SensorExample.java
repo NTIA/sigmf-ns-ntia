@@ -45,11 +45,11 @@ public class SensorExample implements Example {
         lnaSpec.setId("lna_1");
         amplifier.setAmplifierSpec(lnaSpec);
         rfPath.setCalSourceId("calibrated noise source");
-        filter.setHighFrequencyPassband(750000000d);
-        filter.setHighFrequencyStopband(750000000d);
+        filter.setFrequencyHighPassband(750000000d);
+        filter.setFrequencyHighStopband(750000000d);
         amplifier.setNoiseFigure(2.5);
-        filter.setLowFrequencyPassband(700000000d);
-        filter.setLowFrequencyStopband(700000000d);
+        filter.setFrequencyLowPassband(700000000d);
+        filter.setFrequencyLowStopband(700000000d);
         rfPath.setAmplifierId("lna_1");
         rfPath.setFilterId("filter_1");
         rfPaths[0] = rfPath;
@@ -60,8 +60,8 @@ public class SensorExample implements Example {
     private SignalAnalyzer getSignalAnalyzer(){
         SignalAnalyzer sigan = new SignalAnalyzer();
         sigan.setA2dBits(16);
-        sigan.setHighFrequency(700000000d);
-        sigan.setLowFrequency(100000000d);
+        sigan.setFrequencyHigh(700000000d);
+        sigan.setFrequencyLow(100000000d);
         sigan.setNoiseFigure(20.0);
         sigan.setSiganSpec(getSiganSpec());
         return sigan;
@@ -84,8 +84,8 @@ public class SensorExample implements Example {
         antenna.setCableLoss(1.0);
         antenna.setCrossPolarDiscrimination(9.1);
         antenna.setGain(2.0);
-        antenna.setHighFrequency(3000000000d);
-        antenna.setLowFrequency(300000000d);
+        antenna.setFrequencyHigh(3000000000d);
+        antenna.setFrequencyLow(300000000d);
         return antenna;
     }
 

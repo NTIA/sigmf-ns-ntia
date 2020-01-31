@@ -63,13 +63,13 @@ public class AntennaTests {
     @Test
     public void testLowFrequency() throws IOException {
         MetaDoc metaDoc = getMetaDocWithSensorAndAntenna();
-        metaDoc.getGlobal().getSensor().getAntenna().setLowFrequency(100.0);
+        metaDoc.getGlobal().getSensor().getAntenna().setFrequencyLow(100.0);
         ObjectMapper mapper = new ObjectMapper();
         File output = File.createTempFile ("output", ".json");
         output.deleteOnExit();
         mapper.writeValue(output,metaDoc);
         MetaDoc readMetaDoc = (MetaDoc)mapper.readValue(output, MetaDoc.class);
-        assertEquals(metaDoc.getGlobal().getSensor().getAntenna().getLowFrequency(), readMetaDoc.getGlobal().getSensor().getAntenna().getLowFrequency());
+        assertEquals(metaDoc.getGlobal().getSensor().getAntenna().getFrequencyLow(), readMetaDoc.getGlobal().getSensor().getAntenna().getFrequencyLow());
 
     }
 
@@ -77,13 +77,13 @@ public class AntennaTests {
     @Test
     public void testHighFrequency() throws IOException {
         MetaDoc metaDoc = getMetaDocWithSensorAndAntenna();
-        metaDoc.getGlobal().getSensor().getAntenna().setHighFrequency(100.0);
+        metaDoc.getGlobal().getSensor().getAntenna().setFrequencyHigh(100.0);
         ObjectMapper mapper = new ObjectMapper();
         File output = File.createTempFile ("output", ".json");
         output.deleteOnExit();
         mapper.writeValue(output,metaDoc);
         MetaDoc readMetaDoc = (MetaDoc)mapper.readValue(output, MetaDoc.class);
-        assertEquals(metaDoc.getGlobal().getSensor().getAntenna().getHighFrequency(), readMetaDoc.getGlobal().getSensor().getAntenna().getHighFrequency());
+        assertEquals(metaDoc.getGlobal().getSensor().getAntenna().getFrequencyHigh(), readMetaDoc.getGlobal().getSensor().getAntenna().getFrequencyHigh());
     }
 
 
