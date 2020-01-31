@@ -120,8 +120,8 @@ The following segments are of general use across the set of NTIA extensions.
           "description" : "RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications"
         },
         "type" : "omni-directional",
-        "low_frequency" : 2.0E9,
-        "high_frequency" : 6.0E9,
+        "frequency_low" : 2.0E9,
+        "frequency_high" : 6.0E9,
         "gain" : 0.0,
         "polarization" : "slant",
         "cross_polar_discrimination" : 13.0,
@@ -145,10 +145,10 @@ The following segments are of general use across the set of NTIA extensions.
             "model" : "K&L 13FV40-3550/U200-o/o",
             "supplemental_information" : "http://www.klfilterwizard.com/klfwpart.aspx?FWS=1112001&PN=13FV40-3550%2fU200-O%2fO"
           },
-          "low_frequency_passband" : 3.43E9,
-          "high_frequency_passband" : 3.67E9,
-          "low_frequency_stopband" : 3.39E9,
-          "high_frequency_stopband" : 3.71E9
+          "frequency_low_passband" : 3.43E9,
+          "frequency_high_passband" : 3.67E9,
+          "frequency_low_stopband" : 3.39E9,
+          "frequency_high_stopband" : 3.71E9
         } ],
         "amplifiers" : [ {
           "amplifier_spec" : {

@@ -35,8 +35,8 @@ Sensor definition follows a simplified hardware model comprised of the following
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`sigan_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the signal analyzer.|
-|`low_frequency`|false|double|Hz|Low frequency of operational range of the signal analyzer.|
-|`high_frequency`|false|double|Hz|High frequency of operational range of the signal analyzer.|
+|`frequency_low`|false|double|Hz|Low frequency of operational range of the signal analyzer.|
+|`frequency_high`|false|double|Hz|High frequency of operational range of the signal analyzer.|
 |`noise_figure`|false|double|dB|Noise figure of the signal analyzer.|
 |`max_power`|false|double|dBm|Maximum input power of the signal analyzer.|
 |`a2d_bits`|false|integer|bits|Number of bits in A/D converter.|
@@ -80,10 +80,10 @@ Sensor definition follows a simplified hardware model comprised of the following
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`filter_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe/specify the filter specification.|
-|`low_frequency_passband`|false|double|Hz|Low frequency of filter 1-dB passband.|
-|`high_frequency_passband`|false|double|Hz|High frequency of filter 1-dB passband.|
-|`low_frequency_stopband`|false|double|Hz|Low frequency of filter 60-dB stopband.|
-|`high_frequency_stopband`|false|double|Hz|High frequency of filter 60-dB stopband.|
+|`frequency_low_passband`|false|double|Hz|Low frequency of filter 1-dB passband.|
+|`frequency_high_passband`|false|double|Hz|High frequency of filter 1-dB passband.|
+|`frequency_low_stopband`|false|double|Hz|Low frequency of filter 60-dB stopband.|
+|`frequency_high_stopband`|false|double|Hz|High frequency of filter 60-dB stopband.|
 
 
 
@@ -151,8 +151,8 @@ Sensor definition follows a simplified hardware model comprised of the following
           "description" : "RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications"
         },
         "type" : "omni-directional",
-        "low_frequency" : 2.0E9,
-        "high_frequency" : 6.0E9,
+        "frequency_low" : 2.0E9,
+        "frequency_high" : 6.0E9,
         "gain" : 0.0,
         "polarization" : "slant",
         "cross_polar_discrimination" : 13.0,
@@ -176,10 +176,10 @@ Sensor definition follows a simplified hardware model comprised of the following
             "model" : "K&L 13FV40-3550/U200-o/o",
             "supplemental_information" : "http://www.klfilterwizard.com/klfwpart.aspx?FWS=1112001&PN=13FV40-3550%2fU200-O%2fO"
           },
-          "low_frequency_passband" : 3.43E9,
-          "high_frequency_passband" : 3.67E9,
-          "low_frequency_stopband" : 3.39E9,
-          "high_frequency_stopband" : 3.71E9
+          "frequency_low_passband" : 3.43E9,
+          "frequency_high_passband" : 3.67E9,
+          "frequency_low_stopband" : 3.39E9,
+          "frequency_high_stopband" : 3.71E9
         } ],
         "amplifiers" : [ {
           "amplifier_spec" : {
@@ -229,8 +229,8 @@ Sensor definition follows a simplified hardware model comprised of the following
           "description" : "RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications"
         },
         "type" : "omni-directional",
-        "low_frequency" : 2.0E9,
-        "high_frequency" : 6.0E9,
+        "frequency_low" : 2.0E9,
+        "frequency_high" : 6.0E9,
         "gain" : 0.0,
         "polarization" : "slant",
         "cross_polar_discrimination" : 13.0,
@@ -254,10 +254,10 @@ Sensor definition follows a simplified hardware model comprised of the following
             "model" : "K&L 13FV40-3550/U200-o/o",
             "supplemental_information" : "http://www.klfilterwizard.com/klfwpart.aspx?FWS=1112001&PN=13FV40-3550%2fU200-O%2fO"
           },
-          "low_frequency_passband" : 3.43E9,
-          "high_frequency_passband" : 3.67E9,
-          "low_frequency_stopband" : 3.39E9,
-          "high_frequency_stopband" : 3.71E9
+          "frequency_low_passband" : 3.43E9,
+          "frequency_high_passband" : 3.67E9,
+          "frequency_low_stopband" : 3.39E9,
+          "frequency_high_stopband" : 3.71E9
         } ],
         "amplifiers" : [ {
           "amplifier_spec" : {
@@ -279,8 +279,8 @@ Sensor definition follows a simplified hardware model comprised of the following
     "ntia-core:measurement" : {
       "time_start" : "2018-03-01T14:01:00.000077Z",
       "time_stop" : "2018-03-01T14:01:00.000107Z",
-      "low_frequency" : 3.45021875E9,
-      "high_frequency" : 3.65015625E9,
+      "frequency_low" : 3.45021875E9,
+      "frequency_high" : 3.65015625E9,
       "domain" : "frequency",
       "measurement_type" : "scan"
     }
