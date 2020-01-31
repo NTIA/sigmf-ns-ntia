@@ -23,7 +23,8 @@ The Measurement object summarizes the basic measurement information including  w
 |`frequency_high`|false|double|Hz|Used to convey frequency information dependant on the `measurement_type` and `domain`.  This property SHOULD be included for all sensing tasks. When used with `"center-frequency"`, or `"survey"` `time` domain measurments, the `frequency_high` should indicate the tuned center frequncy. When used with `"center-frequency"`, or `"survey"`  `frequency ` domain measurements, the `frequency_high` should indicate the highest frequency in the [FrequencyDomainDetection](ntia-algorithm.sigmf-ext.md#31-frequencydomaindetection-segment). When used with `"scan"` mesurements, the `frequency_high` should indicate the highest frequency in the `"scan"`|
 |`domain`|true|string|N/A|Time or Frequency|
 |`measurement_type`|false|string|N/A|Method that signal analyzer acquires data, e.g. `"center-frequency"`, `"survey"`, `"scan"`. This SHOULD be specified for all sensing tasks.|
-|`frequency_step`|false|double|Hz|Frequency step between`"scan"` center frequencies. The `frequency_step` SHOULD be included for all`"scan"` measurements.|
+|`frequency_step`|false|double|Hz|Frequency step between`"scan"` center frequencies.  Either   `frequencies` or `frequency_step` SHOULD be included for all`"scan"` measurements. If the center frequencies change by a uniform amount, the `frequency_step` property SHOULD be used instead of `frequencies`.|
+|`frequencies`|false|double[]|Hz|Center frquencies used in the `"scan"` measurement. Either   `frequencies` or `frequency_step` SHOULD be included for all`"scan"` measurements. If the center frequencies change by a uniform amount, the `frequency_step` property SHOULD be used instead of `frequencies`.|
 
 ## 1.2 Antenna Object
 `Antenna` object has the following properties:
