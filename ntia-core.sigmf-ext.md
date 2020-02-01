@@ -21,10 +21,10 @@ The Measurement object summarizes the basic measurement information including  w
 |`measurement_type`|true|string|N/A|Method that signal analyzer acquires data: `"single-frequency"`or `"scan"`.|
 |`time_start`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  began execution.|
 |`time_stop`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  finished execution.|
-|`frequency_tuned_low`|true|double|Hz|Used to indicate the lowest tuned center frequency. In `"single-frequency"` measurements, `frequency_tuned_low` and `frequency_tuned_high` are both equal to the tuned center frequency.|
-|`frequency_tuned_high`|true|double|Hz|The highest tuned center frequency. In `"single-frequency"` measurements, `frequency_tuned_low` and `frequency_tuned_high` are both equal to the tuned center frequency. |
-|`frequency_tuned_step`|false|double|Hz|The frequency step between tuned center frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
-|`frequencies_tuned`|false|double[]|Hz|The tuned center frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
+|`frequency_tuned_low`|true|double|Hz|Lowest tuned frequency.|
+|`frequency_tuned_high`|true|double|Hz|The highest tuned  frequency.|
+|`frequency_tuned_step`|false|double|Hz|Step between tuned frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
+|`frequencies_tuned`|false|double[]|Hz|Array of tuned frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
 
 
 ## 1.2 Antenna Object

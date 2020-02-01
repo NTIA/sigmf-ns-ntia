@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FrequencyDomainDetection extends DomainDetection  {
@@ -21,9 +22,17 @@ public class FrequencyDomainDetection extends DomainDetection  {
     @JsonProperty(value="ntia-algorithm:window", required = true)
     protected String window;
 
-
     @JsonProperty(value = "ntia-algorithm:equivalent_noise_bandwidth", required = false)
     protected Double equivalentNoiseBandwidth;
+
+    @JsonProperty(value="ntia-algorithm:frequency_start", required = false)
+    protected Double frequencyStart;
+
+    @JsonProperty(value="ntia-algorithm:frequency_stop", required = false)
+    protected Double frequencyStop;
+
+    @JsonProperty(value="ntia-algorithm:frequencies", required =false)
+    protected ArrayList<Double> frequencies;
 
     public int getNumberOfFfts() {
         return numberOfFfts;
@@ -66,6 +75,28 @@ public class FrequencyDomainDetection extends DomainDetection  {
         this.equivalentNoiseBandwidth = equivalentNoiseBandwidth;
     }
 
+    public Double getFrequencyStart() {
+        return frequencyStart;
+    }
 
+    public void setFrequencyStart(Double frequencyStart) {
+        this.frequencyStart = frequencyStart;
+    }
+
+    public Double getFrequencyStop() {
+        return frequencyStop;
+    }
+
+    public void setFrequencyStop(Double frequencyStop) {
+        this.frequencyStop = frequencyStop;
+    }
+
+    public ArrayList<Double> getFrequencies() {
+        return frequencies;
+    }
+
+    public void setFrequencies(ArrayList<Double> frequencies) {
+        this.frequencies = frequencies;
+    }
 
 }

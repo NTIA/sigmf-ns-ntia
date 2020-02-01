@@ -33,8 +33,8 @@ public class RadarExample  implements Example {
 
     public static Measurement getMeasurement(){
         Measurement measurement = new Measurement();
-        measurement.setFrequencyLow(3.45021875E9);
-        measurement.setFrequencyHigh(3.65015625E9);
+        measurement.setFrequencyTunedLow(3.45021875E9);
+        measurement.setFrequencyTunedHigh(3.65015625E9);
         measurement.setDomain("frequency");
         measurement.setMeasurementType("scan");
         Calendar calendar = Calendar.getInstance();
@@ -42,7 +42,7 @@ public class RadarExample  implements Example {
         measurement.setTimeStart(calendar.getTime());
         calendar.add(Calendar.MILLISECOND, 30);
         measurement.setTimeStop(calendar.getTime());
-        measurement.setFrequencyStep(437500.0);
+        measurement.setFrequencyTunedStep(437500.0);
         return measurement;
     }
 

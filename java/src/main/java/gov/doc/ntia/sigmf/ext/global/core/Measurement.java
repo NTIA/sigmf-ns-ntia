@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -12,6 +13,12 @@ import java.util.Date;
 public class Measurement implements Serializable {
 
     private static final long serialVersionUID = 1L;
+
+    @JsonProperty(value="domain", required = true)
+    protected String domain;
+
+    @JsonProperty(value="measurement_type", required = false)
+    protected String measurementType;
 
     @JsonFormat
             (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
@@ -23,38 +30,17 @@ public class Measurement implements Serializable {
     @JsonProperty(value="time_stop", required =  true)
     protected Date timeStop;
 
-    @JsonProperty(value="frequency_low", required = false)
-    protected Double frequencyLow;
+    @JsonProperty(value="frequency_tuned_low", required = false)
+    protected Double frequencyTunedLow;
 
-    @JsonProperty(value="frequency_high", required = false)
-    protected Double frequencyHigh;
+    @JsonProperty(value="frequency_tuned_high", required = false)
+    protected Double frequencyTunedHigh;
 
-    @JsonProperty(value="domain", required = true)
-    protected String domain;
+    @JsonProperty(value="frequency_tuned_step", required = false)
+    protected Double frequencyTunedStep;
 
-
-    @JsonProperty(value="measurement_type", required = false)
-    protected String measurementType;
-
-    @JsonProperty(value="frequency_step", required = false)
-    protected Double frequencyStep;
-
-
-    public Double getFrequencyLow() {
-        return frequencyLow;
-    }
-
-    public void setFrequencyLow(Double lowFrequency) {
-        this.frequencyLow = lowFrequency;
-    }
-
-    public Double getHighFrequency() {
-        return frequencyHigh;
-    }
-
-    public void setFrequencyHigh(Double highFrequency) {
-        this.frequencyHigh = highFrequency;
-    }
+    @JsonProperty(value="frequencies_tuned", required = false)
+    protected ArrayList<Double> frequencies_tuned;
 
     public String getDomain() {
         return domain;
@@ -69,15 +55,8 @@ public class Measurement implements Serializable {
     }
 
     public void setMeasurementType(String measurementType) {
+
         this.measurementType = measurementType;
-    }
-
-    public Date getTimeStop() {
-        return timeStop;
-    }
-
-    public void setTimeStop(Date timeStop) {
-        this.timeStop = timeStop;
     }
 
     public Date getTimeStart() {
@@ -88,12 +67,44 @@ public class Measurement implements Serializable {
         this.timeStart = timeStart;
     }
 
-    public Double getFrequencyStep() {
-        return frequencyStep;
+    public Double getFrequencyTunedLow() {
+        return frequencyTunedLow;
     }
 
-    public void setFrequencyStep(Double frequencyStep) {
-        this.frequencyStep = frequencyStep;
+    public Date getTimeStop() {
+        return timeStop;
     }
 
+    public void setTimeStop(Date timeStop) {
+        this.timeStop = timeStop;
+    }
+
+    public void setFrequencyTunedLow(Double lowFrequency) {
+
+        this.frequencyTunedLow = lowFrequency;
+    }
+
+    public Double getFrequencyTunedHigh() {
+        return frequencyTunedHigh;
+    }
+
+    public void setFrequencyTunedHigh(Double highFrequency) {
+        this.frequencyTunedHigh = highFrequency;
+    }
+
+    public Double getFrequencyTunedStep() {
+        return frequencyTunedStep;
+    }
+
+    public void setFrequencyTunedStep(Double frequencyTunedStep) {
+        this.frequencyTunedStep = frequencyTunedStep;
+    }
+
+    public ArrayList<Double> getFrequencies_tuned() {
+        return frequencies_tuned;
+    }
+
+    public void setFrequencies_tuned(ArrayList<Double> frequencies_tuned) {
+        this.frequencies_tuned = frequencies_tuned;
+    }
 }

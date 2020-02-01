@@ -58,6 +58,7 @@ The `FrequencyDomainDetection` has the following properties:
 |`frequency_start`|false|double|Hertz|Frequency of first data point.|
 |`frequency_stop`|false|double|Hertz|Frequency of last data point.|
 |`frequency_step`|false|double|Hertz|Frequency step between data points.|
+|`frequencies`|false|double[]|Hertz|An array of the frequencies of the data points.|
 
 
 
