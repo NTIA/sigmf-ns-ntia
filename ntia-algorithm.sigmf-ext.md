@@ -55,6 +55,10 @@ The `FrequencyDomainDetection` has the following properties:
 |`equivalent_noise_bandwidth`|false|double|Hz|Bandwidth of brickwall filter that has same integrated noise power as that of the actual filter.|
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
 |`reference`|false|string|N/A|Data reference point, e.g., `"receiver input"`, `"antenna output"`, `"output of isotropic antenna"`.|
+|`frequency_start`|false|double|Hertz|Frequency of first data point.|
+|`frequency_stop`|false|double|Hertz|Frequency of last data point.|
+|`frequency_step`|false|double|Hertz|Frequency step between data points.|
+
 
 
 ### 3.3 DigitalFilterAnnotation Segment
