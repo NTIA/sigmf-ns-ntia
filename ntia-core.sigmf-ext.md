@@ -93,10 +93,10 @@ The following segments are of general use across the set of NTIA extensions.
     "ntia-core:measurement" : {
       "time_start" : "2018-03-01T14:01:00.000874Z",
       "time_stop" : "2018-03-01T14:01:00.000904Z",
-      "frequency_low" : 3.45021875E9,
-      "frequency_high" : 3.5501875E9,
+      "frequency_tuned_low" : 3.45021875E9,
+      "frequency_tuned_high" : 3.45021875E9,
       "domain" : "frequency",
-      "measurement_type" : "scan"
+      "measurement_type" : "single-frequency"
     }
   },
   "captures": [
