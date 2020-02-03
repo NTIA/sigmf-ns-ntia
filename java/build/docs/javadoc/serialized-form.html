@@ -1128,35 +1128,7 @@ java.io.IOException</span></div>
 </li>
 <li class="blockList">
 <h5>transmitter</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/global/emitter/Transmitter.html" title="class in gov.doc.ntia.sigmf.ext.global.emitter">Transmitter</a> transmitter</pre>
-</li>
-</ul>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li class="blockList">
-<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.emitter.Transmitter">
-<!--   -->
-</a>
-<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/emitter/Transmitter.html" title="class in gov.doc.ntia.sigmf.ext.global.emitter">gov.doc.ntia.sigmf.ext.global.emitter.Transmitter</a> extends java.lang.Object implements Serializable</h3>
-<dl class="nameValue">
-<dt>serialVersionUID:</dt>
-<dd>1L</dd>
-</dl>
-<ul class="blockList">
-<li class="blockList">
-<section class="detail">
-<h4>Serialized Fields</h4>
-<ul class="blockList">
-<li class="blockList">
-<h5>model</h5>
-<pre>java.lang.String model</pre>
-</li>
-<li class="blockList">
-<h5>otherFields</h5>
-<pre>java.util.Map&lt;java.lang.String,&#8203;java.lang.Object&gt; otherFields</pre>
+<pre><a href="gov/doc/ntia/sigmf/ext/global/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.global.core">HardwareSpec</a> transmitter</pre>
 </li>
 </ul>
 </section>
@@ -1219,10 +1191,122 @@ java.io.IOException</span></div>
 <h2 title="Package">Package&nbsp;gov.doc.ntia.sigmf.ext.global.location</h2>
 <ul class="blockList">
 <li class="blockList">
+<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.location.CoordinateSystem">
+<!--   -->
+</a>
+<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/location/CoordinateSystem.html" title="class in gov.doc.ntia.sigmf.ext.global.location">gov.doc.ntia.sigmf.ext.global.location.CoordinateSystem</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h4>Serialized Fields</h4>
+<ul class="blockList">
+<li class="blockList">
+<h5>description</h5>
+<pre>java.lang.String description</pre>
+</li>
+<li class="blockList">
+<h5>distanceUnit</h5>
+<pre>java.lang.String distanceUnit</pre>
+</li>
+<li class="blockList">
+<h5>elevationRef</h5>
+<pre>java.lang.String elevationRef</pre>
+</li>
+<li class="blockList">
+<h5>elevationUnit</h5>
+<pre>java.lang.String elevationUnit</pre>
+</li>
+<li class="blockList">
+<h5>id</h5>
+<pre>java.lang.String id</pre>
+</li>
+<li class="blockList">
+<h5>orientation</h5>
+<pre>java.lang.String orientation</pre>
+</li>
+<li class="blockList">
+<h5>orientationRef</h5>
+<pre>java.lang.String orientationRef</pre>
+</li>
+<li class="blockList">
+<h5>origin</h5>
+<pre>java.lang.String origin</pre>
+</li>
+<li class="blockList">
+<h5>timeUnit</h5>
+<pre>java.lang.String timeUnit</pre>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.location.Datum">
+<!--   -->
+</a>
+<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/location/Datum.html" title="class in gov.doc.ntia.sigmf.ext.global.location">gov.doc.ntia.sigmf.ext.global.location.Datum</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h4>Serialized Fields</h4>
+<ul class="blockList">
+<li class="blockList">
+<h5>description</h5>
+<pre>java.lang.String description</pre>
+</li>
+<li class="blockList">
+<h5>id</h5>
+<pre>java.lang.String id</pre>
+</li>
+<li class="blockList">
+<h5>spheroid</h5>
+<pre><a href="gov/doc/ntia/sigmf/ext/global/location/Spheroid.html" title="class in gov.doc.ntia.sigmf.ext.global.location">Spheroid</a> spheroid</pre>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.location.GeographicCoordinateSystem">
+<!--   -->
+</a>
+<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/location/GeographicCoordinateSystem.html" title="class in gov.doc.ntia.sigmf.ext.global.location">gov.doc.ntia.sigmf.ext.global.location.GeographicCoordinateSystem</a> extends <a href="gov/doc/ntia/sigmf/ext/global/location/CoordinateSystem.html" title="class in gov.doc.ntia.sigmf.ext.global.location">CoordinateSystem</a> implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h4>Serialized Fields</h4>
+<ul class="blockList">
+<li class="blockList">
+<h5>datum</h5>
+<pre><a href="gov/doc/ntia/sigmf/ext/global/location/Datum.html" title="class in gov.doc.ntia.sigmf.ext.global.location">Datum</a> datum</pre>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
 <section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.location.Location">
 <!--   -->
 </a>
 <h3>Class <a href="gov/doc/ntia/sigmf/ext/global/location/Location.html" title="class in gov.doc.ntia.sigmf.ext.global.location">gov.doc.ntia.sigmf.ext.global.location.Location</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
 <ul class="blockList">
 <li class="blockList">
 <section class="detail">
@@ -1251,6 +1335,102 @@ java.io.IOException</span></div>
 <li class="blockList">
 <h5>z</h5>
 <pre>java.lang.Double z</pre>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.location.ProjectedCoordnateSystem">
+<!--   -->
+</a>
+<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/location/ProjectedCoordnateSystem.html" title="class in gov.doc.ntia.sigmf.ext.global.location">gov.doc.ntia.sigmf.ext.global.location.ProjectedCoordnateSystem</a> extends <a href="gov/doc/ntia/sigmf/ext/global/location/CoordinateSystem.html" title="class in gov.doc.ntia.sigmf.ext.global.location">CoordinateSystem</a> implements Serializable</h3>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h4>Serialized Fields</h4>
+<ul class="blockList">
+<li class="blockList">
+<h5>centralMeridian</h5>
+<pre>java.lang.Double centralMeridian</pre>
+</li>
+<li class="blockList">
+<h5>falseEasting</h5>
+<pre>java.lang.Double falseEasting</pre>
+</li>
+<li class="blockList">
+<h5>falseNorthing</h5>
+<pre>java.lang.Double falseNorthing</pre>
+</li>
+<li class="blockList">
+<h5>gcs</h5>
+<pre><a href="gov/doc/ntia/sigmf/ext/global/location/GeographicCoordinateSystem.html" title="class in gov.doc.ntia.sigmf.ext.global.location">GeographicCoordinateSystem</a> gcs</pre>
+</li>
+<li class="blockList">
+<h5>originLatitude</h5>
+<pre>java.lang.Double originLatitude</pre>
+</li>
+<li class="blockList">
+<h5>projection</h5>
+<pre>java.lang.String projection</pre>
+</li>
+<li class="blockList">
+<h5>scaleFactor</h5>
+<pre>java.lang.Double scaleFactor</pre>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<li class="blockList">
+<section class="serializedClassDetails"><a id="gov.doc.ntia.sigmf.ext.global.location.Spheroid">
+<!--   -->
+</a>
+<h3>Class <a href="gov/doc/ntia/sigmf/ext/global/location/Spheroid.html" title="class in gov.doc.ntia.sigmf.ext.global.location">gov.doc.ntia.sigmf.ext.global.location.Spheroid</a> extends java.lang.Object implements Serializable</h3>
+<dl class="nameValue">
+<dt>serialVersionUID:</dt>
+<dd>1L</dd>
+</dl>
+<ul class="blockList">
+<li class="blockList">
+<section class="detail">
+<h4>Serialized Fields</h4>
+<ul class="blockList">
+<li class="blockList">
+<h5>angularUnit</h5>
+<pre>java.lang.String angularUnit</pre>
+</li>
+<li class="blockList">
+<h5>description</h5>
+<pre>java.lang.String description</pre>
+</li>
+<li class="blockList">
+<h5>flattening</h5>
+<pre>java.lang.Double flattening</pre>
+</li>
+<li class="blockList">
+<h5>id</h5>
+<pre>java.lang.String id</pre>
+</li>
+<li class="blockList">
+<h5>meridianOffset</h5>
+<pre>java.lang.Double meridianOffset</pre>
+</li>
+<li class="blockList">
+<h5>primeMeridian</h5>
+<pre>java.lang.String primeMeridian</pre>
+</li>
+<li class="blockList">
+<h5>semimajor</h5>
+<pre>java.lang.Double semimajor</pre>
+</li>
+<li class="blockList">
+<h5>semiminor</h5>
+<pre>java.lang.Double semiminor</pre>
 </li>
 </ul>
 </section>
@@ -1765,6 +1945,10 @@ java.io.IOException</span></div>
 <section class="detail">
 <h4>Serialized Fields</h4>
 <ul class="blockList">
+<li class="blockList">
+<h5>model</h5>
+<pre>java.lang.String model</pre>
+</li>
 <li class="blockList">
 <h5>otherFields</h5>
 <pre>java.util.Map&lt;java.lang.String,&#8203;java.lang.Object&gt; otherFields</pre>

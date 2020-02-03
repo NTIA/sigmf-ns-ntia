@@ -25,7 +25,7 @@ public class Sensor  implements Serializable {
     @JsonProperty(value = "sensor_spec", required = false)
     protected HardwareSpec sensorSpec;
 
-    @JsonProperty(value="ntia-core:antenna", required = false)
+    @JsonProperty(value="antenna", required = false)
     protected Antenna antenna;
 
     @JsonProperty(value="preselector", required = false)
