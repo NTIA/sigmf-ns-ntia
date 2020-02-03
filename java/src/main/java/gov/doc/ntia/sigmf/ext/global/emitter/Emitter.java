@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
+import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.environment.Environment;
 import gov.doc.ntia.sigmf.ext.global.location.Location;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
@@ -33,7 +34,7 @@ public class Emitter implements Serializable  {
     protected Antenna antenna;
 
     @JsonProperty(value="transmitter", required = false)
-    protected Transmitter transmitter;
+    protected HardwareSpec transmitter;
 
     @JsonProperty(value="location", required = false)
     protected Location location;
@@ -43,11 +44,11 @@ public class Emitter implements Serializable  {
 
     protected Map<String, Object> otherFields = new HashMap<>();
 
-    public Transmitter getTransmitter() {
+    public HardwareSpec getTransmitter() {
         return transmitter;
     }
 
-    public void setTransmitter(Transmitter transmitter) {
+    public void setTransmitter(HardwareSpec transmitter) {
         this.transmitter = transmitter;
     }
 

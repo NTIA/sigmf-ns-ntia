@@ -10,7 +10,7 @@ public class HardwareSpec implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="id", required=true)
+    @JsonProperty(value="id", required=false)
     protected String id;
 
     @JsonProperty(value="model", required = false)

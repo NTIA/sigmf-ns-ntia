@@ -20,16 +20,10 @@ The ntia-emitter namespace provides emitter defintion and properties.
 |`description`|false|string|N/A|Description of the emitter.|
 |`power`|false|double|dBm|Power referenced to antenna input.|
 |`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#antenna)|N/A|Metadata that describes the antenna.|
-|`transmitter`|false|[Transmitter](#12-transmitter-object)|N/A|Metadata that describes the transmitter.|
+|`transmitter`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12hardwarespec-object)|N/A|Metadata that describes the transmitter.|
 |`location`|false|[Location](ntia-location.sigmf-ext.md#16-location-object)|N/A|Specifies the location, speed, and bearing of the `Emitter`.|
 |`environment`|false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A|Specifies the environment surrounding the `Emitter`.|
 
-### 1.2 Transmitter Object
-`Transmitter` object has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`model`|true|string|N/A|Make and model of the transmitter. E.g. `"Agilent E4438C"`|
 
 ## 2 Captures
 `ntia-emitter` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
