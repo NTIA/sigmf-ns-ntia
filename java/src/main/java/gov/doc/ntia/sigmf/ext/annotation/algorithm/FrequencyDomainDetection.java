@@ -3,11 +3,6 @@ package gov.doc.ntia.sigmf.ext.annotation.algorithm;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-
-
-import java.io.Serializable;
-import java.util.ArrayList;
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class FrequencyDomainDetection extends DomainDetection  {
 
@@ -31,8 +26,11 @@ public class FrequencyDomainDetection extends DomainDetection  {
     @JsonProperty(value="ntia-algorithm:frequency_stop", required = false)
     protected Double frequencyStop;
 
+    @JsonProperty(value = "ntia-algorithm:frequency_step", required = false)
+    protected Double frequencyStep;
+
     @JsonProperty(value="ntia-algorithm:frequencies", required =false)
-    protected ArrayList<Double> frequencies;
+    protected Double[] frequencies;
 
     public int getNumberOfFfts() {
         return numberOfFfts;
@@ -91,11 +89,21 @@ public class FrequencyDomainDetection extends DomainDetection  {
         this.frequencyStop = frequencyStop;
     }
 
-    public ArrayList<Double> getFrequencies() {
+    public Double[] getFrequencies() {
         return frequencies;
     }
 
-    public void setFrequencies(ArrayList<Double> frequencies) {
+
+    public Double getFrequencyStep() {
+        return frequencyStep;
+    }
+
+    public void setFrequencyStep(Double frequencyStep) {
+        this.frequencyStep = frequencyStep;
+    }
+
+
+    public void setFrequencies(Double[] frequencies) {
         this.frequencies = frequencies;
     }
 

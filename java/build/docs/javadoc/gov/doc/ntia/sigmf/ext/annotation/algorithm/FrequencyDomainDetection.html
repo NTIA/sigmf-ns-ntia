@@ -19,7 +19,7 @@
 <script type="text/javascript" src="../../../../../../../script-dir/jquery-ui.js"></script>
 </head>
 <body class="class-declaration">
-<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10};
+<script type="text/javascript">var data = {"i0":10,"i1":10,"i2":10,"i3":10,"i4":10,"i5":10,"i6":10,"i7":10,"i8":10,"i9":10,"i10":10,"i11":10,"i12":10,"i13":10,"i14":10,"i15":10,"i16":10,"i17":10};
 var tabs = {65535:["t0","All Methods"],2:["t2","Instance Methods"],8:["t4","Concrete Methods"]};
 var altColor = "altColor";
 var rowColor = "rowColor";
@@ -136,7 +136,7 @@ extends <a href="DomainDetection.html" title="class in gov.doc.ntia.sigmf.ext.an
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
-<td class="colFirst"><code>protected java.util.ArrayList&lt;java.lang.Double&gt;</code></td>
+<td class="colFirst"><code>protected java.lang.Double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#frequencies">frequencies</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -147,20 +147,25 @@ extends <a href="DomainDetection.html" title="class in gov.doc.ntia.sigmf.ext.an
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected java.lang.Double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#frequencyStop">frequencyStop</a></span></code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#frequencyStep">frequencyStep</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
-<td class="colFirst"><code>protected int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#numberOfFfts">numberOfFfts</a></span></code></th>
+<td class="colFirst"><code>protected java.lang.Double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#frequencyStop">frequencyStop</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor">
 <td class="colFirst"><code>protected int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#numberOfSamplesInFft">numberOfSamplesInFft</a></span></code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#numberOfFfts">numberOfFfts</a></span></code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor">
+<td class="colFirst"><code>protected int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#numberOfSamplesInFft">numberOfSamplesInFft</a></span></code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor">
 <td class="colFirst"><code>protected java.lang.String</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#window">window</a></span></code></th>
 <td class="colLast">&nbsp;</td>
@@ -229,7 +234,7 @@ extends <a href="DomainDetection.html" title="class in gov.doc.ntia.sigmf.ext.an
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i1">
-<td class="colFirst"><code>java.util.ArrayList&lt;java.lang.Double&gt;</code></td>
+<td class="colFirst"><code>java.lang.Double[]</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFrequencies()">getFrequencies</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
@@ -240,65 +245,75 @@ extends <a href="DomainDetection.html" title="class in gov.doc.ntia.sigmf.ext.an
 </tr>
 <tr class="rowColor" id="i3">
 <td class="colFirst"><code>java.lang.Double</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFrequencyStop()">getFrequencyStop</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFrequencyStep()">getFrequencyStep</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i4">
-<td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNumberOfFfts()">getNumberOfFfts</a></span>()</code></th>
+<td class="colFirst"><code>java.lang.Double</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getFrequencyStop()">getFrequencyStop</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i5">
 <td class="colFirst"><code>int</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNumberOfSamplesInFft()">getNumberOfSamplesInFft</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNumberOfFfts()">getNumberOfFfts</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i6">
-<td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUnits()">getUnits</a></span>()</code></th>
+<td class="colFirst"><code>int</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getNumberOfSamplesInFft()">getNumberOfSamplesInFft</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i7">
 <td class="colFirst"><code>java.lang.String</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getWindow()">getWindow</a></span>()</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getUnits()">getUnits</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i8">
-<td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEquivalentNoiseBandwidth(java.lang.Double)">setEquivalentNoiseBandwidth</a></span>&#8203;(java.lang.Double&nbsp;equivalentNoiseBandwidth)</code></th>
+<td class="colFirst"><code>java.lang.String</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#getWindow()">getWindow</a></span>()</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i9">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFrequencies(java.util.ArrayList)">setFrequencies</a></span>&#8203;(java.util.ArrayList&lt;java.lang.Double&gt;&nbsp;frequencies)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setEquivalentNoiseBandwidth(java.lang.Double)">setEquivalentNoiseBandwidth</a></span>&#8203;(java.lang.Double&nbsp;equivalentNoiseBandwidth)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i10">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFrequencyStart(java.lang.Double)">setFrequencyStart</a></span>&#8203;(java.lang.Double&nbsp;frequencyStart)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFrequencies(java.lang.Double%5B%5D)">setFrequencies</a></span>&#8203;(java.lang.Double[]&nbsp;frequencies)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i11">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFrequencyStop(java.lang.Double)">setFrequencyStop</a></span>&#8203;(java.lang.Double&nbsp;frequencyStop)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFrequencyStart(java.lang.Double)">setFrequencyStart</a></span>&#8203;(java.lang.Double&nbsp;frequencyStart)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i12">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNumberOfFfts(int)">setNumberOfFfts</a></span>&#8203;(int&nbsp;numberOfFfts)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFrequencyStep(java.lang.Double)">setFrequencyStep</a></span>&#8203;(java.lang.Double&nbsp;frequencyStep)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i13">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNumberOfSamplesInFft(int)">setNumberOfSamplesInFft</a></span>&#8203;(int&nbsp;numberOfSamplesInFft)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setFrequencyStop(java.lang.Double)">setFrequencyStop</a></span>&#8203;(java.lang.Double&nbsp;frequencyStop)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="altColor" id="i14">
 <td class="colFirst"><code>void</code></td>
-<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUnits(java.lang.String)">setUnits</a></span>&#8203;(java.lang.String&nbsp;units)</code></th>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNumberOfFfts(int)">setNumberOfFfts</a></span>&#8203;(int&nbsp;numberOfFfts)</code></th>
 <td class="colLast">&nbsp;</td>
 </tr>
 <tr class="rowColor" id="i15">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setNumberOfSamplesInFft(int)">setNumberOfSamplesInFft</a></span>&#8203;(int&nbsp;numberOfSamplesInFft)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="altColor" id="i16">
+<td class="colFirst"><code>void</code></td>
+<th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setUnits(java.lang.String)">setUnits</a></span>&#8203;(java.lang.String&nbsp;units)</code></th>
+<td class="colLast">&nbsp;</td>
+</tr>
+<tr class="rowColor" id="i17">
 <td class="colFirst"><code>void</code></td>
 <th class="colSecond" scope="row"><code><span class="memberNameLink"><a href="#setWindow(java.lang.String)">setWindow</a></span>&#8203;(java.lang.String&nbsp;window)</code></th>
 <td class="colLast">&nbsp;</td>
@@ -373,8 +388,14 @@ extends <a href="DomainDetection.html" title="class in gov.doc.ntia.sigmf.ext.an
 </li>
 <li class="blockList">
 <section class="detail">
+<h3><a id="frequencyStep">frequencyStep</a></h3>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">frequencyStep</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
 <h3><a id="frequencies">frequencies</a></h3>
-<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.util.ArrayList&lt;java.lang.Double&gt;</span>&nbsp;<span class="memberName">frequencies</span></div>
+<div class="memberSignature"><span class="modifiers">protected</span>&nbsp;<span class="returnType">java.lang.Double[]</span>&nbsp;<span class="memberName">frequencies</span></div>
 </section>
 </li>
 </ul>
@@ -498,13 +519,25 @@ extends <a href="DomainDetection.html" title="class in gov.doc.ntia.sigmf.ext.an
 <li class="blockList">
 <section class="detail">
 <h3><a id="getFrequencies()">getFrequencies</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.util.ArrayList&lt;java.lang.Double&gt;</span>&nbsp;<span class="memberName">getFrequencies</span>()</div>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.lang.Double[]</span>&nbsp;<span class="memberName">getFrequencies</span>()</div>
 </section>
 </li>
 <li class="blockList">
 <section class="detail">
-<h3><a id="setFrequencies(java.util.ArrayList)">setFrequencies</a></h3>
-<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setFrequencies</span>&#8203;(<span class="arguments">java.util.ArrayList&lt;java.lang.Double&gt;&nbsp;frequencies)</span></div>
+<h3><a id="getFrequencyStep()">getFrequencyStep</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">java.lang.Double</span>&nbsp;<span class="memberName">getFrequencyStep</span>()</div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setFrequencyStep(java.lang.Double)">setFrequencyStep</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setFrequencyStep</span>&#8203;(<span class="arguments">java.lang.Double&nbsp;frequencyStep)</span></div>
+</section>
+</li>
+<li class="blockList">
+<section class="detail">
+<h3><a id="setFrequencies(java.lang.Double[])">setFrequencies</a></h3>
+<div class="memberSignature"><span class="modifiers">public</span>&nbsp;<span class="returnType">void</span>&nbsp;<span class="memberName">setFrequencies</span>&#8203;(<span class="arguments">java.lang.Double[]&nbsp;frequencies)</span></div>
 </section>
 </li>
 </ul>

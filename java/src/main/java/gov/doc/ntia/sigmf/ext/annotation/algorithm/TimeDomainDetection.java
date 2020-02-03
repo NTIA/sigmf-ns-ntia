@@ -13,18 +13,6 @@ public class TimeDomainDetection extends DomainDetection  {
     @JsonProperty(value="ntia-algorithm:number_of_samples", required = true)
     protected Long numberOfSamples;
 
-    @JsonProperty(value="ntia-algorithm:times", required = false)
-    protected Double[] times;
-
-
-    public Double[] getTimes() {
-        return times;
-    }
-
-    public void setTimes(Double[] times) {
-        this.times = times;
-    }
-
     public Long getNumberOfSamples() {
         return numberOfSamples;
     }

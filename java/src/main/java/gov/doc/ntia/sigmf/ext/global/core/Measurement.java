@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
 
 
@@ -40,7 +39,7 @@ public class Measurement implements Serializable {
     protected Double frequencyTunedStep;
 
     @JsonProperty(value="frequencies_tuned", required = false)
-    protected ArrayList<Double> frequencies_tuned;
+    protected Double[] frequencies_tuned;
 
     public String getDomain() {
         return domain;
@@ -100,11 +99,11 @@ public class Measurement implements Serializable {
         this.frequencyTunedStep = frequencyTunedStep;
     }
 
-    public ArrayList<Double> getFrequencies_tuned() {
+    public Double[] getFrequencies_tuned() {
         return frequencies_tuned;
     }
 
-    public void setFrequencies_tuned(ArrayList<Double> frequencies_tuned) {
+    public void setFrequencies_tuned(Double[] frequencies_tuned) {
         this.frequencies_tuned = frequencies_tuned;
     }
 }
