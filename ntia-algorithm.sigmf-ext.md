@@ -19,8 +19,8 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 |`FIR_coefficients`|false|double[]|N/A|Coefficients that defines FIR filter.|
 |`IIR_numerator_coefficients`|false|double[]|N/A|Coefficients that defines IIR filter.|
 |`IIR_denominator_coefficients`|false|double[]|N/A|Coefficients that defines IIR filter.|
-|`cutoff_attenuation`|false|double|dB|Attenuation that specifies the `cutoff_frequency` (typically 3 dB).|
-|`cutoff_frequency`|false|double|Hz|Frequency that characterizes boundary between passband and stopband.|
+|`attenuation_cutoff`|false|double|dB|Attenuation that specifies the `cutoff_frequency` (typically 3 dB).|
+|`frequency_cutoff`|false|double|Hz|Frequency that characterizes boundary between passband and stopband.|
 |`ripple_passband`|false|double|dB|Ripple in passband.|
 |`attenuation_stopband`|false|double|dB|Attenuation of stopband.|
 |`frequency_stopband`|false|double|Hz|Point in filter frequency response where stopband starts.|

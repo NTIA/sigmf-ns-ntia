@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -29,12 +27,12 @@ public class DigitalFilter implements Serializable {
     protected Double[] iirDenominatorCoefficients;
 
 
-    @JsonProperty(value="cutoff_frequency", required = false)
-    protected Double cutoffFrequency;
+    @JsonProperty(value="frequency_cutoff", required = false)
+    protected Double frequencyCutoff;
 
 
-    @JsonProperty(value="cutoff_attenuation", required = false)
-    protected Double cutoffAttenuation;
+    @JsonProperty(value="attenuation_cutoff", required = false)
+    protected Double attenuationCutoff;
 
 
     @JsonProperty(value="ripple_passband", required = false)
@@ -83,20 +81,20 @@ public class DigitalFilter implements Serializable {
         this.iirDenominatorCoefficients = iirDenominatorCoefficients;
     }
 
-    public Double getCutoffFrequency() {
-        return cutoffFrequency;
+    public Double getFrequencyCutoff() {
+        return frequencyCutoff;
     }
 
-    public void setCutoffFrequency(Double cutoffFrequency) {
-        this.cutoffFrequency = cutoffFrequency;
+    public void setFrequencyCutoff(Double frequencyCutoff) {
+        this.frequencyCutoff = frequencyCutoff;
     }
 
-    public Double getCutoffAttenuation() {
-        return cutoffAttenuation;
+    public Double getAttenuationCutoff() {
+        return attenuationCutoff;
     }
 
-    public void setCutoffAttenuation(Double cutoffAttenuation) {
-        this.cutoffAttenuation = cutoffAttenuation;
+    public void setAttenuationCutoff(Double attenuationCutoff) {
+        this.attenuationCutoff = attenuationCutoff;
     }
 
     public Double getRipplePassband() {

@@ -83,11 +83,11 @@ public class Test {
 
     private static DigitalFilter getDigitalFilter() {
         DigitalFilter filter = new DigitalFilter();
-        filter.setCutoffAttenuation(1d);
+        filter.setAttenuationCutoff(1d);
         filter.setRipplePassband(12d);
         filter.setAttenuationStopband(1d);
         filter.setFrequencyStopband(1d);
-        filter.setCutoffFrequency(1d);
+        filter.setFrequencyCutoff(1d);
         filter.setFirCoefficients(new Double[]{12.0});
         filter.setIirDenominatorCoefficients(new Double[]{12.0});
         filter.setIirNumeratorCoefficients(new Double[]{12.0});

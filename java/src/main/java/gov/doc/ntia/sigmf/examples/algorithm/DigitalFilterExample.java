@@ -23,11 +23,11 @@ public class DigitalFilterExample implements Example {
 
         digitalFilter.setFilterType("FIR");
         digitalFilter.setFirCoefficients(FIRcoefficients);
-        digitalFilter.setCutoffFrequency(7500000d);
+        digitalFilter.setFrequencyCutoff(7500000d);
         digitalFilter.setFrequencyStopband(7000000d);
         digitalFilter.setAttenuationStopband(-10d);
         digitalFilter.setRipplePassband(-5d);
-        digitalFilter.setCutoffAttenuation(-6d);
+        digitalFilter.setAttenuationCutoff(-6d);
         List<Annotation> annotations = new ArrayList();
         global.setAntiAliasingFilter(digitalFilter);
         metaDoc.setGlobal(global);
