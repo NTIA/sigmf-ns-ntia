@@ -12,12 +12,11 @@ public class Action implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="name", required = false)
+    @JsonProperty(value="name", required = true)
     protected String name;
 
     @JsonProperty(value="description", required =  false)
     protected  String description;
-
 
     @JsonProperty(value="summary", required =false)
     protected String summary;

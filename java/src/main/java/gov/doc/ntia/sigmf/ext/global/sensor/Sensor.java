@@ -22,19 +22,19 @@ public class Sensor  implements Serializable {
     @JsonProperty(value = "id", required = true)
     protected String id;
 
-    @JsonProperty(value = "sensor_spec", required = true)
+    @JsonProperty(value = "sensor_spec", required = false)
     protected HardwareSpec sensorSpec;
 
-    @JsonProperty(value="ntia-core:antenna", required = true)
+    @JsonProperty(value="ntia-core:antenna", required = false)
     protected Antenna antenna;
 
     @JsonProperty(value="preselector", required = false)
     protected Preselector preselector;
 
-    @JsonProperty(value="signal_analyzer", required = true)
+    @JsonProperty(value="signal_analyzer", required = false)
     protected SignalAnalyzer signalAnalyzer;
 
-    @JsonProperty(value="computer_spec", required = true)
+    @JsonProperty(value="computer_spec", required = false)
     protected HardwareSpec computerSpec;
 
     @JsonProperty(value="mobile", required=false)

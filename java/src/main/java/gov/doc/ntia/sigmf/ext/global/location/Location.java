@@ -1,12 +1,12 @@
 package gov.doc.ntia.sigmf.ext.global.location;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Location implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @JsonProperty(value="x", required = false)
     protected Double x;

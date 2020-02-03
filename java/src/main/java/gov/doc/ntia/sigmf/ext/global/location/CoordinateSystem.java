@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
+import java.io.Serializable;
+
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
@@ -13,9 +15,11 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = GeographicCoordinateSystem.class, name ="GeographicCoordinateSystem"),
         @JsonSubTypes.Type(value = ProjectedCoordnateSystem.class, name = "ProjectedCoordinateSystem")})
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CoordinateSystem {
+public class CoordinateSystem implements Serializable {
 
-    @JsonProperty(value="id", required = false)
+    private static final long serialVersionUID = 1L;
+
+    @JsonProperty(value="id", required = true)
     protected String id;
 
     @JsonProperty(value = "description", required = false)

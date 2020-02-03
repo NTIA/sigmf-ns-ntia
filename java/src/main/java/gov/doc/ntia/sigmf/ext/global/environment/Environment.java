@@ -19,7 +19,7 @@ public class Environment implements Serializable {
     @JsonProperty(value="weather", required = false)
     protected String weather;
 
-    @JsonProperty(value="category", required =true)
+    @JsonProperty(value="category", required =false)
     protected String category;
 
     @JsonProperty(value="description", required =false)
