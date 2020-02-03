@@ -26,7 +26,7 @@ public class Capture implements Serializable {
 
     //2019-04-30T15:24:24.153922Z
     @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
     @JsonProperty(value ="core:datetime",required=false )
     protected Date dateTime;
 

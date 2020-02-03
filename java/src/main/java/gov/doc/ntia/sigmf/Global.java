@@ -102,7 +102,7 @@ public class Global implements Serializable {
 
 
     @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
     @JsonProperty(value="ntia-sensor:calibration_datetime", required = false)
     protected Date calibrationDate;
 

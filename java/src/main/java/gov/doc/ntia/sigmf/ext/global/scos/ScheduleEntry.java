@@ -30,7 +30,7 @@ public class ScheduleEntry implements Serializable {
     protected Integer priority;
 
     @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
     @JsonProperty(value="start", required = false)
     protected Date start;
 

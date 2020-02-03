@@ -16,16 +16,16 @@ public class Measurement implements Serializable {
     @JsonProperty(value="domain", required = true)
     protected String domain;
 
-    @JsonProperty(value="measurement_type", required = false)
+    @JsonProperty(value="measurement_type", required = true)
     protected String measurementType;
 
     @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
     @JsonProperty(value="time_start", required = true)
     protected Date timeStart;
 
     @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
     @JsonProperty(value="time_stop", required =  true)
     protected Date timeStop;
 
