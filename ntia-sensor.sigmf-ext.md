@@ -279,8 +279,9 @@ Sensor definition follows a simplified hardware model comprised of the following
     "ntia-core:measurement" : {
       "time_start" : "2018-03-01T14:01:00.000077Z",
       "time_stop" : "2018-03-01T14:01:00.000107Z",
-      "frequency_low" : 3.45021875E9,
-      "frequency_high" : 3.65015625E9,
+      "frequency_tuned_low" : 3.45021875E9,
+      "frequency_tuned_high" : 3.65015625E9,
+      "frequency_tuned_step": 437500.0,
       "domain" : "frequency",
       "measurement_type" : "scan"
     }
