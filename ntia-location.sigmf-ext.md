@@ -93,7 +93,7 @@ The `Location` object is used within the [Sensor](ntia-sensor.sigmf-ext.md#12-se
 
 ## 4 Example
 
-### 4.1 Speed and Bearing - Simple Example
+### 4.1 GeographicCoordinateSystem - Simple 
 ```json
 
   "global": {
@@ -111,9 +111,7 @@ The `Location` object is used within the [Sensor](ntia-sensor.sigmf-ext.md#12-se
       "id":"Greyhound 10",
       "location" : {
         "x": -106.5,
-        "y": 40.5,
-        "speed": 35.0,
-        "bearing": 90.0
+        "y": 40.5
       }
     }
   },
@@ -129,41 +127,7 @@ The `Location` object is used within the [Sensor](ntia-sensor.sigmf-ext.md#12-se
   ]
 }
 ```
-
-
-
-### 4.3 Projected Coordinate System 
-```json
-{
-  "global": {
-    "core:datatype": "rf32_le",
-    "core:sample_rate": 15360000,
-    "ntia-scos:task_id": 392566,
-    "ntia-location:coordinate_system": {
-      "coordinate_system_type": "ProjectedCoordinateSystem",
-      "id": "EPSG:2029",
-      "description": "NAD27(76) / UTM zone 17N",
-      "gcs": {
-        "coordinate_system_type": "GeographicCoordinateSystem",
-        "id": "EPSG:4608",
-        "description": "NAD27(76)"
-      }
-    }
-  },
-  "captures": [
-    {
-      "core:sample_start": 0,
-      "core:frequency": 700000000,
-      "core:datetime": "2019-12-12T22:01:59.000304Z"
-    }
-  ],
-  "annotations": [
-    ...
-  ]
-}
-```
-
-### 4.6 Geographic Coordinate System - Complex Example
+### 4.2 Geographic Coordinate System - Complex 
 ```json 
 {
   "global": {
@@ -183,6 +147,13 @@ The `Location` object is used within the [Sensor](ntia-sensor.sigmf-ext.md#12-se
           "meridian_offset": 0.0
         }
       }
+    },
+    "ntia-sensor:sensor": {
+      "id":"Greyhound 10",
+      "location" : {
+        "x": -106.5,
+        "y": 40.5
+      }
     }
   },
   "captures": [
@@ -197,3 +168,44 @@ The `Location` object is used within the [Sensor](ntia-sensor.sigmf-ext.md#12-se
   ]
 }
 ```
+
+
+### 4.3 Projected Coordinate System 
+```json
+{
+  "global": {
+    "core:datatype": "rf32_le",
+    "core:sample_rate": 15360000,
+    "ntia-scos:task_id": 392566,
+    "ntia-location:coordinate_system": {
+      "coordinate_system_type": "ProjectedCoordinateSystem",
+      "id": "EPSG:2029",
+      "description": "NAD27(76) / UTM zone 17N",
+      "gcs": {
+        "coordinate_system_type": "GeographicCoordinateSystem",
+        "id": "EPSG:4608",
+        "description": "NAD27(76)"
+      }
+    },
+    "ntia-sensor:sensor": {
+      "id":"Greyhound 10",
+      "location" : {
+        "x": -106.5,
+        "y": 40.5
+      }
+    }  
+  },
+  "captures": [
+    {
+      "core:sample_start": 0,
+      "core:frequency": 700000000,
+      "core:datetime": "2019-12-12T22:01:59.000304Z"
+    }
+  ],
+  "annotations": [
+    ...
+  ]
+}
+```
+
+

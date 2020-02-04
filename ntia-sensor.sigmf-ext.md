@@ -58,8 +58,8 @@ Sensor definition follows a simplified hardware model comprised of the following
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`cal_source_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe the calibration source specification.|
-|`type`|false|string|N/A|The type of the calibration source.|
-|`enr`|false|double|dB|The excess noise ratio.|
+|`type`|false|string|N/A|Type of the calibration source.|
+|`enr`|false|double|dB|Excess noise ratio.|
 
 
 ### 1.5 Amplifier Object
@@ -70,7 +70,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 |`amplifier_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata to describe the amplifier specification.|
 |`gain`|false|double|dB|Gain of low noise amplifier.|
 |`noise_figure`|false|double|dB|Noise figure of low noise amplifier.|
-|`max_power`|false|double|dB|The maximum power of the low noise amplifier.|
+|`max_power`|false|double|dB|Maximum power of the low noise amplifier.|
 
 
 
@@ -92,9 +92,9 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`cal_source_id`|true|string|N/A|The id of the calibration source.|
-|`filter_id`|true|string|N/A|The id of the filter.|
-|`amplifier_id`|true|string|N/A|The id of the amplifier.|
+|`cal_source_id`|true|string|N/A|Id of the calibration source.|
+|`filter_id`|true|string|N/A|Id of the filter.|
+|`amplifier_id`|true|string|N/A|Id of the amplifier.|
 
 
 ## 2 Captures
