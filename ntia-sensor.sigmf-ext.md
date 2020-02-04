@@ -136,7 +136,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 ## 4 Example
 
-### 4.1 Sensor Global Object Example
+### 4.1 Sensor Global Object and Annotations 
 ```json
 {
   "global": {
@@ -204,112 +204,14 @@ Sensor definition follows a simplified hardware model comprised of the following
     ...
   ],
   "annotations": [
-   ...
-  ]
-}
-```
-
-### 4.2 SensorAnnotation Example
-```json
-{
-  "global" : {
-    "core:datatype" : "rf32_le",
-    "core:sample_rate" : 2.8E7,
-    "core:extensions" : {
-      "ntia-sensor" : "v1.0.0",
-      "ntia-slgorithm" : "v1.0.0",
-      "ntia-environment" : "v1.0.0"
+    {
+      "ntia-core:annotation_type" : "SensorAnnotation",
+      "ntia-sensor:rf_path_index" : 0,
+      "ntia-sensor:overload" : false,
+      "ntia-sensor:attenuation_setting_sigan" : 6.0,
+      "core:sample_start":0,
+      "core:sample_count": 1000
     },
-    "ntia-sensor:sensor" : {
-      "id" : "Radar_Sensor_1",
-      "antenna" : {
-        "antenna_spec" : {
-          "id" : "antenna_1",
-          "model" : "ARA BSB-26",
-          "description" : "RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications"
-        },
-        "type" : "omni-directional",
-        "frequency_low" : 2.0E9,
-        "frequency_high" : 6.0E9,
-        "gain" : 0.0,
-        "polarization" : "slant",
-        "cross_polar_discrimination" : 13.0,
-        "horizontal_beam_width" : 360.0,
-        "vertical_beam_width" : 68.38,
-        "voltage_standing_wave_ratio" : 2.0,
-        "cable_loss" : 0.62,
-        "steerable" : false
-      },
-      "preselector" : {
-        "cal_source" : {
-          "cal_source_spec" : {
-            "id" : "MY53400510",
-            "model" : "Keysight 346B",
-            "supplemental_information" : "https://www.keysight.com/en/pd-1000001299%3Aepsg%3Apro-pn-346B/noise-source-10-mhz-to-18-ghz-nominal-enr-15-db?cc=US&lc=eng"
-          }
-        },
-        "filters" : [ {
-          "filter_spec" : {
-            "id" : "13FV40-00014",
-            "model" : "K&L 13FV40-3550/U200-o/o",
-            "supplemental_information" : "http://www.klfilterwizard.com/klfwpart.aspx?FWS=1112001&PN=13FV40-3550%2fU200-O%2fO"
-          },
-          "frequency_low_passband" : 3.43E9,
-          "frequency_high_passband" : 3.67E9,
-          "frequency_low_stopband" : 3.39E9,
-          "frequency_high_stopband" : 3.71E9
-        } ],
-        "amplifiers" : [ {
-          "amplifier_spec" : {
-            "id" : "1904043",
-            "model" : "MITEQ AFS3-02000400-30-25P-6",
-            "supplemental_information" : "https://nardamiteq.com/docs/MITEQ_Amplifier-AFS.JS_c41.pdf"
-          },
-          "gain" : 30.61,
-          "noise_figure" : 2.76,
-          "max_power" : 13.0
-        } ],
-        "rf_paths" : [ {
-          "cal_source_id" : "Calibrated noise source",
-          "filter_id" : "13FV40-00014",
-          "amplifier_id" : "1904043"
-        } ]
-      }
-    },
-    "ntia-core:measurement" : {
-      "time_start" : "2018-03-01T14:01:00.000077Z",
-      "time_stop" : "2018-03-01T14:01:00.000107Z",
-      "frequency_tuned_low" : 3.45021875E9,
-      "frequency_tuned_high" : 3.65015625E9,
-      "frequency_tuned_step": 437500.0,
-      "domain" : "frequency",
-      "measurement_type" : "scan"
-    }
-  },
-  "captures": [
-    ...
-  ],
-  "annotations": [
-   {
-    "ntia-core:annotation_type" : "SensorAnnotation",
-    "ntia-sensor:rf_path_index" : 0,
-    "ntia-sensor:overload" : false,
-    "ntia-sensor:attenuation_setting_sigan" : 6.0
-  }
-  ]
-}
-```
-
-### 4.3 CalibrationAnnotation Example
-```json
-{
-  "global": {
-	...
-  },
-  "captures": [
-    ...
-  ],
-  "annotations": [
     {
       "ntia-core:annotation_type": "CalibrationAnnotation",
       "ntia-sensor:gain_sigan": 41.464266174671376,
@@ -319,7 +221,11 @@ Sensor definition follows a simplified hardware model comprised of the following
       "ntia-sensor:noise_figure_sensor": 12.66185043866723,
       "ntia-sensor:enbw_sensor": 7767553.942299673,
       "ntia-sensor:mean_noise_power_sensor": -161.338149561,
+      "core:sample_start":0,
+      "core:sample_count": 1000
     }
   ]
 }
 ```
+
+
