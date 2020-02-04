@@ -167,6 +167,7 @@ Sensor definition follows a simplified hardware model comprised of the following
           "cal_source_spec" : {
             "id" : "MY53400510",
             "model" : "Keysight 346B",
+            "type" : "Calibrated noise source", 
             "supplemental_information" : "https://www.keysight.com/en/pd-1000001299%3Aepsg%3Apro-pn-346B/noise-source-10-mhz-to-18-ghz-nominal-enr-15-db?cc=US&lc=eng"
           }
         },
@@ -192,7 +193,7 @@ Sensor definition follows a simplified hardware model comprised of the following
           "max_power" : 13.0
         } ],
         "rf_paths" : [ {
-          "cal_source_id" : "Calibrated noise source",
+          "cal_source_id" : "MY53400510",
           "filter_id" : "13FV40-00014",
           "amplifier_id" : "1904043"
         } ]
