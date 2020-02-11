@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.annotation.Id;
 import org.apache.commons.io.IOUtils;
 
@@ -17,6 +19,7 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MetaDoc implements Serializable {
 
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -27,6 +30,8 @@ public class MetaDoc implements Serializable {
     protected List<Capture> captures;
 
     protected List<Annotation> annotations;
+
+    private static final Logger log = LoggerFactory.getLogger(MetaDoc.class);
 
     public MetaDoc(){
         global = new Global();
@@ -93,6 +98,7 @@ public class MetaDoc implements Serializable {
     public Acquisition getAcquisition() throws IOException {
         Acquisition acquisition = new Acquisition();
         acquisition.setMetaDoc(this);
+        log.debug("reading datafile:" + global.getDataFilePath());
         BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(global.getDataFilePath()));
         byte[] sensedData = IOUtils.toByteArray(inputStream);
         acquisition.setData(ByteBuffer.wrap(sensedData));
