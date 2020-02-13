@@ -14,6 +14,8 @@ public class RFPath implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @JsonProperty(value="name", required = false)
+    protected String name;
 
     @JsonProperty(value = "cal_source_id", required = false)
     protected String calSourceId;
@@ -66,6 +68,13 @@ public class RFPath implements Serializable {
         this.amplifierId = ampId;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
 
 }

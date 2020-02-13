@@ -18,7 +18,7 @@ public class SchemaGenerator {
         try {
             JsonNode schema = schemaGenerator.generateJsonSchema(MetaDoc.class);
             String jsonSchemaAsString = mapper.writeValueAsString(schema);
-            mapper.writeValue(new File("sigmf-ns-ntia.schematest"), schema);
+            mapper.writeValue(new File("sigmf-ns-ntia.schema"), schema);
         } catch (JsonMappingException e) {
             e.printStackTrace();
         } catch (JsonGenerationException e) {

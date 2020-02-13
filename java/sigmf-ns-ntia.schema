@@ -1,0 +1,1119 @@
+{
+  "$schema" : "http://json-schema.org/draft-04/schema#",
+  "title" : "Meta Doc",
+  "type" : "object",
+  "additionalProperties" : false,
+  "properties" : {
+    "id" : {
+      "type" : "string"
+    },
+    "global" : {
+      "$ref" : "#/definitions/Global"
+    },
+    "captures" : {
+      "type" : "array",
+      "items" : {
+        "$ref" : "#/definitions/Capture"
+      }
+    },
+    "annotations" : {
+      "type" : "array",
+      "items" : {
+        "oneOf" : [ {
+          "$ref" : "#/definitions/AntennaAnnotation"
+        }, {
+          "$ref" : "#/definitions/FrequencyDomainDetection"
+        }, {
+          "$ref" : "#/definitions/TimeDomainDetection"
+        }, {
+          "$ref" : "#/definitions/EmitterAnnotation"
+        }, {
+          "$ref" : "#/definitions/CalibrationAnnotation"
+        }, {
+          "$ref" : "#/definitions/SensorAnnotation"
+        } ]
+      }
+    }
+  },
+  "definitions" : {
+    "Global" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "core:datatype" : {
+          "type" : "string"
+        },
+        "core:sample_rate" : {
+          "type" : "number"
+        },
+        "core:version" : {
+          "type" : "string"
+        },
+        "core:sha512" : {
+          "type" : "string"
+        },
+        "core:offset" : {
+          "type" : "integer"
+        },
+        "core:description" : {
+          "type" : "string"
+        },
+        "core:author" : {
+          "type" : "string"
+        },
+        "core:meta_doi" : {
+          "type" : "string"
+        },
+        "core:data_doi" : {
+          "type" : "string"
+        },
+        "core:recorder" : {
+          "type" : "string"
+        },
+        "core:license" : {
+          "type" : "string"
+        },
+        "core:hw" : {
+          "type" : "string"
+        },
+        "core:extensions" : { },
+        "ntia-sensor:sensor" : {
+          "$ref" : "#/definitions/Sensor"
+        },
+        "ntia-emitter:emitters" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Emitter"
+          }
+        },
+        "ntia-scos:action" : {
+          "$ref" : "#/definitions/Action"
+        },
+        "ntia-scos:schedule" : {
+          "$ref" : "#/definitions/ScheduleEntry"
+        },
+        "ntia-location:coordinate_system" : {
+          "oneOf" : [ {
+            "$ref" : "#/definitions/GeographicCoordinateSystem"
+          }, {
+            "$ref" : "#/definitions/ProjectedCoordnateSystem"
+          } ]
+        },
+        "ntia-algorithm:anti_aliasing_filter" : {
+          "$ref" : "#/definitions/DigitalFilter"
+        },
+        "ntia-sensor:calibration_datetime" : {
+          "type" : "integer",
+          "format" : "utc-millisec"
+        },
+        "ntia-scos:data_file_path" : {
+          "type" : "string"
+        },
+        "ntia-scos:task" : {
+          "type" : "integer"
+        },
+        "ntia-scos:recording" : {
+          "type" : "integer"
+        },
+        "ntia-core:measurement" : {
+          "$ref" : "#/definitions/Measurement"
+        }
+      },
+      "required" : [ "core:datatype", "core:version", "ntia-scos:action", "ntia-scos:schedule", "ntia-core:measurement" ]
+    },
+    "Sensor" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "sensor_spec" : {
+          "$ref" : "#/definitions/HardwareSpec"
+        },
+        "antenna" : {
+          "$ref" : "#/definitions/Antenna"
+        },
+        "preselector" : {
+          "$ref" : "#/definitions/Preselector"
+        },
+        "signal_analyzer" : {
+          "$ref" : "#/definitions/SignalAnalyzer"
+        },
+        "computer_spec" : {
+          "$ref" : "#/definitions/HardwareSpec"
+        },
+        "mobile" : {
+          "type" : "boolean"
+        },
+        "location" : {
+          "$ref" : "#/definitions/Location"
+        },
+        "environment" : {
+          "$ref" : "#/definitions/Environment"
+        }
+      },
+      "required" : [ "id" ]
+    },
+    "HardwareSpec" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "model" : {
+          "type" : "string"
+        },
+        "version" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "supplemental_information" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Antenna" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "antenna_spec" : {
+          "$ref" : "#/definitions/HardwareSpec"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "frequency_low" : {
+          "type" : "number"
+        },
+        "frequency_high" : {
+          "type" : "number"
+        },
+        "gain" : {
+          "type" : "number"
+        },
+        "polarization" : {
+          "type" : "string"
+        },
+        "cross_polar_discrimination" : {
+          "type" : "number"
+        },
+        "horizontal_gain_pattern" : {
+          "type" : "array",
+          "items" : {
+            "type" : "number"
+          }
+        },
+        "vertical_gain_pattern" : {
+          "type" : "array",
+          "items" : {
+            "type" : "number"
+          }
+        },
+        "horizontal_beam_width" : {
+          "type" : "number"
+        },
+        "vertical_beam_width" : {
+          "type" : "number"
+        },
+        "voltage_standing_wave_ratio" : {
+          "type" : "number"
+        },
+        "cable_loss" : {
+          "type" : "number"
+        },
+        "steerable" : {
+          "type" : "boolean"
+        }
+      },
+      "required" : [ "antenna_spec" ]
+    },
+    "Preselector" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "preselector_spec" : {
+          "$ref" : "#/definitions/HardwareSpec"
+        },
+        "cal_sources" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/CalSource"
+          }
+        },
+        "filters" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Filter"
+          }
+        },
+        "amplifiers" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/Amplifier"
+          }
+        },
+        "rf_paths" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "#/definitions/RFPath"
+          }
+        }
+      }
+    },
+    "CalSource" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "cal_source_spec" : {
+          "$ref" : "#/definitions/HardwareSpec"
+        },
+        "type" : {
+          "type" : "string"
+        },
+        "enr" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Filter" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "filter_spec" : {
+          "$ref" : "#/definitions/HardwareSpec"
+        },
+        "frequency_low_passband" : {
+          "type" : "number"
+        },
+        "frequency_high_passband" : {
+          "type" : "number"
+        },
+        "frequency_low_stopband" : {
+          "type" : "number"
+        },
+        "frequency_high_stopband" : {
+          "type" : "number"
+        }
+      }
+    },
+    "Amplifier" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "amplifier_spec" : {
+          "$ref" : "#/definitions/HardwareSpec"
+        },
+        "gain" : {
+          "type" : "number"
+        },
+        "noise_figure" : {
+          "type" : "number"
+        },
+        "max_power" : {
+          "type" : "number"
+        }
+      }
+    },
+    "RFPath" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "cal_source_id" : {
+          "type" : "string"
+        },
+        "filter_id" : {
+          "type" : "string"
+        },
+        "amplifier_id" : {
+          "type" : "string"
+        }
+      }
+    },
+    "SignalAnalyzer" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "sigan_spec" : {
+          "$ref" : "#/definitions/HardwareSpec"
+        },
+        "frequency_low" : {
+          "type" : "number"
+        },
+        "frequency_high" : {
+          "type" : "number"
+        },
+        "noise_figure" : {
+          "type" : "number"
+        },
+        "max_power" : {
+          "type" : "number"
+        },
+        "a2d_bits" : {
+          "type" : "integer"
+        }
+      }
+    },
+    "Location" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "x" : {
+          "type" : "number"
+        },
+        "y" : {
+          "type" : "number"
+        },
+        "z" : {
+          "type" : "number"
+        },
+        "speed" : {
+          "type" : "number"
+        },
+        "bearing" : {
+          "type" : "number"
+        },
+        "description" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Environment" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "temperature" : {
+          "type" : "number"
+        },
+        "humidity" : {
+          "type" : "number"
+        },
+        "weather" : {
+          "type" : "string"
+        },
+        "category" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        }
+      }
+    },
+    "Emitter" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "power" : {
+          "type" : "number"
+        },
+        "antenna" : {
+          "$ref" : "#/definitions/Antenna"
+        },
+        "transmitter" : {
+          "$ref" : "#/definitions/HardwareSpec"
+        },
+        "location" : {
+          "$ref" : "#/definitions/Location"
+        },
+        "environment" : {
+          "$ref" : "#/definitions/Environment"
+        }
+      }
+    },
+    "Action" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "name" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "summary" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "name" ]
+    },
+    "ScheduleEntry" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "name" : {
+          "type" : "string"
+        },
+        "stop" : {
+          "type" : "integer",
+          "format" : "utc-millisec"
+        },
+        "interval" : {
+          "type" : "integer"
+        },
+        "priority" : {
+          "type" : "integer"
+        },
+        "start" : {
+          "type" : "integer",
+          "format" : "utc-millisec"
+        }
+      },
+      "required" : [ "id", "name" ]
+    },
+    "GeographicCoordinateSystem" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "coordinate_system_type" : {
+          "type" : "string",
+          "enum" : [ "GeographicCoordinateSystem" ],
+          "default" : "GeographicCoordinateSystem"
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "distance_unit" : {
+          "type" : "string"
+        },
+        "time_unit" : {
+          "type" : "string"
+        },
+        "origin" : {
+          "type" : "string"
+        },
+        "orientation_ref" : {
+          "type" : "string"
+        },
+        "orientation" : {
+          "type" : "string"
+        },
+        "elevation_ref" : {
+          "type" : "string"
+        },
+        "elevation_unit" : {
+          "type" : "string"
+        },
+        "datum" : {
+          "$ref" : "#/definitions/Datum"
+        }
+      },
+      "title" : "GeographicCoordinateSystem",
+      "required" : [ "coordinate_system_type", "id" ]
+    },
+    "Datum" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "spheroid" : {
+          "$ref" : "#/definitions/Spheroid"
+        }
+      }
+    },
+    "Spheroid" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "id" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "semiminor" : {
+          "type" : "number"
+        },
+        "semimajor" : {
+          "type" : "number"
+        },
+        "flattening" : {
+          "type" : "number"
+        },
+        "angular_unit" : {
+          "type" : "string"
+        },
+        "prime_meridian" : {
+          "type" : "string"
+        },
+        "meridian_offset" : {
+          "type" : "number"
+        }
+      }
+    },
+    "ProjectedCoordnateSystem" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "coordinate_system_type" : {
+          "type" : "string",
+          "enum" : [ "ProjectedCoordinateSystem" ],
+          "default" : "ProjectedCoordinateSystem"
+        },
+        "id" : {
+          "type" : "string"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "distance_unit" : {
+          "type" : "string"
+        },
+        "time_unit" : {
+          "type" : "string"
+        },
+        "origin" : {
+          "type" : "string"
+        },
+        "orientation_ref" : {
+          "type" : "string"
+        },
+        "orientation" : {
+          "type" : "string"
+        },
+        "elevation_ref" : {
+          "type" : "string"
+        },
+        "elevation_unit" : {
+          "type" : "string"
+        },
+        "false_easting" : {
+          "type" : "number"
+        },
+        "false_northing" : {
+          "type" : "number"
+        },
+        "central_meridian" : {
+          "type" : "number"
+        },
+        "scale_factor" : {
+          "type" : "number"
+        },
+        "origin_latitude" : {
+          "type" : "number"
+        },
+        "gcs" : {
+          "$ref" : "#/definitions/GeographicCoordinateSystem"
+        },
+        "projection" : {
+          "type" : "string"
+        }
+      },
+      "title" : "ProjectedCoordinateSystem",
+      "required" : [ "coordinate_system_type", "id" ]
+    },
+    "DigitalFilter" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "filter_type" : {
+          "type" : "string"
+        },
+        "FIR_coefficients" : {
+          "type" : "array",
+          "items" : {
+            "type" : "number"
+          }
+        },
+        "IIR_numerator_coefficients" : {
+          "type" : "array",
+          "items" : {
+            "type" : "number"
+          }
+        },
+        "IIR_denominator_coefficients" : {
+          "type" : "array",
+          "items" : {
+            "type" : "number"
+          }
+        },
+        "frequency_cutoff" : {
+          "type" : "number"
+        },
+        "attenuation_cutoff" : {
+          "type" : "number"
+        },
+        "ripple_passband" : {
+          "type" : "number"
+        },
+        "attenuation_stopband" : {
+          "type" : "number"
+        },
+        "frequency_stopband" : {
+          "type" : "number"
+        }
+      }
+    },
+    "Measurement" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "domain" : {
+          "type" : "string"
+        },
+        "measurement_type" : {
+          "type" : "string"
+        },
+        "time_start" : {
+          "type" : "integer",
+          "format" : "utc-millisec"
+        },
+        "time_stop" : {
+          "type" : "integer",
+          "format" : "utc-millisec"
+        },
+        "frequency_tuned_low" : {
+          "type" : "number"
+        },
+        "frequency_tuned_high" : {
+          "type" : "number"
+        },
+        "frequency_tuned_step" : {
+          "type" : "number"
+        },
+        "frequencies_tuned" : {
+          "type" : "array",
+          "items" : {
+            "type" : "number"
+          }
+        }
+      },
+      "required" : [ "domain", "measurement_type", "time_start", "time_stop" ]
+    },
+    "Capture" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "core:sample_start" : {
+          "type" : "integer"
+        },
+        "core:global_index" : {
+          "type" : "integer"
+        },
+        "core:frequency" : {
+          "type" : "number"
+        },
+        "core:datetime" : {
+          "type" : "integer",
+          "format" : "utc-millisec"
+        }
+      },
+      "required" : [ "core:sample_start" ]
+    },
+    "AntennaAnnotation" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ntia-core:annotation_type" : {
+          "type" : "string",
+          "enum" : [ "AntennaAnnotation" ],
+          "default" : "AntennaAnnotation"
+        },
+        "core:sample_start" : {
+          "type" : "integer"
+        },
+        "core:sample_count" : {
+          "type" : "integer"
+        },
+        "core:generator" : {
+          "type" : "string"
+        },
+        "core:comment" : {
+          "type" : "string"
+        },
+        "core:freq_lower_edge" : {
+          "type" : "number"
+        },
+        "core:freq_upper_edge" : {
+          "type" : "number"
+        },
+        "core:latitude" : {
+          "type" : "number"
+        },
+        "core:longitude" : {
+          "type" : "number"
+        },
+        "ntia-core:antenna_id" : {
+          "type" : "string"
+        },
+        "ntia-core:azimuth_angle" : {
+          "type" : "number"
+        },
+        "ntia-core:elevation_angle" : {
+          "type" : "number"
+        }
+      },
+      "title" : "AntennaAnnotation",
+      "required" : [ "ntia-core:annotation_type", "core:sample_start", "core:sample_count", "ntia-core:antenna_id" ]
+    },
+    "FrequencyDomainDetection" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ntia-core:annotation_type" : {
+          "type" : "string",
+          "enum" : [ "FrequencyDomainDetection" ],
+          "default" : "FrequencyDomainDetection"
+        },
+        "core:sample_start" : {
+          "type" : "integer"
+        },
+        "core:sample_count" : {
+          "type" : "integer"
+        },
+        "core:generator" : {
+          "type" : "string"
+        },
+        "core:comment" : {
+          "type" : "string"
+        },
+        "core:freq_lower_edge" : {
+          "type" : "number"
+        },
+        "core:freq_upper_edge" : {
+          "type" : "number"
+        },
+        "core:latitude" : {
+          "type" : "number"
+        },
+        "core:longitude" : {
+          "type" : "number"
+        },
+        "ntia-algorithm:detector" : {
+          "type" : "string"
+        },
+        "ntia-algorithm:units" : {
+          "type" : "string"
+        },
+        "ntia-algorithm:reference" : {
+          "type" : "string"
+        },
+        "ntia-algorithm:number_of_ffts" : {
+          "type" : "integer"
+        },
+        "ntia-algorithm:number_of_samples_in_fft" : {
+          "type" : "integer"
+        },
+        "ntia-algorithm:window" : {
+          "type" : "string"
+        },
+        "ntia-algorithm:equivalent_noise_bandwidth" : {
+          "type" : "number"
+        },
+        "ntia-algorithm:frequency_start" : {
+          "type" : "number"
+        },
+        "ntia-algorithm:frequency_stop" : {
+          "type" : "number"
+        },
+        "ntia-algorithm:frequency_step" : {
+          "type" : "number"
+        },
+        "ntia-algorithm:frequencies" : {
+          "type" : "array",
+          "items" : {
+            "type" : "number"
+          }
+        }
+      },
+      "title" : "FrequencyDomainDetection",
+      "required" : [ "ntia-core:annotation_type", "core:sample_start", "core:sample_count", "ntia-algorithm:detector", "ntia-algorithm:units", "ntia-algorithm:number_of_ffts", "ntia-algorithm:number_of_samples_in_fft", "ntia-algorithm:window" ]
+    },
+    "TimeDomainDetection" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ntia-core:annotation_type" : {
+          "type" : "string",
+          "enum" : [ "TimeDomainDetection" ],
+          "default" : "TimeDomainDetection"
+        },
+        "core:sample_start" : {
+          "type" : "integer"
+        },
+        "core:sample_count" : {
+          "type" : "integer"
+        },
+        "core:generator" : {
+          "type" : "string"
+        },
+        "core:comment" : {
+          "type" : "string"
+        },
+        "core:freq_lower_edge" : {
+          "type" : "number"
+        },
+        "core:freq_upper_edge" : {
+          "type" : "number"
+        },
+        "core:latitude" : {
+          "type" : "number"
+        },
+        "core:longitude" : {
+          "type" : "number"
+        },
+        "ntia-algorithm:detector" : {
+          "type" : "string"
+        },
+        "ntia-algorithm:units" : {
+          "type" : "string"
+        },
+        "ntia-algorithm:reference" : {
+          "type" : "string"
+        },
+        "ntia-algorithm:number_of_samples" : {
+          "type" : "integer"
+        }
+      },
+      "title" : "TimeDomainDetection",
+      "required" : [ "ntia-core:annotation_type", "core:sample_start", "core:sample_count", "ntia-algorithm:detector", "ntia-algorithm:units", "ntia-algorithm:number_of_samples" ]
+    },
+    "EmitterAnnotation" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ntia-core:annotation_type" : {
+          "type" : "string",
+          "enum" : [ "EmitterAnnotation" ],
+          "default" : "EmitterAnnotation"
+        },
+        "core:sample_start" : {
+          "type" : "integer"
+        },
+        "core:sample_count" : {
+          "type" : "integer"
+        },
+        "core:generator" : {
+          "type" : "string"
+        },
+        "core:comment" : {
+          "type" : "string"
+        },
+        "core:freq_lower_edge" : {
+          "type" : "number"
+        },
+        "core:freq_upper_edge" : {
+          "type" : "number"
+        },
+        "core:latitude" : {
+          "type" : "number"
+        },
+        "core:longitude" : {
+          "type" : "number"
+        },
+        "ntia-emitter:id" : {
+          "type" : "string"
+        },
+        "ntia-emitter:waveform" : {
+          "oneOf" : [ {
+            "$ref" : "#/definitions/IEEE80211p"
+          } ]
+        }
+      },
+      "title" : "EmitterAnnotation",
+      "required" : [ "ntia-core:annotation_type", "core:sample_start", "core:sample_count", "ntia-emitter:id" ]
+    },
+    "IEEE80211p" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "model" : {
+          "type" : "string",
+          "enum" : [ "IEEE80211p" ],
+          "default" : "IEEE80211p"
+        },
+        "info_bit_generation" : {
+          "type" : "string"
+        },
+        "coding_rate" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer"
+          }
+        },
+        "packet_length" : {
+          "type" : "integer"
+        },
+        "modulation" : {
+          "type" : "string"
+        },
+        "encoder" : {
+          "type" : "string"
+        },
+        "number_of_subcarriers" : {
+          "type" : "integer"
+        },
+        "number_of_data_subcarriers" : {
+          "type" : "integer"
+        },
+        "number_of_pilots" : {
+          "type" : "integer"
+        },
+        "cyclic_prefix" : {
+          "type" : "integer"
+        },
+        "short_inter_frame_space" : {
+          "type" : "number"
+        },
+        "preamble_frame" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer"
+          }
+        },
+        "number_of_info_bits" : {
+          "type" : "integer"
+        },
+        "signal_to_noise_ratio" : {
+          "type" : "number"
+        }
+      },
+      "title" : "IEEE80211p",
+      "required" : [ "model", "number_of_data_subcarriers", "number_of_pilots" ]
+    },
+    "CalibrationAnnotation" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ntia-core:annotation_type" : {
+          "type" : "string",
+          "enum" : [ "CalibrationAnnotation" ],
+          "default" : "CalibrationAnnotation"
+        },
+        "core:sample_start" : {
+          "type" : "integer"
+        },
+        "core:sample_count" : {
+          "type" : "integer"
+        },
+        "core:generator" : {
+          "type" : "string"
+        },
+        "core:comment" : {
+          "type" : "string"
+        },
+        "core:freq_lower_edge" : {
+          "type" : "number"
+        },
+        "core:freq_upper_edge" : {
+          "type" : "number"
+        },
+        "core:latitude" : {
+          "type" : "number"
+        },
+        "core:longitude" : {
+          "type" : "number"
+        },
+        "ntia-sensor:gain_sigan" : {
+          "type" : "number"
+        },
+        "ntia-sensor:noise_figure_sigan" : {
+          "type" : "number"
+        },
+        "ntia-sensor:ldb_compression_point_sigan" : {
+          "type" : "number"
+        },
+        "ntia-sensor:enbw_sigan" : {
+          "type" : "number"
+        },
+        "ntia-sensor:gain_preselector" : {
+          "type" : "number"
+        },
+        "ntia-sensor:noise_figure_sensor" : {
+          "type" : "number"
+        },
+        "ntia-sensor:1db_compression_point_sensor" : {
+          "type" : "number"
+        },
+        "ntia-sensor:enbw_sensor" : {
+          "type" : "number"
+        },
+        "ntia-sensor:mean_noise_power_sensor" : {
+          "type" : "number"
+        },
+        "ntia-sensor:temperature" : {
+          "type" : "number"
+        },
+        "ntia-sensor:mean_noise_power_units" : {
+          "type" : "string"
+        }
+      },
+      "title" : "CalibrationAnnotation",
+      "required" : [ "ntia-core:annotation_type", "core:sample_start", "core:sample_count" ]
+    },
+    "SensorAnnotation" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ntia-core:annotation_type" : {
+          "type" : "string",
+          "enum" : [ "SensorAnnotation" ],
+          "default" : "SensorAnnotation"
+        },
+        "core:sample_start" : {
+          "type" : "integer"
+        },
+        "core:sample_count" : {
+          "type" : "integer"
+        },
+        "core:generator" : {
+          "type" : "string"
+        },
+        "core:comment" : {
+          "type" : "string"
+        },
+        "core:freq_lower_edge" : {
+          "type" : "number"
+        },
+        "core:freq_upper_edge" : {
+          "type" : "number"
+        },
+        "core:latitude" : {
+          "type" : "number"
+        },
+        "core:longitude" : {
+          "type" : "number"
+        },
+        "ntia-sensor:rf_path_index" : {
+          "type" : "integer"
+        },
+        "ntia-sensor:overload" : {
+          "type" : "boolean"
+        },
+        "ntia-sensor:attenuation_setting_sigan" : {
+          "type" : "number"
+        },
+        "ntia-sensor:gain_setting_sigan" : {
+          "type" : "number"
+        },
+        "ntia-sensor:gps_nmea" : {
+          "type" : "string"
+        }
+      },
+      "title" : "SensorAnnotation",
+      "required" : [ "ntia-core:annotation_type", "core:sample_start", "core:sample_count" ]
+    }
+  }
+}
