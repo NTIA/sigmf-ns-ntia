@@ -139,41 +139,54 @@ Sensor definition follows a simplified hardware model comprised of the following
 ### 4.1 Sensor Global Object and Annotations 
 ```json
 {
-  "global": {
-    "core:datatype": "rf32_le",
-    "core:sample_rate": 15360000,
+  "global" : {
+    "core:datatype" : "rf32_le",
+    "core:sample_rate" : 2.8E7,
+    "core:description" : "Radar data captured off the coast of San Francisco",
+    "core:extensions" : {
+      "ntia-algorithm" : "v1.0.0",
+      "ntia-sensor" : "v1.0.0",
+      "ntia-environment" : "v1.0.0",
+      "ntia-location" : "v1.0.0"
+    },
     "ntia-sensor:sensor" : {
-      "id" : "Radar_Sensor_1",
+      "id" : "192.168.1.53",
+      "sensor_spec" : {
+        "id" : "BH-5",
+        "model" : "Basset hound",
+        "version" : "v1.0.0",
+        "description" : ""
+      },
       "antenna" : {
         "antenna_spec" : {
-          "id" : "antenna_1",
           "model" : "ARA BSB-26",
           "description" : "RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications"
         },
-        "type" : "omni-directional",
+        "type" : "Omni-directional",
         "frequency_low" : 2.0E9,
         "frequency_high" : 6.0E9,
         "gain" : 0.0,
-        "polarization" : "slant",
+        "polarization" : "Slant",
         "cross_polar_discrimination" : 13.0,
         "horizontal_beam_width" : 360.0,
         "vertical_beam_width" : 68.38,
         "voltage_standing_wave_ratio" : 2.0,
-        "cable_loss" : 0.62,
+        "cable_loss" : 0.79,
         "steerable" : false
       },
       "preselector" : {
-        "cal_source" : {
+        "cal_sources" : [ {
           "cal_source_spec" : {
-            "id" : "MY53400510",
-            "model" : "Keysight 346B",
-            "type" : "Calibrated noise source", 
-            "supplemental_information" : "https://www.keysight.com/en/pd-1000001299%3Aepsg%3Apro-pn-346B/noise-source-10-mhz-to-18-ghz-nominal-enr-15-db?cc=US&lc=eng"
-          }
-        },
+            "id" : "37501",
+            "model" : "Mercury Systems NS36B-1",
+            "supplemental_information" : "https://www.everythingrf.com/products/noise-sources/mercury-systems/608-220-ns346b-1"
+          },
+          "type" : "Calibrated noise source",
+          "enr" : "14.53 dB"
+        } ],
         "filters" : [ {
           "filter_spec" : {
-            "id" : "13FV40-00014",
+            "id" : "13FV40-00014, SN 6",
             "model" : "K&L 13FV40-3550/U200-o/o",
             "supplemental_information" : "http://www.klfilterwizard.com/klfwpart.aspx?FWS=1112001&PN=13FV40-3550%2fU200-O%2fO"
           },
@@ -181,51 +194,114 @@ Sensor definition follows a simplified hardware model comprised of the following
           "frequency_high_passband" : 3.67E9,
           "frequency_low_stopband" : 3.39E9,
           "frequency_high_stopband" : 3.71E9
-        } ],
+        }, { } ],
         "amplifiers" : [ {
           "amplifier_spec" : {
-            "id" : "1904043",
+            "id" : "1904044",
             "model" : "MITEQ AFS3-02000400-30-25P-6",
             "supplemental_information" : "https://nardamiteq.com/docs/MITEQ_Amplifier-AFS.JS_c41.pdf"
           },
-          "gain" : 30.61,
-          "noise_figure" : 2.76,
+          "gain" : 32.85,
+          "noise_figure" : 2.59,
           "max_power" : 13.0
         } ],
         "rf_paths" : [ {
-          "cal_source_id" : "MY53400510",
-          "filter_id" : "13FV40-00014",
-          "amplifier_id" : "1904043"
+          "name" : "Path 1",
+          "cal_source_id" : "37501",
+          "filter_id" : "13FV40-00014, SN 6",
+          "amplifier_id" : "1904044"
+        }, {
+          "name" : "Bypass",
+          "cal_source_id" : "37501"
         } ]
+      },
+      "signal_analyzer" : {
+        "sigan_spec" : {
+          "id" : "502725",
+          "model" : "Keysight N6841A",
+          "supplemental_information" : "https://www.keysight.com/us/en/assets/7018-02113/data-sheets/5990-3839.pdf"
+        },
+        "frequency_low" : 2.0E7,
+        "frequency_high" : 6.0E9,
+        "noise_figure" : 20.0,
+        "max_power" : 20.0,
+        "a2d_bits" : 14
+      },
+      "computer_spec" : {
+        "id" : "MC 9",
+        "description" : "Custom computer with Intel i7 processor, MSI motherboard, 16 GB of Ram and running Windows 7"
+      },
+      "location" : {
+        "x" : -122.5309,
+        "y" : 37.8204,
+        "z" : 51.3522,
+        "speed" : 0.0,
+        "description" : "On a tower in Point Bonita, near San Francisco"
+      },
+      "environment" : {
+        "category" : "Outside. Coastal."
       }
     },
-    ...
-  },
-  "captures": [
-    ...
-  ],
-  "annotations": [
-    {
-      "ntia-core:annotation_type" : "SensorAnnotation",
-      "ntia-sensor:rf_path_index" : 0,
-      "ntia-sensor:overload" : false,
-      "ntia-sensor:attenuation_setting_sigan" : 6.0,
-      "core:sample_start":0,
-      "core:sample_count": 1000
+    "ntia-location:coordinate_system" : {
+      "coordinate_system_type" : "CoordinateSystem",
+      "id" : "WGS_84",
+      "elevation_ref" : "MSL",
+      "elevation_unit" : "meter"
     },
-    {
-      "ntia-core:annotation_type": "CalibrationAnnotation",
-      "ntia-sensor:gain_sigan": 41.464266174671376,
-      "ntia-sensor:noise_figure_sigan": 10.59849353429361,
-      "ntia-sensor:enbw_sigan": 9173161.088949349,
-      "ntia-sensor:gain_sensor": 39.974129616887843,
-      "ntia-sensor:noise_figure_sensor": 12.66185043866723,
-      "ntia-sensor:enbw_sensor": 7767553.942299673,
-      "ntia-sensor:mean_noise_power_sensor": -161.338149561,
-      "core:sample_start":0,
-      "core:sample_count": 1000
+    "ntia-sensor:calibration_datetime" : "2018-01-01T10:49:58.236Z",
+    "ntia-core:measurement" : {
+      "domain" : "Frequency",
+      "measurement_type" : "Scan",
+      "time_start" : "2018-01-01T07:59:42.792Z",
+      "time_stop" : "2018-01-01T08:00:37.792Z",
+      "frequency_tuned_low" : 3.45021875E9,
+      "frequency_tuned_high" : 3.65015625E9,
+      "frequency_tuned_step" : 2.1875E7
     }
-  ]
+  },
+  "captures" : [ {
+    "core:sample_start" : 0,
+    "core:frequency" : 3.5501875E9,
+    "core:datetime" : "2018-01-01T07:59:42.792Z"
+  } ],
+  "annotations" : [ {
+    "ntia-core:annotation_type" : "FrequencyDomainDetection",
+    "core:sample_start" : 0,
+    "core:sample_count" : 458,
+    "core:comment" : "",
+    "ntia-algorithm:detector" : "fft_max_power",
+    "ntia-algorithm:number_of_ffts" : 10,
+    "ntia-algorithm:number_of_samples_in_fft" : 50,
+    "ntia-algorithm:window" : "Gauss-top",
+    "ntia-algorithm:equivalent_noise_bandwidth" : 962500.0,
+    "ntia-algorithm:frequency_start" : 3.45021875E9,
+    "ntia-algorithm:frequency_stop" : 3.65015625E9,
+    "ntia-algorithm:frequency_step" : 437500.0
+  }, {
+    "ntia-core:annotation_type" : "CalibrationAnnotation",
+    "core:sample_start" : 0,
+    "core:sample_count" : 458,
+    "core:comment" : " Calibration is done every 6 hours.",
+    "ntia-sensor:gain_preselector" : 27.241,
+    "ntia-sensor:noise_figure_sensor" : 7.638,
+    "ntia-sensor:enbw_sensor" : 962500.0000000001,
+    "ntia-sensor:mean_noise_power_sensor" : -94.28774890829693,
+    "ntia-sensor:temperature" : 14.611,
+    "ntia-sensor:mean_noise_power_units" : "dBm"
+  }, {
+    "ntia-core:annotation_type" : "SensorAnnotation",
+    "core:sample_start" : 0,
+    "core:sample_count" : 458,
+    "ntia-sensor:rf_path_index" : 0,
+    "ntia-sensor:overload" : false,
+    "ntia-sensor:attenuation_setting_sigan" : 3.0
+  }, {
+    "ntia-core:annotation_type" : "AntennaAnnotation",
+    "core:sample_start" : 0,
+    "core:sample_count" : 458,
+    "ntia-core:azimuth_angle" : 90.0,
+    "ntia-core:elevation_angle" : 0.0
+  } ]
 }
 ```
 
