@@ -386,7 +386,6 @@ V    {
       "core:sample_count": 1024,
       "ntia-algorithm:detector": "fft_sample_power",
       "ntia-algorithm:units": "dBm",
-      "ntia-algorithm:reference": "not referenced",
       "ntia-algorithm:number_of_ffts": 300,
       "ntia-algorithm:number_of_samples_in_fft": 1024,
       "ntia-algorithm:window": "flattop",
