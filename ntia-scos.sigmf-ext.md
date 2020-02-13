@@ -58,7 +58,8 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
       "stop" : "2020-02-03T15:35Z",
       "interval" : 1,
       "start" : "2020-01-27T15:35:45.000610Z"
-    }
+    },
+    "ntia-scos:task":1 
     ...
   },
   "captures" : [... ],
