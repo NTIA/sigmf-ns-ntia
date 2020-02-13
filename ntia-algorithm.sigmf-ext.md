@@ -110,56 +110,290 @@ The `FrequencyDomainDetection` has the following properties:
 }
 ```
 
-### 4.2 TimeDomainDetection Annotation Example
+### 4.2 TimeDomainDetection  Example
 ```json
 {
+  "id": "5e4575446524c8e43c6e1680",
   "global": {
-	...
+    "core:datatype": "cf32_le",
+    "core:sample_rate": 1.5360000011967678E7,
+    "core:version": "0.0.2",
+    "core:sha512": "5b522660c1406db41a7c05c564b902fa658de8755eaf77a35fea635ff97fd1293fe9e8b799c7ffca70d22cff8fa97cef0633ef29a08bdbc1b629165db72f81e3",
+     "core:extensions" : {
+      "ntia-algorithm" : "v1.0.0",
+      "ntia-sensor" : "v1.0.0",
+      "ntia-location" : "v1.0.0"
+    },
+    "ntia-sensor:sensor": {
+      "id": "greyhound8.sms.internal",
+      "sensor_spec": {
+        "id": "",
+        "model": "greyhound"
+      },
+      "antenna": {
+        "antenna_spec": {
+          "id": "",
+          "model": "L-com HG3512UP-NF"
+        }
+      },
+      "signal_analyzer": {
+        "sigan_spec": {
+          "id": "",
+          "model": "Ettus USRP B210"
+        },
+        "a2d_bits": 0
+      },
+      "computer_spec": {
+        "id": "",
+        "model": "Intel NUC"
+      },
+      "location": {
+        "x": -105.2715,
+        "y": 40.0067
+      }
+    },
+    "ntia-scos:action": {
+      "name": "acquire_iq_700MHz_Verizon_UL",
+      "description": "Capture time-domain IQ samples at the following 1 frequencies: 782.00 MHz.\n\n# acquire_iq_700MHz_Verizon_UL\n\n## Radio setup and sample acquisition\n\nEach time this task runs, the following process is followed:\n\n\n\nThis will take a minimum of 1000.00 ms, not including radio\ntuning, dropping samples after retunes, and data storage.\n\n## Time-domain processing\n\nIf specified, a voltage scaling factor is applied to the complex time-domain\nsignals.\n\n## Data Archive\n\nEach capture will be $15360\\; \\text{samples} \\times 8\\;\n\\text{bytes per sample} = 0.12\\; \\text{MB}$ plus metadata.\n\n",
+      "summary": "Capture time-domain IQ samples at the following 1 frequencies: 782.00 MHz."
+    },
+    "ntia-scos:schedule": {
+      "id": "UplinkIQ",
+      "name": "UplinkIQ",
+      "priority": 10,
+      "start": "2020-02-13T16:11:33.000Z"
+    },
+    "ntia-location:coordinate_system": {
+      "coordinate_system_type": "GeographicCoordinateSystem",
+      "id": "WGS 1984",
+      "distance_unit": "decimal degrees",
+      "time_unit": "seconds"
+    },
+    "ntia-sensor:calibration_datetime": "2019-09-20T02:03:38.967Z",
+    "ntia-scos:task": 1,
+    "ntia-core:measurement": {
+      "domain": "Time",
+      "measurement_type": "single-frequency",
+      "time_start": "2020-02-13T16:11:33.056Z",
+      "time_stop": "2020-02-13T16:11:34.489Z",
+      "frequency_tuned_low": 7.819999999999987E8,
+      "frequency_tuned_high": 7.819999999999987E8
+    }
   },
   "captures": [
-    ...
+    {
+      "core:sample_start": 0,
+      "core:frequency": 7.819999999999987E8,
+      "core:datetime": "2020-02-13T16:11:33.063Z"
+    }
   ],
   "annotations": [
     {
+      "ntia-core:annotation_type": "CalibrationAnnotation",
+      "core:sample_start": 0,
+      "core:sample_count": 15360000,
+      "ntia-sensor:gain_sigan": 42.216536890181075,
+      "ntia-sensor:noise_figure_sigan": 10.758181371190176,
+      "ntia-sensor:enbw_sigan": 1.4404E7,
+      "ntia-sensor:gain_preselector": -3.7534963834226445,
+      "ntia-sensor:noise_figure_sensor": 14.274708903291103,
+      "ntia-sensor:1db_compression_point_sensor": -26.21585482304364,
+      "ntia-sensor:enbw_sensor": 1.351434420534668E7,
+      "ntia-sensor:1db_compression_point_sigan": -29.94803239760001
+    },
+    {
       "ntia-core:annotation_type": "TimeDomainDetection",
       "core:sample_start": 0,
-      "core:sample_count": 1024,
-      "ntia-algorithm:detector": "mean",
-      "ntia-algorithm:units": "dBm",
-      "ntia-algorithm:reference": "antenna output",
-      "ntia-algorithm:number_of_samples": 1024
+      "core:sample_count": 15360000,
+      "ntia-algorithm:detector": "sample_iq",
+      "ntia-algorithm:units": "volts",
+      "ntia-algorithm:number_of_samples": 15360000
+    },
+    {
+      "ntia-core:annotation_type": "SensorAnnotation",
+      "core:sample_start": 0,
+      "core:sample_count": 15360000,
+      "ntia-sensor:overload": false,
+      "ntia-sensor:gain_setting_sigan": 40.0
     }
   ]
 }
 ```
 
-### 4.3 FrequencyDomainDetection Annotation Example
+### 4.3 Single-frequency FrequencyDomainDetection  Example
 ```json
 {
+  "id": "5e419a556524c8661b35f915",
   "global": {
-	...
+    "core:datatype": "rf32_le",
+    "core:sample_rate": 1.5360000011967678E7,
+    "core:version": "0.0.2",
+    "core:sha512": "9eb4d244a563b737fbe0bf42e6749d3a9a29fef1b703e68cfac2262837e54f3e7d4e0ae1156b68070202f062900fb6cf678f82dff03f0605d7dc3a7b7b285255",
+    "core:extensions" : {
+      "ntia-algorithm" : "v1.0.0",
+      "ntia-sensor" : "v1.0.0",
+      "ntia-location" : "v1.0.0"
+    },
+    "ntia-sensor:sensor": {
+      "id": "greyhound3.sms.internal",
+      "sensor_spec": {
+        "id": "",
+        "model": "greyhound"
+      },
+      "antenna": {
+        "antenna_spec": {
+          "id": "",
+          "model": "L-com HG3512UP-NF"
+        }
+      },
+      "signal_analyzer": {
+        "sigan_spec": {
+          "id": "",
+          "model": "Ettus USRP B210"
+        },
+        "a2d_bits": 0
+      },
+      "computer_spec": {
+        "id": "",
+        "model": "Intel NUC"
+      },
+      "location": {
+        "x": -105.262262,
+        "y": 39.99483
+      }
+    },
+    "ntia-scos:action": {
+      "name": "acquire_m4s_700MHz_Verizon_UL",
+      "description": "Apply m4s detector over 300 1024-pt FFTs at 782.00 MHz.\n\n# acquire_m4s_700MHz_Verizon_UL\n\n## Radio setup and sample acquisition\n\nThis action first tunes the radio to 782.00 MHz and requests a sample\nrate of 15.36 Msps and 40 dB of gain.\n\nIt then begins acquiring, and discards an appropriate number of samples while\nthe radio's IQ balance algorithm runs. Then, $300 \\times 1024$\nsamples are acquired gap-free.\n\n## Time-domain processing\n\nFirst, the $300 \\times 1024$ continuous samples are acquired from\nthe radio. If specified, a voltage scaling factor is applied to the complex\ntime-domain signals. Then, the data is reshaped into a $300 \\times\n1024$ matrix:\n\n$$\n\\begin{pmatrix}\na_{1,1}      & a_{1,2}     & \\cdots  & a_{1,fft\\_size}     \\\\\\\\\na_{2,1}      & a_{2,2}     & \\cdots  & a_{2,fft\\_size}     \\\\\\\\\n\\vdots         & \\vdots        & \\ddots  & \\vdots                \\\\\\\\\na_{nffts,1}  & a_{nfts,2}  & \\cdots  & a_{nfts,fft\\_size}  \\\\\\\\\n\\end{pmatrix}\n$$\n\nwhere $a_{i,j}$ is a complex time-domain sample.\n\nAt that point, a Flat Top window, defined as\n\n$$w(n) = &0.2156 - 0.4160 \\cos{(2 \\pi n / M)} + 0.2781 \\cos{(4 \\pi n / M)} -\n         &0.0836 \\cos{(6 \\pi n / M)} + 0.0069 \\cos{(8 \\pi n / M)}$$\n\nwhere $M = 1024$ is the number of points in the window, is applied to\neach row of the matrix.\n\n## Frequency-domain processing\n\nAfter windowing, the data matrix is converted into the frequency domain using\nan FFT, doing the equivalent of the DFT defined as\n\n$$A_k = \\sum_{m=0}^{n-1}\na_m \\exp\\left\\\\{-2\\pi i{mk \\over n}\\right\\\\} \\qquad k = 0,\\ldots,n-1$$\n\nThe data matrix is then converted to pseudo-power by taking the square of the\nmagnitude of each complex sample individually, allowing power statistics to be\ntaken.\n\n## Applying detector\n\nNext, the M4S (min, max, mean, median, and sample) detector is applied to the\ndata matrix. The input to the detector is a matrix of size $300 \\times\n1024$, and the output matrix is size $5 \\times 1024$, with the\nfirst row representing the min of each _column_, the second row representing\nthe _max_ of each column, and so \"sample\" detector simple chooses one of the\n300 FFTs at random.\n\n## Power conversion\n\nTo finish the power conversion, the samples are divided by the characteristic\nimpedance (50 ohms). The power is then referenced back to the RF power by\ndividing further by 2. The powers are normalized to the FFT bin width by\ndividing by the length of the FFT and converted to dBm. Finally, an FFT window\ncorrection factor is added to the powers given by\n\n$$ C_{win} = 20log \\left( \\frac{1}{ mean \\left( w(n) \\right) } \\right)\n\nThe resulting matrix is real-valued, 32-bit floats representing dBm.\n\n",
+      "summary": "Apply m4s detector over 300 1024-pt FFTs at 782.00 MHz."
+    },
+    "ntia-scos:schedule": {
+      "id": "Uplink_M4",
+      "name": "Uplink_M4",
+      "stop": "2020-02-10T18:01:37.000Z",
+      "interval": 1,
+      "priority": 10,
+      "start": "2020-02-10T18:00:52.000Z"
+    },
+    "ntia-location:coordinate_system": {
+      "coordinate_system_type": "GeographicCoordinateSystem",
+      "id": "WGS 1984",
+      "distance_unit": "decimal degrees",
+      "time_unit": "seconds"
+    },
+    "ntia-sensor:calibration_datetime": "2019-09-20T02:03:38.967Z",
+    "ntia-scos:task": 1,
+    "ntia-core:measurement": {
+      "domain": "Frequency",
+      "measurement_type": "single-frequency",
+      "time_start": "2020-02-10T18:00:52.066Z",
+      "time_stop": "2020-02-10T18:00:52.212Z",
+      "frequency_tuned_low": 7.819999999999987E8,
+      "frequency_tuned_high": 7.819999999999987E8
+    }
   },
   "captures": [
-    ...
+V    {
+      "core:sample_start": 0,
+      "core:frequency": 7.819999999999987E8,
+      "core:datetime": "2020-02-10T18:00:52.067Z"
+    }
   ],
   "annotations": [
     {
       "ntia-core:annotation_type": "FrequencyDomainDetection",
       "core:sample_start": 0,
       "core:sample_count": 1024,
-      "ntia-algorithm:detector": "fft_mean_power",
-      "ntia-algorithm:reference": "antenna output",
+      "ntia-algorithm:detector": "fft_min_power",
+      "ntia-algorithm:units": "dBm",
+      "ntia-algorithm:reference": "not referenced",
       "ntia-algorithm:number_of_ffts": 300,
-      "ntia-algorithm:number_of_samples_in_fft": 1024
+      "ntia-algorithm:number_of_samples_in_fft": 1024,
+      "ntia-algorithm:window": "flattop",
+      "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
+      "ntia-algorithm:frequency_start": 7.743199999940149E8,
+      "ntia-algorithm:frequency_stop": 7.896799500059825E8,
+      "ntia-algorithm:frequency_step": 50.0
+    },
+    {
+      "ntia-core:annotation_type": "CalibrationAnnotation",
+      "core:sample_start": 0,
+      "core:sample_count": 5120,
+      "ntia-sensor:gain_sigan": 42.216536890181075,
+      "ntia-sensor:noise_figure_sigan": 10.758181371190176,
+      "ntia-sensor:enbw_sigan": 1.4404E7,
+      "ntia-sensor:gain_preselector": -3.7534963834226445,
+      "ntia-sensor:noise_figure_sensor": 14.274708903291103,
+      "ntia-sensor:1db_compression_point_sensor": -26.21585482304364,
+      "ntia-sensor:enbw_sensor": 1.351434420534668E7,
+      "ntia-sensor:1db_compression_point_sigan": -29.94803239760001
+    },
+    {
+      "ntia-core:annotation_type": "SensorAnnotation",
+      "core:sample_start": 0,
+      "core:sample_count": 5120,
+      "ntia-sensor:overload": false,
+      "ntia-sensor:gain_setting_sigan": 40.0
     },
     {
       "ntia-core:annotation_type": "FrequencyDomainDetection",
       "core:sample_start": 1024,
       "core:sample_count": 1024,
       "ntia-algorithm:detector": "fft_max_power",
-      "ntia-algorithm:reference": "antenna output",
+      "ntia-algorithm:units": "dBm",
+      "ntia-algorithm:reference": "not referenced",
       "ntia-algorithm:number_of_ffts": 300,
-      "ntia-algorithm:number_of_samples_in_fft": 1024
+      "ntia-algorithm:number_of_samples_in_fft": 1024,
+      "ntia-algorithm:window": "flattop",
+      "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
+      "ntia-algorithm:frequency_start": 7.743199999940149E8,
+      "ntia-algorithm:frequency_stop": 7.896799500059825E8,
+      "ntia-algorithm:frequency_step": 50.0
+    },
+    {
+      "ntia-core:annotation_type": "FrequencyDomainDetection",
+      "core:sample_start": 2048,
+      "core:sample_count": 1024,
+      "ntia-algorithm:detector": "fft_mean_power",
+      "ntia-algorithm:units": "dBm",
+      "ntia-algorithm:reference": "not referenced",
+      "ntia-algorithm:number_of_ffts": 300,
+      "ntia-algorithm:number_of_samples_in_fft": 1024,
+      "ntia-algorithm:window": "flattop",
+      "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
+      "ntia-algorithm:frequency_start": 7.743199999940149E8,
+      "ntia-algorithm:frequency_stop": 7.896799500059825E8,
+      "ntia-algorithm:frequency_step": 50.0
+    },
+    {
+      "ntia-core:annotation_type": "FrequencyDomainDetection",
+      "core:sample_start": 3072,
+      "core:sample_count": 1024,
+      "ntia-algorithm:detector": "fft_median_power",
+      "ntia-algorithm:units": "dBm",
+      "ntia-algorithm:reference": "not referenced",
+      "ntia-algorithm:number_of_ffts": 300,
+      "ntia-algorithm:number_of_samples_in_fft": 1024,
+      "ntia-algorithm:window": "flattop",
+      "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
+      "ntia-algorithm:frequency_start": 7.743199999940149E8,
+      "ntia-algorithm:frequency_stop": 7.896799500059825E8,
+      "ntia-algorithm:frequency_step": 50.0
+    },
+    {
+      "ntia-core:annotation_type": "FrequencyDomainDetection",
+      "core:sample_start": 4096,
+      "core:sample_count": 1024,
+      "ntia-algorithm:detector": "fft_sample_power",
+      "ntia-algorithm:units": "dBm",
+      "ntia-algorithm:reference": "not referenced",
+      "ntia-algorithm:number_of_ffts": 300,
+      "ntia-algorithm:number_of_samples_in_fft": 1024,
+      "ntia-algorithm:window": "flattop",
+      "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
+      "ntia-algorithm:frequency_start": 7.743199999940149E8,
+      "ntia-algorithm:frequency_stop": 7.896799500059825E8,
+      "ntia-algorithm:frequency_step": 50.0
     }
   ]
 }
