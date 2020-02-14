@@ -12,7 +12,7 @@ The ntia-sensor namespace provides metadata to describe RF sensors.
 |`calibration_datetime`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Time of last calibration. RECOMMENDED.|
 
 
-### 1.2 Sensor Object
+### 1.1 Sensor Object
 Sensor definition follows a simplified hardware model comprised of the following elements: Antenna, Preselector, Signal Analyzer, and Host Controller. The antenna converts electromagnetic energy to a voltage. The preselector can provide local calibration signals, RF filtering to protect from strong out-of-band signals, and low-noise amplification to improve sensitivity. The signal analyzer (e.g., software defined radio) provides tuning, down conversion, sampling, and digital signal processing. Sensor implementations are not required to have each component, but metadata SHOULD specify the presence, model numbers, and operational parameters associated with each.
 
 `Sensor` has the following properties:
@@ -92,6 +92,7 @@ Sensor definition follows a simplified hardware model comprised of the following
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
+|`name`|false|string|N/A|Descriptive name for the RFPath.|
 |`cal_source_id`|true|string|N/A|Id of the calibration source.|
 |`filter_id`|true|string|N/A|Id of the filter.|
 |`amplifier_id`|true|string|N/A|Id of the amplifier.|

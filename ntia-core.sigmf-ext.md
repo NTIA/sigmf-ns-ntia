@@ -75,7 +75,7 @@ The following segments are of general use across the set of NTIA extensions.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique id of an antenna defined in global.|
+|`id`|false|string|N/A|Unique id of an antenna defined in global. The id SHOULD be included if there are multiple antennas defined in the global object.|
 |`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
@@ -289,8 +289,8 @@ The following segments are of general use across the set of NTIA extensions.
       "ntia-core:annotation_type": "AntennaAnnotation",
       "core:sample_start": 0,
       "core:sample_count": 1024,
-      "elevation_angle": 25.0, 
-      "azimuth_angle": 70.0
+      "ntia-core:elevation_angle": 25.0, 
+      "ntia-core:azimuth_angle": 70.0
     }
   ]
 }
