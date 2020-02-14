@@ -14,7 +14,7 @@ public class AntennaAnnotation extends Annotation  {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="ntia-core:antenna_id", required = true)
+    @JsonProperty(value="ntia-core:antenna_id", required = false)
     protected String id;
 
 
