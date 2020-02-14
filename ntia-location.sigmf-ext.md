@@ -4,7 +4,7 @@ The ntia-location namespace provides metadata to describe a coordinate system an
 `ntia-location` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions. `ntia-location` SHOULD be used instead of lat/long in `sigmf-core`.
 
 ## 1 Global
-`ntia-location` defines the [CoordinateSystem](#11-coordinatesystem-object), [ProjectedCoordinateSystem](#12-projectedcoordinatesystem-object) , [GeographicCoordinateSystem](#13-geographiccoordinatesystem-object), [Datum](#14-datum-object), [Spheroid](#15-spheroid-object), and [Location](#) objects and extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
+`ntia-location` defines the [CoordinateSystem](#11-coordinatesystem-object), [ProjectedCoordinateSystem](#12-projectedcoordinatesystem-object) , [GeographicCoordinateSystem](#13-geographiccoordinatesystem-object), [Datum](#14-datum-object), [Spheroid](#15-spheroid-object), and [Location](#16-location-object) objects and extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
