@@ -2,6 +2,7 @@ package gov.doc.ntia.sigmf.examples;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 import gov.doc.ntia.sigmf.Annotation;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.algorithm.DigitalFilterAnnotationExample;
@@ -18,6 +19,7 @@ import gov.doc.ntia.sigmf.examples.location.GcsWithSpheroidExample;
 import gov.doc.ntia.sigmf.examples.location.ProjectedExample;
 import gov.doc.ntia.sigmf.examples.location.SimpleGCS;
 import gov.doc.ntia.sigmf.examples.location.SpeedAndBearingExample;
+import gov.doc.ntia.sigmf.examples.scos.ScosExample;
 import gov.doc.ntia.sigmf.examples.waveform.WaveformExample;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 
@@ -65,6 +67,9 @@ public class ExampleGenerator {
         WaveformExample waveformExample = new WaveformExample();
         save("waveformExample.json", waveformExample.getExample());
 
+        RadarExample radarExample = new RadarExample();
+        save("radarExample.json", radarExample.getExample());
+
         GcsWithSpheroidExample gcsExample = new GcsWithSpheroidExample();
         save("gcsExample.json", gcsExample.getExample());
 
@@ -76,11 +81,16 @@ public class ExampleGenerator {
 
         SimpleGCS simpleGCS = new SimpleGCS();
         save("simpleGCS.json", simpleGCS.getExample());
+
+        ScosExample scosExample = new ScosExample();
+        save("scos.json", scosExample.getExample());
+
     }
 
     private static void save(String filename, MetaDoc example) {
         ObjectMapper mapper = new ObjectMapper();
         mapper.configure(JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN, true);
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
         try {
             mapper.writeValue(new File(filename),example);
         } catch (IOException e) {
@@ -102,7 +112,6 @@ public class ExampleGenerator {
             annotation.setNumberOfFfts(300);
             annotation.setNumberOfSamplesInFft(1024);
             annotation.setDetector(names.get((int) i));
-            annotation.setDetectionDomain("m4");
             annotation.setReference("um, very");
             annotation.setUnits("DB");
             annotation.setLatitude( 40.5);

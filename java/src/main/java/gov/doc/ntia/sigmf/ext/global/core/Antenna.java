@@ -4,9 +4,6 @@ import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,22 +19,22 @@ public class Antenna implements Serializable {
     @JsonProperty(value="type", required=false)
     protected  String type;
 
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="low_frequency", required = false)
-    protected Double lowFrequency;
 
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="high_frequency", required = false)
-    protected Double highFrequency;
+    @JsonProperty(value="frequency_low", required = false)
+    protected Double frequencyLow;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
+    @JsonProperty(value="frequency_high", required = false)
+    protected Double frequencyHigh;
+
+
     @JsonProperty(value="gain", required=false)
     protected Double gain;
 
     @JsonProperty(value="polarization", required = false)
     protected String polarization;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="cross_polar_discrimination", required = false)
     protected Double crossPolarDiscrimination;
 
@@ -47,35 +44,24 @@ public class Antenna implements Serializable {
     @JsonProperty(value="vertical_gain_pattern", required = false)
     protected  Double[] verticalGainPattern;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="horizontal_beam_width", required = false)
     protected Double horizontalBeamWidth;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="vertical_beam_width", required = false)
     protected Double verticalBeamWidth;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="voltage_standing_wave_ratio", required = false)
     protected Double voltageStandingWaveRatio;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="cable_loss", required = false)
     protected Double cableLoss;
 
     @JsonProperty(value="steerable", required = false)
     protected Boolean steerable;
-
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="azimuth_angle", required = false)
-    protected Double azimuthAngle;
-
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="elevation_angle", required = false)
-    protected Double elevationAngle;
-
-    @JsonProperty(value="mobile", required = false)
-    protected Boolean mobile;
 
     protected Map<String, Object> otherFields = new HashMap<>();
 
@@ -95,22 +81,6 @@ public class Antenna implements Serializable {
         this.polarization = polarization;
     }
 
-    public Double getAzimuthAngle() {
-        return azimuthAngle;
-    }
-
-    public void setAzimuthAngle(Double azimuthAngle) {
-        this.azimuthAngle = azimuthAngle;
-    }
-
-    public Double getElevationAngle() {
-        return elevationAngle;
-    }
-
-    public void setElevationAngle(Double elevationAngle) {
-        this.elevationAngle = elevationAngle;
-    }
-
     public String getType() {
         return type;
     }
@@ -119,20 +89,20 @@ public class Antenna implements Serializable {
         this.type = type;
     }
 
-    public Double getLowFrequency() {
-        return lowFrequency;
+    public Double getFrequencyLow() {
+        return frequencyLow;
     }
 
-    public void setLowFrequency(Double lowFrequency) {
-        this.lowFrequency = lowFrequency;
+    public void setFrequencyLow(Double frequencyLow) {
+        this.frequencyLow = frequencyLow;
     }
 
-    public Double getHighFrequency() {
-        return highFrequency;
+    public Double getFrequencyHigh() {
+        return frequencyHigh;
     }
 
-    public void setHighFrequency(Double highFrequency) {
-        this.highFrequency = highFrequency;
+    public void setFrequencyHigh(Double frequencyHigh) {
+        this.frequencyHigh = frequencyHigh;
     }
 
     public Double getGain() {
@@ -205,14 +175,6 @@ public class Antenna implements Serializable {
 
     public void setSteerable(Boolean steerable) {
         this.steerable = steerable;
-    }
-
-    public Boolean getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(Boolean mobile) {
-        this.mobile = mobile;
     }
 
     @JsonAnyGetter

@@ -4,13 +4,8 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
-import gov.doc.ntia.sigmf.ext.annotation.algorithm.TimeDomainDetection;
-import gov.doc.ntia.sigmf.ext.annotation.emitter.EmitterAnnotation;
-import gov.doc.ntia.sigmf.ext.annotation.environment.EmitterEnvironment;
-import gov.doc.ntia.sigmf.ext.annotation.environment.SensorEnvironment;
-import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
-import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
+
+import java.io.Serializable;
 
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
@@ -20,9 +15,11 @@ import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
         @JsonSubTypes.Type(value = GeographicCoordinateSystem.class, name ="GeographicCoordinateSystem"),
         @JsonSubTypes.Type(value = ProjectedCoordnateSystem.class, name = "ProjectedCoordinateSystem")})
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CoordinateSystem {
+public class CoordinateSystem implements Serializable {
 
-    @JsonProperty(value="id", required = false)
+    private static final long serialVersionUID = 1L;
+
+    @JsonProperty(value="id", required = true)
     protected String id;
 
     @JsonProperty(value = "description", required = false)

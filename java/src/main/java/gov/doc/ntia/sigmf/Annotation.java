@@ -1,36 +1,29 @@
 package gov.doc.ntia.sigmf;
 
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.TimeDomainDetection;
-import gov.doc.ntia.sigmf.ext.annotation.location.LocationAnnotation;
+import gov.doc.ntia.sigmf.ext.annotation.core.AntennaAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.emitter.EmitterAnnotation;
-import gov.doc.ntia.sigmf.ext.annotation.environment.EmitterEnvironment;
-import gov.doc.ntia.sigmf.ext.annotation.environment.SensorEnvironment;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
-import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-//@JsonTypeInfo(use=JsonTypeInfo.Id.class, include=JsonTypeInfo.As.PROPERTY, property="type")
 @JsonTypeInfo(
         use = JsonTypeInfo.Id.NAME,
         include = JsonTypeInfo.As.PROPERTY,
         property = "ntia-core:annotation_type")
 @JsonSubTypes({
+        @JsonSubTypes.Type(value = AntennaAnnotation.class, name ="AntennaAnnotation"),
         @JsonSubTypes.Type(value = FrequencyDomainDetection.class, name ="FrequencyDomainDetection"),
         @JsonSubTypes.Type(value = TimeDomainDetection.class, name = "TimeDomainDetection"),
         @JsonSubTypes.Type(value = EmitterAnnotation.class, name = "EmitterAnnotation"),
-        @JsonSubTypes.Type(value = SensorEnvironment.class, name = "SensorEnvironment"),
-        @JsonSubTypes.Type(value = EmitterEnvironment.class, name = "EmitterEnvironment"),
-        @JsonSubTypes.Type(value = SensorAnnotation.class, name = "SensorAnnotation"),
         @JsonSubTypes.Type(value = CalibrationAnnotation.class, name = "CalibrationAnnotation"),
-        @JsonSubTypes.Type(value = LocationAnnotation.class, name ="LocationAnnotation")
+        @JsonSubTypes.Type(value = SensorAnnotation.class, name ="SensorAnnotation")
 })
 public class Annotation implements Serializable {
 
@@ -48,19 +41,19 @@ public class Annotation implements Serializable {
     @JsonProperty(value="core:comment", required=false)
     protected String comment;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+    
     @JsonProperty(value="core:freq_lower_edge", required = false)
     protected Double freqLowerEdge;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+    
     @JsonProperty(value="core:freq_upper_edge", required = false)
     protected Double freqUpperEdge;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+    
     @JsonProperty(value="core:latitude", required = false)
     protected Double latitude;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+    
     @JsonProperty(value="core:longitude", required = false)
     protected  Double longitude;
 

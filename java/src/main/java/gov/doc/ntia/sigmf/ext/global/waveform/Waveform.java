@@ -20,6 +20,18 @@ public class Waveform  implements Serializable {
 
     protected Map<String, Object> otherFields = new HashMap<>();
 
+
+    @JsonProperty(value="model", required = true)
+    protected String model;
+
+    public String getModel() {
+        return model;
+    }
+
+    public void setModel(String model) {
+        this.model = model;
+    }
+
     @JsonAnyGetter
     public Map<String, Object> getOtherFields(){
         return otherFields;

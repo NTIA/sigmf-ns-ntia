@@ -15,16 +15,13 @@ public class ScheduleEntry implements Serializable {
     @JsonProperty(value="id", required = true)
     protected String id;
 
-    @JsonProperty(value="action", required = true)
-    protected String action;
-
-    @JsonProperty(value="relative_stop", required = false)
-    protected Integer relativeStop;
+    @JsonProperty(value="name", required = true)
+    protected String name;
 
     @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm'Z'")
-    @JsonProperty(value="absolute_stop", required = false)
-    protected Date absoluteStop;
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
+    @JsonProperty(value="stop", required = false)
+    protected Date stop;
 
     @JsonProperty(value="interval", required=false)
     protected Integer interval;
@@ -32,13 +29,10 @@ public class ScheduleEntry implements Serializable {
     @JsonProperty(value="priority", required = false)
     protected Integer priority;
 
-    @JsonProperty(value="callback_url", required = false)
-    protected String callbackURL;
-
     @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
-    @JsonProperty(value="start_time", required = false)
-    protected Date startTime;
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
+    @JsonProperty(value="start", required = false)
+    protected Date start;
 
     protected Map<String, Object> otherFields = new HashMap<>();
 
@@ -51,28 +45,12 @@ public class ScheduleEntry implements Serializable {
         this.id = id;
     }
 
-    public String getAction() {
-        return action;
+    public Date getStop() {
+        return stop;
     }
 
-    public void setAction(String action) {
-        this.action = action;
-    }
-
-    public Integer getRelativeStop() {
-        return relativeStop;
-    }
-
-    public void setRelativeStop(Integer relativeStop) {
-        this.relativeStop = relativeStop;
-    }
-
-    public Date getAbsoluteStop() {
-        return absoluteStop;
-    }
-
-    public void setAbsoluteStop(Date absoluteStop) {
-        this.absoluteStop = absoluteStop;
+    public void setStop(Date stop) {
+        this.stop = stop;
     }
 
     public Integer getInterval() {
@@ -91,12 +69,21 @@ public class ScheduleEntry implements Serializable {
         this.priority = priority;
     }
 
-    public String getCallbackURL() {
-        return callbackURL;
+
+    public String getName() {
+        return name;
     }
 
-    public void setCallbackURL(String callbackURL) {
-        this.callbackURL = callbackURL;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getStart() {
+        return start;
+    }
+
+    public void setStart(Date start) {
+        this.start = start;
     }
 
     @JsonAnyGetter
@@ -110,7 +97,7 @@ public class ScheduleEntry implements Serializable {
     }
 
     @JsonIgnore
-    public String getScheduleName(){
+    public String getScheduleNameFromUrl(){
         String scheduleName = "";
         if(id != null){
             if(id.endsWith("/")) {

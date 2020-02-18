@@ -2,14 +2,13 @@ package gov.doc.ntia.sigmf;
 
 import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.global.location.CoordinateSystem;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
 import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
+import gov.doc.ntia.sigmf.ext.global.core.Measurement;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
-import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -22,14 +21,13 @@ public class Global implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    //string	The format of the stored samples in the dataset file.
+    //The format of the stored samples in the dataset file.
     //Its value must be a valid SigMF dataset format type string.
     @JsonProperty(value="core:datatype", required = true)
     protected String datatype;
 
 
     //The sample rate of the signal in samples per second.
-    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value="core:sample_rate", required = false)
     protected Double sampleRate;
 
@@ -87,14 +85,11 @@ public class Global implements Serializable {
     @JsonProperty(value="ntia-emitter:emitters", required = false)
     protected List<Emitter> emitters;
 
-    @JsonProperty(value="ntia-scos:action", required = false)
+    @JsonProperty(value="ntia-scos:action", required = true)
     protected Action action;
 
-    @JsonProperty(value="ntia-scos:schedule", required = false)
+    @JsonProperty(value="ntia-scos:schedule", required = true)
     protected ScheduleEntry schedule;
-
-    @JsonProperty(value="ntia-scos:task_id", required = false)
-    protected Long taskId;
 
     @JsonProperty(value="ntia-location:coordinate_system", required = false)
     private CoordinateSystem coordinateSystem;
@@ -107,9 +102,32 @@ public class Global implements Serializable {
 
 
     @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
+            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
     @JsonProperty(value="ntia-sensor:calibration_datetime", required = false)
     protected Date calibrationDate;
+
+    @JsonProperty(value="ntia-scos:data_file_path", required = false)
+    protected String dataFilePath;
+
+
+    @JsonProperty(value="ntia-scos:task", required = false)
+    protected Integer task;
+
+
+    @JsonProperty(value="ntia-scos:recording", required = false)
+    protected Integer recording;
+
+    @JsonProperty(value="ntia-core:measurement", required = true)
+    protected Measurement measurement;
+
+
+    public Integer getRecording() {
+        return recording;
+    }
+
+    public void setRecording(Integer recording) {
+        this.recording = recording;
+    }
 
 
     public DigitalFilter getAntiAliasingFilter() {
@@ -117,13 +135,9 @@ public class Global implements Serializable {
     }
 
 
-
-
     public void setAntiAliasingFilter(DigitalFilter antiAliasingFilter) {
         this.antiAliasingFilter = antiAliasingFilter;
     }
-
-
 
     public String getSha512() {
         return sha512;
@@ -205,16 +219,6 @@ public class Global implements Serializable {
         this.extensions = extensions;
     }
 
-
-    public Long getTaskId() {
-        return taskId;
-    }
-
-    public void setTaskId(Long taskId) {
-        this.taskId = taskId;
-    }
-
-
     public String getDatatype() {
         return datatype;
     }
@@ -263,6 +267,14 @@ public class Global implements Serializable {
         this.schedule = schedule;
     }
 
+    public Integer getTask() {
+        return task;
+    }
+
+    public void setTask(Integer task) {
+        this.task = task;
+    }
+
     public Sensor getSensor() {
         return sensor;
     }
@@ -290,6 +302,14 @@ public class Global implements Serializable {
     }
 
 
+    public String getDataFilePath() {
+        return dataFilePath;
+    }
+
+    public void setDataFilePath(String dataFilePath) {
+        this.dataFilePath = dataFilePath;
+    }
+
     public CoordinateSystem getCoordinateSystem() {
         return coordinateSystem;
     }
@@ -299,4 +319,11 @@ public class Global implements Serializable {
     }
 
 
+    public Measurement getMeasurement() {
+        return measurement;
+    }
+
+    public void setMeasurement(Measurement measurement) {
+        this.measurement = measurement;
+    }
 }

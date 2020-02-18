@@ -6,6 +6,8 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.Annotation;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
+import java.io.Serializable;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DigitalFilterAnnotation extends Annotation {
 
@@ -23,23 +25,23 @@ public class DigitalFilterAnnotation extends Annotation {
     @JsonProperty(value="ntia-algorithm:IIR_denominator_coefficients", required = false)
     protected Double[] iirDenominatorCoefficients;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-algorithm:frequency_cutoff", required = false)
     protected Double frequencyCutoff;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-algorithm:attenuation_cutoff", required = false)
     protected Double attenuationCutoff;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-algorithm:ripple_passband", required = false)
     protected Double ripplePassband;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-algorithm:attenuation_stopband", required = false)
     protected Double attenuationStopband;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-algorithm:frequency_stopband", required = false)
     protected Double frequencyStopband;
 

@@ -2,14 +2,9 @@ package gov.doc.ntia.sigmf.ext.annotation.algorithm;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
-
-
-import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class FrequencyDomainDetection extends DomainDetection implements Serializable {
+public class FrequencyDomainDetection extends DomainDetection  {
 
     private static final long serialVersionUID = 1L;
 
@@ -22,14 +17,20 @@ public class FrequencyDomainDetection extends DomainDetection implements Seriali
     @JsonProperty(value="ntia-algorithm:window", required = true)
     protected String window;
 
-    @JsonSerialize(using= DoubleSerializer.class)
     @JsonProperty(value = "ntia-algorithm:equivalent_noise_bandwidth", required = false)
     protected Double equivalentNoiseBandwidth;
 
-    public FrequencyDomainDetection(){
-        this.detectionDomain = "frequency";
-    }
+    @JsonProperty(value="ntia-algorithm:frequency_start", required = false)
+    protected Double frequencyStart;
 
+    @JsonProperty(value="ntia-algorithm:frequency_stop", required = false)
+    protected Double frequencyStop;
+
+    @JsonProperty(value = "ntia-algorithm:frequency_step", required = false)
+    protected Double frequencyStep;
+
+    @JsonProperty(value="ntia-algorithm:frequencies", required =false)
+    protected Double[] frequencies;
 
     public int getNumberOfFfts() {
         return numberOfFfts;
@@ -72,8 +73,38 @@ public class FrequencyDomainDetection extends DomainDetection implements Seriali
         this.equivalentNoiseBandwidth = equivalentNoiseBandwidth;
     }
 
+    public Double getFrequencyStart() {
+        return frequencyStart;
+    }
+
+    public void setFrequencyStart(Double frequencyStart) {
+        this.frequencyStart = frequencyStart;
+    }
+
+    public Double getFrequencyStop() {
+        return frequencyStop;
+    }
+
+    public void setFrequencyStop(Double frequencyStop) {
+        this.frequencyStop = frequencyStop;
+    }
+
+    public Double[] getFrequencies() {
+        return frequencies;
+    }
 
 
+    public Double getFrequencyStep() {
+        return frequencyStep;
+    }
 
+    public void setFrequencyStep(Double frequencyStep) {
+        this.frequencyStep = frequencyStep;
+    }
+
+
+    public void setFrequencies(Double[] frequencies) {
+        this.frequencies = frequencies;
+    }
 
 }

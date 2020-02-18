@@ -11,7 +11,7 @@ import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class EmitterAnnotation extends Annotation implements Serializable {
+public class EmitterAnnotation extends Annotation  {
 
     private static final long serialVersionUID = 1L;
 
@@ -22,17 +22,6 @@ public class EmitterAnnotation extends Annotation implements Serializable {
     @JsonProperty(value="ntia-emitter:waveform", required = false)
     protected Waveform waveform;
 
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="ntia-emitter:altitude", required = false)
-    protected Double altitude;
-
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="ntia-emitter:speed", required = false)
-    protected Double speed;
-
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="ntia-emitter:bearing", required = false)
-    protected Double bearing;
 
     public String getId() {
         return id;
@@ -49,32 +38,5 @@ public class EmitterAnnotation extends Annotation implements Serializable {
     public void setWaveform(Waveform waveform) {
         this.waveform = waveform;
     }
-
-    public Double getAltitude() {
-        return altitude;
-    }
-
-    public void setAltitude(Double altitude) {
-        this.altitude = altitude;
-    }
-
-    public Double getSpeed() {
-        return speed;
-    }
-
-    public void setSpeed(Double speed) {
-        this.speed = speed;
-    }
-
-    public Double getBearing() {
-        return bearing;
-    }
-
-    public void setBearing(Double bearing) {
-        this.bearing = bearing;
-    }
-
-
-
 
 }

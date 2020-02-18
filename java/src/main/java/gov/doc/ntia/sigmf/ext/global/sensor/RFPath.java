@@ -4,8 +4,6 @@ import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -16,40 +14,17 @@ public class RFPath implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="low_frequency_passband_filter", required = false)
-    protected Double lowFrequencyPassbandFilter;
+    @JsonProperty(value="name", required = false)
+    protected String name;
 
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="high_frequency_passband_filter", required = false)
-    protected Double highFrequencyPassbandFilter;
+    @JsonProperty(value = "cal_source_id", required = false)
+    protected String calSourceId;
 
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="low_frequency_stopband_filter", required = false)
-    protected Double lowFrequencyStopbandFilter;
+    @JsonProperty(value="filter_id", required = false)
+    protected String filterId;
 
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value ="high_frequency_stopband_filter", required = false)
-    protected Double highFrequencyStopbandFilter;
-
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value ="gain_lna", required = false)
-    protected Double gainLna;
-
-    @JsonSerialize(using= DoubleSerializer.class)
-    @JsonProperty(value="noise_figure_lna", required = false)
-    protected Double noiseFigureLna;
-
-    @JsonProperty(value = "type_cal_source", required = false)
-    protected String typeCalSource;
-
-    public Double getGainLna() {
-        return gainLna;
-    }
-
-    public void setGainLna(Double gainLna) {
-        this.gainLna = gainLna;
-    }
+    @JsonProperty(value="amplifier_id", required = false)
+    protected String amplifierId;
 
     public void setOtherFields(Map<String, Object> otherFields) {
         this.otherFields = otherFields;
@@ -58,52 +33,13 @@ public class RFPath implements Serializable {
 
     protected Map<String, Object> otherFields = new HashMap<>();
 
-    public Double getLowFrequencyPassbandFilter() {
-        return lowFrequencyPassbandFilter;
+
+    public String getCalSourceId() {
+        return calSourceId;
     }
 
-    public void setLowFrequencyPassbandFilter(Double lowFrequencyPassbandFilter) {
-        this.lowFrequencyPassbandFilter = lowFrequencyPassbandFilter;
-    }
-
-    public Double getHighFrequencyPassbandFilter() {
-        return highFrequencyPassbandFilter;
-    }
-
-    public void setHighFrequencyPassbandFilter(Double highFrequencyPassbandFilter) {
-        this.highFrequencyPassbandFilter = highFrequencyPassbandFilter;
-    }
-
-    public Double getLowFrequencyStopbandFilter() {
-        return lowFrequencyStopbandFilter;
-    }
-
-    public void setLowFrequencyStopbandFilter(Double getLowFrequencyStopband) {
-        this.lowFrequencyStopbandFilter = getLowFrequencyStopband;
-    }
-
-    public Double getHighFrequencyStopbandFilter() {
-        return highFrequencyStopbandFilter;
-    }
-
-    public void setHighFrequencyStopbandFilter(Double getHighFrequencyStopband) {
-        this.highFrequencyStopbandFilter = getHighFrequencyStopband;
-    }
-
-    public Double getNoiseFigureLna() {
-        return noiseFigureLna;
-    }
-
-    public void setNoiseFigureLna(Double noiseFigureLna) {
-        this.noiseFigureLna = noiseFigureLna;
-    }
-
-    public String getTypeCalSource() {
-        return typeCalSource;
-    }
-
-    public void setTypeCalSource(String typeCalSource) {
-        this.typeCalSource = typeCalSource;
+    public void setCalSourceId(String calSourceId) {
+        this.calSourceId = calSourceId;
     }
 
     @JsonAnyGetter
@@ -116,6 +52,29 @@ public class RFPath implements Serializable {
         otherFields.put(key, value);
     }
 
+    public String getFilterId() {
+        return filterId;
+    }
+
+    public void setFilterId(String filterId) {
+        this.filterId = filterId;
+    }
+
+    public String getAmplifierId() {
+        return amplifierId;
+    }
+
+    public void setAmplifierId(String ampId) {
+        this.amplifierId = ampId;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
 
 
 }

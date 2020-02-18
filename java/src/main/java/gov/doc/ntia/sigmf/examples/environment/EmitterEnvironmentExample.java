@@ -5,7 +5,8 @@ import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
 import gov.doc.ntia.sigmf.examples.ExampleUtils;
-import gov.doc.ntia.sigmf.ext.annotation.environment.EmitterEnvironment;
+import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
+import gov.doc.ntia.sigmf.ext.global.environment.Environment;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,23 +19,17 @@ public class EmitterEnvironmentExample implements Example {
         Global global = ExampleUtils.getGlobal(Calendar.getInstance().getTime());
         metaDoc.setGlobal(global);
 
-        EmitterEnvironment emitterEnvironment = new EmitterEnvironment();
-        emitterEnvironment.setEmitter_id("emitter_123");
-        emitterEnvironment.setSampleCount(1024l);
-        emitterEnvironment.setSampleCount(0l);
-        emitterEnvironment.setCategory("outdoor-urban");
+        Emitter emitter = new Emitter();
+        emitter.setId("EmitterXYZ");
+        emitter.setDescription("A fictitious emitter to demonstrate the extensions format.");
+        emitter.setPower(-60.0);
+        Environment env = new Environment();
+        env.setCategory("outdoor-urban");
+        emitter.setEnvironment(env);
+        ArrayList<Emitter> emitters = new ArrayList<>();
+        emitters.add(emitter);
+        global.setEmitters(emitters);
 
-        EmitterEnvironment emitterEnvironment2 = new EmitterEnvironment();
-        emitterEnvironment2.setEmitter_id("emitter_123");
-        emitterEnvironment2.setSampleStart(1024l);
-        emitterEnvironment2.setSampleCount(1024l);
-        emitterEnvironment2.setCategory("indoor");
-
-        List<Annotation> annotations = new ArrayList();
-        annotations.add(emitterEnvironment);
-        annotations.add(emitterEnvironment2);
-
-        metaDoc.setAnnotations(annotations);
         return metaDoc;
     }
 }

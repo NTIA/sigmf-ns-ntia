@@ -3,10 +3,14 @@ package gov.doc.ntia.sigmf.ext.global.core;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-public class HardwareSpec {
+import java.io.Serializable;
 
-    @JsonProperty(value="id", required=true)
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class HardwareSpec implements Serializable {
+
+    private static final long serialVersionUID = 1L;
+
+    @JsonProperty(value="id", required=false)
     protected String id;
 
     @JsonProperty(value="model", required = false)
@@ -19,7 +23,7 @@ public class HardwareSpec {
     protected String description;
 
     @JsonProperty(value="supplemental_information", required = false)
-    protected String supplemental_information;
+    protected String supplementalInformation;
 
 
     public String getId() {
@@ -54,12 +58,12 @@ public class HardwareSpec {
         this.description = description;
     }
 
-    public String getSupplemental_information() {
-        return supplemental_information;
+    public String getSupplementalInformation() {
+        return supplementalInformation;
     }
 
-    public void setSupplemental_information(String supplemental_information) {
-        this.supplemental_information = supplemental_information;
+    public void setSupplementalInformation(String supplementalInformation) {
+        this.supplementalInformation = supplementalInformation;
     }
 
 }

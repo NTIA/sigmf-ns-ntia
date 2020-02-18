@@ -9,7 +9,7 @@ The ntia-emitter namespace provides emitter defintion and properties.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-`emitters`|false|Array of [Emitter](#11-emitter-object)|N/A|Metadata that describe emitters
+`emitters`|false|[Emitter](#11-emitter-object)[]|N/A|Metadata that describe emitters
 
 ### 1.1 Emitter Object
 `Emitter` object has the following properties:
@@ -20,14 +20,10 @@ The ntia-emitter namespace provides emitter defintion and properties.
 |`description`|false|string|N/A|Description of the emitter.|
 |`power`|false|double|dBm|Power referenced to antenna input.|
 |`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#antenna)|N/A|Metadata that describes the antenna.|
-|`transmitter`|false|[Transmitter](#12-transmitter-object)|N/A|Metadata that describes the transmitter.|
+|`transmitter`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12hardwarespec-object)|N/A|Metadata that describes the transmitter.|
+|`location`|false|[Location](ntia-location.sigmf-ext.md#16-location-object)|N/A|Specifies the location, speed, and bearing of the `Emitter`.|
+|`environment`|false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A|Specifies the environment surrounding the `Emitter`.|
 
-### 1.2 Transmitter Object
-`Transmitter` object has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`model`|true|string|N/A|Make and model of the transmitter. E.g. `"Agilent E4438C"`|
 
 ## 2 Captures
 `ntia-emitter` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
@@ -41,12 +37,7 @@ The ntia-emitter namespace provides emitter defintion and properties.
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique id of the emitter.|
-|`waveform`|false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes transmitted waveform.
-|`latitude`|false|double|decimal degrees|Latitude.|
-|`longitude`|false|double|decimal degrees|Longitude.|
-|`altitude`|false|double|meters|Height above mean sea level.|
-|`speed`|false|double|m/s|Speed.|
-|`bearing`|false|double|degrees|Direction (angle relative to true North).|
+|`waveform`|false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes transmitted waveform.|
 
 ## 4 Example
 
@@ -97,35 +88,4 @@ The ntia-emitter namespace provides emitter defintion and properties.
 }
 ```
 
-### 4.3 EmitterAnnotation Example
-```json
-{
-  "global": {
-    ...
-  },
-  "captures": [
-    ...
-  ],
-  "annotations": [
-    {
-      "ntia-core:annotation_type": "EmitterAnnotation",
-      "core:sample_start": 0,
-      "core:sample_count": 1024,
-      "core:latitude": 40.5,
-      "core:longitude": -105.7,
-      "ntia-emitter:id": "emitter_1"
-    },
-    {
-      "ntia-core:annotation_type": "EmitterAnnotation",
-      "core:sample_start": 1024,
-      "core:sample_count": 1024,
-      "core:latitude": 41.5,
-      "core:longitude": -105.3,
-      "ntia-emitter:id": "emitter_1"
-    }
-  ]
-}
-
-}
-```
 

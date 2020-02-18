@@ -6,18 +6,22 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.Annotation;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
+import java.io.Serializable;
+
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class AntennaAnnotation extends Annotation {
+public class AntennaAnnotation extends Annotation  {
 
-    @JsonProperty(value="ntia-core:antenna_id", required = true)
+    private static final long serialVersionUID = 1L;
+
+    @JsonProperty(value="ntia-core:antenna_id", required = false)
     protected String id;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-core:azimuth_angle", required = false)
     protected Double azimuthAngle;
 
-    @JsonSerialize(using= DoubleSerializer.class)
+
     @JsonProperty(value="ntia-core:elevation_angle", required = false)
     protected Double elevationAngle;
 

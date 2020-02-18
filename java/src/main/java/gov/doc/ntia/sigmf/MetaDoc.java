@@ -1,18 +1,24 @@
 package gov.doc.ntia.sigmf;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.annotation.Id;
+import org.apache.commons.io.IOUtils;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.Serializable;
+
+
+import java.io.*;
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MetaDoc implements Serializable {
+
 
     private static final long serialVersionUID = 1L;
 
@@ -24,6 +30,8 @@ public class MetaDoc implements Serializable {
     protected List<Capture> captures;
 
     protected List<Annotation> annotations;
+
+    private static final Logger log = LoggerFactory.getLogger(MetaDoc.class);
 
     public MetaDoc(){
         global = new Global();
@@ -38,6 +46,7 @@ public class MetaDoc implements Serializable {
     public void setId(String id) {
         this.id = id;
     }
+
     public List<Capture> getCaptures() {
         return captures;
     }
@@ -66,6 +75,7 @@ public class MetaDoc implements Serializable {
     public void saveToFile(String filename){
 
         ObjectMapper mapper = new ObjectMapper();
+        mapper.enable(SerializationFeature.INDENT_OUTPUT);
          try {
              mapper.writeValue(new File(filename),this);
          } catch (IOException e) {
@@ -78,6 +88,23 @@ public class MetaDoc implements Serializable {
     public void addAnnotation(Annotation annotation){
         annotations.add(annotation);
     }
+
+    public void addCapture(Capture capture){
+        captures.add(capture);
+    }
+
+
+    @JsonIgnore
+    public Acquisition getAcquisition() throws IOException {
+        Acquisition acquisition = new Acquisition();
+        acquisition.setMetaDoc(this);
+        log.debug("reading datafile:" + global.getDataFilePath());
+        BufferedInputStream inputStream = new BufferedInputStream(new FileInputStream(global.getDataFilePath()));
+        byte[] sensedData = IOUtils.toByteArray(inputStream);
+        acquisition.setData(ByteBuffer.wrap(sensedData));
+        return acquisition;
+    }
+
 
 
 

@@ -18,15 +18,14 @@ public class Preselector implements Serializable {
     @JsonProperty(value="preselector_spec", required =  false)
     protected HardwareSpec preselectorSpec;
 
-    @JsonProperty(value="cal_source_spec", required = false)
-    protected HardwareSpec calSourceSpec;
+    @JsonProperty(value="cal_sources", required = false)
+    protected CalSource[] calSources;
 
-    @JsonProperty(value="lna_spec", required = false)
-    protected HardwareSpec lnaSpec;
+    @JsonProperty(value="filters", required = false)
+    protected Filter[] filters;
 
-    @JsonProperty(value="filter_spec", required = false)
-    protected HardwareSpec[] filterSpec;
-
+    @JsonProperty(value="amplifiers", required = false)
+    protected  Amplifier[] amplifiers;
 
     @JsonProperty(value="rf_paths", required = false)
     protected RFPath[] rfPaths;
@@ -39,28 +38,27 @@ public class Preselector implements Serializable {
         this.preselectorSpec = preselectorSpec;
     }
 
-    public HardwareSpec getCalSourceSpec() {
-        return calSourceSpec;
+    public CalSource[] getCalSources() {
+        return calSources;
     }
 
-    public void setCalSourceSpec(HardwareSpec calSourceSpec) {
-        this.calSourceSpec = calSourceSpec;
+    public void setCalSources(CalSource[] calSources) {
+        this.calSources = calSources;
     }
 
-    public HardwareSpec getLnaSpec() {
-        return lnaSpec;
+    public void setFilters(Filter[] filters) {
+        this.filters = filters;
+    }
+    public Filter[] getFilters() {
+        return filters;
     }
 
-    public void setLnaSpec(HardwareSpec lnaSpec) {
-        this.lnaSpec = lnaSpec;
+    public Amplifier[] getAmplifiers() {
+        return amplifiers;
     }
 
-    public HardwareSpec[] getFilterSpec() {
-        return filterSpec;
-    }
-
-    public void setFilterSpec(HardwareSpec[] filterSpec) {
-        this.filterSpec = filterSpec;
+    public void setAmplifiers(Amplifier[] amplifiers) {
+        this.amplifiers = amplifiers;
     }
 
     public void setOtherFields(Map<String, Object> otherFields) {

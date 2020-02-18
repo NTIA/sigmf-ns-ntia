@@ -12,55 +12,16 @@ public class Action implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="name", required = false)
+    @JsonProperty(value="name", required = true)
     protected String name;
 
     @JsonProperty(value="description", required =  false)
     protected  String description;
 
-    @JsonProperty(value="type", required = true)
-    protected String[] type;
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
-
-    @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
-    @JsonProperty(value="end_time", required =  false)
-    protected Date endTime;
-
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-
-    @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSSSSX")
-    @JsonProperty(value="start_time", required = false)
-    protected Date startTime;
-
-
-    @JsonProperty(value="model", required =  false)
-    protected String model;
+    @JsonProperty(value="summary", required =false)
+    protected String summary;
 
     protected Map<String, Object> otherFields = new HashMap<>();
-
-    public String[] getType() {
-        return type;
-    }
-
-    public void setType(String[] type) {
-        this.type = type;
-    }
 
     public String getName() {
         return name;
@@ -88,4 +49,11 @@ public class Action implements Serializable {
         otherFields.put(key, value);
     }
 
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary;
+    }
 }

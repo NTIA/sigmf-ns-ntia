@@ -7,15 +7,12 @@ import gov.doc.ntia.sigmf.Annotation;
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DomainDetection extends Annotation implements Serializable {
+public class DomainDetection extends Annotation  {
 
     private static final long serialVersionUID = 1L;
 
     @JsonProperty(value="ntia-algorithm:detector", required =  true)
     protected String detector;
-
-    @JsonProperty(value ="ntia-algorithm:detection_domain", required = true)
-    protected String detectionDomain;
 
     @JsonProperty(value="ntia-algorithm:units", required = true)
     protected String units;
@@ -23,20 +20,13 @@ public class DomainDetection extends Annotation implements Serializable {
     @JsonProperty(value="ntia-algorithm:reference", required = false)
     protected String reference;
 
+
     public String getDetector() {
         return detector;
     }
 
     public void setDetector(String detector) {
         this.detector = detector;
-    }
-
-    public String getDetectionDomain() {
-        return detectionDomain;
-    }
-
-    public void setDetectionDomain(String detectionDomain) {
-        this.detectionDomain = detectionDomain;
     }
 
     public String getUnits() {
@@ -54,6 +44,5 @@ public class DomainDetection extends Annotation implements Serializable {
     public void setReference(String reference) {
         this.reference = reference;
     }
-
 
 }

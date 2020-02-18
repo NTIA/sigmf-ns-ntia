@@ -8,24 +8,61 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`action`|true|[Action](#11-action-object)|N/A|Metadata that describes a sensor action.|
-|`schedule`|false| [ScheduleEntry](#12-scheduleentry-object)|N/A|Metadata that describes the schedule that caused an action to be performed.|
-|`task_id`|true|integer|N/A|Unique identifier that increments with each task performed as a result of a `schedule_entry`.|
+|`schedule`|true| [ScheduleEntry](#11-scheduleentry-object)|N/A|Metadata that describes the schedule that caused an action to be performed.|
+|`action`|true|[Action](#12-action-object)|N/A|Metadata that describes the action that was performed.|
+|`task`|true|integer|N/A|Unique identifier that increments with each task performed as a result of a `schedule_entry`.|
+|`recording`|false|integer|N/A|Unique identifier that increments with each recording performed in a task. The recording should be indicated for tasks that perform multiple recordings. |
 
-### 1.1 Action Object
+
+
+### 1.1 ScheduleEntry Object
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`id`|true|string|N/A|Unique identifier for the `ScheduleEntry`|
+|`name`|true|string|N/A|User specified name of the schedule.|
+|`start`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Requested time to schedule the first task.|
+|`stop`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Requested time to end execution of tasks under the schedule.|
+|`interval`|false|integer|Seconds|Seconds between tasks. If unspecified, the task will execute once and the schedule will become inactive|
+|`priority`|false|integer|N.A|The priority of the schedule. Lower numbers indicate higher priority.|
+
+
+
+### 1.2 Action Object
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`name`|true|string|N/A|Name of the action assigned to the schedule entry. MUST be unique on the sensor.|
-|`description`|false|string|N/A|A description of what the action does.|
-|`type`|true|string array|N/A|The type(s) of measurements the action produces.|
-
-[TODO] Capture Control Plane from Greyhound. Figure out `name` v. `id` (primary key choice).
+|`description`|false|string|N/A|A detailed description of what the action does.|
+|`summary`|false|string|N/A|A short summary of what the action does.|
 
 ## 2 Captures
 `ntia-scos` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
-`ntia-scos` does not provide additional segments to [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
+`ntia-scos` does not provide extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
 
 ## 4 Example
-[TODO] Provide and example of `ntia-scos`
+```json
+{
+  "global" : {
+    ...
+    "core:extensions" : {
+      "ntia-scos" : "v1.0.0"
+    },
+    "ntia-scos:action" : {
+      "name" : "acquire_m4s_700MHz_Verizon_UL",
+      "summary" : "Apply m4s detector over 300 1024-pt FFTs at 782 MHz."
+    },
+    "ntia-scos:schedule" : {
+      "id" : "m4_123",
+      "name" : "M4 every Second",
+      "stop" : "2020-02-03T15:35Z",
+      "interval" : 1,
+      "start" : "2020-01-27T15:35:45.000610Z"
+    },
+    "ntia-scos:task":1 
+    ...
+  },
+  "captures" : [... ],
+  "annotations" : [ ...]
+}
+```
