@@ -70,7 +70,6 @@ Utilizing the Java library from within Matlab mostly requires you to create inst
   detection = gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection();
   setDetector(detection, "fft_mean_power");
   setNumberOfFfts(detection, 1024);
-  setDetectionDomain(detection, "frequency");
   setNumberOfSamplesInFft(detection, 1024);
   setWindow(detection, "blackman-harris");
   setSampleStart(detection, java.lang.Long(0));
