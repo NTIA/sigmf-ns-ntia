@@ -31,7 +31,6 @@ The `ntia-environment` extension provides SigMF metadata extensions to character
 
 ```json
 {
-  "id": "5e4575446524c8e43c6e1680",
   "global": {
     "core:datatype": "cf32_le",
     "core:sample_rate": 1.5360000011967678E7,
@@ -45,24 +44,20 @@ The `ntia-environment` extension provides SigMF metadata extensions to character
     "ntia-sensor:sensor": {
       "id": "greyhound8.sms.internal",
       "sensor_spec": {
-        "id": "",
         "model": "greyhound"
       },
       "antenna": {
         "antenna_spec": {
-          "id": "",
           "model": "L-com HG3512UP-NF"
         }
       },
       "signal_analyzer": {
         "sigan_spec": {
-          "id": "",
           "model": "Ettus USRP B210"
         },
         "a2d_bits": 0
       },
       "computer_spec": {
-        "id": "",
         "model": "Intel NUC"
       },
       "location": {
