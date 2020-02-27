@@ -108,7 +108,6 @@ Now, if we open the file we will see the following:
       "core:sample_start": 0,
       "core:sample_count": 1024,
       "ntia-algorithm:detector": "fft_mean_power",
-      "ntia-algorithm:detection_domain": "frequency",
       "ntia-algorithm:number_of_ffts": 1024,
       "ntia-algorithm:number_of_samples_in_fft": 1024,
       "ntia-algorithm:window": "blackman-harris"
