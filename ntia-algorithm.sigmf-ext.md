@@ -16,9 +16,9 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`, `"IIR"`|
-|`FIR_coefficients`|false|double[]|N/A|Coefficients that defines FIR filter.|
-|`IIR_numerator_coefficients`|false|double[]|N/A|Coefficients that defines IIR filter.|
-|`IIR_denominator_coefficients`|false|double[]|N/A|Coefficients that defines IIR filter.|
+|`FIR_coefficients`|false|double[]|N/A|Coefficients that define FIR filter.|
+|`IIR_numerator_coefficients`|false|double[]|N/A|Coefficients that define IIR filter.|
+|`IIR_denominator_coefficients`|false|double[]|N/A|Coefficients that define IIR filter.|
 |`attenuation_cutoff`|false|double|dB|Attenuation that specifies the `cutoff_frequency` (typically 3 dB).|
 |`frequency_cutoff`|false|double|Hz|Frequency that characterizes boundary between passband and stopband.|
 |`ripple_passband`|false|double|dB|Ripple in passband.|
@@ -68,9 +68,9 @@ The `FrequencyDomainDetection` has the following properties:
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`, `"IIR"`|
-|`FIR_coefficients`|false|double[]|N/A|Coefficients that defines FIR filter.|
-|`IIR_numerator_coefficients`|false|double[]|N/A|Coefficients that defines FIR filter.|
-|`IIR_denominator_coefficients`|false|double[]|N/A|Coefficients that defines FIR filter.|
+|`FIR_coefficients`|false|double[]|N/A|Coefficients that define FIR filter.|
+|`IIR_numerator_coefficients`|false|double[]|N/A|Coefficients that define FIR filter.|
+|`IIR_denominator_coefficients`|false|double[]|N/A|Coefficients that define FIR filter.|
 |`attenuation_cutoff`|false|double|dB|Attenuation that specifies the `frequency_cutoff` (typically 3 dB).|
 |`frequency_cutoff`|false|double|Hz|Frequency that characterizes boundary between passband and stopband.|
 |`ripple_passband`|false|double|dB|Ripple in passband.|
