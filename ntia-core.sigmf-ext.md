@@ -52,7 +52,7 @@ The Measurement object summarizes the basic measurement information including  w
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|false|string|N/A|Unique id of hardware. E.g., serial number.|
+|`id`|false|string|N/A|Unique ID of hardware. E.g., serial number.|
 |`model`|false|string|N/A|Hardware make and model.|
 |`version`|false|string|N/A|Hardware version.|
 |`description`|false|string|N/A|Description of the hardware.|
