@@ -43,4 +43,4 @@ IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wire
 `ntia-waveform` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array)..
 
 ## 4 Example
-[TODO] Provide and example of `ntia-waveform`
+[TODO] Provide an example of `ntia-waveform`
