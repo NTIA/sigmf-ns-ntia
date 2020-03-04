@@ -15,7 +15,7 @@ The `ntia-environment` extension provides SigMF metadata extensions to character
 |`temperature`|false|float|celsius|Environmental temperature.|
 |`humidity`|false|float|%|Relative humidity.|
 |`weather`|false|string|N/A|Weather around the sensor. E.g. `"rain"`, `"snow"`.)|
-|`description`|false|string|N/A|A description of the environment|
+|`description`|false|string|N/A|A description of the environment.|
 
 
 ## 2 Captures
