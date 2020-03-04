@@ -399,8 +399,8 @@ The `FrequencyDomainDetection` has the following properties:
     "ntia-sensor:sensor" : {
       "id" : "192.168.1.53",
       "sensor_spec" : {
-        "id" : "BH-5",
-        "model" : "Basset hound",
+        "id" : "bh-5",
+        "model" : "bassethound",
         "version" : "v1.0.0",
         "description" : ""
       },
@@ -501,9 +501,9 @@ The `FrequencyDomainDetection` has the following properties:
       "measurement_type" : "Scan",
       "time_start" : "2018-01-01T07:59:42.792Z",
       "time_stop" : "2018-01-01T08:00:37.792Z",
-      "frequency_tuned_low" : 3.45021875E9,
-      "frequency_tuned_high" : 3.65015625E9,
-      "frequency_tuned_step" : 2.1875E7
+      "frequency_tuned_low" : 3.45940625E9,
+      "frequency_tuned_high" : 3.65190625E9,
+      "frequency_tuned_step" : 1.925E7
     }
   },
   "captures" : [ {
