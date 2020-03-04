@@ -4,14 +4,11 @@ import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.environment.Environment;
 import gov.doc.ntia.sigmf.ext.global.location.Location;
 import gov.doc.ntia.sigmf.ext.global.waveform.Waveform;
-import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
-
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -35,6 +32,9 @@ public class Emitter implements Serializable  {
 
     @JsonProperty(value="transmitter", required = false)
     protected HardwareSpec transmitter;
+
+    @JsonProperty(value="center_frequency", required = false)
+    protected Double centerFrequency;
 
     @JsonProperty(value="waveform", required = false)
     protected Waveform waveform;
@@ -89,6 +89,14 @@ public class Emitter implements Serializable  {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Double getCenterFrequency() {
+        return centerFrequency;
+    }
+
+    public void setCenterFrequency(Double centerFrequency) {
+        this.centerFrequency = centerFrequency;
     }
 
     public Waveform getWaveform() {

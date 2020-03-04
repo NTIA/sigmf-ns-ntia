@@ -12,6 +12,7 @@ The waveform object has the following properties:
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`model`|true|string|N/A|The type of the waveform E.g. `"IEEE80211p"`.|
+|`description`|false|string|N/A|Description of the waveform.|
 
 
 ### 1.3 IEEE80211p Object
