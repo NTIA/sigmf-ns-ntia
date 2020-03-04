@@ -8,14 +8,14 @@ The ntia-location namespace provides metadata to describe a coordinate system an
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`coordinate_system`|false| [CoordinateSystem](#11-coordinatesystem-object) |N/A|Unique id for coordinate system.|
+|`coordinate_system`|false| [CoordinateSystem](#11-coordinatesystem-object) |N/A|Unique ID for coordinate system.|
 
 ### 1.1 CoordinateSystem Object
 The base CoordinateSystem object used to describe the coordinate system. 
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique id for the coordinate system.|
+|`id`|true|string|N/A|Unique ID for the coordinate system.|
 |`description`|false|string|N/A|Description of the coordinate system.|
 |`coordinate_system_type`|true|string|N/A|Type of the coordinate system: CoordinateSystem, GeographicCoordinateSystem, or ProjectedCoordinateSystem|
 |`distance_unit`|true|string|N/A|Unit of horizontal distance for coordinate system. E.g. Meters, feet, decimal degrees, DMS, city blocks.|
@@ -62,7 +62,7 @@ A GeographicCoordinateSystem extends CoordinateSystem and adds the following pro
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|false|string|N/A|Unique id for the spheroid, the [ESPG](http://www.epsg.org/) number is RECOMMENDED.|
+|`id`|false|string|N/A|Unique ID for the spheroid, the [ESPG](http://www.epsg.org/) number is RECOMMENDED.|
 |`description`|false|string|N/A|Description of the spheroid. Eg. Clarke 1866, WGS84|
 |`semiminor`|false|double|N/A|Semiminor axis radii of spheroid.|
 |`semimajor`|false|double|N/A|Semimajor axis radii of spheroid.|
