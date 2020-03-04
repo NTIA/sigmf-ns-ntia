@@ -13,7 +13,7 @@ The ntia-sensor namespace provides metadata to describe RF sensors.
 
 
 ### 1.1 Sensor Object
-Sensor definition follows a simplified hardware model composed of the following elements: Antenna, Preselector, Signal Analyzer, and Host Controller. The antenna converts electromagnetic energy to a voltage. The preselector can provide local calibration signals, RF filtering to protect from strong out-of-band signals, and low-noise amplification to improve sensitivity. The signal analyzer (e.g., software defined radio) provides tuning, down conversion, sampling, and digital signal processing. Sensor implementations are not required to have each component, but metadata SHOULD specify the presence, model numbers, and operational parameters associated with each.
+Sensor definition follows a simplified hardware model composed of the following elements: antenna, preselector, signal analyzer, and computer. The antenna converts electromagnetic energy to a voltage. The preselector can provide local calibration signals, RF filtering to protect from strong out-of-band signals, and low-noise amplification to improve sensitivity. The signal analyzer (e.g., software defined radio) provides tuning, down conversion, sampling, and digital signal processing. Sensor implementations are not required to have each component, but metadata SHOULD specify the presence, model numbers, and operational parameters associated with each.
 
 `Sensor` has the following properties:
 
@@ -153,8 +153,8 @@ Sensor definition follows a simplified hardware model composed of the following 
     "ntia-sensor:sensor" : {
       "id" : "192.168.1.53",
       "sensor_spec" : {
-        "id" : "BH-5",
-        "model" : "Basset hound",
+        "id" : "bh-5",
+        "model" : "bassethound",
         "version" : "v1.0.0",
         "description" : ""
       },
@@ -255,9 +255,9 @@ Sensor definition follows a simplified hardware model composed of the following 
       "measurement_type" : "Scan",
       "time_start" : "2018-01-01T07:59:42.792Z",
       "time_stop" : "2018-01-01T08:00:37.792Z",
-      "frequency_tuned_low" : 3.45021875E9,
-      "frequency_tuned_high" : 3.65015625E9,
-      "frequency_tuned_step" : 2.1875E7
+      "frequency_tuned_low" : 3.45940625E9,
+      "frequency_tuned_high" : 3.65190625E9,
+      "frequency_tuned_step" : 1.925E7
     }
   },
   "captures" : [ {
