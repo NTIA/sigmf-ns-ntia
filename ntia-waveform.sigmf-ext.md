@@ -6,7 +6,7 @@ The `ntia-waveform` namespace provides models and parameters for textbook and st
 ## 1 Global
 `ntia-waveform` does not directly extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). `ntia-waveform` defines a waveform object and additional extensions of the waveform object.  The waveform objects may be utilized within the `emitter` object provided by [ntia-emitter](ntia-emitter.sigmf-ext.md).
 
-### 1.2 Waveform Object
+### 1.1 Waveform Object
 The waveform object has the following properties:
 
 |name|required|type|unit|description|
@@ -14,7 +14,7 @@ The waveform object has the following properties:
 |`model`|true|string|N/A|The type of the waveform E.g. `"IEEE80211p"`.|
 
 
-### 1.3 IEEE80211p Object
+### 1.2 IEEE80211p Object
 IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wireless access in vehicular environments (WAVE), a vehicular communication system. It defines enhancements to 802.11 (the basis of products marketed as Wi-Fi) required to support Intelligent Transportation Systems (ITS) applications. This includes data exchange between high-speed vehicles and between the vehicles and the roadside infrastructure, so called V2X communication, in the licensed ITS band of 5.9 GHz (5.85-5.925 GHz). 
 
 `IEEE80211p` extends Waveform with the following additional properties:
