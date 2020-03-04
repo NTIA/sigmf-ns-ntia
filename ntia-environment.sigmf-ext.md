@@ -27,57 +27,59 @@ The `ntia-environment` extension provides SigMF metadata extensions to character
 
 ## 4 Example
 
-### 4.1 SensorEnvironment Example
+### 4.1 Environment Example
 
 ```json
 {
   "global": {
-   ...
+    "core:datatype": "cf32_le",
+    "core:sample_rate": 1.5360000011967678E7,
+    "core:version": "0.0.2",
+    "core:sha512": "5b522660c1406db41a7c05c564b902fa658de8755eaf77a35fea635ff97fd1293fe9e8b799c7ffca70d22cff8fa97cef0633ef29a08bdbc1b629165db72f81e3",
+     "core:extensions" : {
+      "ntia-algorithm" : "v1.0.0",
+      "ntia-sensor" : "v1.0.0",
+      "ntia-location" : "v1.0.0"
+    },
+    "ntia-sensor:sensor": {
+      "id": "greyhound8.sms.internal",
+      "sensor_spec": {
+        "id": "",
+        "model": "greyhound"
+      },
+      "antenna": {
+        "antenna_spec": {
+          "model": "L-com HG3512UP-NF"
+        }
+      },
+      "signal_analyzer": {
+        "sigan_spec": {
+          "id": "",
+          "model": "Ettus USRP B210"
+        },
+        "a2d_bits": 0
+      },
+      "computer_spec": {
+        "id": "",
+        "model": "Intel NUC"
+      },
+      "location": {
+        "x": -105.2715,
+        "y": 40.0067
+      },
+      "environment":{
+        "category": "outside",
+        "description": "Mounted on a pole on top of the Fleming building at CU Boulder."
+      }
+    }
   },
   "captures": [
     ...
   ],
   "annotations": [
-    {
-      "ntia-core:annotation_type": "SensorEnvironment",
-      "core:sample_start": 0,
-      "core:sample_count": 1024,
-      "ntia-environment:category": "indoor"
-    },
-    {
-      "ntia-core:annotation_type": "SensorEnvironment",
-      "core:sample_start": 1024,
-      "core:sample_count": 1024,
-      "ntia-environment:category": "outdoor"
-    }
-  ]
-}
-```
-
-### 4.1 EmitterEnvironment Example
-
-```json
-
-  "global": {
-	...
-  },
-  "captures": [
     ...
-  ],
-  "annotations": [
-    {
-      "ntia-core:annotation_type": "EmitterEnvironment",
-      "core:sample_count": 0,
-      "ntia-environment:category": "outdoor-urban",
-      "ntia-environment:emitter_id": "emitter_123"
-    },
-    {
-      "ntia-core:annotation_type": "EmitterEnvironment",
-      "core:sample_start": 1024,
-      "core:sample_count": 1024,
-      "ntia-environment:category": "indoor",
-      "ntia-environment:emitter_id": "emitter_123"
-    }
   ]
 }
 ```
+
+
