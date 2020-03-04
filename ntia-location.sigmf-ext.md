@@ -53,7 +53,7 @@ A GeographicCoordinateSystem extends CoordinateSystem and adds the following pro
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|false|string|N/A|Unique id for datum, the [ESPG](http://www.epsg.org/) number is RECOMMENDED.|
+|`id`|false|string|N/A|Unique ID for datum, the [ESPG](http://www.epsg.org/) number is RECOMMENDED.|
 |`description`|false|string|N/A|Description of datum.|
 |`spheroid`|false|[Spheroid](#15-spheroid-object)|N/A|Underlying sphere or spheroid of datum.|
 
