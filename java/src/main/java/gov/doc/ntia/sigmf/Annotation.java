@@ -5,7 +5,6 @@ import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.TimeDomainDetection;
 import gov.doc.ntia.sigmf.ext.annotation.core.AntennaAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
-import gov.doc.ntia.sigmf.ext.annotation.emitter.EmitterAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 
 import java.io.Serializable;
@@ -21,7 +20,6 @@ import java.util.Map;
         @JsonSubTypes.Type(value = AntennaAnnotation.class, name ="AntennaAnnotation"),
         @JsonSubTypes.Type(value = FrequencyDomainDetection.class, name ="FrequencyDomainDetection"),
         @JsonSubTypes.Type(value = TimeDomainDetection.class, name = "TimeDomainDetection"),
-        @JsonSubTypes.Type(value = EmitterAnnotation.class, name = "EmitterAnnotation"),
         @JsonSubTypes.Type(value = CalibrationAnnotation.class, name = "CalibrationAnnotation"),
         @JsonSubTypes.Type(value = SensorAnnotation.class, name ="SensorAnnotation")
 })

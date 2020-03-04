@@ -9,6 +9,7 @@ import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.environment.Environment;
 import gov.doc.ntia.sigmf.ext.global.location.Location;
+import gov.doc.ntia.sigmf.ext.global.waveform.Waveform;
 import gov.doc.ntia.sigmf.serialization.DoubleSerializer;
 
 import java.io.Serializable;
@@ -26,7 +27,6 @@ public class Emitter implements Serializable  {
     @JsonProperty(value="description", required = false)
     protected String description;
 
-
     @JsonProperty(value="power", required = false)
     protected Double power;
 
@@ -35,6 +35,9 @@ public class Emitter implements Serializable  {
 
     @JsonProperty(value="transmitter", required = false)
     protected HardwareSpec transmitter;
+
+    @JsonProperty(value="waveform", required = false)
+    protected Waveform waveform;
 
     @JsonProperty(value="location", required = false)
     protected Location location;
@@ -86,6 +89,14 @@ public class Emitter implements Serializable  {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Waveform getWaveform() {
+        return waveform;
+    }
+
+    public void setWaveform(Waveform waveform) {
+        this.waveform = waveform;
     }
 
     public Location getLocation() {
