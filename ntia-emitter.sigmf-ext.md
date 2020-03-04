@@ -21,6 +21,7 @@ The ntia-emitter namespace provides emitter defintion and properties.
 |`power`|false|double|dBm|Power referenced to antenna input.|
 |`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#antenna)|N/A|Metadata that describes the antenna.|
 |`transmitter`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12hardwarespec-object)|N/A|Metadata that describes the transmitter.|
+|`waveform`|false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes transmitted waveform.|
 |`location`|false|[Location](ntia-location.sigmf-ext.md#16-location-object)|N/A|Specifies the location, speed, and bearing of the `Emitter`.|
 |`environment`|false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A|Specifies the environment surrounding the `Emitter`.|
 
@@ -29,15 +30,8 @@ The ntia-emitter namespace provides emitter defintion and properties.
 `ntia-emitter` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
-`ntia-emitter` defines the following segments that extend `ntia-core`.
+`ntia-emitter` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
 
-### 3.1 EmitterAnnotation Segment
-`EmitterAnnotation` has the following properties:  
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique ID of the emitter.|
-|`waveform`|false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes transmitted waveform.|
 
 ## 4 Example
 
