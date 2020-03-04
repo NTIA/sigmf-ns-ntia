@@ -18,7 +18,7 @@ The Measurement object summarizes the basic measurement information including  w
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`domain`|true|string|N/A| `"time"` or  `"frequency"`|
-|`measurement_type`|true|string|N/A|Method that signal analyzer acquires data: `"single-frequency"`or `"scan"`.|
+|`measurement_type`|true|string|N/A|Method by which the signal analyzer acquires data: `"single-frequency"`or `"scan"`.|
 |`time_start`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  began execution.|
 |`time_stop`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  finished execution.|
 |`frequency_tuned_low`|true|double|Hz|Lowest tuned frequency.|
@@ -41,18 +41,18 @@ The Measurement object summarizes the basic measurement information including  w
 |`gain`|false|double|dBi|Antenna gain in direction of maximum radiation or reception.|
 |`horizontal_gain_pattern`|false|double[]|dBi|Antenna gain pattern in horizontal plane from 0 to 359 degrees in 1 degree steps.|
 |`vertical_gain_pattern`|false|double[]|dBi|Antenna gain pattern in vertical plane from -90 to +90 degrees in 1 degree steps.|
-|`horizontal_beam_width`|false|double|degrees|Horizontal 3-dB beamwidth.|
-|`vertical_beam_width`|false|double|degrees|Vertical 3-dB beamwidth.|
+|`horizontal_beam_width`|false|double|degrees|Horizontal 3 dB beamwidth.|
+|`vertical_beam_width`|false|double|degrees|Vertical 3 dB beamwidth.|
 |`voltage_standing_wave_ratio`|false|double|volts|Voltage standing wave ratio.|
 |`cable_loss`|false|double|dB|Cable loss for cable connecting antenna and preselector.|
-|`steerable`|false|boolean|N/A|Defines if the antenna is steerable. If steerable, then `azimuth_angle` and `elevation_angle` are specified in annotation segment.|
+|`steerable`|false|boolean|N/A|Defines whether the antenna is steerable. If steerable, then `azimuth_angle` and `elevation_angle` are specified in annotation segment.|
 
 ## 1.2 HardwareSpec Object
 `HardwareSpec` object has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|false|string|N/A|Unique id of hardware. E.g., serial number.|
+|`id`|false|string|N/A|Unique ID of hardware. E.g., serial number.|
 |`model`|false|string|N/A|Hardware make and model.|
 |`version`|false|string|N/A|Hardware version.|
 |`description`|false|string|N/A|Description of the hardware.|
@@ -75,7 +75,7 @@ The following segments are of general use across the set of NTIA extensions.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|false|string|N/A|Unique id of an antenna defined in global. The id SHOULD be included if there are multiple antennas defined in the global object.|
+|`id`|false|string|N/A|Unique ID of an antenna defined in global. The ID SHOULD be included if there are multiple antennas defined in the global object.|
 |`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
@@ -123,8 +123,8 @@ The following segments are of general use across the set of NTIA extensions.
     "ntia-sensor:sensor" : {
       "id" : "192.168.1.53",
       "sensor_spec" : {
-        "id" : "BH-5",
-        "model" : "Basset hound",
+        "id" : "bh-5",
+        "model" : "bassethound",
         "version" : "v1.0.0",
         "description" : ""
       },
@@ -225,9 +225,9 @@ The following segments are of general use across the set of NTIA extensions.
       "measurement_type" : "Scan",
       "time_start" : "2018-01-01T07:59:42.792Z",
       "time_stop" : "2018-01-01T08:00:37.792Z",
-      "frequency_tuned_low" : 3.45021875E9,
-      "frequency_tuned_high" : 3.65015625E9,
-      "frequency_tuned_step" : 2.1875E7
+      "frequency_tuned_low" : 3.45940625E9,
+      "frequency_tuned_high" : 3.65190625E9,
+      "frequency_tuned_step" : 1.925E7
     }
   },
   "captures" : [ {
