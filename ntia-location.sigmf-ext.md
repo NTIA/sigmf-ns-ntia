@@ -46,7 +46,7 @@ A GeographicCoordinateSystem extends CoordinateSystem and adds the following pro
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------| 
-|`datum`|false|[Datum](#14-datum-object)|N/A|Datum of sphereoid or sphere. E.g. NAD27, NAD83, WGS84 |
+|`datum`|false|[Datum](#14-datum-object)|N/A|Datum of spheroid or sphere. E.g. NAD27, NAD83, WGS84 |
 
 ### 1.4 Datum Object
 `Datum` has the following properties:
