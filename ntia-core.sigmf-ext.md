@@ -68,7 +68,7 @@ The Measurement object summarizes the basic measurement information including  w
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`annotation_type`|true|string|N/A|Annotation type, e.g. [`"CalibrationAnnotation"`](ntia-sensor.sigmf-ext.md#31-calibrationannotation-segment), [`"DigitalFilterAnnotation"`](ntia-algorithm.sigmf-ext.md#33-digitalfilterannotation-segment), [`"FrequencyDomainDetection"`](ntia-algorithm.sigmf-ext.md#32-frequencydomaindetection-segment), [`"SensorAnnotation"`](ntia-sensor.sigmf-ext.md#31-sensorannotation-segment), [`"TimeDomainDetection"`](ntia-algorithm.sigmf-ext.md#31-timedomaindetection-segment)|
+|`annotation_type`|true|string|N/A|Annotation type, e.g. [`"CalibrationAnnotation"`](ntia-sensor.sigmf-ext.md#32-calibrationannotation-segment), [`"DigitalFilterAnnotation"`](ntia-algorithm.sigmf-ext.md#33-digitalfilterannotation-segment), [`"FrequencyDomainDetection"`](ntia-algorithm.sigmf-ext.md#32-frequencydomaindetection-segment), [`"SensorAnnotation"`](ntia-sensor.sigmf-ext.md#31-sensorannotation-segment), [`"TimeDomainDetection"`](ntia-algorithm.sigmf-ext.md#31-timedomaindetection-segment)|
 
 
 ## 4 Examples
