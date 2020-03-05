@@ -6,15 +6,16 @@ The `ntia-waveform` namespace provides models and parameters for textbook and st
 ## 1 Global
 `ntia-waveform` does not directly extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). `ntia-waveform` defines a waveform object and additional extensions of the waveform object.  The waveform objects may be utilized within the `emitter` object provided by [ntia-emitter](ntia-emitter.sigmf-ext.md).
 
-### 3.2 Waveform Object
+### 1.1 Waveform Object
 The waveform object has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`model`|true|string|N/A|The type of the waveform E.g. `"IEEE80211p"`.|
+|`description`|false|string|N/A|Description of the waveform.|
 
 
-### 3.2 IEEE80211p Object
+### 1.2 IEEE80211p Object
 IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wireless access in vehicular environments (WAVE), a vehicular communication system. It defines enhancements to 802.11 (the basis of products marketed as Wi-Fi) required to support Intelligent Transportation Systems (ITS) applications. This includes data exchange between high-speed vehicles and between the vehicles and the roadside infrastructure, so called V2X communication, in the licensed ITS band of 5.9 GHz (5.85-5.925 GHz). 
 
 `IEEE80211p` extends Waveform with the following additional properties:
@@ -31,7 +32,7 @@ IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wire
 |`number_of_pilots`|false|integer|N/A|Number of pilots.|
 |`cyclic_prefix`|false|integer|bits|Size of cyclic prefix.|
 |`short_inter_frame_space`|false|float|microseconds|Time required to process a received frame and to respond with a response frame.|
-|`preamble_frame`|false|integer[]|N/A|Preamble of 0's and 1's used for synchronization and id beginning of frame.|
+|`preamble_frame`|false|integer[]|N/A|Preamble of 0's and 1's used for synchronization and to ID beginning of frame.|
 |`number_of_info_bits`|false|integer|N/A|Number of information bits.|
 |`signal_to_noise_ratio`|false|float|dB|Signal-to-noise ratio. If unspecified, assumed no noise present.|
 
@@ -43,4 +44,29 @@ IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wire
 `ntia-waveform` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array)..
 
 ## 4 Example
-[TODO] Provide and example of `ntia-waveform`
+```json
+{
+  "global" : {
+    "core:datatype" : "rf32_le",
+    "core:sample_rate" : 2.8E7,
+    "ntia-emitter:emitters" : [ {
+      "id" : "test80211pEmitter",
+      "description" : "Simulated IEEE 802.11p",
+      "waveform" : {
+        "model" : "IEEE80211p",
+        "info_bit_generation" : "random",
+        "coding_rate" : [ 1, 2 ],
+        "packet_length" : 3200,
+        "modulation" : "16QAM",
+        "encoder" : "convolutional",
+        "number_of_subcarriers" : 64,
+        "number_of_data_subcarriers" : 48,
+        "number_of_pilots" : 4,
+        "short_inter_frame_space" : 80000.0
+      }
+    } ]
+  } ... ,
+  "captures" : [ ... ],
+  "annotations" : [... ]
+}
+```

@@ -2,15 +2,12 @@ gov.doc.ntia.sigmf
 gov.doc.ntia.sigmf.examples
 gov.doc.ntia.sigmf.examples.algorithm
 gov.doc.ntia.sigmf.examples.callibration
-gov.doc.ntia.sigmf.examples.core
 gov.doc.ntia.sigmf.examples.emitter
 gov.doc.ntia.sigmf.examples.environment
 gov.doc.ntia.sigmf.examples.location
 gov.doc.ntia.sigmf.examples.scos
 gov.doc.ntia.sigmf.examples.waveform
 gov.doc.ntia.sigmf.ext.annotation.algorithm
-gov.doc.ntia.sigmf.ext.annotation.core
-gov.doc.ntia.sigmf.ext.annotation.emitter
 gov.doc.ntia.sigmf.ext.annotation.sensor
 gov.doc.ntia.sigmf.ext.global
 gov.doc.ntia.sigmf.ext.global.algorithm

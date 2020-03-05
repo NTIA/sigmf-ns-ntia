@@ -18,7 +18,7 @@ The Measurement object summarizes the basic measurement information including  w
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`domain`|true|string|N/A| `"time"` or  `"frequency"`|
-|`measurement_type`|true|string|N/A|Method that signal analyzer acquires data: `"single-frequency"`or `"scan"`.|
+|`measurement_type`|true|string|N/A|Method by which the signal analyzer acquires data: `"single-frequency"`or `"scan"`.|
 |`time_start`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  began execution.|
 |`time_stop`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  finished execution.|
 |`frequency_tuned_low`|true|double|Hz|Lowest tuned frequency.|
@@ -32,7 +32,7 @@ The Measurement object summarizes the basic measurement information including  w
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`antenna_spec`|true| [HardwareSpec](#12-hardwarespec-object) |N/A|Metadata to describe antenna.|
+|`antenna_spec`|true| [HardwareSpec](#13-hardwarespec-object) |N/A|Metadata to describe antenna.|
 |`type`|false|string|N/A|Antenna type. E.g. `"dipole"`, `"biconical"`, `"monopole"`, `"conical monopole"`.|
 |`frequency_low`|false|double|Hz|Low frequency of operational range.|
 |`frequency_high`|false|double|Hz|High frequency of operational range.|
@@ -41,18 +41,20 @@ The Measurement object summarizes the basic measurement information including  w
 |`gain`|false|double|dBi|Antenna gain in direction of maximum radiation or reception.|
 |`horizontal_gain_pattern`|false|double[]|dBi|Antenna gain pattern in horizontal plane from 0 to 359 degrees in 1 degree steps.|
 |`vertical_gain_pattern`|false|double[]|dBi|Antenna gain pattern in vertical plane from -90 to +90 degrees in 1 degree steps.|
-|`horizontal_beam_width`|false|double|degrees|Horizontal 3-dB beamwidth.|
-|`vertical_beam_width`|false|double|degrees|Vertical 3-dB beamwidth.|
+|`horizontal_beam_width`|false|double|degrees|Horizontal 3 dB beamwidth.|
+|`vertical_beam_width`|false|double|degrees|Vertical 3 dB beamwidth.|
 |`voltage_standing_wave_ratio`|false|double|volts|Voltage standing wave ratio.|
 |`cable_loss`|false|double|dB|Cable loss for cable connecting antenna and preselector.|
-|`steerable`|false|boolean|N/A|Defines if the antenna is steerable. If steerable, then `azimuth_angle` and `elevation_angle` are specified in annotation segment.|
+|`steerable`|false|boolean|N/A|Defines whether the antenna is steerable.|
+|`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
+|`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
-## 1.2 HardwareSpec Object
+## 1.3 HardwareSpec Object
 `HardwareSpec` object has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|false|string|N/A|Unique id of hardware. E.g., serial number.|
+|`id`|false|string|N/A|Unique ID of hardware. E.g., serial number.|
 |`model`|false|string|N/A|Hardware make and model.|
 |`version`|false|string|N/A|Hardware version.|
 |`description`|false|string|N/A|Description of the hardware.|
@@ -66,18 +68,8 @@ The Measurement object summarizes the basic measurement information including  w
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`annotation_type`|true|string|N/A|Annotation type, e.g. [`"AntennaAnnotation"`](#31-antennaannotation-segment),[`"CalibrationAnnotation"`](ntia-calibration.sigmf-ext.md#31-calibrationannotation-segment), [`"DigitalFilterAnnotation"`](ntia-algorithm.sigmf-ext.md#33-digitalfilterannotation-segment), [`"EmitterAnnotation"`](ntia-emitter.sigmf-ext.md#31-emitterannotation-segment), [`"FrequencyDomainDetection"`](ntia-algorithm.sigmf-ext.md#32-frequencydomaindetection-segment), [`"SensorAnnotation"`](ntia-sensor.sigmf-ext.md#31-sensorannotation-segment), [`"TimeDomainDetection"`](ntia-algorithm.sigmf-ext.md#31-timedomaindetection-segment)|
+|`annotation_type`|true|string|N/A|Annotation type, e.g. [`"CalibrationAnnotation"`](ntia-sensor.sigmf-ext.md#32-calibrationannotation-segment), [`"DigitalFilterAnnotation"`](ntia-algorithm.sigmf-ext.md#33-digitalfilterannotation-segment), [`"FrequencyDomainDetection"`](ntia-algorithm.sigmf-ext.md#32-frequencydomaindetection-segment), [`"SensorAnnotation"`](ntia-sensor.sigmf-ext.md#31-sensorannotation-segment), [`"TimeDomainDetection"`](ntia-algorithm.sigmf-ext.md#31-timedomaindetection-segment)|
 
-The following segments are of general use across the set of NTIA extensions. 
-
-### 3.1 AntennaAnnotation Segment
-`AntennaAnnotation` has the following properties:  
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`id`|false|string|N/A|Unique id of an antenna defined in global. The id SHOULD be included if there are multiple antennas defined in the global object.|
-|`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
-|`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
 ## 4 Examples
 
@@ -266,32 +258,6 @@ The following segments are of general use across the set of NTIA extensions.
     "ntia-sensor:rf_path_index" : 0,
     "ntia-sensor:overload" : false,
     "ntia-sensor:attenuation_setting_sigan" : 3.0
-  }, {
-    "ntia-core:annotation_type" : "AntennaAnnotation",
-    "core:sample_start" : 0,
-    "core:sample_count" : 458,
-    "ntia-core:azimuth_angle" : 90.0,
-    "ntia-core:elevation_angle" : 0.0
-  } ]
-}
-```
-### 4.4 AntennaAnnotation Example
-```json
-{
-  "global": {
-    ...
-  },
-  "captures": [
-    ...
-  ],
-  "annotations": [
-    {
-      "ntia-core:annotation_type": "AntennaAnnotation",
-      "core:sample_start": 0,
-      "core:sample_count": 1024,
-      "ntia-core:elevation_angle": 25.0, 
-      "ntia-core:azimuth_angle": 70.0
-    }
-  ]
+  }]
 }
 ```

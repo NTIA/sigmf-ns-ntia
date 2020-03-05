@@ -18,10 +18,10 @@ public class WaveformExample implements Example {
     public MetaDoc getExample() {
         MetaDoc metaDoc = new MetaDoc();
         Emitter emitter = new Emitter();
-        emitter.setId("EmitterXYZ");
-        emitter.setDescription("A fictitious emitter to demonstrate the extensions format.");
-        emitter.setPower(-60.0);
+        emitter.setId("test80211pEmitter");
+        emitter.setDescription("Test 80211p emitter");
         Waveform waveform = getWaveform();
+        emitter.setWaveform(waveform);
         Global global = ExampleUtils.getGlobal(Calendar.getInstance().getTime());
         List<Emitter> emitters = new ArrayList<>();
         emitters.add(emitter);
@@ -33,21 +33,18 @@ public class WaveformExample implements Example {
     private static Waveform getWaveform() {
         IEEE80211p waveform = new IEEE80211p();
         CodingRate codingRate = new CodingRate();
-        codingRate.setK(4l);
-        codingRate.setN(3l);
+        codingRate.setK(1l);
+        codingRate.setN(2l);
         waveform.setCodingRate(codingRate);
-        waveform.setCyclicPrefix(3l);
-        waveform.setEncoder("encoder");
+        waveform.setEncoder("convolutional");
         waveform.setInfoBitGeneration("infoBitGeneration");
-        waveform.setModulation("modulation");
-        waveform.setNumberOfDataSubcarriers(4l);
-        waveform.setPacketLength(4l);
-        waveform.setNumberOfInfoBits(5l);
-        waveform.setNumberOfSubcarriers(4l);
-        waveform.setNumberOfPilots(4l);
-        waveform.setShortInterFrameSpace(4d);
-        waveform.setPreambleFrame(new Integer[]{0,1});
-        waveform.setSignalToNoiseRation(4d);
+        waveform.setModulation("16QAM");
+        waveform.setNumberOfDataSubcarriers(48);
+        waveform.setNumberOfSubcarriers(64l);
+        waveform.setPacketLength(3200l);
+        waveform.setNumberOfPilots(4);
+        waveform.setShortInterFrameSpace(80000.0);
+        waveform.setInfoBitGeneration("random");
         return waveform;
     }
 }

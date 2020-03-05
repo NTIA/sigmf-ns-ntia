@@ -20,13 +20,9 @@
       "type" : "array",
       "items" : {
         "oneOf" : [ {
-          "$ref" : "#/definitions/AntennaAnnotation"
-        }, {
           "$ref" : "#/definitions/FrequencyDomainDetection"
         }, {
           "$ref" : "#/definitions/TimeDomainDetection"
-        }, {
-          "$ref" : "#/definitions/EmitterAnnotation"
         }, {
           "$ref" : "#/definitions/CalibrationAnnotation"
         }, {
@@ -227,6 +223,12 @@
         },
         "steerable" : {
           "type" : "boolean"
+        },
+        "azimuth_angle" : {
+          "type" : "number"
+        },
+        "elevation_angle" : {
+          "type" : "number"
         }
       },
       "required" : [ "antenna_spec" ]
@@ -424,6 +426,14 @@
         "transmitter" : {
           "$ref" : "#/definitions/HardwareSpec"
         },
+        "center_frequency" : {
+          "type" : "number"
+        },
+        "waveform" : {
+          "oneOf" : [ {
+            "$ref" : "#/definitions/IEEE80211p"
+          } ]
+        },
         "location" : {
           "$ref" : "#/definitions/Location"
         },
@@ -431,6 +441,67 @@
           "$ref" : "#/definitions/Environment"
         }
       }
+    },
+    "IEEE80211p" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "model" : {
+          "type" : "string",
+          "enum" : [ "IEEE80211p" ],
+          "default" : "IEEE80211p"
+        },
+        "description" : {
+          "type" : "string"
+        },
+        "info_bit_generation" : {
+          "type" : "string"
+        },
+        "coding_rate" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer"
+          }
+        },
+        "packet_length" : {
+          "type" : "integer"
+        },
+        "modulation" : {
+          "type" : "string"
+        },
+        "encoder" : {
+          "type" : "string"
+        },
+        "number_of_subcarriers" : {
+          "type" : "integer"
+        },
+        "number_of_data_subcarriers" : {
+          "type" : "integer"
+        },
+        "number_of_pilots" : {
+          "type" : "integer"
+        },
+        "cyclic_prefix" : {
+          "type" : "integer"
+        },
+        "short_inter_frame_space" : {
+          "type" : "number"
+        },
+        "preamble_frame" : {
+          "type" : "array",
+          "items" : {
+            "type" : "integer"
+          }
+        },
+        "number_of_info_bits" : {
+          "type" : "integer"
+        },
+        "signal_to_noise_ratio" : {
+          "type" : "number"
+        }
+      },
+      "title" : "IEEE80211p",
+      "required" : [ "model", "number_of_data_subcarriers", "number_of_pilots" ]
     },
     "Action" : {
       "type" : "object",
@@ -722,52 +793,6 @@
       },
       "required" : [ "core:sample_start" ]
     },
-    "AntennaAnnotation" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "ntia-core:annotation_type" : {
-          "type" : "string",
-          "enum" : [ "AntennaAnnotation" ],
-          "default" : "AntennaAnnotation"
-        },
-        "core:sample_start" : {
-          "type" : "integer"
-        },
-        "core:sample_count" : {
-          "type" : "integer"
-        },
-        "core:generator" : {
-          "type" : "string"
-        },
-        "core:comment" : {
-          "type" : "string"
-        },
-        "core:freq_lower_edge" : {
-          "type" : "number"
-        },
-        "core:freq_upper_edge" : {
-          "type" : "number"
-        },
-        "core:latitude" : {
-          "type" : "number"
-        },
-        "core:longitude" : {
-          "type" : "number"
-        },
-        "ntia-core:antenna_id" : {
-          "type" : "string"
-        },
-        "ntia-core:azimuth_angle" : {
-          "type" : "number"
-        },
-        "ntia-core:elevation_angle" : {
-          "type" : "number"
-        }
-      },
-      "title" : "AntennaAnnotation",
-      "required" : [ "ntia-core:annotation_type", "core:sample_start", "core:sample_count", "ntia-core:antenna_id" ]
-    },
     "FrequencyDomainDetection" : {
       "type" : "object",
       "additionalProperties" : false,
@@ -889,109 +914,6 @@
       },
       "title" : "TimeDomainDetection",
       "required" : [ "ntia-core:annotation_type", "core:sample_start", "core:sample_count", "ntia-algorithm:detector", "ntia-algorithm:units", "ntia-algorithm:number_of_samples" ]
-    },
-    "EmitterAnnotation" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "ntia-core:annotation_type" : {
-          "type" : "string",
-          "enum" : [ "EmitterAnnotation" ],
-          "default" : "EmitterAnnotation"
-        },
-        "core:sample_start" : {
-          "type" : "integer"
-        },
-        "core:sample_count" : {
-          "type" : "integer"
-        },
-        "core:generator" : {
-          "type" : "string"
-        },
-        "core:comment" : {
-          "type" : "string"
-        },
-        "core:freq_lower_edge" : {
-          "type" : "number"
-        },
-        "core:freq_upper_edge" : {
-          "type" : "number"
-        },
-        "core:latitude" : {
-          "type" : "number"
-        },
-        "core:longitude" : {
-          "type" : "number"
-        },
-        "ntia-emitter:id" : {
-          "type" : "string"
-        },
-        "ntia-emitter:waveform" : {
-          "oneOf" : [ {
-            "$ref" : "#/definitions/IEEE80211p"
-          } ]
-        }
-      },
-      "title" : "EmitterAnnotation",
-      "required" : [ "ntia-core:annotation_type", "core:sample_start", "core:sample_count", "ntia-emitter:id" ]
-    },
-    "IEEE80211p" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "model" : {
-          "type" : "string",
-          "enum" : [ "IEEE80211p" ],
-          "default" : "IEEE80211p"
-        },
-        "info_bit_generation" : {
-          "type" : "string"
-        },
-        "coding_rate" : {
-          "type" : "array",
-          "items" : {
-            "type" : "integer"
-          }
-        },
-        "packet_length" : {
-          "type" : "integer"
-        },
-        "modulation" : {
-          "type" : "string"
-        },
-        "encoder" : {
-          "type" : "string"
-        },
-        "number_of_subcarriers" : {
-          "type" : "integer"
-        },
-        "number_of_data_subcarriers" : {
-          "type" : "integer"
-        },
-        "number_of_pilots" : {
-          "type" : "integer"
-        },
-        "cyclic_prefix" : {
-          "type" : "integer"
-        },
-        "short_inter_frame_space" : {
-          "type" : "number"
-        },
-        "preamble_frame" : {
-          "type" : "array",
-          "items" : {
-            "type" : "integer"
-          }
-        },
-        "number_of_info_bits" : {
-          "type" : "integer"
-        },
-        "signal_to_noise_ratio" : {
-          "type" : "number"
-        }
-      },
-      "title" : "IEEE80211p",
-      "required" : [ "model", "number_of_data_subcarriers", "number_of_pilots" ]
     },
     "CalibrationAnnotation" : {
       "type" : "object",

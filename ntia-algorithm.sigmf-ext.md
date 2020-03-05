@@ -16,9 +16,9 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`, `"IIR"`|
-|`FIR_coefficients`|false|double[]|N/A|Coefficients that defines FIR filter.|
-|`IIR_numerator_coefficients`|false|double[]|N/A|Coefficients that defines IIR filter.|
-|`IIR_denominator_coefficients`|false|double[]|N/A|Coefficients that defines IIR filter.|
+|`FIR_coefficients`|false|double[]|N/A|Coefficients that define FIR filter.|
+|`IIR_numerator_coefficients`|false|double[]|N/A|Coefficients that define IIR filter.|
+|`IIR_denominator_coefficients`|false|double[]|N/A|Coefficients that define IIR filter.|
 |`attenuation_cutoff`|false|double|dB|Attenuation that specifies the `cutoff_frequency` (typically 3 dB).|
 |`frequency_cutoff`|false|double|Hz|Frequency that characterizes boundary between passband and stopband.|
 |`ripple_passband`|false|double|dB|Ripple in passband.|
@@ -50,7 +50,7 @@ The `FrequencyDomainDetection` has the following properties:
 |----|--------------|-------|-------|-----------|
 |`detector`|true|string|N/A|E.g. `"fft_sample_iq"`, `"fft_sample_power"`, `"fft_mean_power"`, `"fft_max_power"`, `"fft_min_power"`, `"fft_median_power"`.|
 |`number_of_ffts`|true|integer|N/A|Number of FFTs to be integrated over by detector.|
-|`number_of_samples_in_fft`|true|integer|N/A|Number of samples in FFT to calcluate delta_f = [`samplerate`](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object)/`number_of_samples_in_fft`.|
+|`number_of_samples_in_fft`|true|integer|N/A|Number of samples in FFT to calculate delta_f = [`samplerate`](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object)/`number_of_samples_in_fft`.|
 |`window`|true|string|N/A|E.g. `"blackman-harris"`, `"flattop"`, `"gaussian_a3.5"`, `"gauss top"`, `"hamming"`, `"hanning"`, `"rectangular"`.|
 |`equivalent_noise_bandwidth`|false|double|Hz|Bandwidth of brickwall filter that has same integrated noise power as that of the actual filter.|
 |`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
@@ -68,9 +68,9 @@ The `FrequencyDomainDetection` has the following properties:
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`, `"IIR"`|
-|`FIR_coefficients`|false|double[]|N/A|Coefficients that defines FIR filter.|
-|`IIR_numerator_coefficients`|false|double[]|N/A|Coefficients that defines FIR filter.|
-|`IIR_denominator_coefficients`|false|double[]|N/A|Coefficients that defines FIR filter.|
+|`FIR_coefficients`|false|double[]|N/A|Coefficients that define FIR filter.|
+|`IIR_numerator_coefficients`|false|double[]|N/A|Coefficients that define FIR filter.|
+|`IIR_denominator_coefficients`|false|double[]|N/A|Coefficients that define FIR filter.|
 |`attenuation_cutoff`|false|double|dB|Attenuation that specifies the `frequency_cutoff` (typically 3 dB).|
 |`frequency_cutoff`|false|double|Hz|Frequency that characterizes boundary between passband and stopband.|
 |`ripple_passband`|false|double|dB|Ripple in passband.|
@@ -119,7 +119,7 @@ The `FrequencyDomainDetection` has the following properties:
     "core:sample_rate": 1.5360000011967678E7,
     "core:version": "0.0.2",
     "core:sha512": "5b522660c1406db41a7c05c564b902fa658de8755eaf77a35fea635ff97fd1293fe9e8b799c7ffca70d22cff8fa97cef0633ef29a08bdbc1b629165db72f81e3",
-     "core:extensions" : {
+    "core:extensions" : {
       "ntia-algorithm" : "v1.0.0",
       "ntia-sensor" : "v1.0.0",
       "ntia-location" : "v1.0.0"
@@ -399,8 +399,8 @@ The `FrequencyDomainDetection` has the following properties:
     "ntia-sensor:sensor" : {
       "id" : "192.168.1.53",
       "sensor_spec" : {
-        "id" : "BH-5",
-        "model" : "Basset hound",
+        "id" : "bh-5",
+        "model" : "bassethound",
         "version" : "v1.0.0",
         "description" : ""
       },
@@ -501,9 +501,9 @@ The `FrequencyDomainDetection` has the following properties:
       "measurement_type" : "Scan",
       "time_start" : "2018-01-01T07:59:42.792Z",
       "time_stop" : "2018-01-01T08:00:37.792Z",
-      "frequency_tuned_low" : 3.45021875E9,
-      "frequency_tuned_high" : 3.65015625E9,
-      "frequency_tuned_step" : 2.1875E7
+      "frequency_tuned_low" : 3.45940625E9,
+      "frequency_tuned_high" : 3.65190625E9,
+      "frequency_tuned_step" : 1.925E7
     }
   },
   "captures" : [ {
@@ -542,12 +542,6 @@ The `FrequencyDomainDetection` has the following properties:
     "ntia-sensor:rf_path_index" : 0,
     "ntia-sensor:overload" : false,
     "ntia-sensor:attenuation_setting_sigan" : 3.0
-  }, {
-    "ntia-core:annotation_type" : "AntennaAnnotation",
-    "core:sample_start" : 0,
-    "core:sample_count" : 458,
-    "ntia-core:azimuth_angle" : 90.0,
-    "ntia-core:elevation_angle" : 0.0
   } ]
 }
 ```

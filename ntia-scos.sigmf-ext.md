@@ -11,7 +11,7 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
 |`schedule`|true| [ScheduleEntry](#11-scheduleentry-object)|N/A|Metadata that describes the schedule that caused an action to be performed.|
 |`action`|true|[Action](#12-action-object)|N/A|Metadata that describes the action that was performed.|
 |`task`|true|integer|N/A|Unique identifier that increments with each task performed as a result of a `schedule_entry`.|
-|`recording`|false|integer|N/A|Unique identifier that increments with each recording performed in a task. The recording should be indicated for tasks that perform multiple recordings. |
+|`recording`|false|integer|N/A|Unique identifier that increments with each recording performed in a task. The recording SHOULD be indicated for tasks that perform multiple recordings. |
 
 
 
@@ -38,7 +38,7 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
 `ntia-scos` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
-`ntia-scos` does not provide extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
+`ntia-scos` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
 
 ## 4 Example
 ```json

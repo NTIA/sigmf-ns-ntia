@@ -19,7 +19,6 @@ public class SensorExample implements Example {
         Sensor sensor = getSensor();
         global.setSensor(getSensor());
         metaDoc.setGlobal(global);
-      //  metaDoc.setCaptures(getCaptures());
         return metaDoc;
     }
 
