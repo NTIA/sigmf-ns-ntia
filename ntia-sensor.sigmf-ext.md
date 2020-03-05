@@ -8,7 +8,7 @@ The ntia-sensor namespace provides metadata to describe RF sensors.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`sensor`|false|[Sensor](#12-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
+|`sensor`|false|[Sensor](#11-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
 |`calibration_datetime`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Time of last calibration. RECOMMENDED.|
 
 
@@ -48,8 +48,8 @@ Sensor definition follows a simplified hardware model composed of the following 
 |----|--------------|-------|-------|-----------|
 |`preselector_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the preselector.|
 |`cal_sources`|false|[CalSource[]](#14-calsource-object)|N/A|Metadata to describe/specify the preselector calibration source.|
-|`amplifiers`|false|[Amplifier[]](#12-amplifier-object)|N/A|Metadata to describe/specify the preselector low noise amplifiers.|
-|`filters`|false|[Filter[]](#13-hardwarespec-object)|N/A|Metadata to describe the preselector RF filters.|
+|`amplifiers`|false|[Amplifier[]](#15-amplifier-object)|N/A|Metadata to describe/specify the preselector low noise amplifiers.|
+|`filters`|false|[Filter[]](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe the preselector RF filters.|
 |`rf_paths`|false|[RFPath[]](#17-rfpath-object)|N/A|Metadata that describes preselector RF paths.|
 
 ### 1.4 CalSource Object
