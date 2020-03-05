@@ -20,7 +20,7 @@ The ntia-emitter namespace provides emitter defintion and properties.
 |`description`|false|string|N/A|Description of the emitter.|
 |`power`|false|double|dBm|Power referenced to antenna input.|
 |`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#12-antenna-object)|N/A|Metadata that describes the antenna.|
-|`transmitter`|false|[HardwareSpec](ntia-core.sigmf-ext.md#12-hardwarespec-object)|N/A|Metadata that describes the transmitter.|
+|`transmitter`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata that describes the transmitter.|
 |`center_frequency`|false|double|Hz|Center frequency.|
 |`waveform`|false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes transmitted waveform.|
 |`location`|false|[Location](ntia-location.sigmf-ext.md#16-location-object)|N/A|Specifies the location, speed, and bearing of the `Emitter`.|

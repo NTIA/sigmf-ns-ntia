@@ -32,7 +32,7 @@ The Measurement object summarizes the basic measurement information including  w
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`antenna_spec`|true| [HardwareSpec](#12-hardwarespec-object) |N/A|Metadata to describe antenna.|
+|`antenna_spec`|true| [HardwareSpec](#13-hardwarespec-object) |N/A|Metadata to describe antenna.|
 |`type`|false|string|N/A|Antenna type. E.g. `"dipole"`, `"biconical"`, `"monopole"`, `"conical monopole"`.|
 |`frequency_low`|false|double|Hz|Low frequency of operational range.|
 |`frequency_high`|false|double|Hz|High frequency of operational range.|
@@ -49,7 +49,7 @@ The Measurement object summarizes the basic measurement information including  w
 |`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
-## 1.2 HardwareSpec Object
+## 1.3 HardwareSpec Object
 `HardwareSpec` object has the following properties:
 
 |name|required|type|unit|description|
