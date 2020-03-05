@@ -45,7 +45,9 @@ The Measurement object summarizes the basic measurement information including  w
 |`vertical_beam_width`|false|double|degrees|Vertical 3 dB beamwidth.|
 |`voltage_standing_wave_ratio`|false|double|volts|Voltage standing wave ratio.|
 |`cable_loss`|false|double|dB|Cable loss for cable connecting antenna and preselector.|
-|`steerable`|false|boolean|N/A|Defines whether the antenna is steerable. If steerable, then `azimuth_angle` and `elevation_angle` are specified in annotation segment.|
+|`steerable`|false|boolean|N/A|Defines whether the antenna is steerable.|
+|`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
+|`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
 ## 1.2 HardwareSpec Object
 `HardwareSpec` object has the following properties:
@@ -66,18 +68,8 @@ The Measurement object summarizes the basic measurement information including  w
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`annotation_type`|true|string|N/A|Annotation type, e.g. [`"AntennaAnnotation"`](#31-antennaannotation-segment),[`"CalibrationAnnotation"`](ntia-calibration.sigmf-ext.md#31-calibrationannotation-segment), [`"DigitalFilterAnnotation"`](ntia-algorithm.sigmf-ext.md#33-digitalfilterannotation-segment), [`"EmitterAnnotation"`](ntia-emitter.sigmf-ext.md#31-emitterannotation-segment), [`"FrequencyDomainDetection"`](ntia-algorithm.sigmf-ext.md#32-frequencydomaindetection-segment), [`"SensorAnnotation"`](ntia-sensor.sigmf-ext.md#31-sensorannotation-segment), [`"TimeDomainDetection"`](ntia-algorithm.sigmf-ext.md#31-timedomaindetection-segment)|
+|`annotation_type`|true|string|N/A|Annotation type, e.g. [`"CalibrationAnnotation"`](ntia-calibration.sigmf-ext.md#31-calibrationannotation-segment), [`"DigitalFilterAnnotation"`](ntia-algorithm.sigmf-ext.md#33-digitalfilterannotation-segment), [`"FrequencyDomainDetection"`](ntia-algorithm.sigmf-ext.md#32-frequencydomaindetection-segment), [`"SensorAnnotation"`](ntia-sensor.sigmf-ext.md#31-sensorannotation-segment), [`"TimeDomainDetection"`](ntia-algorithm.sigmf-ext.md#31-timedomaindetection-segment)|
 
-The following segments are of general use across the set of NTIA extensions. 
-
-### 3.1 AntennaAnnotation Segment
-`AntennaAnnotation` has the following properties:  
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`id`|false|string|N/A|Unique ID of an antenna defined in global. The ID SHOULD be included if there are multiple antennas defined in the global object.|
-|`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
-|`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
 ## 4 Examples
 
@@ -266,32 +258,6 @@ The following segments are of general use across the set of NTIA extensions.
     "ntia-sensor:rf_path_index" : 0,
     "ntia-sensor:overload" : false,
     "ntia-sensor:attenuation_setting_sigan" : 3.0
-  }, {
-    "ntia-core:annotation_type" : "AntennaAnnotation",
-    "core:sample_start" : 0,
-    "core:sample_count" : 458,
-    "ntia-core:azimuth_angle" : 90.0,
-    "ntia-core:elevation_angle" : 0.0
-  } ]
-}
-```
-### 4.4 AntennaAnnotation Example
-```json
-{
-  "global": {
-    ...
-  },
-  "captures": [
-    ...
-  ],
-  "annotations": [
-    {
-      "ntia-core:annotation_type": "AntennaAnnotation",
-      "core:sample_start": 0,
-      "core:sample_count": 1024,
-      "ntia-core:elevation_angle": 25.0, 
-      "ntia-core:azimuth_angle": 70.0
-    }
-  ]
+  }]
 }
 ```

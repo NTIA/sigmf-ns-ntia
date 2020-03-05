@@ -63,6 +63,13 @@ public class Antenna implements Serializable {
     @JsonProperty(value="steerable", required = false)
     protected Boolean steerable;
 
+    @JsonProperty(value="azimuth_angle", required = false)
+    protected Double azimuthAngle;
+
+
+    @JsonProperty(value="elevation_angle", required = false)
+    protected Double elevationAngle;
+
     protected Map<String, Object> otherFields = new HashMap<>();
 
     public HardwareSpec getAntennaSpec() {
@@ -185,6 +192,22 @@ public class Antenna implements Serializable {
     @JsonAnySetter
     public void add(String key, Object value){
         otherFields.put(key, value);
+    }
+
+    public Double getAzimuthAngle() {
+        return azimuthAngle;
+    }
+
+    public void setAzimuthAngle(Double azimuthAngle) {
+        this.azimuthAngle = azimuthAngle;
+    }
+
+    public Double getElevationAngle() {
+        return elevationAngle;
+    }
+
+    public void setElevationAngle(Double elevationAngle) {
+        this.elevationAngle = elevationAngle;
     }
 
 }

@@ -2,7 +2,6 @@ package gov.doc.ntia.sigmf.examples;
 
 import gov.doc.ntia.sigmf.*;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
-import gov.doc.ntia.sigmf.ext.annotation.core.AntennaAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
@@ -95,6 +94,8 @@ public class RadarExample  implements Example {
         antenna.setVoltageStandingWaveRatio(2d);
         antenna.setCableLoss(.62);
         antenna.setSteerable(Boolean.FALSE);
+        antenna.setAzimuthAngle(90d);
+        antenna.setElevationAngle(0d);
         return antenna;
 
     }
@@ -181,11 +182,6 @@ public class RadarExample  implements Example {
         annotations.add(calibrationAnnotation);
 
 
-        AntennaAnnotation antennaAnnotation = new AntennaAnnotation();
-        antennaAnnotation.setAzimuthAngle(90d);
-        antennaAnnotation.setElevationAngle(0d);
-        antennaAnnotation.setSampleCount(458l);
-        antennaAnnotation.setSampleStart(0l);
 
         SensorAnnotation sensorAnnotation = new SensorAnnotation();
         sensorAnnotation.setAttenuationSettingSigan(6.0);

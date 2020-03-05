@@ -51,7 +51,7 @@ IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wire
     "core:sample_rate" : 2.8E7,
     "ntia-emitter:emitters" : [ {
       "id" : "test80211pEmitter",
-      "description" : "Test 80211p emitter",
+      "description" : "Simulated IEEE 802.11p",
       "waveform" : {
         "model" : "IEEE80211p",
         "info_bit_generation" : "random",

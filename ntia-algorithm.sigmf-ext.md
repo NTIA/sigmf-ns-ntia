@@ -542,12 +542,6 @@ The `FrequencyDomainDetection` has the following properties:
     "ntia-sensor:rf_path_index" : 0,
     "ntia-sensor:overload" : false,
     "ntia-sensor:attenuation_setting_sigan" : 3.0
-  }, {
-    "ntia-core:annotation_type" : "AntennaAnnotation",
-    "core:sample_start" : 0,
-    "core:sample_count" : 458,
-    "ntia-core:azimuth_angle" : 90.0,
-    "ntia-core:elevation_angle" : 0.0
   } ]
 }
 ```

@@ -10,7 +10,6 @@ import gov.doc.ntia.sigmf.examples.algorithm.DigitalFilterExample;
 import gov.doc.ntia.sigmf.examples.algorithm.FrequencyDomainDetectionExample;
 import gov.doc.ntia.sigmf.examples.algorithm.TimeDomainDetectionExample;
 import gov.doc.ntia.sigmf.examples.callibration.CallibrationAnnotationExample;
-import gov.doc.ntia.sigmf.examples.core.AntennaAnnotationExample;
 import gov.doc.ntia.sigmf.examples.emitter.EmitterExample;
 import gov.doc.ntia.sigmf.examples.environment.EmitterEnvironmentExample;
 import gov.doc.ntia.sigmf.examples.environment.SensorEnvironmentExample;
@@ -47,9 +46,6 @@ public class ExampleGenerator {
 
         CallibrationAnnotationExample cal = new CallibrationAnnotationExample();
         save("callibration.json", cal.getExample());
-
-        AntennaAnnotationExample antennaAnnotationExample = new AntennaAnnotationExample();
-        save("antennaAnnotation.json", antennaAnnotationExample.getExample());
 
         EmitterExample emitterExample = new EmitterExample();
         save("emitterGlobal.json", emitterExample.getExample());
