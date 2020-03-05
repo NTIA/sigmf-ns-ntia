@@ -44,4 +44,29 @@ IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wire
 `ntia-waveform` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array)..
 
 ## 4 Example
-[TODO] Provide an example of `ntia-waveform`
+```json
+{
+  "global" : {
+    "core:datatype" : "rf32_le",
+    "core:sample_rate" : 2.8E7,
+    "ntia-emitter:emitters" : [ {
+      "id" : "test80211pEmitter",
+      "description" : "Test 80211p emitter",
+      "waveform" : {
+        "model" : "IEEE80211p",
+        "info_bit_generation" : "random",
+        "coding_rate" : [ 1, 2 ],
+        "packet_length" : 3200,
+        "modulation" : "16QAM",
+        "encoder" : "convolutional",
+        "number_of_subcarriers" : 64,
+        "number_of_data_subcarriers" : 48,
+        "number_of_pilots" : 4,
+        "short_inter_frame_space" : 80000.0
+      }
+    } ]
+  } ... ,
+  "captures" : [ ... ],
+  "annotations" : [... ]
+}
+```
