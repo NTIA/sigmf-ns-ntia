@@ -62,7 +62,6 @@ The ntia-emitter namespace provides emitter defintion and properties.
         "voltage_standing_wave_ratio" : 2.5,
         "cable_loss" : 0.15,
         "steerable" : false,
-        "azimuth_angle" : 0.0,
         "elevation_angle" : 90.0
       },
       "transmitter" : {
