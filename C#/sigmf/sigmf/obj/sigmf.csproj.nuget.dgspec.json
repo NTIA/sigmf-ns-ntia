@@ -25,6 +25,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Users\\jknoll\\source\\repos\\sigmf-ns-ntia\\C#\\sigmf\\sigmf\\bin\\Debug": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -41,17 +42,13 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "AutoMapper": {
-              "target": "Package",
-              "version": "[9.0.0, )"
-            },
             "Boxed.Mapping": {
               "target": "Package",
               "version": "[3.0.0, )"
             },
             "NJsonSchema": {
               "target": "Package",
-              "version": "[10.1.4, )"
+              "version": "[10.1.7, )"
             },
             "Newtonsoft.Json": {
               "target": "Package",
@@ -62,10 +59,6 @@
               "version": "[3.0.13, )"
             },
             "System.Collections.NonGeneric": {
-              "target": "Package",
-              "version": "[4.3.0, )"
-            },
-            "dropzone": {
               "target": "Package",
               "version": "[4.3.0, )"
             }

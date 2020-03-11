@@ -25,18 +25,18 @@ namespace sigmf.examples.waveform
         {
             IEEE80211p waveform = new IEEE80211p();
             CodingRate codingRate = new CodingRate();
-            codingRate.setK(4l);
-            codingRate.setN(3l);
+            codingRate.setK(41);
+            codingRate.setN(31);
             waveform.CodingRate = codingRate;
             waveform.CyclicPrefix = 3l;
             waveform.Encoder = "encoder";
             waveform.InfoBitGeneration = "infoBitGeneration";
             waveform.Modulation = "modulation";
-            waveform.NumberOfSubcarriers = 4l;
-            waveform.PacketLength = 4l;
-            waveform.NumberOfInfoBits = 5l;
-            waveform.NumberOfDataSubcarriers = 4l;
-            waveform.NumberOfPilots = 4l;
+            waveform.NumberOfSubcarriers = 41;
+            waveform.PacketLength = 41;
+            waveform.NumberOfInfoBits = 51;
+            waveform.NumberOfDataSubcarriers = 41;
+            waveform.NumberOfPilots = 41;
             waveform.ShortInterFrameSpace = 4d;
             waveform.PreambleFrame = new List<int> { 0, 1 };
             waveform.SignalToNoiseRation = 4d;
@@ -46,7 +46,7 @@ namespace sigmf.examples.waveform
         private DateTime getCurrentTime()
         {
             DateTime st = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-            TimeSpan t = (DateTime.Now.ToUniversalTime() - st);
+            //TimeSpan t = (DateTime.Now.ToUniversalTime() - st);
             return st;
         }
     }

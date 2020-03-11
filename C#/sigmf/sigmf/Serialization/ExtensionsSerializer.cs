@@ -13,8 +13,7 @@ namespace sigmf
         }
 
         public void serialize(Extensions exts) {
-
-          JsonConvert.SerializeObject(exts);
+           JsonConvert.SerializeObject(exts);
 
         }
     }

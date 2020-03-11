@@ -1,19 +1,23 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
+    <PackageId>sigmf</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>ITS</Authors>
+    <Company>ITS</Company>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <StartupObject>sigmf.SchemaGenerator</StartupObject>
-    <StartupObject>sigmf.examples.ExampleGenerator</StartupObject>
+    <StartupObject>sigmf.Test</StartupObject>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Product>sigmf_C#</Product>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="9.0.0" />
     <PackageReference Include="Boxed.Mapping" Version="3.0.0" />
-    <PackageReference Include="dropzone" Version="4.3.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Newtonsoft.Json.Schema" Version="3.0.13" />
-    <PackageReference Include="NJsonSchema" Version="10.1.4" />
+    <PackageReference Include="NJsonSchema" Version="10.1.7" />
     <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
   </ItemGroup>
 

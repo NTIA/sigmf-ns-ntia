@@ -11,7 +11,7 @@ namespace sigmf.Serialization
         {
         }
         public Extensions deserialize(string json)
-        {
+        { 
             return JsonConvert.DeserializeObject<Extensions>(json);
 
         }

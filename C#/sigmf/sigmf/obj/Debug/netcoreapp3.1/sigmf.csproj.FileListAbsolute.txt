@@ -11,7 +11,6 @@ C:\Users\jknoll\source\repos\sigmf-ns-ntia\C#\sigmf\sigmf\obj\Debug\netcoreapp3.
 C:\Users\jknoll\source\repos\sigmf-ns-ntia\C#\sigmf\sigmf\obj\Debug\netcoreapp3.1\sigmf.pdb
 C:\Users\jknoll\source\repos\sigmf-ns-ntia\C#\sigmf\sigmf\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
 C:\Users\jknoll\source\repos\sigmf-ns-ntia\C#\sigmf\sigmf\obj\Debug\netcoreapp3.1\sigmf.csproj.CopyComplete
-C:\Users\jknoll\source\repos\sigmf-ns-ntia\C#\sigmf\sigmf\bin\Debug\netcoreapp3.1\AutoMapper.dll
 C:\Users\jknoll\source\repos\sigmf-ns-ntia\C#\sigmf\sigmf\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Schema.dll
 C:\Users\jknoll\source\repos\sigmf-ns-ntia\C#\sigmf\sigmf\bin\Debug\netcoreapp3.1\Boxed.Mapping.dll
 C:\Users\jknoll\source\repos\sigmf-ns-ntia\C#\sigmf\sigmf\bin\Debug\netcoreapp3.1\Namotion.Reflection.dll

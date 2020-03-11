@@ -33,7 +33,6 @@ namespace sigmf
         private static List<Capture> getCaptures()
         {
             List<Capture> captures = new List<Capture>();
-            int samplestart = 0;
             Capture capture = new Capture();
             capture.SampleStart = 0;
             capture.DateTime = GetCurrentTime();

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>sigmf</id>
+    <version>1.0.0</version>
+    <authors>ITS</authors>
+    <owners>ITS</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Package Description</description>
+    <dependencies>
+      <group targetFramework=".NETCoreApp3.1">
+        <dependency id="AutoMapper" version="9.0.0" exclude="Build,Analyzers" />
+        <dependency id="Boxed.Mapping" version="3.0.0" exclude="Build,Analyzers" />
+        <dependency id="NJsonSchema" version="10.1.4" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json" version="12.0.3" exclude="Build,Analyzers" />
+        <dependency id="Newtonsoft.Json.Schema" version="3.0.13" exclude="Build,Analyzers" />
+        <dependency id="System.Collections.NonGeneric" version="4.3.0" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\jknoll\source\repos\sigmf-ns-ntia\C#\sigmf\sigmf\bin\Release\netcoreapp3.1\sigmf.runtimeconfig.json" target="lib\netcoreapp3.1\sigmf.runtimeconfig.json" />
+    <file src="C:\Users\jknoll\source\repos\sigmf-ns-ntia\C#\sigmf\sigmf\bin\Release\netcoreapp3.1\sigmf.dll" target="lib\netcoreapp3.1\sigmf.dll" />
+  </files>
+</package>

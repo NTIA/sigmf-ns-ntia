@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Text;
 using System.IO;
-using AutoMapper;
 using Newtonsoft.Json;
 
 namespace sigmf
@@ -66,9 +65,6 @@ namespace sigmf
         }
         public void saveToFile(string filename)
         {
-            //var config = new MapperConfiguration(cfg => { cfg.CreateMap < File,string > (); });
-            //IMapper imap = config.CreateMapper();
-            //var destination = imap.Map < this,File > (new File(filename));
             File.WriteAllText(filename,JsonConvert.SerializeObject(this));
 
         }
