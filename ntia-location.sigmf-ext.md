@@ -76,8 +76,8 @@ The `Location` object is used within the [Sensor](ntia-sensor.sigmf-ext.md#12-se
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`x`|false|double|N/A|Location of object releative to x-axis origin.|
-|`y`|false|double|N/A|Location of object releative to y-axis origin.|
+|`x`|false|double|N/A|Location of object releative to x-axis origin. MUST contain longitude for a Geographic Coordinate System.|
+|`y`|false|double|N/A|Location of object releative to y-axis origin. MUST contain latitude for a Geographic Coordinate System.|
 |`z`|false|double|N/A|Location of object releative to z-axis origin.|
 |`speed`|false|double|`distance_unit`/`time_unit`|Speed.|
 |`bearing`|false|double|degrees|Direction (angle relative to `orientation_ref`).|
