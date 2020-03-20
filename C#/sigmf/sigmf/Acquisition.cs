@@ -10,16 +10,22 @@ using System.Text;
 
 namespace sigmf
 {
-    class Acquisition
+    [Serializable()]
+    public class Acquisition
     {
         private static readonly long serialVersionUID = 1L;
 
         [JsonProperty]
-        protected MetaDoc metaDoc;
+        public MetaDoc metaDoc;
 
         [JsonProperty]
         [JsonIgnore]
-        protected MemoryStream data;
+        public MemoryStream data;
+
+        public Acquisition() {
+            metaDoc = new MetaDoc();
+            data = new MemoryStream();
+        }
 
         public MetaDoc getMetaDoc() {
             return metaDoc;
