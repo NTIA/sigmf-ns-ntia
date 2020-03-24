@@ -43,7 +43,7 @@ namespace sigmf
             this.data = data;
         }
 
-        private MemoryStream writeObject(MetaDoc meta)
+        public MemoryStream writeObject(MetaDoc meta)
         {
             MemoryStream stream = new MemoryStream();
                 
@@ -52,7 +52,7 @@ namespace sigmf
             return stream;
             
         }
-        private MetaDoc readObject(MemoryStream stream)
+        public MetaDoc readObject(MemoryStream stream)
         {
             IFormatter formatter = new BinaryFormatter();
             stream.Seek(0, SeekOrigin.Begin);
@@ -98,7 +98,7 @@ namespace sigmf
                 return scheduleEntry.Id;
             }
         }
-        private string getTaskId()
+        public string getTaskId()
         {
             string taskId = metaDoc.getGlobal().TaskId.ToString();
             if(taskId == null)
