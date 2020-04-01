@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -33,6 +34,9 @@ public class ScheduleEntry implements Serializable {
             (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
     @JsonProperty(value="start", required = false)
     protected Date start;
+
+    @JsonProperty
+    List<String> roles;
 
     protected Map<String, Object> otherFields = new HashMap<>();
 
@@ -96,6 +100,14 @@ public class ScheduleEntry implements Serializable {
         otherFields.put(key, value);
     }
 
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+
     @JsonIgnore
     public String getScheduleNameFromUrl(){
         String scheduleName = "";
@@ -108,7 +120,5 @@ public class ScheduleEntry implements Serializable {
         }
         return scheduleName;
     }
-
-
 
 }

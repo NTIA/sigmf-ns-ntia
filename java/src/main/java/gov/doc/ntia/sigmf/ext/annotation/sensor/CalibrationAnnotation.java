@@ -55,6 +55,9 @@ public class CalibrationAnnotation extends Annotation  {
     @JsonProperty(value="ntia-sensor:mean_noise_power_units", required = false)
     protected String meanNoisePowerUnits;
 
+    @JsonProperty(value="ntia-sensor:mean_noise_power_reference", required = false)
+    protected String meanNoisePowerReference;
+
 
     public void setGainSigan(Double gainSigan) {
         this.gainSigan = gainSigan;
@@ -148,4 +151,11 @@ public class CalibrationAnnotation extends Annotation  {
         this.meanNoisePowerUnits = meanNoisePowerUnits;
     }
 
+    public String getMeanNoisePowerReference() {
+        return meanNoisePowerReference;
+    }
+
+    public void setMeanNoisePowerReference(String meanNoisePowerReference) {
+        this.meanNoisePowerReference = meanNoisePowerReference;
+    }
 }

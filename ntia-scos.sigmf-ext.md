@@ -24,6 +24,7 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
 |`stop`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Requested time to end execution of tasks under the schedule.|
 |`interval`|false|integer|Seconds|Seconds between tasks. If unspecified, the task will execute once and the schedule will become inactive|
 |`priority`|false|integer|N.A|The priority of the schedule. Lower numbers indicate higher priority.|
+|`roles`|false|string[]|N.A|The user roles that are allowed to access acquisitions from the schedule.|
 
 
 
