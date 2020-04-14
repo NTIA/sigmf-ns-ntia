@@ -170,8 +170,8 @@ Sensor definition follows a simplified hardware model composed of the following 
         "gain" : 0.0,
         "polarization" : "Slant",
         "cross_polar_discrimination" : 13.0,
-        "horizontal_beam_width" : 360.0,
-        "vertical_beam_width" : 68.38,
+        "horizontal_beamwidth" : 360.0,
+        "vertical_beamwidth" : 68.38,
         "voltage_standing_wave_ratio" : 2.0,
         "cable_loss" : 0.79,
         "steerable" : false

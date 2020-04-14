@@ -41,8 +41,8 @@ The Measurement object summarizes the basic measurement information including  w
 |`gain`|false|double|dBi|Antenna gain in direction of maximum radiation or reception.|
 |`horizontal_gain_pattern`|false|double[]|dBi|Antenna gain pattern in horizontal plane from 0 to 359 degrees in 1 degree steps.|
 |`vertical_gain_pattern`|false|double[]|dBi|Antenna gain pattern in vertical plane from -90 to +90 degrees in 1 degree steps.|
-|`horizontal_beam_width`|false|double|degrees|Horizontal 3 dB beamwidth.|
-|`vertical_beam_width`|false|double|degrees|Vertical 3 dB beamwidth.|
+|`horizontal_beamwidth`|false|double|degrees|Horizontal 3 dB beamwidth.|
+|`vertical_beamwidth`|false|double|degrees|Vertical 3 dB beamwidth.|
 |`voltage_standing_wave_ratio`|false|double|volts|Voltage standing wave ratio.|
 |`cable_loss`|false|double|dB|Cable loss for cable connecting antenna and preselector.|
 |`steerable`|false|boolean|N/A|Defines whether the antenna is steerable.|
@@ -131,8 +131,8 @@ The Measurement object summarizes the basic measurement information including  w
         "gain" : 0.0,
         "polarization" : "Slant",
         "cross_polar_discrimination" : 13.0,
-        "horizontal_beam_width" : 360.0,
-        "vertical_beam_width" : 68.38,
+        "horizontal_beamwidth" : 360.0,
+        "vertical_beamwidth" : 68.38,
         "voltage_standing_wave_ratio" : 2.0,
         "cable_loss" : 0.79,
         "steerable" : false

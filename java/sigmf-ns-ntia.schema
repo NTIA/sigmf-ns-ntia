@@ -209,10 +209,10 @@
             "type" : "number"
           }
         },
-        "horizontal_beam_width" : {
+        "horizontal_beamwidth" : {
           "type" : "number"
         },
-        "vertical_beam_width" : {
+        "vertical_beamwidth" : {
           "type" : "number"
         },
         "voltage_standing_wave_ratio" : {

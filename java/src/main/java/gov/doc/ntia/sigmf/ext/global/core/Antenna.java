@@ -45,11 +45,11 @@ public class Antenna implements Serializable {
     protected  Double[] verticalGainPattern;
 
 
-    @JsonProperty(value="horizontal_beam_width", required = false)
+    @JsonProperty(value="horizontal_beamwidth", required = false)
     protected Double horizontalBeamWidth;
 
 
-    @JsonProperty(value="vertical_beam_width", required = false)
+    @JsonProperty(value="vertical_beamwidth", required = false)
     protected Double verticalBeamWidth;
 
 
