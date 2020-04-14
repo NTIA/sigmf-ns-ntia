@@ -132,7 +132,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`enbw_sensor`|false|double|Hz|Equivalent noise bandwidth of sensor.|
 |`mean_noise_power_sensor`|false|double|Defined in `mean_noise_power_units`|Mean noise power density of sensor.|
 |`mean_noise_power_units`|false|string|N/A|The units of the mean_noise_power|
-|`mean_noise_power_reference`|false|string|N/A|The reference source for the mean_noise_power.|
+|`mean_noise_power_reference`|false|string|N/A| Feference source for the mean_noise_power, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`|
 |`temperature`|false|double|celsius|The temperature during calibration.|
 
 
