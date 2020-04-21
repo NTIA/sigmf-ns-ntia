@@ -132,6 +132,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`enbw_sensor`|false|double|Hz|Equivalent noise bandwidth of sensor.|
 |`mean_noise_power_sensor`|false|double|Defined in `mean_noise_power_units`|Mean noise power density of sensor.|
 |`mean_noise_power_units`|false|string|N/A|The units of the mean_noise_power|
+|`mean_noise_power_reference`|false|string|N/A| Reference source for the mean_noise_power, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`|
 |`temperature`|false|double|celsius|The temperature during calibration.|
 
 
@@ -169,8 +170,8 @@ Sensor definition follows a simplified hardware model composed of the following 
         "gain" : 0.0,
         "polarization" : "Slant",
         "cross_polar_discrimination" : 13.0,
-        "horizontal_beam_width" : 360.0,
-        "vertical_beam_width" : 68.38,
+        "horizontal_beamwidth" : 360.0,
+        "vertical_beamwidth" : 68.38,
         "voltage_standing_wave_ratio" : 2.0,
         "cable_loss" : 0.79,
         "steerable" : false
