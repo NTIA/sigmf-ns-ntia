@@ -15,101 +15,90 @@ import gov.doc.ntia.sigmf.examples.environment.EmitterEnvironmentExample;
 import gov.doc.ntia.sigmf.examples.environment.SensorEnvironmentExample;
 import gov.doc.ntia.sigmf.examples.location.GcsWithSpheroidExample;
 import gov.doc.ntia.sigmf.examples.location.ProjectedExample;
-import gov.doc.ntia.sigmf.examples.location.SimpleGCS;
+import gov.doc.ntia.sigmf.examples.location.SimpleGcs;
 import gov.doc.ntia.sigmf.examples.location.SpeedAndBearingExample;
 import gov.doc.ntia.sigmf.examples.scos.ScosExample;
 import gov.doc.ntia.sigmf.examples.waveform.WaveformExample;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
-
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ExampleGenerator {
 
-    public static void main(String[] args){
+  /**
+   * Generates a number of example JSON files to demonstrate the format of various
+   * objects specified in the NTIA SifMF extensions. Note: currently the examples do
+   * not necessarily specify values for all required parameters.
+   * @param args None.
+   */
+  public static void main(String[] args) {
 
-        SensorExample sensorExample = new SensorExample();
-        save("sensor.json", sensorExample.getExample());
+    SensorExample sensorExample = new SensorExample();
+    save("sensor.json", sensorExample.getExample());
 
-        TimeDomainDetectionExample tddExample = new TimeDomainDetectionExample();
-        save("tdd.json", tddExample.getExample());
+    TimeDomainDetectionExample tddExample = new TimeDomainDetectionExample();
+    save("tdd.json", tddExample.getExample());
 
-        DigitalFilterExample digitalFilterExample = new DigitalFilterExample();
-        save("digitalFilter.json", digitalFilterExample.getExample());
+    DigitalFilterExample digitalFilterExample = new DigitalFilterExample();
+    save("digitalFilter.json", digitalFilterExample.getExample());
 
-        FrequencyDomainDetectionExample frequencyDomainDetection = new FrequencyDomainDetectionExample();
-        save("frequencyDomainDetection.json", frequencyDomainDetection.getExample());
+    FrequencyDomainDetectionExample frequencyDomainDetection =
+        new FrequencyDomainDetectionExample();
+    save("frequencyDomainDetection.json", frequencyDomainDetection.getExample());
 
-        DigitalFilterAnnotationExample digitalFilterAnnotationExample = new DigitalFilterAnnotationExample();
-        save("digitalFilterAnnotation.json", digitalFilterAnnotationExample.getExample());
+    DigitalFilterAnnotationExample digitalFilterAnnotationExample =
+        new DigitalFilterAnnotationExample();
+    save("digitalFilterAnnotation.json", digitalFilterAnnotationExample.getExample());
 
-        CallibrationAnnotationExample cal = new CallibrationAnnotationExample();
-        save("callibration.json", cal.getExample());
+    CallibrationAnnotationExample cal = new CallibrationAnnotationExample();
+    save("callibration.json", cal.getExample());
 
-        EmitterExample emitterExample = new EmitterExample();
-        save("emitterGlobal.json", emitterExample.getExample());
+    EmitterExample emitterExample = new EmitterExample();
+    save("emitterGlobal.json", emitterExample.getExample());
 
-        SensorEnvironmentExample sensorEnvironmentExample = new SensorEnvironmentExample();
-        save("sensorEnvironment.json", sensorEnvironmentExample.getExample());
+    SensorEnvironmentExample sensorEnvironmentExample = new SensorEnvironmentExample();
+    save("sensorEnvironment.json", sensorEnvironmentExample.getExample());
 
-        EmitterEnvironmentExample emitterEnvironmentExample = new EmitterEnvironmentExample();
-        save("emitterEnvironment.json", emitterEnvironmentExample.getExample());
+    EmitterEnvironmentExample emitterEnvironmentExample = new EmitterEnvironmentExample();
+    save("emitterEnvironment.json", emitterEnvironmentExample.getExample());
 
-        WaveformExample waveformExample = new WaveformExample();
-        save("waveformExample.json", waveformExample.getExample());
+    WaveformExample waveformExample = new WaveformExample();
+    save("waveformExample.json", waveformExample.getExample());
 
-        RadarExample radarExample = new RadarExample();
-        save("radarExample.json", radarExample.getExample());
+    RadarExample radarExample = new RadarExample();
+    save("radarExample.json", radarExample.getExample());
 
-        GcsWithSpheroidExample gcsExample = new GcsWithSpheroidExample();
-        save("gcsExample.json", gcsExample.getExample());
+    GcsWithSpheroidExample gcsExample = new GcsWithSpheroidExample();
+    save("gcsExample.json", gcsExample.getExample());
 
-        ProjectedExample projectedExample = new ProjectedExample();
-        save("projectedSpatialRef.json", projectedExample.getExample());
+    ProjectedExample projectedExample = new ProjectedExample();
+    save("projectedSpatialRef.json", projectedExample.getExample());
 
-        SpeedAndBearingExample speedAndBearingExample = new SpeedAndBearingExample();
-        save("speedAndBearing.json", speedAndBearingExample.getExample());
+    SpeedAndBearingExample speedAndBearingExample = new SpeedAndBearingExample();
+    save("speedAndBearing.json", speedAndBearingExample.getExample());
 
-        SimpleGCS simpleGCS = new SimpleGCS();
-        save("simpleGCS.json", simpleGCS.getExample());
+    SimpleGcs simpleGcs = new SimpleGcs();
+    save("simpleGcs.json", simpleGcs.getExample());
 
-        ScosExample scosExample = new ScosExample();
-        save("scos.json", scosExample.getExample());
+    ScosExample scosExample = new ScosExample();
+    save("scos.json", scosExample.getExample());
+  }
 
+  private static void save(String filename, MetaDoc example) {
+    ObjectMapper mapper = new ObjectMapper();
+    mapper.configure(JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN, true);
+    mapper.enable(SerializationFeature.INDENT_OUTPUT);
+    try {
+      mapper.writeValue(new File(filename), example);
+    } catch (IOException e) {
+      e.printStackTrace();
     }
+  }
 
-    private static void save(String filename, MetaDoc example) {
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.configure(JsonGenerator.Feature.WRITE_BIGDECIMAL_AS_PLAIN, true);
-        mapper.enable(SerializationFeature.INDENT_OUTPUT);
-        try {
-            mapper.writeValue(new File(filename),example);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
-    }
 
-    public static void generateSensorExamples(){
 
-    }
-    public static List<Annotation> getAnnotations() {
-        ArrayList<Annotation> annotations = new ArrayList<>();
-        List<String> names = Arrays.asList("mean","median","min","max","sample");
-        for(long i = 0; i < names.size(); i++){
-            FrequencyDomainDetection annotation = new FrequencyDomainDetection();
-            annotation.setSampleStart(i * 1024);
-            annotation.setSampleCount((long) 1024);
-            annotation.setNumberOfFfts(300);
-            annotation.setNumberOfSamplesInFft(1024);
-            annotation.setDetector(names.get((int) i));
-            annotation.setReference("um, very");
-            annotation.setUnits("DB");
-            annotation.setLatitude( 40.5);
-            annotation.setLongitude(-105.2);
-            annotations.add(annotation);
-        }
-        return annotations;
-    }
 }

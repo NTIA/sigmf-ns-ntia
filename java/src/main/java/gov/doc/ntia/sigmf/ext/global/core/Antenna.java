@@ -11,203 +11,193 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Antenna implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="antenna_spec", required = true)
-    protected HardwareSpec antennaSpec;
+  @JsonProperty(value = "antenna_spec", required = true)
+  protected HardwareSpec antennaSpec;
 
-    @JsonProperty(value="type", required=false)
-    protected  String type;
+  @JsonProperty(value = "type", required = false)
+  protected String type;
 
+  @JsonProperty(value = "frequency_low", required = false)
+  protected Double frequencyLow;
 
-    @JsonProperty(value="frequency_low", required = false)
-    protected Double frequencyLow;
+  @JsonProperty(value = "frequency_high", required = false)
+  protected Double frequencyHigh;
 
+  @JsonProperty(value = "gain", required = false)
+  protected Double gain;
 
-    @JsonProperty(value="frequency_high", required = false)
-    protected Double frequencyHigh;
+  @JsonProperty(value = "polarization", required = false)
+  protected String polarization;
 
+  @JsonProperty(value = "cross_polar_discrimination", required = false)
+  protected Double crossPolarDiscrimination;
 
-    @JsonProperty(value="gain", required=false)
-    protected Double gain;
+  @JsonProperty(value = "horizontal_gain_pattern", required = false)
+  protected Double[] horizontalGainPattern;
 
-    @JsonProperty(value="polarization", required = false)
-    protected String polarization;
+  @JsonProperty(value = "vertical_gain_pattern", required = false)
+  protected Double[] verticalGainPattern;
 
+  @JsonProperty(value = "horizontal_beamwidth", required = false)
+  protected Double horizontalBeamWidth;
 
-    @JsonProperty(value="cross_polar_discrimination", required = false)
-    protected Double crossPolarDiscrimination;
+  @JsonProperty(value = "vertical_beamwidth", required = false)
+  protected Double verticalBeamWidth;
 
-    @JsonProperty(value="horizontal_gain_pattern", required = false)
-    protected Double[] horizontalGainPattern;
+  @JsonProperty(value = "voltage_standing_wave_ratio", required = false)
+  protected Double voltageStandingWaveRatio;
 
-    @JsonProperty(value="vertical_gain_pattern", required = false)
-    protected  Double[] verticalGainPattern;
+  @JsonProperty(value = "cable_loss", required = false)
+  protected Double cableLoss;
 
+  @JsonProperty(value = "steerable", required = false)
+  protected Boolean steerable;
 
-    @JsonProperty(value="horizontal_beamwidth", required = false)
-    protected Double horizontalBeamWidth;
+  @JsonProperty(value = "azimuth_angle", required = false)
+  protected Double azimuthAngle;
 
+  @JsonProperty(value = "elevation_angle", required = false)
+  protected Double elevationAngle;
 
-    @JsonProperty(value="vertical_beamwidth", required = false)
-    protected Double verticalBeamWidth;
+  protected Map<String, Object> otherFields = new HashMap<>();
 
+  public HardwareSpec getAntennaSpec() {
+    return antennaSpec;
+  }
 
-    @JsonProperty(value="voltage_standing_wave_ratio", required = false)
-    protected Double voltageStandingWaveRatio;
+  public void setAntennaSpec(HardwareSpec antennaSpec) {
+    this.antennaSpec = antennaSpec;
+  }
 
+  public String getPolarization() {
+    return polarization;
+  }
 
-    @JsonProperty(value="cable_loss", required = false)
-    protected Double cableLoss;
+  public void setPolarization(String polarization) {
+    this.polarization = polarization;
+  }
 
-    @JsonProperty(value="steerable", required = false)
-    protected Boolean steerable;
+  public String getType() {
+    return type;
+  }
 
-    @JsonProperty(value="azimuth_angle", required = false)
-    protected Double azimuthAngle;
+  public void setType(String type) {
+    this.type = type;
+  }
 
+  public Double getFrequencyLow() {
+    return frequencyLow;
+  }
 
-    @JsonProperty(value="elevation_angle", required = false)
-    protected Double elevationAngle;
+  public void setFrequencyLow(Double frequencyLow) {
+    this.frequencyLow = frequencyLow;
+  }
 
-    protected Map<String, Object> otherFields = new HashMap<>();
+  public Double getFrequencyHigh() {
+    return frequencyHigh;
+  }
 
-    public HardwareSpec getAntennaSpec() {
-        return antennaSpec;
-    }
+  public void setFrequencyHigh(Double frequencyHigh) {
+    this.frequencyHigh = frequencyHigh;
+  }
 
-    public void setAntennaSpec(HardwareSpec antennaSpec) {
-        this.antennaSpec = antennaSpec;
-    }
+  public Double getGain() {
+    return gain;
+  }
 
-    public String getPolarization() {
-        return polarization;
-    }
+  public void setGain(Double gain) {
+    this.gain = gain;
+  }
 
-    public void setPolarization(String polarization) {
-        this.polarization = polarization;
-    }
+  public Double[] getHorizontalGainPattern() {
+    return horizontalGainPattern;
+  }
 
-    public String getType() {
-        return type;
-    }
+  public void setHorizontalGainPattern(Double[] horizontalGainPattern) {
+    this.horizontalGainPattern = horizontalGainPattern;
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+  public Double[] getVerticalGainPattern() {
+    return verticalGainPattern;
+  }
 
-    public Double getFrequencyLow() {
-        return frequencyLow;
-    }
+  public void setVerticalGainPattern(Double[] verticalGainPattern) {
+    this.verticalGainPattern = verticalGainPattern;
+  }
 
-    public void setFrequencyLow(Double frequencyLow) {
-        this.frequencyLow = frequencyLow;
-    }
+  public Double getHorizontalBeamWidth() {
+    return horizontalBeamWidth;
+  }
 
-    public Double getFrequencyHigh() {
-        return frequencyHigh;
-    }
+  public void setHorizontalBeamWidth(Double horizontalBeamWidth) {
+    this.horizontalBeamWidth = horizontalBeamWidth;
+  }
 
-    public void setFrequencyHigh(Double frequencyHigh) {
-        this.frequencyHigh = frequencyHigh;
-    }
+  public Double getVerticalBeamWidth() {
+    return verticalBeamWidth;
+  }
 
-    public Double getGain() {
-        return gain;
-    }
+  public void setVerticalBeamWidth(Double verticalBeamWidth) {
+    this.verticalBeamWidth = verticalBeamWidth;
+  }
 
-    public void setGain(Double gain) {
-        this.gain = gain;
-    }
+  public Double getCrossPolarDiscrimination() {
+    return crossPolarDiscrimination;
+  }
 
-    public Double[] getHorizontalGainPattern() {
-        return horizontalGainPattern;
-    }
+  public void setCrossPolarDiscrimination(Double crossPolarDiscrimination) {
+    this.crossPolarDiscrimination = crossPolarDiscrimination;
+  }
 
-    public void setHorizontalGainPattern(Double[] horizontalGainPattern) {
-        this.horizontalGainPattern = horizontalGainPattern;
-    }
+  public Double getVoltageStandingWaveRatio() {
+    return voltageStandingWaveRatio;
+  }
 
-    public Double[] getVerticalGainPattern() {
-        return verticalGainPattern;
-    }
+  public void setVoltageStandingWaveRatio(Double voltageStandingWaveRatio) {
+    this.voltageStandingWaveRatio = voltageStandingWaveRatio;
+  }
 
-    public void setVerticalGainPattern(Double[] verticalGainPattern) {
-        this.verticalGainPattern = verticalGainPattern;
-    }
+  public Double getCableLoss() {
+    return cableLoss;
+  }
 
-    public Double getHorizontalBeamWidth() {
-        return horizontalBeamWidth;
-    }
+  public void setCableLoss(Double cableLoss) {
+    this.cableLoss = cableLoss;
+  }
 
-    public void setHorizontalBeamWidth(Double horizontalBeamWidth) {
-        this.horizontalBeamWidth = horizontalBeamWidth;
-    }
+  public Boolean getSteerable() {
+    return steerable;
+  }
 
-    public Double getVerticalBeamWidth() {
-        return verticalBeamWidth;
-    }
+  public void setSteerable(Boolean steerable) {
+    this.steerable = steerable;
+  }
 
-    public void setVerticalBeamWidth(Double verticalBeamWidth) {
-        this.verticalBeamWidth = verticalBeamWidth;
-    }
+  @JsonAnyGetter
+  public Map<String, Object> getOtherFields() {
+    return otherFields;
+  }
 
-    public Double getCrossPolarDiscrimination() {
-        return crossPolarDiscrimination;
-    }
+  @JsonAnySetter
+  public void add(String key, Object value) {
+    otherFields.put(key, value);
+  }
 
-    public void setCrossPolarDiscrimination(Double crossPolarDiscrimination) {
-        this.crossPolarDiscrimination = crossPolarDiscrimination;
-    }
+  public Double getAzimuthAngle() {
+    return azimuthAngle;
+  }
 
-    public Double getVoltageStandingWaveRatio() {
-        return voltageStandingWaveRatio;
-    }
+  public void setAzimuthAngle(Double azimuthAngle) {
+    this.azimuthAngle = azimuthAngle;
+  }
 
-    public void setVoltageStandingWaveRatio(Double voltageStandingWaveRatio) {
-        this.voltageStandingWaveRatio = voltageStandingWaveRatio;
-    }
+  public Double getElevationAngle() {
+    return elevationAngle;
+  }
 
-    public Double getCableLoss() {
-        return cableLoss;
-    }
-
-    public void setCableLoss(Double cableLoss) {
-        this.cableLoss = cableLoss;
-    }
-
-    public Boolean getSteerable() {
-        return steerable;
-    }
-
-    public void setSteerable(Boolean steerable) {
-        this.steerable = steerable;
-    }
-
-    @JsonAnyGetter
-    public Map<String, Object> getOtherFields(){
-        return otherFields;
-    }
-
-    @JsonAnySetter
-    public void add(String key, Object value){
-        otherFields.put(key, value);
-    }
-
-    public Double getAzimuthAngle() {
-        return azimuthAngle;
-    }
-
-    public void setAzimuthAngle(Double azimuthAngle) {
-        this.azimuthAngle = azimuthAngle;
-    }
-
-    public Double getElevationAngle() {
-        return elevationAngle;
-    }
-
-    public void setElevationAngle(Double elevationAngle) {
-        this.elevationAngle = elevationAngle;
-    }
-
+  public void setElevationAngle(Double elevationAngle) {
+    this.elevationAngle = elevationAngle;
+  }
 }

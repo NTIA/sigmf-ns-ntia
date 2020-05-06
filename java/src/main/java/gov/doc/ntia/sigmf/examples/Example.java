@@ -4,5 +4,5 @@ import gov.doc.ntia.sigmf.MetaDoc;
 
 public interface Example {
 
-    MetaDoc getExample();
+  MetaDoc getExample();
 }
