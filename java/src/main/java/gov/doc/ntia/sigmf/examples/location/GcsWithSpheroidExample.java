@@ -34,7 +34,7 @@ public class GcsWithSpheroidExample implements Example {
     datum.setSpheroid(spheroid);
     gcs.setDatum(datum);
     String description = "\"World Geodetic System 1984 - Horizontal component of 3D system.";
-    description += " Used by the GPS satellite navigation system and for NATO military geodetic surveying.";
+    description += " Used by the GPS and for NATO military geodetic surveying.";
     gcs.setDescription(description);
     global.setCoordinateSystem(gcs);
 

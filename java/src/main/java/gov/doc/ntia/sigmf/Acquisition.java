@@ -65,7 +65,7 @@ public class Acquisition implements Serializable {
 
   /**
    * Utility method to create a name for the Acquisition equal to the sensor_sheduleId_taskId.
-   * @return
+   * @return the name for the acquisition.
    */
   public String getName() {
     String name =
