@@ -115,9 +115,9 @@ Now, if we open the file we will see the following:
 
 ```
 
-Finally, if we simply wanted to read the example.json in Matlab we would use the static read method provided by the SifMFReader class. Because it is a static method you must call it slightly differently, as shown below:
+Finally, if we simply wanted to read the example.json in Matlab we would use the static read method provided by the SifMfReader class. Because it is a static method you must call it slightly differently, as shown below:
 
-`readMetaDoc = javaMethod('read', 'gov.doc.ntia.sigmf.SigMFReader',' 'C:\Users\dboulware\Documents\sigmf-ns-ntia\example.json');`
+`readMetaDoc = javaMethod('read', 'gov.doc.ntia.sigmf.SigMfReader',' 'C:\Users\dboulware\Documents\sigmf-ns-ntia\example.json');`
 
 
 
