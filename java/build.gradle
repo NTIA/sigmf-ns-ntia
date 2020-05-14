@@ -2,6 +2,7 @@
 plugins {
     id 'java'
     id 'io.spring.dependency-management' version '1.0.4.RELEASE'
+    id 'maven-publish'
 }
 
 group = 'gov.doc.ntia'
@@ -36,5 +37,26 @@ test {
 }
 task myJavadocs(type: Javadoc) {
     source = sourceSets.main.allJava
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/NTIA/sigmf-ns-ntia")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
+            groupId = 'gov.doc.ntia'
+            artifactId = 'sigmf-ns-ntia'
+            version = '1.0.0'
+        }
+    }
 }
 
