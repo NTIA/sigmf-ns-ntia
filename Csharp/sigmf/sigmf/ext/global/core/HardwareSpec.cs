@@ -5,21 +5,23 @@ using System.Text;
 
 namespace sigmf
 {
+    
+    [Serializable()]
     public class HardwareSpec
     {
-        [JsonProperty("id")]
+        [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
         protected string id;
 
-        [JsonProperty("model")]
+        [JsonProperty("model", NullValueHandling = NullValueHandling.Ignore)]
         protected string model;
 
-        [JsonProperty("version")]
+        [JsonProperty("version", NullValueHandling = NullValueHandling.Ignore)]
         protected string version;
 
-        [JsonProperty("description")]
+        [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
         protected string description;
 
-        [JsonProperty("supplemental_information")]
+        [JsonProperty("supplemental_information", NullValueHandling = NullValueHandling.Ignore)]
         protected string supplemental_information;
 
         public string Id { get => id; set => id = value; }

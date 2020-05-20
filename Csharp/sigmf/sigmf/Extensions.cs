@@ -9,25 +9,26 @@ namespace sigmf
     {
         private static readonly long serialVersionUID = 1L;
 
-        protected List<Extension> extensions;
+        protected Extension[] extensions;
 
         public Extensions()
         {
-            extensions = new List<Extension>();
+            extensions = new Extension[400];
         }
-        public List<Extension> getExtensions()
+        public Extension[] getExtensions()
         {
             return extensions;
         }
 
-        public void setExtensions(List<Extension> extensions)
+        public void setExtensions(Extension[] extensions)
         {
             this.extensions = extensions;
         }
 
-        public void addExtension(Extension extension)
+        public int addExtension(Extension extension, int index)
         {
-            extensions.Add(extension);
+            extensions[index] = extension;
+            return index + 1;
         }
     }
 }

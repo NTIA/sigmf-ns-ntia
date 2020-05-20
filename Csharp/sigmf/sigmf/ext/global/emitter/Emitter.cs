@@ -9,19 +9,19 @@ namespace sigmf
     {
         private static readonly long serialVersionUID = 1L;
 
-        [JsonProperty("id")]
+        [JsonProperty("id", NullValueHandling = NullValueHandling.Ignore)]
         protected string id;
 
-        [JsonProperty("description")]
+        [JsonProperty("description", NullValueHandling = NullValueHandling.Ignore)]
         protected string description;
 
-        [JsonProperty("power")]
+        [JsonProperty("power", NullValueHandling = NullValueHandling.Ignore)]
         protected double power;
 
-        [JsonProperty("antenna")]
+        [JsonProperty("antenna", NullValueHandling = NullValueHandling.Ignore)]
         protected Antenna antenna;
 
-        [JsonProperty("transmitter")]
+        [JsonProperty("transmitter", NullValueHandling = NullValueHandling.Ignore)]
         protected Transmitter transmitter;
 
         protected Dictionary<string, object> otherfields = new Dictionary<string, object>();

@@ -10,7 +10,7 @@ namespace sigmf.examples.algorithm
             MetaDoc metaDoc = new MetaDoc();
             Globals globals = ExampleUtils.getGlobals(getCurrentTime());
             DigitalFilterAnnotation digFilter = new DigitalFilterAnnotation();
-            List<double> FIRcoefficients = new List<double> { 1.0, 4.0, 5.0, 3.2 };
+            double [] FIRcoefficients = new double[] { 1.0, 4.0, 5.0, 3.2 };
             digFilter.SampleCount = 10001;
             digFilter.SampleStart = 01;
             digFilter.FilterType = "FIR";
@@ -20,8 +20,8 @@ namespace sigmf.examples.algorithm
             digFilter.AttenuationStopband = -10d;
             digFilter.RipplePassband = -5d;
             digFilter.AttenuationCutoff = -6d;
-            List<Annotation> annotations = new List<Annotation>();
-            annotations.Add(digFilter);
+            Annotation[] annotations = new Annotation[400];
+            annotations[0] = digFilter;
             metaDoc.setGlobal(globals);
             metaDoc.setAnnotations(annotations);
             return metaDoc;

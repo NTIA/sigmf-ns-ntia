@@ -11,18 +11,22 @@ namespace sigmf
     {
         private static readonly long serialVersionUID = 1L;
 
+        [JsonProperty("id", Required = Required.Always)]
         protected string id;
 
+        [JsonProperty("global", Required = Required.Always)]
         protected Globals global;
 
-        protected List<Capture> captures;
+        [JsonProperty("captures", Required = Required.Always)]
+        protected Capture[] captures;
 
-        protected List<Annotation> annotations;
+        [JsonProperty("annotations", Required = Required.Always)]
+        protected Annotation[] annotations;
 
         public MetaDoc() {
             global = new Globals();
-            captures = new List<Capture>();
-            annotations = new List<Annotation>();
+            captures = new Capture[300];
+            annotations = new Annotation[300];
         
         }
 
@@ -33,22 +37,22 @@ namespace sigmf
         {
             this.id = id;
         }
-        public List<Capture> getCaptures()
+        public Capture[] getCaptures()
         {
             return captures;
         }
 
-        public void setCaptures(List<Capture> captures)
+        public void setCaptures(Capture[] captures)
         {
             this.captures = captures;
         }
 
-        public List<Annotation> getAnnotations()
+        public Annotation[] getAnnotations()
         {
             return annotations;
         }
 
-        public void setAnnotations(List<Annotation> annotations)
+        public void setAnnotations(Annotation[] annotations)
         {
             this.annotations = annotations;
         }
@@ -68,8 +72,10 @@ namespace sigmf
             File.WriteAllText(filename,JsonConvert.SerializeObject(this));
 
         }
-        public void addAnnotation(Annotation annotation) {
-            annotations.Add(annotation);
+        public int addAnnotation(Annotation annotation , int index) {
+            //annotations.Add(annotation);
+            annotations[index] = annotation;
+            return index + 1;
         }
     }
 }

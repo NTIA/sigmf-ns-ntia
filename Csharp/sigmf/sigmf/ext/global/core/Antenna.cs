@@ -10,55 +10,55 @@ namespace sigmf
     {
         private static readonly long serialVersionUID = 1L;
 
-        [JsonProperty("antenna_spec")]
+        [JsonProperty("antenna_spec", Required = Required.Always)]
         protected HardwareSpec antennaSpec;
 
-        [JsonProperty("type")]
+        [JsonProperty("type", NullValueHandling = NullValueHandling.Ignore)]
         protected string type;
 
-        [JsonProperty("low_frequency")]
+        [JsonProperty("low_frequency", NullValueHandling = NullValueHandling.Ignore)]
         protected double lowFrequency;
 
-        [JsonProperty("high_frequency")]
+        [JsonProperty("high_frequency", NullValueHandling = NullValueHandling.Ignore)]
         protected double highFrequency;
 
-        [JsonProperty("gain")]
+        [JsonProperty("gain", NullValueHandling = NullValueHandling.Ignore)]
         protected double gain;
 
-        [JsonProperty("polarization")]
+        [JsonProperty("polarization", NullValueHandling = NullValueHandling.Ignore)]
         protected string polarization;
 
-        [JsonProperty("cross_polar_discrimination")]
+        [JsonProperty("cross_polar_discrimination", NullValueHandling = NullValueHandling.Ignore)]
         protected double crossPolarDiscrimination;
 
-        [JsonProperty("horizontal_gain_pattern")]
-        protected List<double> horizontalGainPattern;
+        [JsonProperty("horizontal_gain_pattern", NullValueHandling = NullValueHandling.Ignore)]
+        protected double[] horizontalGainPattern;
 
-        [JsonProperty("vertical_gain_pattern")]
-        protected List<double> verticalGainPattern;
+        [JsonProperty("vertical_gain_pattern", NullValueHandling = NullValueHandling.Ignore)]
+        protected double[] verticalGainPattern;
 
-        [JsonProperty("horizontal_beam_width")]
+        [JsonProperty("horizontal_beam_width", NullValueHandling = NullValueHandling.Ignore)]
         protected double horizontalBeamWidth;
 
-        [JsonProperty("vertical_beam_width")]
+        [JsonProperty("vertical_beam_width", NullValueHandling = NullValueHandling.Ignore)]
         protected double verticalBeamWidth;
 
-        [JsonProperty("voltage_standing_wave_ratio")]
+        [JsonProperty("voltage_standing_wave_ratio", NullValueHandling = NullValueHandling.Ignore)]
         protected double voltageStandingWaveRatio;
 
-        [JsonProperty("cable_loss")]
+        [JsonProperty("cable_loss", NullValueHandling = NullValueHandling.Ignore)]
         protected double cableLoss;
 
-        [JsonProperty("steerable")]
+        [JsonProperty("steerable", NullValueHandling = NullValueHandling.Ignore)]
         protected bool steerable;
 
-        [JsonProperty("azimuth_angle")]
+        [JsonProperty("azimuth_angle", NullValueHandling = NullValueHandling.Ignore)]
         protected double azimuthAngle;
 
-        [JsonProperty("elevation_angle")]
+        [JsonProperty("elevation_angle", NullValueHandling = NullValueHandling.Ignore)]
         protected double elevationAngle;
 
-        [JsonProperty("mobile")]
+        [JsonProperty("mobile", NullValueHandling = NullValueHandling.Ignore)]
         protected bool mobile;
 
         protected Dictionary<string, object> otherfields = new Dictionary<string, object>();
@@ -70,8 +70,8 @@ namespace sigmf
         public double Gain { get => gain; set => gain = value; }
         public string Polarization { get => polarization; set => polarization = value; }
         public double CrossPolarDiscrimination { get => crossPolarDiscrimination; set => crossPolarDiscrimination = value; }
-        public List<double> HorizontalGainPattern { get => horizontalGainPattern; set => horizontalGainPattern = value; }
-        public List<double> VerticalGainPattern { get => verticalGainPattern; set => verticalGainPattern = value; }
+        public double[] HorizontalGainPattern { get => horizontalGainPattern; set => horizontalGainPattern = value; }
+        public double[] VerticalGainPattern { get => verticalGainPattern; set => verticalGainPattern = value; }
         public double HorizontalBeamWidth { get => horizontalBeamWidth; set => horizontalBeamWidth = value; }
         public double VerticalBeamWidth { get => verticalBeamWidth; set => verticalBeamWidth = value; }
         public double VoltageStandingWaveRatio { get => voltageStandingWaveRatio; set => voltageStandingWaveRatio = value; }

@@ -41,7 +41,7 @@ namespace sigmf
         protected double shortInterFrameSpace;
 
         [JsonProperty("preamble_frame")]
-        protected List<int> preambleFrame;
+        protected int[] preambleFrame;
 
         [JsonProperty("number_of_info_bits")]
         protected long numberOfInfoBits;
@@ -59,7 +59,7 @@ namespace sigmf
         public long NumberOfPilots { get => numberOfPilots; set => numberOfPilots = value; }
         public long CyclicPrefix { get => cyclicPrefix; set => cyclicPrefix = value; }
         public double ShortInterFrameSpace { get => shortInterFrameSpace; set => shortInterFrameSpace = value; }
-        public List<int> PreambleFrame { get => preambleFrame; set => preambleFrame = value; }
+        public int[] PreambleFrame { get => preambleFrame; set => preambleFrame = value; }
         public long NumberOfInfoBits { get => numberOfInfoBits; set => numberOfInfoBits = value; }
         public double SignalToNoiseRation { get => signalToNoiseRation; set => signalToNoiseRation = value; }
 

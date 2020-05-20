@@ -52,7 +52,7 @@ namespace sigmf
         protected Sensor sensor;
 
         [JsonProperty("ntia-emitter:emitters")]
-        protected List<Emitter> emitters;
+        protected Emitter[] emitters;
 
         [JsonProperty("ntia-scos:action")]
         protected Action action;
@@ -87,7 +87,7 @@ namespace sigmf
         public string Hw { get => hw; set => hw = value; }
         public Extensions Extensions { get => extensions; set => extensions = value; }
         public Sensor Sensor { get => sensor; set => sensor = value; }
-        public List<Emitter> Emitters { get => emitters; set => emitters = value; }
+        public Emitter[] Emitters { get => emitters; set => emitters = value; }
         public Action Action { get => action; set => action = value; }
         public ScheduleEntry Schedule { get => schedule; set => schedule = value; }
         public long TaskId { get => taskId; set => taskId = value; }

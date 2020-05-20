@@ -10,16 +10,16 @@ namespace sigmf
     {
         private static readonly long serialVersionUID = 1L;
 
-        [JsonProperty("ntia-algorithm:detector")]
+        [JsonProperty("ntia-algorithm:detector", Required = Required.Always)]
         protected string detector;
 
-        [JsonProperty("ntia-algorithm:detection_domain")]
+        [JsonProperty("ntia-algorithm:detection_domain", Required = Required.Always)]
         protected string detectionDomain;
 
-        [JsonProperty("ntia-algorithm:units")]
+        [JsonProperty("ntia-algorithm:units", Required = Required.Always)]
         protected string units;
 
-        [JsonProperty("ntia-algorithm:reference")]
+        [JsonProperty("ntia-algorithm:reference", Required = Required.Always)]
         protected string reference;
 
         public string Detector { get => detector; set => detector = value; }

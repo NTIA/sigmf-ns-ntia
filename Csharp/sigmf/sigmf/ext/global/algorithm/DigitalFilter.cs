@@ -11,39 +11,39 @@ namespace sigmf
 
         //not required 
 
-        [JsonProperty("filter_type")]
+        [JsonProperty("filter_type", NullValueHandling = NullValueHandling.Ignore)]
         protected string filterType;
 
-        [JsonProperty("FIR_coefficients")]
-        protected List<double> firCoefficients;
+        [JsonProperty("FIR_coefficients", NullValueHandling = NullValueHandling.Ignore)]
+        protected double[] firCoefficients;
 
-        [JsonProperty("IIR_numerator_coefficients")]
-        protected List<double> iirNumeratorCoefficients;
+        [JsonProperty("IIR_numerator_coefficients", NullValueHandling = NullValueHandling.Ignore)]
+        protected double[] iirNumeratorCoefficients;
 
-        [JsonProperty("IIR_denominator_coefficients")]
-        protected List<double> iirDenominatorCoefficients;
+        [JsonProperty("IIR_denominator_coefficients", NullValueHandling = NullValueHandling.Ignore)]
+        protected double[] iirDenominatorCoefficients;
 
-        [JsonProperty("cutoff_frequency")]
+        [JsonProperty("cutoff_frequency", NullValueHandling = NullValueHandling.Ignore)]
         protected double cutoffFrequency;
 
-        [JsonProperty("cutoff_attenuation")]
+        [JsonProperty("cutoff_attenuation", NullValueHandling = NullValueHandling.Ignore)]
         protected double cutoffAttenuation;
 
-        [JsonProperty("ripple_passband")]
+        [JsonProperty("ripple_passband", NullValueHandling = NullValueHandling.Ignore)]
         protected double ripplePassband;
 
-        [JsonProperty("attenuation_stopband")]
+        [JsonProperty("attenuation_stopband", NullValueHandling = NullValueHandling.Ignore)]
         protected double attenuationStopband;
 
-        [JsonProperty("frequency_stopband")]
+        [JsonProperty("frequency_stopband", NullValueHandling = NullValueHandling.Ignore)]
         protected double frequencyStopband;
 
         protected Dictionary<String, Object> otherFields = new Dictionary<String, Object>();
 
         public string FilterType { get => filterType; set => filterType = value; }
-        public List<double> FirCoefficients { get => firCoefficients; set => firCoefficients = value; }
-        public List<double> IirNumeratorCoefficients { get => iirNumeratorCoefficients; set => iirNumeratorCoefficients = value; }
-        public List<double> IirDenominatorCoefficients { get => iirDenominatorCoefficients; set => iirDenominatorCoefficients = value; }
+        public double[] FirCoefficients { get => firCoefficients; set => firCoefficients = value; }
+        public double[] IirNumeratorCoefficients { get => iirNumeratorCoefficients; set => iirNumeratorCoefficients = value; }
+        public double[] IirDenominatorCoefficients { get => iirDenominatorCoefficients; set => iirDenominatorCoefficients = value; }
         public double CutoffFrequency { get => cutoffFrequency; set => cutoffFrequency = value; }
         public double CutoffAttenuation { get => cutoffAttenuation; set => cutoffAttenuation = value; }
         public double RipplePassband { get => ripplePassband; set => ripplePassband = value; }

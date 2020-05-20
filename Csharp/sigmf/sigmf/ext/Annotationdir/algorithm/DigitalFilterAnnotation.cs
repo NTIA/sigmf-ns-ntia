@@ -11,13 +11,13 @@ namespace sigmf
         protected string filterType;
 
         [JsonProperty("ntia-algorithm:FIR_coefficients")]
-        protected List<double> firCoefficients;
+        protected double[] firCoefficients;
 
         [JsonProperty("ntia-algorithm:IIR_numerator_coefficients")]
-        protected List<double> iirNumeratorCoefficients;
+        protected double[] iirNumeratorCoefficients;
 
         [JsonProperty("ntia-algorithm:IIR_denominator_coefficients")]
-        protected List<double> iirDenominatorCoefficients;
+        protected double[] iirDenominatorCoefficients;
 
         [JsonProperty("ntia-algorithm:frequency_cutoff")]
         protected double frequencyCutoff;
@@ -35,9 +35,9 @@ namespace sigmf
         protected double frequencyStopband;
 
         public string FilterType { get => filterType; set => filterType = value; }
-        public List<double> FirCoefficients { get => firCoefficients; set => firCoefficients = value; }
-        public List<double> IirNumeratorCoefficients { get => iirNumeratorCoefficients; set => iirNumeratorCoefficients = value; }
-        public List<double> IirDenominatorCoefficients { get => iirDenominatorCoefficients; set => iirDenominatorCoefficients = value; }
+        public double[] FirCoefficients { get => firCoefficients; set => firCoefficients = value; }
+        public double[] IirNumeratorCoefficients { get => iirNumeratorCoefficients; set => iirNumeratorCoefficients = value; }
+        public double[] IirDenominatorCoefficients { get => iirDenominatorCoefficients; set => iirDenominatorCoefficients = value; }
         public double FrequencyCutoff { get => frequencyCutoff; set => frequencyCutoff = value; }
         public double AttenuationCutoff { get => attenuationCutoff; set => attenuationCutoff = value; }
         public double RipplePassband { get => ripplePassband; set => ripplePassband = value; }

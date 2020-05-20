@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jknoll\\source\\repos\\sigmf-ns-ntia\\C#\\sigmf\\sigmf\\sigmf.csproj": {}
+    "C:\\Users\\jknoll\\source\\repos\\sigmf-ns-ntia\\Csharp\\sigmf\\sigmf\\sigmf.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jknoll\\source\\repos\\sigmf-ns-ntia\\C#\\sigmf\\sigmf\\sigmf.csproj": {
+    "C:\\Users\\jknoll\\source\\repos\\sigmf-ns-ntia\\Csharp\\sigmf\\sigmf\\sigmf.csproj": {
       "version": "1.0.2",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jknoll\\source\\repos\\sigmf-ns-ntia\\C#\\sigmf\\sigmf\\sigmf.csproj",
+        "projectUniqueName": "C:\\Users\\jknoll\\source\\repos\\sigmf-ns-ntia\\Csharp\\sigmf\\sigmf\\sigmf.csproj",
         "projectName": "sigmf",
-        "projectPath": "C:\\Users\\jknoll\\source\\repos\\sigmf-ns-ntia\\C#\\sigmf\\sigmf\\sigmf.csproj",
+        "projectPath": "C:\\Users\\jknoll\\source\\repos\\sigmf-ns-ntia\\Csharp\\sigmf\\sigmf\\sigmf.csproj",
         "packagesPath": "C:\\Users\\jknoll\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jknoll\\source\\repos\\sigmf-ns-ntia\\C#\\sigmf\\sigmf\\obj\\",
+        "outputPath": "C:\\Users\\jknoll\\source\\repos\\sigmf-ns-ntia\\Csharp\\sigmf\\sigmf\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
