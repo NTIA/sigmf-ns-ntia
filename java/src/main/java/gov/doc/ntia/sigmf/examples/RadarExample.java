@@ -53,6 +53,7 @@ public class RadarExample implements Example {
     calendar.add(Calendar.MILLISECOND, 30);
     measurement.setTimeStop(calendar.getTime());
     measurement.setFrequencyTunedStep(437500.0);
+    measurement.setClassification("UNCLASSIFIED");
     return measurement;
   }
 

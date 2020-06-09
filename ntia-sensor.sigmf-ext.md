@@ -258,7 +258,8 @@ Sensor definition follows a simplified hardware model composed of the following 
       "time_stop" : "2018-01-01T08:00:37.792Z",
       "frequency_tuned_low" : 3.45940625E9,
       "frequency_tuned_high" : 3.65190625E9,
-      "frequency_tuned_step" : 1.925E7
+      "frequency_tuned_step" : 1.925E7, 
+      "classification" : "UNCLASSIFIED"
     }
   },
   "captures" : [ {

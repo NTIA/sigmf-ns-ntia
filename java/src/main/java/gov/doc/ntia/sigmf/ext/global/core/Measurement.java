@@ -37,6 +37,10 @@ public class Measurement implements Serializable {
   @JsonProperty(value = "frequencies_tuned", required = false)
   protected Double[] frequenciesTuned;
 
+  @JsonProperty(value = "classification", required = true)
+  protected  String classification;
+
+
   public String getDomain() {
     return domain;
   }
@@ -102,4 +106,13 @@ public class Measurement implements Serializable {
   public void setFrequenciesTuned(Double[] frequenciesTuned) {
     this.frequenciesTuned = frequenciesTuned;
   }
+
+  public String getClassification() {
+    return classification;
+  }
+
+  public void setClassification(String classification) {
+    this.classification = classification;
+  }
+
 }
