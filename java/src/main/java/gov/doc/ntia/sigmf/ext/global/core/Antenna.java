@@ -41,10 +41,10 @@ public class Antenna implements Serializable {
   protected Double[] verticalGainPattern;
 
   @JsonProperty(value = "horizontal_beamwidth", required = false)
-  protected Double horizontalBeamWidth;
+  protected Double horizontalBeamwidth;
 
   @JsonProperty(value = "vertical_beamwidth", required = false)
-  protected Double verticalBeamWidth;
+  protected Double verticalBeamwidth;
 
   @JsonProperty(value = "voltage_standing_wave_ratio", required = false)
   protected Double voltageStandingWaveRatio;
@@ -127,20 +127,20 @@ public class Antenna implements Serializable {
     this.verticalGainPattern = verticalGainPattern;
   }
 
-  public Double getHorizontalBeamWidth() {
-    return horizontalBeamWidth;
+  public Double getHorizontalBeamwidth() {
+    return horizontalBeamwidth;
   }
 
-  public void setHorizontalBeamWidth(Double horizontalBeamWidth) {
-    this.horizontalBeamWidth = horizontalBeamWidth;
+  public void setHorizontalBeamwidth(Double horizontalBeamwidth) {
+    this.horizontalBeamwidth = horizontalBeamwidth;
   }
 
-  public Double getVerticalBeamWidth() {
-    return verticalBeamWidth;
+  public Double getVerticalBeamwidth() {
+    return verticalBeamwidth;
   }
 
-  public void setVerticalBeamWidth(Double verticalBeamWidth) {
-    this.verticalBeamWidth = verticalBeamWidth;
+  public void setVerticalBeamwidth(Double verticalBeamwidth) {
+    this.verticalBeamwidth = verticalBeamwidth;
   }
 
   public Double getCrossPolarDiscrimination() {

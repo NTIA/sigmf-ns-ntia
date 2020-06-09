@@ -11,7 +11,6 @@ import gov.doc.ntia.sigmf.ext.global.environment.Environment;
 import gov.doc.ntia.sigmf.ext.global.location.Location;
 import gov.doc.ntia.sigmf.ext.global.waveform.Waveform;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 public class EmitterExample implements Example {
@@ -38,8 +37,8 @@ public class EmitterExample implements Example {
     antenna.setGain(2.0);
     antenna.setPolarization("horizontal");
     antenna.setCrossPolarDiscrimination(20.0);
-    antenna.setHorizontalBeamWidth(360.0);
-    antenna.setVerticalBeamWidth(65.0);
+    antenna.setHorizontalBeamwidth(360.0);
+    antenna.setVerticalBeamwidth(65.0);
     antenna.setVoltageStandingWaveRatio(2.5);
     antenna.setCableLoss(.15);
     antenna.setSteerable(false);

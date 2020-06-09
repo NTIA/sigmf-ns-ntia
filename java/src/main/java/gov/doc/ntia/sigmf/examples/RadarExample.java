@@ -103,8 +103,8 @@ public class RadarExample implements Example {
     antenna.setGain(0d);
     antenna.setPolarization("slant");
     antenna.setCrossPolarDiscrimination(13d);
-    antenna.setHorizontalBeamWidth(360d);
-    antenna.setVerticalBeamWidth(68.38);
+    antenna.setHorizontalBeamwidth(360d);
+    antenna.setVerticalBeamwidth(68.38);
     antenna.setVoltageStandingWaveRatio(2d);
     antenna.setCableLoss(.62);
     antenna.setSteerable(Boolean.FALSE);

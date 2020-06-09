@@ -130,10 +130,10 @@ public class AntennaTests {
   public void testVerticalGainPattern() {}
 
   @Test
-  public void testHorizontalBeamWidth() {}
+  public void testHorizontalBeamwidth() {}
 
   @Test
-  public void testVerticalBeamWidth() {}
+  public void testVerticalBeamwidth() {}
 
   @Test
   public void testVoltageStandingWaveRatio() {}
