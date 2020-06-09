@@ -7,38 +7,37 @@ import gov.doc.ntia.sigmf.examples.Example;
 import gov.doc.ntia.sigmf.examples.ExampleUtils;
 import gov.doc.ntia.sigmf.ext.global.location.Datum;
 import gov.doc.ntia.sigmf.ext.global.location.GeographicCoordinateSystem;
-import gov.doc.ntia.sigmf.ext.global.location.CoordinateSystem;
 import gov.doc.ntia.sigmf.ext.global.location.Spheroid;
-
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
 public class GcsWithSpheroidExample implements Example {
-    @Override
-    public MetaDoc getExample() {
-        Date now = Calendar.getInstance().getTime();
-        MetaDoc metadoc = new MetaDoc();
+  @Override
+  public MetaDoc getExample() {
+    Date now = Calendar.getInstance().getTime();
+    MetaDoc metadoc = new MetaDoc();
 
-        Global global = ExampleUtils.getGlobal(now);
-        List<Capture> captures = ExampleUtils.getCaptures(now);
-        metadoc.setGlobal(global);
-        metadoc.setCaptures(captures);
-        GeographicCoordinateSystem gcs = new GeographicCoordinateSystem();
-        gcs.setId("EPSG:4326");
-        Datum datum = new Datum();
-        Spheroid spheroid = new Spheroid();
-        spheroid.setSemimajor(6378137.0);
-        spheroid.setSemiminor(6356752.3142);
-        spheroid.setFlattening((1/298.257223563));
-        spheroid.setPrimeMeridian("Greenwich");
-        spheroid.setMeridianOffset(0.0);
-        datum.setSpheroid(spheroid);
-        gcs.setDatum(datum);
-        gcs.setDescription("World Geodetic System 1984 - Horizontal component of 3D system. Used by the GPS satellite navigation system and for NATO military geodetic surveying.");
+    Global global = ExampleUtils.getGlobal();
+    List<Capture> captures = ExampleUtils.getCaptures(now);
+    metadoc.setGlobal(global);
+    metadoc.setCaptures(captures);
+    GeographicCoordinateSystem gcs = new GeographicCoordinateSystem();
+    gcs.setId("EPSG:4326");
+    Spheroid spheroid = new Spheroid();
+    spheroid.setSemimajor(6378137.0);
+    spheroid.setSemiminor(6356752.3142);
+    spheroid.setFlattening((1 / 298.257223563));
+    spheroid.setPrimeMeridian("Greenwich");
+    spheroid.setMeridianOffset(0.0);
+    Datum datum = new Datum();
+    datum.setSpheroid(spheroid);
+    gcs.setDatum(datum);
+    String description = "\"World Geodetic System 1984 - Horizontal component of 3D system.";
+    description += " Used by the GPS and for NATO military geodetic surveying.";
+    gcs.setDescription(description);
+    global.setCoordinateSystem(gcs);
 
-        global.setCoordinateSystem(gcs);
-
-        return metadoc;
-    }
+    return metadoc;
+  }
 }

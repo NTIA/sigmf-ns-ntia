@@ -2,68 +2,65 @@ package gov.doc.ntia.sigmf.ext.global.core;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class HardwareSpec implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="id", required=false)
-    protected String id;
+  @JsonProperty(value = "id", required = false)
+  protected String id;
 
-    @JsonProperty(value="model", required = false)
-    protected String model;
+  @JsonProperty(value = "model", required = false)
+  protected String model;
 
-    @JsonProperty(value="version", required = false)
-    protected String version;
+  @JsonProperty(value = "version", required = false)
+  protected String version;
 
-    @JsonProperty(value="description", required = false)
-    protected String description;
+  @JsonProperty(value = "description", required = false)
+  protected String description;
 
-    @JsonProperty(value="supplemental_information", required = false)
-    protected String supplementalInformation;
+  @JsonProperty(value = "supplemental_information", required = false)
+  protected String supplementalInformation;
 
+  public String getId() {
+    return id;
+  }
 
-    public String getId() {
-        return id;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public String getModel() {
+    return model;
+  }
 
-    public String getModel() {
-        return model;
-    }
+  public void setModel(String model) {
+    this.model = model;
+  }
 
-    public void setModel(String model) {
-        this.model = model;
-    }
+  public String getVersion() {
+    return version;
+  }
 
-    public String getVersion() {
-        return version;
-    }
+  public void setVersion(String version) {
+    this.version = version;
+  }
 
-    public void setVersion(String version) {
-        this.version = version;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public String getSupplementalInformation() {
+    return supplementalInformation;
+  }
 
-    public String getSupplementalInformation() {
-        return supplementalInformation;
-    }
-
-    public void setSupplementalInformation(String supplementalInformation) {
-        this.supplementalInformation = supplementalInformation;
-    }
-
+  public void setSupplementalInformation(String supplementalInformation) {
+    this.supplementalInformation = supplementalInformation;
+  }
 }

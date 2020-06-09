@@ -9,16 +9,16 @@ import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import java.util.Calendar;
 
 public class SensorEnvironmentExample implements Example {
-    @Override
-    public MetaDoc getExample() {
-        MetaDoc metaDoc = new MetaDoc();
-        Global global = ExampleUtils.getGlobal(Calendar.getInstance().getTime());
-        metaDoc.setGlobal(global);
-        Sensor sensor = new Sensor();
-        Environment sensorEnvironment = new Environment();
-        sensorEnvironment.setCategory("outdoor");
-        sensor.setEnvironment(sensorEnvironment);
-        global.setSensor(sensor);
-        return metaDoc;
-    }
+  @Override
+  public MetaDoc getExample() {
+    MetaDoc metaDoc = new MetaDoc();
+    Global global = ExampleUtils.getGlobal();
+    metaDoc.setGlobal(global);
+    Sensor sensor = new Sensor();
+    Environment sensorEnvironment = new Environment();
+    sensorEnvironment.setCategory("outdoor");
+    sensor.setEnvironment(sensorEnvironment);
+    global.setSensor(sensor);
+    return metaDoc;
+  }
 }

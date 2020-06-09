@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.serialization.ExtensionsDeserializer;
 import gov.doc.ntia.sigmf.serialization.ExtensionsSerializer;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -14,24 +13,23 @@ import java.util.ArrayList;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Extensions implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    protected ArrayList<Extension> extensions;
+  protected ArrayList<Extension> extensions;
 
-    public Extensions(){
-        extensions = new ArrayList<>();
-    }
+  public Extensions() {
+    extensions = new ArrayList<>();
+  }
 
-    public ArrayList<Extension> getExtensions() {
-        return extensions;
-    }
+  public ArrayList<Extension> getExtensions() {
+    return extensions;
+  }
 
-    public void setExtensions(ArrayList<Extension> extensions) {
-        this.extensions = extensions;
-    }
+  public void setExtensions(ArrayList<Extension> extensions) {
+    this.extensions = extensions;
+  }
 
-
-    public void addExtension(Extension extension) {
-        extensions.add(extension);
-    }
+  public void addExtension(Extension extension) {
+    extensions.add(extension);
+  }
 }
