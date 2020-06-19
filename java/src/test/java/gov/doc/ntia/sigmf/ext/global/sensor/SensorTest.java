@@ -25,7 +25,7 @@ class SensorTest {
     output.deleteOnExit();
     mapper.writeValue(output, metaDoc);
     MetaDoc readMetaDoc = (MetaDoc) mapper.readValue(output, MetaDoc.class);
-    assertEquals(sensorId, metaDoc.getGlobal().getSensor().getId());
+    assertEquals(sensorId, readMetaDoc.getGlobal().getSensor().getId());
   }
 
   @Test
@@ -43,6 +43,6 @@ class SensorTest {
     output.deleteOnExit();
     mapper.writeValue(output, metaDoc);
     MetaDoc readMetaDoc = (MetaDoc) mapper.readValue(output, MetaDoc.class);
-    assertEquals(Boolean.TRUE, metaDoc.getGlobal().getSensor().getMobile());
+    assertEquals(Boolean.TRUE, readMetaDoc.getGlobal().getSensor().getMobile());
   }
 }

@@ -8,11 +8,10 @@ import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CallibrationAnnotationExample implements Example {
+public class CalibrationAnnotationExample implements Example {
 
   @Override
   public MetaDoc getExample() {
-    Global global = new Global();
     CalibrationAnnotation cal = new CalibrationAnnotation();
     cal.setGainSigan(2.0);
     cal.setNoiseFigureSigan(1.0);

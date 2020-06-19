@@ -11,6 +11,8 @@ def versions = [
         checkstyle: '8.32',
 ]
 
+def archiveBaseName= 'sigmf-ns-ntia'
+
 group = 'gov.doc.ntia'
 version = '1.0.0'
 
@@ -41,7 +43,7 @@ dependencies {
 }
 
 jar{
-    archiveBaseName = 'sigmf-ns-ntia'
+    archiveBaseName = "${archiveBaseName}"
 }
 test {
     useJUnitPlatform()
@@ -64,9 +66,9 @@ publishing {
     publications {
         gpr(MavenPublication) {
             from(components.java)
-            groupId = 'gov.doc.ntia'
-            artifactId = 'sigmf-ns-ntia'
-            version = '1.0.0'
+            groupId = "${group}"
+            artifactId = "${archiveBaseName}"
+            version = "${version}"
         }
     }
 

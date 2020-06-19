@@ -18,7 +18,7 @@ public class ExampleUtils {
 
   /**
    * Generates an example Capture.
-   * @param dateTime Teh Date of the Capture.
+   * @param dateTime The Date of the Capture.
    * @return A List containing one Capture at dateTime.
    */
   public static List<Capture> getCaptures(Date dateTime) {

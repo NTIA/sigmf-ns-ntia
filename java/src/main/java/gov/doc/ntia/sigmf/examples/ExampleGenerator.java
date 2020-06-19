@@ -9,7 +9,7 @@ import gov.doc.ntia.sigmf.examples.algorithm.DigitalFilterAnnotationExample;
 import gov.doc.ntia.sigmf.examples.algorithm.DigitalFilterExample;
 import gov.doc.ntia.sigmf.examples.algorithm.FrequencyDomainDetectionExample;
 import gov.doc.ntia.sigmf.examples.algorithm.TimeDomainDetectionExample;
-import gov.doc.ntia.sigmf.examples.callibration.CallibrationAnnotationExample;
+import gov.doc.ntia.sigmf.examples.callibration.CalibrationAnnotationExample;
 import gov.doc.ntia.sigmf.examples.emitter.EmitterExample;
 import gov.doc.ntia.sigmf.examples.environment.EmitterEnvironmentExample;
 import gov.doc.ntia.sigmf.examples.environment.SensorEnvironmentExample;
@@ -22,15 +22,12 @@ import gov.doc.ntia.sigmf.examples.waveform.WaveformExample;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class ExampleGenerator {
 
   /**
    * Generates a number of example JSON files to demonstrate the format of various
-   * objects specified in the NTIA SifMF extensions. Note: currently the examples do
+   * objects specified in the NTIA SigMF extensions. Note: currently the examples do
    * not necessarily specify values for all required parameters.
    * @param args None.
    */
@@ -53,7 +50,7 @@ public class ExampleGenerator {
         new DigitalFilterAnnotationExample();
     save("digitalFilterAnnotation.json", digitalFilterAnnotationExample.getExample());
 
-    CallibrationAnnotationExample cal = new CallibrationAnnotationExample();
+    CalibrationAnnotationExample cal = new CalibrationAnnotationExample();
     save("callibration.json", cal.getExample());
 
     EmitterExample emitterExample = new EmitterExample();

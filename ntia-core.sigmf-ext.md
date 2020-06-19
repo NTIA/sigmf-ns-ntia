@@ -25,7 +25,7 @@ The Measurement object summarizes the basic measurement information including  w
 |`frequency_tuned_high`|true|double|Hz|Highest tuned  frequency.|
 |`frequency_tuned_step`|false|double|Hz|Step between tuned frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
 |`frequencies_tuned`|false|double[]|Hz|Array of tuned frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
-|`classification`|true|string|N/A|The classification markings for the acquisition.|
+|`classification`|true|string|N/A|The classification markings for the acquisition, e.g., `UNCLASSIFIED`, `CONTROLLED//FEDCON`, `SECRET` ...|
 
 
 

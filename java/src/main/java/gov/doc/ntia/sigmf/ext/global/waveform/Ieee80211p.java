@@ -150,7 +150,7 @@ public class Ieee80211p extends Waveform implements Serializable {
     return signalToNoiseRation;
   }
 
-  public void setSignalToNoiseRation(Double signalToNoiseRation) {
-    this.signalToNoiseRation = signalToNoiseRation;
+  public void setSignalToNoiseRation(Double signalToNoiseRatio) {
+    this.signalToNoiseRation = signalToNoiseRatio;
   }
 }
