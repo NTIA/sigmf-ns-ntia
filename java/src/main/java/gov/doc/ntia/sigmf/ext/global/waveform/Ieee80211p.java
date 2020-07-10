@@ -46,7 +46,7 @@ public class Ieee80211p extends Waveform implements Serializable {
   protected Long numberOfInfoBits;
 
   @JsonProperty(value = "signal_to_noise_ratio", required = false)
-  protected Double signalToNoiseRation;
+  protected Double signalToNoiseRatio;
 
   public Ieee80211p() {}
 
@@ -146,11 +146,11 @@ public class Ieee80211p extends Waveform implements Serializable {
     this.numberOfInfoBits = numberOfInfoBits;
   }
 
-  public Double getSignalToNoiseRation() {
-    return signalToNoiseRation;
+  public Double getSignalToNoiseRatio() {
+    return signalToNoiseRatio;
   }
 
-  public void setSignalToNoiseRation(Double signalToNoiseRatio) {
-    this.signalToNoiseRation = signalToNoiseRatio;
+  public void setSignalToNoiseRatio(Double signalToNoiseRatio) {
+    this.signalToNoiseRatio = signalToNoiseRatio;
   }
 }
