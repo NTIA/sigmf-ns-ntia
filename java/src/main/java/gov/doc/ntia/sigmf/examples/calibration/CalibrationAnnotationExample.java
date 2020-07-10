@@ -1,7 +1,6 @@
-package gov.doc.ntia.sigmf.examples.callibration;
+package gov.doc.ntia.sigmf.examples.calibration;
 
 import gov.doc.ntia.sigmf.Annotation;
-import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;

@@ -3,13 +3,12 @@ package gov.doc.ntia.sigmf.examples;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-import gov.doc.ntia.sigmf.Annotation;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.algorithm.DigitalFilterAnnotationExample;
 import gov.doc.ntia.sigmf.examples.algorithm.DigitalFilterExample;
 import gov.doc.ntia.sigmf.examples.algorithm.FrequencyDomainDetectionExample;
 import gov.doc.ntia.sigmf.examples.algorithm.TimeDomainDetectionExample;
-import gov.doc.ntia.sigmf.examples.callibration.CalibrationAnnotationExample;
+import gov.doc.ntia.sigmf.examples.calibration.CalibrationAnnotationExample;
 import gov.doc.ntia.sigmf.examples.emitter.EmitterExample;
 import gov.doc.ntia.sigmf.examples.environment.EmitterEnvironmentExample;
 import gov.doc.ntia.sigmf.examples.environment.SensorEnvironmentExample;
@@ -19,7 +18,6 @@ import gov.doc.ntia.sigmf.examples.location.SimpleGcs;
 import gov.doc.ntia.sigmf.examples.location.SpeedAndBearingExample;
 import gov.doc.ntia.sigmf.examples.scos.ScosExample;
 import gov.doc.ntia.sigmf.examples.waveform.WaveformExample;
-import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 import java.io.File;
 import java.io.IOException;
 
@@ -51,7 +49,7 @@ public class ExampleGenerator {
     save("digitalFilterAnnotation.json", digitalFilterAnnotationExample.getExample());
 
     CalibrationAnnotationExample cal = new CalibrationAnnotationExample();
-    save("callibration.json", cal.getExample());
+    save("calibration.json", cal.getExample());
 
     EmitterExample emitterExample = new EmitterExample();
     save("emitterGlobal.json", emitterExample.getExample());
