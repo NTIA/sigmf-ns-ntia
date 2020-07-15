@@ -4,123 +4,119 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-
 import java.io.Serializable;
 
 @JsonTypeInfo(
-        use = JsonTypeInfo.Id.NAME,
-        include = JsonTypeInfo.As.PROPERTY,
-        property = "coordinate_system_type")
+    use = JsonTypeInfo.Id.NAME,
+    include = JsonTypeInfo.As.PROPERTY,
+    property = "coordinate_system_type")
 @JsonSubTypes({
-        @JsonSubTypes.Type(value = GeographicCoordinateSystem.class, name ="GeographicCoordinateSystem"),
-        @JsonSubTypes.Type(value = ProjectedCoordnateSystem.class, name = "ProjectedCoordinateSystem")})
+    @JsonSubTypes.Type(value = GeographicCoordinateSystem.class,
+        name = "GeographicCoordinateSystem"),
+    @JsonSubTypes.Type(value = ProjectedCoordnateSystem.class,
+        name = "ProjectedCoordinateSystem")
+})
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class CoordinateSystem implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="id", required = true)
-    protected String id;
+  @JsonProperty(value = "id", required = true)
+  protected String id;
 
-    @JsonProperty(value = "description", required = false)
-    protected String description;
+  @JsonProperty(value = "description", required = false)
+  protected String description;
 
+  @JsonProperty(value = "distance_unit", required = false)
+  private String distanceUnit;
 
-    @JsonProperty(value = "distance_unit", required = false)
-    private String distanceUnit;
+  @JsonProperty(value = "time_unit", required = false)
+  private String timeUnit;
 
-    @JsonProperty(value = "time_unit", required = false)
-    private String timeUnit;
+  @JsonProperty(value = "origin", required = false)
+  private String origin;
 
-    @JsonProperty(value = "origin", required = false)
-    private String origin;
+  @JsonProperty(value = "orientation_ref", required = false)
+  private String orientationRef;
 
-    @JsonProperty(value = "orientation_ref", required = false)
-    private String orientationRef;
+  @JsonProperty(value = "orientation", required = false)
+  private String orientation;
 
-    @JsonProperty(value = "orientation", required = false)
-    private String orientation;
+  @JsonProperty(value = "elevation_ref", required = false)
+  private String elevationRef;
 
-    @JsonProperty(value = "elevation_ref", required = false)
-    private String elevationRef;
+  @JsonProperty(value = "elevation_unit", required = false)
+  private String elevationUnit;
 
-    @JsonProperty(value = "elevation_unit", required = false)
-    private String elevationUnit;
+  public String getId() {
+    return id;
+  }
 
-    public String getId() {
-        return id;
-    }
+  public void setId(String id) {
+    this.id = id;
+  }
 
-    public void setId(String id) {
-        this.id = id;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public String getDistanceUnit() {
+    return distanceUnit;
+  }
 
-    public String getDistanceUnit() {
-        return distanceUnit;
-    }
+  public void setDistanceUnit(String distanceUnit) {
+    this.distanceUnit = distanceUnit;
+  }
 
-    public void setDistanceUnit(String distanceUnit) {
-        this.distanceUnit = distanceUnit;
-    }
+  public String getTimeUnit() {
+    return timeUnit;
+  }
 
-    public String getTimeUnit() {
-        return timeUnit;
-    }
+  public void setTimeUnit(String timeUnit) {
+    this.timeUnit = timeUnit;
+  }
 
-    public void setTimeUnit(String timeUnit) {
-        this.timeUnit = timeUnit;
-    }
+  public String getOrigin() {
+    return origin;
+  }
 
-    public String getOrigin() {
-        return origin;
-    }
+  public void setOrigin(String origin) {
+    this.origin = origin;
+  }
 
-    public void setOrigin(String origin) {
-        this.origin = origin;
-    }
+  public String getOrientationRef() {
+    return orientationRef;
+  }
 
-    public String getOrientationRef() {
-        return orientationRef;
-    }
+  public void setOrientationRef(String orientationRef) {
+    this.orientationRef = orientationRef;
+  }
 
-    public void setOrientationRef(String orientationRef) {
-        this.orientationRef = orientationRef;
-    }
+  public String getOrientation() {
+    return orientation;
+  }
 
-    public String getOrientation() {
-        return orientation;
-    }
+  public void setOrientation(String orientation) {
+    this.orientation = orientation;
+  }
 
-    public void setOrientation(String orientation) {
-        this.orientation = orientation;
-    }
+  public String getElevationRef() {
+    return elevationRef;
+  }
 
-    public String getElevationRef() {
-        return elevationRef;
-    }
+  public void setElevationRef(String elevationRef) {
+    this.elevationRef = elevationRef;
+  }
 
-    public void setElevationRef(String elevationRef) {
-        this.elevationRef = elevationRef;
-    }
+  public String getElevationUnit() {
+    return elevationUnit;
+  }
 
-    public String getElevationUnit() {
-        return elevationUnit;
-    }
-
-    public void setElevationUnit(String elevationUnit) {
-        this.elevationUnit = elevationUnit;
-    }
-
-
-
-
-
+  public void setElevationUnit(String elevationUnit) {
+    this.elevationUnit = elevationUnit;
+  }
 }

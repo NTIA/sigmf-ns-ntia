@@ -3,107 +3,116 @@ package gov.doc.ntia.sigmf.ext.global.core;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.io.Serializable;
 import java.util.Date;
-
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Measurement implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
-    @JsonProperty(value="domain", required = true)
-    protected String domain;
+  @JsonProperty(value = "domain", required = true)
+  protected String domain;
 
-    @JsonProperty(value="measurement_type", required = true)
-    protected String measurementType;
+  @JsonProperty(value = "measurement_type", required = true)
+  protected String measurementType;
 
-    @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
-    @JsonProperty(value="time_start", required = true)
-    protected Date timeStart;
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
+  @JsonProperty(value = "time_start", required = true)
+  protected Date timeStart;
 
-    @JsonFormat
-            (shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
-    @JsonProperty(value="time_stop", required =  true)
-    protected Date timeStop;
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
+  @JsonProperty(value = "time_stop", required = true)
+  protected Date timeStop;
 
-    @JsonProperty(value="frequency_tuned_low", required = false)
-    protected Double frequencyTunedLow;
+  @JsonProperty(value = "frequency_tuned_low", required = false)
+  protected Double frequencyTunedLow;
 
-    @JsonProperty(value="frequency_tuned_high", required = false)
-    protected Double frequencyTunedHigh;
+  @JsonProperty(value = "frequency_tuned_high", required = false)
+  protected Double frequencyTunedHigh;
 
-    @JsonProperty(value="frequency_tuned_step", required = false)
-    protected Double frequencyTunedStep;
+  @JsonProperty(value = "frequency_tuned_step", required = false)
+  protected Double frequencyTunedStep;
 
-    @JsonProperty(value="frequencies_tuned", required = false)
-    protected Double[] frequencies_tuned;
+  @JsonProperty(value = "frequencies_tuned", required = false)
+  protected Double[] frequenciesTuned;
 
-    public String getDomain() {
-        return domain;
-    }
+  @JsonProperty(value = "classification", required = true)
+  protected  String classification;
 
-    public void setDomain(String domain) {
-        this.domain = domain;
-    }
 
-    public String getMeasurementType() {
-        return measurementType;
-    }
+  public String getDomain() {
+    return domain;
+  }
 
-    public void setMeasurementType(String measurementType) {
+  public void setDomain(String domain) {
+    this.domain = domain;
+  }
 
-        this.measurementType = measurementType;
-    }
+  public String getMeasurementType() {
+    return measurementType;
+  }
 
-    public Date getTimeStart() {
-        return timeStart;
-    }
+  public void setMeasurementType(String measurementType) {
 
-    public void setTimeStart(Date timeStart) {
-        this.timeStart = timeStart;
-    }
+    this.measurementType = measurementType;
+  }
 
-    public Double getFrequencyTunedLow() {
-        return frequencyTunedLow;
-    }
+  public Date getTimeStart() {
+    return timeStart;
+  }
 
-    public Date getTimeStop() {
-        return timeStop;
-    }
+  public void setTimeStart(Date timeStart) {
+    this.timeStart = timeStart;
+  }
 
-    public void setTimeStop(Date timeStop) {
-        this.timeStop = timeStop;
-    }
+  public Double getFrequencyTunedLow() {
+    return frequencyTunedLow;
+  }
 
-    public void setFrequencyTunedLow(Double lowFrequency) {
+  public Date getTimeStop() {
+    return timeStop;
+  }
 
-        this.frequencyTunedLow = lowFrequency;
-    }
+  public void setTimeStop(Date timeStop) {
+    this.timeStop = timeStop;
+  }
 
-    public Double getFrequencyTunedHigh() {
-        return frequencyTunedHigh;
-    }
+  public void setFrequencyTunedLow(Double lowFrequency) {
 
-    public void setFrequencyTunedHigh(Double highFrequency) {
-        this.frequencyTunedHigh = highFrequency;
-    }
+    this.frequencyTunedLow = lowFrequency;
+  }
 
-    public Double getFrequencyTunedStep() {
-        return frequencyTunedStep;
-    }
+  public Double getFrequencyTunedHigh() {
+    return frequencyTunedHigh;
+  }
 
-    public void setFrequencyTunedStep(Double frequencyTunedStep) {
-        this.frequencyTunedStep = frequencyTunedStep;
-    }
+  public void setFrequencyTunedHigh(Double highFrequency) {
+    this.frequencyTunedHigh = highFrequency;
+  }
 
-    public Double[] getFrequencies_tuned() {
-        return frequencies_tuned;
-    }
+  public Double getFrequencyTunedStep() {
+    return frequencyTunedStep;
+  }
 
-    public void setFrequencies_tuned(Double[] frequencies_tuned) {
-        this.frequencies_tuned = frequencies_tuned;
-    }
+  public void setFrequencyTunedStep(Double frequencyTunedStep) {
+    this.frequencyTunedStep = frequencyTunedStep;
+  }
+
+  public Double[] getFrequenciesTuned() {
+    return frequenciesTuned;
+  }
+
+  public void setFrequenciesTuned(Double[] frequenciesTuned) {
+    this.frequenciesTuned = frequenciesTuned;
+  }
+
+  public String getClassification() {
+    return classification;
+  }
+
+  public void setClassification(String classification) {
+    this.classification = classification;
+  }
+
 }

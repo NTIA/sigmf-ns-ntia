@@ -261,7 +261,7 @@
         "rf_paths" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/RFPath"
+            "$ref" : "#/definitions/RfPath"
           }
         }
       }
@@ -320,7 +320,7 @@
         }
       }
     },
-    "RFPath" : {
+    "RfPath" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
@@ -431,7 +431,7 @@
         },
         "waveform" : {
           "oneOf" : [ {
-            "$ref" : "#/definitions/IEEE80211p"
+            "$ref" : "#/definitions/Ieee80211p"
           } ]
         },
         "location" : {
@@ -442,7 +442,7 @@
         }
       }
     },
-    "IEEE80211p" : {
+    "Ieee80211p" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
@@ -523,6 +523,12 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
+        "roles" : {
+          "type" : "array",
+          "items" : {
+            "type" : "string"
+          }
+        },
         "id" : {
           "type" : "string"
         },
@@ -769,9 +775,12 @@
           "items" : {
             "type" : "number"
           }
+        },
+        "classification" : {
+          "type" : "string"
         }
       },
-      "required" : [ "domain", "measurement_type", "time_start", "time_stop" ]
+      "required" : [ "domain", "measurement_type", "time_start", "time_stop", "classification" ]
     },
     "Capture" : {
       "type" : "object",
@@ -979,6 +988,9 @@
           "type" : "number"
         },
         "ntia-sensor:mean_noise_power_units" : {
+          "type" : "string"
+        },
+        "ntia-sensor:mean_noise_power_reference" : {
           "type" : "string"
         }
       },

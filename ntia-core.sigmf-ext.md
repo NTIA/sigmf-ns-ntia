@@ -25,6 +25,8 @@ The Measurement object summarizes the basic measurement information including  w
 |`frequency_tuned_high`|true|double|Hz|Highest tuned  frequency.|
 |`frequency_tuned_step`|false|double|Hz|Step between tuned frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
 |`frequencies_tuned`|false|double[]|Hz|Array of tuned frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
+|`classification`|true|string|N/A|The classification markings for the acquisition, e.g., `UNCLASSIFIED`, `CONTROLLED//FEDCON`, `SECRET` ...|
+
 
 
 ## 1.2 Antenna Object
@@ -88,7 +90,8 @@ The Measurement object summarizes the basic measurement information including  w
       "frequency_tuned_low" : 3.45021875E9,
       "frequency_tuned_high" : 3.45021875E9,
       "domain" : "frequency",
-      "measurement_type" : "single-frequency"
+      "measurement_type" : "single-frequency",
+      "classification" : "UNCLASSIFIED"
     }
   },
   "captures": [
@@ -219,7 +222,8 @@ The Measurement object summarizes the basic measurement information including  w
       "time_stop" : "2018-01-01T08:00:37.792Z",
       "frequency_tuned_low" : 3.45940625E9,
       "frequency_tuned_high" : 3.65190625E9,
-      "frequency_tuned_step" : 1.925E7
+      "frequency_tuned_step" : 1.925E7,
+      "classification" : "UNCLASSIFIED"
     }
   },
   "captures" : [ {

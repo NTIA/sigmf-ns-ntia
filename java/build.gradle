@@ -1,8 +1,17 @@
 
+
 plugins {
     id 'java'
     id 'io.spring.dependency-management' version '1.0.4.RELEASE'
+    id 'maven-publish'
+    id 'checkstyle'
 }
+
+def versions = [
+        checkstyle: '8.32',
+]
+
+def archiveBaseName= 'sigmf-ns-ntia'
 
 group = 'gov.doc.ntia'
 version = '1.0.0'
@@ -15,6 +24,7 @@ repositories {
 
 configurations {
     providedRuntime
+    checkstyleConfig
 }
 
 dependencies {
@@ -26,10 +36,14 @@ dependencies {
     implementation 'commons-io:commons-io:2.5'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    checkstyleConfig ("com.puppycrawl.tools:checkstyle:${versions.checkstyle}") {
+        transitive = false
+
+    }
 }
 
 jar{
-    archiveBaseName = 'sigmf-ns-ntia'
+    archiveBaseName = "${archiveBaseName}"
 }
 test {
     useJUnitPlatform()
@@ -38,3 +52,31 @@ task myJavadocs(type: Javadoc) {
     source = sourceSets.main.allJava
 }
 
+publishing {
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/NTIA/sigmf-ns-ntia")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GITHUB_USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("GITHUB_TOKEN")
+            }
+        }
+    }
+    publications {
+        gpr(MavenPublication) {
+            from(components.java)
+            groupId = "${group}"
+            artifactId = "${archiveBaseName}"
+            version = "${version}"
+        }
+    }
+
+    checkstyle {
+        showViolations = true
+        ignoreFailures = false
+        toolVersion = "${versions.checkstyle}"
+        config = resources.text.fromArchiveEntry(configurations.checkstyleConfig, 'google_checks.xml')
+        configProperties['org.checkstyle.google.suppressionfilter.config'] = project.projectDir.absolutePath + File.separator + "suppressions.xml"
+    }
+}
