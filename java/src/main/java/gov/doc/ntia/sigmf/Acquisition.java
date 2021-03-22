@@ -68,8 +68,11 @@ public class Acquisition implements Serializable {
    * @return the name for the acquisition.
    */
   public String getName() {
-    String name =
-        getMetaDoc().getGlobal().getSensor().getId() + "_" + getScheduleId() + "_" + getTaskId();
+
+    String sensorId = metaDoc.getGlobal().getSensor().getId();
+    String recording = metaDoc.getGlobal().getRecording().toString();
+    String name =sensorId
+         + "_" + getScheduleId() + "_" + getTaskId() + "_" + recording  ;
 
     return name;
   }
