@@ -49,7 +49,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`preselector_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the preselector.|
 |`cal_sources`|false|[CalSource[]](#14-calsource-object)|N/A|Metadata to describe/specify the preselector calibration source.|
 |`amplifiers`|false|[Amplifier[]](#15-amplifier-object)|N/A|Metadata to describe/specify the preselector low noise amplifiers.|
-|`filters`|false|[Filter[]](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe the preselector RF filters.|
+|`filters`|false|[Filter[]](ntia-core.sigmf-ext.md#16-filter-object)|N/A|Metadata to describe the preselector RF filters.|
 |`rf_paths`|false|[RFPath[]](#17-rfpath-object)|N/A|Metadata that describes preselector RF paths.|
 
 ### 1.4 CalSource Object
