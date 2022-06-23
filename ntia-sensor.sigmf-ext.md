@@ -100,6 +100,52 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`filter_id`|true|string|N/A|ID of the filter.|
 |`amplifier_id`|true|string|N/A|ID of the amplifier.|
 
+### 1.8 SiganSettings Object
+
+`SiganSettings` has one required property. Additional optional properties depend on the specified [signal analyzer class](#19-signal-analyzer-classes).:
+
+|name|required|type|unit|description|
+|----|--------|----|----|-----------|
+|`class`|true|String|N/A|A string matching a specified [signal analyzer class](#19-signal-analyzer-classes)
+
+### 1.9 Signal Analyzer Classes
+
+Classes of signal analyzers are defined as names of signal analyzers, or groups of signal analyzers which share the same set of configuration parameters. Supported signal analyzer classes are listed here. Supporting new signal analyzers or groups of signal analyzers requires adding a corresponding `class` containing the settings available for that signal analyzer class. The valid values for the `SiganSettings` `class` property are:
+
+|class|devices in class|
+|-----|----------------|
+|`usrp`|Ettus "USRP Bus Series" B2XX signal analyzers.|
+|`keysight_n6841a`|Keysight N6841A RF sensor.|
+|`tekrsa_usb`|Tektronix RSA 3XX, 5XX, and 6XX USB spectrum analyzers.|
+
+#### 1.9.1 `usrp` Signal Analyzer Class
+
+The `SiganSettings` class `usrp` adds the following properties to `SiganSettings`:
+
+|name|required|type|unit|description|
+|----|--------|----|----|-----------|
+|`gain`|false|double|dB|USRP B2XX gain setting.|
+
+#### 1.9.2 `keysight_n6841a` Signal Analyzer Class
+
+The `SiganSettings` class `keysight_n6841a` adds the following properties to `SiganSettings`:
+
+|name|required|type|unit|description|
+|----|--------|----|----|-----------|
+|`attenuation`|false|double|dB|Keysight N6841A attenuation setting.|
+
+#### 1.9.3 `tekrsa_usb` Signal Analyzer Class
+
+The `SiganSettings` class `tekrsa_usb` adds the following properties to `SiganSettings`:
+
+|name|required|type|unit|description|
+|----|--------|----|----|-----------|
+|`reference_level`|false|double|dBm|Tektronix RSA reference level setting.|
+|`iq_bandwidth`|false|double|Hz|Tektronix RSA IQ bandwidth setting.|
+|`preamp_enable`|false|boolean|N/A|Tektronix RSA 5XX/6XX preamp enable setting.|
+|`auto_attenuation_enable`|false|boolean|N/A|Tektronix RSA 5XX/6XX auto attenuation setting.|
+|`attenuation`|false|double|dB|Tektronix RSA 5XX/6XX attenuation setting, applicable only in manual attenuation mode.|
+
 ## 2 Captures
 
 `ntia-sensor` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
@@ -116,8 +162,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 |----|--------------|-------|-------|-----------|
 |`rf_path_index`|false|integer|N/A|Index of the [RFPath](#14-rfpath-object) object.|
 |`overload`|false|boolean|N/A|Indicator of sensor overload.|
-|`attenuation_setting_sigan`|false|double|dB|Attenuation setting of the signal analyzer.|
-|`gain_setting_sigan`|false|double|dB|Gain setting of the signal analyzer.|
+|`sigan_settings`|false|[SiganSettings](#18-sigansettings-object)|N/A|Signal analyzer-specific device configuration parameters.|
 |`gps_nmea`|false|string|NMEA|[NMEA message](https://en.wikipedia.org/wiki/NMEA_0183) from GPS receiver.|
 
 ### 3.2 CalibrationAnnotation Segment
@@ -301,7 +346,14 @@ Sensor definition follows a simplified hardware model composed of the following 
     "core:sample_count" : 458,
     "ntia-sensor:rf_path_index" : 0,
     "ntia-sensor:overload" : false,
-    "ntia-sensor:attenuation_setting_sigan" : 3.0
+    "ntia-sensor:sigan_settings": {
+      "class": "tekrsa_usb",
+      "reference_level": -33.0,
+      "iq_bandwidth": 10000000.0,
+      "preamp_enable": true,
+      "auto_attenuation_enable": false,
+      "attenuation": 0.0
+    }
   } ]
 }
 ```
