@@ -1,9 +1,11 @@
 # ntia-sensor extension v1.0.0
-The ntia-sensor namespace provides metadata to describe RF sensors. 
+
+The ntia-sensor namespace provides metadata to describe RF sensors.
 
 `ntia-sensor` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
+
 `ntia-sensor` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
 |name|required|type|unit|description|
@@ -11,8 +13,8 @@ The ntia-sensor namespace provides metadata to describe RF sensors.
 |`sensor`|false|[Sensor](#11-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
 |`calibration_datetime`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Time of last calibration. RECOMMENDED.|
 
-
 ### 1.1 Sensor Object
+
 Sensor definition follows a simplified hardware model composed of the following elements: antenna, preselector, signal analyzer, and computer. The antenna converts electromagnetic energy to a voltage. The preselector can provide local calibration signals, RF filtering to protect from strong out-of-band signals, and low-noise amplification to improve sensitivity. The signal analyzer (e.g., software defined radio) provides tuning, down conversion, sampling, and digital signal processing. Sensor implementations are not required to have each component, but metadata SHOULD specify the presence, model numbers, and operational parameters associated with each.
 
 `Sensor` has the following properties:
@@ -30,6 +32,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`environment`|false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A|Specifies the environment surrounding the `Sensor`.|
 
 ### 1.2 SignalAnalyzer Object
+
 `SignalAnalyzer` the following properties:
 
 |name|required|type|unit|description|
@@ -42,6 +45,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`a2d_bits`|false|integer|bits|Number of bits in A/D converter.|
 
 ### 1.3 Preselector Object
+
 `Preselector` has the following properties:
 
 |name|required|type|unit|description|
@@ -53,6 +57,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`rf_paths`|false|[RFPath[]](#17-rfpath-object)|N/A|Metadata that describes preselector RF paths.|
 
 ### 1.4 CalSource Object
+
 `CalSource` has the following properties:
 
 |name|required|type|unit|description|
@@ -61,8 +66,8 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`type`|false|string|N/A|Type of the calibration source.|
 |`enr`|false|double|dB|Excess noise ratio.|
 
-
 ### 1.5 Amplifier Object
+
 `Amplifier` has the following properties:
 
 |name|required|type|unit|description|
@@ -72,9 +77,8 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`noise_figure`|false|double|dB|Noise figure of the low noise amplifier.|
 |`max_power`|false|double|dB|Maximum power of the low noise amplifier.|
 
-
-
 ### 1.6 Filter Object
+
 `Filter` has the following properties:
 
 |name|required|type|unit|description|
@@ -85,9 +89,8 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`frequency_low_stopband`|false|double|Hz|Low frequency of filter 60 dB stopband.|
 |`frequency_high_stopband`|false|double|Hz|High frequency of filter 60 dB stopband.|
 
-
-
 ### 1.7 RFPath Object
+
 `RFPath` has the following properties:
 
 |name|required|type|unit|description|
@@ -97,16 +100,16 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`filter_id`|true|string|N/A|ID of the filter.|
 |`amplifier_id`|true|string|N/A|ID of the amplifier.|
 
-
 ## 2 Captures
 
 `ntia-sensor` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
-
 ## 3 Annotations
+
 `ntia-sensor` defines the following segments that extend `ntia-core`.
 
 ### 3.1 SensorAnnotation Segment
+
 `SensorAnnotation` has the following properties:
 
 |name|required|type|unit|description|
@@ -118,6 +121,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`gps_nmea`|false|string|NMEA|[NMEA message](https://en.wikipedia.org/wiki/NMEA_0183) from GPS receiver.|
 
 ### 3.2 CalibrationAnnotation Segment
+
 `CalibrationAnnotation` has the following properties:
 
 |name|required|type|unit|description|
@@ -135,10 +139,10 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`mean_noise_power_reference`|false|string|N/A| Reference source for the mean_noise_power, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`|
 |`temperature`|false|double|celsius|The temperature during calibration.|
 
-
 ## 4 Example
 
-### 4.1 Sensor Global Object and Annotations 
+### 4.1 Sensor Global Object and Annotations
+
 ```json
 {
   "global" : {
@@ -301,5 +305,3 @@ Sensor definition follows a simplified hardware model composed of the following 
   } ]
 }
 ```
-
-
