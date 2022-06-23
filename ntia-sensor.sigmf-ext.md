@@ -1,4 +1,4 @@
-# ntia-sensor extension v1.0.0
+# ntia-sensor extension v2.0.0
 
 The ntia-sensor namespace provides metadata to describe RF sensors.
 
@@ -114,9 +114,9 @@ Classes of signal analyzers are defined as names of signal analyzers, or groups 
 
 |class|devices in class|
 |-----|----------------|
-|`usrp`|Ettus "USRP Bus Series" B2XX signal analyzers.|
-|`keysight_n6841a`|Keysight N6841A RF sensor.|
-|`tekrsa_usb`|Tektronix RSA 3XX, 5XX, and 6XX USB spectrum analyzers.|
+|[`usrp`](#191-usrp-signal-analyzer-class)|Ettus "USRP Bus Series" B2XX signal analyzers.|
+|[`keysight_n6841a`](#192-keysightn6841a-signal-analyzer-class)|Keysight N6841A RF sensor.|
+|[`tekrsa_usb`](#193-tekrsausb-signal-analyzer-class)|Tektronix RSA 3XX, 5XX, and 6XX USB spectrum analyzers.|
 
 #### 1.9.1 `usrp` Signal Analyzer Class
 
