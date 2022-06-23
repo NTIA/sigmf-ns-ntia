@@ -125,6 +125,7 @@ The `SiganSettings` class `usrp` adds the following properties to `SiganSettings
 |name|required|type|unit|description|
 |----|--------|----|----|-----------|
 |`gain`|false|double|dB|USRP B2XX gain setting.|
+|`clock_rate`|false|double|Hz|USRP B2XX master clock rate setting.|
 
 #### 1.9.2 `keysight_n6841a` Signal Analyzer Class
 
