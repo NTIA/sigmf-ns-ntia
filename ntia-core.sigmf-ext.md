@@ -1,4 +1,4 @@
-# ntia-core Extension v1.0.0
+# ntia-core Extension v1.1.0
 
 The `ntia-core` namespace adds generally useful metadata fields.
 
