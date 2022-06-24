@@ -27,6 +27,7 @@ The Measurement object summarizes the basic measurement information including  w
 |`frequency_tuned_step`|false|double|Hz|Step between tuned frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
 |`frequencies_tuned`|false|double[]|Hz|Array of tuned frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
 |`classification`|true|string|N/A|The classification markings for the acquisition, e.g., `UNCLASSIFIED`, `CONTROLLED//FEDCON`, `SECRET` ...|
+|`rf_path`|false|string|N/A|A string matching the `name` of the [RFPath](ntia-sensor.sigmf-ext.md#17-rfpath-object) which was used to make the measurement.|
 
 ## 1.2 Antenna Object
 
