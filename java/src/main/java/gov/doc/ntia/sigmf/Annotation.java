@@ -18,7 +18,7 @@ import java.util.Map;
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
     include = JsonTypeInfo.As.PROPERTY,
-    property = "ntia-core:annotation_type")
+    property = "ntia-core:object_type")
 @JsonSubTypes({
     @JsonSubTypes.Type(value = FrequencyDomainDetection.class, name = "FrequencyDomainDetection"),
     @JsonSubTypes.Type(value = TimeDomainDetection.class, name = "TimeDomainDetection"),

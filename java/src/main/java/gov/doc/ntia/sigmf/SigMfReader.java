@@ -14,7 +14,7 @@ public class SigMfReader {
   public static MetaDoc read(String fileName) {
     ObjectMapper mapper = new ObjectMapper();
     try {
-      MetaDoc metaDoc = (MetaDoc) mapper.readValue(new File(fileName), MetaDoc.class);
+      MetaDoc metaDoc = mapper.readValue(new File(fileName), MetaDoc.class);
       return metaDoc;
     } catch (IOException e) {
       e.printStackTrace();

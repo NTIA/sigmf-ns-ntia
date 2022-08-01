@@ -1,16 +1,17 @@
 package gov.doc.ntia.sigmf.ext.annotation.sensor;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.Annotation;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
 public class CalibrationAnnotation extends Annotation {
 
   private static final long serialVersionUID = 1L;
 
   @JsonProperty(value = "ntia-sensor:gain_sigan", required = false)
   protected Double gainSigan;
+
+  @JsonProperty(value = "ntia-sensor:gain_sensor", required = false)
+  protected Double gainSensor;
 
   @JsonProperty(value = "ntia-sensor:noise_figure_sigan", required = false)
   protected Double noiseFigureSigan;
@@ -44,14 +45,6 @@ public class CalibrationAnnotation extends Annotation {
 
   @JsonProperty(value = "ntia-sensor:mean_noise_power_reference", required = false)
   protected String meanNoisePowerReference;
-
-  public void setGainSigan(Double gainSigan) {
-    this.gainSigan = gainSigan;
-  }
-
-  public void setOneDbCompressionPointSigan(Double oneDbCompressionPointSigan) {
-    this.oneDbCompressionPointSigan = oneDbCompressionPointSigan;
-  }
 
   public Double getEnbwSigan() {
     return enbwSigan;
@@ -105,8 +98,16 @@ public class CalibrationAnnotation extends Annotation {
     return gainSigan;
   }
 
+  public void setGainSigan(Double gainSigan) {
+    this.gainSigan = gainSigan;
+  }
+
   public Double getOneDbCompressionPointSigan() {
     return oneDbCompressionPointSigan;
+  }
+
+  public void setOneDbCompressionPointSigan(Double oneDbCompressionPointSigan) {
+    this.oneDbCompressionPointSigan = oneDbCompressionPointSigan;
   }
 
   public void set1DbCompressionPointSigan(Double oneDbCompressionPointSigan) {
@@ -143,5 +144,13 @@ public class CalibrationAnnotation extends Annotation {
 
   public void setMeanNoisePowerReference(String meanNoisePowerReference) {
     this.meanNoisePowerReference = meanNoisePowerReference;
+  }
+
+  public Double getGainSensor() {
+    return gainSensor;
+  }
+
+  public void setGainSensor(Double gainSensor) {
+    this.gainSensor = gainSensor;
   }
 }

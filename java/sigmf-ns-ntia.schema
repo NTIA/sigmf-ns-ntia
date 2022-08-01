@@ -806,7 +806,7 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "ntia-core:annotation_type" : {
+        "ntia-core:object_type" : {
           "type" : "string",
           "enum" : [ "FrequencyDomainDetection" ],
           "default" : "FrequencyDomainDetection"
@@ -873,13 +873,13 @@
         }
       },
       "title" : "FrequencyDomainDetection",
-      "required" : [ "ntia-core:annotation_type", "core:sample_start", "core:sample_count", "ntia-algorithm:detector", "ntia-algorithm:units", "ntia-algorithm:number_of_ffts", "ntia-algorithm:number_of_samples_in_fft", "ntia-algorithm:window" ]
+      "required" : [ "ntia-core:object_type", "core:sample_start", "core:sample_count", "ntia-algorithm:detector", "ntia-algorithm:units", "ntia-algorithm:number_of_ffts", "ntia-algorithm:number_of_samples_in_fft", "ntia-algorithm:window" ]
     },
     "TimeDomainDetection" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "ntia-core:annotation_type" : {
+        "ntia-core:object_type" : {
           "type" : "string",
           "enum" : [ "TimeDomainDetection" ],
           "default" : "TimeDomainDetection"
@@ -922,13 +922,13 @@
         }
       },
       "title" : "TimeDomainDetection",
-      "required" : [ "ntia-core:annotation_type", "core:sample_start", "core:sample_count", "ntia-algorithm:detector", "ntia-algorithm:units", "ntia-algorithm:number_of_samples" ]
+      "required" : [ "ntia-core:object_type", "core:sample_start", "core:sample_count", "ntia-algorithm:detector", "ntia-algorithm:units", "ntia-algorithm:number_of_samples" ]
     },
     "CalibrationAnnotation" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "ntia-core:annotation_type" : {
+        "ntia-core:object_type" : {
           "type" : "string",
           "enum" : [ "CalibrationAnnotation" ],
           "default" : "CalibrationAnnotation"
@@ -958,6 +958,9 @@
           "type" : "number"
         },
         "ntia-sensor:gain_sigan" : {
+          "type" : "number"
+        },
+        "ntia-sensor:gain_sensor" : {
           "type" : "number"
         },
         "ntia-sensor:noise_figure_sigan" : {
@@ -995,13 +998,13 @@
         }
       },
       "title" : "CalibrationAnnotation",
-      "required" : [ "ntia-core:annotation_type", "core:sample_start", "core:sample_count" ]
+      "required" : [ "ntia-core:object_type", "core:sample_start", "core:sample_count" ]
     },
     "SensorAnnotation" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "ntia-core:annotation_type" : {
+        "ntia-core:object_type" : {
           "type" : "string",
           "enum" : [ "SensorAnnotation" ],
           "default" : "SensorAnnotation"
@@ -1036,18 +1039,78 @@
         "ntia-sensor:overload" : {
           "type" : "boolean"
         },
-        "ntia-sensor:attenuation_setting_sigan" : {
-          "type" : "number"
-        },
-        "ntia-sensor:gain_setting_sigan" : {
-          "type" : "number"
-        },
-        "ntia-sensor:gps_nmea" : {
-          "type" : "string"
+        "ntia-sensor:sigan_settings" : {
+          "oneOf" : [ {
+            "$ref" : "#/definitions/UsrpSettings"
+          }, {
+            "$ref" : "#/definitions/TekrsaSettings"
+          }, {
+            "$ref" : "#/definitions/KeysightN6841aSettings"
+          } ]
         }
       },
       "title" : "SensorAnnotation",
-      "required" : [ "ntia-core:annotation_type", "core:sample_start", "core:sample_count" ]
+      "required" : [ "ntia-core:object_type", "core:sample_start", "core:sample_count" ]
+    },
+    "UsrpSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ntia-sensor:object_type" : {
+          "type" : "string",
+          "enum" : [ "UsrpSettings" ],
+          "default" : "UsrpSettings"
+        },
+        "ntia-sensor:gain" : {
+          "type" : "number"
+        },
+        "ntia-sensor:clock_rate" : {
+          "type" : "number"
+        }
+      },
+      "title" : "UsrpSettings",
+      "required" : [ "ntia-sensor:object_type" ]
+    },
+    "TekrsaSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ntia-sensor:object_type" : {
+          "type" : "string",
+          "enum" : [ "TekrsaSettings" ],
+          "default" : "TekrsaSettings"
+        },
+        "ntia-sensor:reference_level" : {
+          "type" : "number"
+        },
+        "ntia-sensor:iq_bandwidth" : {
+          "type" : "number"
+        },
+        "ntia-sensor:preamp_enable" : {
+          "type" : "boolean"
+        },
+        "ntia-sensor:auto_attenuation_enable" : {
+          "type" : "boolean"
+        },
+        "ntia-sensor:attenuation" : {
+          "type" : "number"
+        }
+      },
+      "title" : "TekrsaSettings",
+      "required" : [ "ntia-sensor:object_type" ]
+    },
+    "KeysightN6841aSettings" : {
+      "type" : "object",
+      "additionalProperties" : false,
+      "properties" : {
+        "ntia-sensor:object_type" : {
+          "type" : "string",
+          "enum" : [ "KeysightN684141aSettings" ],
+          "default" : "KeysightN684141aSettings"
+        }
+      },
+      "title" : "KeysightN684141aSettings",
+      "required" : [ "ntia-sensor:object_type" ]
     }
   }
 }

@@ -8,10 +8,10 @@ The ntia-sensor namespace provides metadata to describe RF sensors.
 
 `ntia-sensor` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`sensor`|false|[Sensor](#11-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
-|`calibration_datetime`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Time of last calibration. RECOMMENDED.|
+| name                   | required | type                        | unit                                                                                      | description                                                        |
+|------------------------|----------|-----------------------------|-------------------------------------------------------------------------------------------|--------------------------------------------------------------------|
+| `sensor`               | false    | [Sensor](#11-sensor-object) | N/A                                                                                       | Describes the sensor model components. This object is RECOMMENDED. |
+| `calibration_datetime` | false    | datetime                    | [ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair) | Time of last calibration. RECOMMENDED.                             |
 
 ### 1.1 Sensor Object
 
@@ -19,133 +19,132 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 `Sensor` has the following properties:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique logical ID for the sensor.|
-|`sensor_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the sensor.|
-|`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#12-antenna-object)|N/A|Metadata to describe/specify the antenna.|
-|`preselector`|false| [Preselector](#13-preselector-object)|N/A|Metadata to describe/specify the preselector.|
-|`signal_analyzer`|false| [SignalAnalyzer](#12-signalanalyzer-object) |N/A|Metadata to describe/specify the signal analyzer.|
-|`computer_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the onboard computer.|
-|`mobile`|false|boolean|N/A|Defines whether the sensor is mobile.|
-|`location`|false|[Location](ntia-location.sigmf-ext.md#16-location-object)|N/A|Specifies the location, speed, and bearing of the `Sensor`.|
-|`environment`|false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A|Specifies the environment surrounding the `Sensor`.|
+| name              | required | type                                                               | unit | description                                                 |
+|-------------------|----------|--------------------------------------------------------------------|------|-------------------------------------------------------------|
+| `id`              | true     | string                                                             | N/A  | Unique logical ID for the sensor.                           |
+| `sensor_spec`     | false    | [HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)      | N/A  | Metadata to describe/specify the sensor.                    |
+| `antenna`         | false    | [Antenna](ntia-core.sigmf-ext.md#12-antenna-object)                | N/A  | Metadata to describe/specify the antenna.                   |
+| `preselector`     | false    | [Preselector](#13-preselector-object)                              | N/A  | Metadata to describe/specify the preselector.               |
+| `signal_analyzer` | false    | [SignalAnalyzer](#12-signalanalyzer-object)                        | N/A  | Metadata to describe/specify the signal analyzer.           |
+| `computer_spec`   | false    | [HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)      | N/A  | Metadata to describe/specify the onboard computer.          |
+| `mobile`          | false    | boolean                                                            | N/A  | Defines whether the sensor is mobile.                       |
+| `location`        | false    | [Location](ntia-location.sigmf-ext.md#16-location-object)          | N/A  | Specifies the location, speed, and bearing of the `Sensor`. |
+| `environment`     | false    | [Environment](ntia-environment.sigmf-ext.md#11-environment-object) | N/A  | Specifies the environment surrounding the `Sensor`.         |
 
 ### 1.2 SignalAnalyzer Object
 
 `SignalAnalyzer` the following properties:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`sigan_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the signal analyzer.|
-|`frequency_low`|false|double|Hz|Low frequency of operational range of the signal analyzer.|
-|`frequency_high`|false|double|Hz|High frequency of operational range of the signal analyzer.|
-|`noise_figure`|false|double|dB|Noise figure of the signal analyzer.|
-|`max_power`|false|double|dBm|Maximum input power of the signal analyzer.|
-|`a2d_bits`|false|integer|bits|Number of bits in A/D converter.|
+| name             | required | type                                                          | unit | description                                                 |
+|------------------|----------|---------------------------------------------------------------|------|-------------------------------------------------------------|
+| `sigan_spec`     | false    | [HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object) | N/A  | Metadata to describe/specify the signal analyzer.           |
+| `frequency_low`  | false    | double                                                        | Hz   | Low frequency of operational range of the signal analyzer.  |
+| `frequency_high` | false    | double                                                        | Hz   | High frequency of operational range of the signal analyzer. |
+| `noise_figure`   | false    | double                                                        | dB   | Noise figure of the signal analyzer.                        |
+| `max_power`      | false    | double                                                        | dBm  | Maximum input power of the signal analyzer.                 |
+| `a2d_bits`       | false    | integer                                                       | bits | Number of bits in A/D converter.                            |
 
 ### 1.3 Preselector Object
 
 `Preselector` has the following properties:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`preselector_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the preselector.|
-|`cal_sources`|false|[CalSource[]](#14-calsource-object)|N/A|Metadata to describe/specify the preselector calibration source.|
-|`amplifiers`|false|[Amplifier[]](#15-amplifier-object)|N/A|Metadata to describe/specify the preselector low noise amplifiers.|
-|`filters`|false|[Filter[]](#16-filter-object)|N/A|Metadata to describe the preselector RF filters.|
-|`rf_paths`|false|[RFPath[]](#17-rfpath-object)|N/A|Metadata that describes preselector RF paths.|
+| name               | required | type                                                          | unit | description                                                        |
+|--------------------|----------|---------------------------------------------------------------|------|--------------------------------------------------------------------|
+| `preselector_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object) | N/A  | Metadata to describe/specify the preselector.                      |
+| `cal_sources`      | false    | [CalSource[]](#14-calsource-object)                           | N/A  | Metadata to describe/specify the preselector calibration source.   |
+| `amplifiers`       | false    | [Amplifier[]](#15-amplifier-object)                           | N/A  | Metadata to describe/specify the preselector low noise amplifiers. |
+| `filters`          | false    | [Filter[]](#16-filter-object)                                 | N/A  | Metadata to describe the preselector RF filters.                   |
+| `rf_paths`         | false    | [RFPath[]](#17-rfpath-object)                                 | N/A  | Metadata that describes preselector RF paths.                      |
 
 ### 1.4 CalSource Object
 
 `CalSource` has the following properties:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`cal_source_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe the calibration source specification.|
-|`type`|false|string|N/A|Type of the calibration source.|
-|`enr`|false|double|dB|Excess noise ratio.|
+| name              | required | type                                                          | unit | description                                                |
+|-------------------|----------|---------------------------------------------------------------|------|------------------------------------------------------------|
+| `cal_source_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object) | N/A  | Metadata to describe the calibration source specification. |
+| `type`            | false    | string                                                        | N/A  | Type of the calibration source.                            |
+| `enr`             | false    | double                                                        | dB   | Excess noise ratio.                                        |
 
 ### 1.5 Amplifier Object
 
 `Amplifier` has the following properties:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`amplifier_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe the amplifier specification.|
-|`gain`|false|double|dB|Gain of the low noise amplifier.|
-|`noise_figure`|false|double|dB|Noise figure of the low noise amplifier.|
-|`max_power`|false|double|dB|Maximum power of the low noise amplifier.|
+| name             | required | type                                                          | unit | description                                       |
+|------------------|----------|---------------------------------------------------------------|------|---------------------------------------------------|
+| `amplifier_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object) | N/A  | Metadata to describe the amplifier specification. |
+| `gain`           | false    | double                                                        | dB   | Gain of the low noise amplifier.                  |
+| `noise_figure`   | false    | double                                                        | dB   | Noise figure of the low noise amplifier.          |
+| `max_power`      | false    | double                                                        | dB   | Maximum power of the low noise amplifier.         |
 
 ### 1.6 Filter Object
 
 `Filter` has the following properties:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`filter_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the filter specification.|
-|`frequency_low_passband`|false|double|Hz|Low frequency of filter 1 dB passband.|
-|`frequency_high_passband`|false|double|Hz|High frequency of filter 1 dB passband.|
-|`frequency_low_stopband`|false|double|Hz|Low frequency of filter 60 dB stopband.|
-|`frequency_high_stopband`|false|double|Hz|High frequency of filter 60 dB stopband.|
+| name                      | required | type                                                          | unit | description                                            |
+|---------------------------|----------|---------------------------------------------------------------|------|--------------------------------------------------------|
+| `filter_spec`             | false    | [HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object) | N/A  | Metadata to describe/specify the filter specification. |
+| `frequency_low_passband`  | false    | double                                                        | Hz   | Low frequency of filter 1 dB passband.                 |
+| `frequency_high_passband` | false    | double                                                        | Hz   | High frequency of filter 1 dB passband.                |
+| `frequency_low_stopband`  | false    | double                                                        | Hz   | Low frequency of filter 60 dB stopband.                |
+| `frequency_high_stopband` | false    | double                                                        | Hz   | High frequency of filter 60 dB stopband.               |
 
 ### 1.7 RFPath Object
 
 `RFPath` has the following properties:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`name`|false|string|N/A|Descriptive name for the RFPath.|
-|`cal_source_id`|true|string|N/A|ID of the calibration source.|
-|`filter_id`|true|string|N/A|ID of the filter.|
-|`amplifier_id`|true|string|N/A|ID of the amplifier.|
+| name            | required | type   | unit | description                      |
+|-----------------|----------|--------|------|----------------------------------|
+| `name`          | false    | string | N/A  | Descriptive name for the RFPath. |
+| `cal_source_id` | true     | string | N/A  | ID of the calibration source.    |
+| `filter_id`     | true     | string | N/A  | ID of the filter.                |
+| `amplifier_id`  | true     | string | N/A  | ID of the amplifier.             |
 
 ### 1.8 SiganSettings Object
 
-`SiganSettings` has one required property. Additional optional properties depend on the specified [signal analyzer class](#19-signal-analyzer-classes).:
+`SiganSettings` has one required property. Additional optional properties depend on the specified [SiganSettings object](#19-sigansettings-objects).:
 
-|name|required|type|unit|description|
-|----|--------|----|----|-----------|
-|`class`|true|String|N/A|A string matching a specified [signal analyzer class](#19-signal-analyzer-classes)
+| name            | required | type   | unit | description                                                                     |
+|-----------------|----------|--------|------|---------------------------------------------------------------------------------|
+| `settings_type` | true     | String | N/A  | A string matching a specified [SiganSettings object](#19-sigansettings-objects) |
 
-### 1.9 Signal Analyzer Classes
+### 1.9 SiganSettings Objects
 
-Classes of signal analyzers are defined as names of signal analyzers, or groups of signal analyzers which share the same set of configuration parameters. Supported signal analyzer classes are listed here. Supporting new signal analyzers or groups of signal analyzers requires adding a corresponding `class` containing the settings available for that signal analyzer class. The valid values for the `SiganSettings` `class` property are:
+SiganSettings objects extend the base `SiganSettings` object to define signal analyzer or behavior specific configuration parameters. Supported `SiganSettings` classes are listed here. Supporting new signal analyzers or groups of signal analyzers requires extending  the base `SiganSettings` object or one of the objects defined below.  The valid values for the `SiganSettings` `class` property are:
 
-|class|devices in class|
-|-----|----------------|
-|[`usrp`](#191-usrp-signal-analyzer-class)|Ettus "USRP Bus Series" B2XX signal analyzers.|
-|[`keysight_n6841a`](#192-keysightn6841a-signal-analyzer-class)|Keysight N6841A RF sensor.|
-|[`tekrsa_usb`](#193-tekrsausb-signal-analyzer-class)|Tektronix RSA 3XX, 5XX, and 6XX USB spectrum analyzers.|
+| class                                                         | devices in class                                        |
+|---------------------------------------------------------------|---------------------------------------------------------|
+| [`UsrpSettings`](#191-usrpsettings-object)                    | Ettus "USRP Bus Series" B2XX signal analyzers.          |
+| [`KeysightN6841Settings`](#192-keysightn6841asettings-object) | Keysight N6841A RF sensor.                              |
+| [`TekrsaSettings`](#193-tekrsasettings-object)                | Tektronix RSA 3XX, 5XX, and 6XX USB spectrum analyzers. |
 
-#### 1.9.1 `usrp` Signal Analyzer Class
+#### 1.9.1 `UsrpSettings` Object
+The `UsrpSettings` object extends `SiganSettings` and adds the following properties:
 
-The `SiganSettings` class `usrp` adds the following properties to `SiganSettings`:
+| name         | required | type   | unit | description                          |
+|--------------|----------|--------|------|--------------------------------------|
+| `gain`       | false    | double | dB   | USRP B2XX gain setting.              |
+| `clock_rate` | false    | double | Hz   | USRP B2XX master clock rate setting. |
 
-|name|required|type|unit|description|
-|----|--------|----|----|-----------|
-|`gain`|false|double|dB|USRP B2XX gain setting.|
-|`clock_rate`|false|double|Hz|USRP B2XX master clock rate setting.|
+#### 1.9.2 `KeysightN6841aSettings` Object
 
-#### 1.9.2 `keysight_n6841a` Signal Analyzer Class
+The `KeysightN6841aSettings` object extends `SiganSettings` and adds the following properties:
 
-The `SiganSettings` class `keysight_n6841a` adds the following properties to `SiganSettings`:
+| name          | required | type   | unit | description                          |
+|---------------|----------|--------|------|--------------------------------------|
+| `attenuation` | false    | double | dB   | Keysight N6841A attenuation setting. |
 
-|name|required|type|unit|description|
-|----|--------|----|----|-----------|
-|`attenuation`|false|double|dB|Keysight N6841A attenuation setting.|
+#### 1.9.3 `TekrsaSettings` Object
 
-#### 1.9.3 `tekrsa_usb` Signal Analyzer Class
+The `TekrsaSettings`  object extends `SiganSettings` and adds the following properties:
 
-The `SiganSettings` class `tekrsa_usb` adds the following properties to `SiganSettings`:
-
-|name|required|type|unit|description|
-|----|--------|----|----|-----------|
-|`reference_level`|false|double|dBm|Tektronix RSA reference level setting.|
-|`iq_bandwidth`|false|double|Hz|Tektronix RSA IQ bandwidth setting.|
-|`preamp_enable`|false|boolean|N/A|Tektronix RSA 5XX/6XX preamp enable setting.|
-|`auto_attenuation_enable`|false|boolean|N/A|Tektronix RSA 5XX/6XX auto attenuation setting.|
-|`attenuation`|false|double|dB|Tektronix RSA 5XX/6XX attenuation setting, applicable only in manual attenuation mode.|
+| name                      | required | type    | unit | description                                                                            |
+|---------------------------|----------|---------|------|----------------------------------------------------------------------------------------|
+| `reference_level`         | false    | double  | dBm  | Tektronix RSA reference level setting.                                                 |
+| `iq_bandwidth`            | false    | double  | Hz   | Tektronix RSA IQ bandwidth setting.                                                    |
+| `preamp_enable`           | false    | boolean | N/A  | Tektronix RSA 5XX/6XX preamp enable setting.                                           |
+| `auto_attenuation_enable` | false    | boolean | N/A  | Tektronix RSA 5XX/6XX auto attenuation setting.                                        |
+| `attenuation`             | false    | double  | dB   | Tektronix RSA 5XX/6XX attenuation setting, applicable only in manual attenuation mode. |
 
 ## 2 Captures
 
@@ -159,31 +158,32 @@ The `SiganSettings` class `tekrsa_usb` adds the following properties to `SiganSe
 
 `SensorAnnotation` has the following properties:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`rf_path_index`|false|integer|N/A|Index of the [RFPath](#14-rfpath-object) object.|
-|`overload`|false|boolean|N/A|Indicator of sensor overload.|
-|`sigan_settings`|false|[SiganSettings](#18-sigansettings-object)|N/A|Signal analyzer-specific device configuration parameters.|
-|`gps_nmea`|false|string|NMEA|[NMEA message](https://en.wikipedia.org/wiki/NMEA_0183) from GPS receiver.|
+| name             | required | type                                      | unit | description                                                                |
+|------------------|----------|-------------------------------------------|------|----------------------------------------------------------------------------|
+| `rf_path_index`  | false    | integer                                   | N/A  | Index of the [RFPath](#17-rfpath-object) object.                           |
+| `overload`       | false    | boolean                                   | N/A  | Indicator of sensor overload.                                              |
+| `sigan_settings` | false    | [SiganSettings](#18-sigansettings-object) | N/A  | Signal analyzer-specific device configuration parameters.                  |
+| `gps_nmea`       | false    | string                                    | NMEA | [NMEA message](https://en.wikipedia.org/wiki/NMEA_0183) from GPS receiver. |
 
 ### 3.2 CalibrationAnnotation Segment
 
 `CalibrationAnnotation` has the following properties:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`gain_sigan`|false|double|N/A|Gain of signal analyzer (may differ with signal analyzer gain setting).|
-|`noise_figure_sigan`|false|double|dB|Noise figure of signal analyzer.|
-|`1db_compression_point_sigan`|false|double|dBm|Maximum input of signal analyzer.|
-|`enbw_sigan`|false|double|Hz|Equivalent noise bandwidth of signal analyzer.|
-|`gain_preselector`|false|double|dB|Gain of sensor preselector.|
-|`noise_figure_sensor`|false|double|dB|Noise figure of sensor.|
-|`1db_compression_point_sensor`|false|double|dBm|Maximum input of sensor.|
-|`enbw_sensor`|false|double|Hz|Equivalent noise bandwidth of sensor.|
-|`mean_noise_power_sensor`|false|double|Defined in `mean_noise_power_units`|Mean noise power density of sensor.|
-|`mean_noise_power_units`|false|string|N/A|The units of the mean_noise_power|
-|`mean_noise_power_reference`|false|string|N/A| Reference source for the mean_noise_power, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`|
-|`temperature`|false|double|celsius|The temperature during calibration.|
+| name                           | required | type   | unit                                | description                                                                                                             |
+|--------------------------------|----------|--------|-------------------------------------|-------------------------------------------------------------------------------------------------------------------------|
+| `gain_sigan`                   | false    | double | N/A                                 | Gain of signal analyzer (may differ with signal analyzer gain setting).                                                 |
+| `noise_figure_sigan`           | false    | double | dB                                  | Noise figure of signal analyzer.                                                                                        |
+| `1db_compression_point_sigan`  | false    | double | dBm                                 | Maximum input of signal analyzer.                                                                                       |
+| `enbw_sigan`                   | false    | double | Hz                                  | Equivalent noise bandwidth of signal analyzer.                                                                          |
+| `gain_preselector`             | false    | double | dB                                  | Gain of sensor preselector.                                                                                             |
+| `gain_sensor`                  | false    | double | dB                                  | Gain of signal analyzer (may differ with signal analyzer gain setting).                                                 |
+| `noise_figure_sensor`          | false    | double | dB                                  | Noise figure of sensor.                                                                                                 |
+| `1db_compression_point_sensor` | false    | double | dBm                                 | Maximum input of sensor.                                                                                                |
+| `enbw_sensor`                  | false    | double | Hz                                  | Equivalent noise bandwidth of sensor.                                                                                   |
+| `mean_noise_power_sensor`      | false    | double | Defined in `mean_noise_power_units` | Mean noise power density of sensor.                                                                                     |
+| `mean_noise_power_units`       | false    | string | N/A                                 | The units of the mean_noise_power                                                                                       |
+| `mean_noise_power_reference`   | false    | string | N/A                                 | Reference source for the mean_noise_power, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"` |
+| `temperature`                  | false    | double | celsius                             | The temperature during calibration.                                                                                     |
 
 ## 4 Example
 
@@ -318,7 +318,7 @@ The `SiganSettings` class `tekrsa_usb` adds the following properties to `SiganSe
     "core:datetime" : "2018-01-01T07:59:42.792Z"
   } ],
   "annotations" : [ {
-    "ntia-core:annotation_type" : "FrequencyDomainDetection",
+    "ntia-core:object_type" : "FrequencyDomainDetection",
     "core:sample_start" : 0,
     "core:sample_count" : 458,
     "core:comment" : "",
@@ -331,7 +331,7 @@ The `SiganSettings` class `tekrsa_usb` adds the following properties to `SiganSe
     "ntia-algorithm:frequency_stop" : 3.65015625E9,
     "ntia-algorithm:frequency_step" : 437500.0
   }, {
-    "ntia-core:annotation_type" : "CalibrationAnnotation",
+    "ntia-core:object_type" : "CalibrationAnnotation",
     "core:sample_start" : 0,
     "core:sample_count" : 458,
     "core:comment" : " Calibration is done every 6 hours.",
@@ -342,13 +342,13 @@ The `SiganSettings` class `tekrsa_usb` adds the following properties to `SiganSe
     "ntia-sensor:temperature" : 14.611,
     "ntia-sensor:mean_noise_power_units" : "dBm"
   }, {
-    "ntia-core:annotation_type" : "SensorAnnotation",
+    "ntia-core:object_type" : "SensorAnnotation",
     "core:sample_start" : 0,
     "core:sample_count" : 458,
     "ntia-sensor:rf_path_index" : 0,
     "ntia-sensor:overload" : false,
     "ntia-sensor:sigan_settings": {
-      "class": "tekrsa_usb",
+      "class": "TekrsaSettings",
       "reference_level": -33.0,
       "iq_bandwidth": 10000000.0,
       "preamp_enable": true,

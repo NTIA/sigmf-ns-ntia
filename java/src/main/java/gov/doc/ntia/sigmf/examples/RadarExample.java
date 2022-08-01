@@ -199,7 +199,6 @@ public class RadarExample implements Example {
     annotations.add(calibrationAnnotation);
 
     SensorAnnotation sensorAnnotation = new SensorAnnotation();
-    sensorAnnotation.setAttenuationSettingSigan(6.0);
     sensorAnnotation.setOverload(false);
     sensorAnnotation.setRfPathIndex(0);
     sensorAnnotation.setSampleStart(0L);
