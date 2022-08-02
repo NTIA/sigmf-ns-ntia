@@ -1,4 +1,6 @@
 package gov.doc.ntia.sigmf.ext.annotation.sensor;
 
-public class KeysightN6841aSettings extends SiganSettings{
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+public class KeysightN6841aSettings extends AttenuationSettings{
 }

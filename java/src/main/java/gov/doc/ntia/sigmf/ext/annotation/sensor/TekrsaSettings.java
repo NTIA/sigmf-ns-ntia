@@ -2,7 +2,7 @@ package gov.doc.ntia.sigmf.ext.annotation.sensor;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class TekrsaSettings extends SiganSettings {
+public class TekrsaSettings extends AttenuationSettings {
 
   @JsonProperty(value = "ntia-sensor:reference_level", required = false)
   protected Double referenceLevel;
@@ -15,9 +15,6 @@ public class TekrsaSettings extends SiganSettings {
 
   @JsonProperty(value = "ntia-sensor:auto_attenuation_enable", required = false)
   protected Boolean autoAttenuationEnable;
-
-  @JsonProperty(value = "ntia-sensor:attenuation", required = false)
-  protected Double attenuation;
 
   public Double getReferenceLevel() {
     return referenceLevel;
@@ -51,11 +48,4 @@ public class TekrsaSettings extends SiganSettings {
     this.autoAttenuationEnable = autoAttenuationEnabled;
   }
 
-  public Double getAttenuation() {
-    return attenuation;
-  }
-
-  public void setAttenuation(Double attenuation) {
-    this.attenuation = attenuation;
-  }
 }

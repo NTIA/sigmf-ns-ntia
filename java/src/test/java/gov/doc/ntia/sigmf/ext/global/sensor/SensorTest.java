@@ -5,6 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
+import gov.doc.ntia.sigmf.ext.annotation.sensor.KeysightN6841aSettings;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.TekrsaSettings;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.UsrpSettings;
@@ -109,4 +110,32 @@ class SensorTest {
     assertEquals(40.0, readSettings.getGain().doubleValue());
     assertEquals(156789.00, readSettings.getClockRate().doubleValue());
   }
+
+  @Test
+  public void testKeysightN6841aSettings() throws Exception {
+    Global global = new Global();
+    Sensor sensor = new Sensor();
+    String sensorId = "TestSensor123";
+    sensor.setId(sensorId);
+    global.setSensor(sensor);
+    SensorAnnotation sensorAnnotation = new SensorAnnotation();
+    sensorAnnotation.setOverload(false);
+    sensorAnnotation.setRfPathIndex(0);
+    KeysightN6841aSettings settings = new KeysightN6841aSettings();
+    settings.setAttenuation(20.00);
+    sensorAnnotation.setSiganSettings(settings);
+    MetaDoc metaDoc = new MetaDoc();
+    metaDoc.addAnnotation(sensorAnnotation);
+    metaDoc.setGlobal(global);
+    ObjectMapper mapper = new ObjectMapper();
+    File output = File.createTempFile("output", ".json");
+    output.deleteOnExit();
+    mapper.writeValue(output, metaDoc);
+    MetaDoc readMetaDoc = mapper.readValue(output, MetaDoc.class);
+    SensorAnnotation readAnnotation = (SensorAnnotation) metaDoc.getAnnotations().get(0);
+    KeysightN6841aSettings readSettings = (KeysightN6841aSettings) readAnnotation.getSiganSettings();
+    assertEquals(20.0, readSettings.getAttenuation().doubleValue());
+
+  }
+
 }
