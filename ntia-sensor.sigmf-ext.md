@@ -104,9 +104,9 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 `SiganSettings` has one required property. Additional optional properties depend on the specified [SiganSettings object](#19-sigansettings-objects).:
 
-| name            | required | type   | unit | description                                                                     |
-|-----------------|----------|--------|------|---------------------------------------------------------------------------------|
-| `settings_type` | true     | String | N/A  | A string matching a specified [SiganSettings object](#19-sigansettings-objects) |
+| name          | required | type   | unit | description                                                                     |
+|---------------|----------|--------|------|---------------------------------------------------------------------------------|
+| `object_type` | true     | String | N/A  | A string matching a specified [SiganSettings object](#19-sigansettings-objects) |
 
 ### 1.9 SiganSettings Objects
 
@@ -348,7 +348,7 @@ The `TekrsaSettings`  object extends `SiganSettings` and adds the following prop
     "ntia-sensor:rf_path_index" : 0,
     "ntia-sensor:overload" : false,
     "ntia-sensor:sigan_settings": {
-      "class": "TekrsaSettings",
+      "object_type": "TekrsaSettings",
       "reference_level": -33.0,
       "iq_bandwidth": 10000000.0,
       "preamp_enable": true,

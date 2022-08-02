@@ -1080,6 +1080,9 @@
           "enum" : [ "TekrsaSettings" ],
           "default" : "TekrsaSettings"
         },
+        "ntia-sensor:attenuation" : {
+          "type" : "number"
+        },
         "ntia-sensor:reference_level" : {
           "type" : "number"
         },
@@ -1091,9 +1094,6 @@
         },
         "ntia-sensor:auto_attenuation_enable" : {
           "type" : "boolean"
-        },
-        "ntia-sensor:attenuation" : {
-          "type" : "number"
         }
       },
       "title" : "TekrsaSettings",
@@ -1107,6 +1107,9 @@
           "type" : "string",
           "enum" : [ "KeysightN684141aSettings" ],
           "default" : "KeysightN684141aSettings"
+        },
+        "ntia-sensor:attenuation" : {
+          "type" : "number"
         }
       },
       "title" : "KeysightN684141aSettings",
