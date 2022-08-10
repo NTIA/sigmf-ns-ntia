@@ -77,6 +77,29 @@ The `FrequencyDomainDetection` has the following properties:
 |`attenuation_stopband`|false|double|dB|Attenuation of stopband.|
 |`frequency_stopband`|false|double|Hz|Point in filter frequency response where stopband starts.|
 
+### 3.4 ProbabilityDistributionAnnotation Segment
+
+Probability distributions of various types can be generated from gap-free IQ series. The
+`ProbabilityDistributionAnnotation` describes the type of distribution and specifies the
+probability values which correspond to the annotated data. The specification also supports
+human-readable descriptions of downsampling methods which may be applied to reduce the
+number of samples in the annotated data from a larger set of gap-free IQ samples.
+`ProbabilityDistributionAnnotation` has the following properties:
+
+|name|required|type|unit|description|
+|----|--------|----|----|-----------|
+|`function`|true|string|N/A|The estimated probability distribution function, e.g., `"cumulative_distribution"`, `"probability_density"`, `"amplitude_probability_distribution"`|
+|`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"volts"`, `"watts"`.|
+|`probability_units`|true|string|N/A|The unit of the probability values, generally either `"dimensionless"` or `"percent"`.|
+|`number_of_samples`|false|integer|N/A|Number of samples used to estimate the probability distribution function. In the case of a downsampled result, this number may be larger than the length of the data.|
+|`reference`|false|string|N/A|Data reference point, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`.|
+|`probability_start`|false|double|`probability_units`|Probability of the first data point.|
+|`probability_stop`|false|double|`probability_units`|Probability of the last data point.|
+|`probability_step`|false|double|`probability_units`|Step size between data points. This should **only** be used if the probability step size is constant between all data points.|
+|`probabilities`|false|double[]|`probability_units`|An array of the probabilities for all data points. This **must** be used if the probability step size is not constant (i.e. if the probability axis cannot be specified fully using `probability_start`, `probability_stop`, and `probability_step`.|
+|`downsampled`|false|boolean|N/A|Whether or not the probability distribution data has been downsampled|
+|`downsampling_method`|false|string|N/A|The method used for downsampling, e.g "Uniform downsampling by a factor of 2" or "Distribution binned by amplitude with a resolution of 0.5 dB"|
+
 ## 4 Example
 
 ### 4.1 anti_aliasing_filter example
@@ -576,4 +599,10 @@ The `FrequencyDomainDetection` has the following properties:
     }
   ]
 }
+```
+
+### 4.6 ProbabilityDistributionAnnotation Example
+
+```json
+TODO
 ```
