@@ -1,4 +1,4 @@
-# ntia-sensor extension v2.0.0
+# ntia-sensor extension v1.0.0
 
 The ntia-sensor namespace provides metadata to describe RF sensors.
 
