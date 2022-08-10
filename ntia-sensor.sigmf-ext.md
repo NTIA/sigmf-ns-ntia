@@ -92,7 +92,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`name`|false|string|N/A|Descriptive name for the RFPath.|
+|`name`|true|string|N/A|Descriptive name for the RFPath.|
 |`cal_source_id`|true|string|N/A|ID of the calibration source.|
 |`filter_id`|true|string|N/A|ID of the filter.|
 |`amplifier_id`|true|string|N/A|ID of the amplifier.|
