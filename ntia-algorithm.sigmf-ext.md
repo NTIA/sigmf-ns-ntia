@@ -604,5 +604,29 @@ number of samples in the annotated data from a larger set of gap-free IQ samples
 ### 4.6 ProbabilityDistributionAnnotation Example
 
 ```json
-TODO
+{
+  "global": {
+    ...
+  },
+  "captures": [
+    ...
+  ],
+  "annotations": [
+    {
+      "ntia-core:annotation_type": "ProbabilityDistributionAnnotation",
+      "core:sample_start": 0,
+      "core:sample_count": 1000,
+      "ntia-algorithm:function": "amplitude_probability_distribution",
+      "ntia-algorithm:units": "dBm",
+      "ntia-algorithm:probability_units": "dimensionless",
+      "ntia-algorithm:number_of_samples": 56000000,
+      "ntia-algorithm:reference": "antenna terminal",
+      "ntia-algorithm:probabilities":
+          [0.9999999, 0.999999, 0.9999, 0.999, 0.9, 0.8, ... 0.01, 0.001, 0.0001],
+      "ntia-algorithm:downsampled": true,
+      "ntia-algorithm:downsampling_method":
+          "Distribution binned by amplitude with a resolution/bin size of 0.5 dB",
+    }
+  ]
+}
 ```
