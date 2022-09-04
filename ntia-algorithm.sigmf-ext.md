@@ -189,7 +189,7 @@ The `FrequencyDomainDetection` has the following properties:
   ],
   "annotations": [
     {
-      "ntia-core:object_type": "CalibrationAnnotation",
+      "ntia-core:object_type": "ntia-sensor:CalibrationAnnotation",
       "core:sample_start": 0,
       "core:sample_count": 15360000,
       "ntia-sensor:gain_sigan": 42.216536890181075,
@@ -202,7 +202,7 @@ The `FrequencyDomainDetection` has the following properties:
       "ntia-sensor:1db_compression_point_sigan": -29.94803239760001
     },
     {
-      "ntia-core:object_type": "TimeDomainDetection",
+      "ntia-core:object_type": "ntia-algorithm:TimeDomainDetection",
       "core:sample_start": 0,
       "core:sample_count": 15360000,
       "ntia-algorithm:detector": "sample_iq",
@@ -210,7 +210,7 @@ The `FrequencyDomainDetection` has the following properties:
       "ntia-algorithm:number_of_samples": 15360000
     },
     {
-      "ntia-core:object_type": "SensorAnnotation",
+      "ntia-core:object_type": "ntia-sensor:SensorAnnotation",
       "core:sample_start": 0,
       "core:sample_count": 15360000,
       "ntia-sensor:overload": false,
@@ -290,7 +290,7 @@ The `FrequencyDomainDetection` has the following properties:
     ],
     "annotations": [
         {
-            "ntia-core:object_type": "FrequencyDomainDetection",
+            "ntia-core:object_type": "ntia-algorithm:FrequencyDomainDetection",
             "ntia-algorithm:number_of_samples_in_fft": 1024,
             "ntia-algorithm:window": "flattop",
             "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
@@ -304,7 +304,7 @@ The `FrequencyDomainDetection` has the following properties:
             "core:sample_count": 1024
         },
         {
-            "ntia-core:object_type": "CalibrationAnnotation",
+            "ntia-core:object_type": "ntia-sensor:CalibrationAnnotation",
             "ntia-sensor:gain_sigan": 42.216536890181075,
             "ntia-sensor:noise_figure_sigan": 10.758181371190176,
             "ntia-sensor:1db_compression_point_sigan": -29.94803239760001,
@@ -317,14 +317,14 @@ The `FrequencyDomainDetection` has the following properties:
             "core:sample_count": 5120
         },
         {
-            "ntia-core:object_type": "SensorAnnotation",
+            "ntia-core:object_type": "ntia-sensor:SensorAnnotation",
             "ntia-sensor:overload": false,
             "ntia-sensor:gain_setting_sigan": 40,
             "core:sample_start": 0,
             "core:sample_count": 5120
         },
         {
-            "ntia-core:object_type": "FrequencyDomainDetection",
+            "ntia-core:object_type": "ntia-algorithm:FrequencyDomainDetection",
             "ntia-algorithm:number_of_samples_in_fft": 1024,
             "ntia-algorithm:window": "flattop",
             "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
@@ -338,7 +338,7 @@ The `FrequencyDomainDetection` has the following properties:
             "core:sample_count": 1024
         },
         {
-            "ntia-core:object_type": "FrequencyDomainDetection",
+            "ntia-core:object_type": "ntia-algorithm:FrequencyDomainDetection",
             "ntia-algorithm:number_of_samples_in_fft": 1024,
             "ntia-algorithm:window": "flattop",
             "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
@@ -352,7 +352,7 @@ The `FrequencyDomainDetection` has the following properties:
             "core:sample_count": 1024
         },
         {
-            "ntia-core:object_type": "FrequencyDomainDetection",
+            "ntia-core:object_type": "ntia-algorithm:FrequencyDomainDetection",
             "ntia-algorithm:number_of_samples_in_fft": 1024,
             "ntia-algorithm:window": "flattop",
             "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
@@ -366,7 +366,7 @@ The `FrequencyDomainDetection` has the following properties:
             "core:sample_count": 1024
         },
         {
-            "ntia-core:object_type": "FrequencyDomainDetection",
+            "ntia-core:object_type": "ntia-algorithm:FrequencyDomainDetection",
             "ntia-algorithm:number_of_samples_in_fft": 1024,
             "ntia-algorithm:window": "flattop",
             "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
@@ -512,7 +512,7 @@ The `FrequencyDomainDetection` has the following properties:
     "core:datetime" : "2018-01-01T07:59:42.792Z"
   } ],
   "annotations" : [ {
-    "ntia-core:object_type" : "FrequencyDomainDetection",
+    "ntia-core:object_type" : "ntia-algorithm:FrequencyDomainDetection",
     "core:sample_start" : 0,
     "core:sample_count" : 458,
     "core:comment" : "",
@@ -525,7 +525,7 @@ The `FrequencyDomainDetection` has the following properties:
     "ntia-algorithm:frequency_stop" : 3.65015625E9,
     "ntia-algorithm:frequency_step" : 437500.0
   }, {
-    "ntia-core:object_type" : "CalibrationAnnotation",
+    "ntia-core:object_type" : "ntia-sensor:CalibrationAnnotation",
     "core:sample_start" : 0,
     "core:sample_count" : 458,
     "core:comment" : " Calibration is done every 6 hours.",
@@ -536,7 +536,7 @@ The `FrequencyDomainDetection` has the following properties:
     "ntia-sensor:temperature" : 14.611,
     "ntia-sensor:mean_noise_power_units" : "dBm"
   }, {
-    "ntia-core:object_type" : "SensorAnnotation",
+    "ntia-core:object_type" : "ntia-sensor:SensorAnnotation",
     "core:sample_start" : 0,
     "core:sample_count" : 458,
     "ntia-sensor:rf_path_index" : 0,
@@ -558,7 +558,7 @@ The `FrequencyDomainDetection` has the following properties:
   ],
   "annotations": [
     {
-      "ntia-core:object_type": "DigitalFilterAnnotation",
+      "ntia-core:object_type": "ntia-algorithm:DigitalFilterAnnotation",
       "core:sample_start": 0,
       "core:sample_count": 1000,
       "ntia-algorithm:filter_type": "FIR",

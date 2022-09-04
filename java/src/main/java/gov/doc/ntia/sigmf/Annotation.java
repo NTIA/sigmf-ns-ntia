@@ -6,8 +6,10 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import gov.doc.ntia.sigmf.ext.annotation.algorithm.DigitalFilterAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.TimeDomainDetection;
+import gov.doc.ntia.sigmf.ext.annotation.algorithm.DigitalFilterAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 import java.io.Serializable;
@@ -20,10 +22,12 @@ import java.util.Map;
     include = JsonTypeInfo.As.PROPERTY,
     property = "ntia-core:object_type")
 @JsonSubTypes({
-    @JsonSubTypes.Type(value = FrequencyDomainDetection.class, name = "FrequencyDomainDetection"),
-    @JsonSubTypes.Type(value = TimeDomainDetection.class, name = "TimeDomainDetection"),
-    @JsonSubTypes.Type(value = CalibrationAnnotation.class, name = "CalibrationAnnotation"),
-    @JsonSubTypes.Type(value = SensorAnnotation.class, name = "SensorAnnotation")
+        @JsonSubTypes.Type(value = FrequencyDomainDetection.class, name = "ntia-algorithm:FrequencyDomainDetection"),
+        @JsonSubTypes.Type(value = TimeDomainDetection.class, name = "ntia-algorithm:TimeDomainDetection"),
+        @JsonSubTypes.Type(value = DigitalFilterAnnotation.class, name = "ntia-algorithm:DigitalFilterAnnotation"),
+        @JsonSubTypes.Type(value = CalibrationAnnotation.class, name = "ntia-sensor:CalibrationAnnotation"),
+        @JsonSubTypes.Type(value = SensorAnnotation.class, name = "ntia-sensor:SensorAnnotation")
+
 })
 public class Annotation implements Serializable {
 
