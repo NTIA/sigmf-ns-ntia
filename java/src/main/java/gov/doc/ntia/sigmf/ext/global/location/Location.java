@@ -27,6 +27,9 @@ public class Location implements Serializable {
   @JsonProperty(value = "description", required = false)
   protected String description;
 
+  @JsonProperty(value = "gps", required= false)
+  protected Boolean gps;
+
   public Double getX() {
     return x;
   }
@@ -74,4 +77,13 @@ public class Location implements Serializable {
   public void setDescription(String description) {
     this.description = description;
   }
+
+  public Boolean getGps() {
+    return gps;
+  }
+
+  public void setGps(Boolean gps) {
+    this.gps = gps;
+  }
+
 }
