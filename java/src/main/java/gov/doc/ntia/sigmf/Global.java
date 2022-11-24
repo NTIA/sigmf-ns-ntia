@@ -103,8 +103,8 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-sensor:calibration_datetime", required = false)
   protected Date calibrationDate;
 
-  @JsonProperty(value = "ntia-scos:data_file_path", required = false)
-  protected String dataFilePath;
+  @JsonProperty(value = "ntia-scos:file_path", required = false)
+  protected String filepath;
 
   @JsonProperty(value = "ntia-scos:task", required = false)
   protected Integer task;
@@ -293,12 +293,12 @@ public class Global implements Serializable {
     this.calibrationDate = calibrationDate;
   }
 
-  public String getDataFilePath() {
-    return dataFilePath;
+  public String getFilepath() {
+    return filepath;
   }
 
-  public void setDataFilePath(String dataFilePath) {
-    this.dataFilePath = dataFilePath;
+  public void setFilepath(String filepath) {
+    this.filepath = filepath;
   }
 
   public CoordinateSystem getCoordinateSystem() {

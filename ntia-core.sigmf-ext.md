@@ -66,11 +66,11 @@ The Measurement object summarizes the basic measurement information including  w
 `ntia-core` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
-`ntia-core` extends [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array) with segments of different types defined throughout the set of NTIA extensions to the core SigMF specification. `annotation_type` is defined with the following name/value pair:
+`ntia-core` extends [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array) with segments of different types defined throughout the set of NTIA extensions to the core SigMF specification. `object_type` is defined with the following name/value pair:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`annotation_type`|true|string|N/A|Annotation type, e.g. [`"CalibrationAnnotation"`](ntia-sensor.sigmf-ext.md#32-calibrationannotation-segment), [`"DigitalFilterAnnotation"`](ntia-algorithm.sigmf-ext.md#33-digitalfilterannotation-segment), [`"FrequencyDomainDetection"`](ntia-algorithm.sigmf-ext.md#32-frequencydomaindetection-segment), [`"SensorAnnotation"`](ntia-sensor.sigmf-ext.md#31-sensorannotation-segment), [`"TimeDomainDetection"`](ntia-algorithm.sigmf-ext.md#31-timedomaindetection-segment)|
+| name          |required|type|unit| description                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+|---------------|--------------|-------|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `object_type` |true|string|N/A| object type, e.g. [`"CalibrationAnnotation"`](ntia-sensor.sigmf-ext.md#32-calibrationannotation-segment), [`"DigitalFilterAnnotation"`](ntia-algorithm.sigmf-ext.md#33-digitalfilterannotation-segment), [`"FrequencyDomainDetection"`](ntia-algorithm.sigmf-ext.md#32-frequencydomaindetection-segment), [`"SensorAnnotation"`](ntia-sensor.sigmf-ext.md#31-sensorannotation-segment), [`"TimeDomainDetection"`](ntia-algorithm.sigmf-ext.md#31-timedomaindetection-segment) |
 
 
 ## 4 Examples
@@ -82,7 +82,7 @@ The Measurement object summarizes the basic measurement information including  w
     "core:datatype" : "rf32_le",
     "core:sample_rate" : 2.8E7,
     "core:extensions" : {
-      "ntia-core" : "v1.0.0",
+      "ntia-core" : "v1.0.0"
     },
     "ntia-core:measurement" : {
       "time_start" : "2018-03-01T14:01:00.000874Z",
@@ -232,7 +232,7 @@ The Measurement object summarizes the basic measurement information including  w
     "core:datetime" : "2018-01-01T07:59:42.792Z"
   } ],
   "annotations" : [ {
-    "ntia-core:annotation_type" : "FrequencyDomainDetection",
+    "ntia-core:object_type" : "ntia-algorithm:FrequencyDomainDetection",
     "core:sample_start" : 0,
     "core:sample_count" : 458,
     "core:comment" : "",
@@ -245,7 +245,7 @@ The Measurement object summarizes the basic measurement information including  w
     "ntia-algorithm:frequency_stop" : 3.65015625E9,
     "ntia-algorithm:frequency_step" : 437500.0
   }, {
-    "ntia-core:annotation_type" : "CalibrationAnnotation",
+    "ntia-core:object_type" : "ntia-sensor:CalibrationAnnotation",
     "core:sample_start" : 0,
     "core:sample_count" : 458,
     "core:comment" : " Calibration is done every 6 hours.",
@@ -256,7 +256,7 @@ The Measurement object summarizes the basic measurement information including  w
     "ntia-sensor:temperature" : 14.611,
     "ntia-sensor:mean_noise_power_units" : "dBm"
   }, {
-    "ntia-core:annotation_type" : "SensorAnnotation",
+    "ntia-core:object_type" : "ntia-sensor:SensorAnnotation",
     "core:sample_start" : 0,
     "core:sample_count" : 458,
     "ntia-sensor:rf_path_index" : 0,

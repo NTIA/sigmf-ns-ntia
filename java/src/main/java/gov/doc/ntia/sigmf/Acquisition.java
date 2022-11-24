@@ -10,6 +10,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
+import java.util.UUID;
 
 public class Acquisition implements Serializable {
 
@@ -65,19 +66,24 @@ public class Acquisition implements Serializable {
 
   /**
    * Utility method to create a name for the Acquisition equal to the sensor_sheduleId_taskId.
+   *
    * @return the name for the acquisition.
    */
   public String getName() {
-
-    String sensorId = metaDoc.getGlobal().getSensor().getId();
-    Integer recording = metaDoc.getGlobal().getRecording();
-    String taskId = getTaskId();
-    String name = sensorId + "_" + getScheduleId();
-    if(taskId != null){
-      name += "_" + taskId;
-    }
-    if(recording != null){
-      name += "_" + recording;
+    String name = null;
+    try{
+      String sensorId = metaDoc.getGlobal().getSensor().getId();
+      Integer recording = metaDoc.getGlobal().getRecording();
+      String taskId = getTaskId();
+      name = sensorId + "_" + getScheduleId();
+      if (taskId != null) {
+        name += "_" + taskId;
+      }
+      if (recording != null) {
+        name += "_" + recording;
+      }
+    }catch (Exception ex){
+      name = UUID.randomUUID().toString();
     }
 
     return name;
@@ -85,6 +91,7 @@ public class Acquisition implements Serializable {
 
   /**
    * Get the action that produced the Acquisition, or unknown if it is not in the metadata.
+   *
    * @return The name of the action that produced the Acquisition.
    */
   public String getActionName() {

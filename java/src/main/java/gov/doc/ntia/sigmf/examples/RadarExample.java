@@ -8,6 +8,7 @@ import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
+import gov.doc.ntia.sigmf.ext.annotation.sensor.KeysightN6841aSettings;
 import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
@@ -19,6 +20,8 @@ import gov.doc.ntia.sigmf.ext.global.sensor.Filter;
 import gov.doc.ntia.sigmf.ext.global.sensor.Preselector;
 import gov.doc.ntia.sigmf.ext.global.sensor.RfPath;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
+
+import java.awt.image.Kernel;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -199,11 +202,13 @@ public class RadarExample implements Example {
     annotations.add(calibrationAnnotation);
 
     SensorAnnotation sensorAnnotation = new SensorAnnotation();
-    sensorAnnotation.setAttenuationSettingSigan(6.0);
     sensorAnnotation.setOverload(false);
     sensorAnnotation.setRfPathIndex(0);
     sensorAnnotation.setSampleStart(0L);
     sensorAnnotation.setSampleCount(458L);
+    KeysightN6841aSettings settings = new KeysightN6841aSettings();
+    settings.setAttenuation(0.0);
+    sensorAnnotation.setSiganSettings(settings);
     annotations.add(sensorAnnotation);
 
     FrequencyDomainDetection fdd = new FrequencyDomainDetection();

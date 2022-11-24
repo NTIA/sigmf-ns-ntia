@@ -102,7 +102,7 @@ Now, if we open the file we will see the following:
   ],
   "annotations": [
     {
-      "ntia-core:annotation_type": "FrequencyDomainDetection",
+      "ntia-core:object_type": "ntia-algorithm:FrequencyDomainDetection",
       "core:sample_start": 0,
       "core:sample_count": 1024,
       "ntia-algorithm:detector": "fft_mean_power",

@@ -110,9 +110,13 @@ public class MetaDoc implements Serializable {
   public Acquisition getAcquisition() throws IOException {
     Acquisition acquisition = new Acquisition();
     acquisition.setMetaDoc(this);
-    log.debug("reading datafile:" + global.getDataFilePath());
+    String datafile = global.getFilepath();
+    if(!datafile.endsWith(".sigmf-data") ){
+      datafile = datafile + ".sigmf-data";
+    }
+    log.debug("reading datafile:" + datafile);
     BufferedInputStream inputStream =
-        new BufferedInputStream(new FileInputStream(global.getDataFilePath()));
+        new BufferedInputStream(new FileInputStream(datafile));
     byte[] sensedData = IOUtils.toByteArray(inputStream);
     acquisition.setData(ByteBuffer.wrap(sensedData));
     return acquisition;

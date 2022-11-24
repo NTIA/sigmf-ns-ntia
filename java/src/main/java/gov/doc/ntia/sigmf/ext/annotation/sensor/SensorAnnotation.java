@@ -5,11 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import gov.doc.ntia.sigmf.Annotation;
 
-@JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonTypeInfo(
-    use = JsonTypeInfo.Id.NAME,
-    include = JsonTypeInfo.As.PROPERTY,
-    property = "ntia-core:annotation_type")
+
 public class SensorAnnotation extends Annotation {
 
   private static final long serialVersionUID = 1L;
@@ -20,14 +16,8 @@ public class SensorAnnotation extends Annotation {
   @JsonProperty(value = "ntia-sensor:overload", required = false)
   protected Boolean overload;
 
-  @JsonProperty(value = "ntia-sensor:attenuation_setting_sigan", required = false)
-  protected Double attenuationSettingSigan;
-
-  @JsonProperty(value = "ntia-sensor:gain_setting_sigan", required = false)
-  protected Double gainSettingSigan;
-
-  @JsonProperty(value = "ntia-sensor:gps_nmea", required = false)
-  protected String gpsNmea;
+  @JsonProperty(value = "ntia-sensor:sigan_settings", required = false)
+  protected SiganSettings siganSettings;
 
   public Integer getRfPathIndex() {
     return rfPathIndex;
@@ -45,27 +35,12 @@ public class SensorAnnotation extends Annotation {
     this.overload = overload;
   }
 
-  public Double getAttenuationSettingSigan() {
-    return attenuationSettingSigan;
+  public SiganSettings getSiganSettings() {
+    return siganSettings;
   }
 
-  public void setAttenuationSettingSigan(Double attenuationSettingSigan) {
-    this.attenuationSettingSigan = attenuationSettingSigan;
+  public void setSiganSettings(SiganSettings siganSettings) {
+    this.siganSettings = siganSettings;
   }
 
-  public Double getGainSettingSigan() {
-    return gainSettingSigan;
-  }
-
-  public void setGainSettingSigan(Double gainSettingSigan) {
-    this.gainSettingSigan = gainSettingSigan;
-  }
-
-  public String getGpsNmea() {
-    return gpsNmea;
-  }
-
-  public void setGpsNmea(String gpsNmea) {
-    this.gpsNmea = gpsNmea;
-  }
 }
