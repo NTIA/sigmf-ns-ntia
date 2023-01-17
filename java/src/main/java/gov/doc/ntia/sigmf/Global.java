@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.core.Measurement;
+import gov.doc.ntia.sigmf.ext.global.diagnostics.Diagnostics;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.global.location.CoordinateSystem;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
@@ -36,6 +37,9 @@ public class Global implements Serializable {
   // The version of the SigMF specification used to create the metadata file.
   @JsonProperty(value = "core:version", required = true)
   protected String version;
+
+  @JsonProperty(value = "core:num_channels", required = false)
+  protected Integer numChannels;
 
   // The SHA512 hash of the dataset file associated with the SigMF file.
   @JsonProperty(value = "core:sha512", required = false)
@@ -115,6 +119,12 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-core:measurement", required = true)
   protected Measurement measurement;
 
+  @JsonProperty(value = "calibration_temperature_degC", required = false)
+  protected Double calibrationTemp;
+
+  @JsonProperty(value = "diagnostics", required = false)
+  protected Diagnostics diagnostics;
+
   public Integer getRecording() {
     return recording;
   }
@@ -138,6 +148,10 @@ public class Global implements Serializable {
   public void setSha512(String sha512) {
     this.sha512 = sha512;
   }
+
+  public Integer getNumChannels() { return this.numChannels; }
+
+  public void setNumChannels(Integer numChannels) { this.numChannels = numChannels; }
 
   public Long getOffset() {
     return offset;
@@ -316,4 +330,11 @@ public class Global implements Serializable {
   public void setMeasurement(Measurement measurement) {
     this.measurement = measurement;
   }
+
+  public Double getCalibrationTemp() {return this.calibrationTemp; }
+
+  public void setCalibrationTemp(Double calibrationTemp) { this.calibrationTemp = calibrationTemp; }
+
+  public Diagnostics getDiagnostics(){return this.diagnostics;}
+  public void setDiagnostics(Diagnostics diagnostics){this.diagnostics = diagnostics;}
 }
