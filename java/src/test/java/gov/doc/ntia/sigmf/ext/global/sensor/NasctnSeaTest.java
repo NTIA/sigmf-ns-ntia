@@ -12,6 +12,7 @@ import org.junit.jupiter.api.Test;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -42,6 +43,60 @@ public class NasctnSeaTest {
         assertEquals(spuX410.getRfBoxTempDegC().doubleValue(), 84.8);
         assertEquals(spuX410.getPowerBoxHumidityPct().doubleValue(), 14.4);
 
+        SpuComputer spuComputer = diagnostics.getSpuComputer();
+        assertEquals(spuComputer.getActionCpuUsagePct().doubleValue(), 46.4);
+        assertEquals(spuComputer.getSystemLoad5mPct().doubleValue(), 24.0);
+        assertEquals(spuComputer.getMemoryUsagePct().doubleValue(), 24.0);
+        assertEquals(spuComputer.getDiskUsagePct().doubleValue(), 7.6);
+        assertEquals(spuComputer.getCpuTemperatureDegC().doubleValue(), 66.0);
+        assertEquals(spuComputer.getCpuOverheating().booleanValue(), false);
+        assertEquals(spuComputer.getUptimeHours().doubleValue(), 651.16);
+
+        List<Capture> captures = readMetaDoc.getCaptures();
+        assertEquals(captures.size(), 15);
+        Capture firstCapture = captures.get(0);
+        assertEquals(firstCapture.getFrequency().doubleValue(), 3555.0e6);
+        assertEquals(firstCapture.getMaxChannelPowerdBm().doubleValue(), -66.0);
+        assertEquals(firstCapture.getMeanChannelPowerdBm().doubleValue(), -83.25);
+        assertEquals(firstCapture.getOverload().booleanValue(), false);
+        assertEquals(firstCapture.getCalNoiseFiguredB().doubleValue(), 4.322);
+        assertEquals(firstCapture.getCalGaindB().doubleValue(), 30.707);
+        assertEquals(firstCapture.getIqCaptureDurationMsec().intValue(), 4000);
+        assertEquals(firstCapture.getSiganAttenuationdB().intValue(), 0);
+        assertEquals(firstCapture.getSiganPreampEnable().booleanValue(), true);
+        assertEquals(firstCapture.getSiganReferenceLeveldBm().intValue(), -25);
+        assertEquals(firstCapture.getFftSampleCount().intValue(), 625);
+        assertEquals(firstCapture.getTdPowerSampleCount().intValue(), 400);
+        assertEquals(firstCapture.getPfpSampleCount().intValue(), 560);
+        assertEquals(firstCapture.getApdSampleCount().intValue(), 180);
+        assertEquals(firstCapture.getMaxFftSampleStart().intValue(), 0);
+        assertEquals(firstCapture.getMeanFftSampleStart().intValue(), 625);
+        assertEquals(firstCapture.getMaxTdPowerSeriesSampleStart().intValue(), 1250);
+        assertEquals(firstCapture.getMeanTdPowerSeriesSampleStart().intValue(), 1650);
+        assertEquals(firstCapture.getMinRmsPfpSampleStart().intValue(), 2050);
+        assertEquals(firstCapture.getMaxRmsPfpSampleStart().intValue(), 2610);
+        assertEquals(firstCapture.getMeanRmsPfpSampleStart().intValue(), 3170);
+        assertEquals(firstCapture.getMinPeakPfpSampleStart().intValue(), 3730);
+        assertEquals(firstCapture.getMaxPeakPfpSampleStart().intValue(), 4290);
+        assertEquals(firstCapture.getMeanPeakPfpSampleStart().intValue(), 4850);
+        assertEquals(firstCapture.getApdPSampleStart().intValue(), 5410);
+        assertEquals(firstCapture.getApdASampleStart().intValue(), 5590);
+        assertEquals(firstCapture.getSampleStart().intValue(), 0);
+
+        Capture lastCapture = captures.get(14);
+        assertEquals(lastCapture.getFrequency().doubleValue(), 3695.0e6);
+        assertEquals(lastCapture.getMaxChannelPowerdBm().doubleValue(), -66.0);
+        assertEquals(lastCapture.getMeanChannelPowerdBm().doubleValue(), -83.25);
+        assertEquals(lastCapture.getOverload().booleanValue(), false);
+        assertEquals(lastCapture.getCalNoiseFiguredB().doubleValue(), 4.322);
+        assertEquals(lastCapture.getCalGaindB().doubleValue(), 30.707);
+        assertEquals(lastCapture.getIqCaptureDurationMsec().intValue(), 4000);
+        assertEquals(lastCapture.getSiganAttenuationdB().intValue(), 0);
+        assertEquals(lastCapture.getSiganPreampEnable().booleanValue(), true);
+        assertEquals(lastCapture.getSiganReferenceLeveldBm().intValue(), -25);
+        assertEquals(lastCapture.getFftSampleCount().intValue(), 625);
+        assertEquals(lastCapture.getTdPowerSampleCount().intValue(), 400);
+        assertEquals(lastCapture.getPfpSampleCount().intValue(), 560);
     }
 
     public MetaDoc getSigmf(){
@@ -163,7 +218,7 @@ public class NasctnSeaTest {
     public void writeCaptures(MetaDoc metaDoc){
         for(int i=0; i<15; i++){
             Capture capture = new Capture();
-            capture.setFrequency((i*10e6)*3555.0e6);
+            capture.setFrequency((i*10e6)+3555.0e6);
             capture.setDateTime(new Date());
             capture.setMaxChannelPowerdBm(-66.0);
             capture.setMeanChannelPowerdBm(-83.25);
