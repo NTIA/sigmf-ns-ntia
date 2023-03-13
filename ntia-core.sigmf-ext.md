@@ -113,7 +113,6 @@ The Measurement object summarizes the basic measurement information including  w
       "ntia-algorithm" : "v1.0.0",
       "ntia-sensor" : "v1.0.0",
       "ntia-environment" : "v1.0.0",
-      "ntia-location" : "v1.0.0"
     },
     "ntia-sensor:sensor" : {
       "id" : "192.168.1.53",
@@ -197,22 +196,9 @@ The Measurement object summarizes the basic measurement information including  w
         "id" : "MC 9",
         "description" : "Custom computer with Intel i7 processor, MSI motherboard, 16 GB of Ram and running Windows 7"
       },
-      "location" : {
-        "x" : -122.5309,
-        "y" : 37.8204,
-        "z" : 51.3522,
-        "speed" : 0.0,
-        "description" : "On a tower in Point Bonita, near San Francisco"
-      },
       "environment" : {
         "category" : "Outside. Coastal."
       }
-    },
-    "ntia-location:coordinate_system" : {
-      "coordinate_system_type" : "CoordinateSystem",
-      "id" : "WGS_84",
-      "elevation_ref" : "MSL",
-      "elevation_unit" : "meter"
     },
     "ntia-sensor:calibration_datetime" : "2018-01-01T10:49:58.236Z",
     "ntia-core:measurement" : {

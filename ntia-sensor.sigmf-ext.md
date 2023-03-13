@@ -26,7 +26,6 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`signal_analyzer`|false| [SignalAnalyzer](#12-signalanalyzer-object) |N/A|Metadata to describe/specify the signal analyzer.|
 |`computer_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the onboard computer.|
 |`mobile`|false|boolean|N/A|Defines whether the sensor is mobile.|
-|`location`|false|[Location](ntia-location.sigmf-ext.md#16-location-object)|N/A|Specifies the location, speed, and bearing of the `Sensor`.|
 |`environment`|false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A|Specifies the environment surrounding the `Sensor`.|
 
 ### 1.2 SignalAnalyzer Object
@@ -149,7 +148,6 @@ Sensor definition follows a simplified hardware model composed of the following 
       "ntia-algorithm" : "v1.0.0",
       "ntia-sensor" : "v1.0.0",
       "ntia-environment" : "v1.0.0",
-      "ntia-location" : "v1.0.0"
     },
     "ntia-sensor:sensor" : {
       "id" : "192.168.1.53",
@@ -233,22 +231,9 @@ Sensor definition follows a simplified hardware model composed of the following 
         "id" : "MC 9",
         "description" : "Custom computer with Intel i7 processor, MSI motherboard, 16 GB of Ram and running Windows 7"
       },
-      "location" : {
-        "x" : -122.5309,
-        "y" : 37.8204,
-        "z" : 51.3522,
-        "speed" : 0.0,
-        "description" : "On a tower in Point Bonita, near San Francisco"
-      },
       "environment" : {
         "category" : "Outside. Coastal."
       }
-    },
-    "ntia-location:coordinate_system" : {
-      "coordinate_system_type" : "CoordinateSystem",
-      "id" : "WGS_84",
-      "elevation_ref" : "MSL",
-      "elevation_unit" : "meter"
     },
     "ntia-sensor:calibration_datetime" : "2018-01-01T10:49:58.236Z",
     "ntia-core:measurement" : {

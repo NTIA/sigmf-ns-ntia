@@ -39,7 +39,6 @@ The `ntia-environment` extension provides SigMF metadata extensions to character
      "core:extensions" : {
       "ntia-algorithm" : "v1.0.0",
       "ntia-sensor" : "v1.0.0",
-      "ntia-location" : "v1.0.0"
     },
     "ntia-sensor:sensor": {
       "id": "greyhound8.sms.internal",
@@ -59,10 +58,6 @@ The `ntia-environment` extension provides SigMF metadata extensions to character
       },
       "computer_spec": {
         "model": "Intel NUC"
-      },
-      "location": {
-        "x": -105.2715,
-        "y": 40.0067
       },
       "environment":{
         "category": "outside",

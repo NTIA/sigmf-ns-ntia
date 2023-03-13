@@ -122,7 +122,6 @@ The `FrequencyDomainDetection` has the following properties:
     "core:extensions" : {
       "ntia-algorithm" : "v1.0.0",
       "ntia-sensor" : "v1.0.0",
-      "ntia-location" : "v1.0.0"
     },
     "ntia-sensor:sensor": {
       "id": "greyhound8.sms.internal",
@@ -147,10 +146,6 @@ The `FrequencyDomainDetection` has the following properties:
         "id": "",
         "model": "Intel NUC"
       },
-      "location": {
-        "x": -105.2715,
-        "y": 40.0067
-      }
     },
     "ntia-scos:action": {
       "name": "acquire_iq_700MHz_Verizon_UL",
@@ -162,12 +157,6 @@ The `FrequencyDomainDetection` has the following properties:
       "name": "UplinkIQ",
       "priority": 10,
       "start": "2020-02-13T16:11:33.000Z"
-    },
-    "ntia-location:coordinate_system": {
-      "coordinate_system_type": "GeographicCoordinateSystem",
-      "id": "WGS 1984",
-      "distance_unit": "decimal degrees",
-      "time_unit": "seconds"
     },
     "ntia-sensor:calibration_datetime": "2019-09-20T02:03:38.967Z",
     "ntia-scos:task": 1,
@@ -272,12 +261,6 @@ The `FrequencyDomainDetection` has the following properties:
             "interval": 1,
             "priority": 10,
             "id": "Uplink_M4"
-        },
-        "ntia-location:coordinate_system": {
-            "id": "WGS 1984",
-            "coordinate_system_type": "GeographicCoordinateSystem",
-            "distance_unit": "decimal degrees",
-            "time_unit": "seconds"
         },
         "core:sha512": "ee83ee2d5ffec05776c60a222cbc1be9ab21dfd548287285a6f97acf3180f22028b918f0a1a75dc924ad54e38d5e3884f0780c3f37f9aa9e2e1f8946106635a8"
     },
@@ -394,7 +377,6 @@ The `FrequencyDomainDetection` has the following properties:
       "ntia-algorithm" : "v1.0.0",
       "ntia-sensor" : "v1.0.0",
       "ntia-environment" : "v1.0.0",
-      "ntia-location" : "v1.0.0"
     },
     "ntia-sensor:sensor" : {
       "id" : "192.168.1.53",
@@ -478,22 +460,9 @@ The `FrequencyDomainDetection` has the following properties:
         "id" : "MC 9",
         "description" : "Custom computer with Intel i7 processor, MSI motherboard, 16 GB of Ram and running Windows 7"
       },
-      "location" : {
-        "x" : -122.5309,
-        "y" : 37.8204,
-        "z" : 51.3522,
-        "speed" : 0.0,
-        "description" : "On a tower in Point Bonita, near San Francisco"
-      },
       "environment" : {
         "category" : "Outside. Coastal."
       }
-    },
-    "ntia-location:coordinate_system" : {
-      "coordinate_system_type" : "CoordinateSystem",
-      "id" : "WGS_84",
-      "elevation_ref" : "MSL",
-      "elevation_unit" : "meter"
     },
     "ntia-sensor:calibration_datetime" : "2018-01-01T10:49:58.236Z",
     "ntia-core:measurement" : {
