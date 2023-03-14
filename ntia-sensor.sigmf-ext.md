@@ -1,4 +1,4 @@
-# The `ntia-sensor` SigMF Extension Namespace v2.0.0
+# The `ntia-sensor` SigMF Extension Namespace v1.9.0
 
 This document defines the `ntia-sensor` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides metadata to describe the attributes of a radio frequency (RF) sensor.
 
