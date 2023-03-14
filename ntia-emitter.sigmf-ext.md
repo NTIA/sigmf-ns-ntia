@@ -88,11 +88,13 @@ The `ntia-emitter` extension does not extend the `captures` SigMF object.
 
 The `ntia-emitter` extension does not extend the `annotations` SigMF object.
 
-## 4 Collections
+## 4 Collection
 
 The `ntia-emitter` extension does not extend the `collection` SigMF object.
 
-### 4.1  Example
+## 5 Examples
+
+Here is an example showing the use of `ntia-emitter` to document a (fictitious) signal emitter:
 
 ```json
 {
