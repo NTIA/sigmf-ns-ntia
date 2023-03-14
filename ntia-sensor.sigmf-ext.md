@@ -29,7 +29,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`signal_analyzer`|false|[SignalAnalyzer](#02-the-signalanalyzer-object) |N/A|Metadata to describe/specify the signal analyzer|
 |`computer_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the onboard computer|
 |`mobile`|false|boolean|N/A|Defines whether the sensor is mobile|
-|`environment`|false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A|Specifies the environment surrounding the sensor`|
+|`environment`|false|[Environment](ntia-environment.sigmf-ext.md#01-the-environment-object)|N/A|Specifies the environment surrounding the sensor`|
 
 ### 0.2 The `SignalAnalyzer` Object
 

@@ -4,7 +4,7 @@ This document defines the `ntia-emitter` extension namespace for the Signal Meta
 
 ## 0 Datatypes
 
-This extension defines the following datatypes:
+This extension defines the following datatype:
 
 |name|long-form name|description|
 |----|--------------|-----------|
@@ -24,7 +24,7 @@ An `Emitter` object is used to describe the properties of a radio signal emitter
 |`center_frequency`|false|double|Hz|Center frequency of the emitted signal|
 |`waveform`|false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes the transmitted waveform|
 |`geolocation`|false|GeoJSON|N/A|The location of the emitter|
-|`environment`|false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A|Metadata that describes the environment surrounding the `Emitter`|
+|`environment`|false|[Environment](ntia-environment.sigmf-ext.md#01-the-environment-object)|N/A|Metadata that describes the environment surrounding the `Emitter`|
 
 An example of an `Emitter` object is shown below:
 
@@ -78,7 +78,7 @@ The `ntia-emitter` extension adds the following field to the `global` SigMF obje
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-`emitters`|false|[Emitter](#01-the-emitter-object)[]|N/A|Metadata that describe emitters|
+|`emitters`|false|[Emitter](#01-the-emitter-object)[]|N/A|Metadata that describe emitters|
 
 ## 2 Captures
 
