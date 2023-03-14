@@ -22,7 +22,7 @@ An `Emitter` object is used to describe the properties of a radio signal emitter
 |`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#12-antenna-object)|N/A|Metadata that describes the antenna|
 |`transmitter`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata that describes the transmitter|
 |`center_frequency`|false|double|Hz|Center frequency of the emitted signal|
-|`waveform`|false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes the transmitted waveform|
+|`waveform`|false|[Waveform](ntia-waveform.sigmf-ext.md#01-the-waveform-object)|N/A|Metadata that describes the transmitted waveform|
 |`geolocation`|false|GeoJSON|N/A|The location of the emitter|
 |`environment`|false|[Environment](ntia-environment.sigmf-ext.md#01-the-environment-object)|N/A|Metadata that describes the environment surrounding the `Emitter`|
 
