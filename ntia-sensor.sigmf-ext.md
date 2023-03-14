@@ -1,126 +1,128 @@
-# ntia-sensor extension v1.0.0
-The ntia-sensor namespace provides metadata to describe RF sensors. 
+# The `ntia-sensor` SigMF Extension Namespace v2.0.0
 
-`ntia-sensor` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
+This document defines the `ntia-sensor` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides metadata to describe the attributes of a radio frequency (RF) sensor.
 
-## 1 Global
-`ntia-sensor` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
+## 0 Datatypes
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`sensor`|false|[Sensor](#11-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
-|`calibration_datetime`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Time of last calibration. RECOMMENDED.|
+This extension defines the following datatypes:
 
+|name|long-form name|description|
+|----|--------------|-----------|
+|`Sensor`|RF sensor| JSON [`Sensor`](#01-the-sensor-object) object containing metadata describing the RF sensor|
+|`SignalAnalyzer`|signal analyzer|JSON [`SignalAnalyzer`](#02-the-signalanalyzer-object) object containing metadata describing a signal analyzer|
+|`Preselector`|preselector|JSON [`Preselector`](#03-the-preselector-object) object containing metadata describing a preselector|
+|`CalSource`|calibration source|JSON [`CalSource`](#04-the-calsource-object) object containing metadata describing a calibration source|
+|`Amplifier`|low-noise amplifier|JSON [`Amplifier`](#05-the-amplifier-object) object containing metadata describing a low-noise amplifier (LNA)|
+|`Filter`|filter|JSON [`Filter`](#06-the-filter-object) object containing metadata describing a hardware RF filter|
+|`RFPath`|RF path|JSON [`RFPath`](#07-the-rfpath-object) object which identifies a combination of a calibration source, filter, and amplifier which comprise a single RF path in a sensor|
 
-### 1.1 Sensor Object
+### 0.1 The `Sensor` Object
+
 Sensor definition follows a simplified hardware model composed of the following elements: antenna, preselector, signal analyzer, and computer. The antenna converts electromagnetic energy to a voltage. The preselector can provide local calibration signals, RF filtering to protect from strong out-of-band signals, and low-noise amplification to improve sensitivity. The signal analyzer (e.g., software defined radio) provides tuning, down conversion, sampling, and digital signal processing. Sensor implementations are not required to have each component, but metadata SHOULD specify the presence, model numbers, and operational parameters associated with each.
 
-`Sensor` has the following properties:
+|name|required|type|unit|description|
+|----|--------|----|----|-----------|
+|`id`|true|string|N/A|Unique logical ID for the sensor|
+|`sensor_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the sensor|
+|`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#12-antenna-object)|N/A|Metadata to describe/specify the antenna|
+|`preselector`|false|[Preselector](#03-the-preselector-object)|N/A|Metadata to describe/specify the preselector|
+|`signal_analyzer`|false|[SignalAnalyzer](#02-the-signalanalyzer-object) |N/A|Metadata to describe/specify the signal analyzer|
+|`computer_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the onboard computer|
+|`mobile`|false|boolean|N/A|Defines whether the sensor is mobile|
+|`environment`|false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A|Specifies the environment surrounding the sensor`|
+
+### 0.2 The `SignalAnalyzer` Object
+
+|name|required|type|unit|description|
+|----|--------|----|----|-----------|
+|`sigan_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the signal analyzer|
+|`frequency_low`|false|double|Hz|Low frequency of operational range of the signal analyzer|
+|`frequency_high`|false|double|Hz|High frequency of operational range of the signal analyzer|
+|`noise_figure`|false|double|dB|Noise figure of the signal analyzer|
+|`max_power`|false|double|dBm|Maximum input power of the signal analyzer|
+|`a2d_bits`|false|integer|bits|Number of bits in A/D converter|
+
+### 0.3 The `Preselector` Object
+
+|name|required|type|unit|description|
+|----|--------|----|----|-----------|
+|`preselector_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the preselector|
+|`cal_sources`|false|[CalSource[]](#04-the-calsource-object)|N/A|Metadata to describe/specify the preselector calibration source(s)|
+|`amplifiers`|false|[Amplifier[]](#05-the-amplifier-object)|N/A|Metadata to describe/specify the preselector low-noise amplifier(s)|
+|`filters`|false|[Filter[]](#06-the-filter-object)|N/A|Metadata to describe the preselector RF filter(s)|
+|`rf_paths`|false|[RFPath[]](#07-the-rfpath-object)|N/A|Metadata to describe the preselector RF path(s)|
+
+### 0.4 The `CalSource` Object
+
+|name|required|type|unit|description|
+|----|--------|----|----|-----------|
+|`cal_source_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe the calibration source specification|
+|`type`|false|string|N/A|Type of the calibration source|
+|`enr`|false|double|dB|Excess noise ratio|
+
+### 0.5 The `Amplifier` Object
+
+|name|required|type|unit|description|
+|----|--------|----|----|-----------|
+|`amplifier_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe the low-noise amplifier specification|
+|`gain`|false|double|dB|Gain of the low-noise amplifier|
+|`noise_figure`|false|double|dB|Noise figure of the low-noise amplifier|
+|`max_power`|false|double|dB|Maximum power of the low-noise amplifier|
+
+### 0.6 The `Filter` Object
+
+|name|required|type|unit|description|
+|----|--------|----|----|-----------|
+|`filter_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the filter specification|
+|`frequency_low_passband`|false|double|Hz|Low frequency of filter 1 dB passband|
+|`frequency_high_passband`|false|double|Hz|High frequency of filter 1 dB passband|
+|`frequency_low_stopband`|false|double|Hz|Low frequency of filter 60 dB stopband|
+|`frequency_high_stopband`|false|double|Hz|High frequency of filter 60 dB stopband|
+
+### 0.7 The `RFPath` Object
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique logical ID for the sensor.|
-|`sensor_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the sensor.|
-|`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#12-antenna-object)|N/A|Metadata to describe/specify the antenna.|
-|`preselector`|false| [Preselector](#13-preselector-object)|N/A|Metadata to describe/specify the preselector.|
-|`signal_analyzer`|false| [SignalAnalyzer](#12-signalanalyzer-object) |N/A|Metadata to describe/specify the signal analyzer.|
-|`computer_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the onboard computer.|
-|`mobile`|false|boolean|N/A|Defines whether the sensor is mobile.|
-|`environment`|false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A|Specifies the environment surrounding the `Sensor`.|
+|`name`|false|string|N/A|Descriptive name for the RF path|
+|`cal_source_id`|false|string|N/A|ID of the calibration source.|
+|`filter_id`|false|string|N/A|ID of the filter|
+|`amplifier_id`|false|string|N/A|ID of the amplifier|
 
-### 1.2 SignalAnalyzer Object
-`SignalAnalyzer` the following properties:
+## 1 Global
+
+The `ntia-sensor` extension adds the following fields to the `global` SigMF object:
 
 |name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`sigan_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the signal analyzer.|
-|`frequency_low`|false|double|Hz|Low frequency of operational range of the signal analyzer.|
-|`frequency_high`|false|double|Hz|High frequency of operational range of the signal analyzer.|
-|`noise_figure`|false|double|dB|Noise figure of the signal analyzer.|
-|`max_power`|false|double|dBm|Maximum input power of the signal analyzer.|
-|`a2d_bits`|false|integer|bits|Number of bits in A/D converter.|
-
-### 1.3 Preselector Object
-`Preselector` has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`preselector_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the preselector.|
-|`cal_sources`|false|[CalSource[]](#14-calsource-object)|N/A|Metadata to describe/specify the preselector calibration source.|
-|`amplifiers`|false|[Amplifier[]](#15-amplifier-object)|N/A|Metadata to describe/specify the preselector low noise amplifiers.|
-|`filters`|false|[Filter[]](#16-filter-object)|N/A|Metadata to describe the preselector RF filters.|
-|`rf_paths`|false|[RFPath[]](#17-rfpath-object)|N/A|Metadata that describes preselector RF paths.|
-
-### 1.4 CalSource Object
-`CalSource` has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`cal_source_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe the calibration source specification.|
-|`type`|false|string|N/A|Type of the calibration source.|
-|`enr`|false|double|dB|Excess noise ratio.|
-
-
-### 1.5 Amplifier Object
-`Amplifier` has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`amplifier_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe the amplifier specification.|
-|`gain`|false|double|dB|Gain of the low noise amplifier.|
-|`noise_figure`|false|double|dB|Noise figure of the low noise amplifier.|
-|`max_power`|false|double|dB|Maximum power of the low noise amplifier.|
-
-
-
-### 1.6 Filter Object
-`Filter` has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`filter_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the filter specification.|
-|`frequency_low_passband`|false|double|Hz|Low frequency of filter 1 dB passband.|
-|`frequency_high_passband`|false|double|Hz|High frequency of filter 1 dB passband.|
-|`frequency_low_stopband`|false|double|Hz|Low frequency of filter 60 dB stopband.|
-|`frequency_high_stopband`|false|double|Hz|High frequency of filter 60 dB stopband.|
-
-
-
-### 1.7 RFPath Object
-`RFPath` has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`name`|false|string|N/A|Descriptive name for the RFPath.|
-|`cal_source_id`|true|string|N/A|ID of the calibration source.|
-|`filter_id`|true|string|N/A|ID of the filter.|
-|`amplifier_id`|true|string|N/A|ID of the amplifier.|
-
+|----|--------|----|----|-----------|
+|`sensor`|false|[Sensor](#01-the-sensor-object)|N/A|Describes the sensor model components. RECOMMENDED.|
+|`calibration_datetime`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Time of last calibration. RECOMMENDED.|
 
 ## 2 Captures
 
-`ntia-sensor` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
-
+The `ntia-sensor` extension does not extend the `captures` SigMF object.
 
 ## 3 Annotations
-`ntia-sensor` defines the following segments that extend `ntia-core`.
+
+The `ntia-sensor` extension defines the following segments that extend `ntia-core`.
 
 ### 3.1 SensorAnnotation Segment
+
 `SensorAnnotation` has the following properties:
 
 |name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`rf_path_index`|false|integer|N/A|Index of the [RFPath](#14-rfpath-object) object.|
+|----|--------|----|----|-----------|
+|`rf_path_index`|false|integer|N/A|Index of the [RFPath](#07-the-rfpath-object) object.|
 |`overload`|false|boolean|N/A|Indicator of sensor overload.|
 |`attenuation_setting_sigan`|false|double|dB|Attenuation setting of the signal analyzer.|
 |`gain_setting_sigan`|false|double|dB|Gain setting of the signal analyzer.|
 |`gps_nmea`|false|string|NMEA|[NMEA message](https://en.wikipedia.org/wiki/NMEA_0183) from GPS receiver.|
 
 ### 3.2 CalibrationAnnotation Segment
+
 `CalibrationAnnotation` has the following properties:
 
 |name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
+|----|--------|----|----|-----------|
 |`gain_sigan`|false|double|N/A|Gain of signal analyzer (may differ with signal analyzer gain setting).|
 |`noise_figure_sigan`|false|double|dB|Noise figure of signal analyzer.|
 |`1db_compression_point_sigan`|false|double|dBm|Maximum input of signal analyzer.|
@@ -134,10 +136,16 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`mean_noise_power_reference`|false|string|N/A| Reference source for the mean_noise_power, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`|
 |`temperature`|false|double|celsius|The temperature during calibration.|
 
+## 4 Collection
 
-## 4 Example
+The `ntia-sensor` extension does not extend the `collection` SigMF object.
 
-### 4.1 Sensor Global Object and Annotations 
+## 5 Examples
+
+Here is an example showing the use of `ntia-sensor` to document a sensor specification in the `global` object:
+
+### 5.1 Sensor Global Object and Annotations
+
 ```json
 {
   "global" : {
@@ -286,5 +294,3 @@ Sensor definition follows a simplified hardware model composed of the following 
   } ]
 }
 ```
-
-
