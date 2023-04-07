@@ -5,8 +5,7 @@ import gov.doc.ntia.sigmf.Extension;
 import gov.doc.ntia.sigmf.Extensions;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.examples.Example;
-import gov.doc.ntia.sigmf.examples.ExampleUtils;
+import gov.doc.ntia.sigmf.examples.Example;import gov.doc.ntia.sigmf.examples.ExampleUtils;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
@@ -20,21 +19,8 @@ import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-/**
- * Generates and example metadata file based NTIA SCOS system.
- */
+/** Generates and example metadata file based NTIA SCOS system. */
 public class ScosExample implements Example {
-
-  @Override
-  public MetaDoc getExample() {
-    Global global = ExampleUtils.getGlobal();
-    global.setExtensions(getExtensions());
-    global.setSchedule(getScheduleEntry());
-    global.setAction(getAction());
-    MetaDoc metaDoc = new MetaDoc();
-    metaDoc.setGlobal(global);
-    return metaDoc;
-  }
 
   public static Action getAction() {
     Action action = new Action();
@@ -165,5 +151,16 @@ public class ScosExample implements Example {
     captures.add(capture);
 
     return captures;
+  }
+
+  @Override
+  public MetaDoc getExample() {
+    Global global = ExampleUtils.getGlobal();
+    global.setExtensions(getExtensions());
+    global.setSchedule(getScheduleEntry());
+    global.setAction(getAction());
+    MetaDoc metaDoc = new MetaDoc();
+    metaDoc.setGlobal(global);
+    return metaDoc;
   }
 }

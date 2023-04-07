@@ -1,4 +1,4 @@
-# ntia-algorithm Extension v1.0.0
+# ntia-algorithm Extension v2.0.0
 The ntia-algorithm namespace describes algorithms applied to measurements. 
 
 `ntia-algorithm` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
@@ -6,574 +6,322 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 ## 1 Global
 `ntia-algorithm` extends [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs: 
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`anti_aliasing_filter`|false|[DigitalFilter](#11-digitalfilter-object)|N/A|Digital filter applied to data to avoid aliasing|
+| name              |required| type                                        |unit| description                                                                                                           |
+|-------------------|--------------|---------------------------------------------|-------|-----------------------------------------------------------------------------------------------------------------------|
+| `digital_filters` |false| [DigitalFilter[]](#11-digitalfilter-object) |N/A| Digital filters applied to the data. If only one digital filter is listed, it is not necessary to reference it in the |
+| `data_products`   |false| [DataProducts](#12-dataproducts-object)     |N/A| The list of data products produced for each capture                                                                   |
 
-### 1.1 DigitalFilter Object
+
+### 1.1 DigitalFilter 
 `DigitalFilter` has the following properties:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`, `"IIR"`|
-|`FIR_coefficients`|false|double[]|N/A|Coefficients that define FIR filter.|
-|`IIR_numerator_coefficients`|false|double[]|N/A|Coefficients that define IIR filter.|
-|`IIR_denominator_coefficients`|false|double[]|N/A|Coefficients that define IIR filter.|
-|`attenuation_cutoff`|false|double|dB|Attenuation that specifies the `cutoff_frequency` (typically 3 dB).|
-|`frequency_cutoff`|false|double|Hz|Frequency that characterizes boundary between passband and stopband.|
-|`ripple_passband`|false|double|dB|Ripple in passband.|
-|`attenuation_stopband`|false|double|dB|Attenuation of stopband.|
-|`frequency_stopband`|false|double|Hz|Point in filter frequency response where stopband starts.|
+| name                           | required |type|unit| description                                          |
+|--------------------------------|----------|-------------------------------------------------------------------------|-------|------------------------------------------------------------------------------------------------------|
+| `id`                           | true     |string|N/A| Unique id of the filter.                             |
+| `filter_type`                  | false    |string|N/A| Description of digital filter, e.g., `"FIR"`, `"IIR"` |
+| `FIR_coefficients`             | false    |double[]|N/A| Coefficients that define FIR filter.                 |
+| `IIR_numerator_coefficients`   | false    |double[]|N/A| Coefficients that define IIR filter.                 |
+| `IIR_denominator_coefficients` | false    |double[]|N/A| Coefficients that define IIR filter.                 |
+| `attenuation_cutoff`           | false    |double|dB| Attenuation that specifies the `cutoff_frequency` (typically 3 dB). |
+| `frequency_cutoff`             | false    |double|Hz| Frequency that characterizes boundary between passband and stopband. |
+| `ripple_passband`              | false    |double|dB| Ripple in passband.                                  |
+| `attenuation_stopband`         | false    |double|dB| Attenuation of stopband.                             |
+| `frequency_stopband`           | false    |double|Hz| Point in filter frequency response where stopband starts. |
+
+### 1.2 DataProducts Object
+`DataProducts` provide descriptions of processing performed on signal data and provide information necessary to parse the data file. 
+The `reference` element may be used when each of the data products share the same reference point. The other 
+elements each represent the output of various algorithms. Each data product listed shall be included for every capture. 
+
+| name                                 | required | type                                                                    |unit| description                                                                                                                                                                                                                        |
+|--------------------------------------|----------|-------------------------------------------------------------------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `reference`                          | false        | string                                                                  |N/A| Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. If the data products do not share the same reference point, the reference point should be specified within each data product. |
+| `power_spectral_density`             | false    | [PowerSpectralDensity](13-powerspectraldensity)                         |N/A| Quantifies the distribution of signal power with respect to frequency within a waveform capture.                                                                                                                                   |
+| `time_series_power`                  | false    | [TimeSeriesPower](14-timeseriespower)                                   |N/A| Quantifies the time-progression of channel power values across the duration of a waveform capture.                                                                                                                                 |
+| `periodic_frame_power`               | false    | [PeriodicFramePower](15-periodicframepower)                             |N/A| Provides occupancy patterns accross fixed time frames to differentiate emitters.                                                                                                                                                   |
+| `amplitude_probability_distribution` | false    | [AmplitudeProbabilityDistribution](16-amplitudeprobabilitydistribution) |N/A| Complementary cumulative distribution function (CCDF) of the instantaneous channel power, evaluated empirically..                                                                                                                  |
+| `digital_filter`                     | false    | string                                                                  |N/A| The id of the digital filter used in each data product. If different data products use different filters, the filter should be specified in each data product.                                                                     |
+
+
+### 1.3 PowerSpectralDensity
+
+| name                               | required | type        | unit | description                                                                                                                                                                |
+|------------------------------------|---------|-------------|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `traces`                           | true    | [Trace]()[] | N/A  | Traces in the order they appear in the data file.                                                                                                                          |
+| `length`                           | true    | uint        | N/A  | Length of the output.                                                                                                                                                      |
+| `equivalent_noise_bandwidth`       | true    | double      | N/A  | Bandwidth of brickwall filter that has the same integrated noise power as that of the actual filter.                                                                       |
+| `samples`                          | true    | uint        | N/A  | Number of samples in the FFT.                                                                                                                                              |
+| `ffts`                             | true    | int         | N/A  | Number of FFTs integrated over by detectors.                                                                                                                               |
+| `units`                            | true    | string      | N/A  | Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
+| `window`                           | true    | string      | N/A  | E.g. `"blackman-harris"`, `"flattop"`, `"gaussian_a3.5"`, `"gauss top"`, `"hamming"`, `"hanning"`, `"rectangular"`.                                                        |
+| `reference`                        |false    | string      | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
+| `digital_filter`                   | false    | string      |N/A| The id of the digital filter used in this data product.            |
+
+
+### 1.4 TimeSeriesPower
+
+| name        | required | type   |unit| description                                              |
+|-------------|----------|--------|-------|----------------------------------------------------------|
+| `traces`    | true     |  [Trace](#17-trace)[] |N/A| Traces in the order they appear in the data file.              |
+| `length`    | true     | uint   |N/A| Length of the output.                    |
+| `samples`   | true     | uint   |N/A| Number of samples used to compute the time series power. |
+| `units`     | true     | string |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.         |
+| `reference` |false    | string | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
+| `digital_filter`                   | false    | string      |N/A| The id of the digital filter used in this data product.            |
+
+
+### 1.5 PeriodicFramePower
+
+| name        | required | type                 |unit| description                                                                                                                                                                |
+|-------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `traces`    | true     | [Trace](#17-trace)[] |N/A| E.g. `[min, max, mean, meadian, sample]`.                                                                                                                                  |
+| `length`    | true     | uint                 |N/A| Length of the output.                                                                                                                                                      |
+| `units`     | true     | string               |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
+| `reference` |false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
+| `digital_filter`                   | false    | string      |N/A| The id of the digital filter used in this data product.            |
+
+
+### 1.6 AmplitudeProbabilityDistribution
+
+| name             | required | type                 |unit| description                                                                                                                                                                |
+|------------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `traces`         | true     | [Trace](#17-trace)[] |N/A| Traces in the order they appear in the data file.                                                                                                                          |
+| `length`         | true     | int[]                |N/A| Length of each amplitude probability distribution by capture.                                                                                                              |
+| `samples`        | true     | uint                 |N/A| Number of samples used to compute the amplitude probability distrubtion.                                                                                                   |
+| `units`          | true     | string               |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
+| `power_bin_size` | true     | int                  |N/A| Size of each power bin in the distribution.                                                                                                                                |
+| `reference`      |false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
+| `digital_filter`                   | false    | string      |N/A| The id of the digital filter used in this data product.            |
+
+### 1.7 Trace
+A `Trace`
+
+| name             | required | type                 |unit| description                                                                                                                                                                |
+|------------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `detector`       | false    | string |N/A| E.g., `peak`, `rms`                 |
+| `statistic`      | false    | string |N/A| E.g., `min`, `max`, `median`,`mean` |
+
 
 ## 2 Captures
 `ntia-algorithm` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
-`ntia-algorithm` defines the following segments that extend `ntia-core`.
-
-### 3.1 TimeDomainDetection Segment
-Time-domain detection algorithms are applied to gap-free IQ time series captured at a single frequency. The `TimeDomainDetection` has the following properties:  
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`detector`|true|string|N/A|E.g. `"sample_power"`, `"mean_power"`, `"max_power"`, `"min_power"`, `"median_power"`, `"m4s_power"`.|
-|`number_of_samples`|true|integer|N/A|Number of samples to be integrated over by detector.|
-|`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
-|`reference`|false|string|N/A|Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`.|
-
-### 3.2 FrequencyDomainDetection Segment
-Frequency-domain detection algorithms are applied to discrete Fourier transforms of gap-free IQ time series. The IQ time series can be measured at a single center frequency, a set of center frequencies, or a scan of center frequencies. Scans result in frequency-domain data with a constant frequency step for a span greater than the bandwidth of the signal analyzer, similar to the traditional spectrum analyzer swept-tuned measurement. 
-
-The `FrequencyDomainDetection` has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`detector`|true|string|N/A|E.g. `"fft_sample_iq"`, `"fft_sample_power"`, `"fft_mean_power"`, `"fft_max_power"`, `"fft_min_power"`, `"fft_median_power"`.|
-|`number_of_ffts`|true|integer|N/A|Number of FFTs to be integrated over by detector.|
-|`number_of_samples_in_fft`|true|integer|N/A|Number of samples in FFT to calculate delta_f = [`samplerate`](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object)/`number_of_samples_in_fft`.|
-|`window`|true|string|N/A|E.g. `"blackman-harris"`, `"flattop"`, `"gaussian_a3.5"`, `"gauss top"`, `"hamming"`, `"hanning"`, `"rectangular"`.|
-|`equivalent_noise_bandwidth`|false|double|Hz|Bandwidth of brickwall filter that has same integrated noise power as that of the actual filter.|
-|`units`|true|string|N/A|Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.|
-|`reference`|false|string|N/A|Data reference point, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`.|
-|`frequency_start`|false|double|Hertz|Frequency of first data point.|
-|`frequency_stop`|false|double|Hertz|Frequency of last data point.|
-|`frequency_step`|false|double|Hertz|Frequency step between data points.|
-|`frequencies`|false|double[]|Hertz|An array of the frequencies of the data points.|
+`ntia-algorithm` does not extend [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array).
 
 
-
-### 3.3 DigitalFilterAnnotation Segment
-`DigitalFilterAnnotation` has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`filter_type`|false|string|N/A|Description of digital filter, e.g., `"FIR"`, `"IIR"`|
-|`FIR_coefficients`|false|double[]|N/A|Coefficients that define FIR filter.|
-|`IIR_numerator_coefficients`|false|double[]|N/A|Coefficients that define FIR filter.|
-|`IIR_denominator_coefficients`|false|double[]|N/A|Coefficients that define FIR filter.|
-|`attenuation_cutoff`|false|double|dB|Attenuation that specifies the `frequency_cutoff` (typically 3 dB).|
-|`frequency_cutoff`|false|double|Hz|Frequency that characterizes boundary between passband and stopband.|
-|`ripple_passband`|false|double|dB|Ripple in passband.|
-|`attenuation_stopband`|false|double|dB|Attenuation of stopband.|
-|`frequency_stopband`|false|double|Hz|Point in filter frequency response where stopband starts.|
 
 ## 4 Example
 
-### 4.1 anti_aliasing_filter example
+### 4.1 Anti-aliasing filter example
 ```json
 {
   "global": {
     "core:datatype": "rf32_le",
     "core:sample_rate": 15360000,
     "core:version": "0.0.2",
-    "ntia-algorithm:anti_aliasing_filter": {
-      "filter_type": "FIR",
-      "FIR_coefficients": [
-        1.0,
-        4.0,
-        5.0,
-        3.2
-      ],
-      "cutoff_attenuation": -3,
-      "cutoff_frequency": 7500000,
-      "ripple_passband": -5,
-      "attenuation_stopband": -10,
-      "frequency_stopband": 7000000
-    }
-  },
-  "captures": [
-    ...
-  ],
-  "annotations": [
-    ...
-  ]
-}
-```
-
-### 4.2 TimeDomainDetection  Example
-```json
-{
-  "id": "5e4575446524c8e43c6e1680",
-  "global": {
-    "core:datatype": "cf32_le",
-    "core:sample_rate": 1.5360000011967678E7,
-    "core:version": "0.0.2",
-    "core:sha512": "5b522660c1406db41a7c05c564b902fa658de8755eaf77a35fea635ff97fd1293fe9e8b799c7ffca70d22cff8fa97cef0633ef29a08bdbc1b629165db72f81e3",
-    "core:extensions" : {
-      "ntia-algorithm" : "v1.0.0",
-      "ntia-sensor" : "v1.0.0",
-      "ntia-location" : "v1.0.0"
-    },
-    "ntia-sensor:sensor": {
-      "id": "greyhound8.sms.internal",
-      "sensor_spec": {
-        "id": "",
-        "model": "greyhound"
-      },
-      "antenna": {
-        "antenna_spec": {
-          "id": "",
-          "model": "L-com HG3512UP-NF"
-        }
-      },
-      "signal_analyzer": {
-        "sigan_spec": {
-          "id": "",
-          "model": "Ettus USRP B210"
-        },
-        "a2d_bits": 0
-      },
-      "computer_spec": {
-        "id": "",
-        "model": "Intel NUC"
-      },
-      "location": {
-        "x": -105.2715,
-        "y": 40.0067
-      }
-    },
-    "ntia-scos:action": {
-      "name": "acquire_iq_700MHz_Verizon_UL",
-      "description": "Capture time-domain IQ samples at the following 1 frequencies: 782.00 MHz.\n\n# acquire_iq_700MHz_Verizon_UL\n\n## Radio setup and sample acquisition\n\nEach time this task runs, the following process is followed:\n\n\n\nThis will take a minimum of 1000.00 ms, not including radio\ntuning, dropping samples after retunes, and data storage.\n\n## Time-domain processing\n\nIf specified, a voltage scaling factor is applied to the complex time-domain\nsignals.\n\n## Data Archive\n\nEach capture will be $15360\\; \\text{samples} \\times 8\\;\n\\text{bytes per sample} = 0.12\\; \\text{MB}$ plus metadata.\n\n",
-      "summary": "Capture time-domain IQ samples at the following 1 frequencies: 782.00 MHz."
-    },
-    "ntia-scos:schedule": {
-      "id": "UplinkIQ",
-      "name": "UplinkIQ",
-      "priority": 10,
-      "start": "2020-02-13T16:11:33.000Z"
-    },
-    "ntia-location:coordinate_system": {
-      "coordinate_system_type": "GeographicCoordinateSystem",
-      "id": "WGS 1984",
-      "distance_unit": "decimal degrees",
-      "time_unit": "seconds"
-    },
-    "ntia-sensor:calibration_datetime": "2019-09-20T02:03:38.967Z",
-    "ntia-scos:task": 1,
-    "ntia-core:measurement": {
-      "domain": "Time",
-      "measurement_type": "single-frequency",
-      "time_start": "2020-02-13T16:11:33.056Z",
-      "time_stop": "2020-02-13T16:11:34.489Z",
-      "frequency_tuned_low": 7.819999999999987E8,
-      "frequency_tuned_high": 7.819999999999987E8
-    }
-  },
-  "captures": [
-    {
-      "core:sample_start": 0,
-      "core:frequency": 7.819999999999987E8,
-      "core:datetime": "2020-02-13T16:11:33.063Z"
-    }
-  ],
-  "annotations": [
-    {
-      "ntia-core:annotation_type": "CalibrationAnnotation",
-      "core:sample_start": 0,
-      "core:sample_count": 15360000,
-      "ntia-sensor:gain_sigan": 42.216536890181075,
-      "ntia-sensor:noise_figure_sigan": 10.758181371190176,
-      "ntia-sensor:enbw_sigan": 1.4404E7,
-      "ntia-sensor:gain_preselector": -3.7534963834226445,
-      "ntia-sensor:noise_figure_sensor": 14.274708903291103,
-      "ntia-sensor:1db_compression_point_sensor": -26.21585482304364,
-      "ntia-sensor:enbw_sensor": 1.351434420534668E7,
-      "ntia-sensor:1db_compression_point_sigan": -29.94803239760001
-    },
-    {
-      "ntia-core:annotation_type": "TimeDomainDetection",
-      "core:sample_start": 0,
-      "core:sample_count": 15360000,
-      "ntia-algorithm:detector": "sample_iq",
-      "ntia-algorithm:units": "volts",
-      "ntia-algorithm:number_of_samples": 15360000
-    },
-    {
-      "ntia-core:annotation_type": "SensorAnnotation",
-      "core:sample_start": 0,
-      "core:sample_count": 15360000,
-      "ntia-sensor:overload": false,
-      "ntia-sensor:gain_setting_sigan": 40.0
-    }
-  ]
-}
-```
-
-### 4.3 Single-frequency FrequencyDomainDetection  Example
-```json
-{
-    "global": {
-        "core:datatype": "rf32_le",
-        "core:version": "0.0.2",
-        "core:sample_rate": 15360000.011967678,
-        "ntia-core:measurement": {
-            "time_start": "2020-02-13T21:20:27.796Z",
-            "time_stop": "2020-02-13T21:20:27.958Z",
-            "domain": "Frequency",
-            "measurement_type": "single-frequency",
-            "frequency_tuned_low": 781999999.9999987,
-            "frequency_tuned_high": 781999999.9999987
-        },
-        "ntia-sensor:sensor": {
-            "id": "greyhound4.sms.internal",
-            "sensor_spec": {
-                "id": "",
-                "model": "greyhound"
-            },
-            "antenna": {
-                "antenna_spec": {
-                    "id": "",
-                    "model": "L-com HG3512UP-NF"
-                }
-            },
-            "signal_analyzer": {
-                "sigan_spec": {
-                    "id": "",
-                    "model": "Ettus USRP B210"
-                }
-            },
-            "computer_spec": {
-                "id": "",
-                "model": "Intel NUC"
-            }
-        },
-        "ntia-sensor:calibration_datetime": "2019-09-20T02:03:38.967Z",
-        "ntia-scos:task": 1,
-        "ntia-scos:action": {
-            "name": "acquire_m4s_700MHz_Verizon_UL",
-            "description": "Apply m4s detector over 300 1024-pt FFTs at 782.00 MHz.\n\n# acquire_m4s_700MHz_Verizon_UL\n\n## Radio setup and sample acquisition\n\nThis action first tunes the radio to 782.00 MHz and requests a sample\nrate of 15.36 Msps and 40 dB of gain.\n\nIt then begins acquiring, and discards an appropriate number of samples while\nthe radio's IQ balance algorithm runs. Then, $300 \\times 1024$\nsamples are acquired gap-free.\n\n## Time-domain processing\n\nFirst, the $300 \\times 1024$ continuous samples are acquired from\nthe radio. If specified, a voltage scaling factor is applied to the complex\ntime-domain signals. Then, the data is reshaped into a $300 \\times\n1024$ matrix:\n\n$$\n\\begin{pmatrix}\na_{1,1}      & a_{1,2}     & \\cdots  & a_{1,fft\\_size}     \\\\\\\\\na_{2,1}      & a_{2,2}     & \\cdots  & a_{2,fft\\_size}     \\\\\\\\\n\\vdots         & \\vdots        & \\ddots  & \\vdots                \\\\\\\\\na_{nffts,1}  & a_{nfts,2}  & \\cdots  & a_{nfts,fft\\_size}  \\\\\\\\\n\\end{pmatrix}\n$$\n\nwhere $a_{i,j}$ is a complex time-domain sample.\n\nAt that point, a Flat Top window, defined as\n\n$$w(n) = &0.2156 - 0.4160 \\cos{(2 \\pi n / M)} + 0.2781 \\cos{(4 \\pi n / M)} -\n         &0.0836 \\cos{(6 \\pi n / M)} + 0.0069 \\cos{(8 \\pi n / M)}$$\n\nwhere $M = 1024$ is the number of points in the window, is applied to\neach row of the matrix.\n\n## Frequency-domain processing\n\nAfter windowing, the data matrix is converted into the frequency domain using\nan FFT, doing the equivalent of the DFT defined as\n\n$$A_k = \\sum_{m=0}^{n-1}\na_m \\exp\\left\\\\{-2\\pi i{mk \\over n}\\right\\\\} \\qquad k = 0,\\ldots,n-1$$\n\nThe data matrix is then converted to pseudo-power by taking the square of the\nmagnitude of each complex sample individually, allowing power statistics to be\ntaken.\n\n## Applying detector\n\nNext, the M4S (min, max, mean, median, and sample) detector is applied to the\ndata matrix. The input to the detector is a matrix of size $300 \\times\n1024$, and the output matrix is size $5 \\times 1024$, with the\nfirst row representing the min of each _column_, the second row representing\nthe _max_ of each column, and so \"sample\" detector simple chooses one of the\n300 FFTs at random.\n\n## Power conversion\n\nTo finish the power conversion, the samples are divided by the characteristic\nimpedance (50 ohms). The power is then referenced back to the RF power by\ndividing further by 2. The powers are normalized to the FFT bin width by\ndividing by the length of the FFT and converted to dBm. Finally, an FFT window\ncorrection factor is added to the powers given by\n\n$$ C_{win} = 20log \\left( \\frac{1}{ mean \\left( w(n) \\right) } \\right)\n\nThe resulting matrix is real-valued, 32-bit floats representing dBm.\n\n",
-            "summary": "Apply m4s detector over 300 1024-pt FFTs at 782.00 MHz."
-        },
-        "ntia-scos:schedule": {
-            "name": "Uplink_M4",
-            "start": "2020-02-13T21:20:08.000Z",
-            "stop": "2020-02-13T21:20:53.000Z",
-            "interval": 1,
-            "priority": 10,
-            "id": "Uplink_M4"
-        },
-        "ntia-location:coordinate_system": {
-            "id": "WGS 1984",
-            "coordinate_system_type": "GeographicCoordinateSystem",
-            "distance_unit": "decimal degrees",
-            "time_unit": "seconds"
-        },
-        "core:sha512": "ee83ee2d5ffec05776c60a222cbc1be9ab21dfd548287285a6f97acf3180f22028b918f0a1a75dc924ad54e38d5e3884f0780c3f37f9aa9e2e1f8946106635a8"
-    },
-    "captures": [
+    "ntia-algorithm:digital_filters": [
         {
-            "core:frequency": 781999999.9999987,
-            "core:datetime": "2020-02-13T21:20:27.798Z",
-            "core:sample_start": 0
-        }
-    ],
-    "annotations": [
-        {
-            "ntia-core:annotation_type": "FrequencyDomainDetection",
-            "ntia-algorithm:number_of_samples_in_fft": 1024,
-            "ntia-algorithm:window": "flattop",
-            "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
-            "ntia-algorithm:detector": "fft_min_power",
-            "ntia-algorithm:number_of_ffts": 300,
-            "ntia-algorithm:units": "dBm",
-            "ntia-algorithm:frequency_start": 774319999.9940149,
-            "ntia-algorithm:frequency_stop": 789665000.0059708,
-            "ntia-algorithm:frequency_step": 15000.00001168251,
-            "core:sample_start": 0,
-            "core:sample_count": 1024
-        },
-        {
-            "ntia-core:annotation_type": "CalibrationAnnotation",
-            "ntia-sensor:gain_sigan": 42.216536890181075,
-            "ntia-sensor:noise_figure_sigan": 10.758181371190176,
-            "ntia-sensor:1db_compression_point_sigan": -29.94803239760001,
-            "ntia-sensor:enbw_sigan": 14404000.0,
-            "ntia-sensor:gain_preselector": -3.7534963834226445,
-            "ntia-sensor:noise_figure_sensor": 14.274708903291103,
-            "ntia-sensor:1db_compression_point_sensor": -26.21585482304364,
-            "ntia-sensor:enbw_sensor": 13514344.20534668,
-            "core:sample_start": 0,
-            "core:sample_count": 5120
-        },
-        {
-            "ntia-core:annotation_type": "SensorAnnotation",
-            "ntia-sensor:overload": false,
-            "ntia-sensor:gain_setting_sigan": 40,
-            "core:sample_start": 0,
-            "core:sample_count": 5120
-        },
-        {
-            "ntia-core:annotation_type": "FrequencyDomainDetection",
-            "ntia-algorithm:number_of_samples_in_fft": 1024,
-            "ntia-algorithm:window": "flattop",
-            "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
-            "ntia-algorithm:detector": "fft_max_power",
-            "ntia-algorithm:number_of_ffts": 300,
-            "ntia-algorithm:units": "dBm",
-            "ntia-algorithm:frequency_start": 774319999.9940149,
-            "ntia-algorithm:frequency_stop": 789665000.0059708,
-            "ntia-algorithm:frequency_step": 15000.00001168251,
-            "core:sample_start": 1024,
-            "core:sample_count": 1024
-        },
-        {
-            "ntia-core:annotation_type": "FrequencyDomainDetection",
-            "ntia-algorithm:number_of_samples_in_fft": 1024,
-            "ntia-algorithm:window": "flattop",
-            "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
-            "ntia-algorithm:detector": "fft_mean_power",
-            "ntia-algorithm:number_of_ffts": 300,
-            "ntia-algorithm:units": "dBm",
-            "ntia-algorithm:frequency_start": 774319999.9940149,
-            "ntia-algorithm:frequency_stop": 789665000.0059708,
-            "ntia-algorithm:frequency_step": 15000.00001168251,
-            "core:sample_start": 2048,
-            "core:sample_count": 1024
-        },
-        {
-            "ntia-core:annotation_type": "FrequencyDomainDetection",
-            "ntia-algorithm:number_of_samples_in_fft": 1024,
-            "ntia-algorithm:window": "flattop",
-            "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
-            "ntia-algorithm:detector": "fft_median_power",
-            "ntia-algorithm:number_of_ffts": 300,
-            "ntia-algorithm:units": "dBm",
-            "ntia-algorithm:frequency_start": 774319999.9940149,
-            "ntia-algorithm:frequency_stop": 789665000.0059708,
-            "ntia-algorithm:frequency_step": 15000.00001168251,
-            "core:sample_start": 3072,
-            "core:sample_count": 1024
-        },
-        {
-            "ntia-core:annotation_type": "FrequencyDomainDetection",
-            "ntia-algorithm:number_of_samples_in_fft": 1024,
-            "ntia-algorithm:window": "flattop",
-            "ntia-algorithm:equivalent_noise_bandwidth": 56609.1951747078,
-            "ntia-algorithm:detector": "fft_sample_power",
-            "ntia-algorithm:number_of_ffts": 300,
-            "ntia-algorithm:units": "dBm",
-            "ntia-algorithm:frequency_start": 774319999.9940149,
-            "ntia-algorithm:frequency_stop": 789665000.0059708,
-            "ntia-algorithm:frequency_step": 15000.00001168251,
-            "core:sample_start": 4096,
-            "core:sample_count": 1024
+          "id": "anti-alias-filter",
+          "filter_type": "FIR",
+          "FIR_coefficients": [
+            1.0,
+            4.0,
+            5.0,
+            3.2
+          ],
+          "attenuation_cutoff": -3,
+          "frequency_cutoff": 7500000,
+          "ripple_passband": -5,
+          "attenuation_stopband": -10,
+          "frequency_stopband": 7000000
         }
     ]
-}
-```
-
-### 4.4  Scan FrequencyDomainDetection Example
-```json  
-{
-  "global" : {
-    "core:datatype" : "rf32_le",
-    "core:sample_rate" : 2.8E7,
-    "core:description" : "Radar data captured off the coast of San Francisco",
-    "core:extensions" : {
-      "ntia-algorithm" : "v1.0.0",
-      "ntia-sensor" : "v1.0.0",
-      "ntia-environment" : "v1.0.0",
-      "ntia-location" : "v1.0.0"
-    },
-    "ntia-sensor:sensor" : {
-      "id" : "192.168.1.53",
-      "sensor_spec" : {
-        "id" : "bh-5",
-        "model" : "bassethound",
-        "version" : "v1.0.0",
-        "description" : ""
-      },
-      "antenna" : {
-        "antenna_spec" : {
-          "model" : "ARA BSB-26",
-          "description" : "RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications"
-        },
-        "type" : "Omni-directional",
-        "frequency_low" : 2.0E9,
-        "frequency_high" : 6.0E9,
-        "gain" : 0.0,
-        "polarization" : "Slant",
-        "cross_polar_discrimination" : 13.0,
-        "horizontal_beamwidth" : 360.0,
-        "vertical_beamwidth" : 68.38,
-        "voltage_standing_wave_ratio" : 2.0,
-        "cable_loss" : 0.79,
-        "steerable" : false
-      },
-      "preselector" : {
-        "cal_sources" : [ {
-          "cal_source_spec" : {
-            "id" : "37501",
-            "model" : "Mercury Systems NS36B-1",
-            "supplemental_information" : "https://www.everythingrf.com/products/noise-sources/mercury-systems/608-220-ns346b-1"
-          },
-          "type" : "Calibrated noise source",
-          "enr" : "14.53 dB"
-        } ],
-        "filters" : [ {
-          "filter_spec" : {
-            "id" : "13FV40-00014, SN 6",
-            "model" : "K&L 13FV40-3550/U200-o/o",
-            "supplemental_information" : "http://www.klfilterwizard.com/klfwpart.aspx?FWS=1112001&PN=13FV40-3550%2fU200-O%2fO"
-          },
-          "frequency_low_passband" : 3.43E9,
-          "frequency_high_passband" : 3.67E9,
-          "frequency_low_stopband" : 3.39E9,
-          "frequency_high_stopband" : 3.71E9
-        }, { } ],
-        "amplifiers" : [ {
-          "amplifier_spec" : {
-            "id" : "1904044",
-            "model" : "MITEQ AFS3-02000400-30-25P-6",
-            "supplemental_information" : "https://nardamiteq.com/docs/MITEQ_Amplifier-AFS.JS_c41.pdf"
-          },
-          "gain" : 32.85,
-          "noise_figure" : 2.59,
-          "max_power" : 13.0
-        } ],
-        "rf_paths" : [ {
-          "name" : "Path 1",
-          "cal_source_id" : "37501",
-          "filter_id" : "13FV40-00014, SN 6",
-          "amplifier_id" : "1904044"
-        }, {
-          "name" : "Bypass",
-          "cal_source_id" : "37501"
-        } ]
-      },
-      "signal_analyzer" : {
-        "sigan_spec" : {
-          "id" : "502725",
-          "model" : "Keysight N6841A",
-          "supplemental_information" : "https://www.keysight.com/us/en/assets/7018-02113/data-sheets/5990-3839.pdf"
-        },
-        "frequency_low" : 2.0E7,
-        "frequency_high" : 6.0E9,
-        "noise_figure" : 20.0,
-        "max_power" : 20.0,
-        "a2d_bits" : 14
-      },
-      "computer_spec" : {
-        "id" : "MC 9",
-        "description" : "Custom computer with Intel i7 processor, MSI motherboard, 16 GB of Ram and running Windows 7"
-      },
-      "location" : {
-        "x" : -122.5309,
-        "y" : 37.8204,
-        "z" : 51.3522,
-        "speed" : 0.0,
-        "description" : "On a tower in Point Bonita, near San Francisco"
-      },
-      "environment" : {
-        "category" : "Outside. Coastal."
-      }
-    },
-    "ntia-location:coordinate_system" : {
-      "coordinate_system_type" : "CoordinateSystem",
-      "id" : "WGS_84",
-      "elevation_ref" : "MSL",
-      "elevation_unit" : "meter"
-    },
-    "ntia-sensor:calibration_datetime" : "2018-01-01T10:49:58.236Z",
-    "ntia-core:measurement" : {
-      "domain" : "Frequency",
-      "measurement_type" : "Scan",
-      "time_start" : "2018-01-01T07:59:42.792Z",
-      "time_stop" : "2018-01-01T08:00:37.792Z",
-      "frequency_tuned_low" : 3.45940625E9,
-      "frequency_tuned_high" : 3.65190625E9,
-      "frequency_tuned_step" : 1.925E7
-    }
-  },
-  "captures" : [ {
-    "core:sample_start" : 0,
-    "core:frequency" : 3.5501875E9,
-    "core:datetime" : "2018-01-01T07:59:42.792Z"
-  } ],
-  "annotations" : [ {
-    "ntia-core:annotation_type" : "FrequencyDomainDetection",
-    "core:sample_start" : 0,
-    "core:sample_count" : 458,
-    "core:comment" : "",
-    "ntia-algorithm:detector" : "fft_max_power",
-    "ntia-algorithm:number_of_ffts" : 10,
-    "ntia-algorithm:number_of_samples_in_fft" : 50,
-    "ntia-algorithm:window" : "Gauss-top",
-    "ntia-algorithm:equivalent_noise_bandwidth" : 962500.0,
-    "ntia-algorithm:frequency_start" : 3.45021875E9,
-    "ntia-algorithm:frequency_stop" : 3.65015625E9,
-    "ntia-algorithm:frequency_step" : 437500.0
-  }, {
-    "ntia-core:annotation_type" : "CalibrationAnnotation",
-    "core:sample_start" : 0,
-    "core:sample_count" : 458,
-    "core:comment" : " Calibration is done every 6 hours.",
-    "ntia-sensor:gain_preselector" : 27.241,
-    "ntia-sensor:noise_figure_sensor" : 7.638,
-    "ntia-sensor:enbw_sensor" : 962500.0000000001,
-    "ntia-sensor:mean_noise_power_sensor" : -94.28774890829693,
-    "ntia-sensor:temperature" : 14.611,
-    "ntia-sensor:mean_noise_power_units" : "dBm"
-  }, {
-    "ntia-core:annotation_type" : "SensorAnnotation",
-    "core:sample_start" : 0,
-    "core:sample_count" : 458,
-    "ntia-sensor:rf_path_index" : 0,
-    "ntia-sensor:overload" : false,
-    "ntia-sensor:attenuation_setting_sigan" : 3.0
-  } ]
-}
-```
-
-
-### 4.5  DigitalFilterAnnotation  Example
-```json
-{
-  "global": {
-	...
   },
   "captures": [
     ...
   ],
   "annotations": [
-    {
-      "ntia-core:annotation_type": "DigitalFilterAnnotation",
-      "core:sample_start": 0,
-      "core:sample_count": 1000,
-      "ntia-algorithm:filter_type": "FIR",
-      "ntia-algorithm:FIR_coefficients": [
-        1.0,
-        4.0,
-        5.0,
-        3.2
-      ],
-      "cutoff_attenuation": -3,
-      "cutoff_frequency": 7500000,
-      "ntia-algorithm:ripple_passband": -5,
-      "ntia-algorithm:attenuation_stopband": -10,
-      "ntia-algorithm:frequency_stopband": 7000000
-    }
+    ...
   ]
 }
 ```
+
+### 4.2 Data Products Example
+```json
+{
+  "global": {
+    "core:version": "v1.0.0",
+    "core:extensions": [
+      {
+        "name": "ntia-algorithm",
+        "version": "v2.0.0",
+        "optional": false
+      },
+      {
+        "name": "ntia-core",
+        "version": "v1.0.0",
+        "optional": false
+      },
+      {
+        "name": "ntia-environment",
+        "version": "v1.0.0",
+        "optional": false
+      },
+      {
+        "name": "ntia-scos",
+        "version": "v1.0.0",
+        "optional": true
+      },
+      {
+        "name": "ntia-sensor",
+        "version": "v2.0.0",
+        "optional": false
+      },
+      {
+        "name": "ntia-nasctn-sea",
+        "version": "v0.4",
+        "optional": false
+      }
+    ],
+    "core:geolocation": {
+      "type": "Point",
+      "coordinates": [
+        -100.0,
+        100.0,
+        50.0
+      ]
+    },
+    "core:datatype": "rf16",
+    "core:sample_rate": 14000000.0,
+    "core:num_channels": 15,
+    "ntia-sensor:sensor": {
+      "id": "NASCTN SEA Sensor",
+      "sensor_spec": {
+        "id": "NASCTN SEA Sensor",
+        "model": "NASCTN SEA Sensor",
+        "version": "Prototype Rev. 3"
+      }
+    },
+    "ntia-algorithm:digital_filters": [
+      {
+        "id": "iir_1",
+        "filter_type": "IIR",
+        "IIR_numerator_coefficients": [
+          0.22001755985277486,
+          1.8950858799155859,
+          8.083698129129007,
+          22.28438408611688,
+          43.93585109754826,
+          65.02462875088665,
+          73.93117717291233,
+          65.02462875088665,
+          43.93585109754826,
+          22.284384086116878,
+          8.083698129129007,
+          1.8950858799155853,
+          0.22001755985277483
+        ],
+        "IIR_denominator_coefficients": [
+          1.0,
+          5.984606843057637,
+          19.199454663117217,
+          40.791247158352408,
+          63.2429677473874,
+          74.33110989910304,
+          67.69826765401139,
+          47.873252810169407,
+          26.149624421307168,
+          10.75285488653393,
+          3.2164061393115994,
+          0.6363986832562693,
+          0.07408086875619748
+        ],
+        "ripple_passband": 0.1,
+        "attenuation_stopband": 40,
+        "frequency_stopband": 5008000.0,
+        "frequency_cutoff": 5000000.0
+      }
+    ],
+    "ntia-algorithm:data_products": {
+      "digital_filter": "iir_1",
+      "reference": "noise source output",
+      "power_spectral_density": {
+        "traces": [
+          {
+            "statistic": "max"
+          },
+          {
+            "statistic": "mean"
+          }
+        ],
+        "length": 625,
+        "equivalent_noise_bandwidth": 60323.94,
+        "samples": 875,
+        "ffts": 64000,
+        "units": "dBm/Hz",
+        "window": "flattop"
+      },
+      "time_series_power": {
+        "traces": [
+          {
+            "detector": "max"
+          },
+          {
+            "detector": "mean"
+          }
+        ],
+        "length": 400,
+        "samples": 56000000,
+        "units": "dBm"
+      },
+      "periodic_frame_power": {
+        "traces": [
+          {
+            "detector": "mean",
+            "statistic": "min"
+          },
+          {
+            "detector": "mean",
+            "statistic": "max"
+          },
+          {
+            "detector": "mean",
+            "statistic": "mean"
+          },
+          {
+            "detector": "max",
+            "statistic": "min"
+          },
+          {
+            "detector": "max",
+            "statistic": "max"
+          },
+          {
+            "detector": "max",
+            "statistic": "mean"
+          }
+        ],
+        "length": 560,
+        "units": "dBm"
+      },
+      "amplitude_probability_distribution": {
+        "length": 151,
+        "samples": 56000000,
+        "units": "dBm",
+        "probability_units": "percent",
+        "amplitude_bin_size": 1.0,
+        "min_amplitude": -180,
+        "max_amplitude": -30
+      }
+    }
+  },
+  "captures": [
+    ...
+  ]
+  "annotations": [
+    ...
+  ]
+}
+```
+
+

@@ -6,15 +6,16 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import gov.doc.ntia.sigmf.ext.global.algorithm.DataProduct;
+import gov.doc.ntia.sigmf.ext.global.algorithm.DataProducts;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.core.Measurement;
-import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
-import gov.doc.ntia.sigmf.ext.global.location.CoordinateSystem;
+import gov.doc.ntia.sigmf.ext.global.diagnostics.Diagnostics;import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
 import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.ArrayList;import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -91,13 +92,7 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-scos:schedule", required = true)
   protected ScheduleEntry schedule;
 
-  @JsonProperty(value = "ntia-location:coordinate_system", required = false)
-  private CoordinateSystem coordinateSystem;
-
   protected Map<String, Object> otherFields = new HashMap<>();
-
-  @JsonProperty(value = "ntia-algorithm:anti_aliasing_filter", required = false)
-  protected DigitalFilter antiAliasingFilter;
 
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
   @JsonProperty(value = "ntia-sensor:calibration_datetime", required = false)
@@ -115,20 +110,29 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-core:measurement", required = true)
   protected Measurement measurement;
 
+  protected GeoJsonPoint geolocation;
+
+  @JsonProperty(value = "ntia-algorithm:data_products", required = false)
+  protected DataProducts dataProducts;
+
+  @JsonProperty(value = "ntia-algorithm:digital_filters")
+  protected ArrayList<DigitalFilter> digitalFilters;
+
+  @JsonProperty(value = "ntia-diagnostics:diagnostics")
+  protected Diagnostics diagnostics;
+
+  @JsonProperty(value = "ntia-nasctn-sea:max_of_max_channel_poowers")
+  protected ArrayList<Double> maxOfMaxChannelPowers;
+  
+  @JsonProperty(value = "ntia-nasctn-sea:median_of_mean_channel_powers")
+  protected  ArrayList<Double> medianOfMeanChannelPowers;
+  
   public Integer getRecording() {
     return recording;
   }
 
   public void setRecording(Integer recording) {
     this.recording = recording;
-  }
-
-  public DigitalFilter getAntiAliasingFilter() {
-    return antiAliasingFilter;
-  }
-
-  public void setAntiAliasingFilter(DigitalFilter antiAliasingFilter) {
-    this.antiAliasingFilter = antiAliasingFilter;
   }
 
   public String getSha512() {
@@ -301,19 +305,73 @@ public class Global implements Serializable {
     this.dataFilePath = dataFilePath;
   }
 
-  public CoordinateSystem getCoordinateSystem() {
-    return coordinateSystem;
-  }
-
-  public void setCoordinateSystem(CoordinateSystem coordinateSystem) {
-    this.coordinateSystem = coordinateSystem;
-  }
-
   public Measurement getMeasurement() {
     return measurement;
   }
 
   public void setMeasurement(Measurement measurement) {
     this.measurement = measurement;
+  }
+
+  public void setGeolocation(GeoJsonPoint location){
+    this.geolocation = location;
+  }
+
+  public GeoJsonPoint getGeolocation(){
+    return this.geolocation;
+  }
+
+  public void addDataProduct(DataProduct dataProduct){
+    if(this.dataProducts == null){
+      dataProducts = new DataProducts();
+    }
+    dataProducts.add(dataProduct);
+    
+  }
+  
+  public void removeDataProduct(DataProduct dataProduct){
+    if (dataProducts != null){
+      dataProducts.remove(dataProduct);
+    }
+  }
+
+  public DataProducts getDataProducts(){
+    return dataProducts;
+  }
+
+  public void addDigitalFilter(DigitalFilter df){
+    if(this.digitalFilters == null){
+      digitalFilters = new ArrayList<DigitalFilter>();
+
+    }
+    digitalFilters.add(df);
+  }
+
+  public ArrayList<DigitalFilter> getDigitalFilters(){
+    return digitalFilters;
+  }
+
+  public Diagnostics getDiagnostics() {
+    return diagnostics;
+  }
+
+  public void setDiagnostics(Diagnostics diagnostics) {
+    this.diagnostics = diagnostics;
+  }
+
+  public ArrayList<Double> getMaxOfMaxChannelPowers() {
+    return maxOfMaxChannelPowers;
+  }
+
+  public void setMaxOfMaxChannelPowers(ArrayList<Double> maxOfMaxChannelPowers) {
+    this.maxOfMaxChannelPowers = maxOfMaxChannelPowers;
+  }
+
+  public ArrayList<Double> getMedianOfMeanChannelPowers() {
+    return medianOfMeanChannelPowers;
+  }
+
+  public void setMedianOfMeanChannelPowers(ArrayList<Double> medianOfMeanChannelPowers) {
+    this.medianOfMeanChannelPowers = medianOfMeanChannelPowers;
   }
 }

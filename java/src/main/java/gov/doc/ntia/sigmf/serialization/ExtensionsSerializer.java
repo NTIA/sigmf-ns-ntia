@@ -21,7 +21,7 @@ public class ExtensionsSerializer extends StdSerializer<Extensions> {
 
   @Override
   public void serialize(Extensions value, JsonGenerator jgen, SerializerProvider provider)
-      throws IOException, JsonProcessingException {
+      throws IOException {
 
     jgen.writeStartObject();
     ArrayList<Extension> extensions = value.getExtensions();

@@ -65,6 +65,7 @@ public class Acquisition implements Serializable {
 
   /**
    * Utility method to create a name for the Acquisition equal to the sensor_sheduleId_taskId.
+   *
    * @return the name for the acquisition.
    */
   public String getName() {
@@ -73,10 +74,10 @@ public class Acquisition implements Serializable {
     Integer recording = metaDoc.getGlobal().getRecording();
     String taskId = getTaskId();
     String name = sensorId + "_" + getScheduleId();
-    if(taskId != null){
+    if (taskId != null) {
       name += "_" + taskId;
     }
-    if(recording != null){
+    if (recording != null) {
       name += "_" + recording;
     }
 
@@ -85,6 +86,7 @@ public class Acquisition implements Serializable {
 
   /**
    * Get the action that produced the Acquisition, or unknown if it is not in the metadata.
+   *
    * @return The name of the action that produced the Acquisition.
    */
   public String getActionName() {

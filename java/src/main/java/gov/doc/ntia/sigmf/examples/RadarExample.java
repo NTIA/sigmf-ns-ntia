@@ -6,10 +6,8 @@ import gov.doc.ntia.sigmf.Extension;
 import gov.doc.ntia.sigmf.Extensions;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.ext.annotation.algorithm.FrequencyDomainDetection;
-import gov.doc.ntia.sigmf.ext.annotation.sensor.CalibrationAnnotation;
-import gov.doc.ntia.sigmf.ext.annotation.sensor.SensorAnnotation;
-import gov.doc.ntia.sigmf.ext.global.core.Antenna;
+import gov.doc.ntia.sigmf.ext.global.algorithm.PowerSpectralDensity;
+import gov.doc.ntia.sigmf.ext.global.algorithm.Trace;import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.core.Measurement;
 import gov.doc.ntia.sigmf.ext.global.environment.Environment;
@@ -22,24 +20,8 @@ import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-/**
- * Generates an example based on coastal monitoring of the CBRS band.
- */
+/** Generates an example based on coastal monitoring of the CBRS band. */
 public class RadarExample implements Example {
-
-  @Override
-  public MetaDoc getExample() {
-    Global global = ExampleUtils.getGlobal();
-    global.setExtensions(getExtensions());
-    Sensor sensor = getSensor();
-    global.setSensor(getSensor());
-    global.setMeasurement(getMeasurement());
-    MetaDoc metaDoc = new MetaDoc();
-    metaDoc.setGlobal(global);
-    metaDoc.setAnnotations(getAnnotations());
-    metaDoc.setCaptures(getCaptures());
-    return metaDoc;
-  }
 
   public static Measurement getMeasurement() {
     Measurement measurement = new Measurement();
@@ -187,6 +169,7 @@ public class RadarExample implements Example {
   }
 
   private static ArrayList<Annotation> getAnnotations() {
+    /*
     CalibrationAnnotation calibrationAnnotation = new CalibrationAnnotation();
     calibrationAnnotation.setSampleStart(0L);
     calibrationAnnotation.setComment("Calibration is done every 6 hours.");
@@ -198,22 +181,46 @@ public class RadarExample implements Example {
     ArrayList<Annotation> annotations = new ArrayList<>();
     annotations.add(calibrationAnnotation);
 
-    SensorAnnotation sensorAnnotation = new SensorAnnotation();
-    sensorAnnotation.setAttenuationSettingSigan(6.0);
-    sensorAnnotation.setOverload(false);
-    sensorAnnotation.setRfPathIndex(0);
-    sensorAnnotation.setSampleStart(0L);
-    sensorAnnotation.setSampleCount(458L);
-    annotations.add(sensorAnnotation);
+     */
+    /*
+        SensorAnnotation sensorAnnotation = new SensorAnnotation();
+        sensorAnnotation.setAttenuationSettingSigan(6.0);
+        sensorAnnotation.setOverload(false);
+        sensorAnnotation.setRfPathIndex(0);
+        sensorAnnotation.setSampleStart(0L);
+        sensorAnnotation.setSampleCount(458L);
+        annotations.add(sensorAnnotation);
+    */
 
-    FrequencyDomainDetection fdd = new FrequencyDomainDetection();
-    fdd.setDetector("fft_max_power");
-    fdd.setNumberOfFfts(458);
-    fdd.setNumberOfSamplesInFft(64);
-    fdd.setWindow("Gauss-top");
-    fdd.setEquivalentNoiseBandwidth(962500.0);
-    fdd.setSampleCount(458L);
-    annotations.add(fdd);
-    return annotations;
+    return new ArrayList<>();
+    // return annotations;
+  }
+
+  @Override
+  public MetaDoc getExample() {
+    Global global = ExampleUtils.getGlobal();
+    global.setExtensions(getExtensions());
+    Sensor sensor = getSensor();
+    global.setSensor(getSensor());
+    global.setMeasurement(getMeasurement());
+        
+    PowerSpectralDensity psd = new PowerSpectralDensity();
+    Trace max = new Trace();
+    max.setStatistic("max");
+    psd.addTrace(max);
+    psd.setFfts(458);
+    psd.setSamples(64L);
+    psd.setWindow("Gauss-top");
+    psd.setEquivalentNoiseBandwidth(962500.0);
+    psd.setLength(458L);
+
+
+
+     
+    MetaDoc metaDoc = new MetaDoc();
+    metaDoc.setGlobal(global);
+    metaDoc.setAnnotations(getAnnotations());
+    metaDoc.setCaptures(getCaptures());
+    return metaDoc;
   }
 }

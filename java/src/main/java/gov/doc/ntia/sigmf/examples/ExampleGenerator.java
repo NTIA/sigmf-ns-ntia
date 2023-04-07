@@ -4,18 +4,11 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.examples.algorithm.DigitalFilterAnnotationExample;
-import gov.doc.ntia.sigmf.examples.algorithm.DigitalFilterExample;
-import gov.doc.ntia.sigmf.examples.algorithm.FrequencyDomainDetectionExample;
-import gov.doc.ntia.sigmf.examples.algorithm.TimeDomainDetectionExample;
-import gov.doc.ntia.sigmf.examples.calibration.CalibrationAnnotationExample;
-import gov.doc.ntia.sigmf.examples.emitter.EmitterExample;
+import gov.doc.ntia.sigmf.examples.algorithm.DataProductsExample;import gov.doc.ntia.sigmf.examples.algorithm.DigitalFilterExample;
+import gov.doc.ntia.sigmf.examples.calibration.CalibrationExample;
+import gov.doc.ntia.sigmf.examples.capture.CaptureExample;import gov.doc.ntia.sigmf.examples.diagnostics.DiagnosticsExample;import gov.doc.ntia.sigmf.examples.emitter.EmitterExample;
 import gov.doc.ntia.sigmf.examples.environment.EmitterEnvironmentExample;
 import gov.doc.ntia.sigmf.examples.environment.SensorEnvironmentExample;
-import gov.doc.ntia.sigmf.examples.location.GcsWithSpheroidExample;
-import gov.doc.ntia.sigmf.examples.location.ProjectedExample;
-import gov.doc.ntia.sigmf.examples.location.SimpleGcs;
-import gov.doc.ntia.sigmf.examples.location.SpeedAndBearingExample;
 import gov.doc.ntia.sigmf.examples.scos.ScosExample;
 import gov.doc.ntia.sigmf.examples.waveform.WaveformExample;
 import java.io.File;
@@ -24,9 +17,10 @@ import java.io.IOException;
 public class ExampleGenerator {
 
   /**
-   * Generates a number of example JSON files to demonstrate the format of various
-   * objects specified in the NTIA SigMF extensions. Note: currently the examples do
-   * not necessarily specify values for all required parameters.
+   * Generates a number of example JSON files to demonstrate the format of various objects specified
+   * in the NTIA SigMF extensions. Note: currently the examples do not necessarily specify values
+   * for all required parameters.
+   *
    * @param args None.
    */
   public static void main(String[] args) {
@@ -34,21 +28,20 @@ public class ExampleGenerator {
     SensorExample sensorExample = new SensorExample();
     save("sensor.json", sensorExample.getExample());
 
-    TimeDomainDetectionExample tddExample = new TimeDomainDetectionExample();
-    save("tdd.json", tddExample.getExample());
+    //    TimeDomainDetectionExample tddExample = new TimeDomainDetectionExample();
+    //  save("tdd.json", tddExample.getExample());
 
     DigitalFilterExample digitalFilterExample = new DigitalFilterExample();
     save("digitalFilter.json", digitalFilterExample.getExample());
 
-    FrequencyDomainDetectionExample frequencyDomainDetection =
-        new FrequencyDomainDetectionExample();
-    save("frequencyDomainDetection.json", frequencyDomainDetection.getExample());
+    //  FrequencyDomainDetectionExample frequencyDomainDetection =
+    //       new FrequencyDomainDetectionExample();
+    //   save("frequencyDomainDetection.json", frequencyDomainDetection.getExample());
 
-    DigitalFilterAnnotationExample digitalFilterAnnotationExample =
-        new DigitalFilterAnnotationExample();
+    DigitalFilterExample digitalFilterAnnotationExample = new DigitalFilterExample();
     save("digitalFilterAnnotation.json", digitalFilterAnnotationExample.getExample());
 
-    CalibrationAnnotationExample cal = new CalibrationAnnotationExample();
+    CalibrationExample cal = new CalibrationExample();
     save("calibration.json", cal.getExample());
 
     EmitterExample emitterExample = new EmitterExample();
@@ -66,20 +59,17 @@ public class ExampleGenerator {
     RadarExample radarExample = new RadarExample();
     save("radarExample.json", radarExample.getExample());
 
-    GcsWithSpheroidExample gcsExample = new GcsWithSpheroidExample();
-    save("gcsExample.json", gcsExample.getExample());
-
-    ProjectedExample projectedExample = new ProjectedExample();
-    save("projectedSpatialRef.json", projectedExample.getExample());
-
-    SpeedAndBearingExample speedAndBearingExample = new SpeedAndBearingExample();
-    save("speedAndBearing.json", speedAndBearingExample.getExample());
-
-    SimpleGcs simpleGcs = new SimpleGcs();
-    save("simpleGcs.json", simpleGcs.getExample());
-
     ScosExample scosExample = new ScosExample();
     save("scos.json", scosExample.getExample());
+
+    DataProductsExample dataProductsExample = new DataProductsExample();
+    save("data_products.json", dataProductsExample.getExample());
+
+    CaptureExample captureExample = new CaptureExample();
+    save("capture_example.json", captureExample.getExample());
+
+    DiagnosticsExample diagnosticsExample = new DiagnosticsExample();
+    save("diagnostics_example.json", diagnosticsExample.getExample());
   }
 
   private static void save(String filename, MetaDoc example) {
@@ -92,8 +82,4 @@ public class ExampleGenerator {
       e.printStackTrace();
     }
   }
-
-
-
-
 }

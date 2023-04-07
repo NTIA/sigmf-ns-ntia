@@ -11,7 +11,6 @@ import gov.doc.ntia.sigmf.ext.global.sensor.Preselector;
 import gov.doc.ntia.sigmf.ext.global.sensor.RfPath;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import gov.doc.ntia.sigmf.ext.global.sensor.SignalAnalyzer;
-import java.util.Calendar;
 
 public class SensorExample implements Example {
 

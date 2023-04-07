@@ -12,7 +12,9 @@ import java.util.Map;
 public class DigitalFilter implements Serializable {
 
   private static final long serialVersionUID = 1L;
-
+  
+  protected String id;
+  
   @JsonProperty(value = "filter_type", required = false)
   protected String filterType;
 
@@ -61,6 +63,8 @@ public class DigitalFilter implements Serializable {
   public Double[] getIirNumeratorCoefficients() {
     return iirNumeratorCoefficients;
   }
+
+  public DigitalFilter(){}
 
   public void setIirNumeratorCoefficients(Double[] iirNumeratorCoefficients) {
     this.iirNumeratorCoefficients = iirNumeratorCoefficients;
@@ -122,5 +126,13 @@ public class DigitalFilter implements Serializable {
   @JsonAnySetter
   public void add(String key, Object value) {
     otherFields.put(key, value);
+  }
+
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
   }
 }

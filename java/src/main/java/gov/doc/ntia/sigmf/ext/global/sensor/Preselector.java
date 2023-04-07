@@ -28,6 +28,7 @@ public class Preselector implements Serializable {
 
   @JsonProperty(value = "rf_paths", required = false)
   protected RfPath[] rfPaths;
+  protected Map<String, Object> otherFields = new HashMap<>();
 
   public HardwareSpec getPreselectorSpec() {
     return preselectorSpec;
@@ -45,12 +46,12 @@ public class Preselector implements Serializable {
     this.calSources = calSources;
   }
 
-  public void setFilters(Filter[] filters) {
-    this.filters = filters;
-  }
-
   public Filter[] getFilters() {
     return filters;
+  }
+
+  public void setFilters(Filter[] filters) {
+    this.filters = filters;
   }
 
   public Amplifier[] getAmplifiers() {
@@ -60,12 +61,6 @@ public class Preselector implements Serializable {
   public void setAmplifiers(Amplifier[] amplifiers) {
     this.amplifiers = amplifiers;
   }
-
-  public void setOtherFields(Map<String, Object> otherFields) {
-    this.otherFields = otherFields;
-  }
-
-  protected Map<String, Object> otherFields = new HashMap<>();
 
   public RfPath[] getRfPaths() {
     return rfPaths;
@@ -78,6 +73,10 @@ public class Preselector implements Serializable {
   @JsonAnyGetter
   public Map<String, Object> getOtherFields() {
     return otherFields;
+  }
+
+  public void setOtherFields(Map<String, Object> otherFields) {
+    this.otherFields = otherFields;
   }
 
   @JsonAnySetter

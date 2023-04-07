@@ -13,6 +13,7 @@ public class SchemaGenerator {
 
   /**
    * Generates the schema file for MetaDoc and its related classes.
+   *
    * @param args No arguments are used.
    */
   public static void main(String[] args) {

@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import gov.doc.ntia.sigmf.GeoJsonPoint;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.environment.Environment;
-import gov.doc.ntia.sigmf.ext.global.location.Location;
 import gov.doc.ntia.sigmf.ext.global.waveform.Waveform;
 import java.io.Serializable;
 import java.util.HashMap;
@@ -39,8 +39,8 @@ public class Emitter implements Serializable {
   @JsonProperty(value = "waveform", required = false)
   protected Waveform waveform;
 
-  @JsonProperty(value = "location", required = false)
-  protected Location location;
+  @JsonProperty(value = "geolocation", required = false)
+  protected GeoJsonPoint geolocation;
 
   @JsonProperty(value = "environment", required = false)
   protected Environment environment;
@@ -53,10 +53,6 @@ public class Emitter implements Serializable {
 
   public void setTransmitter(HardwareSpec transmitter) {
     this.transmitter = transmitter;
-  }
-
-  public void setOtherFields(Map<String, Object> otherFields) {
-    this.otherFields = otherFields;
   }
 
   public Double getPower() {
@@ -107,12 +103,12 @@ public class Emitter implements Serializable {
     this.waveform = waveform;
   }
 
-  public Location getLocation() {
-    return location;
+  public GeoJsonPoint getGeolocation() {
+    return geolocation;
   }
 
-  public void setLocation(Location location) {
-    this.location = location;
+  public void setGeolocation(GeoJsonPoint location) {
+    this.geolocation = location;
   }
 
   public Environment getEnvironment() {
@@ -126,6 +122,10 @@ public class Emitter implements Serializable {
   @JsonAnyGetter
   public Map<String, Object> getOtherFields() {
     return otherFields;
+  }
+
+  public void setOtherFields(Map<String, Object> otherFields) {
+    this.otherFields = otherFields;
   }
 
   @JsonAnySetter

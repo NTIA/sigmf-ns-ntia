@@ -38,8 +38,7 @@ public class Measurement implements Serializable {
   protected Double[] frequenciesTuned;
 
   @JsonProperty(value = "classification", required = true)
-  protected  String classification;
-
+  protected String classification;
 
   public String getDomain() {
     return domain;
@@ -70,17 +69,17 @@ public class Measurement implements Serializable {
     return frequencyTunedLow;
   }
 
+  public void setFrequencyTunedLow(Double lowFrequency) {
+
+    this.frequencyTunedLow = lowFrequency;
+  }
+
   public Date getTimeStop() {
     return timeStop;
   }
 
   public void setTimeStop(Date timeStop) {
     this.timeStop = timeStop;
-  }
-
-  public void setFrequencyTunedLow(Double lowFrequency) {
-
-    this.frequencyTunedLow = lowFrequency;
   }
 
   public Double getFrequencyTunedHigh() {
@@ -114,5 +113,4 @@ public class Measurement implements Serializable {
   public void setClassification(String classification) {
     this.classification = classification;
   }
-
 }

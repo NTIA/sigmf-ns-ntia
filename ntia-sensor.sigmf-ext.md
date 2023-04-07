@@ -17,17 +17,17 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 `Sensor` has the following properties:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`id`|true|string|N/A|Unique logical ID for the sensor.|
-|`sensor_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the sensor.|
-|`antenna`|false|[Antenna](ntia-core.sigmf-ext.md#12-antenna-object)|N/A|Metadata to describe/specify the antenna.|
-|`preselector`|false| [Preselector](#13-preselector-object)|N/A|Metadata to describe/specify the preselector.|
-|`signal_analyzer`|false| [SignalAnalyzer](#12-signalanalyzer-object) |N/A|Metadata to describe/specify the signal analyzer.|
-|`computer_spec`|false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata to describe/specify the onboard computer.|
-|`mobile`|false|boolean|N/A|Defines whether the sensor is mobile.|
-|`location`|false|[Location](ntia-location.sigmf-ext.md#16-location-object)|N/A|Specifies the location, speed, and bearing of the `Sensor`.|
-|`environment`|false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A|Specifies the environment surrounding the `Sensor`.|
+| name              |required| type                                                               |unit| description                                         |
+|-------------------|--------------|--------------------------------------------------------------------|-------|-----------------------------------------------------|
+| `id`              |true| string                                                             |N/A| Unique logical ID for the sensor.                   |
+| `sensor_spec`     |false| [HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)      |N/A| Metadata to describe/specify the sensor.            |
+| `antenna`         |false| [Antenna](ntia-core.sigmf-ext.md#12-antenna-object)                |N/A| Metadata to describe/specify the antenna.           |
+| `preselector`     |false| [Preselector](#13-preselector-object)                              |N/A| Metadata to describe/specify the preselector.       |
+| `signal_analyzer` |false| [SignalAnalyzer](#12-signalanalyzer-object)                        |N/A| Metadata to describe/specify the signal analyzer.   |
+| `computer_spec`   |false| [HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)      |N/A| Metadata to describe/specify the onboard computer.  |
+| `mobile`          |false| boolean                                                            |N/A| Defines whether the sensor is mobile.               |
+| `environment`     |false| [Environment](ntia-environment.sigmf-ext.md#11-environment-object) |N/A| Specifies the environment surrounding the `Sensor`. |
+| `sensor_sha512`   |false| string        |N/A| Sha512 hash of the sensor definition.               |
 
 ### 1.2 SignalAnalyzer Object
 `SignalAnalyzer` the following properties:
@@ -100,40 +100,48 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 ## 2 Captures
 
-`ntia-sensor` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+`ntia-sensor` extends [Capture Segment Objects](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#capture-segment-objects) with the following keys:
 
+| name          |required| type | unit    | description                                 |
+|---------------|--------------|---|---------|---------------------------------------------|
+|`gain`|false| double |dB|Gain setting of the signal analyzer.|
+|`duration`|false|int|milliseconds|Duration of IQ signal capture.|
+|`attenuation`|false|double|dB|Attenuation setting of the signal analyzer.|
+|`preamp_enable`|false| boolean |N/A|Signal analyzer setting to enable/disable preamp.|
+|`reference_level`|false| double |N/A|Gain of signal analyzer (may differ with signal analyzer gain setting).|
+|`calibration`|false| [UnitCalibration](#21-unit-calibration-object) |N/A|Gain of signal analyzer (may differ with signal analyzer gain setting).|
 
-## 3 Annotations
-`ntia-sensor` defines the following segments that extend `ntia-core`.
+### 2.1 UnitCalibration Object
+`UnitCalibration` has the following properties:
 
-### 3.1 SensorAnnotation Segment
-`SensorAnnotation` has the following properties:
+| name          |required| type                                  | unit    | description                                 |
+|---------------|--------------|---------------------------------------|---------|---------------------------------------------|
+| `sensor`      |false| [Calibration](#22-calibration-object) | N/A     | Calibration values for the sensor.          |
+| `sigan`       |false|[Calibration](#22-calibration-object)| N/A     | Calibration values for the signal analyzer. |
+| `temperature` |false|double| celsius | The temperature during calibration.         |
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`rf_path_index`|false|integer|N/A|Index of the [RFPath](#14-rfpath-object) object.|
-|`overload`|false|boolean|N/A|Indicator of sensor overload.|
-|`attenuation_setting_sigan`|false|double|dB|Attenuation setting of the signal analyzer.|
-|`gain_setting_sigan`|false|double|dB|Gain setting of the signal analyzer.|
-|`gps_nmea`|false|string|NMEA|[NMEA message](https://en.wikipedia.org/wiki/NMEA_0183) from GPS receiver.|
+### 2.2 Calibration Object
 
-### 3.2 CalibrationAnnotation Segment
-`CalibrationAnnotation` has the following properties:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`gain_sigan`|false|double|N/A|Gain of signal analyzer (may differ with signal analyzer gain setting).|
-|`noise_figure_sigan`|false|double|dB|Noise figure of signal analyzer.|
-|`1db_compression_point_sigan`|false|double|dBm|Maximum input of signal analyzer.|
-|`enbw_sigan`|false|double|Hz|Equivalent noise bandwidth of signal analyzer.|
+| name          |required| type                                  | unit    | description                                 |
+|---------------|--------------|---------------------------------------|---------|---------------------------------------------|
+|`gain`|false|double|N/A|Gain of signal analyzer or sensor (may differ with signal analyzer gain setting).|
+|`noise_figure`|false|double|dB|Noise figure of signal analyzer or sensor.|
+|`1db_compression_point`|false|double|dBm|Maximum input of signal analyzer or sensor.|
+|`enbw`|false|double|Hz|Equivalent noise bandwidth of signal analyzer or sensor.|
 |`gain_preselector`|false|double|dB|Gain of sensor preselector.|
-|`noise_figure_sensor`|false|double|dB|Noise figure of sensor.|
-|`1db_compression_point_sensor`|false|double|dBm|Maximum input of sensor.|
-|`enbw_sensor`|false|double|Hz|Equivalent noise bandwidth of sensor.|
-|`mean_noise_power_sensor`|false|double|Defined in `mean_noise_power_units`|Mean noise power density of sensor.|
+|`mean_noise_power`|false|double|Defined in `mean_noise_power_units`|Mean noise power density of sensor.|
 |`mean_noise_power_units`|false|string|N/A|The units of the mean_noise_power|
 |`mean_noise_power_reference`|false|string|N/A| Reference source for the mean_noise_power, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`|
-|`temperature`|false|double|celsius|The temperature during calibration.|
+| `temperature` |false|double| celsius | The temperature during calibration.         |
+
+
+### 2.2 Sensor Object
+`CalibrationAnnotation` has the following properties:
+
+## 3 Annotations
+`ntia-sensor` does not provide additional keys to [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array).
+
+
 
 
 ## 4 Example

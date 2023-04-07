@@ -45,14 +45,6 @@ public class CalibrationAnnotation extends Annotation {
   @JsonProperty(value = "ntia-sensor:mean_noise_power_reference", required = false)
   protected String meanNoisePowerReference;
 
-  public void setGainSigan(Double gainSigan) {
-    this.gainSigan = gainSigan;
-  }
-
-  public void setOneDbCompressionPointSigan(Double oneDbCompressionPointSigan) {
-    this.oneDbCompressionPointSigan = oneDbCompressionPointSigan;
-  }
-
   public Double getEnbwSigan() {
     return enbwSigan;
   }
@@ -105,8 +97,16 @@ public class CalibrationAnnotation extends Annotation {
     return gainSigan;
   }
 
+  public void setGainSigan(Double gainSigan) {
+    this.gainSigan = gainSigan;
+  }
+
   public Double getOneDbCompressionPointSigan() {
     return oneDbCompressionPointSigan;
+  }
+
+  public void setOneDbCompressionPointSigan(Double oneDbCompressionPointSigan) {
+    this.oneDbCompressionPointSigan = oneDbCompressionPointSigan;
   }
 
   public void set1DbCompressionPointSigan(Double oneDbCompressionPointSigan) {

@@ -24,11 +24,6 @@ public class RfPath implements Serializable {
 
   @JsonProperty(value = "amplifier_id", required = false)
   protected String amplifierId;
-
-  public void setOtherFields(Map<String, Object> otherFields) {
-    this.otherFields = otherFields;
-  }
-
   protected Map<String, Object> otherFields = new HashMap<>();
 
   public String getCalSourceId() {
@@ -42,6 +37,10 @@ public class RfPath implements Serializable {
   @JsonAnyGetter
   public Map<String, Object> getOtherFields() {
     return otherFields;
+  }
+
+  public void setOtherFields(Map<String, Object> otherFields) {
+    this.otherFields = otherFields;
   }
 
   @JsonAnySetter

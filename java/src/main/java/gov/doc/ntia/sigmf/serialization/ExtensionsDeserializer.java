@@ -23,7 +23,7 @@ public class ExtensionsDeserializer extends StdDeserializer<Extensions> {
 
   @Override
   public Extensions deserialize(JsonParser jp, DeserializationContext ctxt)
-      throws IOException, JsonProcessingException {
+      throws IOException {
     Extensions extensions = new Extensions();
     JsonNode node = jp.getCodec().readTree(jp);
     Iterator<Map.Entry<String, JsonNode>> fields = node.fields();

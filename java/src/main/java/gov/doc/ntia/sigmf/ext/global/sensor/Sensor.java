@@ -4,10 +4,10 @@ import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import gov.doc.ntia.sigmf.GeoJsonPoint;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.environment.Environment;
-import gov.doc.ntia.sigmf.ext.global.location.Location;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -38,11 +38,15 @@ public class Sensor implements Serializable {
   @JsonProperty(value = "mobile", required = false)
   protected Boolean mobile;
 
-  @JsonProperty(value = "location", required = false)
-  protected Location location;
+  @JsonProperty(value = "geolocation", required = false)
+  protected GeoJsonPoint geolocation;
 
   @JsonProperty(value = "environment", required = false)
   protected Environment environment;
+  protected Map<String, Object> otherFields = new HashMap<>();
+
+  @JsonProperty(value = "sensor_sha512")
+  protected String sensorSha512;
 
   public HardwareSpec getSensorSpec() {
     return sensorSpec;
@@ -50,10 +54,6 @@ public class Sensor implements Serializable {
 
   public void setSensorSpec(HardwareSpec sensorSpec) {
     this.sensorSpec = sensorSpec;
-  }
-
-  public void setSignalAnalyzer(SignalAnalyzer signalAnalyzer) {
-    this.signalAnalyzer = signalAnalyzer;
   }
 
   public HardwareSpec getComputerSpec() {
@@ -68,19 +68,13 @@ public class Sensor implements Serializable {
     return mobile;
   }
 
-  public void setOtherFields(Map<String, Object> otherFields) {
-    this.otherFields = otherFields;
+  public void setMobile(Boolean mobile) {
+    this.mobile = mobile;
   }
 
   public Boolean isMobile() {
     return mobile;
   }
-
-  public void setMobile(Boolean mobile) {
-    this.mobile = mobile;
-  }
-
-  protected Map<String, Object> otherFields = new HashMap<>();
 
   public String getId() {
     return id;
@@ -110,12 +104,8 @@ public class Sensor implements Serializable {
     return signalAnalyzer;
   }
 
-  public Location getLocation() {
-    return location;
-  }
-
-  public void setLocation(Location location) {
-    this.location = location;
+  public void setSignalAnalyzer(SignalAnalyzer signalAnalyzer) {
+    this.signalAnalyzer = signalAnalyzer;
   }
 
   public Environment getEnvironment() {
@@ -131,8 +121,29 @@ public class Sensor implements Serializable {
     return otherFields;
   }
 
+  public void setOtherFields(Map<String, Object> otherFields) {
+    this.otherFields = otherFields;
+  }
+
   @JsonAnySetter
   public void add(String key, Object value) {
     otherFields.put(key, value);
+  }
+
+
+  public GeoJsonPoint getGeolocation() {
+    return geolocation;
+  }
+
+  public void setGeolocation(GeoJsonPoint geolocation) {
+    this.geolocation = geolocation;
+  }
+
+  public String getSensorSha512() {
+    return sensorSha512;
+  }
+
+  public void setSensorSha512(String sensorSha512) {
+    this.sensorSha512 = sensorSha512;
   }
 }

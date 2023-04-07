@@ -1,14 +1,12 @@
 package gov.doc.ntia.sigmf.examples.emitter;
 
-import gov.doc.ntia.sigmf.Global;
+import gov.doc.ntia.sigmf.GeoJsonPoint;import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.examples.Example;
-import gov.doc.ntia.sigmf.examples.ExampleUtils;
+import gov.doc.ntia.sigmf.examples.Example;import gov.doc.ntia.sigmf.examples.ExampleUtils;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.global.environment.Environment;
-import gov.doc.ntia.sigmf.ext.global.location.Location;
 import gov.doc.ntia.sigmf.ext.global.waveform.Waveform;
 import java.util.ArrayList;
 import java.util.List;
@@ -55,18 +53,17 @@ public class EmitterExample implements Example {
         "https://www.keysight.com/us/en/assets/7018-03380/data-sheets/5991-0038.pdf");
     emitter.setTransmitter(transmitter);
 
-    Location location = new Location();
-    location.setX(-79.980916);
-    location.setY(40.304983);
-    location.setSpeed(0.0);
-    location.setDescription("NIOSH mine, Pittsburgh PA");
 
     Environment environment = new Environment();
     environment.setCategory("Underground, coal mine");
 
     emitter.setEnvironment(environment);
 
+
+
     Global global = ExampleUtils.getGlobal();
+    GeoJsonPoint geolocation = new GeoJsonPoint( 40.304983, -79.980916);
+    global.setGeolocation(geolocation);
     List<Emitter> emitters = new ArrayList<>();
     emitters.add(emitter);
     global.setEmitters(emitters);

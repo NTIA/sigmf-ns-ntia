@@ -4,11 +4,8 @@ import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
-import gov.doc.ntia.sigmf.ext.global.scos.Action;
-import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -18,6 +15,7 @@ public class ExampleUtils {
 
   /**
    * Generates an example Capture.
+   *
    * @param dateTime The Date of the Capture.
    * @return A List containing one Capture at dateTime.
    */
@@ -34,6 +32,7 @@ public class ExampleUtils {
 
   /**
    * Generates a bare bones Global object with data type rf32_le, sample_rate = 2.8E7.
+   *
    * @return Global object.
    */
   public static Global getGlobal() {
@@ -45,6 +44,7 @@ public class ExampleUtils {
 
   /**
    * Geneartes a bare bones Antenna object with an AntennaSpec with model = 'model xyz'.
+   *
    * @return Antenna object.
    */
   public static Antenna getAntenna() {
@@ -54,5 +54,4 @@ public class ExampleUtils {
     antenna.setAntennaSpec(spec);
     return antenna;
   }
-
 }

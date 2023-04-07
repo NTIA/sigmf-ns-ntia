@@ -21,20 +21,13 @@ import org.springframework.data.annotation.Id;
 public class MetaDoc implements Serializable {
 
   private static final long serialVersionUID = 1L;
-
+  private static final Logger log = LoggerFactory.getLogger(MetaDoc.class);
   @Id protected String id;
-
   protected Global global;
-
   protected List<Capture> captures;
-
   protected List<Annotation> annotations;
 
-  private static final Logger log = LoggerFactory.getLogger(MetaDoc.class);
-
-  /**
-   * Create a MetaDoc.
-   */
+  /** Create a MetaDoc. */
   public MetaDoc() {
     global = new Global();
     captures = new ArrayList<>();
@@ -71,6 +64,7 @@ public class MetaDoc implements Serializable {
 
   /**
    * Set the Global object in the MetaDoc.
+   *
    * @param global The Global object.
    */
   public void setGlobal(Global global) {
@@ -79,6 +73,7 @@ public class MetaDoc implements Serializable {
 
   /**
    * Save the MetaDoc to a file.
+   *
    * @param filename The full path of where to save the file.
    */
   public void saveToFile(String filename) {
@@ -101,8 +96,8 @@ public class MetaDoc implements Serializable {
   }
 
   /**
-   * Creates an Acquisition (MetaDoc + Data) by reading the data file in
-   * Global dataFilePath.
+   * Creates an Acquisition (MetaDoc + Data) by reading the data file in Global dataFilePath.
+   *
    * @return the Acquisition.
    * @throws IOException when unable to read the file specified in the Global dataFilePath.
    */
