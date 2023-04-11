@@ -1,4 +1,5 @@
 package gov.doc.ntia.sigmf.ext.global.diagnostics;
+
 import com.fasterxml.jackson.annotation.JsonFormat;import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 
@@ -11,7 +12,7 @@ public class Diagnostics {
 
   private Spu spu;
 
-  private Computer computer;
+  protected Computer computer;
 
   @JsonProperty(value = "action_runtime")
   private Double actionRuntime;
@@ -54,5 +55,13 @@ public class Diagnostics {
 
   public void setActionRuntime(Double actionRuntime) {
     this.actionRuntime = actionRuntime;
+  }
+
+  public Computer getComputer() {
+    return computer;
+  }
+
+  public void setComputer(Computer computer) {
+    this.computer = computer;
   }
 }

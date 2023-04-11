@@ -15,17 +15,20 @@ public class AmplitudeProbabilityDistribution extends  DataProduct{
   @JsonProperty(required = true)
   protected String units;
 
-  @JsonProperty(value = "power_bin_size", required = true)
-  protected Double powerBinSize;
+  @JsonProperty(value = "amplitude_bin_size", required = true)
+  protected Double amplitudeBinSize;
 
   @JsonProperty(required = false)
   protected String reference;
 
-  @JsonProperty(value = "max_power", required = true)
-  protected Double maxPower;
+  @JsonProperty(value = "max_amplitude", required = true)
+  protected Double maxAmplitude;
 
-  @JsonProperty(value = "min_power", required = true)
-  protected Double minPower;
+  @JsonProperty(value = "min_amplitude", required = true)
+  protected Double minAmplitude;
+
+  @JsonProperty(value = "probability_units")
+  protected String probabilityUnits;
 
   public Long getLengths() {
     return length;
@@ -51,12 +54,12 @@ public class AmplitudeProbabilityDistribution extends  DataProduct{
     this.units = units;
   }
 
-  public Double getPowerBinSize() {
-    return powerBinSize;
+  public Double getAmplitudeBinSize() {
+    return amplitudeBinSize;
   }
 
-  public void setPowerBinSize(Double powerBinSize) {
-    this.powerBinSize = powerBinSize;
+  public void setAmplitudeBinSize(Double amplitudeBinSize) {
+    this.amplitudeBinSize = amplitudeBinSize;
   }
 
   public String getReference() {
@@ -74,19 +77,27 @@ public class AmplitudeProbabilityDistribution extends  DataProduct{
     this.reference = reference;
   }
 
-  public Double getMaxPower(){
-    return maxPower;
+  public Double getMaxAmplitude() {
+    return maxAmplitude;
   }
 
-  public void setMaxPower(Double power){
-    maxPower = power;
+  public void setMaxAmplitude(Double power) {
+    maxAmplitude = power;
   }
 
-  public Double getMinPower() {
-    return minPower;
+  public Double getMinAmplitude() {
+    return minAmplitude;
   }
 
-  public void setMinPower(Double minPower) {
-    this.minPower = minPower;
+  public void setMinAmplitude(Double minAmplitude) {
+    this.minAmplitude = minAmplitude;
+  }
+
+  public String getProbabilityUnits() {
+    return probabilityUnits;
+  }
+
+  public void setProbabilityUnits(String probabilityUnits) {
+    this.probabilityUnits = probabilityUnits;
   }
 }

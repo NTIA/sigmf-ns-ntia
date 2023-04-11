@@ -83,15 +83,17 @@ elements each represent the output of various algorithms. Each data product list
 
 ### 1.6 AmplitudeProbabilityDistribution
 
-| name             | required | type                 |unit| description                                                                                                                                                                |
-|------------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `traces`         | true     | [Trace](#17-trace)[] |N/A| Traces in the order they appear in the data file.                                                                                                                          |
-| `length`         | true     | int[]                |N/A| Length of each amplitude probability distribution by capture.                                                                                                              |
-| `samples`        | true     | uint                 |N/A| Number of samples used to compute the amplitude probability distrubtion.                                                                                                   |
-| `units`          | true     | string               |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
-| `power_bin_size` | true     | int                  |N/A| Size of each power bin in the distribution.                                                                                                                                |
-| `reference`      |false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
-| `digital_filter`                   | false    | string      |N/A| The id of the digital filter used in this data product.            |
+| name                 | required | type                 |unit| description                                                                                                                                                                |
+|----------------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `traces`             | true     | [Trace](#17-trace)[] |N/A| Traces in the order they appear in the data file.                                                                                                                          |
+| `length`             | true     | int[]                |N/A| Length of each amplitude probability distribution by capture.                                                                                                              |
+| `samples`            | true     | uint                 |N/A| Number of samples used to compute the amplitude probability distrubtion.                                                                                                   |
+| `units`              | true     | string               |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
+| `amplitude_bin_size` | true     | double               |N/A| Step/tick size of the amplitude, or y-axis.                                                                                                                                |
+| `amplitude_min`      | true     | double               |N/A| Minimum value of the amplitude, or y-axis.                                                                                                                                 |
+| `amplitude_max`      | true     | double               |N/A| Maximum value of the amplitud, or y-axis.                                                                                                                                  |
+| `reference`          | false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
+| `digital_filter`     | false    | string               |N/A| The id of the digital filter used in this data product.                                                                                                                    |
 
 ### 1.7 Trace
 A `Trace`

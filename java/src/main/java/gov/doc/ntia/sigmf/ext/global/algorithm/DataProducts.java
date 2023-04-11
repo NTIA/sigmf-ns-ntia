@@ -1,10 +1,18 @@
 package gov.doc.ntia.sigmf.ext.global.algorithm;
 
-import com.fasterxml.jackson.annotation.JsonProperty;import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import gov.doc.ntia.sigmf.serialization.DataProductsDeserializer;
 import gov.doc.ntia.sigmf.serialization.DataProductsSerializer;
+import gov.doc.ntia.sigmf.serialization.ExtensionsDeserializer;
+import gov.doc.ntia.sigmf.serialization.ExtensionsSerializer;
 import java.util.ArrayList;
 
 @JsonSerialize(using = DataProductsSerializer.class)
+@JsonDeserialize(using = DataProductsDeserializer.class)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class DataProducts {
 
   private String reference;

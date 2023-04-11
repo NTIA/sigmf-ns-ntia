@@ -14,7 +14,7 @@ public class Spu {
     @JsonProperty(value = "28v_aux_powered")
     protected Boolean aux28vPowered;
     
-    @JsonProperty(value = "pow_box_temp")
+    @JsonProperty(value = "pwr_box_temp")
     protected Double pwrBoxTemp;
     
     @JsonProperty(value = "rf_box_temp")

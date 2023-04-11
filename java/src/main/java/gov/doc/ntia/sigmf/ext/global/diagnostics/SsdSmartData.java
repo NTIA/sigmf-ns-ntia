@@ -8,7 +8,7 @@ public class SsdSmartData {
   protected Boolean testPassed;
 
   @JsonProperty(value = "critical_warning")
-  protected Integer criticalWarning;
+  protected String criticalWarning;
 
   protected Double temp;
 
@@ -35,11 +35,11 @@ public class SsdSmartData {
     this.testPassed = testPassed;
   }
 
-  public Integer getCriticalWarning() {
+  public String getCriticalWarning() {
     return criticalWarning;
   }
 
-  public void setCriticalWarning(Integer criticalWarning) {
+  public void setCriticalWarning(String criticalWarning) {
     this.criticalWarning = criticalWarning;
   }
 

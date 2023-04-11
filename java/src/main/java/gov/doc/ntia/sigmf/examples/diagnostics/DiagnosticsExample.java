@@ -29,7 +29,7 @@ public class DiagnosticsExample implements Example{
 
     SsdSmartData ssdSmartData = new SsdSmartData();
     ssdSmartData.setTestPassed(true);
-    ssdSmartData.setCriticalWarning(0);
+    ssdSmartData.setCriticalWarning("0x00");
     ssdSmartData.setTemp(41.0);
     ssdSmartData.setAvailableSpare(100.0);
     ssdSmartData.setAvailableSpareThreshold(10.0);

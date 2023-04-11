@@ -5,10 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
-/*@JsonSubTypes({
-  @JsonSubTypes.Type(value = TimeSeriesPower.class, name = "time_domain_power_series"),
-  @JsonSubTypes.Type(value = PeriodicFramePower.class),
-  @JsonSubTypes.Type(value = AmplitudeProbabilityDistribution.class)})*/
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class DataProduct implements IDataProduct {
 

@@ -105,9 +105,9 @@ public class DataProductsExample implements Example {
       apd.setLength(560L);
       apd.setSamples(56000000L);
       apd.setUnits("dbM");
-      apd.setPowerBinSize(1.0);
-      apd.setMaxPower(-85.0);
-      apd.setMinPower(-130.0);
+    apd.setAmplitudeBinSize(1.0);
+    apd.setMaxAmplitude(-85.0);
+    apd.setMinAmplitude(-130.0);
       global.addDigitalFilter(digitalFilter);
       global.addDataProduct(apd);
       global.getDataProducts().setDigitalFilter("iir_1");
