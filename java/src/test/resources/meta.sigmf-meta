@@ -1,0 +1,524 @@
+{
+  "global": {
+    "core:version": "v1.0.0",
+    "core:extensions": [
+      {
+        "name": "ntia-algorithm",
+        "version": "v2.0.0",
+        "optional": false
+      },
+      {
+        "name": "ntia-core",
+        "version": "v1.0.0",
+        "optional": false
+      },
+      {
+        "name": "ntia-environment",
+        "version": "v1.0.0",
+        "optional": false
+      },
+      {
+        "name": "ntia-scos",
+        "version": "v1.0.0",
+        "optional": true
+      },
+      {
+        "name": "ntia-sensor",
+        "version": "v2.0.0",
+        "optional": false
+      },
+      {
+        "name": "ntia-nasctn-sea",
+        "version": "v0.4",
+        "optional": false
+      }
+    ],
+    "core:geolocation": {
+      "type": "Point",
+      "coordinates": [
+        -100.0,
+        100.0,
+        50.0
+      ]
+    },
+    "core:datatype": "rf16",
+    "core:sample_rate": 14000000.0,
+    "core:num_channels": 15,
+    "ntia-scos:task": 1,
+    "ntia-scos:schedule": {
+      "name": "data_loc_sensor_def",
+      "start": "2023-04-06T21:29:11.000Z",
+      "stop": null,
+      "interval": null,
+      "priority": 10,
+      "id": "data_loc_sensor_def"
+    },
+    "ntia-sensor:sensor": {
+      "id": "NASCTN SEA Sensor",
+      "sensor_spec": {
+        "id": "NASCTN SEA Sensor",
+        "model": "NASCTN SEA Sensor",
+        "version": "Prototype Rev. 3"
+      }
+    },
+    "ntia-algorithm:data_products": {
+      "digital_filter": "iir_1",
+      "reference": "noise source output",
+      "power_spectral_density": {
+        "traces": [
+          {
+            "statistic": "max"
+          },
+          {
+            "statistic": "mean"
+          }
+        ],
+        "length": 625,
+        "equivalent_noise_bandwidth": 60323.94,
+        "samples": 875,
+        "ffts": 64000,
+        "units": "dBm/Hz",
+        "window": "flattop"
+      },
+      "time_series_power": {
+        "traces": [
+          {
+            "detector": "max"
+          },
+          {
+            "detector": "mean"
+          }
+        ],
+        "length": 400,
+        "samples": 56000000,
+        "units": "dBm"
+      },
+      "periodic_frame_power": {
+        "traces": [
+          {
+            "detector": "mean",
+            "statistic": "min"
+          },
+          {
+            "detector": "mean",
+            "statistic": "max"
+          },
+          {
+            "detector": "mean",
+            "statistic": "mean"
+          },
+          {
+            "detector": "max",
+            "statistic": "min"
+          },
+          {
+            "detector": "max",
+            "statistic": "max"
+          },
+          {
+            "detector": "max",
+            "statistic": "mean"
+          }
+        ],
+        "length": 560,
+        "units": "dBm"
+      },
+      "amplitude_probability_distribution": {
+        "length": 151,
+        "samples": 56000000,
+        "units": "dBm",
+        "probability_units": "percent",
+        "amplitude_bin_size": 1.0,
+        "min_amplitude": -180,
+        "max_amplitude": -30
+      }
+    },
+    "ntia-algorithm:digital_filters": [
+      {
+        "id": "iir_1",
+        "filter_type": "IIR",
+        "IIR_numerator_coefficients": [
+          0.22001755985277486,
+          1.8950858799155859,
+          8.083698129129007,
+          22.28438408611688,
+          43.93585109754826,
+          65.02462875088665,
+          73.93117717291233,
+          65.02462875088665,
+          43.93585109754826,
+          22.284384086116878,
+          8.083698129129007,
+          1.8950858799155853,
+          0.22001755985277483
+        ],
+        "IIR_denominator_coefficients": [
+          1.0,
+          5.984606843057637,
+          19.199454663117217,
+          40.791247158352408,
+          63.2429677473874,
+          74.33110989910304,
+          67.69826765401139,
+          47.873252810169407,
+          26.149624421307168,
+          10.75285488653393,
+          3.2164061393115994,
+          0.6363986832562693,
+          0.07408086875619748
+        ],
+        "ripple_passband": 0.1,
+        "attenuation_stopband": 40,
+        "frequency_stopband": 5008000.0,
+        "frequency_cutoff": 5000000.0
+      }
+    ],
+    "ntia-nasctn-sea:max_of_max_channel_powers": [
+      -65.3125,
+      -64.875,
+      -64.375,
+      -64.8125,
+      -75.5625,
+      -55.375,
+      -55.125,
+      -52.90625,
+      -55.09375,
+      -56.75,
+      -56.4375,
+      -70.0625,
+      -70.5625,
+      -47.03125,
+      -42.8125
+    ],
+    "ntia-nasctn-sea:median_of_mean_channel_powers": [
+      -83.875,
+      -84.4375,
+      -83.6875,
+      -82.1875,
+      -93.25,
+      -77.375,
+      -79.25,
+      -74.25,
+      -78.3125,
+      -81.0625,
+      -82.4375,
+      -93.5,
+      -91.875,
+      -92.0625,
+      -85.8125
+    ],
+    "ntia-diagnostics:diagnostics": {
+      "datetime": "2023-04-06T21:31:39.356Z",
+      "preselector": {
+        "noise_diode_temp": 22.7,
+        "door_closed": false
+      },
+      "spu": {
+        "rf_tray_powered": true,
+        "preselector_powered": true,
+        "28v_aux_powered": true,
+        "pwr_box_temp": 26.0,
+        "rf_box_temp": 26.1,
+        "pwr_box_humidity": 11.2,
+        "sigan_internal_temp": 54.44
+      },
+      "computer": {
+        "cpu_temp": 59.0,
+        "cpu_overheating": false,
+        "cpu_uptime": 21.04,
+        "cpu_max_clock": 4533.5,
+        "cpu_min_clock": 1240.5,
+        "cpu_mean_clock": 3222.1,
+        "action_cpu_usage": 42.1,
+        "system_load_5m": 18.1,
+        "memory_usage": 14.9,
+        "scos_start_time": "2023-04-06T21:28:45.532Z",
+        "scos_uptime": 0.002,
+        "ssd_smart_data": {
+          "test_passed": true,
+          "critical_warning": "0x00",
+          "temp": 35,
+          "available_spare": 100,
+          "available_spare_threshold": 10,
+          "percentage_used": 1,
+          "unsafe_shutdowns": 18,
+          "integrity_errors": 0
+        }
+      },
+      "action_runtime": 81.8970819178503
+    }
+  },
+  "captures": [
+    {
+      "core:frequency": 3555000000.0,
+      "core:datetime": "2023-04-06T21:30:17.539Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.159,
+        "gain": 23.008,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:17.134Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 0
+    },
+    {
+      "core:frequency": 3565000000.0,
+      "core:datetime": "2023-04-06T21:30:24.572Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 5.662,
+        "gain": 23.826,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:20.970Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 5561
+    },
+    {
+      "core:frequency": 3575000000.0,
+      "core:datetime": "2023-04-06T21:30:29.212Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 5.781,
+        "gain": 23.581,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:25.184Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 11122
+    },
+    {
+      "core:frequency": 3585000000.0,
+      "core:datetime": "2023-04-06T21:30:34.219Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 5.599,
+        "gain": 23.95,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:29.543Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 16683
+    },
+    {
+      "core:frequency": 3595000000.0,
+      "core:datetime": "2023-04-06T21:30:39.435Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.133,
+        "gain": 22.916,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:33.413Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 22244
+    },
+    {
+      "core:frequency": 3605000000.0,
+      "core:datetime": "2023-04-06T21:30:44.047Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.007,
+        "gain": 24.246,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:38.360Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 27805
+    },
+    {
+      "core:frequency": 3615000000.0,
+      "core:datetime": "2023-04-06T21:30:49.851Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.42,
+        "gain": 23.082,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:43.220Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 33366
+    },
+    {
+      "core:frequency": 3625000000.0,
+      "core:datetime": "2023-04-06T21:30:54.471Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.126,
+        "gain": 23.348,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:46.985Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 38927
+    },
+    {
+      "core:frequency": 3635000000.0,
+      "core:datetime": "2023-04-06T21:30:59.081Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 5.72,
+        "gain": 24.127,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:51.247Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 44488
+    },
+    {
+      "core:frequency": 3645000000.0,
+      "core:datetime": "2023-04-06T21:31:04.096Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.131,
+        "gain": 23.257,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:55.695Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 50049
+    },
+    {
+      "core:frequency": 3655000000.0,
+      "core:datetime": "2023-04-06T21:31:09.311Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 5.79,
+        "gain": 23.964,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:30:00.613Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 55610
+    },
+    {
+      "core:frequency": 3665000000.0,
+      "core:datetime": "2023-04-06T21:31:15.107Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.373,
+        "gain": 22.784,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:30:04.457Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 61171
+    },
+    {
+      "core:frequency": 3675000000.0,
+      "core:datetime": "2023-04-06T21:31:19.727Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 5.789,
+        "gain": 23.731,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:30:08.362Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 66732
+    },
+    {
+      "core:frequency": 3685000000.0,
+      "core:datetime": "2023-04-06T21:31:24.355Z",
+      "ntia-sensor:overload": true,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.267,
+        "gain": 23.017,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:30:12.516Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 72293
+    },
+    {
+      "core:frequency": 3695000000.0,
+      "core:datetime": "2023-04-06T21:31:29.350Z",
+      "ntia-sensor:overload": true,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.041,
+        "gain": 23.427,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:30:17.430Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 77854
+    }
+  ],
+  "annotations": []
+}
