@@ -25,13 +25,13 @@ The ntia-diagnostics namespace provides metadata to describe system diagnostic i
 ### 1.2 Preselector Diagnostics Object
 The `Preselector` diagnostics object has the following properties:
 
-| name                   |required| type                                  |unit| description                                                     |
-|------------------------|--------------|---------------------------------------|-------|-----------------------------------------------------------------|
-|`internal_temp`|false|double|degree Celsius| Temperature inside the preselector enclosure.                   |
-|`noise_diode_temp`|false|double|degree Celsius| Temperature of the noise diode.                                 |
-|`lna_temp`|false|double|degree Celsius| Temperature of the low noise amplifier.                         |
-|`humidity`|false|double|relative humidity| Humidity inside the preselector enclosure.                      |
-|`door_closed`|false|boolean|N/A| Boolean indicating whether the door of the enclosure is closed. |
+| name                   |required| type                                  | unit           | description                                                     |
+|------------------------|--------------|---------------------------------------|----------------|-----------------------------------------------------------------|
+|`internal_temp`|false|double| degree Celsius | Temperature inside the preselector enclosure.                   |
+|`noise_diode_temp`|false|double| degree Celsius | Temperature of the noise diode.                                 |
+|`lna_temp`|false|double| degree Celsius | Temperature of the low noise amplifier.                         |
+|`humidity`|false|double| percent        | Relative humidity inside the preselector enclosure.             |
+|`door_closed`|false|boolean| N/A            | Boolean indicating whether the door of the enclosure is closed. |
 
 ### 1.3 SPU Diagnostics Object
 The `SPU` diagnostics object has the following properties:
