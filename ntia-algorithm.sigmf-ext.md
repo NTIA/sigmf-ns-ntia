@@ -31,7 +31,8 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 ### 1.2 DataProducts Object
 `DataProducts` provide descriptions of processing performed on signal data and provide information necessary to parse the data file. 
 The `reference` element may be used when each of the data products share the same reference point. The other 
-elements each represent the output of various algorithms. Each data product listed shall be included for every capture. 
+elements each represent the output of various algorithms. Each data product listed shall be included for every capture and the order of the data products for each capture
+follows the order in which they are specified in the JSON. 
 
 | name                                 | required | type                                                                     |unit| description                                                                                                                                                                                                                        |
 |--------------------------------------|----------|--------------------------------------------------------------------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -86,7 +87,7 @@ elements each represent the output of various algorithms. Each data product list
 | name                 | required | type                 |unit| description                                                                                                                                                                |
 |----------------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `traces`             | true     | [Trace](#17-trace)[] |N/A| Traces in the order they appear in the data file.                                                                                                                          |
-| `length`             | true     | int[]                |N/A| Length of each amplitude probability distribution by capture.                                                                                                              |
+| `length`             | true     | uint                 |N/A| Length of the abscissa.                                                                                                                                                    |
 | `samples`            | true     | uint                 |N/A| Number of samples used to compute the amplitude probability distrubtion.                                                                                                   |
 | `units`              | true     | string               |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
 | `amplitude_bin_size` | true     | double               |N/A| Step/tick size of the amplitude, or y-axis.                                                                                                                                |
