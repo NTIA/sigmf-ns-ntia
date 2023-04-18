@@ -6,10 +6,10 @@ The `ntia-nasctn-sea` namespace provides SigMF metadata extensions for the NASCT
 ## 1 Global
 `ntia-nasctn-sea` defines the following keys that extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object):
 
-| name                            |required| type     |unit| description                                   |
-|---------------------------------|--------------|----------|-------|-----------------------------------------------|
-| `max_of_max_channel_powers`     |true| double[] |N/A| The maximum of the maximum power per channel. |
-| `median_of_mean_channel_powers` |false| double[] |N/A| The median of the mean power per channel.     |
+| name                            | required | type     |unit| description                                   |
+|---------------------------------|----------|----------|-------|-----------------------------------------------|
+| `max_of_max_channel_powers`     | false    | double[] |N/A| The maximum of the maximum power per channel. |
+| `median_of_mean_channel_powers` | false    | double[] |N/A| The median of the mean power per channel.     |
 
 
 ## 4 Example
