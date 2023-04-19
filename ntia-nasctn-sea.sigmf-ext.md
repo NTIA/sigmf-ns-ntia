@@ -13,10 +13,10 @@ The `ntia-nasctn-sea` namespace provides SigMF metadata extensions for the NASCT
 
 
 ## 2 Captures
-`ntia-environment` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+`ntia-nasctn-sea` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
-`ntia-environment` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
+`ntia-nasctn-sea` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
 
 
 ## 4 Example
