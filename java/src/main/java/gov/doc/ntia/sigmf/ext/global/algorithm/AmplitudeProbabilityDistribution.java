@@ -30,7 +30,7 @@ public class AmplitudeProbabilityDistribution extends  DataProduct{
   @JsonProperty(value = "probability_units")
   protected String probabilityUnits;
 
-  public Long getLengths() {
+  public Long getLength() {
     return length;
   }
 
