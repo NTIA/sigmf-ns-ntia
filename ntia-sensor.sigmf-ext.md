@@ -126,12 +126,12 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 ### 2.2 SiganSettings Object
 
-| name                         |required| type    | unit | description                                                                       |
-|------------------------------|--------------|---------|------|-----------------------------------------------------------------------------------|
-| `gain`                       |false| double  | dB   | Gain of signal analyzer or sensor (may differ with signal analyzer gain setting). |
-| `reference_level`            |false| double  | dBm  | Reference level of the signal analyzer.                                           |
-| `attenuation`                |false| double  | dB   | Attenuation of the signal analyzer.                                               |
-| `preamp_enable`              |false| boolean | N/A  | Equivalent noise bandwidth of signal analyzer or sensor.                          |
+| name                         |required| type    | unit | description                                |
+|------------------------------|--------------|---------|------|--------------------------------------------|
+| `gain`                       |false| double  | dB   | Gain of signal analyzer.                   |
+| `reference_level`            |false| double  | dBm  | Reference level of the signal analyzer.    |
+| `attenuation`                |false| double  | dB   | Attenuation of the signal analyzer.        |
+| `preamp_enable`              |false| boolean | N/A  | True if signal analyzer preamp is enabled. |
 
 
 
