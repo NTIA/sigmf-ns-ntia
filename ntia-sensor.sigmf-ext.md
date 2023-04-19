@@ -1,4 +1,4 @@
-# ntia-sensor extension v1.0.0
+# ntia-sensor extension v2.0.0
 The ntia-sensor namespace provides metadata to describe RF sensors. 
 
 `ntia-sensor` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
@@ -102,25 +102,15 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 `ntia-sensor` extends [Capture Segment Objects](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#capture-segment-objects) with the following keys:
 
-| name          |required| type | unit    | description                                 |
-|---------------|--------------|---|---------|---------------------------------------------|
-|`gain`|false| double |dB|Gain setting of the signal analyzer.|
-|`duration`|false|int|milliseconds|Duration of IQ signal capture.|
-|`attenuation`|false|double|dB|Attenuation setting of the signal analyzer.|
-|`preamp_enable`|false| boolean |N/A|Signal analyzer setting to enable/disable preamp.|
-|`reference_level`|false| double |N/A|Gain of signal analyzer (may differ with signal analyzer gain setting).|
-|`calibration`|false| [UnitCalibration](#21-unit-calibration-object) |N/A|Gain of signal analyzer (may differ with signal analyzer gain setting).|
+| name                 |required| type                                      | unit    | description                                    |
+|----------------------|--------------|-------------------------------------------|---------|------------------------------------------------|
+| `duration`           |false| int                                       |milliseconds| Duration of IQ signal capture.                 |
+| `overload`           |false| bpp;eam                                   |N/A| Indicates if signal analyzer overload occurred |
+| `sensor_calibration` |false| [Calibration](#21-calibration-object)     |N/A| Sensor calibration metadata.                   |
+| `sigan_calibration`  |false| [Calibration](#21-calibration-object)     |N/A| Signal analyzer calibration metadata.          |
+| `sigan_settings`     |false| [SiganSettings](#22-sigansettings-object) |N/A| Signal analyzer settings used during capture.  |
 
-### 2.1 UnitCalibration Object
-`UnitCalibration` has the following properties:
-
-| name          |required| type                                  | unit    | description                                 |
-|---------------|--------------|---------------------------------------|---------|---------------------------------------------|
-| `sensor`      |false| [Calibration](#22-calibration-object) | N/A     | Calibration values for the sensor.          |
-| `sigan`       |false|[Calibration](#22-calibration-object)| N/A     | Calibration values for the signal analyzer. |
-| `temperature` |false|double| celsius | The temperature during calibration.         |
-
-### 2.2 Calibration Object
+### 2.1 Calibration Object
 
 | name          |required| type                                  | unit    | description                                 |
 |---------------|--------------|---------------------------------------|---------|---------------------------------------------|
@@ -134,9 +124,16 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`mean_noise_power_reference`|false|string|N/A| Reference source for the mean_noise_power, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`|
 | `temperature` |false|double| celsius | The temperature during calibration.         |
 
+### 2.2 SiganSettings Object
 
-### 2.2 Sensor Object
-`CalibrationAnnotation` has the following properties:
+| name                         |required| type    | unit | description                                                                       |
+|------------------------------|--------------|---------|------|-----------------------------------------------------------------------------------|
+| `gain`                       |false| double  | dB   | Gain of signal analyzer or sensor (may differ with signal analyzer gain setting). |
+| `reference_level`            |false| double  | dBm  | Reference level of the signal analyzer.                                           |
+| `attenuation`                |false| double  | dB   | Attenuation of the signal analyzer.                                               |
+| `preamp_enable`              |false| boolean | N/A  | Equivalent noise bandwidth of signal analyzer or sensor.                          |
+
+
 
 ## 3 Annotations
 `ntia-sensor` does not provide additional keys to [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array).
@@ -146,167 +143,134 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 ## 4 Example
 
-### 4.1 Sensor Global Object and Annotations 
+### 4.1 Sensor Global Object and Capture extensions 
 ```json
 {
-  "global" : {
-    "core:datatype" : "rf32_le",
-    "core:sample_rate" : 2.8E7,
-    "core:description" : "Radar data captured off the coast of San Francisco",
+  "global": {
     "core:extensions" : {
-      "ntia-algorithm" : "v1.0.0",
-      "ntia-sensor" : "v1.0.0",
-      "ntia-environment" : "v1.0.0",
-      "ntia-location" : "v1.0.0"
+      "ntia-sensor" : "v2.0.0",
+      "ntia-environment" : "v1.0.0"
     },
-    "ntia-sensor:sensor" : {
-      "id" : "192.168.1.53",
-      "sensor_spec" : {
-        "id" : "bh-5",
-        "model" : "bassethound",
-        "version" : "v1.0.0",
-        "description" : ""
+    "ntia-sensor:sensor": {
+      "id": "192.168.1.53",
+      "sensor_spec": {
+        "id": "bh-5",
+        "model": "bassethound",
+        "version": "v1.0.0",
+        "description": ""
       },
-      "antenna" : {
-        "antenna_spec" : {
-          "model" : "ARA BSB-26",
-          "description" : "RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications"
+      "antenna": {
+        "antenna_spec": {
+          "model": "ARA BSB-26",
+          "description": "RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications"
         },
-        "type" : "Omni-directional",
-        "frequency_low" : 2.0E9,
-        "frequency_high" : 6.0E9,
-        "gain" : 0.0,
-        "polarization" : "Slant",
-        "cross_polar_discrimination" : 13.0,
-        "horizontal_beamwidth" : 360.0,
-        "vertical_beamwidth" : 68.38,
-        "voltage_standing_wave_ratio" : 2.0,
-        "cable_loss" : 0.79,
-        "steerable" : false
+        "type": "Omni-directional",
+        "frequency_low": 2000000000.0,
+        "frequency_high": 6000000000.0,
+        "gain": 0.0,
+        "polarization": "Slant",
+        "cross_polar_discrimination": 13.0,
+        "horizontal_beamwidth": 360.0,
+        "vertical_beamwidth": 68.38,
+        "voltage_standing_wave_ratio": 2.0,
+        "cable_loss": 0.79,
+        "steerable": false
       },
-      "preselector" : {
-        "cal_sources" : [ {
-          "cal_source_spec" : {
-            "id" : "37501",
-            "model" : "Mercury Systems NS36B-1",
-            "supplemental_information" : "https://www.everythingrf.com/products/noise-sources/mercury-systems/608-220-ns346b-1"
+      "preselector": {
+        "cal_sources": [
+          {
+            "cal_source_spec": {
+              "id": "37501",
+              "model": "Mercury Systems NS36B-1",
+              "supplemental_information": "https://www.everythingrf.com/products/noise-sources/mercury-systems/608-220-ns346b-1"
+            },
+            "type": "Calibrated noise source",
+            "enr": "14.53 dB"
+          }
+        ],
+        "filters": [
+          {
+            "filter_spec": {
+              "id": "13FV40-00014, SN 6",
+              "model": "K&L 13FV40-3550/U200-o/o",
+              "supplemental_information": "http://www.klfilterwizard.com/klfwpart.aspx?FWS=1112001&PN=13FV40-3550%2fU200-O%2fO"
+            },
+            "frequency_low_passband": 3430000000.0,
+            "frequency_high_passband": 3670000000.0,
+            "frequency_low_stopband": 3390000000.0,
+            "frequency_high_stopband": 3710000000.0
           },
-          "type" : "Calibrated noise source",
-          "enr" : "14.53 dB"
-        } ],
-        "filters" : [ {
-          "filter_spec" : {
-            "id" : "13FV40-00014, SN 6",
-            "model" : "K&L 13FV40-3550/U200-o/o",
-            "supplemental_information" : "http://www.klfilterwizard.com/klfwpart.aspx?FWS=1112001&PN=13FV40-3550%2fU200-O%2fO"
+          {}
+        ],
+        "amplifiers": [
+          {
+            "amplifier_spec": {
+              "id": "1904044",
+              "model": "MITEQ AFS3-02000400-30-25P-6",
+              "supplemental_information": "https://nardamiteq.com/docs/MITEQ_Amplifier-AFS.JS_c41.pdf"
+            },
+            "gain": 32.85,
+            "noise_figure": 2.59,
+            "max_power": 13.0
+          }
+        ],
+        "rf_paths": [
+          {
+            "name": "Path 1",
+            "cal_source_id": "37501",
+            "filter_id": "13FV40-00014, SN 6",
+            "amplifier_id": "1904044"
           },
-          "frequency_low_passband" : 3.43E9,
-          "frequency_high_passband" : 3.67E9,
-          "frequency_low_stopband" : 3.39E9,
-          "frequency_high_stopband" : 3.71E9
-        }, { } ],
-        "amplifiers" : [ {
-          "amplifier_spec" : {
-            "id" : "1904044",
-            "model" : "MITEQ AFS3-02000400-30-25P-6",
-            "supplemental_information" : "https://nardamiteq.com/docs/MITEQ_Amplifier-AFS.JS_c41.pdf"
-          },
-          "gain" : 32.85,
-          "noise_figure" : 2.59,
-          "max_power" : 13.0
-        } ],
-        "rf_paths" : [ {
-          "name" : "Path 1",
-          "cal_source_id" : "37501",
-          "filter_id" : "13FV40-00014, SN 6",
-          "amplifier_id" : "1904044"
-        }, {
-          "name" : "Bypass",
-          "cal_source_id" : "37501"
-        } ]
+          {
+            "name": "Bypass",
+            "cal_source_id": "37501"
+          }
+        ]
       },
-      "signal_analyzer" : {
-        "sigan_spec" : {
-          "id" : "502725",
-          "model" : "Keysight N6841A",
-          "supplemental_information" : "https://www.keysight.com/us/en/assets/7018-02113/data-sheets/5990-3839.pdf"
+      "signal_analyzer": {
+        "sigan_spec": {
+          "id": "502725",
+          "model": "Keysight N6841A",
+          "supplemental_information": "https://www.keysight.com/us/en/assets/7018-02113/data-sheets/5990-3839.pdf"
         },
-        "frequency_low" : 2.0E7,
-        "frequency_high" : 6.0E9,
-        "noise_figure" : 20.0,
-        "max_power" : 20.0,
-        "a2d_bits" : 14
+        "frequency_low": 20000000.0,
+        "frequency_high": 6000000000.0,
+        "noise_figure": 20.0,
+        "max_power": 20.0,
+        "a2d_bits": 14
       },
-      "computer_spec" : {
-        "id" : "MC 9",
-        "description" : "Custom computer with Intel i7 processor, MSI motherboard, 16 GB of Ram and running Windows 7"
+      "computer_spec": {
+        "id": "MC 9",
+        "description": "Custom computer with Intel i7 processor, MSI motherboard, 16 GB of Ram and running Windows 7"
       },
-      "location" : {
-        "x" : -122.5309,
-        "y" : 37.8204,
-        "z" : 51.3522,
-        "speed" : 0.0,
-        "description" : "On a tower in Point Bonita, near San Francisco"
-      },
-      "environment" : {
-        "category" : "Outside. Coastal."
+      "environment": {
+        "category": "Outside. Coastal."
       }
     },
-    "ntia-location:coordinate_system" : {
-      "coordinate_system_type" : "CoordinateSystem",
-      "id" : "WGS_84",
-      "elevation_ref" : "MSL",
-      "elevation_unit" : "meter"
-    },
-    "ntia-sensor:calibration_datetime" : "2018-01-01T10:49:58.236Z",
-    "ntia-core:measurement" : {
-      "domain" : "Frequency",
-      "measurement_type" : "Scan",
-      "time_start" : "2018-01-01T07:59:42.792Z",
-      "time_stop" : "2018-01-01T08:00:37.792Z",
-      "frequency_tuned_low" : 3.45940625E9,
-      "frequency_tuned_high" : 3.65190625E9,
-      "frequency_tuned_step" : 1.925E7, 
-      "classification" : "UNCLASSIFIED"
-    }
+    "ntia-sensor:calibration_datetime": "2018-01-01T10:49:58.236Z"
   },
-  "captures" : [ {
-    "core:sample_start" : 0,
-    "core:frequency" : 3.5501875E9,
-    "core:datetime" : "2018-01-01T07:59:42.792Z"
-  } ],
-  "annotations" : [ {
-    "ntia-core:annotation_type" : "FrequencyDomainDetection",
-    "core:sample_start" : 0,
-    "core:sample_count" : 458,
-    "core:comment" : "",
-    "ntia-algorithm:detector" : "fft_max_power",
-    "ntia-algorithm:number_of_ffts" : 10,
-    "ntia-algorithm:number_of_samples_in_fft" : 50,
-    "ntia-algorithm:window" : "Gauss-top",
-    "ntia-algorithm:equivalent_noise_bandwidth" : 962500.0,
-    "ntia-algorithm:frequency_start" : 3.45021875E9,
-    "ntia-algorithm:frequency_stop" : 3.65015625E9,
-    "ntia-algorithm:frequency_step" : 437500.0
-  }, {
-    "ntia-core:annotation_type" : "CalibrationAnnotation",
-    "core:sample_start" : 0,
-    "core:sample_count" : 458,
-    "core:comment" : " Calibration is done every 6 hours.",
-    "ntia-sensor:gain_preselector" : 27.241,
-    "ntia-sensor:noise_figure_sensor" : 7.638,
-    "ntia-sensor:enbw_sensor" : 962500.0000000001,
-    "ntia-sensor:mean_noise_power_sensor" : -94.28774890829693,
-    "ntia-sensor:temperature" : 14.611,
-    "ntia-sensor:mean_noise_power_units" : "dBm"
-  }, {
-    "ntia-core:annotation_type" : "SensorAnnotation",
-    "core:sample_start" : 0,
-    "core:sample_count" : 458,
-    "ntia-sensor:rf_path_index" : 0,
-    "ntia-sensor:overload" : false,
-    "ntia-sensor:attenuation_setting_sigan" : 3.0
-  } ]
+  "captures": [
+    {
+      "core:frequency": 3545000000.0,
+      "core:datetime": "2023-04-14T17:04:20.118Z",
+      "ntia-sensor:overload": true,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 4.649,
+        "gain": 30.708,
+        "temperature": 24.2,
+        "datetime": "2023-04-14T17:01:03.679Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 0
+    }
+    ...
+  ],
+  "annotations": []
 }
 ```
 
