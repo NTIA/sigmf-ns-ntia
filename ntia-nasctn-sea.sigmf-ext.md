@@ -1,7 +1,7 @@
 # ntia-nasctn-sea extension v0.4.0
 The `ntia-nasctn-sea` namespace provides SigMF metadata extensions for the NASCTN Sharing Ecosystem Assessment (SEA) project.
 
-`ntia-scos` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
+`ntia-nasctn-sea` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
 `ntia-nasctn-sea` defines the following keys that extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object):
@@ -10,6 +10,13 @@ The `ntia-nasctn-sea` namespace provides SigMF metadata extensions for the NASCT
 |---------------------------------|----------|----------|-------|-----------------------------------------------|
 | `max_of_max_channel_powers`     | false    | double[] |N/A| The maximum of the maximum power per channel. |
 | `median_of_mean_channel_powers` | false    | double[] |N/A| The median of the mean power per channel.     |
+
+
+## 2 Captures
+`ntia-environment` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+
+## 3 Annotations
+`ntia-environment` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
 
 
 ## 4 Example
