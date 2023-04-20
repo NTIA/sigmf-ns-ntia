@@ -21,8 +21,8 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique identifier for the `ScheduleEntry`|
 |`name`|true|string|N/A|User specified name of the schedule.|
-|`start`|false|string|ISO-8601, see ["The `datetime` Field"](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md)|Requested time to schedule the first task.|
-|`stop`|false|string|ISO-8601, see ["The `datetime` Field"](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md)|Requested time to end execution of tasks under the schedule.|
+|`start`|false|string|[ISO-8601](https://www.ietf.org/rfc/rfc3339.txt) with UTC `time_offset`, i.e., `YYYY-MM-DDTHH:MM:SS.SSSZ` with any number of digits for fractional seconds.|Requested time to schedule the first task.|
+|`stop`|false|string|[ISO-8601](https://www.ietf.org/rfc/rfc3339.txt) with UTC `time_offset`, i.e., `YYYY-MM-DDTHH:MM:SS.SSSZ` with any number of digits for fractional seconds.|Requested time to end execution of tasks under the schedule.|
 |`interval`|false|integer|Seconds|Seconds between tasks. If unspecified, the task will execute once and the schedule will become inactive|
 |`priority`|false|integer|N.A|The priority of the schedule. Lower numbers indicate higher priority.|
 |`roles`|false|string[]|N.A|The user roles that are allowed to access acquisitions from the schedule.|

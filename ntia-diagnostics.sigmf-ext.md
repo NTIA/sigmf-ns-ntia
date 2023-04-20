@@ -18,7 +18,7 @@ The ntia-diagnostics namespace provides metadata to describe system diagnostic i
 
 | name             |required| type                                              | unit    | description                                                                         |
 |------------------|--------------|---------------------------------------------------|---------|-------------------------------------------------------------------------------------|
-| `datetime`       |false| string                                            | N/A     | An ISO-8601 string indicating the timestamp at which the diagnostics were gathered. |
+| `datetime`       |false| string                                            |[ISO-8601](https://www.ietf.org/rfc/rfc3339.txt) with UTC `time_offset`, i.e., `YYYY-MM-DDTHH:MM:SS.SSSZ` with any number of digits for fractional seconds.| The time at which the diagnostics were gathered. |
 | `preselector`    |false| [Preselector](#12-preselector-diagnostics-object) | N/A     | Metadata to capture preselector diagnostics.                                        |
 | `spu`            |false| [SPU](#13-spu-diagnostics-object)                 | N/A     | Metadata to capture sensor processing unit diagnostics.                             |
 | `computer`       |false| [CPU](#14-computer-diagnostics-object)            | N/A     | Metadata to capture computer diagnostics.                                           |
@@ -59,14 +59,14 @@ The `Computer` diagnostics object has the following properties:
 | `min_clock_speed`  |false| double                          | MHz            | Minimum sampled clock speed.                                                                            |
 | `max_clock_speed`  |false| double                          | MHz            | Maximum sampled clock speed.                                                                            |
 | `mean_clock_speed` |false| double                          | MHz            | Mean sampled clock speed.                                                                               |
-| `boot_time`        |false| string                          | N/A            | An ISO-8601 string indicating the timestamp at which the computer last starterd.                        |
+| `boot_time`        |false| string                          |[ISO-8601](https://www.ietf.org/rfc/rfc3339.txt) with UTC `time_offset`, i.e., `YYYY-MM-DDTHH:MM:SS.SSSZ` with any number of digits for fractional seconds.| The time at which the computer last started.                        |
 | `cpu_usage`        |false| double                          | percent        | CPU utilization during action execution.                                                                |
 | `load_5m`          |false| double                          | percent        | Number of processes in a runnable state over the previous 5 minutes as a percent of the number of CPUs. |
 | `memory_usage`     |false| double                          | percent        | Percent of memory used at the end of action execution.                                                  |
 | `overheating`      |false| boolean                         | N/A            | True if cpu is overheating.                                                                             |
 | `drive_usage`      |false| double                          | percent        | Percent of persistent storage used.                                                                     |
 | `temp`             |false| double                          | degree Celsius | Computer temperature.                                                                                   |
-| `scos_start`       |false| string                          | N/A            | An ISO-8601 string indicating the timestamp at which the scos api container starterd.                   |
+| `scos_start`       |false| string                          |[ISO-8601](https://www.ietf.org/rfc/rfc3339.txt) with UTC `time_offset`, i.e., `YYYY-MM-DDTHH:MM:SS.SSSZ` with any number of digits for fractional seconds.| The time at which the SCOS API container started.                   |
 | `scos_uptime`      |false| double                          | days           | Number of days since the scos api container started.                                                    |
 | `ssd_smart_data`   |false| [SsdSmartData](15-ssdsmartdata) | days           | Information provided by the drive Self-Monitoring, Analysis, and Reporting Technology.                  |
 

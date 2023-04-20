@@ -11,7 +11,7 @@ The ntia-sensor namespace provides metadata to describe RF sensors.
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`sensor`|false|[Sensor](#11-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
-|`calibration_datetime`|false|string|ISO-8601, see ["The `datetime` Field"](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md)|Time of last calibration. RECOMMENDED.|
+|`calibration_datetime`|false|string|[ISO-8601](https://www.ietf.org/rfc/rfc3339.txt) with UTC `time_offset`, i.e., `YYYY-MM-DDTHH:MM:SS.SSSZ` with any number of digits for fractional seconds.|Time of last calibration. RECOMMENDED.|
 
 ### 1.1 Sensor Object
 
