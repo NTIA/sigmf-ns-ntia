@@ -297,7 +297,7 @@ public class Global implements Serializable {
     this.calibrationDate = calibrationDate;
   }
 
-  public String getFilePath() {
+  public String getFilepath() {
     return filePath;
   }
 
