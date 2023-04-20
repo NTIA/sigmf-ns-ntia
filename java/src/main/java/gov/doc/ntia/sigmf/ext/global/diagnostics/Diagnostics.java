@@ -10,7 +10,7 @@ public class Diagnostics {
 
   private Preselector preselector;
 
-  private Spu spu;
+  private SPU spu;
 
   protected Computer computer;
 
@@ -33,11 +33,11 @@ public class Diagnostics {
     this.preselector = preselector;
   }
 
-  public Spu getSpu() {
+  public SPU getSpu() {
     return spu;
   }
 
-  public void setSpu(Spu spu) {
+  public void setSpu(SPU spu) {
     this.spu = spu;
   }
 

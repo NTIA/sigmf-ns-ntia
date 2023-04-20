@@ -3,7 +3,7 @@ package gov.doc.ntia.sigmf.ext.global.diagnostics;
 import com.fasterxml.jackson.annotation.JsonInclude;import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Spu {
+public class SPU {
 
     @JsonProperty(value = "rf_tray_powered")
     protected Boolean rfTrayPowered;

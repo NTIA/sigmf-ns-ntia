@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.algorithm.DataProductsExample;import gov.doc.ntia.sigmf.examples.algorithm.DigitalFilterExample;
-import gov.doc.ntia.sigmf.examples.calibration.CalibrationExample;
 import gov.doc.ntia.sigmf.examples.capture.CaptureExample;import gov.doc.ntia.sigmf.examples.diagnostics.DiagnosticsExample;import gov.doc.ntia.sigmf.examples.emitter.EmitterExample;
 import gov.doc.ntia.sigmf.examples.environment.EmitterEnvironmentExample;
 import gov.doc.ntia.sigmf.examples.environment.SensorEnvironmentExample;
@@ -40,9 +39,6 @@ public class ExampleGenerator {
 
     DigitalFilterExample digitalFilterAnnotationExample = new DigitalFilterExample();
     save("digitalFilterAnnotation.json", digitalFilterAnnotationExample.getExample());
-
-    CalibrationExample cal = new CalibrationExample();
-    save("calibration.json", cal.getExample());
 
     EmitterExample emitterExample = new EmitterExample();
     save("emitterGlobal.json", emitterExample.getExample());

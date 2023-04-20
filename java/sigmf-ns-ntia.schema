@@ -649,7 +649,7 @@
           "$ref" : "#/definitions/Preselector_1"
         },
         "spu" : {
-          "$ref" : "#/definitions/Spu"
+          "$ref" : "#/definitions/SPU"
         },
         "computer" : {
           "$ref" : "#/definitions/Computer"
@@ -686,7 +686,7 @@
         }
       }
     },
-    "Spu" : {
+    "SPU" : {
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {

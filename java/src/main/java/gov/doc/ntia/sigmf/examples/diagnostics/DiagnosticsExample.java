@@ -1,7 +1,7 @@
 package gov.doc.ntia.sigmf.examples.diagnostics;
 
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.examples.Example;import gov.doc.ntia.sigmf.ext.global.diagnostics.Diagnostics;import gov.doc.ntia.sigmf.ext.global.diagnostics.Preselector;import gov.doc.ntia.sigmf.ext.global.diagnostics.Computer;import gov.doc.ntia.sigmf.ext.global.diagnostics.Spu;import gov.doc.ntia.sigmf.ext.global.diagnostics.SsdSmartData;import java.util.Calendar;import java.util.Date;
+import gov.doc.ntia.sigmf.examples.Example;import gov.doc.ntia.sigmf.ext.global.diagnostics.Diagnostics;import gov.doc.ntia.sigmf.ext.global.diagnostics.Preselector;import gov.doc.ntia.sigmf.ext.global.diagnostics.Computer;import gov.doc.ntia.sigmf.ext.global.diagnostics.SPU;import gov.doc.ntia.sigmf.ext.global.diagnostics.SsdSmartData;import java.util.Calendar;import java.util.Date;
 
 public class DiagnosticsExample implements Example{
 
@@ -18,7 +18,7 @@ public class DiagnosticsExample implements Example{
     preselector.setDoorClosed(true);
     diagnostics.setPreselector(preselector);
 
-    Spu spu = new Spu();
+    SPU spu = new SPU();
     spu.setRfTrayPowered(true);
     spu.setPreselectorPowered(true);
     spu.setAux28vPowered(true);
