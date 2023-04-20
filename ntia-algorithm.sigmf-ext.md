@@ -8,7 +8,7 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 
 | name              |required| type                                        |unit| description                                                                                                                                                 |
 |-------------------|--------------|---------------------------------------------|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `digital_filters` |false| [DigitalFilter[]](#11-digitalfilter-object) |N/A| Digital filters applied to the data. If only one digital filter is listed, it is not necessary to reference it in the [DataProducts](12-dataproduts-object) |
+| `digital_filters` |false| [DigitalFilter[]](#11-digitalfilter) |N/A| Digital filters applied to the data. If only one digital filter is listed, it is not necessary to reference it in the [DataProducts](12-dataproduts-object) |
 | `data_products`   |false| [DataProducts](#12-dataproducts-object)     |N/A| The list of data products produced for each capture                                                                                                         |
 
 
