@@ -1,21 +1,22 @@
 # SigMF-NS-NTIA in Matlab
 
-Working with the SigMF-NS-NTIA SigMF extensions in Matlab can be made much easier by using the Java libraries within this repository.  The guide below provides useful tips to interact with the Java implementation of the SigMF-NS-NTIA extension within Matlab. 
-## Tips for using the  SigMF-NS-NTIA Java implementation with Matlab. 
+Working with the SigMF-NS-NTIA SigMF extensions in Matlab can be made much easier by using the Java libraries within this repository.  The guide below provides useful tips to interact with the Java implementation of the SigMF-NS-NTIA extension within Matlab.
+
+## Tips for using the  SigMF-NS-NTIA Java implementation with Matlab
 
 ### 1.  Add the SigMF-NS_NTIA Jar file to Matlab
 
-There are several alternative ways to add the jar file to Matlab. 
+There are several alternative ways to add the jar file to Matlab.
 
-#### 1.1 Adding the jar file temporarily 
+#### 1.1 Adding the jar file temporarily
 
-Adding the jar file to the dynamic path allows you to add the jar file to only you current session of Matlab. To add the jar file only to the current session, execute the following command in Matlab after replacing the path to the jar file with the path to the jar file on your computer. 
+Adding the jar file to the dynamic path allows you to add the jar file to only you current session of Matlab. To add the jar file only to the current session, execute the following command in Matlab after replacing the path to the jar file with the path to the jar file on your computer.
 
 `javaclasspath({'C:\Users\dboulware\Documents\sigmf-ns-ntia\sigmf-ns-ntia\java\build\libs\sigmf-ns-ntia-0.0.4-SNAPSHOT.jar'});`
 
-
 #### 1.1 Adding the jar to the static path
-Adding the jar file to Matlab's static path will allow the library to be used at anytime in Matlab. Add the jar to the Matlab's static path by: <br/>
+
+Adding the jar file to Matlab's static path will allow the library to be used at anytime in Matlab. Add the jar to the Matlab's static path by:
 
 1. Execute the `prefdir` command in Matlab to identify your preferences directory.
 2. Close Matlab.
@@ -25,11 +26,11 @@ Adding the jar file to Matlab's static path will allow the library to be used at
 
 ### Using the Java library from within Matlab
 
-This section provides examples of the common ways to interact with the `sigmf-ns-ntia` java library within Matlab. 
+This section provides examples of the common ways to interact with the `sigmf-ns-ntia` java library within Matlab.
 
 #### Java library Overview
 
-The `sigmf-ns-ntia` java library consists of a number classes that define an object oriented approach to modeling the `sigmf-ns-ntia` extensions to SigMF. As such, to get and set values  within the SigMF you will primarily be creating instances of the different objects defined within the library and calling various get and set methods on those objects to get and set the various values. In Java, classes can be organized into a set of packages and the `sigmf-ns-ntia` library is organized in packages that mimic the extensions defined in [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia).  The base package in the java library is `gov.doc.ntia.sigmf` so all objects you utilize will begin with `gov.doc.ntia.sigmf`. The `gov.doc.ntia.sigmf.ext.global` package includes subpackages to organize the global objects defined in  [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia) and `gov.doc.ntia.sigmf.ext.annotation` package includes subpackages to organize the annoation extensions defined in [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia).  The table below shows the mapping between Java packages and the extensions defined in  [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia) 
+The `sigmf-ns-ntia` java library consists of a number classes that define an object oriented approach to modeling the `sigmf-ns-ntia` extensions to SigMF. As such, to get and set values  within the SigMF you will primarily be creating instances of the different objects defined within the library and calling various get and set methods on those objects to get and set the various values. In Java, classes can be organized into a set of packages and the `sigmf-ns-ntia` library is organized in packages that mimic the extensions defined in [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia).  The base package in the java library is `gov.doc.ntia.sigmf` so all objects you utilize will begin with `gov.doc.ntia.sigmf`. The `gov.doc.ntia.sigmf.ext.global` package includes subpackages to organize the global objects defined in  [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia) and `gov.doc.ntia.sigmf.ext.annotation` package includes subpackages to organize the annoation extensions defined in [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia).  The table below shows the mapping between Java packages and the extensions defined in  [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia)
 
 |Package|Extension|Description|
 |----|--------|-----------|
@@ -44,12 +45,11 @@ The `sigmf-ns-ntia` java library consists of a number classes that define an obj
 |`gov.doc.ntia.sigmf.ext.annotation.algorithm`|[ntia-algorithm](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-algorithm.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-algorithm](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-algorithm.sigmf-ext.md) including `TimeDomainDetection`, `FrequencyDomainDetection`, and `DigitalFilterAnnotation`|
 |`gov.doc.ntia.sigmf.ext.annotation.sensor`|[ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md)|Contains objects to represent the annotation objects defined in [ntia-sensor](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-sensor.sigmf-ext.md) including `SensorAnnotation` and `CalibrationAnnotation`|
 
-
 #### Using the Java library
 
 Utilizing the Java library from within Matlab mostly requires you to create instances of the objects and use the set and get methods on those objects to set or get the value of interest.  Creating an instance of a Java object is as simple as calling the constructor with the full name (including the package) of the class as shown in the example below. Note: as shown below, certain types like long and double require you specify them as their java type.
 
-```
+```matlab
   metaDoc = gov.doc.ntia.sigmf.MetaDoc();
   globalExample = gov.doc.ntia.sigmf.Global();
   sensor = gov.doc.ntia.sigmf.ext.global.sensor.Sensor(); 
@@ -82,7 +82,8 @@ Utilizing the Java library from within Matlab mostly requires you to create inst
 ```
 
 Now, if we open the file we will see the following:
-```
+
+```json
 {
   "global": {
     "ntia-sensor:sensor": {
@@ -114,20 +115,7 @@ Now, if we open the file we will see the following:
 }
 
 ```
+
 Finally, if we simply wanted to read the example.json in Matlab we would use the static read method provided by the SigMfReader class. Because it is a static method you must call it slightly differently, as shown below:
 
-
 `readMetaDoc = javaMethod('read', 'gov.doc.ntia.sigmf.SigMfReader',' 'C:\Users\dboulware\Documents\sigmf-ns-ntia\example.json');`
-
-
-
-
-
-
-
-
-
-
-
-
-

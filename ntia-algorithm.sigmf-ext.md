@@ -1,18 +1,20 @@
 # ntia-algorithm Extension v2.0.0
-The ntia-algorithm namespace describes algorithms applied to measurements. 
+
+The ntia-algorithm namespace describes algorithms applied to measurements.
 
 `ntia-algorithm` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
-`ntia-algorithm` extends [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs: 
+
+`ntia-algorithm` extends [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
 | name              |required| type                                        |unit| description                                                                                                                                                 |
 |-------------------|--------------|---------------------------------------------|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `digital_filters` |false| [DigitalFilter[]](#11-digitalfilter) |N/A| Digital filters applied to the data. If only one digital filter is listed, it is not necessary to reference it in the [DataProducts](12-dataproduts-object) |
 | `data_products`   |false| [DataProducts](#12-dataproducts-object)     |N/A| The list of data products produced for each capture                                                                                                         |
 
+### 1.1 DigitalFilter
 
-### 1.1 DigitalFilter 
 `DigitalFilter` has the following properties:
 
 | name                           | required |type|unit| description                                          |
@@ -29,10 +31,11 @@ The ntia-algorithm namespace describes algorithms applied to measurements.
 | `frequency_stopband`           | false    |double|Hz| Point in filter frequency response where stopband starts. |
 
 ### 1.2 DataProducts Object
-`DataProducts` provide descriptions of processing performed on signal data and provide information necessary to parse the data file. 
-The `reference` element may be used when each of the data products share the same reference point. The other 
+
+`DataProducts` provide descriptions of processing performed on signal data and provide information necessary to parse the data file.
+The `reference` element may be used when each of the data products share the same reference point. The other
 elements each represent the output of various algorithms. Each data product listed shall be included for every capture and the order of the data products for each capture
-follows the order in which they are specified in the JSON. 
+follows the order in which they are specified in the JSON.
 
 | name                                 | required | type                                                                     |unit| description                                                                                                                                                                                                                        |
 |--------------------------------------|----------|--------------------------------------------------------------------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -42,7 +45,6 @@ follows the order in which they are specified in the JSON.
 | `periodic_frame_power`               | false    | [PeriodicFramePower](#15-periodicframepower)                             |N/A| Provides occupancy patterns accross fixed time frames to differentiate emitters.                                                                                                                                                   |
 | `amplitude_probability_distribution` | false    | [AmplitudeProbabilityDistribution](#16-amplitudeprobabilitydistribution) |N/A| Complementary cumulative distribution function (CCDF) of the instantaneous channel power, evaluated empirically..                                                                                                                  |
 | `digital_filter`                     | false    | string                                                                   |N/A| The id of the digital filter used in each data product. If different data products use different filters, the filter should be specified in each data product.                                                                     |
-
 
 ### 1.3 PowerSpectralDensity
 
@@ -58,7 +60,6 @@ follows the order in which they are specified in the JSON.
 | `reference`                        |false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
 | `digital_filter`                   | false    | string               |N/A| The id of the digital filter used in this data product.            |
 
-
 ### 1.4 TimeSeriesPower
 
 | name        | required | type   |unit| description                                              |
@@ -70,7 +71,6 @@ follows the order in which they are specified in the JSON.
 | `reference` |false    | string | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
 | `digital_filter`                   | false    | string      |N/A| The id of the digital filter used in this data product.            |
 
-
 ### 1.5 PeriodicFramePower
 
 | name        | required | type                 |unit| description                                                                                                                                                                |
@@ -80,7 +80,6 @@ follows the order in which they are specified in the JSON.
 | `units`     | true     | string               |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
 | `reference` |false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
 | `digital_filter`                   | false    | string      |N/A| The id of the digital filter used in this data product.            |
-
 
 ### 1.6 AmplitudeProbabilityDistribution
 
@@ -97,6 +96,7 @@ follows the order in which they are specified in the JSON.
 | `digital_filter`     | false    | string               |N/A| The id of the digital filter used in this data product.                                                                                                                    |
 
 ### 1.7 Trace
+
 A `Trace`
 
 | name             | required | type                 |unit| description                                                                                                                                                                |
@@ -104,18 +104,18 @@ A `Trace`
 | `detector`       | false    | string |N/A| E.g., `peak`, `rms`                 |
 | `statistic`      | false    | string |N/A| E.g., `min`, `max`, `median`,`mean` |
 
-
 ## 2 Captures
+
 `ntia-algorithm` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
+
 `ntia-algorithm` does not extend [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array).
-
-
 
 ## 4 Example
 
 ### 4.1 Anti-aliasing filter example
+
 ```json
 {
   "global": {
@@ -150,6 +150,7 @@ A `Trace`
 ```
 
 ### 4.2 Data Products Example
+
 ```json
 {
   "global": {
@@ -326,5 +327,3 @@ A `Trace`
   ]
 }
 ```
-
-

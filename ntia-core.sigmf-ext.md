@@ -1,18 +1,19 @@
 # ntia-core Extension v1.0.0
 
-The `ntia-core` namespace adds generally useful metadata fields. 
+The `ntia-core` namespace adds generally useful metadata fields.
 
 `ntia-core` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
+
 `ntia-core` defines an `Antenna` object that is referenced through other global extensions ([ntia-sensor](ntia-sensor.sigmf-ext.md), [ntia-emitter](ntia-emitter.sigmf-ext.md)) and extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`measurement`|false|[Measurement](#11-measurement-object)|N/A|Summarizes the basic information of the measurement. This object SHOULD be included for any measurement.|. ntia-core 
-
+|`measurement`|false|[Measurement](#11-measurement-object)|N/A|Summarizes the basic information of the measurement. This object SHOULD be included for any measurement.|. ntia-core
 
 ### 1.1 Measurement Object
+
 The Measurement object summarizes the basic measurement information including  when the measurement was conducted, the frequency range, the domain of the sensed data and the type of measurement that was conducted.
 
 |name|required|type|unit|description|
@@ -27,9 +28,8 @@ The Measurement object summarizes the basic measurement information including  w
 |`frequencies_tuned`|false|double[]|Hz|Array of tuned frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
 |`classification`|true|string|N/A|The classification markings for the acquisition, e.g., `UNCLASSIFIED`, `CONTROLLED//FEDCON`, `SECRET` ...|
 
-
-
 ## 1.2 Antenna Object
+
 `Antenna` object has the following properties:
 
 |name|required|type|unit|description|
@@ -52,6 +52,7 @@ The Measurement object summarizes the basic measurement information including  w
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
 ## 1.3 HardwareSpec Object
+
 `HardwareSpec` object has the following properties:
 
 |name|required|type|unit|description|
@@ -63,19 +64,21 @@ The Measurement object summarizes the basic measurement information including  w
 |`supplemental_information`|false|string|N/A|Information about hardware, e.g., url to on-line data sheets.|
 
 ## 2 Captures
+
 `ntia-core` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
+
 `ntia-core` extends [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array) with segments of different types defined throughout the set of NTIA extensions to the core SigMF specification. `annotation_type` is defined with the following name/value pair:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`annotation_type`|true|string|N/A|Annotation type, e.g. [`"CalibrationAnnotation"`](ntia-sensor.sigmf-ext.md#32-calibrationannotation-segment), [`"DigitalFilterAnnotation"`](ntia-algorithm.sigmf-ext.md#33-digitalfilterannotation-segment), [`"FrequencyDomainDetection"`](ntia-algorithm.sigmf-ext.md#32-frequencydomaindetection-segment), [`"SensorAnnotation"`](ntia-sensor.sigmf-ext.md#31-sensorannotation-segment), [`"TimeDomainDetection"`](ntia-algorithm.sigmf-ext.md#31-timedomaindetection-segment)|
 
-
 ## 4 Examples
 
 ### 4.1 Single-frequency Measurement Example
+
 ```json
 {
   "global" : {
@@ -102,7 +105,9 @@ The Measurement object summarizes the basic measurement information including  w
   ]
 }
   ```
+
 ### 4.3 Scan Measurement Example
+
 ```json  
 {
   "global" : {

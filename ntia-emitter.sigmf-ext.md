@@ -1,10 +1,11 @@
 # ntia-emitter Extension v1.0.0
 
-The ntia-emitter namespace provides emitter defintion and properties. 
+The ntia-emitter namespace provides emitter defintion and properties.
 
 `ntia-emitter` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
+
 `ntia-emitter` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
 |name|required|type|unit|description|
@@ -12,6 +13,7 @@ The ntia-emitter namespace provides emitter defintion and properties.
 `emitters`|false|[Emitter](#11-emitter-object)[]|N/A|Metadata that describe emitters
 
 ### 1.1 Emitter Object
+
 `Emitter` object has the following properties:
 
 | name               |required|type|unit| description                                          |
@@ -26,17 +28,18 @@ The ntia-emitter namespace provides emitter defintion and properties.
 | `geolocation`      |false|GeoJSON point Object|N/A| The location of the `Emitter`.                       |
 | `environment`      |false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A| Specifies the environment surrounding the `Emitter`. |
 
-
 ## 2 Captures
+
 `ntia-emitter` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
-`ntia-emitter` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
 
+`ntia-emitter` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
 
 ## 4 Example
 
 ### 4.1  Example
+
 ```json
 {
   "global" : {
@@ -84,6 +87,3 @@ The ntia-emitter namespace provides emitter defintion and properties.
   "annotations" : [ ]
 }
 ```
-
-
-

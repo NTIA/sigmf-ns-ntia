@@ -1,17 +1,19 @@
 # ntia-diagnostics extension v1.0.0
-The ntia-diagnostics namespace provides metadata to describe system diagnostic information. 
+
+The ntia-diagnostics namespace provides metadata to describe system diagnostic information.
 
 `ntia-diagnostics` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
+
 `ntia-sensor` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
 | name                   |required| type                                  |unit| description                                   |
 |------------------------|--------------|---------------------------------------|-------|-----------------------------------------------|
 | `diagnostics`          |false| [Diagnostics](#11-diagnostics-object) |N/A| Metadata for capturing component diagnostics. |
 
-
 ### 1.1 Diagnostics Object
+
 `Diagnostics` has the following properties:
 
 | name             |required| type                                              | unit    | description                                                                         |
@@ -23,6 +25,7 @@ The ntia-diagnostics namespace provides metadata to describe system diagnostic i
 | `action_runtime` |false| double                                            | seconds | Total action execution time.                                                        |
 
 ### 1.2 Preselector Diagnostics Object
+
 The `Preselector` diagnostics object has the following properties:
 
 | name                   |required| type                                  | unit           | description                                                     |
@@ -34,6 +37,7 @@ The `Preselector` diagnostics object has the following properties:
 |`door_closed`|false|boolean| N/A            | Boolean indicating whether the door of the enclosure is closed. |
 
 ### 1.3 SPU Diagnostics Object
+
 The `SPU` diagnostics object has the following properties:
 
 | name                  |required| type    | unit           | description                                              |
@@ -46,8 +50,8 @@ The `SPU` diagnostics object has the following properties:
 | `rf_box_temp`         |false| double  | degree Celsius | Ambiant temperature around the signal analyzer.          |
 | `sigan_internal_temp` |false| double  | degree Celsius | Internal temperature reported by the signal analyzer     |
 
-
 ### 1.4 Computer Diagnostics Object
+
 The `Computer` diagnostics object has the following properties:
 
 | name               |required| type                            | unit           | description                                                                                             |
@@ -67,6 +71,7 @@ The `Computer` diagnostics object has the following properties:
 | `ssd_smart_data`   |false| [SsdSmartData](15-ssdsmartdata) | days           | Information provided by the drive Self-Monitoring, Analysis, and Reporting Technology.                  |
 
 ### 1.5 SsdSmartData
+
 The `SsdSmartData` diagnostics object has the following properties:
 
 | name                        |required| type    | unit           | description                                                                                                                                                                                                                                                                                                                                                                                           |
@@ -80,18 +85,18 @@ The `SsdSmartData` diagnostics object has the following properties:
 | `unsafe_shutdowns`          |false| int     | N/A            | Number of unsafe shutdowns.                                                                                                                                                                                                                                                                                                                                                                           |
 | `integrity_errors`          |false| int     | N/A            | Number of occurrences where the controller detected an unrecovered data integrity error                                                                                                                                                                                                                                                                                                               |
 
-
 ## 2 Captures
+
 `ntia-diagnostics` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
+
 `ntia-diagnostics` does not extend [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array).
-
-
 
 ## 4 Example
 
 ### 4.1 Diagnostics example
+
 ```json
 {
   "global": {

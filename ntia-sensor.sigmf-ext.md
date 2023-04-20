@@ -1,9 +1,11 @@
 # ntia-sensor extension v2.0.0
-The ntia-sensor namespace provides metadata to describe RF sensors. 
+
+The ntia-sensor namespace provides metadata to describe RF sensors.
 
 `ntia-sensor` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
+
 `ntia-sensor` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
 
 |name|required|type|unit|description|
@@ -11,8 +13,8 @@ The ntia-sensor namespace provides metadata to describe RF sensors.
 |`sensor`|false|[Sensor](#11-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
 |`calibration_datetime`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Time of last calibration. RECOMMENDED.|
 
-
 ### 1.1 Sensor Object
+
 Sensor definition follows a simplified hardware model composed of the following elements: antenna, preselector, signal analyzer, and computer. The antenna converts electromagnetic energy to a voltage. The preselector can provide local calibration signals, RF filtering to protect from strong out-of-band signals, and low-noise amplification to improve sensitivity. The signal analyzer (e.g., software defined radio) provides tuning, down conversion, sampling, and digital signal processing. Sensor implementations are not required to have each component, but metadata SHOULD specify the presence, model numbers, and operational parameters associated with each.
 
 `Sensor` has the following properties:
@@ -30,6 +32,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 | `sensor_sha512`   |false| string        |N/A| Sha512 hash of the sensor definition.               |
 
 ### 1.2 SignalAnalyzer Object
+
 `SignalAnalyzer` the following properties:
 
 |name|required|type|unit|description|
@@ -42,6 +45,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`a2d_bits`|false|integer|bits|Number of bits in A/D converter.|
 
 ### 1.3 Preselector Object
+
 `Preselector` has the following properties:
 
 |name|required|type|unit|description|
@@ -53,6 +57,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`rf_paths`|false|[RFPath[]](#17-rfpath-object)|N/A|Metadata that describes preselector RF paths.|
 
 ### 1.4 CalSource Object
+
 `CalSource` has the following properties:
 
 |name|required|type|unit|description|
@@ -61,8 +66,8 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`type`|false|string|N/A|Type of the calibration source.|
 |`enr`|false|double|dB|Excess noise ratio.|
 
-
 ### 1.5 Amplifier Object
+
 `Amplifier` has the following properties:
 
 |name|required|type|unit|description|
@@ -72,9 +77,8 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`noise_figure`|false|double|dB|Noise figure of the low noise amplifier.|
 |`max_power`|false|double|dB|Maximum power of the low noise amplifier.|
 
-
-
 ### 1.6 Filter Object
+
 `Filter` has the following properties:
 
 |name|required|type|unit|description|
@@ -85,9 +89,8 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`frequency_low_stopband`|false|double|Hz|Low frequency of filter 60 dB stopband.|
 |`frequency_high_stopband`|false|double|Hz|High frequency of filter 60 dB stopband.|
 
-
-
 ### 1.7 RFPath Object
+
 `RFPath` has the following properties:
 
 |name|required|type|unit|description|
@@ -96,7 +99,6 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`cal_source_id`|true|string|N/A|ID of the calibration source.|
 |`filter_id`|true|string|N/A|ID of the filter.|
 |`amplifier_id`|true|string|N/A|ID of the amplifier.|
-
 
 ## 2 Captures
 
@@ -133,17 +135,14 @@ Sensor definition follows a simplified hardware model composed of the following 
 | `attenuation`                |false| double  | dB   | Attenuation of the signal analyzer.        |
 | `preamp_enable`              |false| boolean | N/A  | True if signal analyzer preamp is enabled. |
 
-
-
 ## 3 Annotations
+
 `ntia-sensor` does not provide additional keys to [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array).
-
-
-
 
 ## 4 Example
 
-### 4.1 Sensor Global Object and Capture extensions 
+### 4.1 Sensor Global Object and Capture extensions
+
 ```json
 {
   "global": {
@@ -273,5 +272,3 @@ Sensor definition follows a simplified hardware model composed of the following 
   "annotations": []
 }
 ```
-
-
