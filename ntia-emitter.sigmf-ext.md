@@ -14,17 +14,17 @@ The ntia-emitter namespace provides emitter defintion and properties.
 ### 1.1 Emitter Object
 `Emitter` object has the following properties:
 
-| name               |required|type|unit|description|
-|--------------------|--------------|-------|-------|-----------|
-| `id`               |true|string|N/A|Unique ID of the emitter.|
-| `description`      |false|string|N/A|Description of the emitter.|
-| `power`            |false|double|dBm|Power referenced to antenna input.|
-| `antenna`          |false|[Antenna](ntia-core.sigmf-ext.md#12-antenna-object)|N/A|Metadata that describes the antenna.|
-| `transmitter`      |false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A|Metadata that describes the transmitter.|
-| `center_frequency` |false|double|Hz|Center frequency.|
-| `waveform`         |false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A|Metadata that describes transmitted waveform.|
-| `geolocation`      |false|GeoJSON point Object|N/A|Specifies the location, speed, and bearing of the `Emitter`.|
-| `environment`      |false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A|Specifies the environment surrounding the `Emitter`.|
+| name               |required|type|unit| description                                          |
+|--------------------|--------------|-------|-------|------------------------------------------------------|
+| `id`               |true|string|N/A| Unique ID of the emitter.                            |
+| `description`      |false|string|N/A| Description of the emitter.                          |
+| `power`            |false|double|dBm| Power referenced to antenna input.                   |
+| `antenna`          |false|[Antenna](ntia-core.sigmf-ext.md#12-antenna-object)|N/A| Metadata that describes the antenna.                 |
+| `transmitter`      |false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A| Metadata that describes the transmitter.             |
+| `center_frequency` |false|double|Hz| Center frequency.                                    |
+| `waveform`         |false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A| Metadata that describes transmitted waveform.        |
+| `geolocation`      |false|GeoJSON point Object|N/A| The location of the `Emitter`.                       |
+| `environment`      |false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A| Specifies the environment surrounding the `Emitter`. |
 
 
 ## 2 Captures
