@@ -34,7 +34,7 @@ The `sigmf-ns-ntia` java library consists of a number classes that define an obj
 
 |Package|Extension|Description|
 |----|--------|-----------|
-|`gov.doc.ntia.sigmf`|NA|Contains the objects that are part of the core [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md), including: `MetaDoc`, `Global`, and `Annotation`.|
+|`gov.doc.ntia.sigmf`|NA|Contains the objects that are part of the core [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md), including: `MetaDoc`, `Global`, and `Annotation`.|
 |`gov.doc.ntia.sigmf.ext.global.algorithm`|[ntia-algorithm](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-algorithm.sigmf-ext.md)|Contains objects to represent the global objects defined in [ntia-algorithm](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-algorithm.sigmf-ext.md) including `DigitalFilter`|
 |`gov.doc.ntia.sigmf.ext.global.core`|[ntia-core](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-core.sigmf-ext.md)|Contains objects to represent global objects defined in [ntia-core](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-core.sigmf-ext.md) including `Measurement`, `Antenna`, and `HardwareSpec`|
 |`gov.doc.ntia.sigmf.ext.global.emitter`|[ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-emitter.sigmf-ext.md)|Contains objects to represent the global objects defined in [ntia-emitter](https://github.com/NTIA/sigmf-ns-ntia/blob/master/ntia-emitter.sigmf-ext.md) including `Emitter`.|

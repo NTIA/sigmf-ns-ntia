@@ -2,11 +2,11 @@
 
 The ntia-diagnostics namespace provides metadata to describe system diagnostic information.
 
-`ntia-diagnostics` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
+`ntia-diagnostics` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
 
-`ntia-sensor` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
+`ntia-sensor` extends the [Global](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#global-object) with the following name/value pairs:
 
 | name                   |required| type                                  |unit| description                                   |
 |------------------------|--------------|---------------------------------------|-------|-----------------------------------------------|
@@ -87,7 +87,7 @@ The `SsdSmartData` diagnostics object has the following properties:
 
 ## 2 Captures
 
-`ntia-diagnostics` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+`ntia-diagnostics` does not provide additional keys to [Captures](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
 

@@ -2,16 +2,16 @@
 
 The ntia-sensor namespace provides metadata to describe RF sensors.
 
-`ntia-sensor` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
+`ntia-sensor` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
 
-`ntia-sensor` extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
+`ntia-sensor` extends the [Global](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#global-object) with the following name/value pairs:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`sensor`|false|[Sensor](#11-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
-|`calibration_datetime`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Time of last calibration. RECOMMENDED.|
+|`calibration_datetime`|false|string|ISO-8601, see ["The `datetime` Field"](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md)|Time of last calibration. RECOMMENDED.|
 
 ### 1.1 Sensor Object
 

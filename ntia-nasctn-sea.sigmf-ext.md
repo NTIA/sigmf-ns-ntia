@@ -2,11 +2,11 @@
 
 The `ntia-nasctn-sea` namespace provides SigMF metadata extensions for the NASCTN Sharing Ecosystem Assessment (SEA) project.
 
-`ntia-nasctn-sea` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
+`ntia-nasctn-sea` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
 
-`ntia-nasctn-sea` defines the following keys that extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object):
+`ntia-nasctn-sea` defines the following keys that extend the [Global](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#global-object):
 
 | name                            | required | type     |unit| description                                   |
 |---------------------------------|----------|----------|-------|-----------------------------------------------|
@@ -15,11 +15,11 @@ The `ntia-nasctn-sea` namespace provides SigMF metadata extensions for the NASCT
 
 ## 2 Captures
 
-`ntia-nasctn-sea` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+`ntia-nasctn-sea` does not provide additional keys to [Captures](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
 
-`ntia-nasctn-sea` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
+`ntia-nasctn-sea` does not extend [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array).
 
 ## 4 Example
 

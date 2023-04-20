@@ -2,11 +2,11 @@
 
 The ntia-algorithm namespace describes algorithms applied to measurements.
 
-`ntia-algorithm` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
+`ntia-algorithm` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
 
-`ntia-algorithm` extends [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
+`ntia-algorithm` extends [Global](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#global-object) with the following name/value pairs:
 
 | name              |required| type                                        |unit| description                                                                                                                                                 |
 |-------------------|--------------|---------------------------------------------|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -106,7 +106,7 @@ A `Trace`
 
 ## 2 Captures
 
-`ntia-algorithm` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+`ntia-algorithm` does not provide additional keys to [Captures](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
 

@@ -2,11 +2,11 @@
 
 The `ntia-core` namespace adds generally useful metadata fields.
 
-`ntia-core` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
+`ntia-core` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
 
-`ntia-core` defines an `Antenna` object that is referenced through other global extensions ([ntia-sensor](ntia-sensor.sigmf-ext.md), [ntia-emitter](ntia-emitter.sigmf-ext.md)) and extends the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object) with the following name/value pairs:
+`ntia-core` defines an `Antenna` object that is referenced through other global extensions ([ntia-sensor](ntia-sensor.sigmf-ext.md), [ntia-emitter](ntia-emitter.sigmf-ext.md)) and extends the [Global](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#global-object) with the following name/value pairs:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
@@ -20,8 +20,8 @@ The Measurement object summarizes the basic measurement information including  w
 |----|--------------|-------|-------|-----------|
 |`domain`|true|string|N/A| `"time"` or  `"frequency"`|
 |`measurement_type`|true|string|N/A|Method by which the signal analyzer acquires data: `"single-frequency"`or `"scan"`.|
-|`time_start`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  began execution.|
-|`time_stop`|true|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|When the action  finished execution.|
+|`time_start`|true|string|ISO-8601, see ["The `datetime` Field"](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md)|When the action  began execution.|
+|`time_stop`|true|datetime|ISO-8601, see ["The `datetime` Field"](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md)|When the action  finished execution.|
 |`frequency_tuned_low`|true|double|Hz|Lowest tuned frequency.|
 |`frequency_tuned_high`|true|double|Hz|Highest tuned  frequency.|
 |`frequency_tuned_step`|false|double|Hz|Step between tuned frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
@@ -65,11 +65,11 @@ The Measurement object summarizes the basic measurement information including  w
 
 ## 2 Captures
 
-`ntia-core` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+`ntia-core` does not provide additional keys to [Captures](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
 
-`ntia-core` extends [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array) with segments of different types defined throughout the set of NTIA extensions to the core SigMF specification. `annotation_type` is defined with the following name/value pair:
+`ntia-core` extends [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array) with segments of different types defined throughout the set of NTIA extensions to the core SigMF specification. `annotation_type` is defined with the following name/value pair:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|

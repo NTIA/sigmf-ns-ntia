@@ -2,11 +2,11 @@
 
 The `ntia-waveform` namespace provides models and parameters for textbook and standardized complex-baseband waveforms. The intention is to build a library of simulated waveforms for testing and training signal identification algorithms. The waveform library can also be used for signal generation purposes in system level interference tests.
 
-`ntia-waveform` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
+`ntia-waveform` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
 
-`ntia-waveform` does not directly extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). `ntia-waveform` defines a waveform object and additional extensions of the waveform object.  The waveform objects may be utilized within the `emitter` object provided by [ntia-emitter](ntia-emitter.sigmf-ext.md).
+`ntia-waveform` does not directly extend the [Global](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#global-object). `ntia-waveform` defines a waveform object and additional extensions of the waveform object.  The waveform objects may be utilized within the `emitter` object provided by [ntia-emitter](ntia-emitter.sigmf-ext.md).
 
 ### 1.1 Waveform Object
 
@@ -41,11 +41,11 @@ IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wire
 
 ## 2 Captures
 
-`ntia-waveform` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+`ntia-waveform` does not provide additional keys to [Captures](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
 
-`ntia-waveform` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array)..
+`ntia-waveform` does not extend [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array)..
 
 ## 4 Example
 

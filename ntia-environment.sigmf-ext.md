@@ -2,11 +2,11 @@
 
 The `ntia-environment` extension provides SigMF metadata extensions to characterize the environment factors around a sensor and\or emitter.
 
-`ntia-environment` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
+`ntia-environment` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
 
-`ntia-environment` does not provide additional keys to [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object), but defines the [Environment](#11-environment-object) object that is referenced from [Sensor](ntia-sensor.sigmf-ext.md#12sensor-object) and [Emitter](ntia-emitter.sigmf-ext.md#11-emitter-object).
+`ntia-environment` does not provide additional keys to [Global](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#global-object), but defines the [Environment](#11-environment-object) object that is referenced from [Sensor](ntia-sensor.sigmf-ext.md#12sensor-object) and [Emitter](ntia-emitter.sigmf-ext.md#11-emitter-object).
 
 ### 1.1 Environment Object
 
@@ -22,11 +22,11 @@ The `ntia-environment` extension provides SigMF metadata extensions to character
 
 ## 2 Captures
 
-`ntia-environment` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+`ntia-environment` does not provide additional keys to [Captures](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
 
-`ntia-environment` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
+`ntia-environment` does not extend [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array).
 
 ## 4 Example
 

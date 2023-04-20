@@ -2,11 +2,11 @@
 
 The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Spectrum Characterization and Occupancy Sensing (SCOS) system.
 
-`ntia-scos` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
+`ntia-scos` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
 
 ## 1 Global
 
-`ntia-scos` defines the following keys that extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object):
+`ntia-scos` defines the following keys that extend the [Global](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#global-object):
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
@@ -21,8 +21,8 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
 |----|--------------|-------|-------|-----------|
 |`id`|true|string|N/A|Unique identifier for the `ScheduleEntry`|
 |`name`|true|string|N/A|User specified name of the schedule.|
-|`start`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Requested time to schedule the first task.|
-|`stop`|false|datetime|[ISO-8601](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#the-datetime-pair)|Requested time to end execution of tasks under the schedule.|
+|`start`|false|string|ISO-8601, see ["The `datetime` Field"](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md)|Requested time to schedule the first task.|
+|`stop`|false|string|ISO-8601, see ["The `datetime` Field"](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md)|Requested time to end execution of tasks under the schedule.|
 |`interval`|false|integer|Seconds|Seconds between tasks. If unspecified, the task will execute once and the schedule will become inactive|
 |`priority`|false|integer|N.A|The priority of the schedule. Lower numbers indicate higher priority.|
 |`roles`|false|string[]|N.A|The user roles that are allowed to access acquisitions from the schedule.|
@@ -37,11 +37,11 @@ The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Sp
 
 ## 2 Captures
 
-`ntia-scos` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+`ntia-scos` does not provide additional keys to [Captures](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#captures-array).
 
 ## 3 Annotations
 
-`ntia-scos` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array).
+`ntia-scos` does not extend [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array).
 
 ## 4 Example
 
