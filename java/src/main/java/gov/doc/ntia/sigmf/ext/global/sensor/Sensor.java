@@ -42,6 +42,7 @@ public class Sensor implements Serializable {
   @JsonProperty(value = "geolocation", required = false)
   protected GeoJsonPoint geolocation;
 
+  @Deprecated
   @JsonProperty(value = "location", required = false)
   protected Location location;
 
