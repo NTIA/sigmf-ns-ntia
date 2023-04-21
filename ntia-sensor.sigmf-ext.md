@@ -103,6 +103,29 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`filter_id`|true|string|N/A|ID of the filter.|
 |`amplifier_id`|true|string|N/A|ID of the amplifier.|
 
+### 0.8 The `Calibration` Object
+
+| name          |required| type                                  | unit    | description                                 |
+|---------------|--------------|---------------------------------------|---------|---------------------------------------------|
+|`gain`|false|double|N/A|Gain of signal analyzer or sensor (may differ with signal analyzer gain setting).|
+|`noise_figure`|false|double|dB|Noise figure of signal analyzer or sensor.|
+|`1db_compression_point`|false|double|dBm|Maximum input of signal analyzer or sensor.|
+|`enbw`|false|double|Hz|Equivalent noise bandwidth of signal analyzer or sensor.|
+|`gain_preselector`|false|double|dB|Gain of sensor preselector.|
+|`mean_noise_power`|false|double|Defined in `mean_noise_power_units`|Mean noise power density of sensor.|
+|`mean_noise_power_units`|false|string|N/A|The units of the mean_noise_power|
+|`mean_noise_power_reference`|false|string|N/A| Reference source for the mean_noise_power, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`|
+| `temperature` |false|double| celsius | The temperature during calibration.         |
+
+### 0.9 The `SiganSettings` Object
+
+| name                         |required| type    | unit | description                                |
+|------------------------------|--------------|---------|------|--------------------------------------------|
+| `gain`                       |false| double  | dB   | Gain of signal analyzer.                   |
+| `reference_level`            |false| double  | dBm  | Reference level of the signal analyzer.    |
+| `attenuation`                |false| double  | dB   | Attenuation of the signal analyzer.        |
+| `preamp_enable`              |false| boolean | N/A  | True if signal analyzer preamp is enabled. |
+
 ## 1 Global
 
 The `ntia-sensor` extension adds the following fields to the `global` SigMF object:
@@ -122,32 +145,9 @@ The `calibration_datetime` MUST be an ISO-8601 string, as defined by [RFC 3339](
 |----------------------|--------------|-------------------------------------------|---------|------------------------------------------------|
 | `duration`           |false| int                                       |milliseconds| Duration of IQ signal capture.                 |
 | `overload`           |false| boolean                                   |N/A| Indicates if signal analyzer overload occurred |
-| `sensor_calibration` |false| [Calibration](#21-calibration-object)     |N/A| Sensor calibration metadata.                   |
-| `sigan_calibration`  |false| [Calibration](#21-calibration-object)     |N/A| Signal analyzer calibration metadata.          |
-| `sigan_settings`     |false| [SiganSettings](#22-sigansettings-object) |N/A| Signal analyzer settings used during capture.  |
-
-### 2.1 Calibration Object
-
-| name          |required| type                                  | unit    | description                                 |
-|---------------|--------------|---------------------------------------|---------|---------------------------------------------|
-|`gain`|false|double|N/A|Gain of signal analyzer or sensor (may differ with signal analyzer gain setting).|
-|`noise_figure`|false|double|dB|Noise figure of signal analyzer or sensor.|
-|`1db_compression_point`|false|double|dBm|Maximum input of signal analyzer or sensor.|
-|`enbw`|false|double|Hz|Equivalent noise bandwidth of signal analyzer or sensor.|
-|`gain_preselector`|false|double|dB|Gain of sensor preselector.|
-|`mean_noise_power`|false|double|Defined in `mean_noise_power_units`|Mean noise power density of sensor.|
-|`mean_noise_power_units`|false|string|N/A|The units of the mean_noise_power|
-|`mean_noise_power_reference`|false|string|N/A| Reference source for the mean_noise_power, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`|
-| `temperature` |false|double| celsius | The temperature during calibration.         |
-
-### 2.2 SiganSettings Object
-
-| name                         |required| type    | unit | description                                |
-|------------------------------|--------------|---------|------|--------------------------------------------|
-| `gain`                       |false| double  | dB   | Gain of signal analyzer.                   |
-| `reference_level`            |false| double  | dBm  | Reference level of the signal analyzer.    |
-| `attenuation`                |false| double  | dB   | Attenuation of the signal analyzer.        |
-| `preamp_enable`              |false| boolean | N/A  | True if signal analyzer preamp is enabled. |
+| `sensor_calibration` |false| [Calibration](#08-the-calibration-object)     |N/A| Sensor calibration metadata.                   |
+| `sigan_calibration`  |false| [Calibration](#08-the-calibration-object)     |N/A| Signal analyzer calibration metadata.          |
+| `sigan_settings`     |false| [SiganSettings](#09-the-sigansettings-object) |N/A| Signal analyzer settings used during capture.  |
 
 ## 3 Annotations
 
