@@ -15,16 +15,16 @@ public class AmplitudeProbabilityDistribution extends DataProduct {
   @JsonProperty(required = true)
   protected String units;
 
-  @JsonProperty(value = "amplitude_bin_size", required = true)
+  @JsonProperty(value = "amplitude_bin_size", required = false)
   protected Double amplitudeBinSize;
 
   @JsonProperty(required = false)
   protected String reference;
 
-  @JsonProperty(value = "max_amplitude", required = true)
+  @JsonProperty(value = "max_amplitude", required = false)
   protected Double maxAmplitude;
 
-  @JsonProperty(value = "min_amplitude", required = true)
+  @JsonProperty(value = "min_amplitude", required = false)
   protected Double minAmplitude;
 
   @JsonProperty(value = "probability_units")
