@@ -26,6 +26,7 @@ public class ScosExample implements Example {
   public static Action getAction() {
     Action action = new Action();
     action.setName("acquire_m4s_700MHz_Verizon_UL");
+    action.setDescription("Typically, this would be a detailed description.")
     action.setSummary("Apply m4s detector over 300 1024-pt FFTs at 782 MHz.");
     return action;
   }
@@ -39,6 +40,7 @@ public class ScosExample implements Example {
     calendar.add(Calendar.DAY_OF_WEEK, 7);
     scheduleEntry.setStop(calendar.getTime());
     scheduleEntry.setInterval(1);
+    scheduleEntry.setPriority(10);
     return scheduleEntry;
   }
 
@@ -160,6 +162,8 @@ public class ScosExample implements Example {
     global.setExtensions(getExtensions());
     global.setSchedule(getScheduleEntry());
     global.setAction(getAction());
+    global.setTask(1);
+    global.setRecording(1);
     MetaDoc metaDoc = new MetaDoc();
     metaDoc.setGlobal(global);
     return metaDoc;
