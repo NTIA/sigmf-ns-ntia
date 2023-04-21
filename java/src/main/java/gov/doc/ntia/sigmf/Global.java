@@ -112,6 +112,7 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-core:measurement", required = true)
   protected Measurement measurement;
 
+  @JsonProperty(value = "core:geolocation", required = false)
   protected GeoJsonPoint geolocation;
 
   @JsonProperty(value = "ntia-algorithm:data_products", required = false)
