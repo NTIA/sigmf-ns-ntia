@@ -16,6 +16,9 @@ public class CaptureExample implements Example {
     SensorCapture sensorCapture = new SensorCapture();
     sensorCapture.setFrequency(3615000000.0);
     sensorCapture.setDateTime(Calendar.getInstance().getTime());
+    sensorCapture.setSampleStart(0);
+    sensorCapture.setGlobalIndex(0);
+    sensorCapture.setHeaderBytes(0);
     sensorCapture.setOverload(false);
     SensorCalibration sensorCalibration = new SensorCalibration();
     sensorCalibration.setGain(31.003);
