@@ -68,8 +68,7 @@ The `Computer` diagnostics object has the following properties:
 | `system_load_5m`          |false| double                          | percent        | Number of processes in a runnable state over the previous 5 minutes as a percent of the number of CPUs. |
 | `memory_usage`     |false| double                          | percent        | Average percent of memory used during action execution.                                                  |
 | `cpu_overheating`      |false| boolean                         | N/A            | True if the CPU is overheating.                                                                             |
-| `drive_usage`      |false| double                          | percent        | Percent of persistent storage used.                                                                     |
-| `cpu_emp`             |false| double                          | degree Celsius | CPU temperature.                                                                                   |
+| `cpu_temp`             |false| double                          | degree Celsius | CPU temperature.                                                                                   |
 | `scos_start`       |false| string                          |ISO-8601 (see above)| The time at which the SCOS API container started.                   |
 | `scos_uptime`      |false| double                          | days           | Number of days since the SCOS API container started.                                                    |
 | `ssd_smart_data`   |false| [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) | N/A           | Information provided by the drive Self-Monitoring, Analysis, and Reporting Technology.                  |
