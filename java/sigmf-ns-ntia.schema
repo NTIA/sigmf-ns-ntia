@@ -672,9 +672,6 @@
         "humidity" : {
           "type" : "number"
         },
-        "rf_tray_powered" : {
-          "type" : "boolean"
-        },
         "noise_diode_temp" : {
           "type" : "number"
         },
