@@ -790,6 +790,9 @@
         "core:global_index" : {
           "type" : "integer"
         },
+        "core:header_bytes" : {
+          "type" : "integer"
+        },
         "core:frequency" : {
           "type" : "number"
         },
