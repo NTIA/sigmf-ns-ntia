@@ -60,9 +60,9 @@ The `Computer` diagnostics object has the following properties:
 
 | name               |required| type                            | unit           | description                                                                                             |
 |--------------------|--------------|---------------------------------|----------------|---------------------------------------------------------------------------------------------------------|
-| `min_clock_speed`  |false| double                          | MHz            | Minimum sampled clock speed.                                                                            |
-| `max_clock_speed`  |false| double                          | MHz            | Maximum sampled clock speed.                                                                            |
-| `mean_clock_speed` |false| double                          | MHz            | Mean sampled clock speed.                                                                               |
+| `cpu_min_clock`  |false| double                          | MHz            | Minimum sampled clock speed.                                                                            |
+| `cpu_max_clock`  |false| double                          | MHz            | Maximum sampled clock speed.                                                                            |
+| `cpu_mean_clock` |false| double                          | MHz            | Mean sampled clock speed.                                                                               |
 | `boot_time`        |false| string                          |ISO-8601 (see above)| The time at which the computer last started.                        |
 | `cpu_usage`        |false| double                          | percent        | CPU utilization during action execution.                                                                |
 | `load_5m`          |false| double                          | percent        | Number of processes in a runnable state over the previous 5 minutes as a percent of the number of CPUs. |
