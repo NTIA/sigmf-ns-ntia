@@ -104,6 +104,7 @@ An `AmplitudeProbabilityDistribution` object is used to describe an APD, and sup
 | `max_amplitude`      | false     | double               |`units`| Maximum value of the amplitude, or y-axis.                                                                                                                                  |
 | `reference`          | false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
 | `digital_filter`     | false    | string               |N/A| The ID of the digital filter used in this data product.                                                                                                                    |
+|`probability_units`   | false    | string | N/A| The units of the probability values in the data product, e.g. `"percent"` |
 
 ### 0.7 The `Trace` Object
 
