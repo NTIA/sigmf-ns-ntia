@@ -825,11 +825,8 @@
         "core:freq_upper_edge" : {
           "type" : "number"
         },
-        "core:latitude" : {
-          "type" : "number"
-        },
-        "core:longitude" : {
-          "type" : "number"
+        "core:uuid" : {
+          "type" : "string"
         }
       },
       "required" : [ "core:sample_start", "core:sample_count" ]
