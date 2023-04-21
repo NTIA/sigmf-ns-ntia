@@ -34,7 +34,7 @@ The `Preselector` diagnostics object has the following properties:
 
 | name                   |required| type                                  | unit           | description                                                     |
 |------------------------|--------------|---------------------------------------|----------------|-----------------------------------------------------------------|
-|`internal_temp`|false|double| degree Celsius | Temperature inside the preselector enclosure.                   |
+|`temp`|false|double| degree Celsius | Temperature inside the preselector enclosure.                   |
 |`noise_diode_temp`|false|double| degree Celsius | Temperature of the noise diode.                                 |
 |`lna_temp`|false|double| degree Celsius | Temperature of the low noise amplifier.                         |
 |`humidity`|false|double| percent        | Relative humidity inside the preselector enclosure.             |
