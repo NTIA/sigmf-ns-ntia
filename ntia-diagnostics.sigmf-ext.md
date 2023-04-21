@@ -1,4 +1,4 @@
-# ntia-diagnostics extension v1.0.0
+# The `ntia-diagnostics` SigMF Extension Namespace v1.0.0
 
 The ntia-diagnostics namespace provides metadata to describe system diagnostic information.
 

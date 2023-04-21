@@ -1,4 +1,4 @@
-# ntia-environment extension v1.0.0
+# The `ntia-environment` SigMF Extension Namespace v1.0.0
 
 The `ntia-environment` extension provides SigMF metadata extensions to characterize the environment factors around a sensor and\or emitter.
 

@@ -1,4 +1,4 @@
-# ntia-waveform Extension v1.0.0
+# The `ntia-waveform` SigMF Extension Namespace v1.0.0
 
 The `ntia-waveform` namespace provides models and parameters for textbook and standardized complex-baseband waveforms. The intention is to build a library of simulated waveforms for testing and training signal identification algorithms. The waveform library can also be used for signal generation purposes in system level interference tests.
 

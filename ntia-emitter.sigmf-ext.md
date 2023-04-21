@@ -1,4 +1,4 @@
-# ntia-emitter Extension v1.0.0
+# The `ntia-emitter` SigMF Extension Namespace v1.0.0
 
 The ntia-emitter namespace provides emitter defintion and properties.
 

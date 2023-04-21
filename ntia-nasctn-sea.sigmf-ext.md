@@ -1,4 +1,4 @@
-# ntia-nasctn-sea extension v0.4.0
+# The `ntia-nasctn-sea` SigMF Extension Namespace v0.4.0
 
 The `ntia-nasctn-sea` namespace provides SigMF metadata extensions for the NASCTN Sharing Ecosystem Assessment (SEA) project.
 

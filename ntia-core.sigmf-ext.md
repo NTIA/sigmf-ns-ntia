@@ -1,4 +1,4 @@
-# ntia-core Extension v1.0.0
+# The `ntia-core` SigMF Extension Namespace v1.0.0
 
 The `ntia-core` namespace adds generally useful metadata fields.
 

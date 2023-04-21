@@ -1,4 +1,4 @@
-# ntia-algorithm Extension v2.0.0
+# The `ntia-algorithm` SigMF Extension Namespace v2.0.0
 
 The ntia-algorithm namespace describes algorithms applied to measurements.
 

@@ -1,4 +1,4 @@
-# ntia-scos extension v1.0.0
+# The `ntia-scos` SigMF Extension Namespace v1.0.0
 
 The `ntia-scos` namespace provides SigMF metadata extensions for the NTIA/ITS Spectrum Characterization and Occupancy Sensing (SCOS) system.
 
