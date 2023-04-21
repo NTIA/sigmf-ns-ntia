@@ -21,6 +21,9 @@ public class Capture implements Serializable {
   @JsonProperty(value = "core:global_index", required = false)
   protected Long globalIndex;
 
+  @JsonProperty(value = "core:header_bytes", required = false)
+  protected Long headerBytes;
+
   @JsonProperty(value = "core:frequency", required = false)
   protected Double frequency;
 
@@ -45,6 +48,14 @@ public class Capture implements Serializable {
 
   public void setGlobalIndex(Long globalIndex) {
     this.globalIndex = globalIndex;
+  }
+
+  public Long getHeaderBytes() {
+    return headerBytes;
+  }
+
+  public void setHeaderBytes(Long headerBytes) {
+    this.headerBytes = headerBytes;
   }
 
   public Double getFrequency() {
