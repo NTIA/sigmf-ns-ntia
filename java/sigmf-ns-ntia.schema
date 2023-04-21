@@ -28,9 +28,6 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "core:geolocation" : {
-          "$ref" : "#/definitions/GeoJsonPoint"
-        },
         "core:datatype" : {
           "type" : "string"
         },
@@ -39,6 +36,9 @@
         },
         "core:version" : {
           "type" : "string"
+        },
+        "core:num_channels" : {
+          "type" : "integer"
         },
         "core:sha512" : {
           "type" : "string"
@@ -67,7 +67,22 @@
         "core:hw" : {
           "type" : "string"
         },
+        "core:dataset" : {
+          "type" : "string"
+        },
+        "core:trailing_bytes" : {
+          "type" : "integer"
+        },
+        "core:metadata_only" : {
+          "type": "boolean"
+        },
+        "core:geolocation" : {
+          "$ref" : "#/definitions/GeoJsonPoint"
+        },
         "core:extensions" : { },
+        "core:collection" : {
+          "type" : "string"
+        },
         "ntia-sensor:sensor" : {
           "$ref" : "#/definitions/Sensor"
         },

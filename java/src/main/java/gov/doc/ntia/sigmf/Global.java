@@ -40,6 +40,11 @@ public class Global implements Serializable {
   @JsonProperty(value = "core:version", required = true)
   protected String version;
 
+  // Total number of interleaved channels in the dataset file.
+  // If omitted, this defaults to one.
+  @JsonProperty(value = "core:num_channels", required = false)
+  protected Long num_channels = 1;
+
   // The SHA512 hash of the dataset file associated with the SigMF file.
   @JsonProperty(value = "core:sha512", required = false)
   protected String sha512;
@@ -79,8 +84,30 @@ public class Global implements Serializable {
   @JsonProperty(value = "core:hw", required = false)
   protected String hw;
 
+  // The full filename of the dataset this metadata describes
+  @JsonProperty(value = "core:dataset", required = false)
+  protected String dataset;
+
+  // The number of bytes to ignore at the end of a Non-Conforming dataset file
+  @JsonProperty(value = "core:trailing_bytes", required = false)
+  protected Long trailingBytes;
+
+  // Indicates the metadata is intentionally distributed without the dataset
+  @JsonProperty(value = "core:metadata_only", required = false)
+  protected Bool metadataOnly;
+
+  // the location of the recording system
+  @JsonProperty(value = "core:geolocation", required = false)
+  protected GeoJsonPoint geolocation;
+
+  // A list of JSON objects describing extensions used by this recording
+  // TODO: Update the extensions object
   @JsonProperty(value = "core:extensions", required = false)
   protected Extensions extensions;
+
+  // The base filename of a SigMF collection with which this recording is associated
+  @JsonProperty(value = "core:collection", required = false)
+  protected String collection;
 
   @JsonProperty(value = "ntia-sensor:sensor", required = false)
   protected Sensor sensor;
@@ -111,9 +138,6 @@ public class Global implements Serializable {
 
   @JsonProperty(value = "ntia-core:measurement", required = true)
   protected Measurement measurement;
-
-  @JsonProperty(value = "core:geolocation", required = false)
-  protected GeoJsonPoint geolocation;
 
   @JsonProperty(value = "ntia-algorithm:data_products", required = false)
   protected DataProducts dataProducts;
@@ -316,12 +340,52 @@ public class Global implements Serializable {
     this.measurement = measurement;
   }
 
+  public Long getNumChannels() {
+    return numChannels;
+  }
+
+  public void setNumChannels(Long numChannels) {
+    this.numChannels = numChannels;
+  }
+
+  public String getDataset() {
+    return dataset;
+  }
+
+  public void setDataset(String dataset) {
+    this.dataset = dataset;
+  }
+
+  public Long getTrailingBytes() {
+    return trailingBytes;
+  }
+
+  public void setTrailingBytes(Long trailingBytes) {
+    this.trailingBytes = trailingBytes;
+  }
+
+  public Bool getMetadataOnly() {
+    return metadataOnly;
+  }
+
+  public void setMetadataOnly(Bool metadataOnly) {
+    this.metadataOnly = metadataOnly;
+  }
+
   public GeoJsonPoint getGeolocation() {
     return this.geolocation;
   }
 
   public void setGeolocation(GeoJsonPoint location) {
     this.geolocation = location;
+  }
+
+  public String getCollection() {
+    return collection;
+  }
+
+  public void setCollection(String collection) {
+    this.collection = collection;
   }
 
   public void addDataProduct(DataProduct dataProduct) {
