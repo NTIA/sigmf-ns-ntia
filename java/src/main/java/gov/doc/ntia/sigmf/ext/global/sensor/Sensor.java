@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import gov.doc.ntia.sigmf.GeoJsonPoint;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.environment.Environment;
@@ -38,9 +37,6 @@ public class Sensor implements Serializable {
 
   @JsonProperty(value = "mobile", required = false)
   protected Boolean mobile;
-
-  @JsonProperty(value = "geolocation", required = false)
-  protected GeoJsonPoint geolocation;
 
   @Deprecated
   @JsonProperty(value = "location", required = false)
@@ -142,14 +138,6 @@ public class Sensor implements Serializable {
   @JsonAnySetter
   public void add(String key, Object value) {
     otherFields.put(key, value);
-  }
-
-  public GeoJsonPoint getGeolocation() {
-    return geolocation;
-  }
-
-  public void setGeolocation(GeoJsonPoint geolocation) {
-    this.geolocation = geolocation;
   }
 
   public String getSensorSha512() {
