@@ -301,7 +301,7 @@ public class Global implements Serializable {
     return filePath;
   }
 
-  public void setFilePath(String filePath) {
+  public void setFilepath(String filePath) {
     this.filePath = filePath;
   }
 
