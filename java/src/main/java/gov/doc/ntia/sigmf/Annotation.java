@@ -36,9 +36,14 @@ public class Annotation implements Serializable {
   @JsonProperty(value = "core:freq_upper_edge", required = false)
   protected Double freqUpperEdge;
 
+  @JsonProperty(value = "uuid", required = false)
+  protected String uuid;
+
+  @Deprecated
   @JsonProperty(value = "core:latitude", required = false)
   protected Double latitude;
 
+  @Deprecated
   @JsonProperty(value = "core:longitude", required = false)
   protected Double longitude;
 
@@ -92,18 +97,30 @@ public class Annotation implements Serializable {
     this.freqUpperEdge = freqUpperEdge;
   }
 
+  public String getUuid() {
+    return uuid;
+  }
+
+  public void setUuid(String uuid) {
+    this.uuid = uuid;
+  }
+
+  @Deprecated
   public Double getLatitude() {
     return latitude;
   }
 
+  @Deprecated
   public void setLatitude(Double latitude) {
     this.latitude = latitude;
   }
 
+  @Deprecated
   public Double getLongitude() {
     return longitude;
   }
 
+  @Deprecated
   public void setLongitude(Double longitude) {
     this.longitude = longitude;
   }
