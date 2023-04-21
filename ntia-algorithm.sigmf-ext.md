@@ -1,6 +1,6 @@
 # The `ntia-algorithm` SigMF Extension Namespace v2.0.0
 
-The ntia-algorithm namespace describes algorithms applied to measurements.
+The `ntia-algorithm` namespace describes algorithms applied to measurements.
 
 `ntia-algorithm` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
 

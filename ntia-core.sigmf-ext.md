@@ -10,7 +10,7 @@ The `ntia-core` namespace adds generally useful metadata fields.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`measurement`|false|[Measurement](#11-measurement-object)|N/A|Summarizes the basic information of the measurement. This object SHOULD be included for any measurement.|. ntia-core
+|`measurement`|false|[Measurement](#11-measurement-object)|N/A|Summarizes the basic information of the measurement. This object SHOULD be included for any measurement.|
 
 ### 1.1 Measurement Object
 

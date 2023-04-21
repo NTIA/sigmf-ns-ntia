@@ -1,6 +1,6 @@
 # The `ntia-sensor` SigMF Extension Namespace v2.0.0
 
-The ntia-sensor namespace provides metadata to describe RF sensors.
+The `ntia-sensor` namespace provides metadata to describe RF sensors.
 
 `ntia-sensor` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
 

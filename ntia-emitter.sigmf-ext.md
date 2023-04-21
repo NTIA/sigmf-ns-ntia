@@ -1,6 +1,6 @@
 # The `ntia-emitter` SigMF Extension Namespace v1.0.0
 
-The ntia-emitter namespace provides emitter defintion and properties.
+The `ntia-emitter` namespace provides emitter defintion and properties.
 
 `ntia-emitter` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
 

@@ -1,6 +1,6 @@
 # The `ntia-diagnostics` SigMF Extension Namespace v1.0.0
 
-The ntia-diagnostics namespace provides metadata to describe system diagnostic information.
+The `ntia-diagnostics` namespace provides metadata to describe system diagnostic information.
 
 `ntia-diagnostics` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
 
