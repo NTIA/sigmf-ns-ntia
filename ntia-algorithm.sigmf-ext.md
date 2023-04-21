@@ -124,8 +124,6 @@ The `ntia-algorithm` extension adds the following name/value pairs to the `globa
 | `digital_filters` |false| [DigitalFilter[]](#01-the-digitalfilter-object) |N/A| Digital filters applied to the data. If only one digital filter is listed, it is not necessary to reference it in the [DataProducts](12-dataproducts-object) |
 | `data_products`   |false| [DataProducts](#02-the-dataproducts-object)     |N/A| The list of data products produced for each capture                                                                                                          |
 
-                                                             |
-
 ## 2 Captures
 
 The `ntia-algorithm` extension does not extend the `captures` SigMF object.
