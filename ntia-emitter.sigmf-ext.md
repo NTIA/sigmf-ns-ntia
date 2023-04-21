@@ -1,44 +1,52 @@
 # The `ntia-emitter` SigMF Extension Namespace v1.0.0
 
-The `ntia-emitter` namespace provides emitter defintion and properties.
+This document defines the `ntia-emitter` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides emitter defintion and properties.
 
-`ntia-emitter` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
+## 0 Datatypes
 
-## 1 Global
+The `ntia-emitter` extension defines the following datatype:
 
-`ntia-emitter` extends the [Global](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#global-object) with the following name/value pairs:
+|name|long-form name|description|
+|----|--------------|-----------|
+|`Emitter`|signal emitter|JSON [`Emitter`](#01-the-emitter-object) object containing information describing a signal emitter, including its physical properties, emitted waveform, and environment|
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-`emitters`|false|[Emitter](#11-emitter-object)[]|N/A|Metadata that describe emitters
+### 0.1 The `Emitter` Object
 
-### 1.1 Emitter Object
-
-`Emitter` object has the following properties:
+An `Emitter` object describes the physical and environmental characteristics of a signal emitter, and has the following properties:
 
 | name               |required|type|unit| description                                          |
 |--------------------|--------------|-------|-------|------------------------------------------------------|
-| `id`               |true|string|N/A| Unique ID of the emitter.                            |
-| `description`      |false|string|N/A| Description of the emitter.                          |
-| `power`            |false|double|dBm| Power referenced to antenna input.                   |
-| `antenna`          |false|[Antenna](ntia-core.sigmf-ext.md#12-antenna-object)|N/A| Metadata that describes the antenna.                 |
-| `transmitter`      |false|[HardwareSpec](ntia-core.sigmf-ext.md#13-hardwarespec-object)|N/A| Metadata that describes the transmitter.             |
-| `center_frequency` |false|double|Hz| Center frequency.                                    |
-| `waveform`         |false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A| Metadata that describes transmitted waveform.        |
-| `geolocation`      |false|GeoJSON point Object|N/A| The location of the `Emitter`.                       |
-| `environment`      |false|[Environment](ntia-environment.sigmf-ext.md#11-environment-object)|N/A| Specifies the environment surrounding the `Emitter`. |
+| `id`               |true|string|N/A| Unique ID of the emitter                            |
+| `description`      |false|string|N/A| Description of the emitter                          |
+| `power`            |false|double|dBm| Power referenced to antenna input                   |
+| `antenna`          |false|[Antenna](ntia-core.sigmf-ext.md#02-the-antenna-object)|N/A| Metadata that describes the antenna                 |
+| `transmitter`      |false|[HardwareSpec](ntia-core.sigmf-ext.md#03-the-hardwarespec-object)|N/A| Metadata that describes the transmitter             |
+| `center_frequency` |false|double|Hz| Center frequency                                    |
+| `waveform`         |false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A| Metadata that describes transmitted waveform        |
+| `geolocation`      |false|GeoJSON point Object|N/A| The location of the emitter                       |
+| `environment`      |false|[Environment](ntia-environment.sigmf-ext.md#01-the-environment-object)|N/A| Specifies the environment surrounding the emitter |
+
+## 1 Global
+
+The `ntia-emitter` extension adds the following field to the `global` SigMF object:
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`emitters`|false|[Emitter](#01-the-emitter-object)[]|N/A|Metadata that describe signal emitters|
 
 ## 2 Captures
 
-`ntia-emitter` does not provide additional keys to [Captures](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#captures-array).
+The `ntia-emitter` extension does not extend the `captures` SigMF object.
 
 ## 3 Annotations
 
-`ntia-emitter` does not extend [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array).
+The `ntia-emitter` extension does not extend the `annotations` SigMF object.
 
-## 4 Example
+## 4 Collection
 
-### 4.1  Example
+The `ntia-emitter` extension does not extend the `collection` SigMF object.
+
+## 5 Example
 
 ```json
 {

@@ -1,40 +1,40 @@
 # The `ntia-core` SigMF Extension Namespace v1.0.0
 
-The `ntia-core` namespace adds generally useful metadata fields.
+This document defines the `ntia-core` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides generally-useful metadata fields for NTIA's SigMF namespace extensions.
 
-`ntia-core` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
+## 0 Datatypes
 
-## 1 Global
+The `ntia-core` extension provides the following datatypes, which are referenced by this and other NTIA extensions:
 
-`ntia-core` defines an `Antenna` object that is referenced through other global extensions ([ntia-sensor](ntia-sensor.sigmf-ext.md), [ntia-emitter](ntia-emitter.sigmf-ext.md)) and extends the [Global](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#global-object) with the following name/value pairs:
+|name|long-form name|description|
+|----|--------------|-----------|
+|`Measurement`|measurement information|JSON [`Measurement`](#01-the-measurement-object) object containing basic information about the measurement|
+|`Antenna`|antenna specification|JSON [`Antenna`](#02-the-antenna-object) object specifying an antenna|
+|`HardwareSpec`|hardware specification|JSON [`HardwareSpec`](#03-the-hardwarespec-object) object, used to provide hardware details within other objects|
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`measurement`|false|[Measurement](#11-measurement-object)|N/A|Summarizes the basic information of the measurement. This object SHOULD be included for any measurement.|
+### 0.1 The `Measurement` Object
 
-### 1.1 Measurement Object
-
-The Measurement object summarizes the basic measurement information including  when the measurement was conducted, the frequency range, the domain of the sensed data and the type of measurement that was conducted.
+The Measurement object summarizes the basic measurement information including  when the measurement was conducted, the frequency range, the domain of the sensed data and the type of measurement that was conducted. The `time_start` and `time_stop` key/value pairs MUST be ISO-8601 strings, as defined by [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), where the only allowed `time-offset` is `z`, indicating the UTC/Zulu timezone. Thus, timestamps take the form of `YYYY-MM-DDTHH:MM:SS.SSSZ`, where any number of digits for fractional seconds is permitted.
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`domain`|true|string|N/A| `"time"` or  `"frequency"`|
 |`measurement_type`|true|string|N/A|Method by which the signal analyzer acquires data: `"single-frequency"`or `"scan"`.|
-|`time_start`|true|string|[ISO-8601](https://www.ietf.org/rfc/rfc3339.txt) with UTC `time_offset`, i.e., `YYYY-MM-DDTHH:MM:SS.SSSZ` with any number of digits for fractional seconds.|When the action  began execution.|
-|`time_stop`|true|string|[ISO-8601](https://www.ietf.org/rfc/rfc3339.txt) with UTC `time_offset`, i.e., `YYYY-MM-DDTHH:MM:SS.SSSZ` with any number of digits for fractional seconds.|When the action  finished execution.|
+|`time_start`|true|string|ISO-8601 (see above)|When the action  began execution.|
+|`time_stop`|true|string|ISO-8601 (see above)|When the action  finished execution.|
 |`frequency_tuned_low`|true|double|Hz|Lowest tuned frequency.|
 |`frequency_tuned_high`|true|double|Hz|Highest tuned  frequency.|
 |`frequency_tuned_step`|false|double|Hz|Step between tuned frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
 |`frequencies_tuned`|false|double[]|Hz|Array of tuned frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
 |`classification`|true|string|N/A|The classification markings for the acquisition, e.g., `UNCLASSIFIED`, `CONTROLLED//FEDCON`, `SECRET` ...|
 
-## 1.2 Antenna Object
+## 0.2 The `Antenna` Object
 
 `Antenna` object has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`antenna_spec`|true| [HardwareSpec](#13-hardwarespec-object) |N/A|Metadata to describe antenna.|
+|`antenna_spec`|true| [HardwareSpec](#03-the-hardwarespec-object) |N/A|Metadata to describe antenna.|
 |`type`|false|string|N/A|Antenna type. E.g. `"dipole"`, `"biconical"`, `"monopole"`, `"conical monopole"`.|
 |`frequency_low`|false|double|Hz|Low frequency of operational range.|
 |`frequency_high`|false|double|Hz|High frequency of operational range.|
@@ -51,7 +51,7 @@ The Measurement object summarizes the basic measurement information including  w
 |`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
-## 1.3 HardwareSpec Object
+## 0.3 The `HardwareSpec` Object
 
 `HardwareSpec` object has the following properties:
 
@@ -63,21 +63,33 @@ The Measurement object summarizes the basic measurement information including  w
 |`description`|false|string|N/A|Description of the hardware.|
 |`supplemental_information`|false|string|N/A|Information about hardware, e.g., url to on-line data sheets.|
 
+## 1 Global
+
+The `ntia-core` extension adds the following name/value pair to the `global` SigMF object:
+
+|name|required|type|unit|description|
+|----|--------------|-------|-------|-----------|
+|`measurement`|false|[Measurement](#01-the-measurement-object)|N/A|Summarizes the basic information of the measurement. This object SHOULD be included for any measurement.|
+
 ## 2 Captures
 
-`ntia-core` does not provide additional keys to [Captures](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#captures-array).
+The `ntia-core` extension does not extend the `captures` SigMF object.
 
 ## 3 Annotations
 
-`ntia-core` extends [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array) with segments of different types defined throughout the set of NTIA extensions to the core SigMF specification. `annotation_type` is defined with the following name/value pair:
+`ntia-core` extends the `annotations` SigMF object with segments of different types defined throughout the set of NTIA extensions to the core SigMF specification. `annotation_type` is defined with the following name/value pair:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`annotation_type`|true|string|N/A|Annotation type, e.g. [`"CalibrationAnnotation"`](ntia-sensor.sigmf-ext.md#32-calibrationannotation-segment), [`"DigitalFilterAnnotation"`](ntia-algorithm.sigmf-ext.md#33-digitalfilterannotation-segment), [`"FrequencyDomainDetection"`](ntia-algorithm.sigmf-ext.md#32-frequencydomaindetection-segment), [`"SensorAnnotation"`](ntia-sensor.sigmf-ext.md#31-sensorannotation-segment), [`"TimeDomainDetection"`](ntia-algorithm.sigmf-ext.md#31-timedomaindetection-segment)|
 
-## 4 Examples
+## 4 Collection
 
-### 4.1 Single-frequency Measurement Example
+The `ntia-core` extension does not extend the `collection` SigMF object.
+
+## 5 Examples
+
+### 5.1 Single-frequency Measurement Example
 
 ```json
 {
@@ -106,7 +118,7 @@ The Measurement object summarizes the basic measurement information including  w
 }
   ```
 
-### 4.3 Scan Measurement Example
+### 5.2 Scan Measurement Example
 
 ```json  
 {

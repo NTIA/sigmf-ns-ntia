@@ -1,36 +1,44 @@
 # The `ntia-environment` SigMF Extension Namespace v1.0.0
 
-The `ntia-environment` extension provides SigMF metadata extensions to characterize the environment factors around a sensor and\or emitter.
+This document defines the `ntia-environment` extension namespace for the Signal Metadata Format (SigMF) specification. This namespace extension helps to characterize the environment factors around a sensor and\or emitter.
 
-`ntia-environment` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
+## 0 Datatypes
 
-## 1 Global
+The `ntia-environment` extension defines the following datatype, which is referenced by [`ntia-sensor`](/ntia-sensor.sigmf-ext.md) and [`ntia-emitter`](/ntia-emitter.sigmf-ext.md):
 
-`ntia-environment` does not provide additional keys to [Global](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#global-object), but defines the [Environment](#11-environment-object) object that is referenced from [Sensor](ntia-sensor.sigmf-ext.md#12sensor-object) and [Emitter](ntia-emitter.sigmf-ext.md#11-emitter-object).
+|name|long-form name|description|
+|----|--------------|-----------|
+|`Environment`|environment|JSON [`Environment`](#01-the-environment-object) object containing information describing the physical environment surrounding a sensor or emitter|
 
-### 1.1 Environment Object
+### 0.1 The `Environment` Object
 
-`Environment` has the following properties:
+An `Environment` object describes the physical environment surrounding an emitter or sensor, and has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`category`|false|string|N/A|Categorical description of the environment where sensor is mounted. E.g. `"indoor"`, `"outdoor-urban"`, `"outdoor-rural"`.|
 |`temperature`|false|float|celsius|Environmental temperature.|
 |`humidity`|false|float|%|Relative humidity.|
-|`weather`|false|string|N/A|Weather around the sensor. E.g. `"rain"`, `"snow"`.)|
+|`weather`|false|string|N/A|Weather around the sensor, e.g., `"rain"`, `"snow"`|
 |`description`|false|string|N/A|A description of the environment.|
+
+## 1 Global
+
+The `ntia-environment` extension does not extend the `global` SigMF object.
 
 ## 2 Captures
 
-`ntia-environment` does not provide additional keys to [Captures](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#captures-array).
+The `ntia-environment` extension does not extend the `captures` SigMF object.
 
 ## 3 Annotations
 
-`ntia-environment` does not extend [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array).
+The `ntia-environment` extension does not extend the `annotations` SigMF object.
 
-## 4 Example
+## 4 Collection
 
-### 4.1 Environment Example
+The `ntia-environment` extension does not extend the `collection` SigMF object.
+
+## 5 Example
 
 ```json
 {

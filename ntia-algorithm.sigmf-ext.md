@@ -1,25 +1,28 @@
 # The `ntia-algorithm` SigMF Extension Namespace v2.0.0
 
-The `ntia-algorithm` namespace describes algorithms applied to measurements.
+This document defines the `ntia-algorithm` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace contains objects which describe algorithms applied to measurements.
 
-`ntia-algorithm` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
+## 0 Datatypes
 
-## 1 Global
+The `ntia-algorithm` extension defines the following datatypes:
 
-`ntia-algorithm` extends [Global](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#global-object) with the following name/value pairs:
+|name|long-form name|description|
+|----|--------------|-----------|
+|`DigitalFilter`|digital filter specification|JSON [`DigitalFilter`](#01-the-digitalfilter-object) object specifying a digital filter|
+|`DataProducts`|data products information|JSON [`DataProducts`](#02-the-dataproducts-object) object specifying one or multiple algorithm results referred to by the metadata, with additional information in sub-objects|
+|`PowerSpectralDensity`|frequency domain detection|JSON [`PowerSpectralDensity`](#03-the-powerspectraldensity-object) object containing metadata for a frequency-domain algorithm result|
+|`TimeSeriesPower`|time domain detection|JSON [`TimeSeriesPower`](#04-the-timeseriespower-object) object containing metadata for a time-series/time-domain algorithm result|
+|`PeriodicFramePower`|cyclostationary detection|JSON [`PeriodicFramePower`](#05-the-periodicframepower-object) object containing metadata for a periodic-frame cyclostationary algorithm result|
+|`AmplitudeProbabilityDistribution`|amplitude probability distribution|JSON [`AmplitudeProbabilityDistribution`](#06-the-amplitudeprobabilitydistribution-object) object containing metadata for a full or binned amplitude probability distribution result|
+|`Trace`|trace specification|JSON [`Trace`](#07-the-trace-object) object defining one or two traces of a data product|
 
-| name              |required| type                                        |unit| description                                                                                                                                                  |
-|-------------------|--------------|---------------------------------------------|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `digital_filters` |false| [DigitalFilter[]](#11-digitalfilter) |N/A| Digital filters applied to the data. If only one digital filter is listed, it is not necessary to reference it in the [DataProducts](12-dataproducts-object) |
-| `data_products`   |false| [DataProducts](#12-dataproducts-object)     |N/A| The list of data products produced for each capture                                                                                                          |
+### 0.1 The `DigitalFilter` Object
 
-### 1.1 DigitalFilter
-
-`DigitalFilter` has the following properties:
+A `DigitalFilter` object is used to describe a digital filter (FIR or IIR) which has been used to filter the data.
 
 | name                           | required |type|unit| description                                          |
 |--------------------------------|----------|-------------------------------------------------------------------------|-------|------------------------------------------------------------------------------------------------------|
-| `id`                           | true     |string|N/A| Unique id of the filter.                             |
+| `id`                           | true     |string|N/A| Unique ID of the filter.                             |
 | `filter_type`                  | false    |string|N/A| Description of digital filter, e.g., `"FIR"`, `"IIR"` |
 | `FIR_coefficients`             | false    |double[]|N/A| Coefficients that define FIR filter.                 |
 | `IIR_numerator_coefficients`   | false    |double[]|N/A| Coefficients that define IIR filter.                 |
@@ -28,9 +31,9 @@ The `ntia-algorithm` namespace describes algorithms applied to measurements.
 | `frequency_cutoff`             | false    |double|Hz| Frequency that characterizes boundary between passband and stopband. |
 | `ripple_passband`              | false    |double|dB| Ripple in passband.                                  |
 | `attenuation_stopband`         | false    |double|dB| Attenuation of stopband.                             |
-| `frequency_stopband`           | false    |double|Hz| Point in filter frequency response where stopband starts. |
+| `frequency_stopband`           | false    |double|Hz| Pointegerin filter frequency response where stopband starts. |
 
-### 1.2 DataProducts Object
+### 0.2 The `DataProducts` Object
 
 `DataProducts` provide descriptions of processing performed on signal data and provide information necessary to parse the data file.
 The `reference` element may be used when each of the data products share the same reference point. The other
@@ -39,82 +42,105 @@ follows the order in which they are specified in the JSON.
 
 | name                                 | required | type                                                                     |unit| description                                                                                                                                                                                                                        |
 |--------------------------------------|----------|--------------------------------------------------------------------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `reference`                          | false        | string                                                                   |N/A| Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. If the data products do not share the same reference point, the reference point should be specified within each data product. |
-| `power_spectral_density`             | false    | [PowerSpectralDensity](#13-powerspectraldensity)                         |N/A| Quantifies the distribution of signal power with respect to frequency within a waveform capture.                                                                                                                                   |
-| `time_series_power`                  | false    | [TimeSeriesPower](#14-timeseriespower)                                   |N/A| Quantifies the time-progression of channel power values across the duration of a waveform capture.                                                                                                                                 |
-| `periodic_frame_power`               | false    | [PeriodicFramePower](#15-periodicframepower)                             |N/A| Provides occupancy patterns accross fixed time frames to differentiate emitters.                                                                                                                                                   |
-| `amplitude_probability_distribution` | false    | [AmplitudeProbabilityDistribution](#16-amplitudeprobabilitydistribution) |N/A| Complementary cumulative distribution function (CCDF) of the instantaneous channel power, evaluated empirically..                                                                                                                  |
-| `digital_filter`                     | false    | string                                                                   |N/A| The id of the digital filter used in each data product. If different data products use different filters, the filter should be specified in each data product.                                                                     |
+| `reference`                          | false        | string                                                                   |N/A| Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. If the data products do not share the same reference point, the reference pointegershould be specified within each data product. |
+| `power_spectral_density`             | false    | [PowerSpectralDensity](#03-the-powerspectraldensity-object)                         |N/A| Quantifies the distribution of signal power with respect to frequency within a waveform capture.                                                                                                                                   |
+| `time_series_power`                  | false    | [TimeSeriesPower](#04-the-timeseriespower-object)                                   |N/A| Quantifies the time-progression of channel power values across the duration of a waveform capture.                                                                                                                                 |
+| `periodic_frame_power`               | false    | [PeriodicFramePower](#05-the-periodicframepower-object)                             |N/A| Provides occupancy patterns accross fixed time frames to differentiate emitters.                                                                                                                                                   |
+| `amplitude_probability_distribution` | false    | [AmplitudeProbabilityDistribution](#06-the-amplitudeprobabilitydistribution-object) |N/A| Complementary cumulative distribution function (CCDF) of the instantaneous channel power, evaluated empirically..                                                                                                                  |
+| `digital_filter`                     | false    | string                                                                   |N/A|ID of the digital filter used in each data product. If different data products use different filters, the filter should be specified in each data product.
 
-### 1.3 PowerSpectralDensity
+### 0.3 The `PowerSpectralDensity` Object
+
+A `PowerSpectralDensity` object is used to describe the result of a frequency-domain detection. Despite its name, the `units` field provides flexibility for other types of power spectra. Results of FFT processing, and statistical detectors applied to FFT results, will generally be annotated by this object.
 
 | name                               | required | type                 | unit | description                                                                                                                                                                |
 |------------------------------------|---------|----------------------|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `traces`                           | true    | [Trace](#17-trace)[] | N/A  | Traces in the order they appear in the data file.                                                                                                                          |
-| `length`                           | true    | uint                 | N/A  | Length of the output.                                                                                                                                                      |
-| `equivalent_noise_bandwidth`       | true    | double               | N/A  | Bandwidth of brickwall filter that has the same integrated noise power as that of the actual filter.                                                                       |
-| `samples`                          | true    | uint                 | N/A  | Number of samples in the FFT.                                                                                                                                              |
-| `ffts`                             | true    | int                  | N/A  | Number of FFTs integrated over by detectors.                                                                                                                               |
+| `traces`                           | true    | [Trace](#07-the-trace-object)[] | N/A  | Traces in the order they appear in the data file.                                                                                                                          |
+| `length`                           | true    | integer                 | N/A  | Length of the output.                                                                                                                                                      |
+| `equivalent_noise_bandwidth`       | true    | double               | Hz | Bandwidth of brickwall filter that has the same integrated noise power as that of the actual filter.                                                                       |
+| `samples`                          | true    | integer                 | N/A  | Number of samples in the FFT.                                                                                                                                              |
+| `ffts`                             | true    | integer                 | N/A  | Number of FFTs integrated over by detectors.                                                                                                                               |
 | `units`                            | true    | string               | N/A  | Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
 | `window`                           | true    | string               | N/A  | E.g. `"blackman-harris"`, `"flattop"`, `"gaussian_a3.5"`, `"gauss top"`, `"hamming"`, `"hanning"`, `"rectangular"`.                                                        |
 | `reference`                        |false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
-| `digital_filter`                   | false    | string               |N/A| The id of the digital filter used in this data product.            |
+| `digital_filter`                   | false    | string               |N/A| The ID of the digital filter used in this data product.            |
 
-### 1.4 TimeSeriesPower
+### 0.4 The `TimeSeriesPower` Object
+
+A `TimeSeriesPower` object is used to provide information related to time-series amplitude data. Despite its name, the `units` and `reference` fields allows this object to be generalizable to multiple situations, including volts-versus-time or amplitude-versus-time. The `traces` and `samples` fields provide flexibility for this object to describe the result of detectors applied to a time series.
 
 | name        | required | type   |unit| description                                              |
 |-------------|----------|--------|-------|----------------------------------------------------------|
-| `traces`    | true     |  [Trace](#17-trace)[] |N/A| Traces in the order they appear in the data file.              |
-| `length`    | true     | uint   |N/A| Length of the output.                    |
-| `samples`   | true     | uint   |N/A| Number of samples used to compute the time series power. |
+| `traces`    | true     |  [Trace](#07-the-trace-object)[] |N/A| Traces in the order they appear in the data file.              |
+| `length`    | true     | integer   |N/A| Length of the output.                    |
+| `samples`   | true     | integer   |N/A| Number of samples used to compute the time series power. |
 | `units`     | true     | string |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.         |
 | `reference` |false    | string | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
-| `digital_filter`                   | false    | string      |N/A| The id of the digital filter used in this data product.            |
+| `digital_filter`                   | false    | string      |N/A| The ID of the digital filter used in this data product.            |
 
-### 1.5 PeriodicFramePower
+### 0.5 The `PeriodicFramePower` Object
+
+A `PeriodicFramePower` object is used to describe the results of cyclostationary power detection.
 
 | name        | required | type                 |unit| description                                                                                                                                                                |
 |-------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `traces`    | true     | [Trace](#17-trace)[] |N/A| E.g. `[min, max, mean, meadian, sample]`.                                                                                                                                  |
-| `length`    | true     | uint                 |N/A| Length of the output.                                                                                                                                                      |
+| `traces`    | true     | [Trace](#07-the-trace-object)[] |N/A| E.g. `[min, max, mean, median, sample]`.                                                                                                                                  |
+| `length`    | true     | integer                 |N/A| Length of the output.                                                                                                                                                      |
 | `units`     | true     | string               |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
 | `reference` |false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
-| `digital_filter`                   | false    | string      |N/A| The id of the digital filter used in this data product.            |
+| `digital_filter`                   | false    | string      |N/A| The ID of the digital filter used in this data product.            |
 
-### 1.6 AmplitudeProbabilityDistribution
+### 0.6 The `AmplitudeProbabilityDistribution` Object
+
+An `AmplitudeProbabilityDistribution` object is used to describe an APD, and supports binned/downsampled APD results in a number of ways. In the binned-APD case, the data represents the probability values, and the `amplitude_bin_size`, `amplitude_min`, and `amplitude_max` values MUST be provided.
 
 | name                 | required | type                 |unit| description                                                                                                                                                                |
 |----------------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `traces`             | true     | [Trace](#17-trace)[] |N/A| Traces in the order they appear in the data file.                                                                                                                          |
-| `length`             | true     | uint                 |N/A| Length of the abscissa.                                                                                                                                                    |
-| `samples`            | true     | uint                 |N/A| Number of samples used to compute the amplitude probability distrubtion.                                                                                                   |
+| `traces`             | true     | [Trace](#07-the-trace-object)[] |N/A| Traces in the order they appear in the data file.                                                                                                                          |
+| `length`             | true     | integer                 |N/A| Length of the abscissa.                                                                                                                                                    |
+| `samples`            | true     | integer                 |N/A| Number of samples used to compute the amplitude probability distrubtion.                                                                                                   |
 | `units`              | true     | string               |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
-| `amplitude_bin_size` | true     | double               |N/A| Step/tick size of the amplitude, or y-axis.                                                                                                                                |
-| `amplitude_min`      | true     | double               |N/A| Minimum value of the amplitude, or y-axis.                                                                                                                                 |
-| `amplitude_max`      | true     | double               |N/A| Maximum value of the amplitud, or y-axis.                                                                                                                                  |
+| `amplitude_bin_size` | true     | double               |`units`| Step/tick size of the amplitude, or y-axis.                                                                                                                                |
+| `amplitude_min`      | true     | double               |`units`| Minimum value of the amplitude, or y-axis.                                                                                                                                 |
+| `amplitude_max`      | true     | double               |`units`| Maximum value of the amplitude, or y-axis.                                                                                                                                  |
 | `reference`          | false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
-| `digital_filter`     | false    | string               |N/A| The id of the digital filter used in this data product.                                                                                                                    |
+| `digital_filter`     | false    | string               |N/A| The ID of the digital filter used in this data product.                                                                                                                    |
 
-### 1.7 Trace
+### 0.7 The `Trace` Object
 
-A `Trace`
+A `Trace` object is used to indicate that a certain data product includes multiple detector results applied to the same input. If both `detector` and `statistic` are provided, the `statistic` is assumed to have been computed on the result of `detector`.
 
 | name             | required | type                 |unit| description                                                                                                                                                                |
 |------------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `detector`       | false    | string |N/A| E.g., `peak`, `rms`                 |
 | `statistic`      | false    | string |N/A| E.g., `min`, `max`, `median`,`mean` |
 
+## 1 Global
+
+The `ntia-algorithm` extension adds the following name/value pairs to the `global` SigMF object:
+
+| name              |required| type                                        |unit| description                                                                                                                                                  |
+|-------------------|--------------|---------------------------------------------|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `digital_filters` |false| [DigitalFilter[]](#01-the-digitalfilter-object) |N/A| Digital filters applied to the data. If only one digital filter is listed, it is not necessary to reference it in the [DataProducts](12-dataproducts-object) |
+| `data_products`   |false| [DataProducts](#02-the-dataproducts-object)     |N/A| The list of data products produced for each capture                                                                                                          |
+
+                                                             |
+
 ## 2 Captures
 
-`ntia-algorithm` does not provide additional keys to [Captures](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#captures-array).
+The `ntia-algorithm` extension does not extend the `captures` SigMF object.
 
 ## 3 Annotations
 
-`ntia-algorithm` does not extend [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array).
+The `ntia-algorithm` extension does not extend the `annotations` SigMF object.
 
-## 4 Example
+## 4 Collection
 
-### 4.1 Anti-aliasing filter example
+The `ntia-algorithm` extension does not extend the `collection` SigMF object.
+
+## 5 Examples
+
+### 5.1 Anti-aliasing filter example
 
 ```json
 {
@@ -149,7 +175,7 @@ A `Trace`
 }
 ```
 
-### 4.2 Data Products Example
+### 5.2 Data Products Example
 
 ```json
 {

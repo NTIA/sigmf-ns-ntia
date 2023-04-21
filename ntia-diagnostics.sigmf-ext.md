@@ -1,30 +1,34 @@
 # The `ntia-diagnostics` SigMF Extension Namespace v1.0.0
 
-The `ntia-diagnostics` namespace provides metadata to describe system diagnostic information.
+This document defines the `ntia-diagnostics` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides metadata to describe system diagnostic information.
 
-`ntia-diagnostics` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
+## 0 Datatypes
 
-## 1 Global
+The `ntia-diagnostics` extension defines the following datatypes:
 
-`ntia-sensor` extends the [Global](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#global-object) with the following name/value pairs:
+|name|long-form name|description|
+|----|--------------|-----------|
+|`Diagnostics`|general diagnostics information|JSON [`Diagnostics`](#01-the-diagnostics-object) object containing general diagnostics information and sub-objects with diagnostics from specific components|
+|`Preselector`|preselector diagnostics|JSON [`Preselector`](#02-the-preselector-diagnostics-object) object containing diagnostics for a preselector|
+|`SPU`|signal processing unit diagnostics|JSON [`SPU`](#03-the-spu-diagnostics-object) object containing diagnostics for a signal processing unit|
+|`Computer`|computer diagnostics|JSON [`Computer`](#04-the-computer-diagnostics-object) object containing diagnostics for a computer which runs SCOS|
+|`SsdSmartData`|solid-state drive SMART diagnostics|JSON [`SsdSmartData`](#05-the-ssdsmartdata-diagnostics-object) object containing results of SMART diagnostics for an SSD|
 
-| name                   |required| type                                  |unit| description                                   |
-|------------------------|--------------|---------------------------------------|-------|-----------------------------------------------|
-| `diagnostics`          |false| [Diagnostics](#11-diagnostics-object) |N/A| Metadata for capturing component diagnostics. |
+Multiple key/value pairs in the objects defined by this extension MUST be ISO-8601 strings, as defined by [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), where the only allowed `time-offset` is `z`, indicating the UTC/Zulu timezone. Thus, timestamps take the form of `YYYY-MM-DDTHH:MM:SS.SSSZ`, where any number of digits for fractional seconds is permitted.
 
-### 1.1 Diagnostics Object
+### 0.1 The `Diagnostics` Object
 
 `Diagnostics` has the following properties:
 
 | name             |required| type                                              | unit    | description                                                                         |
 |------------------|--------------|---------------------------------------------------|---------|-------------------------------------------------------------------------------------|
-| `datetime`       |false| string                                            |[ISO-8601](https://www.ietf.org/rfc/rfc3339.txt) with UTC `time_offset`, i.e., `YYYY-MM-DDTHH:MM:SS.SSSZ` with any number of digits for fractional seconds.| The time at which the diagnostics were gathered. |
-| `preselector`    |false| [Preselector](#12-preselector-diagnostics-object) | N/A     | Metadata to capture preselector diagnostics.                                        |
-| `spu`            |false| [SPU](#13-spu-diagnostics-object)                 | N/A     | Metadata to capture sensor processing unit diagnostics.                             |
-| `computer`       |false| [CPU](#14-computer-diagnostics-object)            | N/A     | Metadata to capture computer diagnostics.                                           |
+| `datetime`       |false| string                                            |ISO-8601 (see above)| The time at which the diagnostics were gathered. |
+| `preselector`    |false| [Preselector](#02-the-preselector-diagnostics-object) | N/A     | Metadata to capture preselector diagnostics.                                        |
+| `spu`            |false| [SPU](#03-the-spu-diagnostics-object)                 | N/A     | Metadata to capture sensor processing unit diagnostics.                             |
+| `computer`       |false| [CPU](#04-the-computer-diagnostics-object)            | N/A     | Metadata to capture computer diagnostics.                                           |
 | `action_runtime` |false| double                                            | seconds | Total action execution time.                                                        |
 
-### 1.2 Preselector Diagnostics Object
+### 0.2 The `Preselector` Diagnostics Object
 
 The `Preselector` diagnostics object has the following properties:
 
@@ -36,9 +40,9 @@ The `Preselector` diagnostics object has the following properties:
 |`humidity`|false|double| percent        | Relative humidity inside the preselector enclosure.             |
 |`door_closed`|false|boolean| N/A            | Boolean indicating whether the door of the enclosure is closed. |
 
-### 1.3 SPU Diagnostics Object
+### 0.3 The `SPU` Diagnostics Object
 
-The `SPU` diagnostics object has the following properties:
+The `SPU` diagnostics object has the following properties, which are defined based on the components of an SPU in a NASCTN SEA Prototype Rev3 sensor:
 
 | name                  |required| type    | unit           | description                                              |
 |-----------------------|--------------|---------|----------------|----------------------------------------------------------|
@@ -50,7 +54,7 @@ The `SPU` diagnostics object has the following properties:
 | `rf_box_temp`         |false| double  | degree Celsius | Ambiant temperature around the signal analyzer.          |
 | `sigan_internal_temp` |false| double  | degree Celsius | Internal temperature reported by the signal analyzer     |
 
-### 1.4 Computer Diagnostics Object
+### 0.4 The `Computer` Diagnostics Object
 
 The `Computer` diagnostics object has the following properties:
 
@@ -59,18 +63,18 @@ The `Computer` diagnostics object has the following properties:
 | `min_clock_speed`  |false| double                          | MHz            | Minimum sampled clock speed.                                                                            |
 | `max_clock_speed`  |false| double                          | MHz            | Maximum sampled clock speed.                                                                            |
 | `mean_clock_speed` |false| double                          | MHz            | Mean sampled clock speed.                                                                               |
-| `boot_time`        |false| string                          |[ISO-8601](https://www.ietf.org/rfc/rfc3339.txt) with UTC `time_offset`, i.e., `YYYY-MM-DDTHH:MM:SS.SSSZ` with any number of digits for fractional seconds.| The time at which the computer last started.                        |
+| `boot_time`        |false| string                          |ISO-8601 (see above)| The time at which the computer last started.                        |
 | `cpu_usage`        |false| double                          | percent        | CPU utilization during action execution.                                                                |
 | `load_5m`          |false| double                          | percent        | Number of processes in a runnable state over the previous 5 minutes as a percent of the number of CPUs. |
 | `memory_usage`     |false| double                          | percent        | Percent of memory used at the end of action execution.                                                  |
 | `overheating`      |false| boolean                         | N/A            | True if cpu is overheating.                                                                             |
 | `drive_usage`      |false| double                          | percent        | Percent of persistent storage used.                                                                     |
 | `temp`             |false| double                          | degree Celsius | Computer temperature.                                                                                   |
-| `scos_start`       |false| string                          |[ISO-8601](https://www.ietf.org/rfc/rfc3339.txt) with UTC `time_offset`, i.e., `YYYY-MM-DDTHH:MM:SS.SSSZ` with any number of digits for fractional seconds.| The time at which the SCOS API container started.                   |
+| `scos_start`       |false| string                          |ISO-8601 (see above)| The time at which the SCOS API container started.                   |
 | `scos_uptime`      |false| double                          | days           | Number of days since the scos api container started.                                                    |
-| `ssd_smart_data`   |false| [SsdSmartData](15-ssdsmartdata) | days           | Information provided by the drive Self-Monitoring, Analysis, and Reporting Technology.                  |
+| `ssd_smart_data`   |false| [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) | days           | Information provided by the drive Self-Monitoring, Analysis, and Reporting Technology.                  |
 
-### 1.5 SsdSmartData
+### 0.5 The `SsdSmartData` Diagnostics Object
 
 The `SsdSmartData` diagnostics object has the following properties:
 
@@ -83,19 +87,29 @@ The `SsdSmartData` diagnostics object has the following properties:
 | `available_spare_threshold` |false| double  | days           | When the available_spare falls below the threshold indicated in this field, an asynchronous event completion may occur. The value is indicated as a normalized percentage (0 to 100%).                                                                                                                                                                                                                |
 | `percentage_used`           |false| double  | percent        | Contains a vendor specific estimate of the percentage of NVM subsystem life used based on the actual usage and the manufacturer’s prediction of NVM life. A value of 100 indicates that the estimated endurance of the NVM in the NVM subsystem has been consumed, but may not indicate an NVM subsystem failure. Values may exceed 100 and percentages greater than 254 shall be represented as 255. |
 | `unsafe_shutdowns`          |false| int     | N/A            | Number of unsafe shutdowns.                                                                                                                                                                                                                                                                                                                                                                           |
-| `integrity_errors`          |false| int     | N/A            | Number of occurrences where the controller detected an unrecovered data integrity error                                                                                                                                                                                                                                                                                                               |
+| `integrity_errors`          |false| int     | N/A            | Number of occurrences where the controller detected an unrecovered data integrity error                  |
+
+## 1 Global
+
+The `ntia-sensor` extension adds the following name/value pairs to the `global` SigMF object:
+
+| name                   |required| type                                  |unit| description                                   |
+|------------------------|--------------|---------------------------------------|-------|-----------------------------------------------|
+| `diagnostics`          |false| [Diagnostics](#01-the-diagnostics-object) |N/A| Metadata for capturing component diagnostics. |
 
 ## 2 Captures
 
-`ntia-diagnostics` does not provide additional keys to [Captures](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#captures-array).
+The `ntia-diagnostics` extension does not extend the `captures` SigMF object.
 
 ## 3 Annotations
 
-`ntia-diagnostics` does not extend [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array).
+The `ntia-diagnostics` extension does not extend the `annotations` SigMF object.
 
-## 4 Example
+## 4 Collection
 
-### 4.1 Diagnostics example
+The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
+
+## 5 Example
 
 ```json
 {

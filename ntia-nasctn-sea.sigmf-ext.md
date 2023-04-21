@@ -1,12 +1,14 @@
 # The `ntia-nasctn-sea` SigMF Extension Namespace v0.4.0
 
-The `ntia-nasctn-sea` namespace provides SigMF metadata extensions for the NASCTN Sharing Ecosystem Assessment (SEA) project.
+This document defines the `ntia-nasctn-sea` extension namespace for the Signal Metadata Format (SigMF) specification. This namespace extension provides metadata objects specifically suited for the NASCTN Sharing Ecosystem Assessment (SEA) project.
 
-`ntia-nasctn-sea` is fully compliant with the [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#namespaces) specification and conventions.
+## 0 Datatypes
+
+The `ntia-nasctn-sea` extension does not define any additional datatypes.
 
 ## 1 Global
 
-`ntia-nasctn-sea` defines the following keys that extend the [Global](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#global-object):
+The `ntia-nasctn-sea` extension adds the following fields to the `global` SigMF object:
 
 | name                            | required | type     |unit| description                                   |
 |---------------------------------|----------|----------|-------|-----------------------------------------------|
@@ -15,13 +17,17 @@ The `ntia-nasctn-sea` namespace provides SigMF metadata extensions for the NASCT
 
 ## 2 Captures
 
-`ntia-nasctn-sea` does not provide additional keys to [Captures](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#captures-array).
+The `ntia-nasctn-sea` extension does not extend the `captures` SigMF object.
 
 ## 3 Annotations
 
-`ntia-nasctn-sea` does not extend [Annotations](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#annotations-array).
+The `ntia-nasctn-sea` extension does not extend the `annotations` SigMF object.
 
-## 4 Example
+## 4 Collection
+
+The `ntia-nasctn-sea` extension does not extend the `collection` SigMF object.
+
+## 5 Example
 
 ```json
 {
