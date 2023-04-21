@@ -28,7 +28,7 @@
       "type" : "object",
       "additionalProperties" : false,
       "properties" : {
-        "geolocation" : {
+        "core:geolocation" : {
           "$ref" : "#/definitions/GeoJsonPoint"
         },
         "core:datatype" : {
@@ -163,9 +163,6 @@
         },
         "mobile" : {
           "type" : "boolean"
-        },
-        "geolocation" : {
-          "$ref" : "#/definitions/GeoJsonPoint"
         },
         "environment" : {
           "$ref" : "#/definitions/Environment"
