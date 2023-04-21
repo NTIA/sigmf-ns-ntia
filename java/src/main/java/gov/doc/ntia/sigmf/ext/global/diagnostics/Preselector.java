@@ -6,9 +6,6 @@ public class Preselector {
 
   @JsonProperty protected Double temp;
 
-  @JsonProperty(value = "rf_tray_powered")
-  protected Boolean rfTrayPowered;
-
   @JsonProperty(value = "noise_diode_temp")
   protected Double noiseDiodeTemp;
 
@@ -19,14 +16,6 @@ public class Preselector {
 
   @JsonProperty(value = "door_closed")
   protected Boolean doorClosed;
-
-  public Boolean getRfTrayPowered() {
-    return rfTrayPowered;
-  }
-
-  public void setRfTrayPowered(Boolean rfTrayPowered) {
-    this.rfTrayPowered = rfTrayPowered;
-  }
 
   public Double getNoiseDiodeTemp() {
     return noiseDiodeTemp;
