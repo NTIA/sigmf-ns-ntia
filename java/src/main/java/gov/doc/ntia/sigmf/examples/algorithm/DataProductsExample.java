@@ -108,7 +108,7 @@ public class DataProductsExample implements Example {
     AmplitudeProbabilityDistribution apd = new AmplitudeProbabilityDistribution();
     apd.setLength(560L);
     apd.setSamples(56000000L);
-    apd.setUnits("dbM");
+    apd.setUnits("dBm");
     apd.setAmplitudeBinSize(1.0);
     apd.setMaxAmplitude(-85.0);
     apd.setMinAmplitude(-130.0);
