@@ -110,10 +110,12 @@ public class Sensor implements Serializable {
     this.signalAnalyzer = signalAnalyzer;
   }
 
+  @Deprecated
   public Location getLocation() {
     return location;
   }
 
+  @Deprecated
   public void setLocation(Location location) {
     this.location = location;
   }
