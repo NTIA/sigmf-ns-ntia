@@ -63,16 +63,16 @@ The `Computer` diagnostics object has the following properties:
 | `cpu_min_clock`  |false| double                          | MHz            | Minimum sampled clock speed.                                                                            |
 | `cpu_max_clock`  |false| double                          | MHz            | Maximum sampled clock speed.                                                                            |
 | `cpu_mean_clock` |false| double                          | MHz            | Mean sampled clock speed.                                                                               |
-| `boot_time`        |false| string                          |ISO-8601 (see above)| The time at which the computer last started.                        |
-| `cpu_usage`        |false| double                          | percent        | CPU utilization during action execution.                                                                |
-| `load_5m`          |false| double                          | percent        | Number of processes in a runnable state over the previous 5 minutes as a percent of the number of CPUs. |
-| `memory_usage`     |false| double                          | percent        | Percent of memory used at the end of action execution.                                                  |
-| `overheating`      |false| boolean                         | N/A            | True if cpu is overheating.                                                                             |
+| `cpu_uptime`        |false| string                          |days| Number of days since the computer started                        |
+| `action_cpu_usage`        |false| double                          | percent        | CPU utilization during action execution.                                                                |
+| `system_load_5m`          |false| double                          | percent        | Number of processes in a runnable state over the previous 5 minutes as a percent of the number of CPUs. |
+| `memory_usage`     |false| double                          | percent        | Average percent of memory used during action execution.                                                  |
+| `cpu_overheating`      |false| boolean                         | N/A            | True if the CPU is overheating.                                                                             |
 | `drive_usage`      |false| double                          | percent        | Percent of persistent storage used.                                                                     |
-| `temp`             |false| double                          | degree Celsius | Computer temperature.                                                                                   |
+| `cpu_emp`             |false| double                          | degree Celsius | CPU temperature.                                                                                   |
 | `scos_start`       |false| string                          |ISO-8601 (see above)| The time at which the SCOS API container started.                   |
-| `scos_uptime`      |false| double                          | days           | Number of days since the scos api container started.                                                    |
-| `ssd_smart_data`   |false| [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) | days           | Information provided by the drive Self-Monitoring, Analysis, and Reporting Technology.                  |
+| `scos_uptime`      |false| double                          | days           | Number of days since the SCOS API container started.                                                    |
+| `ssd_smart_data`   |false| [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) | N/A           | Information provided by the drive Self-Monitoring, Analysis, and Reporting Technology.                  |
 
 ### 0.5 The `SsdSmartData` Diagnostics Object
 
