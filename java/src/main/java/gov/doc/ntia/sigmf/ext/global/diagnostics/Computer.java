@@ -109,6 +109,22 @@ public class Computer {
     this.cpuOverheating = cpuOverheating;
   }
 
+  public Double getCpuUptime() {
+    return cpuUptime;
+  }
+
+  public void setCpuUptime(Double cpuUptime) {
+    this.cpuUptime = cpuUptime;
+  }
+
+  public Date getScosStartTime() {
+    return scosStartTime;
+  }
+
+  public void setScosStartTime(Date scosStartTime) {
+    this.scosStartTime = scosStartTime;
+  }
+
   public SsdSmartData getSmartData() {
     return smartData;
   }
