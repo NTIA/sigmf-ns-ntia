@@ -105,7 +105,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 ## 1 Global
 
-The `ntia-scos` extension adds the following fields to the `global` SigMF object:
+The `ntia-sensor` extension adds the following fields to the `global` SigMF object:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
