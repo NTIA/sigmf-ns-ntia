@@ -31,7 +31,7 @@ A `DigitalFilter` object is used to describe a digital filter (FIR or IIR) which
 | `frequency_cutoff`             | false    |double|Hz| Frequency that characterizes boundary between passband and stopband. |
 | `ripple_passband`              | false    |double|dB| Ripple in passband.                                  |
 | `attenuation_stopband`         | false    |double|dB| Attenuation of stopband.                             |
-| `frequency_stopband`           | false    |double|Hz| Pointegerin filter frequency response where stopband starts. |
+| `frequency_stopband`           | false    |double|Hz| Point in filter frequency response where stopband starts. |
 
 ### 0.2 The `DataProducts` Object
 
