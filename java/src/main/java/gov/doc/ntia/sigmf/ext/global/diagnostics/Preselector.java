@@ -1,23 +1,24 @@
 package gov.doc.ntia.sigmf.ext.global.diagnostics;
 
-import com.fasterxml.jackson.annotation.JsonProperty;public class Preselector {
+import com.fasterxml.jackson.annotation.JsonProperty;
 
-    @JsonProperty
-    protected Double temp;
-    
-    @JsonProperty(value = "rf_tray_powered")
-    protected Boolean rfTrayPowered;
+public class Preselector {
 
-    @JsonProperty(value = "noise_diode_temp")
-    protected Double noiseDiodeTemp;
+  @JsonProperty protected Double temp;
 
-    @JsonProperty(value = "lna_temp")
-    protected Double lnaTemp;
+  @JsonProperty(value = "rf_tray_powered")
+  protected Boolean rfTrayPowered;
 
-    protected Double humidity;
+  @JsonProperty(value = "noise_diode_temp")
+  protected Double noiseDiodeTemp;
 
-    @JsonProperty(value = "door_closed")
-    protected Boolean doorClosed;
+  @JsonProperty(value = "lna_temp")
+  protected Double lnaTemp;
+
+  protected Double humidity;
+
+  @JsonProperty(value = "door_closed")
+  protected Boolean doorClosed;
 
   public Boolean getRfTrayPowered() {
     return rfTrayPowered;

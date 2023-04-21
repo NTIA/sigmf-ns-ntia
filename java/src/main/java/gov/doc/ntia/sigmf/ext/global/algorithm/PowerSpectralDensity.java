@@ -26,8 +26,6 @@ public class PowerSpectralDensity extends TraceDataProduct {
     this.equivalentNoiseBandwidth = equivalentNoiseBandwidth;
   }
 
-
-
   public Integer getFfts() {
     return ffts;
   }

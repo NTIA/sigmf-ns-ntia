@@ -1,19 +1,16 @@
 package gov.doc.ntia.sigmf.ext.global.diagnostics;
 
-import com.fasterxml.jackson.annotation.JsonFormat;import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 
 public class Diagnostics {
 
+  protected Computer computer;
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
   private Date datetime;
-
   private Preselector preselector;
-
   private SPU spu;
-
-  protected Computer computer;
-
   @JsonProperty(value = "action_runtime")
   private Double actionRuntime;
 

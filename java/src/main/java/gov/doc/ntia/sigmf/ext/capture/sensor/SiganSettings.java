@@ -6,15 +6,15 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SiganSettings {
 
-    protected Double attenuation;
+  protected Double attenuation;
 
-    protected Double gain;
+  protected Double gain;
 
-    @JsonProperty(value = "reference_level")
-    protected Double referenceLevel;
+  @JsonProperty(value = "reference_level")
+  protected Double referenceLevel;
 
-    @JsonProperty(value = "preamp_enable")
-    protected Boolean preampEnable;
+  @JsonProperty(value = "preamp_enable")
+  protected Boolean preampEnable;
 
   public Double getAttenuation() {
     return attenuation;

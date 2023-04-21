@@ -1,6 +1,7 @@
 package gov.doc.ntia.sigmf.ext.global.diagnostics;
 
-import com.fasterxml.jackson.annotation.JsonFormat;import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 
@@ -43,8 +44,6 @@ public class Computer {
 
   @JsonProperty(value = "ssd_smart_data")
   private SsdSmartData smartData;
-
-
 
   public Double getCpuMaxClock() {
     return cpuMaxClock;

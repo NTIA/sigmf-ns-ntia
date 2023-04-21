@@ -2,7 +2,8 @@ package gov.doc.ntia.sigmf.examples.waveform;
 
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.examples.Example;import gov.doc.ntia.sigmf.examples.ExampleUtils;
+import gov.doc.ntia.sigmf.examples.Example;
+import gov.doc.ntia.sigmf.examples.ExampleUtils;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.global.waveform.CodingRate;
 import gov.doc.ntia.sigmf.ext.global.waveform.Ieee80211p;

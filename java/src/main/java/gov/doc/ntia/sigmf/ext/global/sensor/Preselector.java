@@ -28,6 +28,7 @@ public class Preselector implements Serializable {
 
   @JsonProperty(value = "rf_paths", required = false)
   protected RfPath[] rfPaths;
+
   protected Map<String, Object> otherFields = new HashMap<>();
 
   public HardwareSpec getPreselectorSpec() {

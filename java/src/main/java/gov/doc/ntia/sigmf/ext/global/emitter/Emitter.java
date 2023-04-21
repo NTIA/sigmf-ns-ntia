@@ -8,6 +8,7 @@ import gov.doc.ntia.sigmf.GeoJsonPoint;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.environment.Environment;
+import gov.doc.ntia.sigmf.ext.global.location.Location;
 import gov.doc.ntia.sigmf.ext.global.waveform.Waveform;
 import java.io.Serializable;
 import java.util.HashMap;
@@ -38,6 +39,10 @@ public class Emitter implements Serializable {
 
   @JsonProperty(value = "waveform", required = false)
   protected Waveform waveform;
+
+  @Deprecated
+  @JsonProperty(value = "location", required = false)
+  protected Location location;
 
   @JsonProperty(value = "geolocation", required = false)
   protected GeoJsonPoint geolocation;
@@ -101,6 +106,16 @@ public class Emitter implements Serializable {
 
   public void setWaveform(Waveform waveform) {
     this.waveform = waveform;
+  }
+
+  @Deprecated
+  public Location getLocation() {
+    return location;
+  }
+
+  @Deprecated
+  public void setLocation(Location location) {
+    this.location = location;
   }
 
   public GeoJsonPoint getGeolocation() {

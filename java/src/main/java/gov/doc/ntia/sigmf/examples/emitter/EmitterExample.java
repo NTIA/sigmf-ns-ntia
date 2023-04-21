@@ -1,8 +1,10 @@
 package gov.doc.ntia.sigmf.examples.emitter;
 
-import gov.doc.ntia.sigmf.GeoJsonPoint;import gov.doc.ntia.sigmf.Global;
+import gov.doc.ntia.sigmf.GeoJsonPoint;
+import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.examples.Example;import gov.doc.ntia.sigmf.examples.ExampleUtils;
+import gov.doc.ntia.sigmf.examples.Example;
+import gov.doc.ntia.sigmf.examples.ExampleUtils;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
@@ -53,16 +55,13 @@ public class EmitterExample implements Example {
         "https://www.keysight.com/us/en/assets/7018-03380/data-sheets/5991-0038.pdf");
     emitter.setTransmitter(transmitter);
 
-
     Environment environment = new Environment();
     environment.setCategory("Underground, coal mine");
 
     emitter.setEnvironment(environment);
 
-
-
     Global global = ExampleUtils.getGlobal();
-    GeoJsonPoint geolocation = new GeoJsonPoint( 40.304983, -79.980916);
+    GeoJsonPoint geolocation = new GeoJsonPoint(40.304983, -79.980916);
     global.setGeolocation(geolocation);
     List<Emitter> emitters = new ArrayList<>();
     emitters.add(emitter);

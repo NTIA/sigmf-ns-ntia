@@ -7,20 +7,20 @@ import gov.doc.ntia.sigmf.Capture;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SensorCapture extends Capture {
 
-    @JsonProperty(value = "ntia-sensor:overload")
-    protected Boolean overload;
+  @JsonProperty(value = "ntia-sensor:overload")
+  protected Boolean overload;
 
-    @JsonProperty(value = "ntia-sensor:sigan_calibration")
-    protected SiganCalibration siganCalibration;
+  @JsonProperty(value = "ntia-sensor:sigan_calibration")
+  protected SiganCalibration siganCalibration;
 
-    @JsonProperty(value = "ntia-sensor:sensor_calibration")
-    protected SensorCalibration sensorCalibration;
+  @JsonProperty(value = "ntia-sensor:sensor_calibration")
+  protected SensorCalibration sensorCalibration;
 
-    @JsonProperty(value = "ntia-sensor:duration")
-    protected Integer duration;
-    
-    @JsonProperty(value = "ntia-sensor:sigan_settings")
-    protected SiganSettings siganSettings;
+  @JsonProperty(value = "ntia-sensor:duration")
+  protected Integer duration;
+
+  @JsonProperty(value = "ntia-sensor:sigan_settings")
+  protected SiganSettings siganSettings;
 
   public Boolean getOverload() {
     return overload;

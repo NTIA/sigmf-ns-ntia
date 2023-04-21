@@ -1,30 +1,31 @@
 package gov.doc.ntia.sigmf.ext.global.diagnostics;
 
-import com.fasterxml.jackson.annotation.JsonInclude;import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SPU {
 
-    @JsonProperty(value = "rf_tray_powered")
-    protected Boolean rfTrayPowered;
-    
-    @JsonProperty(value = "preselector_powered")
-    protected Boolean preselectorPowered;
-    
-    @JsonProperty(value = "28v_aux_powered")
-    protected Boolean aux28vPowered;
-    
-    @JsonProperty(value = "pwr_box_temp")
-    protected Double pwrBoxTemp;
-    
-    @JsonProperty(value = "rf_box_temp")
-    protected Double rfBoxTemp;
-    
-    @JsonProperty(value = "pwr_box_humidity")
-    protected Double pwrBoxHumidity;
-    
-    @JsonProperty(value = "sigan_internal_temp")
-    protected Double siganInternalTemp;
+  @JsonProperty(value = "rf_tray_powered")
+  protected Boolean rfTrayPowered;
+
+  @JsonProperty(value = "preselector_powered")
+  protected Boolean preselectorPowered;
+
+  @JsonProperty(value = "28v_aux_powered")
+  protected Boolean aux28vPowered;
+
+  @JsonProperty(value = "pwr_box_temp")
+  protected Double pwrBoxTemp;
+
+  @JsonProperty(value = "rf_box_temp")
+  protected Double rfBoxTemp;
+
+  @JsonProperty(value = "pwr_box_humidity")
+  protected Double pwrBoxHumidity;
+
+  @JsonProperty(value = "sigan_internal_temp")
+  protected Double siganInternalTemp;
 
   public Boolean getRfTrayPowered() {
     return rfTrayPowered;

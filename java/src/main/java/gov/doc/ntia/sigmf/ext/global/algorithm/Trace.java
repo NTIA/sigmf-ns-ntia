@@ -9,13 +9,13 @@ public class Trace {
 
   protected String statistic;
 
-  public Trace(){
+  public Trace() {}
 
-  }
-  public Trace(String detector, String statistic){
+  public Trace(String detector, String statistic) {
     this.detector = detector;
     this.statistic = statistic;
   }
+
   public String getDetector() {
     return detector;
   }

@@ -36,6 +36,7 @@ public class ScheduleEntry implements Serializable {
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
   @JsonProperty(value = "start", required = false)
   protected Date start;
+
   protected Map<String, Object> otherFields = new HashMap<>();
   @JsonProperty List<String> roles;
 

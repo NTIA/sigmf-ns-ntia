@@ -5,7 +5,6 @@ import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
-import gov.doc.ntia.sigmf.Extensions;
 import gov.doc.ntia.sigmf.ext.global.algorithm.AmplitudeProbabilityDistribution;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DataProducts;
 import gov.doc.ntia.sigmf.ext.global.algorithm.PeriodicFramePower;

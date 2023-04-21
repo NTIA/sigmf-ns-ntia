@@ -1,57 +1,58 @@
 package gov.doc.ntia.sigmf;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;import com.fasterxml.jackson.annotation.JsonProperty;public class GeoJsonPoint {
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
-   protected String type = "Point";
+public class GeoJsonPoint {
 
-   protected Double[] coordinates;
+  protected String type = "Point";
 
-   public GeoJsonPoint(){
-   }
-   public GeoJsonPoint(Double lat, Double longitude){
-       coordinates = new Double[2];
-       coordinates[0] = longitude;
-       coordinates[1] = lat;
-   }
+  protected Double[] coordinates;
 
-   @JsonIgnore
-    public void setLatitude(Double lat){
-       if(coordinates == null){
-           coordinates = new Double[2];
-       }
-       coordinates[1] = lat;
-   }
+  public GeoJsonPoint() {}
 
-   @JsonIgnore
-    public Double getLatitude(){
-       if (coordinates == null){
-           return null;
-       }
-       return coordinates[1];
-   }
+  public GeoJsonPoint(Double lat, Double longitude) {
+    coordinates = new Double[2];
+    coordinates[0] = longitude;
+    coordinates[1] = lat;
+  }
 
-   @JsonIgnore
-    public void setLongitude(Double l){
-       if(coordinates == null){
-           coordinates = new Double[2];
-       }
-       coordinates[0]=l;
-   }
+  @JsonIgnore
+  public Double getLatitude() {
+    if (coordinates == null) {
+      return null;
+    }
+    return coordinates[1];
+  }
 
-   @JsonIgnore
-    public Double getLongitude(){
-       if(coordinates == null){
-           return null;
-       }
-       return coordinates[0];
-   }
+  @JsonIgnore
+  public void setLatitude(Double lat) {
+    if (coordinates == null) {
+      coordinates = new Double[2];
+    }
+    coordinates[1] = lat;
+  }
 
-   public Double[] getCoordinates(){
-       return coordinates;
-   }
+  @JsonIgnore
+  public Double getLongitude() {
+    if (coordinates == null) {
+      return null;
+    }
+    return coordinates[0];
+  }
 
-   public String getType(){
-       return type;
-   }
+  @JsonIgnore
+  public void setLongitude(Double l) {
+    if (coordinates == null) {
+      coordinates = new Double[2];
+    }
+    coordinates[0] = l;
+  }
 
+  public Double[] getCoordinates() {
+    return coordinates;
+  }
+
+  public String getType() {
+    return type;
+  }
 }

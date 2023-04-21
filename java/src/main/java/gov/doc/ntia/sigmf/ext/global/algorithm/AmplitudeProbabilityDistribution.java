@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.beans.Transient;
 
-public class AmplitudeProbabilityDistribution extends  DataProduct{
+public class AmplitudeProbabilityDistribution extends DataProduct {
 
   @JsonProperty(required = true)
   protected Long length;
@@ -66,15 +66,15 @@ public class AmplitudeProbabilityDistribution extends  DataProduct{
     return reference;
   }
 
+  public void setReference(String reference) {
+    this.reference = reference;
+  }
+
   @JsonIgnore
   @Transient
   @Override
   public String getFieldName() {
     return "amplitude_probability_distribution";
-  }
-
-  public void setReference(String reference) {
-    this.reference = reference;
   }
 
   public Double getMaxAmplitude() {

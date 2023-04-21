@@ -8,6 +8,7 @@ import gov.doc.ntia.sigmf.GeoJsonPoint;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.environment.Environment;
+import gov.doc.ntia.sigmf.ext.global.location.Location;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -41,8 +42,12 @@ public class Sensor implements Serializable {
   @JsonProperty(value = "geolocation", required = false)
   protected GeoJsonPoint geolocation;
 
+  @JsonProperty(value = "location", required = false)
+  protected Location location;
+
   @JsonProperty(value = "environment", required = false)
   protected Environment environment;
+
   protected Map<String, Object> otherFields = new HashMap<>();
 
   @JsonProperty(value = "sensor_sha512")
@@ -108,6 +113,14 @@ public class Sensor implements Serializable {
     this.signalAnalyzer = signalAnalyzer;
   }
 
+  public Location getLocation() {
+    return location;
+  }
+
+  public void setLocation(Location location) {
+    this.location = location;
+  }
+
   public Environment getEnvironment() {
     return environment;
   }
@@ -129,7 +142,6 @@ public class Sensor implements Serializable {
   public void add(String key, Object value) {
     otherFields.put(key, value);
   }
-
 
   public GeoJsonPoint getGeolocation() {
     return geolocation;

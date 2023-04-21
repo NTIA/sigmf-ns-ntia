@@ -10,12 +10,14 @@ import gov.doc.ntia.sigmf.ext.global.algorithm.DataProduct;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DataProducts;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.core.Measurement;
-import gov.doc.ntia.sigmf.ext.global.diagnostics.Diagnostics;import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
+import gov.doc.ntia.sigmf.ext.global.diagnostics.Diagnostics;
+import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
 import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import java.io.Serializable;
-import java.util.ArrayList;import java.util.Date;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -123,10 +125,10 @@ public class Global implements Serializable {
 
   @JsonProperty(value = "ntia-nasctn-sea:max_of_max_channel_poowers")
   protected ArrayList<Double> maxOfMaxChannelPowers;
-  
+
   @JsonProperty(value = "ntia-nasctn-sea:median_of_mean_channel_powers")
-  protected  ArrayList<Double> medianOfMeanChannelPowers;
-  
+  protected ArrayList<Double> medianOfMeanChannelPowers;
+
   public Integer getRecording() {
     return recording;
   }
@@ -313,41 +315,39 @@ public class Global implements Serializable {
     this.measurement = measurement;
   }
 
-  public void setGeolocation(GeoJsonPoint location){
-    this.geolocation = location;
-  }
-
-  public GeoJsonPoint getGeolocation(){
+  public GeoJsonPoint getGeolocation() {
     return this.geolocation;
   }
 
-  public void addDataProduct(DataProduct dataProduct){
-    if(this.dataProducts == null){
+  public void setGeolocation(GeoJsonPoint location) {
+    this.geolocation = location;
+  }
+
+  public void addDataProduct(DataProduct dataProduct) {
+    if (this.dataProducts == null) {
       dataProducts = new DataProducts();
     }
     dataProducts.add(dataProduct);
-    
   }
-  
-  public void removeDataProduct(DataProduct dataProduct){
-    if (dataProducts != null){
+
+  public void removeDataProduct(DataProduct dataProduct) {
+    if (dataProducts != null) {
       dataProducts.remove(dataProduct);
     }
   }
 
-  public DataProducts getDataProducts(){
+  public DataProducts getDataProducts() {
     return dataProducts;
   }
 
-  public void addDigitalFilter(DigitalFilter df){
-    if(this.digitalFilters == null){
+  public void addDigitalFilter(DigitalFilter df) {
+    if (this.digitalFilters == null) {
       digitalFilters = new ArrayList<DigitalFilter>();
-
     }
     digitalFilters.add(df);
   }
 
-  public ArrayList<DigitalFilter> getDigitalFilters(){
+  public ArrayList<DigitalFilter> getDigitalFilters() {
     return digitalFilters;
   }
 

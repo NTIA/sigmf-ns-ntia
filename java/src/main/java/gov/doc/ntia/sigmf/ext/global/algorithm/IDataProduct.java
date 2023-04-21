@@ -2,9 +2,9 @@ package gov.doc.ntia.sigmf.ext.global.algorithm;
 
 public interface IDataProduct {
 
-    public String getReference();
+  String getReference();
 
-    public Long getLength();
+  Long getLength();
 
-    public String getFieldName();
+  String getFieldName();
 }

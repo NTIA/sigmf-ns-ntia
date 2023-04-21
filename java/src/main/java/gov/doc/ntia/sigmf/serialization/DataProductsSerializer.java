@@ -8,27 +8,28 @@ import gov.doc.ntia.sigmf.ext.global.algorithm.DataProducts;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class DataProductsSerializer  extends StdSerializer<DataProducts>{
+public class DataProductsSerializer extends StdSerializer<DataProducts> {
 
   public DataProductsSerializer() {
     this(null);
   }
 
-    public DataProductsSerializer(Class<DataProducts> t) {
-        super(t);
+  public DataProductsSerializer(Class<DataProducts> t) {
+    super(t);
+  }
+
+  @Override
+  public void serialize(DataProducts value, JsonGenerator gen, SerializerProvider provider)
+      throws IOException {
+    gen.writeStartObject();
+    ArrayList<DataProduct> dataProducts = value.getDataProducts();
+    if (value.getDigitalFilter() != null) {
+      gen.writeStringField("digital_filter", value.getDigitalFilter());
+    }
+    for (DataProduct dp : dataProducts) {
+      gen.writeObjectField(dp.getFieldName(), dp);
     }
 
-    @Override
-    public void serialize(DataProducts value, JsonGenerator gen, SerializerProvider provider)throws IOException {
-        gen.writeStartObject();
-        ArrayList<DataProduct> dataProducts = value.getDataProducts();
-        if(value.getDigitalFilter() != null){
-            gen.writeStringField("digital_filter", value.getDigitalFilter());
-        }
-        for(DataProduct dp : dataProducts){
-            gen.writeObjectField(dp.getFieldName(), dp);
-        }
-
-        gen.writeEndObject();
-    }
+    gen.writeEndObject();
+  }
 }

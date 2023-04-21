@@ -13,7 +13,6 @@ public abstract class TraceDataProduct extends DataProduct {
   @JsonProperty(value = "units", required = false)
   protected String units;
 
-
   @JsonProperty(required = true)
   protected Long samples;
 

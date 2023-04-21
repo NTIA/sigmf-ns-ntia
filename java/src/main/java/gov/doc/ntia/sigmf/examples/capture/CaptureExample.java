@@ -1,10 +1,13 @@
 package gov.doc.ntia.sigmf.examples.capture;
 
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.examples.Example;import gov.doc.ntia.sigmf.ext.capture.sensor.SensorCalibration;import gov.doc.ntia.sigmf.ext.capture.sensor.SensorCapture;import gov.doc.ntia.sigmf.ext.capture.sensor.SiganCalibration;import gov.doc.ntia.sigmf.ext.capture.sensor.SiganSettings;
+import gov.doc.ntia.sigmf.examples.Example;
+import gov.doc.ntia.sigmf.ext.capture.sensor.SensorCalibration;
+import gov.doc.ntia.sigmf.ext.capture.sensor.SensorCapture;
+import gov.doc.ntia.sigmf.ext.capture.sensor.SiganSettings;
 import java.util.Calendar;
 
-public class CaptureExample implements Example{
+public class CaptureExample implements Example {
 
   @Override
   public MetaDoc getExample() {
@@ -19,7 +22,7 @@ public class CaptureExample implements Example{
     sensorCalibration.setNoiseFigure(4.069);
     sensorCapture.setDuration(4000);
     sensorCapture.setSensorCalibration(sensorCalibration);
-    SiganSettings settings =new SiganSettings();
+    SiganSettings settings = new SiganSettings();
     settings.setAttenuation(0.0);
     settings.setReferenceLevel(-25.0);
     settings.setPreampEnable(true);

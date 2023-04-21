@@ -7,7 +7,8 @@ import gov.doc.ntia.sigmf.Extensions;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.ext.global.algorithm.PowerSpectralDensity;
-import gov.doc.ntia.sigmf.ext.global.algorithm.Trace;import gov.doc.ntia.sigmf.ext.global.core.Antenna;
+import gov.doc.ntia.sigmf.ext.global.algorithm.Trace;
+import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.core.Measurement;
 import gov.doc.ntia.sigmf.ext.global.environment.Environment;
@@ -203,7 +204,7 @@ public class RadarExample implements Example {
     Sensor sensor = getSensor();
     global.setSensor(getSensor());
     global.setMeasurement(getMeasurement());
-        
+
     PowerSpectralDensity psd = new PowerSpectralDensity();
     Trace max = new Trace();
     max.setStatistic("max");
@@ -214,9 +215,6 @@ public class RadarExample implements Example {
     psd.setEquivalentNoiseBandwidth(962500.0);
     psd.setLength(458L);
 
-
-
-     
     MetaDoc metaDoc = new MetaDoc();
     metaDoc.setGlobal(global);
     metaDoc.setAnnotations(getAnnotations());

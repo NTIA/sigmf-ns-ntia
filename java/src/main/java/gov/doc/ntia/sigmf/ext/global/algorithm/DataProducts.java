@@ -6,8 +6,6 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import gov.doc.ntia.sigmf.serialization.DataProductsDeserializer;
 import gov.doc.ntia.sigmf.serialization.DataProductsSerializer;
-import gov.doc.ntia.sigmf.serialization.ExtensionsDeserializer;
-import gov.doc.ntia.sigmf.serialization.ExtensionsSerializer;
 import java.util.ArrayList;
 
 @JsonSerialize(using = DataProductsSerializer.class)
@@ -15,36 +13,34 @@ import java.util.ArrayList;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DataProducts {
 
-  private String reference;
-
   @JsonProperty(value = "digital_filter")
   protected String digitalFilter;
-
+  private String reference;
   private ArrayList<DataProduct> dataProducts;
 
-  public void add(DataProduct dataProduct){
-    if(dataProducts == null){
+  public void add(DataProduct dataProduct) {
+    if (dataProducts == null) {
       dataProducts = new ArrayList<>();
     }
     dataProducts.add(dataProduct);
   }
 
-  public void remove(DataProduct dataProduct){
-    if(dataProducts != null){
+  public void remove(DataProduct dataProduct) {
+    if (dataProducts != null) {
       dataProducts.remove(dataProduct);
     }
   }
 
-  public ArrayList<DataProduct> getDataProducts(){
+  public ArrayList<DataProduct> getDataProducts() {
     return dataProducts;
   }
 
-  public void setReference(String reference){
-    this.reference = reference;
+  public String getReference() {
+    return reference;
   }
 
-  public String getReference(){
-    return reference;
+  public void setReference(String reference) {
+    this.reference = reference;
   }
 
   public String getDigitalFilter() {
