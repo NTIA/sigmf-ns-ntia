@@ -32,6 +32,7 @@ public class DiagnosticsExample implements Example {
     spu.setPwrBoxTemp(28.8);
     spu.setRfBoxTemp(31.4);
     spu.setPwrBoxHumidity(11.2);
+    spu.setSiganInternalTemp(50.0);
     diagnostics.setSpu(spu);
 
     SsdSmartData ssdSmartData = new SsdSmartData();
@@ -54,6 +55,9 @@ public class DiagnosticsExample implements Example {
     computer.setMemoryUsage(23.8);
     computer.setCpuTemp(67.0);
     computer.setCpuOverheating(false);
+    computer.setCpuUptime(10.0);
+    computer.setScosUptime(1.0);
+    computer.setScosStartTime(now);
     diagnostics.setCpu(computer);
 
     MetaDoc metaDoc = new MetaDoc();
