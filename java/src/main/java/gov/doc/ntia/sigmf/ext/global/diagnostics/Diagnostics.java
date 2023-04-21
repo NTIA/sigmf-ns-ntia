@@ -38,14 +38,6 @@ public class Diagnostics {
     this.spu = spu;
   }
 
-  public Computer getCpu() {
-    return computer;
-  }
-
-  public void setCpu(Computer computer) {
-    this.computer = computer;
-  }
-
   public Double getActionRuntime() {
     return actionRuntime;
   }

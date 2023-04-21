@@ -58,7 +58,7 @@ public class DiagnosticsExample implements Example {
     computer.setCpuUptime(10.0);
     computer.setScosUptime(1.0);
     computer.setScosStartTime(now);
-    diagnostics.setCpu(computer);
+    diagnostics.setComputer(computer);
 
     MetaDoc metaDoc = new MetaDoc();
     metaDoc.getGlobal().setDiagnostics(diagnostics);
