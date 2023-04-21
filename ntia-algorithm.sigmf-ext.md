@@ -96,7 +96,6 @@ An `AmplitudeProbabilityDistribution` object is used to describe an APD, and sup
 
 | name                 | required | type                 |unit| description                                                                                                                                                                |
 |----------------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `traces`             | true     | [Trace](#07-the-trace-object)[] |N/A| Traces in the order they appear in the data file.                                                                                                                          |
 | `length`             | true     | integer                 |N/A| Length of the abscissa.                                                                                                                                                    |
 | `samples`            | true     | integer                 |N/A| Number of samples used to compute the amplitude probability distrubtion.                                                                                                   |
 | `units`              | true     | string               |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
