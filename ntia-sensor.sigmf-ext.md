@@ -121,7 +121,7 @@ The `calibration_datetime` MUST be an ISO-8601 string, as defined by [RFC 3339](
 | name                 |required| type                                      | unit    | description                                    |
 |----------------------|--------------|-------------------------------------------|---------|------------------------------------------------|
 | `duration`           |false| int                                       |milliseconds| Duration of IQ signal capture.                 |
-| `overload`           |false| bpp;eam                                   |N/A| Indicates if signal analyzer overload occurred |
+| `overload`           |false| boolean                                   |N/A| Indicates if signal analyzer overload occurred |
 | `sensor_calibration` |false| [Calibration](#21-calibration-object)     |N/A| Sensor calibration metadata.                   |
 | `sigan_calibration`  |false| [Calibration](#21-calibration-object)     |N/A| Signal analyzer calibration metadata.          |
 | `sigan_settings`     |false| [SiganSettings](#22-sigansettings-object) |N/A| Signal analyzer settings used during capture.  |
