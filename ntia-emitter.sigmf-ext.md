@@ -1,4 +1,4 @@
-# The `ntia-emitter` SigMF Extension Namespace v1.0.0
+# The `ntia-emitter` SigMF Extension Namespace v2.0.0
 
 This document defines the `ntia-emitter` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides emitter defintion and properties.
 
@@ -53,6 +53,13 @@ The `ntia-emitter` extension does not extend the `collection` SigMF object.
   "global" : {
     "core:datatype" : "rf32_le",
     "core:sample_rate" : 2.8E7,
+    "core:extensions" : [
+      {
+        "name" : "ntia-emitter",
+        "version" : "v2.0.0",
+        "required" : true
+      }
+    ],
     "ntia-emitter:emitters" : [ {
       "id" : "N5182B-1",
       "power" : 19.0,
