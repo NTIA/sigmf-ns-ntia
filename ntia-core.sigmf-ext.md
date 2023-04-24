@@ -82,15 +82,7 @@ The `ntia-core` extension does not extend the `collection` SigMF object.
     "core:extensions" : {
       "ntia-core" : "v1.0.0",
     },
-    "ntia-core:measurement" : {
-      "time_start" : "2018-03-01T14:01:00.000874Z",
-      "time_stop" : "2018-03-01T14:01:00.000904Z",
-      "frequency_tuned_low" : 3.45021875E9,
-      "frequency_tuned_high" : 3.45021875E9,
-      "domain" : "frequency",
-      "measurement_type" : "single-frequency",
-      "classification" : "UNCLASSIFIED"
-    }
+    "ntia-core:classification" : "UNCLASSIFIED"
   },
   "captures": [
     ...
@@ -215,16 +207,7 @@ The `ntia-core` extension does not extend the `collection` SigMF object.
       "elevation_unit" : "meter"
     },
     "ntia-sensor:calibration_datetime" : "2018-01-01T10:49:58.236Z",
-    "ntia-core:measurement" : {
-      "domain" : "Frequency",
-      "measurement_type" : "Scan",
-      "time_start" : "2018-01-01T07:59:42.792Z",
-      "time_stop" : "2018-01-01T08:00:37.792Z",
-      "frequency_tuned_low" : 3.45940625E9,
-      "frequency_tuned_high" : 3.65190625E9,
-      "frequency_tuned_step" : 1.925E7,
-      "classification" : "UNCLASSIFIED"
-    }
+    "ntia-core:classification" :  "UNCLASSIFIED"
   },
   "captures" : [ {
     "core:sample_start" : 0,
