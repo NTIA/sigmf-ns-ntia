@@ -60,11 +60,7 @@ The `ntia-core` extension does not extend the `captures` SigMF object.
 
 ## 3 Annotations
 
-`ntia-core` extends the `annotations` SigMF object with segments of different types defined throughout the set of NTIA extensions to the core SigMF specification. `annotation_type` is defined with the following name/value pair:
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`annotation_type`|true|string|N/A|Annotation type, e.g. [`"CalibrationAnnotation"`](ntia-sensor.sigmf-ext.md#32-calibrationannotation-segment), [`"DigitalFilterAnnotation"`](ntia-algorithm.sigmf-ext.md#33-digitalfilterannotation-segment), [`"FrequencyDomainDetection"`](ntia-algorithm.sigmf-ext.md#32-frequencydomaindetection-segment), [`"SensorAnnotation"`](ntia-sensor.sigmf-ext.md#31-sensorannotation-segment), [`"TimeDomainDetection"`](ntia-algorithm.sigmf-ext.md#31-timedomaindetection-segment)|
+The `ntia-core` extension does not extend the `annotations` SigMF object.
 
 ## 4 Collection
 
@@ -79,9 +75,13 @@ The `ntia-core` extension does not extend the `collection` SigMF object.
   "global" : {
     "core:datatype" : "rf32_le",
     "core:sample_rate" : 2.8E7,
-    "core:extensions" : {
-      "ntia-core" : "v1.0.0",
-    },
+    "core:extensions" : [
+      {
+        "name": "ntia-core",
+        "version": "v2.0.0",
+        "optional": false
+      }
+    ],
     "ntia-core:classification" : "UNCLASSIFIED"
   },
   "captures": [
@@ -101,19 +101,28 @@ The `ntia-core` extension does not extend the `collection` SigMF object.
     "core:datatype" : "rf32_le",
     "core:sample_rate" : 2.8E7,
     "core:description" : "Radar data captured off the coast of San Francisco",
-    "core:extensions" : {
-      "ntia-algorithm" : "v1.0.0",
-      "ntia-sensor" : "v1.0.0",
-      "ntia-environment" : "v1.0.0",
-      "ntia-location" : "v1.0.0"
+    "core:extensions" : [
+      {
+        "name": "ntia-core",
+        "version": "v2.0.0",
+        "optional": false
+      },
+      {
+        "name": "ntia-sensor",
+        "version": "v1.0.0",
+        "optional": false
+      }
+    ],
+    "core:geolocation" : {
+        "type" : "Point",
+        "coordinates" : [-122.5309, 37.8204, 51.3522]
     },
     "ntia-sensor:sensor" : {
       "id" : "192.168.1.53",
       "sensor_spec" : {
         "id" : "bh-5",
         "model" : "bassethound",
-        "version" : "v1.0.0",
-        "description" : ""
+        "version" : "v1.0.0"
       },
       "antenna" : {
         "antenna_spec" : {
@@ -152,7 +161,7 @@ The `ntia-core` extension does not extend the `collection` SigMF object.
           "frequency_high_passband" : 3.67E9,
           "frequency_low_stopband" : 3.39E9,
           "frequency_high_stopband" : 3.71E9
-        }, { } ],
+        } ],
         "amplifiers" : [ {
           "amplifier_spec" : {
             "id" : "1904044",
@@ -168,9 +177,6 @@ The `ntia-core` extension does not extend the `collection` SigMF object.
           "cal_source_id" : "37501",
           "filter_id" : "13FV40-00014, SN 6",
           "amplifier_id" : "1904044"
-        }, {
-          "name" : "Bypass",
-          "cal_source_id" : "37501"
         } ]
       },
       "signal_analyzer" : {
@@ -189,22 +195,9 @@ The `ntia-core` extension does not extend the `collection` SigMF object.
         "id" : "MC 9",
         "description" : "Custom computer with Intel i7 processor, MSI motherboard, 16 GB of Ram and running Windows 7"
       },
-      "location" : {
-        "x" : -122.5309,
-        "y" : 37.8204,
-        "z" : 51.3522,
-        "speed" : 0.0,
-        "description" : "On a tower in Point Bonita, near San Francisco"
-      },
       "environment" : {
         "category" : "Outside. Coastal."
       }
-    },
-    "ntia-location:coordinate_system" : {
-      "coordinate_system_type" : "CoordinateSystem",
-      "id" : "WGS_84",
-      "elevation_ref" : "MSL",
-      "elevation_unit" : "meter"
     },
     "ntia-sensor:calibration_datetime" : "2018-01-01T10:49:58.236Z",
     "ntia-core:classification" :  "UNCLASSIFIED"
@@ -214,37 +207,6 @@ The `ntia-core` extension does not extend the `collection` SigMF object.
     "core:frequency" : 3.5501875E9,
     "core:datetime" : "2018-01-01T07:59:42.792Z"
   } ],
-  "annotations" : [ {
-    "ntia-core:annotation_type" : "FrequencyDomainDetection",
-    "core:sample_start" : 0,
-    "core:sample_count" : 458,
-    "core:comment" : "",
-    "ntia-algorithm:detector" : "fft_max_power",
-    "ntia-algorithm:number_of_ffts" : 10,
-    "ntia-algorithm:number_of_samples_in_fft" : 50,
-    "ntia-algorithm:window" : "Gauss-top",
-    "ntia-algorithm:equivalent_noise_bandwidth" : 962500.0,
-    "ntia-algorithm:frequency_start" : 3.45021875E9,
-    "ntia-algorithm:frequency_stop" : 3.65015625E9,
-    "ntia-algorithm:frequency_step" : 437500.0
-  }, {
-    "ntia-core:annotation_type" : "CalibrationAnnotation",
-    "core:sample_start" : 0,
-    "core:sample_count" : 458,
-    "core:comment" : " Calibration is done every 6 hours.",
-    "ntia-sensor:gain_preselector" : 27.241,
-    "ntia-sensor:noise_figure_sensor" : 7.638,
-    "ntia-sensor:enbw_sensor" : 962500.0000000001,
-    "ntia-sensor:mean_noise_power_sensor" : -94.28774890829693,
-    "ntia-sensor:temperature" : 14.611,
-    "ntia-sensor:mean_noise_power_units" : "dBm"
-  }, {
-    "ntia-core:annotation_type" : "SensorAnnotation",
-    "core:sample_start" : 0,
-    "core:sample_count" : 458,
-    "ntia-sensor:rf_path_index" : 0,
-    "ntia-sensor:overload" : false,
-    "ntia-sensor:attenuation_setting_sigan" : 3.0
-  }]
+  "annotations" : []
 }
 ```
