@@ -1,4 +1,4 @@
-# The `ntia-core` SigMF Extension Namespace v1.0.0
+# The `ntia-core` SigMF Extension Namespace v2.0.0
 
 This document defines the `ntia-core` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides generally-useful metadata fields for NTIA's SigMF namespace extensions.
 
@@ -8,33 +8,16 @@ The `ntia-core` extension provides the following datatypes, which are referenced
 
 |name|long-form name|description|
 |----|--------------|-----------|
-|`Measurement`|measurement information|JSON [`Measurement`](#01-the-measurement-object) object containing basic information about the measurement|
-|`Antenna`|antenna specification|JSON [`Antenna`](#02-the-antenna-object) object specifying an antenna|
-|`HardwareSpec`|hardware specification|JSON [`HardwareSpec`](#03-the-hardwarespec-object) object, used to provide hardware details within other objects|
+|`Antenna`|antenna specification|JSON [`Antenna`](#01-the-antenna-object) object specifying an antenna|
+|`HardwareSpec`|hardware specification|JSON [`HardwareSpec`](#02-the-hardwarespec-object) object, used to provide hardware details within other objects|
 
-### 0.1 The `Measurement` Object
-
-The Measurement object summarizes the basic measurement information including  when the measurement was conducted, the frequency range, the domain of the sensed data and the type of measurement that was conducted. The `time_start` and `time_stop` key/value pairs MUST be ISO-8601 strings, as defined by [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), where the only allowed `time-offset` is `z`, indicating the UTC/Zulu timezone. Thus, timestamps take the form of `YYYY-MM-DDTHH:MM:SS.SSSZ`, where any number of digits for fractional seconds is permitted.
-
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`domain`|true|string|N/A| `"time"` or  `"frequency"`|
-|`measurement_type`|true|string|N/A|Method by which the signal analyzer acquires data: `"single-frequency"`or `"scan"`.|
-|`time_start`|true|string|ISO-8601 (see above)|When the action  began execution.|
-|`time_stop`|true|string|ISO-8601 (see above)|When the action  finished execution.|
-|`frequency_tuned_low`|true|double|Hz|Lowest tuned frequency.|
-|`frequency_tuned_high`|true|double|Hz|Highest tuned  frequency.|
-|`frequency_tuned_step`|false|double|Hz|Step between tuned frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
-|`frequencies_tuned`|false|double[]|Hz|Array of tuned frequencies of a `"scan"` measurement. Either `frequency_tuned_step` or `frequencies_tuned` SHOULD be included for `"scan"` measurements.|
-|`classification`|true|string|N/A|The classification markings for the acquisition, e.g., `UNCLASSIFIED`, `CONTROLLED//FEDCON`, `SECRET` ...|
-
-## 0.2 The `Antenna` Object
+## 0.1 The `Antenna` Object
 
 `Antenna` object has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`antenna_spec`|true| [HardwareSpec](#03-the-hardwarespec-object) |N/A|Metadata to describe antenna.|
+|`antenna_spec`|true| [HardwareSpec](#02-the-hardwarespec-object) |N/A|Metadata to describe antenna.|
 |`type`|false|string|N/A|Antenna type. E.g. `"dipole"`, `"biconical"`, `"monopole"`, `"conical monopole"`.|
 |`frequency_low`|false|double|Hz|Low frequency of operational range.|
 |`frequency_high`|false|double|Hz|High frequency of operational range.|
@@ -51,7 +34,7 @@ The Measurement object summarizes the basic measurement information including  w
 |`azimuth_angle`|false|double|degrees|Angle of main beam in azimuthal plane from North.|
 |`elevation_angle`|false|double|degrees|Angle of main beam in elevation plane from horizontal.|
 
-## 0.3 The `HardwareSpec` Object
+## 0.2 The `HardwareSpec` Object
 
 `HardwareSpec` object has the following properties:
 
@@ -69,7 +52,7 @@ The `ntia-core` extension adds the following name/value pair to the `global` Sig
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`measurement`|false|[Measurement](#01-the-measurement-object)|N/A|Summarizes the basic information of the measurement. This object SHOULD be included for any measurement.|
+|`classification`|true|string|N/A|The classification markings for the acquisition, e.g., `UNCLASSIFIED`, `CONTROLLED//FEDCON`, `SECRET` ...|
 
 ## 2 Captures
 
