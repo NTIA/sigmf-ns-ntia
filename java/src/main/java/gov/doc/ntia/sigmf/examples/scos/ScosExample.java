@@ -26,7 +26,7 @@ public class ScosExample implements Example {
   public static Action getAction() {
     Action action = new Action();
     action.setName("acquire_m4s_700MHz_Verizon_UL");
-    action.setDescription("Typically, this would be a detailed description.")
+    action.setDescription("Typically, this would be a detailed description.");
     action.setSummary("Apply m4s detector over 300 1024-pt FFTs at 782 MHz.");
     return action;
   }

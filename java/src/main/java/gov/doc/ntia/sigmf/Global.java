@@ -43,7 +43,7 @@ public class Global implements Serializable {
   // Total number of interleaved channels in the dataset file.
   // If omitted, this defaults to one.
   @JsonProperty(value = "core:num_channels", required = false)
-  protected Long num_channels = 1;
+  protected Long numChannels = 1L;
 
   // The SHA512 hash of the dataset file associated with the SigMF file.
   @JsonProperty(value = "core:sha512", required = false)
@@ -60,6 +60,7 @@ public class Global implements Serializable {
 
   // The author's name (and optionally e-mail address).
   @JsonProperty(value = "core:author", required = false)
+
   protected String author;
 
   // The registered DOI (ISO 26324) for a recording's metadata file.
@@ -94,7 +95,7 @@ public class Global implements Serializable {
 
   // Indicates the metadata is intentionally distributed without the dataset
   @JsonProperty(value = "core:metadata_only", required = false)
-  protected Bool metadataOnly;
+  protected Boolean metadataOnly;
 
   // the location of the recording system
   @JsonProperty(value = "core:geolocation", required = false)
@@ -364,11 +365,11 @@ public class Global implements Serializable {
     this.trailingBytes = trailingBytes;
   }
 
-  public Bool getMetadataOnly() {
+  public Boolean getMetadataOnly() {
     return metadataOnly;
   }
 
-  public void setMetadataOnly(Bool metadataOnly) {
+  public void setMetadataOnly(Boolean metadataOnly) {
     this.metadataOnly = metadataOnly;
   }
 

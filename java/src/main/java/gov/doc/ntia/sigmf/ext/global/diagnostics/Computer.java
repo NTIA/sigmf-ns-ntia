@@ -125,6 +125,10 @@ public class Computer {
     this.scosStartTime = scosStartTime;
   }
 
+  public Double getScosUptime() { return scosUptime; }
+
+  public void setScosUptime(Double scosUptime) { this.scosUptime = scosUptime; }
+
   public SsdSmartData getSmartData() {
     return smartData;
   }
