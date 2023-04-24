@@ -137,8 +137,8 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-scos:recording", required = false)
   protected Integer recording;
 
-  @JsonProperty(value = "ntia-core:classification", required = true)
-  protected String classification;
+  @JsonProperty(value = "ntia-core:measurement", required = true)
+  protected Measurement measurement;
 
   @JsonProperty(value = "ntia-algorithm:data_products", required = false)
   protected DataProducts dataProducts;
@@ -333,12 +333,12 @@ public class Global implements Serializable {
     this.filePath = filePath;
   }
 
-  public String getClassification() {
-    return classification;
+  public Measurement getMeasurement() {
+    return measurement;
   }
 
-  public void setClassification(String classification) {
-    this.classification = classification;
+  public void setMeasurement(Measurement measurement) {
+    this.measurement = measurement;
   }
 
   public Long getNumChannels() {
