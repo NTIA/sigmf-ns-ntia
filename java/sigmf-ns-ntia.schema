@@ -179,6 +179,9 @@
         "mobile" : {
           "type" : "boolean"
         },
+        "location" : {
+          "$ref" : "#/definitions/Location"
+        },
         "environment" : {
           "$ref" : "#/definitions/Environment"
         },
