@@ -13,15 +13,12 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.annotation.Id;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MetaDoc implements Serializable {
 
   private static final long serialVersionUID = 1L;
-  private static final Logger log = LoggerFactory.getLogger(MetaDoc.class);
   @Id protected String id;
   protected Global global;
   protected List<Capture> captures;
@@ -105,7 +102,6 @@ public class MetaDoc implements Serializable {
   public Acquisition getAcquisition() throws IOException {
     Acquisition acquisition = new Acquisition();
     acquisition.setMetaDoc(this);
-    log.debug("reading datafile:" + global.getFilepath());
     BufferedInputStream inputStream =
         new BufferedInputStream(new FileInputStream(global.getFilepath()));
     byte[] sensedData = IOUtils.toByteArray(inputStream);

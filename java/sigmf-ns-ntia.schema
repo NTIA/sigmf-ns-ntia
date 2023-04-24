@@ -1,41 +1,27 @@
 {
-  "$schema" : "http://json-schema.org/draft-04/schema#",
-  "title" : "Meta Doc",
   "type" : "object",
-  "additionalProperties" : false,
+  "id" : "urn:jsonschema:gov:doc:ntia:sigmf:MetaDoc",
   "properties" : {
     "id" : {
       "type" : "string"
     },
     "global" : {
-      "$ref" : "#/definitions/Global"
-    },
-    "captures" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/Capture"
-      }
-    },
-    "annotations" : {
-      "type" : "array",
-      "items" : {
-        "$ref" : "#/definitions/Annotation"
-      }
-    }
-  },
-  "definitions" : {
-    "Global" : {
       "type" : "object",
-      "additionalProperties" : false,
+      "id" : "urn:jsonschema:gov:doc:ntia:sigmf:Global",
       "properties" : {
-        "core:datatype" : {
+        "filepath" : {
           "type" : "string"
+        },
+        "core:datatype" : {
+          "type" : "string",
+          "required" : true
         },
         "core:sample_rate" : {
           "type" : "number"
         },
         "core:version" : {
-          "type" : "string"
+          "type" : "string",
+          "required" : true
         },
         "core:num_channels" : {
           "type" : "integer"
@@ -74,33 +60,411 @@
           "type" : "integer"
         },
         "core:metadata_only" : {
-          "type": "boolean"
+          "type" : "boolean"
         },
         "core:geolocation" : {
-          "$ref" : "#/definitions/GeoJsonPoint"
+          "type" : "object",
+          "id" : "urn:jsonschema:gov:doc:ntia:sigmf:GeoJsonPoint",
+          "properties" : {
+            "type" : {
+              "type" : "string"
+            },
+            "coordinates" : {
+              "type" : "array",
+              "items" : {
+                "type" : "number"
+              }
+            }
+          }
         },
-        "core:extensions" : { },
+        "core:extensions" : {
+          "type" : "any"
+        },
         "core:collection" : {
           "type" : "string"
         },
         "ntia-sensor:sensor" : {
-          "$ref" : "#/definitions/Sensor"
+          "type" : "object",
+          "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:sensor:Sensor",
+          "properties" : {
+            "id" : {
+              "type" : "string",
+              "required" : true
+            },
+            "sensor_spec" : {
+              "type" : "object",
+              "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:core:HardwareSpec",
+              "properties" : {
+                "id" : {
+                  "type" : "string"
+                },
+                "model" : {
+                  "type" : "string"
+                },
+                "version" : {
+                  "type" : "string"
+                },
+                "description" : {
+                  "type" : "string"
+                },
+                "supplemental_information" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "antenna" : {
+              "type" : "object",
+              "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:core:Antenna",
+              "properties" : {
+                "antenna_spec" : {
+                  "type" : "object",
+                  "$ref" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:core:HardwareSpec",
+                  "required" : true
+                },
+                "type" : {
+                  "type" : "string"
+                },
+                "frequency_low" : {
+                  "type" : "number"
+                },
+                "frequency_high" : {
+                  "type" : "number"
+                },
+                "gain" : {
+                  "type" : "number"
+                },
+                "polarization" : {
+                  "type" : "string"
+                },
+                "cross_polar_discrimination" : {
+                  "type" : "number"
+                },
+                "horizontal_gain_pattern" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "number"
+                  }
+                },
+                "vertical_gain_pattern" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "number"
+                  }
+                },
+                "horizontal_beamwidth" : {
+                  "type" : "number"
+                },
+                "vertical_beamwidth" : {
+                  "type" : "number"
+                },
+                "voltage_standing_wave_ratio" : {
+                  "type" : "number"
+                },
+                "cable_loss" : {
+                  "type" : "number"
+                },
+                "steerable" : {
+                  "type" : "boolean"
+                },
+                "azimuth_angle" : {
+                  "type" : "number"
+                },
+                "elevation_angle" : {
+                  "type" : "number"
+                }
+              }
+            },
+            "preselector" : {
+              "type" : "object",
+              "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:sensor:Preselector",
+              "properties" : {
+                "preselector_spec" : {
+                  "type" : "object",
+                  "$ref" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:core:HardwareSpec"
+                },
+                "cal_sources" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:sensor:CalSource",
+                    "properties" : {
+                      "cal_source_spec" : {
+                        "type" : "object",
+                        "$ref" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:core:HardwareSpec"
+                      },
+                      "type" : {
+                        "type" : "string"
+                      },
+                      "enr" : {
+                        "type" : "string"
+                      }
+                    }
+                  }
+                },
+                "filters" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:sensor:Filter",
+                    "properties" : {
+                      "filter_spec" : {
+                        "type" : "object",
+                        "$ref" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:core:HardwareSpec"
+                      },
+                      "frequency_low_passband" : {
+                        "type" : "number"
+                      },
+                      "frequency_high_passband" : {
+                        "type" : "number"
+                      },
+                      "frequency_low_stopband" : {
+                        "type" : "number"
+                      },
+                      "frequency_high_stopband" : {
+                        "type" : "number"
+                      }
+                    }
+                  }
+                },
+                "amplifiers" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:sensor:Amplifier",
+                    "properties" : {
+                      "amplifier_spec" : {
+                        "type" : "object",
+                        "$ref" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:core:HardwareSpec"
+                      },
+                      "gain" : {
+                        "type" : "number"
+                      },
+                      "noise_figure" : {
+                        "type" : "number"
+                      },
+                      "max_power" : {
+                        "type" : "number"
+                      }
+                    }
+                  }
+                },
+                "rf_paths" : {
+                  "type" : "array",
+                  "items" : {
+                    "type" : "object",
+                    "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:sensor:RfPath",
+                    "properties" : {
+                      "name" : {
+                        "type" : "string"
+                      },
+                      "cal_source_id" : {
+                        "type" : "string"
+                      },
+                      "filter_id" : {
+                        "type" : "string"
+                      },
+                      "amplifier_id" : {
+                        "type" : "string"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "signal_analyzer" : {
+              "type" : "object",
+              "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:sensor:SignalAnalyzer",
+              "properties" : {
+                "sigan_spec" : {
+                  "type" : "object",
+                  "$ref" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:core:HardwareSpec"
+                },
+                "frequency_low" : {
+                  "type" : "number"
+                },
+                "frequency_high" : {
+                  "type" : "number"
+                },
+                "noise_figure" : {
+                  "type" : "number"
+                },
+                "max_power" : {
+                  "type" : "number"
+                },
+                "a2d_bits" : {
+                  "type" : "integer"
+                }
+              }
+            },
+            "computer_spec" : {
+              "type" : "object",
+              "$ref" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:core:HardwareSpec"
+            },
+            "mobile" : {
+              "type" : "boolean"
+            },
+            "location" : {
+              "type" : "object",
+              "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:location:Location",
+              "properties" : {
+                "x" : {
+                  "type" : "number"
+                },
+                "y" : {
+                  "type" : "number"
+                },
+                "z" : {
+                  "type" : "number"
+                },
+                "speed" : {
+                  "type" : "number"
+                },
+                "bearing" : {
+                  "type" : "number"
+                },
+                "description" : {
+                  "type" : "string"
+                },
+                "gps" : {
+                  "type" : "boolean"
+                }
+              }
+            },
+            "environment" : {
+              "type" : "object",
+              "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:environment:Environment",
+              "properties" : {
+                "temperature" : {
+                  "type" : "number"
+                },
+                "humidity" : {
+                  "type" : "number"
+                },
+                "weather" : {
+                  "type" : "string"
+                },
+                "category" : {
+                  "type" : "string"
+                },
+                "description" : {
+                  "type" : "string"
+                }
+              }
+            },
+            "sensor_sha512" : {
+              "type" : "string"
+            }
+          }
         },
         "ntia-emitter:emitters" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/Emitter"
+            "type" : "object",
+            "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:emitter:Emitter",
+            "properties" : {
+              "id" : {
+                "type" : "string"
+              },
+              "description" : {
+                "type" : "string"
+              },
+              "power" : {
+                "type" : "number"
+              },
+              "antenna" : {
+                "type" : "object",
+                "$ref" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:core:Antenna"
+              },
+              "transmitter" : {
+                "type" : "object",
+                "$ref" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:core:HardwareSpec"
+              },
+              "center_frequency" : {
+                "type" : "number"
+              },
+              "waveform" : {
+                "type" : "object",
+                "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:waveform:Waveform",
+                "properties" : {
+                  "model" : {
+                    "type" : "string",
+                    "required" : true
+                  },
+                  "description" : {
+                    "type" : "string"
+                  }
+                }
+              },
+              "location" : {
+                "type" : "object",
+                "$ref" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:location:Location"
+              },
+              "geolocation" : {
+                "type" : "object",
+                "$ref" : "urn:jsonschema:gov:doc:ntia:sigmf:GeoJsonPoint"
+              },
+              "environment" : {
+                "type" : "object",
+                "$ref" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:environment:Environment"
+              }
+            }
           }
         },
         "ntia-scos:action" : {
-          "$ref" : "#/definitions/Action"
+          "type" : "object",
+          "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:scos:Action",
+          "required" : true,
+          "properties" : {
+            "name" : {
+              "type" : "string",
+              "required" : true
+            },
+            "description" : {
+              "type" : "string"
+            },
+            "summary" : {
+              "type" : "string"
+            }
+          }
         },
         "ntia-scos:schedule" : {
-          "$ref" : "#/definitions/ScheduleEntry"
+          "type" : "object",
+          "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:scos:ScheduleEntry",
+          "required" : true,
+          "properties" : {
+            "roles" : {
+              "type" : "array",
+              "items" : {
+                "type" : "string"
+              }
+            },
+            "id" : {
+              "type" : "string",
+              "required" : true
+            },
+            "name" : {
+              "type" : "string",
+              "required" : true
+            },
+            "stop" : {
+              "type" : "string",
+              "format" : "date-time"
+            },
+            "interval" : {
+              "type" : "integer"
+            },
+            "priority" : {
+              "type" : "integer"
+            },
+            "start" : {
+              "type" : "string",
+              "format" : "date-time"
+            }
+          }
         },
         "ntia-sensor:calibration_datetime" : {
-          "type" : "integer",
-          "format" : "utc-millisec"
+          "type" : "string",
+          "format" : "date-time"
         },
         "ntia-scos:data_file_path" : {
           "type" : "string"
@@ -112,17 +476,230 @@
           "type" : "integer"
         },
         "ntia-core:measurement" : {
-          "$ref" : "#/definitions/Measurement"
+          "type" : "object",
+          "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:core:Measurement",
+          "required" : true,
+          "properties" : {
+            "domain" : {
+              "type" : "string",
+              "required" : true
+            },
+            "measurement_type" : {
+              "type" : "string",
+              "required" : true
+            },
+            "time_start" : {
+              "type" : "string",
+              "required" : true,
+              "format" : "date-time"
+            },
+            "time_stop" : {
+              "type" : "string",
+              "required" : true,
+              "format" : "date-time"
+            },
+            "frequency_tuned_low" : {
+              "type" : "number"
+            },
+            "frequency_tuned_high" : {
+              "type" : "number"
+            },
+            "frequency_tuned_step" : {
+              "type" : "number"
+            },
+            "frequencies_tuned" : {
+              "type" : "array",
+              "items" : {
+                "type" : "number"
+              }
+            },
+            "classification" : {
+              "type" : "string",
+              "required" : true
+            }
+          }
         },
-        "ntia-algorithm:data_products" : { },
+        "ntia-algorithm:data_products" : {
+          "type" : "any"
+        },
         "ntia-algorithm:digital_filters" : {
           "type" : "array",
           "items" : {
-            "$ref" : "#/definitions/DigitalFilter"
+            "type" : "object",
+            "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:algorithm:DigitalFilter",
+            "properties" : {
+              "id" : {
+                "type" : "string"
+              },
+              "filter_type" : {
+                "type" : "string"
+              },
+              "FIR_coefficients" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "number"
+                }
+              },
+              "IIR_numerator_coefficients" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "number"
+                }
+              },
+              "IIR_denominator_coefficients" : {
+                "type" : "array",
+                "items" : {
+                  "type" : "number"
+                }
+              },
+              "frequency_cutoff" : {
+                "type" : "number"
+              },
+              "attenuation_cutoff" : {
+                "type" : "number"
+              },
+              "ripple_passband" : {
+                "type" : "number"
+              },
+              "attenuation_stopband" : {
+                "type" : "number"
+              },
+              "frequency_stopband" : {
+                "type" : "number"
+              }
+            }
           }
         },
         "ntia-diagnostics:diagnostics" : {
-          "$ref" : "#/definitions/Diagnostics"
+          "type" : "object",
+          "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:diagnostics:Diagnostics",
+          "properties" : {
+            "computer" : {
+              "type" : "object",
+              "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:diagnostics:Computer",
+              "properties" : {
+                "cpu_max_clock" : {
+                  "type" : "number"
+                },
+                "cpu_min_clock" : {
+                  "type" : "number"
+                },
+                "cpu_mean_clock" : {
+                  "type" : "number"
+                },
+                "action_cpu_usage" : {
+                  "type" : "number"
+                },
+                "system_load_5m" : {
+                  "type" : "number"
+                },
+                "memory_usage" : {
+                  "type" : "number"
+                },
+                "cpu_temp" : {
+                  "type" : "number"
+                },
+                "cpu_overheating" : {
+                  "type" : "boolean"
+                },
+                "cpu_uptime" : {
+                  "type" : "number"
+                },
+                "scos_uptime" : {
+                  "type" : "number"
+                },
+                "scos_start_time" : {
+                  "type" : "string",
+                  "format" : "date-time"
+                },
+                "ssd_smart_data" : {
+                  "type" : "object",
+                  "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:diagnostics:SsdSmartData",
+                  "properties" : {
+                    "temp" : {
+                      "type" : "number"
+                    },
+                    "test_passed" : {
+                      "type" : "boolean"
+                    },
+                    "critical_warning" : {
+                      "type" : "string"
+                    },
+                    "available_spare" : {
+                      "type" : "number"
+                    },
+                    "available_spare_threshold" : {
+                      "type" : "number"
+                    },
+                    "percentage_used" : {
+                      "type" : "number"
+                    },
+                    "unsafe_shutdowns" : {
+                      "type" : "integer"
+                    },
+                    "integrity_errors" : {
+                      "type" : "integer"
+                    }
+                  }
+                }
+              }
+            },
+            "datetime" : {
+              "type" : "string",
+              "format" : "date-time"
+            },
+            "preselector" : {
+              "type" : "object",
+              "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:diagnostics:Preselector",
+              "properties" : {
+                "temp" : {
+                  "type" : "number"
+                },
+                "humidity" : {
+                  "type" : "number"
+                },
+                "noise_diode_temp" : {
+                  "type" : "number"
+                },
+                "lna_temp" : {
+                  "type" : "number"
+                },
+                "door_closed" : {
+                  "type" : "boolean"
+                }
+              }
+            },
+            "spu" : {
+              "type" : "object",
+              "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:diagnostics:SPU",
+              "properties" : {
+                "rf_tray_powered" : {
+                  "type" : "boolean"
+                },
+                "preselector_powered" : {
+                  "type" : "boolean"
+                },
+                "28v_aux_powered" : {
+                  "type" : "boolean"
+                },
+                "pwr_box_temp" : {
+                  "type" : "number"
+                },
+                "rf_box_temp" : {
+                  "type" : "number"
+                },
+                "pwr_box_humidity" : {
+                  "type" : "number"
+                },
+                "sigan_internal_temp" : {
+                  "type" : "number"
+                }
+              }
+            },
+            "action_runtime" : {
+              "type" : "number"
+            }
+          }
         },
         "ntia-nasctn-sea:max_of_max_channel_poowers" : {
           "type" : "array",
@@ -136,718 +713,71 @@
             "type" : "number"
           }
         }
-      },
-      "required" : [ "core:datatype", "core:version", "ntia-scos:action", "ntia-scos:schedule", "ntia-core:measurement" ]
-    },
-    "GeoJsonPoint" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "type" : {
-          "type" : "string"
-        },
-        "coordinates" : {
-          "type" : "array",
-          "items" : {
-            "type" : "number"
-          }
-        }
       }
     },
-    "Sensor" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "id" : {
-          "type" : "string"
-        },
-        "sensor_spec" : {
-          "$ref" : "#/definitions/HardwareSpec"
-        },
-        "antenna" : {
-          "$ref" : "#/definitions/Antenna"
-        },
-        "preselector" : {
-          "$ref" : "#/definitions/Preselector"
-        },
-        "signal_analyzer" : {
-          "$ref" : "#/definitions/SignalAnalyzer"
-        },
-        "computer_spec" : {
-          "$ref" : "#/definitions/HardwareSpec"
-        },
-        "mobile" : {
-          "type" : "boolean"
-        },
-        "location" : {
-          "$ref" : "#/definitions/Location"
-        },
-        "environment" : {
-          "$ref" : "#/definitions/Environment"
-        },
-        "sensor_sha512" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "id" ]
-    },
-    "HardwareSpec" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "id" : {
-          "type" : "string"
-        },
-        "model" : {
-          "type" : "string"
-        },
-        "version" : {
-          "type" : "string"
-        },
-        "description" : {
-          "type" : "string"
-        },
-        "supplemental_information" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Antenna" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "antenna_spec" : {
-          "$ref" : "#/definitions/HardwareSpec"
-        },
-        "type" : {
-          "type" : "string"
-        },
-        "frequency_low" : {
-          "type" : "number"
-        },
-        "frequency_high" : {
-          "type" : "number"
-        },
-        "gain" : {
-          "type" : "number"
-        },
-        "polarization" : {
-          "type" : "string"
-        },
-        "cross_polar_discrimination" : {
-          "type" : "number"
-        },
-        "horizontal_gain_pattern" : {
-          "type" : "array",
-          "items" : {
-            "type" : "number"
-          }
-        },
-        "vertical_gain_pattern" : {
-          "type" : "array",
-          "items" : {
-            "type" : "number"
-          }
-        },
-        "horizontal_beamwidth" : {
-          "type" : "number"
-        },
-        "vertical_beamwidth" : {
-          "type" : "number"
-        },
-        "voltage_standing_wave_ratio" : {
-          "type" : "number"
-        },
-        "cable_loss" : {
-          "type" : "number"
-        },
-        "steerable" : {
-          "type" : "boolean"
-        },
-        "azimuth_angle" : {
-          "type" : "number"
-        },
-        "elevation_angle" : {
-          "type" : "number"
-        }
-      },
-      "required" : [ "antenna_spec" ]
-    },
-    "Preselector" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "preselector_spec" : {
-          "$ref" : "#/definitions/HardwareSpec"
-        },
-        "cal_sources" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/CalSource"
-          }
-        },
-        "filters" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Filter"
-          }
-        },
-        "amplifiers" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/Amplifier"
-          }
-        },
-        "rf_paths" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "#/definitions/RfPath"
-          }
-        }
-      }
-    },
-    "CalSource" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "cal_source_spec" : {
-          "$ref" : "#/definitions/HardwareSpec"
-        },
-        "type" : {
-          "type" : "string"
-        },
-        "enr" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Filter" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "filter_spec" : {
-          "$ref" : "#/definitions/HardwareSpec"
-        },
-        "frequency_low_passband" : {
-          "type" : "number"
-        },
-        "frequency_high_passband" : {
-          "type" : "number"
-        },
-        "frequency_low_stopband" : {
-          "type" : "number"
-        },
-        "frequency_high_stopband" : {
-          "type" : "number"
-        }
-      }
-    },
-    "Amplifier" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "amplifier_spec" : {
-          "$ref" : "#/definitions/HardwareSpec"
-        },
-        "gain" : {
-          "type" : "number"
-        },
-        "noise_figure" : {
-          "type" : "number"
-        },
-        "max_power" : {
-          "type" : "number"
-        }
-      }
-    },
-    "RfPath" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "name" : {
-          "type" : "string"
-        },
-        "cal_source_id" : {
-          "type" : "string"
-        },
-        "filter_id" : {
-          "type" : "string"
-        },
-        "amplifier_id" : {
-          "type" : "string"
-        }
-      }
-    },
-    "SignalAnalyzer" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "sigan_spec" : {
-          "$ref" : "#/definitions/HardwareSpec"
-        },
-        "frequency_low" : {
-          "type" : "number"
-        },
-        "frequency_high" : {
-          "type" : "number"
-        },
-        "noise_figure" : {
-          "type" : "number"
-        },
-        "max_power" : {
-          "type" : "number"
-        },
-        "a2d_bits" : {
-          "type" : "integer"
-        }
-      }
-    },
-    "Environment" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "temperature" : {
-          "type" : "number"
-        },
-        "humidity" : {
-          "type" : "number"
-        },
-        "weather" : {
-          "type" : "string"
-        },
-        "category" : {
-          "type" : "string"
-        },
-        "description" : {
-          "type" : "string"
-        }
-      }
-    },
-    "Emitter" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "id" : {
-          "type" : "string"
-        },
-        "description" : {
-          "type" : "string"
-        },
-        "power" : {
-          "type" : "number"
-        },
-        "antenna" : {
-          "$ref" : "#/definitions/Antenna"
-        },
-        "transmitter" : {
-          "$ref" : "#/definitions/HardwareSpec"
-        },
-        "center_frequency" : {
-          "type" : "number"
-        },
-        "waveform" : {
-          "oneOf" : [ {
-            "$ref" : "#/definitions/Ieee80211p"
-          } ]
-        },
-        "geolocation" : {
-          "$ref" : "#/definitions/GeoJsonPoint"
-        },
-        "environment" : {
-          "$ref" : "#/definitions/Environment"
-        }
-      }
-    },
-    "Ieee80211p" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "model" : {
-          "type" : "string",
-          "enum" : [ "IEEE80211p" ],
-          "default" : "IEEE80211p"
-        },
-        "description" : {
-          "type" : "string"
-        },
-        "info_bit_generation" : {
-          "type" : "string"
-        },
-        "coding_rate" : {
-          "type" : "array",
-          "items" : {
+    "captures" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "id" : "urn:jsonschema:gov:doc:ntia:sigmf:Capture",
+        "properties" : {
+          "core:sample_start" : {
+            "type" : "integer",
+            "required" : true
+          },
+          "core:global_index" : {
             "type" : "integer"
-          }
-        },
-        "packet_length" : {
-          "type" : "integer"
-        },
-        "modulation" : {
-          "type" : "string"
-        },
-        "encoder" : {
-          "type" : "string"
-        },
-        "number_of_subcarriers" : {
-          "type" : "integer"
-        },
-        "number_of_data_subcarriers" : {
-          "type" : "integer"
-        },
-        "number_of_pilots" : {
-          "type" : "integer"
-        },
-        "cyclic_prefix" : {
-          "type" : "integer"
-        },
-        "short_inter_frame_space" : {
-          "type" : "number"
-        },
-        "preamble_frame" : {
-          "type" : "array",
-          "items" : {
+          },
+          "core:header_bytes" : {
             "type" : "integer"
+          },
+          "core:frequency" : {
+            "type" : "number"
+          },
+          "core:datetime" : {
+            "type" : "string",
+            "format" : "date-time"
           }
-        },
-        "number_of_info_bits" : {
-          "type" : "integer"
-        },
-        "signal_to_noise_ratio" : {
-          "type" : "number"
         }
-      },
-      "title" : "IEEE80211p",
-      "required" : [ "model", "number_of_data_subcarriers", "number_of_pilots" ]
+      }
     },
-    "Action" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "name" : {
-          "type" : "string"
-        },
-        "description" : {
-          "type" : "string"
-        },
-        "summary" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "name" ]
-    },
-    "ScheduleEntry" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "roles" : {
-          "type" : "array",
-          "items" : {
+    "annotations" : {
+      "type" : "array",
+      "items" : {
+        "type" : "object",
+        "id" : "urn:jsonschema:gov:doc:ntia:sigmf:Annotation",
+        "properties" : {
+          "core:sample_start" : {
+            "type" : "integer",
+            "required" : true
+          },
+          "core:sample_count" : {
+            "type" : "integer",
+            "required" : true
+          },
+          "core:generator" : {
             "type" : "string"
-          }
-        },
-        "id" : {
-          "type" : "string"
-        },
-        "name" : {
-          "type" : "string"
-        },
-        "stop" : {
-          "type" : "integer",
-          "format" : "utc-millisec"
-        },
-        "interval" : {
-          "type" : "integer"
-        },
-        "priority" : {
-          "type" : "integer"
-        },
-        "start" : {
-          "type" : "integer",
-          "format" : "utc-millisec"
-        }
-      },
-      "required" : [ "id", "name" ]
-    },
-    "Measurement" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "domain" : {
-          "type" : "string"
-        },
-        "measurement_type" : {
-          "type" : "string"
-        },
-        "time_start" : {
-          "type" : "integer",
-          "format" : "utc-millisec"
-        },
-        "time_stop" : {
-          "type" : "integer",
-          "format" : "utc-millisec"
-        },
-        "frequency_tuned_low" : {
-          "type" : "number"
-        },
-        "frequency_tuned_high" : {
-          "type" : "number"
-        },
-        "frequency_tuned_step" : {
-          "type" : "number"
-        },
-        "frequencies_tuned" : {
-          "type" : "array",
-          "items" : {
+          },
+          "core:comment" : {
+            "type" : "string"
+          },
+          "core:freq_lower_edge" : {
+            "type" : "number"
+          },
+          "core:freq_upper_edge" : {
+            "type" : "number"
+          },
+          "uuid" : {
+            "type" : "string"
+          },
+          "core:latitude" : {
+            "type" : "number"
+          },
+          "core:longitude" : {
             "type" : "number"
           }
-        },
-        "classification" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "domain", "measurement_type", "time_start", "time_stop", "classification" ]
-    },
-    "DigitalFilter" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "id" : {
-          "type" : "string"
-        },
-        "filter_type" : {
-          "type" : "string"
-        },
-        "FIR_coefficients" : {
-          "type" : "array",
-          "items" : {
-            "type" : "number"
-          }
-        },
-        "IIR_numerator_coefficients" : {
-          "type" : "array",
-          "items" : {
-            "type" : "number"
-          }
-        },
-        "IIR_denominator_coefficients" : {
-          "type" : "array",
-          "items" : {
-            "type" : "number"
-          }
-        },
-        "frequency_cutoff" : {
-          "type" : "number"
-        },
-        "attenuation_cutoff" : {
-          "type" : "number"
-        },
-        "ripple_passband" : {
-          "type" : "number"
-        },
-        "attenuation_stopband" : {
-          "type" : "number"
-        },
-        "frequency_stopband" : {
-          "type" : "number"
         }
       }
-    },
-    "Diagnostics" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "datetime" : {
-          "type" : "integer",
-          "format" : "utc-millisec"
-        },
-        "preselector" : {
-          "$ref" : "#/definitions/Preselector_1"
-        },
-        "spu" : {
-          "$ref" : "#/definitions/SPU"
-        },
-        "computer" : {
-          "$ref" : "#/definitions/Computer"
-        },
-        "cpu" : {
-          "$ref" : "#/definitions/Computer"
-        },
-        "action_runtime" : {
-          "type" : "number"
-        }
-      }
-    },
-    "Preselector_1" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "temp" : {
-          "type" : "number"
-        },
-        "humidity" : {
-          "type" : "number"
-        },
-        "noise_diode_temp" : {
-          "type" : "number"
-        },
-        "lna_temp" : {
-          "type" : "number"
-        },
-        "door_closed" : {
-          "type" : "boolean"
-        }
-      }
-    },
-    "SPU" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "rf_tray_powered" : {
-          "type" : "boolean"
-        },
-        "preselector_powered" : {
-          "type" : "boolean"
-        },
-        "28v_aux_powered" : {
-          "type" : "boolean"
-        },
-        "pwr_box_temp" : {
-          "type" : "number"
-        },
-        "rf_box_temp" : {
-          "type" : "number"
-        },
-        "pwr_box_humidity" : {
-          "type" : "number"
-        },
-        "sigan_internal_temp" : {
-          "type" : "number"
-        }
-      }
-    },
-    "Computer" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "cpu_max_clock" : {
-          "type" : "number"
-        },
-        "cpu_min_clock" : {
-          "type" : "number"
-        },
-        "cpu_mean_clock" : {
-          "type" : "number"
-        },
-        "action_cpu_usage" : {
-          "type" : "number"
-        },
-        "system_load_5m" : {
-          "type" : "number"
-        },
-        "memory_usage" : {
-          "type" : "number"
-        },
-        "cpu_temp" : {
-          "type" : "number"
-        },
-        "cpu_overheating" : {
-          "type" : "boolean"
-        },
-        "cpu_uptime" : {
-          "type" : "number"
-        },
-        "scos_uptime" : {
-          "type" : "number"
-        },
-        "scos_start_time" : {
-          "type" : "integer",
-          "format" : "utc-millisec"
-        },
-        "ssd_smart_data" : {
-          "$ref" : "#/definitions/SsdSmartData"
-        }
-      }
-    },
-    "SsdSmartData" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "temp" : {
-          "type" : "number"
-        },
-        "test_passed" : {
-          "type" : "boolean"
-        },
-        "critical_warning" : {
-          "type" : "string"
-        },
-        "available_spare" : {
-          "type" : "number"
-        },
-        "available_spare_threshold" : {
-          "type" : "number"
-        },
-        "percentage_used" : {
-          "type" : "number"
-        },
-        "unsafe_shutdowns" : {
-          "type" : "integer"
-        },
-        "integrity_errors" : {
-          "type" : "integer"
-        }
-      }
-    },
-    "Capture" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "core:sample_start" : {
-          "type" : "integer"
-        },
-        "core:global_index" : {
-          "type" : "integer"
-        },
-        "core:header_bytes" : {
-          "type" : "integer"
-        },
-        "core:frequency" : {
-          "type" : "number"
-        },
-        "core:datetime" : {
-          "type" : "integer",
-          "format" : "utc-millisec"
-        }
-      },
-      "required" : [ "core:sample_start" ]
-    },
-    "Annotation" : {
-      "type" : "object",
-      "additionalProperties" : false,
-      "properties" : {
-        "core:sample_start" : {
-          "type" : "integer"
-        },
-        "core:sample_count" : {
-          "type" : "integer"
-        },
-        "core:generator" : {
-          "type" : "string"
-        },
-        "core:comment" : {
-          "type" : "string"
-        },
-        "core:freq_lower_edge" : {
-          "type" : "number"
-        },
-        "core:freq_upper_edge" : {
-          "type" : "number"
-        },
-        "core:uuid" : {
-          "type" : "string"
-        }
-      },
-      "required" : [ "core:sample_start", "core:sample_count" ]
     }
   }
 }
