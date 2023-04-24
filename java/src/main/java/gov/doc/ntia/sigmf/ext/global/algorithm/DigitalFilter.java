@@ -13,6 +13,7 @@ public class DigitalFilter implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
+  @JsonProperty(required = true)
   protected String id;
 
   @JsonProperty(value = "filter_type", required = false)

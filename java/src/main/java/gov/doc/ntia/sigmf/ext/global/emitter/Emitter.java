@@ -19,7 +19,7 @@ public class Emitter implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  @JsonProperty(value = "id", required = false)
+  @JsonProperty(value = "id", required = true)
   protected String id;
 
   @JsonProperty(value = "description", required = false)

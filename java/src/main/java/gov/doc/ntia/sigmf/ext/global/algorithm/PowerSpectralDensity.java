@@ -6,7 +6,7 @@ import java.beans.Transient;
 
 public class PowerSpectralDensity extends TraceDataProduct {
 
-  @JsonProperty(value = "equivalent_noise_bandwidth", required = false)
+  @JsonProperty(value = "equivalent_noise_bandwidth", required = true)
   protected Double equivalentNoiseBandwidth;
 
   @JsonProperty(value = "ffts", required = true)
