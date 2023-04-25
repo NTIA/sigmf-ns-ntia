@@ -107,7 +107,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 | name          |required| type                                  | unit    | description                                 |
 |---------------|--------------|---------------------------------------|---------|---------------------------------------------|
-|`datetime`|false|ISO-8601 (see below)|Timestamp for the calibration data in this object. RECOMMENDED|
+|`datetime`|false|string|ISO-8601 (see below)|Timestamp for the calibration data in this object. RECOMMENDED|
 |`gain`|false|double|N/A|Gain of signal analyzer or sensor (may differ with signal analyzer gain setting).|
 |`noise_figure`|false|double|dB|Noise figure of signal analyzer or sensor.|
 |`1db_compression_point`|false|double|dBm|Maximum input of signal analyzer or sensor.|
