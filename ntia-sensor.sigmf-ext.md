@@ -112,11 +112,10 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`noise_figure`|false|double|dB|Noise figure of signal analyzer or sensor.|
 |`1db_compression_point`|false|double|dBm|Maximum input of signal analyzer or sensor.|
 |`enbw`|false|double|Hz|Equivalent noise bandwidth of signal analyzer or sensor.|
-|`gain_preselector`|false|double|dB|Gain of sensor preselector.|
 |`mean_noise_power`|false|double|Defined in `mean_noise_power_units`|Mean noise power density of sensor.|
 |`mean_noise_power_units`|false|string|N/A|The units of the mean_noise_power|
-|`mean_noise_power_reference`|false|string|N/A| Reference source for the mean_noise_power, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`|
-| `temperature` |false|double| celsius | The temperature during calibration.         |
+|`reference`|false|string|N/A| Reference source for the calibration data, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`|
+| `temperature` |false|double| degrees Celsius | The temperature during calibration.         |
 
 The `datetime` MUST be an ISO-8601 string, as defined by [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), where the only allowed `time-offset` is `z`, indicating the UTC/Zulu timezone. Thus, timestamps take the form of `YYYY-MM-DDTHH:MM:SS.SSSZ`, where any number of digits for fractional seconds is permitted.
 
