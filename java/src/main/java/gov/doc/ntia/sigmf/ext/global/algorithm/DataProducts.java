@@ -15,6 +15,7 @@ public class DataProducts {
 
   @JsonProperty(value = "digital_filter")
   protected String digitalFilter;
+
   private String reference;
   private ArrayList<DataProduct> dataProducts;
 

@@ -60,7 +60,6 @@ public class Global implements Serializable {
 
   // The author's name (and optionally e-mail address).
   @JsonProperty(value = "core:author", required = false)
-
   protected String author;
 
   // The registered DOI (ISO 26324) for a recording's metadata file.
@@ -153,7 +152,7 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-diagnostics:diagnostics")
   protected Diagnostics diagnostics;
 
-  @JsonProperty(value = "ntia-nasctn-sea:max_of_max_channel_poowers")
+  @JsonProperty(value = "ntia-nasctn-sea:max_of_max_channel_powers")
   protected ArrayList<Double> maxOfMaxChannelPowers;
 
   @JsonProperty(value = "ntia-nasctn-sea:median_of_mean_channel_powers")

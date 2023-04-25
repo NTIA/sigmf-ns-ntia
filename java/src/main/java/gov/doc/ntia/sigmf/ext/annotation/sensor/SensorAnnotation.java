@@ -3,6 +3,7 @@ package gov.doc.ntia.sigmf.ext.annotation.sensor;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.Annotation;
 
+@Deprecated
 public class SensorAnnotation extends Annotation {
 
   private static final long serialVersionUID = 1L;

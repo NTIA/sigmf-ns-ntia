@@ -24,6 +24,7 @@ public class RfPath implements Serializable {
 
   @JsonProperty(value = "amplifier_id", required = false)
   protected String amplifierId;
+
   protected Map<String, Object> otherFields = new HashMap<>();
 
   public String getCalSourceId() {

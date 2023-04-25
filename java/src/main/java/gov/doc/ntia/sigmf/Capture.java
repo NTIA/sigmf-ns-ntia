@@ -1,16 +1,23 @@
 package gov.doc.ntia.sigmf;
 
+import static com.fasterxml.jackson.annotation.JsonTypeInfo.Id.DEDUCTION;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import gov.doc.ntia.sigmf.ext.capture.sensor.SensorCapture;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonTypeInfo(use = DEDUCTION)
+@JsonSubTypes({@JsonSubTypes.Type(SensorCapture.class)})
 public class Capture implements Serializable {
 
   private static final long serialVersionUID = 1L;

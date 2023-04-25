@@ -1,10 +1,14 @@
 package gov.doc.ntia.sigmf.ext.capture.sensor;
 
+import static com.fasterxml.jackson.annotation.JsonTypeInfo.Id.DEDUCTION;
+
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import gov.doc.ntia.sigmf.Capture;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
+@JsonTypeInfo(use = DEDUCTION)
 public class SensorCapture extends Capture {
 
   @JsonProperty(value = "ntia-sensor:overload")

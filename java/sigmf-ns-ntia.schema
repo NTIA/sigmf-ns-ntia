@@ -363,7 +363,8 @@
             "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:emitter:Emitter",
             "properties" : {
               "id" : {
-                "type" : "string"
+                "type" : "string",
+                "required" : true
               },
               "description" : {
                 "type" : "string"
@@ -519,6 +520,10 @@
             }
           }
         },
+        "ntia-core:classification" : {
+          "type" : "string",
+          "required" : true
+        },
         "ntia-algorithm:data_products" : {
           "type" : "any"
         },
@@ -529,7 +534,8 @@
             "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:algorithm:DigitalFilter",
             "properties" : {
               "id" : {
-                "type" : "string"
+                "type" : "string",
+                "required" : true
               },
               "filter_type" : {
                 "type" : "string"
@@ -701,7 +707,7 @@
             }
           }
         },
-        "ntia-nasctn-sea:max_of_max_channel_poowers" : {
+        "ntia-nasctn-sea:max_of_max_channel_powers" : {
           "type" : "array",
           "items" : {
             "type" : "number"
