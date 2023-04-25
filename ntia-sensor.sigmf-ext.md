@@ -107,6 +107,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 | name          |required| type                                  | unit    | description                                 |
 |---------------|--------------|---------------------------------------|---------|---------------------------------------------|
+|`datetime`|false|ISO-8601 (see below)|Timestamp for the calibration data in this object. RECOMMENDED|
 |`gain`|false|double|N/A|Gain of signal analyzer or sensor (may differ with signal analyzer gain setting).|
 |`noise_figure`|false|double|dB|Noise figure of signal analyzer or sensor.|
 |`1db_compression_point`|false|double|dBm|Maximum input of signal analyzer or sensor.|
@@ -116,6 +117,8 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`mean_noise_power_units`|false|string|N/A|The units of the mean_noise_power|
 |`mean_noise_power_reference`|false|string|N/A| Reference source for the mean_noise_power, e.g., `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`|
 | `temperature` |false|double| celsius | The temperature during calibration.         |
+
+The `calibration_datetime` MUST be an ISO-8601 string, as defined by [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), where the only allowed `time-offset` is `z`, indicating the UTC/Zulu timezone. Thus, timestamps take the form of `YYYY-MM-DDTHH:MM:SS.SSSZ`, where any number of digits for fractional seconds is permitted.
 
 ### 0.9 The `SiganSettings` Object
 
@@ -128,14 +131,11 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 ## 1 Global
 
-The `ntia-sensor` extension adds the following fields to the `global` SigMF object:
+The `ntia-sensor` extension adds the following field to the `global` SigMF object:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`sensor`|false|[Sensor](#01-the-sensor-object)|N/A|Describes the sensor model components. This object is RECOMMENDED.|
-|`calibration_datetime`|false|string|ISO-8601 (see below)|Time of last calibration. RECOMMENDED.|
-
-The `calibration_datetime` MUST be an ISO-8601 string, as defined by [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), where the only allowed `time-offset` is `z`, indicating the UTC/Zulu timezone. Thus, timestamps take the form of `YYYY-MM-DDTHH:MM:SS.SSSZ`, where any number of digits for fractional seconds is permitted.
 
 ## 2 Captures
 
