@@ -105,6 +105,7 @@ public class MetaDoc implements Serializable {
     BufferedInputStream inputStream =
         new BufferedInputStream(new FileInputStream(global.getFilepath() + ".sigmf-data"));
     byte[] sensedData = IOUtils.toByteArray(inputStream);
+    inputStream.close();
     acquisition.setData(ByteBuffer.wrap(sensedData));
     return acquisition;
   }
