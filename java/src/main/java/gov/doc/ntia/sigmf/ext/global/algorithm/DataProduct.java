@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class DataProduct implements IDataProduct {
 
-  @JsonProperty(value = "length", required = false)
+  @JsonProperty(value = "length", required = true)
   protected Long length;
 
   @JsonProperty(value = "reference", required = false)
