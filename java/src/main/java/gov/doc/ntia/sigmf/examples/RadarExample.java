@@ -17,6 +17,7 @@ import gov.doc.ntia.sigmf.ext.global.sensor.Filter;
 import gov.doc.ntia.sigmf.ext.global.sensor.Preselector;
 import gov.doc.ntia.sigmf.ext.global.sensor.RfPath;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
+import gov.doc.ntia.sigmf.ext.capture.sensor.*;
 import java.util.ArrayList;
 import java.util.Calendar;import java.util.List;
 
@@ -155,13 +156,23 @@ public class RadarExample implements Example {
   }
 
   private static ArrayList<Capture> getCaptures() {
-    Capture capture = new Capture();
+    SensorCapture capture = new SensorCapture();
     capture.setFrequency(3.5501875E9);
+    capture.setOverload(false);
     Calendar calendar = Calendar.getInstance();
     // "2018-02-01T07:01:00.000001Z"
     calendar.set(2018, 02, 01, 07, 01, 00);
     capture.setDateTime(calendar.getTime());
     capture.setSampleStart(0);
+    SensorCalibration sensorCalibration = new SensorCalibration();
+    sensorCalibration.setNoiseFigure(9.892);
+    sensorCalibration.setMeanNoisePower(-92.21948908296943);
+    sensorCalibration.setTemperature(18.556);
+    sensorCalibration.setGain(25.931);
+    capture.setSensorCalibration(sensorCalibration);
+    SiganSettings siganSettings = new SiganSettings();
+    siganSettings.setAttenuation(6.0);
+    capture.setSiganSettings(siganSettings);
     ArrayList<Capture> captures = new ArrayList<>();
     captures.add(capture);
 
@@ -169,31 +180,7 @@ public class RadarExample implements Example {
   }
 
   private static ArrayList<Annotation> getAnnotations() {
-    /*
-    CalibrationAnnotation calibrationAnnotation = new CalibrationAnnotation();
-    calibrationAnnotation.setSampleStart(0L);
-    calibrationAnnotation.setComment("Calibration is done every 6 hours.");
-    calibrationAnnotation.setNoiseFigureSensor(9.892);
-    calibrationAnnotation.setMeanNoisePowerSensor(-92.21948908296943);
-    calibrationAnnotation.setTemperature(18.556);
-    calibrationAnnotation.setGainPreselector(25.931);
-    calibrationAnnotation.setSampleCount(458L);
-    ArrayList<Annotation> annotations = new ArrayList<>();
-    annotations.add(calibrationAnnotation);
-
-     */
-    /*
-        SensorAnnotation sensorAnnotation = new SensorAnnotation();
-        sensorAnnotation.setAttenuationSettingSigan(6.0);
-        sensorAnnotation.setOverload(false);
-        sensorAnnotation.setRfPathIndex(0);
-        sensorAnnotation.setSampleStart(0L);
-        sensorAnnotation.setSampleCount(458L);
-        annotations.add(sensorAnnotation);
-    */
-
     return new ArrayList<>();
-    // return annotations;
   }
 
   @Override
