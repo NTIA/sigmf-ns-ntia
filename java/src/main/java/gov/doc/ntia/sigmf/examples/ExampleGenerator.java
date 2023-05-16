@@ -30,15 +30,8 @@ public class ExampleGenerator {
     SensorExample sensorExample = new SensorExample();
     save("sensor.json", sensorExample.getExample());
 
-    //    TimeDomainDetectionExample tddExample = new TimeDomainDetectionExample();
-    //  save("tdd.json", tddExample.getExample());
-
     DigitalFilterExample digitalFilterExample = new DigitalFilterExample();
     save("digitalFilter.json", digitalFilterExample.getExample());
-
-    //  FrequencyDomainDetectionExample frequencyDomainDetection =
-    //       new FrequencyDomainDetectionExample();
-    //   save("frequencyDomainDetection.json", frequencyDomainDetection.getExample());
 
     DigitalFilterExample digitalFilterAnnotationExample = new DigitalFilterExample();
     save("digitalFilterAnnotation.json", digitalFilterAnnotationExample.getExample());
