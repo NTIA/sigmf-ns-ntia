@@ -3,7 +3,6 @@ package gov.doc.ntia.sigmf.examples;
 import gov.doc.ntia.sigmf.Annotation;
 import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.Extension;
-import gov.doc.ntia.sigmf.Extensions;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.ext.global.algorithm.PowerSpectralDensity;
@@ -19,7 +18,7 @@ import gov.doc.ntia.sigmf.ext.global.sensor.Preselector;
 import gov.doc.ntia.sigmf.ext.global.sensor.RfPath;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import java.util.ArrayList;
-import java.util.Calendar;
+import java.util.Calendar;import java.util.List;
 
 /** Generates an example based on coastal monitoring of the CBRS band. */
 public class RadarExample implements Example {
@@ -40,7 +39,7 @@ public class RadarExample implements Example {
     return measurement;
   }
 
-  public static Extensions getExtensions() {
+  public static List<Extension> getExtensions() {
 
     Extension sensorExtension = new Extension();
     sensorExtension.setName("ntia-sensor");
@@ -54,10 +53,10 @@ public class RadarExample implements Example {
     envExtension.setName("ntia-environment");
     envExtension.setVersion("v1.0.0");
 
-    Extensions extensions = new Extensions();
-    extensions.addExtension(sensorExtension);
-    extensions.addExtension(algorithmExtension);
-    extensions.addExtension(envExtension);
+    ArrayList<Extension> extensions = new ArrayList<>();
+    extensions.add(sensorExtension);
+    extensions.add(algorithmExtension);
+    extensions.add(envExtension);
     return extensions;
   }
 

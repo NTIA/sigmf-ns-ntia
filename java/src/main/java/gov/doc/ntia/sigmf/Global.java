@@ -102,7 +102,7 @@ public class Global implements Serializable {
 
   // A list of JSON objects describing extensions used by this recording
   @JsonProperty(value = "core:extensions", required = false)
-  protected Extensions extensions;
+  protected List<Extension> extensions;
 
   // The base filename of a SigMF collection with which this recording is associated
   @JsonProperty(value = "core:collection", required = false)
@@ -125,9 +125,6 @@ public class Global implements Serializable {
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
   @JsonProperty(value = "ntia-sensor:calibration_datetime", required = false)
   protected Date calibrationDate;
-
-  @JsonProperty(value = "ntia-scos:data_file_path", required = false)
-  protected String filePath;
 
   @JsonProperty(value = "ntia-scos:task", required = false)
   protected Integer task;
@@ -237,11 +234,11 @@ public class Global implements Serializable {
     this.hw = hw;
   }
 
-  public Extensions getExtensions() {
+  public List<Extension> getExtensions() {
     return extensions;
   }
 
-  public void setExtensions(Extensions extensions) {
+  public void setExtensions(List<Extension> extensions) {
     this.extensions = extensions;
   }
 
@@ -325,14 +322,6 @@ public class Global implements Serializable {
 
   public void setCalibrationDate(Date calibrationDate) {
     this.calibrationDate = calibrationDate;
-  }
-
-  public String getFilepath() {
-    return filePath;
-  }
-
-  public void setFilepath(String filePath) {
-    this.filePath = filePath;
   }
 
   @Deprecated
