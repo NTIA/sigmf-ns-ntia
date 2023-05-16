@@ -25,6 +25,7 @@ extensions to the core SigMF specification.
 
 - [`ntia-algorithm`](ntia-algorithm.sigmf-ext.md) describes the measurement performed (detectors, algorithms, etc)
 - [`ntia-core`](ntia-core.sigmf-ext.md) adds generally useful metadata fields
+- [`ntia-diagnostics`](ntia-diagnostics.sigmf-ext.md) provides metadata to describe system diagnostic information.
 - [`ntia-emitter`](ntia-emitter.sigmf-ext.md) gives information about the emitter being measured
 - [`ntia-environment`](ntia-environment.sigmf-ext.md) gives information about the environment around a sensor or emitter
 - [`ntia-nasctn-sea`](ntia-nasctn-sea.sigmf-ext.md) provides metadata used within NASCTN Sharing Ecosystem Assessment project.  
