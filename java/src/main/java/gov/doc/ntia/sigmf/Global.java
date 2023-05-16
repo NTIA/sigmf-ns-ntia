@@ -101,7 +101,6 @@ public class Global implements Serializable {
   protected GeoJsonPoint geolocation;
 
   // A list of JSON objects describing extensions used by this recording
-  // TODO: Update the extensions object
   @JsonProperty(value = "core:extensions", required = false)
   protected Extensions extensions;
 
