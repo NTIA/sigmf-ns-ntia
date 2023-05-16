@@ -19,7 +19,7 @@ import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-/** Generates and example metadata file based NTIA SCOS system. */
+/** Generates an example metadata file based NTIA SCOS system. */
 public class ScosExample implements Example {
 
   public static Action getAction() {
