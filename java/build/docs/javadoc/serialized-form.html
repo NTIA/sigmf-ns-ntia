@@ -227,31 +227,12 @@ loadScripts(document, 'script');</script>
 <pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> name</pre>
 </li>
 <li class="block-list">
+<h5>optional</h5>
+<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a> optional</pre>
+</li>
+<li class="block-list">
 <h5>version</h5>
 <pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> version</pre>
-</li>
-</ul>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li>
-<section class="serialized-class-details" id="gov.doc.ntia.sigmf.Extensions">
-<h3>Class&nbsp;<a href="gov/doc/ntia/sigmf/Extensions.html" title="class in gov.doc.ntia.sigmf">gov.doc.ntia.sigmf.Extensions</a></h3>
-<div class="type-signature">class Extensions extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a> implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></div>
-<dl class="name-value">
-<dt>serialVersionUID:</dt>
-<dd>1L</dd>
-</dl>
-<ul class="block-list">
-<li>
-<section class="detail">
-<h4>Serialized Fields</h4>
-<ul class="block-list">
-<li class="block-list">
-<h5>extensions</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="gov/doc/ntia/sigmf/Extension.html" title="class in gov.doc.ntia.sigmf">Extension</a>&gt; extensions</pre>
 </li>
 </ul>
 </section>
@@ -326,11 +307,12 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>extensions</h5>
-<pre><a href="gov/doc/ntia/sigmf/Extensions.html" title="class in gov.doc.ntia.sigmf">Extensions</a> extensions</pre>
+<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="gov/doc/ntia/sigmf/Extension.html" title="class in gov.doc.ntia.sigmf">Extension</a>&gt; extensions</pre>
 </li>
 <li class="block-list">
 <h5>filePath</h5>
 <pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> filePath</pre>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 </li>
 <li class="block-list">
 <h5>geolocation</h5>
@@ -746,6 +728,21 @@ loadScripts(document, 'script');</script>
 <section class="detail">
 <h4>Serialized Fields</h4>
 <ul class="block-list">
+<li class="block-list">
+<h5>attenuationSettingSigan</h5>
+<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a> attenuationSettingSigan</pre>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+</li>
+<li class="block-list">
+<h5>gainSettingSigan</h5>
+<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a> gainSettingSigan</pre>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+</li>
+<li class="block-list">
+<h5>gpsNmea</h5>
+<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> gpsNmea</pre>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+</li>
 <li class="block-list">
 <h5>overload</h5>
 <pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a> overload</pre>
@@ -2065,18 +2062,6 @@ loadScripts(document, 'script');</script>
 <section class="serialized-class-details" id="gov.doc.ntia.sigmf.serialization.DataProductsSerializer">
 <h3>Class&nbsp;<a href="gov/doc/ntia/sigmf/serialization/DataProductsSerializer.html" title="class in gov.doc.ntia.sigmf.serialization">gov.doc.ntia.sigmf.serialization.DataProductsSerializer</a></h3>
 <div class="type-signature">class DataProductsSerializer extends com.fasterxml.jackson.databind.ser.std.StdSerializer&lt;<a href="gov/doc/ntia/sigmf/ext/global/algorithm/DataProducts.html" title="class in gov.doc.ntia.sigmf.ext.global.algorithm">DataProducts</a>&gt; implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></div>
-</section>
-</li>
-<li>
-<section class="serialized-class-details" id="gov.doc.ntia.sigmf.serialization.ExtensionsDeserializer">
-<h3>Class&nbsp;<a href="gov/doc/ntia/sigmf/serialization/ExtensionsDeserializer.html" title="class in gov.doc.ntia.sigmf.serialization">gov.doc.ntia.sigmf.serialization.ExtensionsDeserializer</a></h3>
-<div class="type-signature">class ExtensionsDeserializer extends com.fasterxml.jackson.databind.deser.std.StdDeserializer&lt;<a href="gov/doc/ntia/sigmf/Extensions.html" title="class in gov.doc.ntia.sigmf">Extensions</a>&gt; implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></div>
-</section>
-</li>
-<li>
-<section class="serialized-class-details" id="gov.doc.ntia.sigmf.serialization.ExtensionsSerializer">
-<h3>Class&nbsp;<a href="gov/doc/ntia/sigmf/serialization/ExtensionsSerializer.html" title="class in gov.doc.ntia.sigmf.serialization">gov.doc.ntia.sigmf.serialization.ExtensionsSerializer</a></h3>
-<div class="type-signature">class ExtensionsSerializer extends com.fasterxml.jackson.databind.ser.std.StdSerializer&lt;<a href="gov/doc/ntia/sigmf/Extensions.html" title="class in gov.doc.ntia.sigmf">Extensions</a>&gt; implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></div>
 </section>
 </li>
 </ul>

@@ -78,7 +78,25 @@
           }
         },
         "core:extensions" : {
-          "type" : "any"
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "id" : "urn:jsonschema:gov:doc:ntia:sigmf:Extension",
+            "properties" : {
+              "name" : {
+                "type" : "string",
+                "required" : true
+              },
+              "version" : {
+                "type" : "string",
+                "required" : true
+              },
+              "optional" : {
+                "type" : "boolean",
+                "required" : true
+              }
+            }
+          }
         },
         "core:collection" : {
           "type" : "string"
