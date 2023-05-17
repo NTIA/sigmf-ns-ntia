@@ -3,7 +3,7 @@ package gov.doc.ntia.sigmf.ext.global.algorithm;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.beans.Transient;
 
-public class PeriodicFramePower extends TraceDataProduct {
+public class PeriodicFramePower extends AbstractUnitRequiredTraceDataProduct {
 
   @JsonIgnore
   @Transient

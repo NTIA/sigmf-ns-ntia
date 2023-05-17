@@ -10,9 +10,6 @@ public abstract class TraceDataProduct extends DataProduct {
   @JsonProperty(required = false)
   protected String reference;
 
-  @JsonProperty(value = "units", required = false)
-  protected String units;
-
   @JsonProperty(required = true)
   protected Long samples;
 
@@ -33,14 +30,6 @@ public abstract class TraceDataProduct extends DataProduct {
 
   public void setTraces(List<Trace> traces) {
     this.traces = traces;
-  }
-
-  public String getUnits() {
-    return units;
-  }
-
-  public void setUnits(String units) {
-    this.units = units;
   }
 
   public String getReference() {
