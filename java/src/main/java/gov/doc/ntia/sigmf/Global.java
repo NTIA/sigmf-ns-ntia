@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DataProduct;
-import gov.doc.ntia.sigmf.ext.global.algorithm.DataProducts;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.core.Measurement;
 import gov.doc.ntia.sigmf.ext.global.diagnostics.Diagnostics;
@@ -15,8 +14,8 @@ import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.global.scos.Action;
 import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
-import java.io.Serializable;
-import java.util.ArrayList;
+import java.awt.dnd.DropTarget;import java.io.Serializable;
+import java.lang.reflect.Array;import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -144,7 +143,7 @@ public class Global implements Serializable {
   protected String classification;
 
   @JsonProperty(value = "ntia-algorithm:data_products", required = false)
-  protected DataProducts dataProducts;
+  protected ArrayList<DataProduct> dataProducts;
 
   @JsonProperty(value = "ntia-algorithm:digital_filters")
   protected ArrayList<DigitalFilter> digitalFilters;
@@ -157,6 +156,12 @@ public class Global implements Serializable {
 
   @JsonProperty(value = "ntia-nasctn-sea:median_of_mean_channel_powers")
   protected ArrayList<Double> medianOfMeanChannelPowers;
+
+  @JsonProperty(value = "ntia-algorithm:data_products_filter")
+  protected String dataProductsFilter;
+
+  @JsonProperty(value = "ntia-algorithm:data_products_reference")
+  private String dataProductsReference;
 
   public Integer getRecording() {
     return recording;
@@ -406,7 +411,7 @@ public class Global implements Serializable {
 
   public void addDataProduct(DataProduct dataProduct) {
     if (this.dataProducts == null) {
-      dataProducts = new DataProducts();
+      dataProducts = new ArrayList<>();
     }
     dataProducts.add(dataProduct);
   }
@@ -417,7 +422,7 @@ public class Global implements Serializable {
     }
   }
 
-  public DataProducts getDataProducts() {
+  public List<DataProduct> getDataProducts() {
     return dataProducts;
   }
 
@@ -465,4 +470,35 @@ public class Global implements Serializable {
   public void setMedianOfMeanChannelPowers(ArrayList<Double> medianOfMeanChannelPowers) {
     this.medianOfMeanChannelPowers = medianOfMeanChannelPowers;
   }
+
+  public String getDataProductsFilter() {
+    return dataProductsFilter;
+  }
+
+  public void setDataProductsFilter(String dataProductsFilter) {
+    this.dataProductsFilter = dataProductsFilter;
+  }
+
+  public String getDataProductsReference() {
+    return dataProductsReference;
+  }
+
+  public void setDataProductsReference(String dataProductsReference) {
+    this.dataProductsReference = dataProductsReference;
+  }
+
+
+  public void add(DataProduct dataProduct) {
+    if (dataProducts == null) {
+      dataProducts = new ArrayList<>();
+    }
+    dataProducts.add(dataProduct);
+  }
+
+  public void remove(DataProduct dataProduct) {
+    if (dataProducts != null) {
+      dataProducts.remove(dataProduct);
+    }
+  }
+
 }

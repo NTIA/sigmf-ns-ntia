@@ -61,10 +61,11 @@
         "version": "Prototype Rev. 3"
       }
     },
-    "ntia-algorithm:data_products": {
-      "digital_filter": "iir_1",
-      "reference": "noise source output",
-      "power_spectral_density": {
+    "ntia-algorithm:data_products_filter": "iir_1",
+    "ntia-algorithm:data_products_reference": "noise source output",
+    "ntia-algorithm:data_products": [
+      {
+        "product_type": "power_spectral_density",
         "traces": [
           {
             "statistic": "max"
@@ -80,7 +81,8 @@
         "units": "dBm/Hz",
         "window": "flattop"
       },
-      "time_series_power": {
+      {
+        "product_type": "time_series_power",
         "traces": [
           {
             "detector": "max"
@@ -93,7 +95,8 @@
         "samples": 56000000,
         "units": "dBm"
       },
-      "periodic_frame_power": {
+      {
+        "product_type": "periodic_frame_power",
         "traces": [
           {
             "detector": "mean",
@@ -123,7 +126,8 @@
         "length": 560,
         "units": "dBm"
       },
-      "amplitude_probability_distribution": {
+      {
+        "product_type": "amplitude_probability_distribution",
         "length": 151,
         "samples": 56000000,
         "units": "dBm",
@@ -132,7 +136,7 @@
         "min_amplitude": -180,
         "max_amplitude": -30
       }
-    },
+    ],
     "ntia-algorithm:digital_filters": [
       {
         "id": "iir_1",

@@ -114,8 +114,8 @@ public class DataProductsExample implements Example {
     apd.setMinAmplitude(-130.0);
     global.addDigitalFilter(digitalFilter);
     global.addDataProduct(apd);
-    global.getDataProducts().setDigitalFilter("iir_1");
-    global.getDataProducts().setReference("noise source output");
+    global.setDataProductsFilter("iir_1");
+    global.setDataProductsReference("noise source output");
     metaDoc.setGlobal(global);
     return metaDoc;
   }

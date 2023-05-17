@@ -48,14 +48,6 @@ public class AmplitudeProbabilityDistribution extends DataProduct {
     this.amplitudeBinSize = amplitudeBinSize;
   }
 
-
-  @JsonIgnore
-  @Transient
-  @Override
-  public String getFieldName() {
-    return "amplitude_probability_distribution";
-  }
-
   public Double getMaxAmplitude() {
     return maxAmplitude;
   }

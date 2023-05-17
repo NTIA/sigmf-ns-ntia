@@ -543,7 +543,20 @@
           "required" : true
         },
         "ntia-algorithm:data_products" : {
-          "type" : "any"
+          "type" : "array",
+          "items" : {
+            "type" : "object",
+            "id" : "urn:jsonschema:gov:doc:ntia:sigmf:ext:global:algorithm:DataProduct",
+            "properties" : {
+              "length" : {
+                "type" : "integer",
+                "required" : true
+              },
+              "reference" : {
+                "type" : "string"
+              }
+            }
+          }
         },
         "ntia-algorithm:digital_filters" : {
           "type" : "array",
@@ -736,6 +749,12 @@
           "items" : {
             "type" : "number"
           }
+        },
+        "ntia-algorithm:data_products_filter" : {
+          "type" : "string"
+        },
+        "ntia-algorithm:data_products_reference" : {
+          "type" : "string"
         }
       }
     },

@@ -39,10 +39,4 @@ public class PowerSpectralDensity extends AbstractUnitRequiredTraceDataProduct {
     this.window = window;
   }
 
-  @JsonIgnore
-  @Transient
-  @Override
-  public String getFieldName() {
-    return "power_spectral_density";
-  }
 }
