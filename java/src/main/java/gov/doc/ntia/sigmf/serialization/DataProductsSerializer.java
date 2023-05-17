@@ -26,6 +26,9 @@ public class DataProductsSerializer extends StdSerializer<DataProducts> {
     if (value.getDigitalFilter() != null) {
       gen.writeStringField("digital_filter", value.getDigitalFilter());
     }
+    if(value.getReference() != null){
+      gen.writeStringField("reference", value.getReference());
+    }
     for (DataProduct dp : dataProducts) {
       gen.writeObjectField(dp.getFieldName(), dp);
     }
