@@ -18,7 +18,7 @@ public abstract class TraceDataProduct extends DataProduct {
     traces.add(trace);
   }
 
-  public void removeDetector(int i) {
+  public void removeTrace(int i) {
     traces.remove(i);
   }
 
