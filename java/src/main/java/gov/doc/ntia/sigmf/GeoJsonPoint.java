@@ -16,7 +16,7 @@ public class GeoJsonPoint {
     coordinates[1] = lat;
   }
 
-  public GeoJsonPoint(Double lat, Double longitude, Double altitude){
+  public GeoJsonPoint(Double lat, Double longitude, Double altitude) {
     coordinates = new Double[3];
     coordinates[0] = longitude;
     coordinates[1] = lat;
@@ -56,28 +56,25 @@ public class GeoJsonPoint {
   }
 
   @JsonIgnore
-  public void setAltitude(Double a){
+  public Double getAltitude() {
+    if (coordinates != null && coordinates.length == 3) {
+      return coordinates[2];
+    } else {
+      return null;
+    }
+  }
+
+  @JsonIgnore
+  public void setAltitude(Double a) {
     if (coordinates == null) {
       coordinates = new Double[3];
-    }
-    else if(coordinates.length == 2){
+    } else if (coordinates.length == 2) {
       Double[] oldCoords = coordinates;
       coordinates = new Double[3];
       coordinates[0] = oldCoords[0];
       coordinates[1] = oldCoords[1];
     }
     coordinates[2] = a;
-
-  }
-
-  @JsonIgnore
-  public Double getAltitude(){
-    if (coordinates != null && coordinates.length == 3){
-      return coordinates[2];
-    }
-    else{
-      return null;
-    }
   }
 
   public Double[] getCoordinates() {

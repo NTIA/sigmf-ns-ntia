@@ -428,8 +428,8 @@ public class Global implements Serializable {
     digitalFilters.add(df);
   }
 
-  public void removeDigitalFilter(DigitalFilter df){
-    if(digitalFilters != null){
+  public void removeDigitalFilter(DigitalFilter df) {
+    if (digitalFilters != null) {
       digitalFilters.remove(df);
     }
   }

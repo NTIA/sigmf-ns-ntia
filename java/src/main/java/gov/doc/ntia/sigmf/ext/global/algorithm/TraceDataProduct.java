@@ -5,10 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class TraceDataProduct extends DataProduct {
-  public List<Trace> traces;
 
-  @JsonProperty(required = false)
-  protected String reference;
+  public List<Trace> traces;
 
   @JsonProperty(required = true)
   protected Long samples;
@@ -30,14 +28,6 @@ public abstract class TraceDataProduct extends DataProduct {
 
   public void setTraces(List<Trace> traces) {
     this.traces = traces;
-  }
-
-  public String getReference() {
-    return reference;
-  }
-
-  public void setReference(String reference) {
-    this.reference = reference;
   }
 
   public Long getSamples() {

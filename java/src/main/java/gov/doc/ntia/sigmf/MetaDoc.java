@@ -103,7 +103,7 @@ public class MetaDoc implements Serializable {
     Acquisition acquisition = new Acquisition();
     acquisition.setMetaDoc(this);
     String datasetFile = global.getDataset();
-    if(!datasetFile.endsWith(".sigmf-data")){
+    if (!datasetFile.endsWith(".sigmf-data")) {
       datasetFile = datasetFile + ".sigmf-data";
     }
     try (FileInputStream fis = new FileInputStream(datasetFile);

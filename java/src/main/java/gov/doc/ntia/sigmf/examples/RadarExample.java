@@ -5,6 +5,7 @@ import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.Extension;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
+import gov.doc.ntia.sigmf.ext.capture.sensor.*;
 import gov.doc.ntia.sigmf.ext.global.algorithm.PowerSpectralDensity;
 import gov.doc.ntia.sigmf.ext.global.algorithm.Trace;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
@@ -17,9 +18,9 @@ import gov.doc.ntia.sigmf.ext.global.sensor.Filter;
 import gov.doc.ntia.sigmf.ext.global.sensor.Preselector;
 import gov.doc.ntia.sigmf.ext.global.sensor.RfPath;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
-import gov.doc.ntia.sigmf.ext.capture.sensor.*;
 import java.util.ArrayList;
-import java.util.Calendar;import java.util.List;
+import java.util.Calendar;
+import java.util.List;
 
 /** Generates an example based on coastal monitoring of the CBRS band. */
 public class RadarExample implements Example {
