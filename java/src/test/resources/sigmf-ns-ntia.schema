@@ -1,0 +1,990 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"type": "object",
+	"properties": {
+		"global": {
+			"$ref": "#/$defs/Global"
+		},
+		"captures": {
+			"type": "array",
+			"items": {
+				"$ref": "#/$defs/Capture"
+			}
+		},
+		"annotations": {
+			"type": "array",
+			"items": {
+				"$ref": "#/$defs/Annotation"
+			}
+		}
+	},
+	"required": [
+		"global",
+		"captures"
+	],
+	"$defs": {
+		"Global": {
+			"type": "object",
+			"properties": {
+				"core:datatype": {
+					"type": "string"
+				},
+				"core:sample_rate": {
+					"type": "number"
+				},
+				"core:version": {
+					"type": "string"
+				},
+				"core:num_channels": {
+					"type": "integer"
+				},
+				"core:sha512": {
+					"type": "string"
+				},
+				"core:offset": {
+					"type": "integer"
+				},
+				"core:description": {
+					"type": "string"
+				},
+				"core:author": {
+					"type": "string"
+				},
+				"core:meta_doi": {
+					"type": "string"
+				},
+				"core:data_doi": {
+					"type": "string"
+				},
+				"core:recorder": {
+					"type": "string"
+				},
+				"core:license": {
+					"type": "string"
+				},
+				"core:hw": {
+					"type": "string"
+				},
+				"core:dataset": {
+					"type": "string"
+				},
+				"core:trailing_bytes": {
+					"type": "integer"
+				},
+				"core:metadata_only": {
+					"type": "boolean"
+				},
+				"core:geolocation": {
+					"$ref": "#/$defs/GeoJSONPoint"
+				},
+				"core:extensions": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/Extension"
+					}
+				},
+				"core:collection": {
+					"type": "string"
+				},
+				"ntia-emitter:emitters": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/Emitter"
+					}
+				},
+				"ntia-scos:action": {
+					"$ref": "#/$defs/Action"
+				},
+				"ntia-scos:schedule": {
+					"$ref": "#/$defs/ScheduleEntry"
+				},
+				"ntia-scos:task": {
+					"type": "integer"
+				},
+				"ntia-scos:recording": {
+					"type": "integer"
+				},
+				"ntia-sensor:calibration_datetime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"ntia-core:classification": {
+					"type": "string"
+				},
+				"ntia-algorithm:data_products": {
+					"type": "array",
+					"items": {
+						"anyOf": [
+							{
+								"$ref": "#/$defs/AmplitudeProbabilityDistribution"
+							},
+							{
+								"$ref": "#/$defs/TimeSeriesPower"
+							},
+							{
+								"$ref": "#/$defs/PeriodicFramePower"
+							},
+							{
+								"$ref": "#/$defs/TimeSeriesPower"
+							}
+						]
+					}
+				},
+				"ntia-algorithm:digital_filters": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/DigitalFilter"
+					}
+				},
+				"ntia-diagnostics:diagnostics": {
+					"$ref": "#/$defs/Diagnostics"
+				},
+				"ntia-nasctn-sea:max_of_max_channel_powers": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					}
+				},
+				"ntia-nasctn-sea:median_of_mean_channel_powers": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					}
+				},
+				"ntia-algorithm:data_products_filter": {
+					"type": "string"
+				},
+				"ntia-algorithm:data_products_reference": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"core:datatype",
+				"core:version",
+				"ntia-core:classification"
+			]
+		},
+		"Capture": {
+			"type": "object",
+			"properties": {
+				"core:sample_start": {
+					"type": "integer"
+				},
+				"core:global_index": {
+					"type": "integer"
+				},
+				"core:header_bytes": {
+					"type": "integer"
+				},
+				"core:frequency": {
+					"type": "number"
+				},
+				"core:datetime": {
+					"type": "string",
+					"format": "date-time"
+				}
+			},
+			"required": [
+				"core:sample_start"
+			]
+		},
+		"Annotation": {
+			"type": "object",
+			"properties": {
+				"core:sample_start": {
+					"type": "integer"
+				},
+				"core:sample_count": {
+					"type": "integer"
+				},
+				"core:generator": {
+					"type": "string"
+				},
+				"core:comment": {
+					"type": "string"
+				},
+				"core:freq_lower_edge": {
+					"type": "number"
+				},
+				"core:freq_upper_edge": {
+					"type": "number"
+				},
+				"uuid": {
+					"type": "string"
+				},
+				"core:latitude": {
+					"type": "number"
+				},
+				"core:longitude": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"core:sample_start",
+				"core:sample_count"
+			]
+		},
+		"GeoJSONPoint": {
+			"type": "object",
+			"properties": {
+				"type": {
+					"type": "string"
+				},
+				"coordinates": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					},
+					"minItems": 2,
+					"maxItems": 3
+				}
+			}
+		},
+		"Extension": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"version": {
+					"type": "string"
+				},
+				"optional": {
+					"type": "boolean"
+				}
+			},
+			"required": [
+				"name",
+				"version",
+				"optional"
+			]
+		},
+		"HardwareSpec": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"model": {
+					"type": "string"
+				},
+				"version": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"supplemental_information": {
+					"type": "string"
+				}
+			}
+		},
+		"Antenna": {
+			"type": "object",
+			"properties": {
+				"antenna_spec": {
+					"$ref": "#/$defs/HardwareSpec"
+				},
+				"type": {
+					"type": "string"
+				},
+				"frequency_low": {
+					"type": "number"
+				},
+				"frequency_high": {
+					"type": "number"
+				},
+				"gain": {
+					"type": "number"
+				},
+				"polarization": {
+					"type": "string"
+				},
+				"cross_polar_discrimination": {
+					"type": "number"
+				},
+				"horizontal_gain_pattern": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					}
+				},
+				"vertical_gain_pattern": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					}
+				},
+				"horizontal_beamwidth": {
+					"type": "number"
+				},
+				"vertical_beamwidth": {
+					"type": "number"
+				},
+				"voltage_standing_wave_ratio": {
+					"type": "number"
+				},
+				"cable_loss": {
+					"type": "number"
+				},
+				"steerable": {
+					"type": "boolean"
+				},
+				"azimuth_angle": {
+					"type": "number"
+				},
+				"elevation_angle": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"antenna_spec"
+			]
+		},
+		"Amplifier": {
+			"type": "object",
+			"properties": {
+				"amplifier_spec": {
+					"$ref": "#/$defs/HardwareSpec"
+				},
+				"gain": {
+					"type": "number"
+				},
+				"noise_figure": {
+					"type": "number"
+				},
+				"max_power": {
+					"type": "number"
+				}
+			}
+		},
+		"CalSource": {
+			"type": "object",
+			"properties": {
+				"cal_source_spec": {
+					"$ref": "#/$defs/HardwareSpec"
+				},
+				"type": {
+					"type": "string"
+				},
+				"enr": {
+					"type": "number"
+				}
+			}
+		},
+		"Filter": {
+			"type": "object",
+			"properties": {
+				"filter_spec": {
+					"$ref": "#/$defs/HardwareSpec"
+				},
+				"frequency_low_passband": {
+					"type": "number"
+				},
+				"frequency_high_passband": {
+					"type": "number"
+				},
+				"frequency_low_stopband": {
+					"type": "number"
+				},
+				"frequency_high_stopband": {
+					"type": "number"
+				}
+			}
+		},
+		"RFPath": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"cal_source_id": {
+					"type": "string"
+				},
+				"filter_id": {
+					"type": "string"
+				},
+				"amplifier_id": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"cal_source_id",
+				"filter_id",
+				"amplifier_id"
+			]
+		},
+		"Preselector": {
+			"type": "object",
+			"properties": {
+				"preselector_spec": {
+					"$ref": "#/$defs/HardwareSpec"
+				},
+				"cal_sources": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/CalSource"
+					}
+				},
+				"amplifiers": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/Amplifier"
+					}
+				},
+				"filters": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/Filter"
+					}
+				},
+				"rf_paths": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/RFPath"
+					}
+				}
+			}
+		},
+		"SignalAnalyzer": {
+			"type": "object",
+			"properties": {
+				"sigan_spec": {
+					"$ref": "#/$defs/HardwareSpec"
+				},
+				"frequency_low": {
+					"type": "number"
+				},
+				"frequency_high": {
+					"type": "number"
+				},
+				"noise_figure": {
+					"type": "number"
+				},
+				"max_power": {
+					"type": "number"
+				},
+				"a2d_bits": {
+					"type": "number"
+				}
+			}
+		},
+		"Sensor": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"sensor_spec": {
+					"$ref": "#/$defs/HardwareSpec"
+				},
+				"antenna": {
+					"$ref": "#/$defs/Antenna"
+				},
+				"preselector": {
+					"$ref": "#/$defs/Preselector"
+				},
+				"signal_analyzer": {
+					"$ref": "#/$defs/SignalAnalyzer"
+				},
+				"computer_spec": {
+					"$ref": "#/$defs/HardwareSpec"
+				},
+				"mobile": {
+					"type": "boolean"
+				},
+				"environment": {
+					"$ref": "#/$defs/Environment"
+				},
+				"sensor_sha512": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"id"
+			]
+		},
+		"Environment": {
+			"type": "object",
+			"properties": {
+				"category": {
+					"type": "string"
+				},
+				"temperature": {
+					"type": "number"
+				},
+				"humidity": {
+					"type": "number"
+				},
+				"weather": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				}
+			}
+		},
+		"DigitalFilter": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"filter_type": {
+					"type": "string"
+				},
+				"FIR_coefficients": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					}
+				},
+				"IIR_numerator_coefficients": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					}
+				},
+				"IIR_denominator_coefficients": {
+					"type": "array",
+					"items": {
+						"type": "number"
+					}
+				},
+				"frequency_cutoff": {
+					"type": "number"
+				},
+				"attenuation_cutoff": {
+					"type": "number"
+				},
+				"ripple_passband": {
+					"type": "number"
+				},
+				"attenuation_stopband": {
+					"type": "number"
+				},
+				"frequency_stopband": {
+					"type": "number"
+				}
+			},
+			"required": [
+				"id"
+			]
+		},
+		"Trace": {
+			"type": "object",
+			"properties": {
+				"detector": {
+					"type": "string"
+				},
+				"statistic": {
+					"type": "string"
+				}
+			}
+		},
+		"PowerSpectralDensity": {
+			"type": "object",
+			"properties": {
+				"product_type": {
+					"type": "string"
+				},
+				"traces": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/Trace"
+					}
+				},
+				"length": {
+					"type": "integer"
+				},
+				"equivalent_noise_bandwidth": {
+					"type": "number"
+				},
+				"samples": {
+					"type": "integer"
+				},
+				"ffts": {
+					"type": "integer"
+				},
+				"units": {
+					"type": "string"
+				},
+				"window": {
+					"type": "string"
+				},
+				"reference": {
+					"reference": "string"
+				},
+				"digital_filter": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"product_type",
+				"traces",
+				"length",
+				"equivalent_noise_bandwidth",
+				"samples",
+				"ffts",
+				"units",
+				"window"
+			]
+		},
+		"AmplitudeProbabilityDistribution": {
+			"type": "object",
+			"propterties": {
+				"product_type": {
+					"type": "string"
+				},
+				"length": {
+					"type": "integer"
+				},
+				"samples": {
+					"type": "integer"
+				},
+				"units": {
+					"type": "string"
+				},
+				"amplitude_bin_size": {
+					"type": "number"
+				},
+				"min_amplitude": {
+					"type": "number"
+				},
+				"reference": {
+					"type": "string"
+				},
+				"digital_filter": {
+					"type": "string"
+				},
+				"probability_units": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"product_type",
+				"length",
+				"samples",
+				"units"
+			]
+		},
+		"TimeSeriesPower": {
+			"type": "object",
+			"properties": {
+				"product_type": {
+					"type": "string"
+				},
+				"traces": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/Trace"
+					}
+				},
+				"length": {
+					"type": "integer"
+				},
+				"equivalent_noise_bandwidth": {
+					"type": "number"
+				},
+				"samples": {
+					"type": "integer"
+				},
+				"units": {
+					"type": "string"
+				},
+				"window": {
+					"type": "string"
+				},
+				"reference": {
+					"reference": "string"
+				},
+				"digital_filter": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"product_type",
+				"traces",
+				"length",
+				"equivalent_noise_bandwidth",
+				"samples",
+				"units",
+				"window"
+			]
+		},
+		"PeriodicFramePower": {
+			"type": "object",
+			"properties": {
+				"product_type": {
+					"type": "string"
+				},
+				"traces": {
+					"type": "array",
+					"items": {
+						"$ref": "#/$defs/Trace"
+					}
+				},
+				"length": {
+					"type": "integer"
+				},
+				"units": {
+					"type": "string"
+				},
+				"window": {
+					"type": "string"
+				},
+				"reference": {
+					"reference": "string"
+				},
+				"digital_filter": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"product_type",
+				"traces",
+				"length",
+				"units"
+			]
+		},
+		"SsdSmartData": {
+			"type": "object",
+			"properties": {
+				"temp": {
+					"type": "number"
+				},
+				"test_passed": {
+					"type": "boolean"
+				},
+				"critical_warning": {
+					"type": "string"
+				},
+				"available_spare": {
+					"type": "number"
+				},
+				"available_spare_threshold": {
+					"type": "number"
+				},
+				"percentage_used": {
+					"type": "number"
+				},
+				"unsafe_shutdowns": {
+					"type": "integer"
+				},
+				"integrity_errors": {
+					"type": "integer"
+				}
+			}
+		},
+		"Computer": {
+			"type": "object",
+			"properties": {
+				"cpu_max_clock": {
+					"type": "number"
+				},
+				"cpu_min_clock": {
+					"type": "number"
+				},
+				"cpu_mean_clock": {
+					"type": "number"
+				},
+				"action_cpu_usage": {
+					"type": "number"
+				},
+				"system_load_5m": {
+					"type": "number"
+				},
+				"memory_usage": {
+					"type": "number"
+				},
+				"cpu_temp": {
+					"type": "number"
+				},
+				"cpu_overheating": {
+					"type": "boolean"
+				},
+				"cpu_uptime": {
+					"type": "number"
+				},
+				"scos_uptime": {
+					"type": "number"
+				},
+				"scos_start_time": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"ssd_smart_data": {
+					"$ref": "#/$defs/SsdSmartData"
+				}
+			}
+		},
+		"PreselectorDiagnostics": {
+			"type": "object",
+			"properties": {
+				"temp": {
+					"type": "number"
+				},
+				"humidity": {
+					"type": "number"
+				},
+				"noise_diode_temp": {
+					"type": "number"
+				},
+				"lna_temp": {
+					"type": "number"
+				},
+				"door_closed": {
+					"type": "boolean"
+				}
+			}
+		},
+		"SPU": {
+			"type": "object",
+			"properties": {
+				"rf_tray_powered": {
+					"type": "boolean"
+				},
+				"preselector_powered": {
+					"type": "boolean"
+				},
+				"28v_aux_powered": {
+					"type": "boolean"
+				},
+				"pwr_box_temp": {
+					"type": "number"
+				},
+				"rf_box_temp": {
+					"type": "number"
+				},
+				"pwr_box_humidity": {
+					"type": "number"
+				},
+				"sigan_internal_temp": {
+					"type": "number"
+				}
+			}
+		},
+		"Diagnostics": {
+			"type": "object",
+			"properties": {
+				"datetime": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"computer": {
+					"$ref": "#/$defs/Computer"
+				},
+				"preselector": {
+					"$ref": "#/$defs/Preselector"
+				},
+				"spu": {
+					"$ref": "#/$defs/SPU"
+				},
+				"action_runtime": {
+					"type": "number"
+				}
+			}
+		},
+		"Waveform": {
+			"type": "object",
+			"properties": {
+				"model": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"model"
+			]
+		},
+		"Emitter": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"power": {
+					"type": "number"
+				},
+				"antenna": {
+					"$ref": "#/$defs/Antenna"
+				},
+				"transmitter": {
+					"$ref": "#/$defs/HardwareSpec"
+				},
+				"center_frequency": {
+					"type": "number"
+				},
+				"waveform": {
+					"$ref": "#/$defs/Waveform"
+				},
+				"geolocation": {
+					"$ref": "#/$defs/GeoJSONPoint"
+				},
+				"environment": {
+					"$ref": "#/$defs/Environment"
+				}
+			},
+			"required": [
+				"id"
+			]
+		},
+		"Action": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"summary": {
+					"type": "string"
+				}
+			},
+			"required": [
+				"name"
+			]
+		},
+		"ScheduleEntry": {
+			"type": "object",
+			"properties": {
+				"roles": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"id": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"stop": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"interval": {
+					"type": "integer"
+				},
+				"priority": {
+					"type": "integer"
+				},
+				"start": {
+					"type": "string",
+					"format": "date-time"
+				}
+			},
+			"required": [
+				"id",
+				"name"
+			]
+		}
+	}
+}

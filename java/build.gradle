@@ -34,6 +34,7 @@ dependencies {
     implementation 'org.springframework.data:spring-data-commons-core:1.4.1.RELEASE'
     implementation 'commons-io:commons-io:2.5'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testImplementation("com.github.erosb:json-sKema:0.6.0")
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
     checkstyleConfig ("com.puppycrawl.tools:checkstyle:${versions.checkstyle}") {
         transitive = false

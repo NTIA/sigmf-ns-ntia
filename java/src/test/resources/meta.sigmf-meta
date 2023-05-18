@@ -48,11 +48,10 @@
     "ntia-scos:schedule": {
       "name": "data_loc_sensor_def",
       "start": "2023-04-06T21:29:11.000Z",
-      "stop": null,
-      "interval": null,
       "priority": 10,
       "id": "data_loc_sensor_def"
     },
+    "ntia-core:classification":"unclassified",
     "ntia-sensor:sensor": {
       "id": "NASCTN SEA Sensor",
       "sensor_spec": {
