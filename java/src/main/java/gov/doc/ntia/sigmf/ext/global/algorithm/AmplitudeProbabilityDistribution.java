@@ -7,9 +7,6 @@ import java.beans.Transient;
 public class AmplitudeProbabilityDistribution extends DataProduct {
 
   @JsonProperty(required = true)
-  protected Long length;
-
-  @JsonProperty(required = true)
   protected Long samples;
 
   @JsonProperty(required = true)
@@ -17,9 +14,6 @@ public class AmplitudeProbabilityDistribution extends DataProduct {
 
   @JsonProperty(value = "amplitude_bin_size", required = false)
   protected Double amplitudeBinSize;
-
-  @JsonProperty(required = false)
-  protected String reference;
 
   @JsonProperty(value = "max_amplitude", required = false)
   protected Double maxAmplitude;
@@ -29,14 +23,6 @@ public class AmplitudeProbabilityDistribution extends DataProduct {
 
   @JsonProperty(value = "probability_units")
   protected String probabilityUnits;
-
-  public Long getLength() {
-    return length;
-  }
-
-  public void setLength(Long length) {
-    this.length = length;
-  }
 
   public Long getSamples() {
     return samples;
@@ -60,21 +46,6 @@ public class AmplitudeProbabilityDistribution extends DataProduct {
 
   public void setAmplitudeBinSize(Double amplitudeBinSize) {
     this.amplitudeBinSize = amplitudeBinSize;
-  }
-
-  public String getReference() {
-    return reference;
-  }
-
-  public void setReference(String reference) {
-    this.reference = reference;
-  }
-
-  @JsonIgnore
-  @Transient
-  @Override
-  public String getFieldName() {
-    return "amplitude_probability_distribution";
   }
 
   public Double getMaxAmplitude() {

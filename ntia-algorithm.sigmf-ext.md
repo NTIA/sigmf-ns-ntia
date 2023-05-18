@@ -6,15 +6,14 @@ This document defines the `ntia-algorithm` extension namespace for the Signal Me
 
 The `ntia-algorithm` extension defines the following datatypes:
 
-|name|long-form name|description|
-|----|--------------|-----------|
-|`DigitalFilter`|digital filter specification|JSON [`DigitalFilter`](#01-the-digitalfilter-object) object specifying a digital filter|
-|`DataProducts`|data products information|JSON [`DataProducts`](#02-the-dataproducts-object) object specifying one or multiple algorithm results referred to by the metadata, with additional information in sub-objects|
-|`PowerSpectralDensity`|frequency domain detection|JSON [`PowerSpectralDensity`](#03-the-powerspectraldensity-object) object containing metadata for a frequency-domain algorithm result|
-|`TimeSeriesPower`|time domain detection|JSON [`TimeSeriesPower`](#04-the-timeseriespower-object) object containing metadata for a time-series/time-domain algorithm result|
-|`PeriodicFramePower`|cyclostationary detection|JSON [`PeriodicFramePower`](#05-the-periodicframepower-object) object containing metadata for a periodic-frame cyclostationary algorithm result|
-|`AmplitudeProbabilityDistribution`|amplitude probability distribution|JSON [`AmplitudeProbabilityDistribution`](#06-the-amplitudeprobabilitydistribution-object) object containing metadata for a full or binned amplitude probability distribution result|
-|`Trace`|trace specification|JSON [`Trace`](#07-the-trace-object) object defining one or two traces of a data product|
+|name|long-form name| description                                                                                                                                                                             |
+|----|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+|`DigitalFilter`|digital filter specification| JSON [`DigitalFilter`](#01-the-digitalfilter-object) object specifying a digital filter                                                                                                 |
+|`PowerSpectralDensity`|frequency domain detection| JSON [`PowerSpectralDensity`](#02-the-powerspectraldensity-object) object containing metadata for a frequency-domain algorithm result                                                   |
+|`TimeSeriesPower`|time domain detection| JSON [`TimeSeriesPower`](#03-the-timeseriespower-object) object containing metadata for a time-series/time-domain algorithm result                                                      |
+|`PeriodicFramePower`|cyclostationary detection| JSON [`PeriodicFramePower`](#04-the-periodicframepower-object) object containing metadata for a periodic-frame cyclostationary algorithm result                                         |
+|`AmplitudeProbabilityDistribution`|amplitude probability distribution| JSON [`AmplitudeProbabilityDistribution`](#05-the-amplitudeprobabilitydistribution-object) object containing metadata for a full or binned amplitude probability distribution result    |
+|`Trace`|trace specification| JSON [`Trace`](#06-the-trace-object) object defining one or two traces of a data product                                                                                                |
 
 ### 0.1 The `DigitalFilter` Object
 
@@ -33,96 +32,85 @@ A `DigitalFilter` object is used to describe a digital filter (FIR or IIR) which
 | `attenuation_stopband`         | false    |double|dB| Attenuation of stopband.                             |
 | `frequency_stopband`           | false    |double|Hz| Point in filter frequency response where stopband starts. |
 
-### 0.2 The `DataProducts` Object
-
-`DataProducts` provide descriptions of processing performed on signal data and provide information necessary to parse the data file.
-The `reference` element may be used when each of the data products share the same reference point. The other
-elements each represent the output of various algorithms. Each data product listed shall be included for every capture and the order of the data products for each capture
-follows the order in which they are specified in the JSON.
-
-| name                                 | required | type                                                                     |unit| description                                                                                                                                                                                                                        |
-|--------------------------------------|----------|--------------------------------------------------------------------------|-------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `reference`                          | false        | string                                                                   |N/A| Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. If the data products do not share the same reference point, the reference point should be specified within each data product. |
-| `power_spectral_density`             | false    | [PowerSpectralDensity](#03-the-powerspectraldensity-object)                         |N/A| Quantifies the distribution of signal power with respect to frequency within a waveform capture.                                                                                                                                   |
-| `time_series_power`                  | false    | [TimeSeriesPower](#04-the-timeseriespower-object)                                   |N/A| Quantifies the time-progression of channel power values across the duration of a waveform capture.                                                                                                                                 |
-| `periodic_frame_power`               | false    | [PeriodicFramePower](#05-the-periodicframepower-object)                             |N/A| Provides occupancy patterns accross fixed time frames to differentiate emitters.                                                                                                                                                   |
-| `amplitude_probability_distribution` | false    | [AmplitudeProbabilityDistribution](#06-the-amplitudeprobabilitydistribution-object) |N/A| Complementary cumulative distribution function (CCDF) of the instantaneous channel power, evaluated empirically.                                                                                                                  |
-| `digital_filter`                     | false    | string                                                                   |N/A|ID of the digital filter used in each data product. If different data products use different filters, the filter should be specified in each data product.
-
-### 0.3 The `PowerSpectralDensity` Object
+### 0.2 The `PowerSpectralDensity` Object
 
 A `PowerSpectralDensity` object is used to describe the result of a frequency-domain detection. Despite its name, the `units` field provides flexibility for other types of power spectra. Results of FFT processing, and statistical detectors applied to FFT results, will generally be annotated by this object.
 
-| name                               | required | type                 | unit | description                                                                                                                                                                |
-|------------------------------------|---------|----------------------|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `traces`                           | true    | [Trace](#07-the-trace-object)[] | N/A  | Traces in the order they appear in the data file.                                                                                                                          |
-| `length`                           | true    | integer                 | N/A  | Length of the output.                                                                                                                                                      |
-| `equivalent_noise_bandwidth`       | true    | double               | Hz | Bandwidth of brickwall filter that has the same integrated noise power as that of the actual filter.                                                                       |
-| `samples`                          | true    | integer                 | N/A  | Number of samples in the FFT.                                                                                                                                              |
-| `ffts`                             | true    | integer                 | N/A  | Number of FFTs integrated over by detectors.                                                                                                                               |
-| `units`                            | true    | string               | N/A  | Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
-| `window`                           | true    | string               | N/A  | E.g. `"blackman-harris"`, `"flattop"`, `"gaussian_a3.5"`, `"gauss top"`, `"hamming"`, `"hanning"`, `"rectangular"`.                                                        |
-| `reference`                        |false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
-| `digital_filter`                   | false    | string               |N/A| The ID of the digital filter used in this data product.            |
+| name                         | required | type                 | unit | description                                                                                                                                                                |
+|------------------------------|----------|----------------------|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `product_type`               | true     | string               |N/A| This must equal "power_spectral_density" for any  `PowerSpectralDensity` data product.                                                                                     |
+| `traces`                     | true     | [Trace](#07-the-trace-object)[] | N/A  | Traces in the order they appear in the data file.                                                                                                                          |
+| `length`                     | true     | integer                 | N/A  | Length of the output.                                                                                                                                                      |
+| `equivalent_noise_bandwidth` | true     | double               | Hz | Bandwidth of brickwall filter that has the same integrated noise power as that of the actual filter.                                                                       |
+| `samples`                    | true     | integer                 | N/A  | Number of samples in the FFT.                                                                                                                                              |
+| `ffts`                       | true     | integer                 | N/A  | Number of FFTs integrated over by detectors.                                                                                                                               |
+| `units`                      | true     | string               | N/A  | Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
+| `window`                     | true     | string               | N/A  | E.g. `"blackman-harris"`, `"flattop"`, `"gaussian_a3.5"`, `"gauss top"`, `"hamming"`, `"hanning"`, `"rectangular"`.                                                        |
+| `reference`                  | false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
+| `digital_filter`             | false    | string               |N/A| The ID of the digital filter used in this data product.                                                                                                                    |
 
-### 0.4 The `TimeSeriesPower` Object
+### 0.3 The `TimeSeriesPower` Object
 
 A `TimeSeriesPower` object is used to provide information related to time-series amplitude data. Despite its name, the `units` and `reference` fields allows this object to be generalizable to multiple situations, including volts-versus-time or amplitude-versus-time. The `traces` and `samples` fields provide flexibility for this object to describe the result of detectors applied to a time series.
 
-| name        | required | type   |unit| description                                              |
-|-------------|----------|--------|-------|----------------------------------------------------------|
-| `traces`    | true     |  [Trace](#07-the-trace-object)[] |N/A| Traces in the order they appear in the data file.              |
-| `length`    | true     | integer   |N/A| Length of the output.                    |
-| `samples`   | true     | integer   |N/A| Number of samples used to compute the time series power. |
-| `units`     | true     | string |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.         |
-| `reference` |false    | string | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
-| `digital_filter`                   | false    | string      |N/A| The ID of the digital filter used in this data product.            |
+| name             | required | type                            |unit| description                                                                                                                                                                |
+|------------------|----------|---------------------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `product_type`   | true     | string                          |N/A| This must equal "time_series_power" for any  `TimeSeriesPower` data product.                                                                                               |
+| `traces`         | true     | [Trace](#07-the-trace-object)[] |N/A| Traces in the order they appear in the data file.                                                                                                                          |
+| `length`         | true     | integer                         |N/A| Length of the output.                                                                                                                                                      |
+| `samples`        | true     | integer                         |N/A| Number of samples used to compute the time series power.                                                                                                                   |
+| `units`          | true     | string                          |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
+| `reference`      |false    | string                          | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
+| `digital_filter` | false    | string                          |N/A| The ID of the digital filter used in this data product.                                                                                                                    |
 
-### 0.5 The `PeriodicFramePower` Object
+### 0.4 The `PeriodicFramePower` Object
 
 A `PeriodicFramePower` object is used to describe the results of cyclostationary power detection.
 
 | name        | required | type                 |unit| description                                                                                                                                                                |
 |-------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `traces`    | true     | [Trace](#07-the-trace-object)[] |N/A| E.g. `[min, max, mean, median, sample]`.                                                                                                                                  |
+| `product_type`   | true     | string                          |N/A| This must equal "periodic_frame_power" for any  `PeriodicFramePower` data product.                                                                                         |
+| `traces`    | true     | [Trace](#07-the-trace-object)[] |N/A| E.g. `[min, max, mean, median, sample]`.                                                                                                                                   |
 | `length`    | true     | integer                 |N/A| Length of the output.                                                                                                                                                      |
 | `units`     | true     | string               |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
 | `reference` |false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
-| `digital_filter`                   | false    | string      |N/A| The ID of the digital filter used in this data product.            |
+| `digital_filter`                   | false    | string      |N/A| The ID of the digital filter used in this data product.                                                                                                                    |
 
-### 0.6 The `AmplitudeProbabilityDistribution` Object
+### 0.5 The `AmplitudeProbabilityDistribution` Object
 
 An `AmplitudeProbabilityDistribution` object is used to describe an APD, and supports binned/downsampled APD results in a number of ways. In the binned-APD case, the data represents the probability values, and the `amplitude_bin_size`, `amplitude_min`, and `amplitude_max` values MUST be provided.
 
 | name                 | required | type                 |unit| description                                                                                                                                                                |
 |----------------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `product_type`   | true     | string                          |N/A| This must equal "amplitude_probability_distribution" for any `AmplitudeProbabilityDistribution` data product.                                                              |
 | `length`             | true     | integer                 |N/A| Length of the abscissa.                                                                                                                                                    |
 | `samples`            | true     | integer                 |N/A| Number of samples used to compute the amplitude probability distrubtion.                                                                                                   |
 | `units`              | true     | string               |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
 | `amplitude_bin_size` | false     | double               |`units`| Step/tick size of the amplitude, or y-axis.                                                                                                                                |
 | `min_amplitude`      | false     | double               |`units`| Minimum value of the amplitude, or y-axis.                                                                                                                                 |
-| `max_amplitude`      | false     | double               |`units`| Maximum value of the amplitude, or y-axis.                                                                                                                                  |
+| `max_amplitude`      | false     | double               |`units`| Maximum value of the amplitude, or y-axis.                                                                                                                                 |
 | `reference`          | false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
 | `digital_filter`     | false    | string               |N/A| The ID of the digital filter used in this data product.                                                                                                                    |
-|`probability_units`   | false    | string | N/A| The units of the probability values in the data product, e.g. `"percent"` |
+|`probability_units`   | false    | string | N/A| The units of the probability values in the data product, e.g. `"percent"`                                                                                                  |
 
-### 0.7 The `Trace` Object
+### 0.6 The `Trace` Object
 
 A `Trace` object is used to indicate that a certain data product includes multiple detector results applied to the same input. If both `detector` and `statistic` are provided, the `statistic` is assumed to have been computed on the result of `detector`.
 
-| name             | required | type                 |unit| description                                                                                                                                                                |
-|------------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `detector`       | false    | string |N/A| E.g., `peak`, `rms`                 |
+| name             | required | type                 |unit| description                         |
+|------------------|----------|----------------------|-------|-------------------------------------|
+| `detector`       | false    | string |N/A| E.g., `max`, `mean`                 |
 | `statistic`      | false    | string |N/A| E.g., `min`, `max`, `median`,`mean` |
 
 ## 1 Global
 
 The `ntia-algorithm` extension adds the following name/value pairs to the `global` SigMF object:
 
-| name              |required| type                                        |unit| description                                                                                                                                                  |
-|-------------------|--------------|---------------------------------------------|-------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `digital_filters` |false| [DigitalFilter[]](#01-the-digitalfilter-object) |N/A| Digital filters applied to the data. If only one digital filter is listed, it is not necessary to reference it in the [DataProducts](12-dataproducts-object) |
-| `data_products`   |false| [DataProducts](#02-the-dataproducts-object)     |N/A| The list of data products produced for each capture                                                                                                          |
+| name                   |required| type                                            |unit| description                                                                                                                                                                                                                                                       |
+|------------------------|--------------|-------------------------------------------------|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `digital_filters`      |false| [DigitalFilter[]](#01-the-digitalfilter-object) |N/A| Digital filters applied to the data. If only one digital filter is listed, it is not necessary to reference it in the [DataProducts](12-dataproducts-object)                                                                                                      |
+| `data_products`        |false| array                                           |N/A| The list of data products produced for each capture. Allowable types include [`PowerSpectralDensity`](#02-the-powerspectraldensity-object), [`TimeSeriesPower`](#03-the-timeseriespower-object),  [`PeriodicFramePower`](#04-the-periodicframepower-object), and  [`AmplitudeProbabilityDistribution`](#05-the-amplitudeprobabilitydistribution-object)  |
+| `data_products_filter` |false| string                                          |N/A| The list of data products produced for each capture                                                                                                                                                                                                               |
 
 ## 2 Captures
 
@@ -222,6 +210,15 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
     "core:datatype": "rf16",
     "core:sample_rate": 14000000.0,
     "core:num_channels": 15,
+    "ntia-scos:task": 1,
+    "ntia-scos:schedule": {
+      "name": "data_loc_sensor_def",
+      "start": "2023-04-06T21:29:11.000Z",
+      "stop": null,
+      "interval": null,
+      "priority": 10,
+      "id": "data_loc_sensor_def"
+    },
     "ntia-sensor:sensor": {
       "id": "NASCTN SEA Sensor",
       "sensor_spec": {
@@ -230,6 +227,82 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
         "version": "Prototype Rev. 3"
       }
     },
+    "ntia-algorithm:data_products_filter": "iir_1",
+    "ntia-algorithm:data_products_reference": "noise source output",
+    "ntia-algorithm:data_products": [
+      {
+        "name": "power_spectral_density",
+        "traces": [
+          {
+            "statistic": "max"
+          },
+          {
+            "statistic": "mean"
+          }
+        ],
+        "length": 625,
+        "equivalent_noise_bandwidth": 60323.94,
+        "samples": 875,
+        "ffts": 64000,
+        "units": "dBm/Hz",
+        "window": "flattop"
+      },
+      {
+        "name": "time_series_power",
+        "traces": [
+          {
+            "detector": "max"
+          },
+          {
+            "detector": "mean"
+          }
+        ],
+        "length": 400,
+        "samples": 56000000,
+        "units": "dBm"
+      },
+      {
+        "name": "periodic_frame_power",
+        "traces": [
+          {
+            "detector": "mean",
+            "statistic": "min"
+          },
+          {
+            "detector": "mean",
+            "statistic": "max"
+          },
+          {
+            "detector": "mean",
+            "statistic": "mean"
+          },
+          {
+            "detector": "max",
+            "statistic": "min"
+          },
+          {
+            "detector": "max",
+            "statistic": "max"
+          },
+          {
+            "detector": "max",
+            "statistic": "mean"
+          }
+        ],
+        "length": 560,
+        "units": "dBm"
+      },
+      {
+        "name": "amplitude_probability_distribution",
+        "length": 151,
+        "samples": 56000000,
+        "units": "dBm",
+        "probability_units": "percent",
+        "amplitude_bin_size": 1.0,
+        "min_amplitude": -180,
+        "max_amplitude": -30
+      }
+    ],
     "ntia-algorithm:digital_filters": [
       {
         "id": "iir_1",
@@ -270,84 +343,353 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
         "frequency_cutoff": 5000000.0
       }
     ],
-    "ntia-algorithm:data_products": {
-      "digital_filter": "iir_1",
-      "reference": "noise source output",
-      "power_spectral_density": {
-        "traces": [
-          {
-            "statistic": "max"
-          },
-          {
-            "statistic": "mean"
-          }
-        ],
-        "length": 625,
-        "equivalent_noise_bandwidth": 60323.94,
-        "samples": 875,
-        "ffts": 64000,
-        "units": "dBm/Hz",
-        "window": "flattop"
+    "ntia-nasctn-sea:max_of_max_channel_powers": [
+      -65.3125,
+      -64.875,
+      -64.375,
+      -64.8125,
+      -75.5625,
+      -55.375,
+      -55.125,
+      -52.90625,
+      -55.09375,
+      -56.75,
+      -56.4375,
+      -70.0625,
+      -70.5625,
+      -47.03125,
+      -42.8125
+    ],
+    "ntia-nasctn-sea:median_of_mean_channel_powers": [
+      -83.875,
+      -84.4375,
+      -83.6875,
+      -82.1875,
+      -93.25,
+      -77.375,
+      -79.25,
+      -74.25,
+      -78.3125,
+      -81.0625,
+      -82.4375,
+      -93.5,
+      -91.875,
+      -92.0625,
+      -85.8125
+    ],
+    "ntia-diagnostics:diagnostics": {
+      "datetime": "2023-04-06T21:31:39.356Z",
+      "preselector": {
+        "noise_diode_temp": 22.7,
+        "door_closed": false
       },
-      "time_series_power": {
-        "traces": [
-          {
-            "detector": "max"
-          },
-          {
-            "detector": "mean"
-          }
-        ],
-        "length": 400,
-        "samples": 56000000,
-        "units": "dBm"
+      "spu": {
+        "rf_tray_powered": true,
+        "preselector_powered": true,
+        "28v_aux_powered": true,
+        "pwr_box_temp": 26.0,
+        "rf_box_temp": 26.1,
+        "pwr_box_humidity": 11.2,
+        "sigan_internal_temp": 54.44
       },
-      "periodic_frame_power": {
-        "traces": [
-          {
-            "detector": "mean",
-            "statistic": "min"
-          },
-          {
-            "detector": "mean",
-            "statistic": "max"
-          },
-          {
-            "detector": "mean",
-            "statistic": "mean"
-          },
-          {
-            "detector": "max",
-            "statistic": "min"
-          },
-          {
-            "detector": "max",
-            "statistic": "max"
-          },
-          {
-            "detector": "max",
-            "statistic": "mean"
-          }
-        ],
-        "length": 560,
-        "units": "dBm"
+      "computer": {
+        "cpu_temp": 59.0,
+        "cpu_overheating": false,
+        "cpu_uptime": 21.04,
+        "cpu_max_clock": 4533.5,
+        "cpu_min_clock": 1240.5,
+        "cpu_mean_clock": 3222.1,
+        "action_cpu_usage": 42.1,
+        "system_load_5m": 18.1,
+        "memory_usage": 14.9,
+        "scos_start_time": "2023-04-06T21:28:45.532Z",
+        "scos_uptime": 0.002,
+        "ssd_smart_data": {
+          "test_passed": true,
+          "critical_warning": "0x00",
+          "temp": 35,
+          "available_spare": 100,
+          "available_spare_threshold": 10,
+          "percentage_used": 1,
+          "unsafe_shutdowns": 18,
+          "integrity_errors": 0
+        }
       },
-      "amplitude_probability_distribution": {
-        "length": 151,
-        "samples": 56000000,
-        "units": "dBm",
-        "probability_units": "percent",
-        "amplitude_bin_size": 1.0,
-        "min_amplitude": -180,
-        "max_amplitude": -30
-      }
+      "action_runtime": 81.8970819178503
     }
   },
   "captures": [
-    ...
-  ]
-  "annotations": [
-    ...
-  ]
+    {
+      "core:frequency": 3555000000.0,
+      "core:datetime": "2023-04-06T21:30:17.539Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.159,
+        "gain": 23.008,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:17.134Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 0
+    },
+    {
+      "core:frequency": 3565000000.0,
+      "core:datetime": "2023-04-06T21:30:24.572Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 5.662,
+        "gain": 23.826,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:20.970Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 5561
+    },
+    {
+      "core:frequency": 3575000000.0,
+      "core:datetime": "2023-04-06T21:30:29.212Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 5.781,
+        "gain": 23.581,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:25.184Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 11122
+    },
+    {
+      "core:frequency": 3585000000.0,
+      "core:datetime": "2023-04-06T21:30:34.219Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 5.599,
+        "gain": 23.95,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:29.543Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 16683
+    },
+    {
+      "core:frequency": 3595000000.0,
+      "core:datetime": "2023-04-06T21:30:39.435Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.133,
+        "gain": 22.916,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:33.413Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 22244
+    },
+    {
+      "core:frequency": 3605000000.0,
+      "core:datetime": "2023-04-06T21:30:44.047Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.007,
+        "gain": 24.246,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:38.360Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 27805
+    },
+    {
+      "core:frequency": 3615000000.0,
+      "core:datetime": "2023-04-06T21:30:49.851Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.42,
+        "gain": 23.082,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:43.220Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 33366
+    },
+    {
+      "core:frequency": 3625000000.0,
+      "core:datetime": "2023-04-06T21:30:54.471Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.126,
+        "gain": 23.348,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:46.985Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 38927
+    },
+    {
+      "core:frequency": 3635000000.0,
+      "core:datetime": "2023-04-06T21:30:59.081Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 5.72,
+        "gain": 24.127,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:51.247Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 44488
+    },
+    {
+      "core:frequency": 3645000000.0,
+      "core:datetime": "2023-04-06T21:31:04.096Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.131,
+        "gain": 23.257,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:29:55.695Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 50049
+    },
+    {
+      "core:frequency": 3655000000.0,
+      "core:datetime": "2023-04-06T21:31:09.311Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 5.79,
+        "gain": 23.964,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:30:00.613Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 55610
+    },
+    {
+      "core:frequency": 3665000000.0,
+      "core:datetime": "2023-04-06T21:31:15.107Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.373,
+        "gain": 22.784,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:30:04.457Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 61171
+    },
+    {
+      "core:frequency": 3675000000.0,
+      "core:datetime": "2023-04-06T21:31:19.727Z",
+      "ntia-sensor:overload": false,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 5.789,
+        "gain": 23.731,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:30:08.362Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 66732
+    },
+    {
+      "core:frequency": 3685000000.0,
+      "core:datetime": "2023-04-06T21:31:24.355Z",
+      "ntia-sensor:overload": true,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.267,
+        "gain": 23.017,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:30:12.516Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 72293
+    },
+    {
+      "core:frequency": 3695000000.0,
+      "core:datetime": "2023-04-06T21:31:29.350Z",
+      "ntia-sensor:overload": true,
+      "ntia-sensor:duration": 4000,
+      "ntia-sensor:sensor_calibration": {
+        "noise_figure": 6.041,
+        "gain": 23.427,
+        "temperature": 22.6,
+        "datetime": "2023-04-06T21:30:17.430Z"
+      },
+      "ntia-sensor:sigan_settings": {
+        "reference_level": -25.0,
+        "attenuation": 0.0,
+        "preamp_enable": true
+      },
+      "core:sample_start": 77854
+    }
+  ],
+  "annotations": []
 }
 ```

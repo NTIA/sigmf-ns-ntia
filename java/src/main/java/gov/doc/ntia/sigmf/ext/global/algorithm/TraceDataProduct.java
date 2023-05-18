@@ -5,13 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class TraceDataProduct extends DataProduct {
+
   public List<Trace> traces;
-
-  @JsonProperty(required = false)
-  protected String reference;
-
-  @JsonProperty(value = "units", required = false)
-  protected String units;
 
   @JsonProperty(required = true)
   protected Long samples;
@@ -23,7 +18,7 @@ public abstract class TraceDataProduct extends DataProduct {
     traces.add(trace);
   }
 
-  public void removeDetector(int i) {
+  public void removeTrace(int i) {
     traces.remove(i);
   }
 
@@ -33,22 +28,6 @@ public abstract class TraceDataProduct extends DataProduct {
 
   public void setTraces(List<Trace> traces) {
     this.traces = traces;
-  }
-
-  public String getUnits() {
-    return units;
-  }
-
-  public void setUnits(String units) {
-    this.units = units;
-  }
-
-  public String getReference() {
-    return reference;
-  }
-
-  public void setReference(String reference) {
-    this.reference = reference;
   }
 
   public Long getSamples() {

@@ -89,17 +89,17 @@ public class DataProductsExample implements Example {
     global.addDataProduct(tsp);
 
     PeriodicFramePower pfp = new PeriodicFramePower();
-    Trace rmsMin = new Trace("rms", "min");
+    Trace rmsMin = new Trace("mean", "min");
     pfp.addTrace(rmsMin);
-    Trace rmsMax = new Trace("rms", "max");
+    Trace rmsMax = new Trace("mean", "max");
     pfp.addTrace(rmsMax);
-    Trace rmsMean = new Trace("rms", "mean");
+    Trace rmsMean = new Trace("mean", "mean");
     pfp.addTrace(rmsMean);
-    Trace peakMin = new Trace("peak", "min");
+    Trace peakMin = new Trace("max", "min");
     pfp.addTrace(peakMin);
-    Trace peakMax = new Trace("peak", "max");
+    Trace peakMax = new Trace("max", "max");
     pfp.addTrace(peakMax);
-    Trace peakMean = new Trace("peak", "mean");
+    Trace peakMean = new Trace("max", "mean");
     pfp.addTrace(peakMean);
     pfp.setLength(560L);
     pfp.setUnits("dBm");
@@ -114,8 +114,8 @@ public class DataProductsExample implements Example {
     apd.setMinAmplitude(-130.0);
     global.addDigitalFilter(digitalFilter);
     global.addDataProduct(apd);
-    global.getDataProducts().setDigitalFilter("iir_1");
-    global.getDataProducts().setReference("noise source output");
+    global.setDataProductsFilter("iir_1");
+    global.setDataProductsReference("noise source output");
     metaDoc.setGlobal(global);
     return metaDoc;
   }

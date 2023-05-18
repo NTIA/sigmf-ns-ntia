@@ -2,7 +2,6 @@ package gov.doc.ntia.sigmf.examples.scos;
 
 import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.Extension;
-import gov.doc.ntia.sigmf.Extensions;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
@@ -20,7 +19,7 @@ import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import java.util.ArrayList;
 import java.util.Calendar;
 
-/** Generates and example metadata file based NTIA SCOS system. */
+/** Generates an example metadata file based NTIA SCOS system. */
 public class ScosExample implements Example {
 
   public static Action getAction() {
@@ -44,12 +43,13 @@ public class ScosExample implements Example {
     return scheduleEntry;
   }
 
-  public static Extensions getExtensions() {
-    Extensions extensions = new Extensions();
+  public static ArrayList<Extension> getExtensions() {
+    ArrayList<Extension> extensions = new ArrayList<>();
     Extension scos = new Extension();
     scos.setName("ntia-scos");
     scos.setVersion("v1.0.0");
-    extensions.addExtension(scos);
+    scos.setOptional(true);
+    extensions.add(scos);
     return extensions;
   }
 

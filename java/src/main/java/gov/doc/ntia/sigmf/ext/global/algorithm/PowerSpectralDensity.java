@@ -4,16 +4,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.beans.Transient;
 
-public class PowerSpectralDensity extends TraceDataProduct {
+public class PowerSpectralDensity extends AbstractUnitRequiredTraceDataProduct {
 
   @JsonProperty(value = "equivalent_noise_bandwidth", required = true)
   protected Double equivalentNoiseBandwidth;
 
   @JsonProperty(value = "ffts", required = true)
   protected Integer ffts;
-
-  @JsonProperty(value = "units", required = true)
-  protected String units;
 
   @JsonProperty(value = "window", required = true)
   protected String window;
@@ -34,14 +31,6 @@ public class PowerSpectralDensity extends TraceDataProduct {
     this.ffts = ffts;
   }
 
-  public String getUnits() {
-    return units;
-  }
-
-  public void setUnits(String units) {
-    this.units = units;
-  }
-
   public String getWindow() {
     return window;
   }
@@ -50,10 +39,4 @@ public class PowerSpectralDensity extends TraceDataProduct {
     this.window = window;
   }
 
-  @JsonIgnore
-  @Transient
-  @Override
-  public String getFieldName() {
-    return "power_spectral_density";
-  }
 }
