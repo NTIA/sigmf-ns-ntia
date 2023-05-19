@@ -6,111 +6,129 @@ This document defines the `ntia-algorithm` extension namespace for the Signal Me
 
 The `ntia-algorithm` extension defines the following datatypes:
 
-|name|long-form name| description                                                                                                                                                                             |
-|----|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|`DigitalFilter`|digital filter specification| JSON [`DigitalFilter`](#01-the-digitalfilter-object) object specifying a digital filter                                                                                                 |
-|`PowerSpectralDensity`|frequency domain detection| JSON [`PowerSpectralDensity`](#02-the-powerspectraldensity-object) object containing metadata for a frequency-domain algorithm result                                                   |
-|`TimeSeriesPower`|time domain detection| JSON [`TimeSeriesPower`](#03-the-timeseriespower-object) object containing metadata for a time-series/time-domain algorithm result                                                      |
-|`PeriodicFramePower`|cyclostationary detection| JSON [`PeriodicFramePower`](#04-the-periodicframepower-object) object containing metadata for a periodic-frame cyclostationary algorithm result                                         |
-|`AmplitudeProbabilityDistribution`|amplitude probability distribution| JSON [`AmplitudeProbabilityDistribution`](#05-the-amplitudeprobabilitydistribution-object) object containing metadata for a full or binned amplitude probability distribution result    |
-|`Trace`|trace specification| JSON [`Trace`](#06-the-trace-object) object defining one or two traces of a data product                                                                                                |
+| name                               | long-form name                        | description                                                                              |
+|------------------------------------|---------------------------------------|------------------------------------------------------------------------------------------|
+| `DigitalFilter`                    | digital filter specification          | JSON [`DigitalFilter`](#01-the-digitalfilter-object) object specifying a digital filter  |
+| `FrequencyDomainDetection`         | frequency domain detection            | JSON [`FrequencyDomainDetection`](#02-the-frequencydomaindetection-object) object containing metadata for a frequency-domain algorithm result |
+| `TimeDomainDetection`              | time domain detection                 | JSON [`TimeDomainDetection`](#03-the-timedomaindetection-object) object containing metadata for a time-domain algorithm result |
+| `CyclicTimeDetection`              | cyclostationary time domain detection | JSON [`CyclicTimeDetection`](#04-the-cyclictimedetection-object) object containing metadata for a cyclostationary algorithm result |
+| `AmplitudeProbabilityDistribution` | amplitude probability distribution    | JSON [`AmplitudeProbabilityDistribution`](#05-the-amplitudeprobabilitydistribution-object) object containing metadata for a full or binned amplitude probability distribution result |
+| `Trace`                            | trace specification                   | JSON [`Trace`](#06-the-trace-object) object defining one or two traces of a data product |
 
 ### 0.1 The `DigitalFilter` Object
 
 A `DigitalFilter` object is used to describe a digital filter (FIR or IIR) which has been used to filter the data.
+Most fields are optional to provide flexibility in how a filter is annotated. Therefore, it is left to the user to ensure
+that enough information is provided to describe the filter. A `DigitalFilter` object must describe only one filter.
 
-| name                           | required |type|unit| description                                          |
-|--------------------------------|----------|-------------------------------------------------------------------------|-------|------------------------------------------------------------------------------------------------------|
-| `id`                           | true     |string|N/A| Unique ID of the filter.                             |
-| `filter_type`                  | false    |string|N/A| Description of digital filter, e.g., `"FIR"`, `"IIR"` |
-| `FIR_coefficients`             | false    |double[]|N/A| Coefficients that define FIR filter.                 |
-| `IIR_numerator_coefficients`   | false    |double[]|N/A| Coefficients that define IIR filter.                 |
-| `IIR_denominator_coefficients` | false    |double[]|N/A| Coefficients that define IIR filter.                 |
-| `attenuation_cutoff`           | false    |double|dB| Attenuation that specifies the `cutoff_frequency` (typically 3 dB). |
-| `frequency_cutoff`             | false    |double|Hz| Frequency that characterizes boundary between passband and stopband. |
-| `ripple_passband`              | false    |double|dB| Ripple in passband.                                  |
-| `attenuation_stopband`         | false    |double|dB| Attenuation of stopband.                             |
-| `frequency_stopband`           | false    |double|Hz| Point in filter frequency response where stopband starts. |
+| name                           | required | type     | unit | description                                                          |
+|--------------------------------|----------|----------|------|----------------------------------------------------------------------|
+| `id`                           | true     | string   | N/A  | Unique ID of the filter.                                             |
+| `filter_type`                  | false    | string   | N/A  | Description of digital filter, e.g., `"FIR"`, `"IIR"`                |
+| `FIR_coefficients`             | false    | double[] | N/A  | Coefficients that define the FIR filter.                             |
+| `IIR_numerator_coefficients`   | false    | double[] | N/A  | Coefficients that define the IIR filter.                             |
+| `IIR_denominator_coefficients` | false    | double[] | N/A  | Coefficients that define the IIR filter.                             |
+| `attenuation_cutoff`           | false    | double   | dB   | Attenuation that specifies the `cutoff_frequency` (typically 3 dB).  |
+| `frequency_cutoff`             | false    | double   | Hz   | Frequency that characterizes boundary between passband and stopband. |
+| `ripple_passband`              | false    | double   | dB   | Ripple in passband.                                                  |
+| `attenuation_stopband`         | false    | double   | dB   | Attenuation of stopband.                                             |
+| `frequency_stopband`           | false    | double   | Hz   | Point in filter frequency response where stopband starts.            |
 
-### 0.2 The `PowerSpectralDensity` Object
+### 0.2 The `FrequencyDomainDetection` Object
 
-A `PowerSpectralDensity` object is used to describe the result of a frequency-domain detection. Despite its name, the `units` field provides flexibility for other types of power spectra. Results of FFT processing, and statistical detectors applied to FFT results, will generally be annotated by this object.
+A `FrequencyDomainDetection` object is used to flexibly describe the result of a frequency-domain detection. Results of FFT processing, and statistical detectors applied to FFT results, will generally be annotated by this object.
 
-| name                         | required | type                 | unit | description                                                                                                                                                                |
-|------------------------------|----------|----------------------|------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `product_type`               | true     | string               |N/A| This must equal "power_spectral_density" for any  `PowerSpectralDensity` data product.                                                                                     |
-| `traces`                     | true     | [Trace](#07-the-trace-object)[] | N/A  | Traces in the order they appear in the data file.                                                                                                                          |
-| `length`                     | true     | integer                 | N/A  | Length of the output.                                                                                                                                                      |
-| `equivalent_noise_bandwidth` | true     | double               | Hz | Bandwidth of brickwall filter that has the same integrated noise power as that of the actual filter.                                                                       |
-| `samples`                    | true     | integer                 | N/A  | Number of samples in the FFT.                                                                                                                                              |
-| `ffts`                       | true     | integer                 | N/A  | Number of FFTs integrated over by detectors.                                                                                                                               |
-| `units`                      | true     | string               | N/A  | Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
-| `window`                     | true     | string               | N/A  | E.g. `"blackman-harris"`, `"flattop"`, `"gaussian_a3.5"`, `"gauss top"`, `"hamming"`, `"hanning"`, `"rectangular"`.                                                        |
-| `reference`                  | false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
-| `digital_filter`             | false    | string               |N/A| The ID of the digital filter used in this data product.                                                                                                                    |
+#### Determining the Frequency Axis
 
-### 0.3 The `TimeSeriesPower` Object
+The frequency axis corresponding to the data may be specified in multiple ways. If `frequencies` is used, the rest of this section may be ignored and the `frequencies` values should be used directly. Otherwise, the frequency step size is assumed to be equal to `core:sample_rate / samples` and the frequency axis is assumed to be defined by the following equation:
 
-A `TimeSeriesPower` object is used to provide information related to time-series amplitude data. Despite its name, the `units` and `reference` fields allows this object to be generalizable to multiple situations, including volts-versus-time or amplitude-versus-time. The `traces` and `samples` fields provide flexibility for this object to describe the result of detectors applied to a time series.
+        frequencies = [frequency_start, frequency_start + frequency_step, ..., frequency_stop - frequency_step, frequency]
 
-| name             | required | type                            |unit| description                                                                                                                                                                |
-|------------------|----------|---------------------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `product_type`   | true     | string                          |N/A| This must equal "time_series_power" for any  `TimeSeriesPower` data product.                                                                                               |
-| `traces`         | true     | [Trace](#07-the-trace-object)[] |N/A| Traces in the order they appear in the data file.                                                                                                                          |
-| `length`         | true     | integer                         |N/A| Length of the output.                                                                                                                                                      |
-| `samples`        | true     | integer                         |N/A| Number of samples used to compute the time series power.                                                                                                                   |
-| `units`          | true     | string                          |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
-| `reference`      |false    | string                          | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
-| `digital_filter` | false    | string                          |N/A| The ID of the digital filter used in this data product.                                                                                                                    |
+If `{frequency_start, frequency_stop}` are not provided, their values are assumed by the following procedure:
 
-### 0.4 The `PeriodicFramePower` Object
+- If `samples` is even, `frequency_start = -(samples/2) * frequency_step`, `frequency_stop = ((samples/2)-1) * frequency_step`
+- If `samples` is odd, `frequency_start = -(samples-1)/2 * frequency_step`, `frequency_stop = (samples-1)/2 * frequency_step`
 
-A `PeriodicFramePower` object is used to describe the results of cyclostationary power detection.
+If `length` is not equal to `samples` (e.g., if some FFT samples have been intentionally discarded), it is REQUIRED to explicitly specify `frequency_start` and `frequency_stop` or `frequencies`.  
 
-| name        | required | type                 |unit| description                                                                                                                                                                |
-|-------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `product_type`   | true     | string                          |N/A| This must equal "periodic_frame_power" for any  `PeriodicFramePower` data product.                                                                                         |
-| `traces`    | true     | [Trace](#07-the-trace-object)[] |N/A| E.g. `[min, max, mean, median, sample]`.                                                                                                                                   |
-| `length`    | true     | integer                 |N/A| Length of the output.                                                                                                                                                      |
-| `units`     | true     | string               |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
-| `reference` |false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
-| `digital_filter`                   | false    | string      |N/A| The ID of the digital filter used in this data product.                                                                                                                    |
+| name                         | required | type                            | unit | description                                       |
+|------------------------------|----------|---------------------------------|------|---------------------------------------------------|
+| `product_type`               | true     | string                          | N/A  | MUST be equal to `"frequency_domain_detection"`   |
+| `traces`                     | true     | [Trace](#06-the-trace-object)[] | N/A  | Traces in the order they appear in the data file. |
+| `length`                     | true     | integer                         | N/A  | Length of the output. If multiple traces are provided, this is the length of each trace, not the summed length of all traces. |
+| `equivalent_noise_bandwidth` | true     | double                          | Hz   | Bandwidth of brickwall filter that has the same integrated noise power as that of the actual filter. |
+| `samples`                    | true     | integer                         | N/A  | Number of samples in the FFT.                     |
+| `ffts`                       | true     | integer                         | N/A  | Number of FFTs integrated over by detectors.      |
+| `units`                      | true     | string                          | N/A  | Data units, e.g., `"dBm"`, `"dBm/Hz"`, `"watts"`, `"volts"`. |
+| `window`                     | true     | string                          | N/A  | E.g. `"blackman-harris"`, `"flattop"`, `"gaussian_a3.5"`, `"gauss top"`, `"hamming"`, `"hanning"`, `"rectangular"`. |
+| `reference`                  | false    | string                          | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. SHOULD be included when not specified within the Global `ntia-algorithm:data_products_reference` field. If both are populated, this field takes precedence over `data_products_reference`. |
+| `filter`                     | false    | string                          | N/A  | The ID of the digital filter used in this data product. SHOULD be included when not specified within the Global `ntia-algorithm:data_products_filter` field. If both are populated, this field takes precedence over `data_products_filter`.  |
+| `frequency_start`            | false    | double                          | Hz   | Frequency of the first data point. If provided, `frequency_stop` is REQUIRED. Ignored if `frequencies` is provided. |
+| `frequency_stop`             | false    | double                          | Hz   | Frequency of the last data point.  If provided, `frequency_start` is REQUIRED. Ignored if `frequencies` is provided. |
+| `frequencies`                | false    | double[]                        | Hz   | An array of the frequencies of the data points. If provided, the length MUST be equal to `length`. |
+| `supplemental_information`   | false    | string                          | N/A  | Used for recording any additional information.    |
+
+### 0.3 The `TimeDomainDetection` Object
+
+| name             | required | type                            | unit | description                                              |
+|------------------|----------|---------------------------------|------|----------------------------------------------------------|
+| `product_type`   | true     | string                          | N/A  | MUST be equal `"time_domain_detection"`                  |
+| `traces`         | true     | [Trace](#06-the-trace-object)[] | N/A  | Traces in the order they appear in the data file.        |
+| `length`         | true     | integer                         | N/A  | Length of the output.                                    |
+| `samples`        | true     | integer                         | N/A  | Number of samples used to compute the time series power. |
+| `units`          | true     | string                          | N/A  | Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.         |
+| `reference`      | false    | string                          | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. SHOULD be included when not specified within the Global `ntia-algorithm:data_products_reference` field. If both are populated, this field takes precedence over `data_products_reference`. |
+| `filter`         | false    | string                          | N/A  | The ID of the digital filter used in this data product. SHOULD be included when not specified within the Global `ntia-algorithm:data_products_filter` field. If both are populated, this field takes precedence over `data_products_filter`. |
+
+### 0.4 The `CyclicTimeDetection` Object
+
+A `CyclicTimeDetection` object is used to describe the results of cyclostationary power detection.
+
+| name             | required | type                            | unit | description                                              |
+|------------------|----------|---------------------------------|------|----------------------------------------------------------|
+| `product_type`   | true     | string                          | N/A  | MUST be equal to `"cyclic_time_detection"`               |
+| `traces`         | true     | [Trace](#06-the-trace-object)[] | N/A  | E.g. `[min, max, mean, median, sample]`.                 |
+| `length`         | true     | integer                         | N/A  | Length of the output.                                    |
+| `units`          | true     | string                          | N/A  | Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.         |
+| `reference`      | false    | string                          | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. SHOULD be included when not specified within the Global `ntia-algorithm:data_products_reference` field. If both are populated, this field takes precedence over `data_products_reference`. |
+| `filter`         | false    | string                          | N/A  | The ID of the digital filter used in this data product. SHOULD be included when not specified within the Global `ntia-algorithm:data_products_filter` field. If both are populated, this field takes precedence over `data_products_filter`. |
 
 ### 0.5 The `AmplitudeProbabilityDistribution` Object
 
 An `AmplitudeProbabilityDistribution` object is used to describe an APD, and supports binned/downsampled APD results in a number of ways. In the binned-APD case, the data represents the probability values, and the `amplitude_bin_size`, `amplitude_min`, and `amplitude_max` values MUST be provided.
 
-| name                 | required | type                 |unit| description                                                                                                                                                                |
-|----------------------|----------|----------------------|-------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `product_type`   | true     | string                          |N/A| This must equal "amplitude_probability_distribution" for any `AmplitudeProbabilityDistribution` data product.                                                              |
-| `length`             | true     | integer                 |N/A| Length of the abscissa.                                                                                                                                                    |
-| `samples`            | true     | integer                 |N/A| Number of samples used to compute the amplitude probability distrubtion.                                                                                                   |
-| `units`              | true     | string               |N/A| Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                                                                                                                           |
-| `amplitude_bin_size` | false     | double               |`units`| Step/tick size of the amplitude, or y-axis.                                                                                                                                |
-| `min_amplitude`      | false     | double               |`units`| Minimum value of the amplitude, or y-axis.                                                                                                                                 |
-| `max_amplitude`      | false     | double               |`units`| Maximum value of the amplitude, or y-axis.                                                                                                                                 |
-| `reference`          | false    | string               | N/A  | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. Shall be included when not specified within  `data_products` element. |
-| `digital_filter`     | false    | string               |N/A| The ID of the digital filter used in this data product.                                                                                                                    |
-|`probability_units`   | false    | string | N/A| The units of the probability values in the data product, e.g. `"percent"`                                                                                                  |
+| name                 | required | type    | unit    | description                                                                |
+|----------------------|----------|---------|---------|----------------------------------------------------------------------------|
+| `product_type`       | true     | string  | N/A     | MUST be equal to `"amplitude_probability_distribution"`                    |
+| `length`             | true     | integer | N/A     | Length of the abscissa.                                                    |
+| `samples`            | true     | integer | N/A     | Number of samples used to compute the amplitude probability distrubtion.   |
+| `units`              | true     | string  | N/A     | Data units, e.g., `"dBm"`, `"watts"`, `"volts"`.                           |
+| `amplitude_bin_size` | false    | double  | `units` | Step/tick size of the amplitude, or y-axis.                                |
+| `min_amplitude`      | false    | double  | `units` | Minimum value of the amplitude, or y-axis.                                 |
+| `max_amplitude`      | false    | double  | `units` | Maximum value of the amplitude, or y-axis.                                 |
+| `reference`          | false    | string  | N/A     | Data reference point, e.g.,  `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. SHOULD be included when not specified within  the Global `ntia-algorithm:data_products_reference` field. If both are populated, this field takes precedence over `data_products_reference`. |
+| `filter`             | false    | string  | N/A     | The ID of the digital filter used in this data product. SHOULD be included when not specified within the Global `ntia-algorithm:data_products_filter` field. If both are populated, this field takes precedence over `data_products_filter`. |
+|`probability_units`   | false    | string  | N/A     | The units of the probability values in the data product, e.g. `"percent"`  |
 
 ### 0.6 The `Trace` Object
 
-A `Trace` object is used to indicate that a certain data product includes multiple detector results applied to the same input. If both `detector` and `statistic` are provided, the `statistic` is assumed to have been computed on the result of `detector`.
+A `Trace` object is used to indicate that a certain data product includes multiple traces, or detector results, applied to the same input. The trace object supports annotation of the results of multiply-detected data. For example, a mean statistic may be computed on the result of a max detector. If both `detector` and `statistic` are provided, the `statistic` is assumed to have been computed on the result of `detector`. If only one is provided, no multiple detection scheme is implied, and either `detector` or `statistic` may be used interchangeably.
 
-| name             | required | type                 |unit| description                         |
-|------------------|----------|----------------------|-------|-------------------------------------|
-| `detector`       | false    | string |N/A| E.g., `max`, `mean`                 |
-| `statistic`      | false    | string |N/A| E.g., `min`, `max`, `median`,`mean` |
+| name             | required | type   | unit | description                         |
+|------------------|----------|--------|------|-------------------------------------|
+| `detector`       | false    | string | N/A  | E.g., `peak`, `rms`, `max`, `mean`  |
+| `statistic`      | false    | string | N/A  | E.g., `min`, `max`, `median`,`mean` |
 
 ## 1 Global
 
 The `ntia-algorithm` extension adds the following name/value pairs to the `global` SigMF object:
 
-| name                   |required| type                                            |unit| description                                                                                                                                                                                                                                                       |
-|------------------------|--------------|-------------------------------------------------|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `digital_filters`      |false| [DigitalFilter[]](#01-the-digitalfilter-object) |N/A| Digital filters applied to the data. If only one digital filter is listed, it is not necessary to reference it in the [DataProducts](12-dataproducts-object)                                                                                                      |
-| `data_products`        |false| array                                           |N/A| The list of data products produced for each capture. Allowable types include [`PowerSpectralDensity`](#02-the-powerspectraldensity-object), [`TimeSeriesPower`](#03-the-timeseriespower-object),  [`PeriodicFramePower`](#04-the-periodicframepower-object), and  [`AmplitudeProbabilityDistribution`](#05-the-amplitudeprobabilitydistribution-object)  |
-| `data_products_filter` |false| string                                          |N/A| The list of data products produced for each capture                                                                                                                                                                                                               |
+| name                      | required | type                                            | unit | description                                        |
+|---------------------------|----------|-------------------------------------------------|------|----------------------------------------------------|
+| `digital_filters`         | false    | [DigitalFilter[]](#01-the-digitalfilter-object) | N/A | Digital filters applied to the data. If only one digital filter is listed, it is not necessary to reference it in the [DataProducts](12-dataproducts-object) |
+| `data_products`           | false    | array                                           | N/A | The list of data products produced for each capture. Allowable types include [`FrequencyDomainDetection`](#02-the-frequencydomaindetection-object), [`TimeDomainDetection`](#03-the-timedomaindetection-object),  [`CyclicTimeDetection`](#04-the-cyclictimedetection-object), and  [`AmplitudeProbabilityDistribution`](#05-the-amplitudeprobabilitydistribution-object) |
+| `data_products_filter`    | false    | string                                          | N/A | The list of data products produced for each capture |
+| `data_products_reference` | false    | string                                          | N/A | Reference point for the data, e.g. `"signal analyzer input"`, `"preselector input"`, `"antenna terminal"`. If included, it is assumed to apply for all elements of the `data_products` array which do not specify their own `reference` field. |
 
 ## 2 Captures
 
@@ -231,7 +249,7 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
     "ntia-algorithm:data_products_reference": "noise source output",
     "ntia-algorithm:data_products": [
       {
-        "name": "power_spectral_density",
+        "name": "frequency_domain_detection",
         "traces": [
           {
             "statistic": "max"
