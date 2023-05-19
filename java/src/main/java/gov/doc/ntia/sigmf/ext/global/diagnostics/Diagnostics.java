@@ -12,6 +12,7 @@ public class Diagnostics {
   private Date datetime;
 
   private Preselector preselector;
+
   private SPU spu;
 
   @JsonProperty(value = "action_runtime")

@@ -1,10 +1,12 @@
 package gov.doc.ntia.sigmf.ext.global.algorithm;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.validation.constraints.NotNull;
 
 public abstract class AbstractUnitRequiredTraceDataProduct extends TraceDataProduct {
 
-  @JsonProperty(value = "units", required = false)
+  @NotNull
+  @JsonProperty(value = "units", required = true)
   protected String units;
 
   public String getUnits() {

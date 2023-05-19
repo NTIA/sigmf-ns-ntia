@@ -1,8 +1,6 @@
 package gov.doc.ntia.sigmf.ext.global.algorithm;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;import com.fasterxml.jackson.annotation.JsonProperty;
-import java.beans.Transient;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
-public class PeriodicFramePower extends AbstractUnitRequiredTraceDataProduct {
-
-}
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class PeriodicFramePower extends AbstractUnitRequiredTraceDataProduct {}

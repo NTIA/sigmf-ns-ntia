@@ -1,9 +1,9 @@
 package gov.doc.ntia.sigmf.ext.global.algorithm;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.beans.Transient;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class PowerSpectralDensity extends AbstractUnitRequiredTraceDataProduct {
 
   @JsonProperty(value = "equivalent_noise_bandwidth", required = true)
@@ -38,5 +38,4 @@ public class PowerSpectralDensity extends AbstractUnitRequiredTraceDataProduct {
   public void setWindow(String window) {
     this.window = window;
   }
-
 }

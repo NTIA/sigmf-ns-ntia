@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import static com.fasterxml.jackson.annotation.JsonTypeInfo.Id.DEDUCTION;
+import javax.validation.constraints.NotNull;
 
 @JsonTypeInfo(
     use = JsonTypeInfo.Id.NAME,
@@ -21,6 +21,7 @@ import static com.fasterxml.jackson.annotation.JsonTypeInfo.Id.DEDUCTION;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class DataProduct implements IDataProduct {
 
+  @NotNull
   @JsonProperty(value = "length", required = true)
   protected Long length;
 

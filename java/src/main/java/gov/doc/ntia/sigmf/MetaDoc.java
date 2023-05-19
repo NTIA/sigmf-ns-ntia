@@ -12,6 +12,7 @@ import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
+import javax.validation.Valid;
 import org.apache.commons.io.IOUtils;
 import org.springframework.data.annotation.Id;
 
@@ -20,7 +21,7 @@ public class MetaDoc implements Serializable {
 
   private static final long serialVersionUID = 1L;
   @Id protected String id;
-  protected Global global;
+  @Valid protected Global global;
   protected List<Capture> captures;
   protected List<Annotation> annotations;
 

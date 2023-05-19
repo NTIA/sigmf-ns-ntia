@@ -3,7 +3,7 @@ package gov.doc.ntia.sigmf.ext.global.sensor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.ext.capture.sensor.Calibration;
+import gov.doc.ntia.sigmf.ext.capture.sensor.*;
 import gov.doc.ntia.sigmf.ext.capture.sensor.SensorCapture;
 import gov.doc.ntia.sigmf.ext.global.diagnostics.Computer;
 import java.io.File;
@@ -27,6 +27,7 @@ public class NasctnSensorTest {
   private String metaString;
   private MetaDoc metaDoc;
   private MetaDoc metaDocFromString;
+  private File schemaFile;
 
   @BeforeAll
   public void setup() throws IOException {
@@ -38,8 +39,11 @@ public class NasctnSensorTest {
     metaFile = new File(meta_url.getFile());
     ObjectMapper mapper = new ObjectMapper();
     metaDoc = mapper.readValue(metaFile, MetaDoc.class);
-    String metaString = mapper.writeValueAsString(metaDoc);
+    metaString = mapper.writeValueAsString(metaDoc);
     metaDocFromString = mapper.readValue(metaString, MetaDoc.class);
+    String schema = "sigmf-ns-ntia.schema";
+    URL schemaUrl = classLoader.getResource(schema);
+    schemaFile = new File(schemaUrl.getFile());
   }
 
   @Test

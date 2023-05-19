@@ -11,12 +11,14 @@ import gov.doc.ntia.sigmf.ext.global.location.Location;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
+import javax.validation.constraints.NotNull;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Sensor implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
+  @NotNull
   @JsonProperty(value = "id", required = true)
   protected String id;
 
