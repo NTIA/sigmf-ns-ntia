@@ -92,18 +92,6 @@
 						"$ref": "#/$defs/Emitter"
 					}
 				},
-				"ntia-scos:action": {
-					"$ref": "#/$defs/Action"
-				},
-				"ntia-scos:schedule": {
-					"$ref": "#/$defs/ScheduleEntry"
-				},
-				"ntia-scos:task": {
-					"type": "integer"
-				},
-				"ntia-scos:recording": {
-					"type": "integer"
-				},
 				"ntia-sensor:calibration_datetime": {
 					"type": "string",
 					"format": "date-time"
@@ -125,7 +113,7 @@
 								"$ref": "#/$defs/PeriodicFramePower"
 							},
 							{
-								"$ref": "#/$defs/TimeSeriesPower"
+								"$ref": "#/$defs/PowerSpectralDensity"
 							}
 						]
 					}
@@ -580,13 +568,14 @@
 				"statistic": {
 					"type": "string"
 				}
-			}
+			},
+			"minProperties": 1
 		},
 		"PowerSpectralDensity": {
 			"type": "object",
 			"properties": {
 				"product_type": {
-					"type": "string"
+					"const": "power_spectral_density"
 				},
 				"traces": {
 					"type": "array",
@@ -619,6 +608,7 @@
 					"type": "string"
 				}
 			},
+			"additionalProperties": false,
 			"required": [
 				"product_type",
 				"traces",
@@ -634,7 +624,7 @@
 			"type": "object",
 			"propterties": {
 				"product_type": {
-					"type": "string"
+					"const": "amplitude_probability_distribution"
 				},
 				"length": {
 					"type": "integer"
@@ -661,9 +651,13 @@
 					"type": "string"
 				}
 			},
+			"additionaProperties": false,
 			"required": [
 				"product_type",
 				"length",
+				"amplitude_bin_size",
+				"min_amplitude",
+				"max_amplitude",
 				"samples",
 				"units"
 			]
@@ -672,7 +666,7 @@
 			"type": "object",
 			"properties": {
 				"product_type": {
-					"type": "string"
+					"const": "time_series_power"
 				},
 				"traces": {
 					"type": "array",
@@ -682,9 +676,6 @@
 				},
 				"length": {
 					"type": "integer"
-				},
-				"equivalent_noise_bandwidth": {
-					"type": "number"
 				},
 				"samples": {
 					"type": "integer"
@@ -692,9 +683,6 @@
 				"units": {
 					"type": "string"
 				},
-				"window": {
-					"type": "string"
-				},
 				"reference": {
 					"reference": "string"
 				},
@@ -702,21 +690,20 @@
 					"type": "string"
 				}
 			},
+			"additionaProperties": false,
 			"required": [
 				"product_type",
 				"traces",
-				"length",
-				"equivalent_noise_bandwidth",
+				"length"
 				"samples",
-				"units",
-				"window"
+				"units"
 			]
 		},
 		"PeriodicFramePower": {
 			"type": "object",
 			"properties": {
 				"product_type": {
-					"type": "string"
+					"const": "periodic_frame_power"
 				},
 				"traces": {
 					"type": "array",
@@ -740,6 +727,7 @@
 					"type": "string"
 				}
 			},
+			"additionaProperties": false,
 			"required": [
 				"product_type",
 				"traces",
@@ -932,58 +920,6 @@
 			},
 			"required": [
 				"id"
-			]
-		},
-		"Action": {
-			"type": "object",
-			"properties": {
-				"name": {
-					"type": "string"
-				},
-				"description": {
-					"type": "string"
-				},
-				"summary": {
-					"type": "string"
-				}
-			},
-			"required": [
-				"name"
-			]
-		},
-		"ScheduleEntry": {
-			"type": "object",
-			"properties": {
-				"roles": {
-					"type": "array",
-					"items": {
-						"type": "string"
-					}
-				},
-				"id": {
-					"type": "string"
-				},
-				"name": {
-					"type": "string"
-				},
-				"stop": {
-					"type": "string",
-					"format": "date-time"
-				},
-				"interval": {
-					"type": "integer"
-				},
-				"priority": {
-					"type": "integer"
-				},
-				"start": {
-					"type": "string",
-					"format": "date-time"
-				}
-			},
-			"required": [
-				"id",
-				"name"
 			]
 		}
 	}

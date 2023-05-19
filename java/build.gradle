@@ -30,11 +30,10 @@ configurations {
 dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.15.0'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.0'
-    implementation 'com.fasterxml.jackson.module:jackson-module-jsonSchema:2.15.0'
     implementation 'org.springframework.data:spring-data-commons-core:1.4.1.RELEASE'
+    implementation 'org.springframework.boot:spring-boot-starter-validation:2.7.0'
     implementation 'commons-io:commons-io:2.5'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
-    testImplementation("com.github.erosb:json-sKema:0.6.0")
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
     checkstyleConfig ("com.puppycrawl.tools:checkstyle:${versions.checkstyle}") {
         transitive = false

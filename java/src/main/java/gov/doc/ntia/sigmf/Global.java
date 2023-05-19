@@ -6,20 +6,20 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DataProduct;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.core.Measurement;
 import gov.doc.ntia.sigmf.ext.global.diagnostics.Diagnostics;
-import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
-import gov.doc.ntia.sigmf.ext.global.scos.Action;
-import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
-import java.awt.dnd.DropTarget;import java.io.Serializable;
-import java.lang.reflect.Array;import java.util.ArrayList;
+import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @JsonInclude(Include.NON_NULL)
 public class Global implements Serializable {
@@ -28,6 +28,7 @@ public class Global implements Serializable {
 
   // The format of the stored samples in the dataset file.
   // Its value must be a valid SigMF dataset format type string.
+  @NotNull
   @JsonProperty(value = "core:datatype", required = true)
   protected String datatype;
 
@@ -36,6 +37,7 @@ public class Global implements Serializable {
   protected Double sampleRate;
 
   // The version of the SigMF specification used to create the metadata file.
+  @NotNull
   @JsonProperty(value = "core:version", required = true)
   protected String version;
 
@@ -96,10 +98,12 @@ public class Global implements Serializable {
   protected Boolean metadataOnly;
 
   // the location of the recording system
+  @Valid
   @JsonProperty(value = "core:geolocation", required = false)
   protected GeoJsonPoint geolocation;
 
   // A list of JSON objects describing extensions used by this recording
+  @Valid
   @JsonProperty(value = "core:extensions", required = false)
   protected List<Extension> extensions;
 
@@ -107,17 +111,13 @@ public class Global implements Serializable {
   @JsonProperty(value = "core:collection", required = false)
   protected String collection;
 
+  @Valid
   @JsonProperty(value = "ntia-sensor:sensor", required = false)
   protected Sensor sensor;
 
+  @Valid
   @JsonProperty(value = "ntia-emitter:emitters", required = false)
   protected List<Emitter> emitters;
-
-  @JsonProperty(value = "ntia-scos:action", required = true)
-  protected Action action;
-
-  @JsonProperty(value = "ntia-scos:schedule", required = true)
-  protected ScheduleEntry schedule;
 
   protected Map<String, Object> otherFields = new HashMap<>();
 
@@ -139,15 +139,18 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-core:measurement", required = true)
   protected Measurement measurement;
 
+  @NotNull
   @JsonProperty(value = "ntia-core:classification", required = true)
   protected String classification;
 
   @JsonProperty(value = "ntia-algorithm:data_products", required = false)
   protected ArrayList<DataProduct> dataProducts;
 
+  @Valid
   @JsonProperty(value = "ntia-algorithm:digital_filters")
   protected ArrayList<DigitalFilter> digitalFilters;
 
+  @Valid
   @JsonProperty(value = "ntia-diagnostics:diagnostics")
   protected Diagnostics diagnostics;
 
@@ -281,22 +284,6 @@ public class Global implements Serializable {
 
   public void setEmitters(List<Emitter> emitters) {
     this.emitters = emitters;
-  }
-
-  public Action getAction() {
-    return action;
-  }
-
-  public void setAction(Action action) {
-    this.action = action;
-  }
-
-  public ScheduleEntry getSchedule() {
-    return schedule;
-  }
-
-  public void setSchedule(ScheduleEntry schedule) {
-    this.schedule = schedule;
   }
 
   public Integer getTask() {
@@ -487,7 +474,6 @@ public class Global implements Serializable {
     this.dataProductsReference = dataProductsReference;
   }
 
-
   public void add(DataProduct dataProduct) {
     if (dataProducts == null) {
       dataProducts = new ArrayList<>();
@@ -500,5 +486,4 @@ public class Global implements Serializable {
       dataProducts.remove(dataProduct);
     }
   }
-
 }

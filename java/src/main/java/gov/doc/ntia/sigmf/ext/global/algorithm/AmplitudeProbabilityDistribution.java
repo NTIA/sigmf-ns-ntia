@@ -1,14 +1,15 @@
 package gov.doc.ntia.sigmf.ext.global.algorithm;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.beans.Transient;
+import javax.validation.constraints.NotNull;
 
 public class AmplitudeProbabilityDistribution extends DataProduct {
 
+  @NotNull
   @JsonProperty(required = true)
   protected Long samples;
 
+  @NotNull
   @JsonProperty(required = true)
   protected String units;
 

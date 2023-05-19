@@ -29,6 +29,5 @@ extensions to the core SigMF specification.
 - [`ntia-emitter`](ntia-emitter.sigmf-ext.md) gives information about the emitter being measured
 - [`ntia-environment`](ntia-environment.sigmf-ext.md) gives information about the environment around a sensor or emitter
 - [`ntia-nasctn-sea`](ntia-nasctn-sea.sigmf-ext.md) provides metadata used within NASCTN Sharing Ecosystem Assessment project.  
-- [`ntia-scos`](ntia-scos.sigmf-ext.md) provides metadata for the NTIA Spectrum Characterization and Occupancy Sensing (SCOS) implementation
 - [`ntia-sensor`](ntia-sensor.sigmf-ext.md) defines hardware components and settings
 - [`ntia-waveform`](ntia-waveform.sigmf-ext.md) provides metadata to describe measured or transmitted waveforms

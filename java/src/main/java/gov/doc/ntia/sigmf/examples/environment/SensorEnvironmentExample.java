@@ -14,6 +14,7 @@ public class SensorEnvironmentExample implements Example {
     Global global = ExampleUtils.getGlobal();
     metaDoc.setGlobal(global);
     Sensor sensor = new Sensor();
+    sensor.setId("ExampleSensor");
     Environment sensorEnvironment = new Environment();
     sensorEnvironment.setCategory("outdoor");
     sensor.setEnvironment(sensorEnvironment);

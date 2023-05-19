@@ -11,7 +11,6 @@ import gov.doc.ntia.sigmf.examples.diagnostics.DiagnosticsExample;
 import gov.doc.ntia.sigmf.examples.emitter.EmitterExample;
 import gov.doc.ntia.sigmf.examples.environment.EmitterEnvironmentExample;
 import gov.doc.ntia.sigmf.examples.environment.SensorEnvironmentExample;
-import gov.doc.ntia.sigmf.examples.scos.ScosExample;
 import gov.doc.ntia.sigmf.examples.waveform.WaveformExample;
 import java.io.File;
 import java.io.IOException;
@@ -50,9 +49,6 @@ public class ExampleGenerator {
 
     RadarExample radarExample = new RadarExample();
     save("radarExample.json", radarExample.getExample());
-
-    ScosExample scosExample = new ScosExample();
-    save("scos.json", scosExample.getExample());
 
     DataProductsExample dataProductsExample = new DataProductsExample();
     save("data_products.json", dataProductsExample.getExample());

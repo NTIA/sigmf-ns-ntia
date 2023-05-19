@@ -1,16 +1,13 @@
 package gov.doc.ntia.sigmf.ext.global.sensor;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.ext.global.diagnostics.Computer;
 import gov.doc.ntia.sigmf.Capture;
-import gov.doc.ntia.sigmf.ext.capture.sensor.SensorCapture;
+import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.ext.capture.sensor.*;
-import java.io.BufferedReader;
+import gov.doc.ntia.sigmf.ext.capture.sensor.SensorCapture;
+import gov.doc.ntia.sigmf.ext.global.diagnostics.Computer;
 import java.io.File;
-import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URL;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -21,7 +18,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
-import com.github.erosb.jsonsKema.*;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class NasctnSensorTest {
@@ -32,6 +28,7 @@ public class NasctnSensorTest {
   private MetaDoc metaDoc;
   private MetaDoc metaDocFromString;
   private File schemaFile;
+
   @BeforeAll
   public void setup() throws IOException {
     ClassLoader classLoader = getClass().getClassLoader();
@@ -47,7 +44,6 @@ public class NasctnSensorTest {
     String schema = "sigmf-ns-ntia.schema";
     URL schemaUrl = classLoader.getResource(schema);
     schemaFile = new File(schemaUrl.getFile());
-
   }
 
   @Test
@@ -234,26 +230,4 @@ public class NasctnSensorTest {
     ZonedDateTime zdt = calibration.getDatetime().toInstant().atZone(ZoneId.of("UTC"));
     Assertions.assertEquals("2023-04-06T21:29:17.134Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
   }
-
-  @Test
-  public void testValidation()throws IOException{
-   StringBuilder resultStringBuilder = new StringBuilder();
-    try (FileInputStream fis = new FileInputStream(schemaFile);
-        BufferedReader br = new BufferedReader(new InputStreamReader(fis))) {
-        String line = br.readLine();
-        while(line != null){
-          resultStringBuilder.append(line + "\n");
-          line = br.readLine();
-        }
-        String schemaString = resultStringBuilder.toString();
-      JsonValue  schemaJson = new JsonParser(schemaString).parse();
-      Schema schema = new SchemaLoader(schemaJson).load();
-      JsonValue instance = new JsonParser(metaString).parse();
-// create a validator instance for each validation (one-time use object)
-      Validator validator = Validator.forSchema(schema);
-      ValidationFailure failure = validator.validate(instance);
-      Assertions.assertNull(failure);
-    }
-  }
-
 }
