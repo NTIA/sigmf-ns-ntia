@@ -5,7 +5,7 @@ import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.ext.capture.sensor.*;
 import gov.doc.ntia.sigmf.ext.capture.sensor.SensorCapture;
-import gov.doc.ntia.sigmf.ext.global.diagnostics.Computer;
+import gov.doc.ntia.sigmf.ext.global.algorithm.Graph;import gov.doc.ntia.sigmf.ext.global.algorithm.IDataProduct;import gov.doc.ntia.sigmf.ext.global.diagnostics.Computer;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -17,7 +17,7 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.TestInstance;import org.springframework.util.Assert;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class NasctnSensorTest {
@@ -76,6 +76,23 @@ public class NasctnSensorTest {
     Assertions.assertEquals(
         81.8970819178503,
         metaDocFromString.getGlobal().getDiagnostics().getActionRuntime().doubleValue());
+  }
+
+  @Test
+  public void testDeserializeDataProducts(){
+    List<IDataProduct> dataProducts = metaDoc.getGlobal().getDataProducts();
+    Assertions.assertEquals(4, dataProducts.size());
+    Graph psd = (Graph)dataProducts.get(0);
+    Assertions.assertEquals("power_spectral_density", psd.getName());
+    List<String> series = psd.getSeries();
+    Assertions.assertEquals("max", series.get(0));
+    Assertions.assertEquals("mean", series.get(1));
+    Assertions.assertEquals(625L, psd.getLength().longValue());
+    Assertions.assertEquals("dBm/Hz", psd.getYLabel());
+    Assertions.assertEquals(-5000000, psd.getxStart().get(0).intValue());
+    Assertions.assertEquals(16000, psd.getXStep().get(0).intValue());
+    Assertions.assertEquals(5000000, psd.getXStop().get(0).intValue());
+    Assertions.assertEquals("fft", psd.getProcessing().get(0));
   }
 
   @Test
