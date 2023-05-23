@@ -39,12 +39,12 @@ The `Action` object is used to describe the SCOS action which was triggered by t
 
 The `ntia-scos` extension adds the following fields to the `global` SigMF object:
 
-|name|required|type|unit|description|
-|----|--------------|-------|-------|-----------|
-|`schedule`|true| [ScheduleEntry](#01-the-scheduleentry-object)|N/A|Metadata that describes the schedule that caused an action to be performed.|
-|`action`|true|[Action](#02-the-action-object)|N/A|Metadata that describes the action that was performed.|
-|`task`|true|integer|N/A|Unique identifier that increments with each task performed as a result of a schedule entry.|
-|`recording`|false|integer|N/A|Unique identifier that increments with each recording performed in a task. The recording SHOULD be indicated for tasks that perform multiple recordings. |
+|name| required |type|unit|description|
+|----|----------|-------|-------|-----------|
+|`schedule`| false    | [ScheduleEntry](#01-the-scheduleentry-object)|N/A|Metadata that describes the schedule that caused an action to be performed.|
+|`action`| false    |[Action](#02-the-action-object)|N/A|Metadata that describes the action that was performed.|
+|`task`| false    |integer|N/A|Unique identifier that increments with each task performed as a result of a schedule entry.|
+|`recording`| false    |integer|N/A|Unique identifier that increments with each recording performed in a task. The recording SHOULD be indicated for tasks that perform multiple recordings. |
 
 ## 2 Captures
 

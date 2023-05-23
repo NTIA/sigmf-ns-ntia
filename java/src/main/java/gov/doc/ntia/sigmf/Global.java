@@ -12,6 +12,8 @@ import gov.doc.ntia.sigmf.ext.global.algorithm.IProcessing;
 import gov.doc.ntia.sigmf.ext.global.core.Measurement;
 import gov.doc.ntia.sigmf.ext.global.diagnostics.Diagnostics;
 import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
+import gov.doc.ntia.sigmf.ext.global.scos.Action;
+import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -135,6 +137,10 @@ public class Global implements Serializable {
 
   @JsonProperty(value = "ntia-scos:recording", required = false)
   protected Integer recording;
+
+  @JsonProperty protected ScheduleEntry schedule;
+
+  @JsonProperty protected Action action;
 
   @Deprecated
   @JsonProperty(value = "ntia-core:measurement", required = true)
@@ -417,6 +423,10 @@ public class Global implements Serializable {
     return dataProducts;
   }
 
+  public void setDataProducts(ArrayList<IDataProduct> dataProducts) {
+    this.dataProducts = dataProducts;
+  }
+
   public void addDigitalFilter(DigitalFilter df) {
     if (this.digitalFilters == null) {
       digitalFilters = new ArrayList<DigitalFilter>();
@@ -499,17 +509,33 @@ public class Global implements Serializable {
     this.dataProcessing = dataProcessing;
   }
 
-  public void addDataProcessing(IProcessing processing){
-    if(dataProcessing != null){
+  public void addDataProcessing(IProcessing processing) {
+    if (dataProcessing != null) {
       dataProcessing = new ArrayList<>();
     }
     dataProcessing.add(processing);
   }
 
-  public void remove(IProcessing processing){
-    if(dataProcessing != null){
+  public void remove(IProcessing processing) {
+    if (dataProcessing != null) {
       dataProcessing.remove(processing);
     }
+  }
+
+  public ScheduleEntry getSchedule() {
+    return schedule;
+  }
+
+  public void setSchedule(ScheduleEntry schedule) {
+    this.schedule = schedule;
+  }
+
+  public Action getAction() {
+    return action;
+  }
+
+  public void setAction(Action action) {
+    this.action = action;
   }
 
 }

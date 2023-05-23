@@ -154,9 +154,13 @@
 				    "items":{
 				        "type": "string"
 				    }
+				},
+				"ntia-scos:schedule":{
+				     "$ref": "#/$defs/ScheduleEntry"
+				},
+				"ntia-scos:action":{
+				     "$ref": "#/$defs/Action"
 				}
-
-
 			},
 			"required": [
 				"core:datatype",
@@ -220,8 +224,7 @@
 				}
 			},
 			"required": [
-				"core:sample_start",
-				"core:sample_count"
+				"core:sample_start"
 			]
 		},
 		"GeoJSONPoint": {
@@ -868,6 +871,56 @@
 			"required": [
 				"id"
 			]
+		},
+		"ScheduleEntry":{
+		    "type": "object",
+		    "properties":{
+		        "id":{
+		            "type": "string"
+		        },
+		        "name":{
+		            "type": "string"
+		        },
+		        "start": {
+		            "type": "string",
+		            "format": "date-time"
+		        },
+		        "stop": {
+                    "type": "string",
+                    "format": "date-time"
+                },
+                "interval": {
+                    "type": "integer"
+                },
+                "priority":{
+                    "type": "integer"
+                },
+                "roles":{
+                    "type": "array",
+                    "items":{
+                        "type": "string"
+                    }
+                }
+
+
+		    },
+		    "required": ["id", "name"]
+		},
+		"Action":{
+		    "type": "object",
+		    "properties":{
+		        "name":{
+		            "type": "string"
+		        },
+		        "description":{
+		            "type": "string"
+		        },
+		        "summary":{
+		            "type": "string"
+		        }
+		    },
+		    "required": ["name"]
 		}
+
 	}
 }
