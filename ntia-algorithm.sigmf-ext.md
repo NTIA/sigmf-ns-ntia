@@ -6,11 +6,11 @@ This document defines the `ntia-algorithm` extension namespace for the Signal Me
 
 The `ntia-algorithm` extension defines the following datatypes:
 
-| name             | long-form name                | description                                                                                             |
-|------------------|-------------------------------|---------------------------------------------------------------------------------------------------------|
-| `DigitalFilter`  | digital filter specification  | JSON [`DigitalFilter`](#01-the-digitalfilter-object) object specifying a digital filter                 |
-| `Graph`          | Graph object                  | JSON [`Graph`](#02-the-graph-object) object containing metadata for a frequency-domain algorithm result |
-| `FFT`            | Fast Fourier Transform object | JSON [`FFT`](#03-the-fft-object) object containing metadata that describes an FFT.                      |
+| name             | long-form name                | description                                                                                         |
+|------------------|-------------------------------|-----------------------------------------------------------------------------------------------------|
+| `DigitalFilter`  | digital filter specification  | JSON [DigitalFilter](#01-the-digitalfilter-object) object specifying a digital filter               |
+| `Graph`          | Graph object                  | JSON [Graph](#02-the-graph-object) object containing metadata for a frequency-domain algorithm result |
+| `FFT`            | Fast Fourier Transform object | JSON [FFT](#03-the-fft-object) object containing metadata that describes an FFT.                    |
 
 
 ### 0.1 The `DigitalFilter` Object
