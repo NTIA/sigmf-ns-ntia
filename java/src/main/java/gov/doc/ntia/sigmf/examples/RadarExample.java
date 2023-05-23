@@ -6,8 +6,7 @@ import gov.doc.ntia.sigmf.Extension;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.ext.capture.sensor.*;
-import gov.doc.ntia.sigmf.ext.global.algorithm.PowerSpectralDensity;
-import gov.doc.ntia.sigmf.ext.global.algorithm.Trace;
+import gov.doc.ntia.sigmf.ext.global.algorithm.FFT;import gov.doc.ntia.sigmf.ext.global.algorithm.Graph;
 import gov.doc.ntia.sigmf.ext.global.core.Antenna;
 import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.core.Measurement;
@@ -192,19 +191,21 @@ public class RadarExample implements Example {
     global.setSensor(getSensor());
     global.setMeasurement(getMeasurement());
 
-    PowerSpectralDensity psd = new PowerSpectralDensity();
-    Trace max = new Trace();
-    max.setStatistic("max");
-    psd.addTrace(max);
-    psd.setFfts(458);
-    psd.setSamples(64L);
-    psd.setWindow("Gauss-top");
-    psd.setEquivalentNoiseBandwidth(962500.0);
+    Graph psd = new Graph();
+    psd.addSeries("max");
+   // psd.addTrace(max);
+
+    FFT fft = new FFT();
+    fft.setId("FFT_1");
+    fft.setFfts(458);
+   // psd.setSamples(64L);
+    fft.setWindow("Gauss-top");
+    fft.setEquivalentNoiseBandwidth(962500.0);
     psd.setLength(458L);
 
     MetaDoc metaDoc = new MetaDoc();
     metaDoc.setGlobal(global);
-    metaDoc.setAnnotations(getAnnotations());
+    //metaDoc.setAnnotations(getAnnotations());
     metaDoc.setCaptures(getCaptures());
     return metaDoc;
   }

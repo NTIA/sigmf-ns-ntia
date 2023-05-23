@@ -104,16 +104,7 @@
 					"items": {
 						"anyOf": [
 							{
-								"$ref": "#/$defs/AmplitudeProbabilityDistribution"
-							},
-							{
-								"$ref": "#/$defs/TimeSeriesPower"
-							},
-							{
-								"$ref": "#/$defs/PeriodicFramePower"
-							},
-							{
-								"$ref": "#/$defs/PowerSpectralDensity"
+								"$ref": "#/$defs/Graph"
 							}
 						]
 					}
@@ -144,7 +135,28 @@
 				},
 				"ntia-algorithm:data_products_reference": {
 					"type": "string"
+				},
+				"ntia-algorithm:data_processing":{
+				    "type": "array",
+				    "items":{
+				        "anyOf": [
+				            {
+                                "$ref": "#/$defs/FFT"
+                            },
+                            {
+                                 "$ref": "#/$defs/DigitalFilter"
+                            }
+				        ]
+				    }
+				},
+				"ntia-algorithm:data_products_processing":{
+				    "type": "array",
+				    "items":{
+				        "type": "string"
+				    }
 				}
+
+
 			},
 			"required": [
 				"core:datatype",
@@ -553,38 +565,21 @@
 				},
 				"frequency_stopband": {
 					"type": "number"
+				},
+				"description":{
+				    "type": "string"
 				}
+
 			},
 			"required": [
 				"id"
 			]
 		},
-		"Trace": {
+		"FFT": {
 			"type": "object",
 			"properties": {
-				"detector": {
+				"id": {
 					"type": "string"
-				},
-				"statistic": {
-					"type": "string"
-				}
-			},
-			"minProperties": 1
-		},
-		"PowerSpectralDensity": {
-			"type": "object",
-			"properties": {
-				"product_type": {
-					"const": "power_spectral_density"
-				},
-				"traces": {
-					"type": "array",
-					"items": {
-						"$ref": "#/$defs/Trace"
-					}
-				},
-				"length": {
-					"type": "integer"
 				},
 				"equivalent_noise_bandwidth": {
 					"type": "number"
@@ -601,138 +596,90 @@
 				"window": {
 					"type": "string"
 				},
-				"reference": {
-					"reference": "string"
-				},
-				"digital_filter": {
-					"type": "string"
+				"baseband":{
+				    "type": "boolean"
 				}
 			},
-			"additionalProperties": false,
 			"required": [
-				"product_type",
-				"traces",
-				"length",
+				"id",
 				"equivalent_noise_bandwidth",
-				"samples",
 				"ffts",
-				"units",
-				"window"
+				"window",
+				"baseband"
 			]
 		},
-		"AmplitudeProbabilityDistribution": {
-			"type": "object",
-			"propterties": {
-				"product_type": {
-					"const": "amplitude_probability_distribution"
-				},
-				"length": {
-					"type": "integer"
-				},
-				"samples": {
-					"type": "integer"
-				},
-				"units": {
-					"type": "string"
-				},
-				"amplitude_bin_size": {
-					"type": "number"
-				},
-				"min_amplitude": {
-					"type": "number"
-				},
-				"reference": {
-					"type": "string"
-				},
-				"digital_filter": {
-					"type": "string"
-				},
-				"probability_units": {
-					"type": "string"
-				}
-			},
-			"additionaProperties": false,
-			"required": [
-				"product_type",
-				"length",
-				"amplitude_bin_size",
-				"min_amplitude",
-				"max_amplitude",
-				"samples",
-				"units"
-			]
-		},
-		"TimeSeriesPower": {
+		"Graph": {
 			"type": "object",
 			"properties": {
-				"product_type": {
-					"const": "time_series_power"
+				"name": {
+					"type": "string"
 				},
-				"traces": {
+				"series": {
 					"type": "array",
 					"items": {
-						"$ref": "#/$defs/Trace"
+						"type": "string"
 					}
 				},
 				"length": {
 					"type": "integer"
 				},
-				"samples": {
-					"type": "integer"
+				"x_label": {
+					"type": "string"
 				},
-				"units": {
+				"x_start": {
+					"type": "array",
+					"items":{
+					    "type": "number"
+					}
+				},
+				"x_stop": {
+					"type": "array",
+                    "items":{
+                        "type": "number"
+                    }
+				},
+				"x_step": {
+					"type": "array",
+					"items":{
+					    "type": "number"
+					}
+
+				},
+				"y_start": {
+					"type": "array",
+					"items": {
+					    "type": "number"
+					}
+				},
+				"y_stop": {
+					"type": "array",
+					"items":{
+					    "type":"number"
+					}
+				},
+				"y_step": {
+					"type": "array",
+					"items":{
+					    "type": "number"
+					}
+				},
+				"y_label": {
 					"type": "string"
 				},
 				"reference": {
 					"reference": "string"
 				},
-				"digital_filter": {
-					"type": "string"
+				"processing": {
+					"type": "array",
+					"items":{
+					    "type": "string"
+					}
 				}
 			},
 			"additionaProperties": false,
 			"required": [
-				"product_type",
-				"traces",
+				"name",
 				"length"
-				"samples",
-				"units"
-			]
-		},
-		"PeriodicFramePower": {
-			"type": "object",
-			"properties": {
-				"product_type": {
-					"const": "periodic_frame_power"
-				},
-				"traces": {
-					"type": "array",
-					"items": {
-						"$ref": "#/$defs/Trace"
-					}
-				},
-				"length": {
-					"type": "integer"
-				},
-				"units": {
-					"type": "string"
-				},
-				"window": {
-					"type": "string"
-				},
-				"reference": {
-					"reference": "string"
-				},
-				"digital_filter": {
-					"type": "string"
-				}
-			},
-			"additionaProperties": false,
-			"required": [
-				"product_type",
-				"traces",
-				"length",
-				"units"
 			]
 		},
 		"SsdSmartData": {

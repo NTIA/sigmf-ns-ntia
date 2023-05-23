@@ -6,11 +6,12 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
-import gov.doc.ntia.sigmf.ext.global.algorithm.DataProduct;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
+import gov.doc.ntia.sigmf.ext.global.algorithm.IDataProduct;
+import gov.doc.ntia.sigmf.ext.global.algorithm.IProcessing;
 import gov.doc.ntia.sigmf.ext.global.core.Measurement;
 import gov.doc.ntia.sigmf.ext.global.diagnostics.Diagnostics;
+import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -144,7 +145,7 @@ public class Global implements Serializable {
   protected String classification;
 
   @JsonProperty(value = "ntia-algorithm:data_products", required = false)
-  protected ArrayList<DataProduct> dataProducts;
+  protected ArrayList<IDataProduct> dataProducts;
 
   @Valid
   @JsonProperty(value = "ntia-algorithm:digital_filters")
@@ -160,11 +161,14 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-nasctn-sea:median_of_mean_channel_powers")
   protected ArrayList<Double> medianOfMeanChannelPowers;
 
-  @JsonProperty(value = "ntia-algorithm:data_products_filter")
-  protected String dataProductsFilter;
+  @JsonProperty(value = "ntia-algorithm:data_products_processing")
+  protected List<String> dataProductsProcessing;
 
   @JsonProperty(value = "ntia-algorithm:data_products_reference")
   private String dataProductsReference;
+
+  @JsonProperty(value = "ntia-algorithm:data_processing")
+  private List<IProcessing> dataProcessing;
 
   public Integer getRecording() {
     return recording;
@@ -396,20 +400,20 @@ public class Global implements Serializable {
     this.collection = collection;
   }
 
-  public void addDataProduct(DataProduct dataProduct) {
+  public void addDataProduct(IDataProduct dataProduct) {
     if (this.dataProducts == null) {
       dataProducts = new ArrayList<>();
     }
     dataProducts.add(dataProduct);
   }
 
-  public void removeDataProduct(DataProduct dataProduct) {
+  public void removeDataProduct(IDataProduct dataProduct) {
     if (dataProducts != null) {
       dataProducts.remove(dataProduct);
     }
   }
 
-  public List<DataProduct> getDataProducts() {
+  public List<IDataProduct> getDataProducts() {
     return dataProducts;
   }
 
@@ -458,14 +462,6 @@ public class Global implements Serializable {
     this.medianOfMeanChannelPowers = medianOfMeanChannelPowers;
   }
 
-  public String getDataProductsFilter() {
-    return dataProductsFilter;
-  }
-
-  public void setDataProductsFilter(String dataProductsFilter) {
-    this.dataProductsFilter = dataProductsFilter;
-  }
-
   public String getDataProductsReference() {
     return dataProductsReference;
   }
@@ -474,16 +470,46 @@ public class Global implements Serializable {
     this.dataProductsReference = dataProductsReference;
   }
 
-  public void add(DataProduct dataProduct) {
-    if (dataProducts == null) {
-      dataProducts = new ArrayList<>();
-    }
-    dataProducts.add(dataProduct);
+  public List<String> getDataProductsProcessing() {
+    return dataProductsProcessing;
   }
 
-  public void remove(DataProduct dataProduct) {
-    if (dataProducts != null) {
-      dataProducts.remove(dataProduct);
+  public void setDataProductsProcessing(List<String> processing) {
+    dataProductsProcessing = processing;
+  }
+
+  public void addDataProductProcessing(String id) {
+    if (dataProductsProcessing == null) {
+      dataProductsProcessing = new ArrayList<>();
+    }
+    dataProductsProcessing.add(id);
+  }
+
+  public void removeDataProductProcessing(String id) {
+    if (dataProductsProcessing != null) {
+      dataProductsProcessing.remove(id);
     }
   }
+
+  public List<IProcessing> getDataProcessing() {
+    return dataProcessing;
+  }
+
+  public void setDataProcessing(List<IProcessing> dataProcessing) {
+    this.dataProcessing = dataProcessing;
+  }
+
+  public void addDataProcessing(IProcessing processing){
+    if(dataProcessing != null){
+      dataProcessing = new ArrayList<>();
+    }
+    dataProcessing.add(processing);
+  }
+
+  public void remove(IProcessing processing){
+    if(dataProcessing != null){
+      dataProcessing.remove(processing);
+    }
+  }
+
 }

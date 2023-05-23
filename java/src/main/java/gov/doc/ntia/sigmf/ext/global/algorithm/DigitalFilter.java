@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DigitalFilter implements Serializable {
+public class DigitalFilter implements Serializable, IProcessing {
 
   private static final long serialVersionUID = 1L;
 
@@ -44,6 +44,8 @@ public class DigitalFilter implements Serializable {
   protected Double frequencyStopband;
 
   protected Map<String, Object> otherFields = new HashMap<>();
+
+  @JsonProperty protected String description;
 
   public DigitalFilter() {}
 
@@ -135,5 +137,14 @@ public class DigitalFilter implements Serializable {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  @Override
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 }
