@@ -10,7 +10,7 @@ The `ntia-sensor` extension defines the following datatypes:
 |----|--------------|-----------|
 |`Sensor`|RF sensor|JSON [Sensor](#01-the-sensor-object) object specifying the physical and environmental properties of an RF sensor|
 |`SignalAnalyzer`|signal analyzer specification|JSON [`SignalAnalyzer`](#02-the-signalanalyzer-object) object specifying a signal analyzer|
-|`Preselector`|preselector specification|JSON [`Preselector`](#03-the-preselector-object) object specifying a preselector|
+|`Preselector`|preselector specification|JSON [Preselector](#03-the-preselector-object) object specifying a preselector|
 |`CalSource`|calibration source specification|JSON [`CalSource`](#04-the-calsource-object) object specifying a calibration source|
 |`Amplifier`|amplifier specification|JSON [`Amplifier`](#05-the-amplifier-object) object specifying an amplifier in the RF path|
 |`Filter`|filter specification|JSON [`Filter`](#06-the-filter-object) object specifying a filter in the RF path|
