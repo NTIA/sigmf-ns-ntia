@@ -2,11 +2,11 @@ package gov.doc.ntia.sigmf.examples.diagnostics;
 
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
-import gov.doc.ntia.sigmf.ext.global.diagnostics.Computer;
-import gov.doc.ntia.sigmf.ext.global.diagnostics.Diagnostics;
-import gov.doc.ntia.sigmf.ext.global.diagnostics.Preselector;
-import gov.doc.ntia.sigmf.ext.global.diagnostics.SPU;
-import gov.doc.ntia.sigmf.ext.global.diagnostics.SsdSmartData;
+import gov.doc.ntia.sigmf.ext.diagnostics.Computer;
+import gov.doc.ntia.sigmf.ext.diagnostics.Diagnostics;
+import gov.doc.ntia.sigmf.ext.diagnostics.Preselector;
+import gov.doc.ntia.sigmf.ext.diagnostics.SPU;
+import gov.doc.ntia.sigmf.ext.diagnostics.SsdSmartData;
 import java.util.Calendar;
 import java.util.Date;
 

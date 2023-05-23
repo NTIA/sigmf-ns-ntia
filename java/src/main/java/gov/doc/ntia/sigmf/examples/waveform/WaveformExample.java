@@ -4,10 +4,10 @@ import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
 import gov.doc.ntia.sigmf.examples.ExampleUtils;
-import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
-import gov.doc.ntia.sigmf.ext.global.waveform.CodingRate;
-import gov.doc.ntia.sigmf.ext.global.waveform.Ieee80211p;
-import gov.doc.ntia.sigmf.ext.global.waveform.Waveform;
+import gov.doc.ntia.sigmf.ext.emitter.Emitter;
+import gov.doc.ntia.sigmf.ext.waveform.CodingRate;
+import gov.doc.ntia.sigmf.ext.waveform.Ieee80211p;
+import gov.doc.ntia.sigmf.ext.waveform.Waveform;
 import java.util.ArrayList;
 import java.util.List;
 

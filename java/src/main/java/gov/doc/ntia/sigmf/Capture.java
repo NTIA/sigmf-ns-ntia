@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import gov.doc.ntia.sigmf.ext.capture.sensor.SensorCapture;
+import gov.doc.ntia.sigmf.ext.sensor.SensorCapture;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;

@@ -2,7 +2,8 @@ package gov.doc.ntia.sigmf;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import gov.doc.ntia.sigmf.ext.scos.ScheduleEntry;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -13,8 +14,7 @@ public class Acquisition implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  @JsonProperty
-  protected MetaDoc metaDoc;
+  @JsonProperty protected MetaDoc metaDoc;
 
   @JsonProperty protected transient ByteBuffer data;
   private String schedule;
@@ -85,17 +85,16 @@ public class Acquisition implements Serializable {
   }
 
   private String getScheduleId() {
-      ScheduleEntry scheduleEntry = metaDoc.getGlobal().getSchedule();
-      String missingScheduleInfo = "unknown";
-      if (scheduleEntry == null) {
-        return missingScheduleInfo;
-      } else if (scheduleEntry.getId() == null) {
-        return missingScheduleInfo;
-      } else {
-        return scheduleEntry.getId();
-      }
+    ScheduleEntry scheduleEntry = metaDoc.getGlobal().getSchedule();
+    String missingScheduleInfo = "unknown";
+    if (scheduleEntry == null) {
+      return missingScheduleInfo;
+    } else if (scheduleEntry.getId() == null) {
+      return missingScheduleInfo;
+    } else {
+      return scheduleEntry.getId();
     }
-
+  }
 
   private String getTaskId() {
     String taskId = metaDoc.getGlobal().getTask().toString();

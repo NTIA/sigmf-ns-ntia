@@ -2,8 +2,8 @@ package gov.doc.ntia.sigmf.examples;
 
 import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.Global;
-import gov.doc.ntia.sigmf.ext.global.core.Antenna;
-import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
+import gov.doc.ntia.sigmf.ext.core.Antenna;
+import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;

@@ -5,11 +5,11 @@ import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
 import gov.doc.ntia.sigmf.examples.ExampleUtils;
-import gov.doc.ntia.sigmf.ext.global.core.Antenna;
-import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
-import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
-import gov.doc.ntia.sigmf.ext.global.environment.Environment;
-import gov.doc.ntia.sigmf.ext.global.waveform.Waveform;
+import gov.doc.ntia.sigmf.ext.core.Antenna;
+import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
+import gov.doc.ntia.sigmf.ext.emitter.Emitter;
+import gov.doc.ntia.sigmf.ext.environment.Environment;
+import gov.doc.ntia.sigmf.ext.waveform.Waveform;
 import java.util.ArrayList;
 import java.util.List;
 

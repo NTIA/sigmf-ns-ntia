@@ -2,9 +2,9 @@ package gov.doc.ntia.sigmf.examples.capture;
 
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
-import gov.doc.ntia.sigmf.ext.capture.sensor.SensorCalibration;
-import gov.doc.ntia.sigmf.ext.capture.sensor.SensorCapture;
-import gov.doc.ntia.sigmf.ext.capture.sensor.SiganSettings;
+import gov.doc.ntia.sigmf.ext.sensor.SensorCalibration;
+import gov.doc.ntia.sigmf.ext.sensor.SensorCapture;
+import gov.doc.ntia.sigmf.ext.sensor.SiganSettings;
 import java.util.Calendar;
 
 public class CaptureExample implements Example {

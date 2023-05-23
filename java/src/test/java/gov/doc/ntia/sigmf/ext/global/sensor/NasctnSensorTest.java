@@ -3,9 +3,10 @@ package gov.doc.ntia.sigmf.ext.global.sensor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.ext.capture.sensor.*;
-import gov.doc.ntia.sigmf.ext.capture.sensor.SensorCapture;
-import gov.doc.ntia.sigmf.ext.global.algorithm.FFT;import gov.doc.ntia.sigmf.ext.global.algorithm.Graph;import gov.doc.ntia.sigmf.ext.global.algorithm.IDataProduct;import gov.doc.ntia.sigmf.ext.global.algorithm.IProcessing;import gov.doc.ntia.sigmf.ext.global.diagnostics.Computer;
+import gov.doc.ntia.sigmf.ext.algorithm.FFT;
+import gov.doc.ntia.sigmf.ext.sensor.Calibration;
+import gov.doc.ntia.sigmf.ext.sensor.SensorCapture;
+import gov.doc.ntia.sigmf.ext.algorithm.Graph;import gov.doc.ntia.sigmf.ext.algorithm.IDataProduct;import gov.doc.ntia.sigmf.ext.algorithm.IProcessing;import gov.doc.ntia.sigmf.ext.diagnostics.Computer;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -17,7 +18,7 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;import org.springframework.util.Assert;
+import org.junit.jupiter.api.TestInstance;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class NasctnSensorTest {

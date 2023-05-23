@@ -4,8 +4,8 @@ import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
 import gov.doc.ntia.sigmf.examples.ExampleUtils;
-import gov.doc.ntia.sigmf.ext.global.environment.Environment;
-import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
+import gov.doc.ntia.sigmf.ext.environment.Environment;
+import gov.doc.ntia.sigmf.ext.sensor.Sensor;
 
 public class SensorEnvironmentExample implements Example {
   @Override

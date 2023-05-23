@@ -34,20 +34,28 @@ This section provides examples of the common ways to interact with the `sigmf-ns
 
 #### 2.1 Java library Overview
 
-The `sigmf-ns-ntia` Java library consists of a number classes that define an object oriented approach to modeling the `sigmf-ns-ntia` extensions to SigMF. As such, to get and set values  within the SigMF you will primarily be creating instances of the different objects defined within the library and calling various get and set methods on those objects to get and set the various values. In Java, classes can be organized into a set of packages and the `sigmf-ns-ntia` library is organized in packages that mimic the extensions defined in [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia).  The base package in the Java library is `gov.doc.ntia.sigmf` so all objects you utilize will begin with `gov.doc.ntia.sigmf`. The `gov.doc.ntia.sigmf.ext.global` package includes subpackages to organize the global objects defined in  [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia) and `gov.doc.ntia.sigmf.ext.capture` package includes subpackages to organize the capture extensions defined in [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia).  The table below shows the mapping between Java packages and the extensions defined in [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia).
+The `sigmf-ns-ntia` Java library consists of a number classes that define an object oriented approach to modeling the `sigmf-ns-ntia`
+extensions to SigMF. As such, to get and set values  within the SigMF you will primarily be creating instances of the 
+different objects defined within the library and calling various get and set methods on those objects to get and set
+the various values. In Java, classes can be organized into a set of packages and the `sigmf-ns-ntia` library is
+organized in packages that mimic the extensions defined in [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia).  The
+base package in the Java library is `gov.doc.ntia.sigmf` so all objects you utilize will begin with `gov.doc.ntia.sigmf`. 
+The `gov.doc.ntia.sigmf.ext` package includes subpackages for each extension in 
+[sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia).  The table below shows the mapping between Java packages and 
+the extensions defined in [sigmf-ns-ntia](https://github.com/NTIA/sigmf-ns-ntia). Extensions to the global object are 
+provided directly in the `gov.doc.ntia.sigmf.Global` class. 
 
-|Package|Extension|
-|----|--------|
-|`gov.doc.ntia.sigmf`|Base [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md)|
-|`gov.doc.ntia.sigmf.ext.capture.sensor`|[`ntia-sensor`](../ntia-sensor.sigmf-ext.md)|
-|`gov.doc.ntia.sigmf.ext.global.algorithm`|[`ntia-algorithm`](../ntia-algorithm.sigmf-ext.md)|
-|`gov.doc.ntia.sigmf.ext.global.core`|[`ntia-core`](../ntia-core.sigmf-ext.md)|
-|`gov.doc.ntia.sigmf.ext.global.diagnostics`|[`ntia-diagnostics`](../ntia-diagnostics.sigmf-ext.md)|
-|`gov.doc.ntia.sigmf.ext.global.emitter`|[`ntia-emitter`](../ntia-emitter.sigmf-ext.md)|
-|`gov.doc.ntia.sigmf.ext.global.environment`|[`ntia-environment`](../ntia-environment.sigmf-ext.md)|
-|`gov.doc.ntia.sigmf.ext.global.scos`|[`ntia-scos`](../ntia-scos.sigmf-ext.md)|
-|`gov.doc.ntia.sigmf.ext.global.sensor`|[`ntia-sensor`](../ntia-sensor.sigmf-ext.md)|
-|`gov.doc.ntia.sigmf.ext.global.waveform`|[`ntia-waveform`](../ntia-waveform.sigmf-ext.md)|
+| Package                                  |Extension|
+|------------------------------------------|--------|
+| `gov.doc.ntia.sigmf`                     |Base [SigMF](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md)|
+| `gov.doc.ntia.sigmf.ext.algorithm`       |[`ntia-algorithm`](../ntia-algorithm.sigmf-ext.md)|
+| `gov.doc.ntia.sigmf.ext.core`     |[`ntia-core`](../ntia-core.sigmf-ext.md)|
+| `gov.doc.ntia.sigmf.ext.diagnostics` |[`ntia-diagnostics`](../ntia-diagnostics.sigmf-ext.md)|
+| `gov.doc.ntia.sigmf.ext.emitter`  |[`ntia-emitter`](../ntia-emitter.sigmf-ext.md)|
+| `gov.doc.ntia.sigmf.ext.environment` |[`ntia-environment`](../ntia-environment.sigmf-ext.md)|
+| `gov.doc.ntia.sigmf.ext.scos`     |[`ntia-scos`](../ntia-scos.sigmf-ext.md)|
+| `gov.doc.ntia.sigmf.ext.sensor`   |[`ntia-sensor`](../ntia-sensor.sigmf-ext.md)|
+| `gov.doc.ntia.sigmf.ext.waveform` |[`ntia-waveform`](../ntia-waveform.sigmf-ext.md)|
 
 #### 2.2 Using the Java library
 
@@ -56,12 +64,12 @@ Utilizing the Java library from within Matlab mostly requires you to create inst
 ```matlab
   metaDoc = gov.doc.ntia.sigmf.MetaDoc();
   globalExample = gov.doc.ntia.sigmf.Global();
-  sensor = gov.doc.ntia.sigmf.ext.global.sensor.Sensor(); 
-  antenna = gov.doc.ntia.sigmf.ext.global.core.Antenna(); 
+  sensor = gov.doc.ntia.sigmf.ext.sensor.Sensor(); 
+  antenna = gov.doc.ntia.sigmf.ext.core.Antenna(); 
   
   setType(antenna, "dipole"); 
   setGain(antenna, java.lang.Double(7)); 
-  hardwareSpec = gov.doc.ntia.sigmf.ext.global.core.HardwareSpec();
+  hardwareSpec = gov.doc.ntia.sigmf.ext.core.HardwareSpec();
   setModel(hardwareSpec, "ARA CSB-16");
   setId(hardwareSpec, "antenna_1");
   setAntennaSpec(antenna, hardwareSpec);

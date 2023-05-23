@@ -10,6 +10,7 @@ import gov.doc.ntia.sigmf.SigMfReader;
 import java.io.File;
 import java.io.IOException;
 import javax.validation.ValidationException;
+import gov.doc.ntia.sigmf.ext.sensor.Sensor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

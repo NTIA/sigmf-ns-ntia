@@ -2,15 +2,15 @@ package gov.doc.ntia.sigmf.examples;
 
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.ext.global.core.Antenna;
-import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
+import gov.doc.ntia.sigmf.ext.core.Antenna;
+import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.global.core.Measurement;
-import gov.doc.ntia.sigmf.ext.global.sensor.Amplifier;
-import gov.doc.ntia.sigmf.ext.global.sensor.Filter;
-import gov.doc.ntia.sigmf.ext.global.sensor.Preselector;
-import gov.doc.ntia.sigmf.ext.global.sensor.RfPath;
-import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
-import gov.doc.ntia.sigmf.ext.global.sensor.SignalAnalyzer;
+import gov.doc.ntia.sigmf.ext.sensor.Amplifier;
+import gov.doc.ntia.sigmf.ext.sensor.Filter;
+import gov.doc.ntia.sigmf.ext.sensor.Preselector;
+import gov.doc.ntia.sigmf.ext.sensor.RfPath;
+import gov.doc.ntia.sigmf.ext.sensor.Sensor;
+import gov.doc.ntia.sigmf.ext.sensor.SignalAnalyzer;
 
 public class SensorExample implements Example {
 

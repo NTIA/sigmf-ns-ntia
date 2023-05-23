@@ -4,9 +4,9 @@ import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
 import gov.doc.ntia.sigmf.examples.ExampleUtils;
-import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
-import gov.doc.ntia.sigmf.ext.global.algorithm.FFT;
-import gov.doc.ntia.sigmf.ext.global.algorithm.Graph;
+import gov.doc.ntia.sigmf.ext.algorithm.DigitalFilter;
+import gov.doc.ntia.sigmf.ext.algorithm.FFT;
+import gov.doc.ntia.sigmf.ext.algorithm.Graph;
 import java.util.ArrayList;
 
 public class DataProductsExample implements Example {
