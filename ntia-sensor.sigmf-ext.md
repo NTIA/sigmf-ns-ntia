@@ -8,7 +8,7 @@ The `ntia-sensor` extension defines the following datatypes:
 
 |name|long-form name|description|
 |----|--------------|-----------|
-|`Sensor`|RF sensor|JSON [`Sensor`](#01-the-sensor-object) object specifying the physical and environmental properties of an RF sensor|
+|`Sensor`|RF sensor|JSON [Sensor](#01-the-sensor-object) object specifying the physical and environmental properties of an RF sensor|
 |`SignalAnalyzer`|signal analyzer specification|JSON [`SignalAnalyzer`](#02-the-signalanalyzer-object) object specifying a signal analyzer|
 |`Preselector`|preselector specification|JSON [`Preselector`](#03-the-preselector-object) object specifying a preselector|
 |`CalSource`|calibration source specification|JSON [`CalSource`](#04-the-calsource-object) object specifying a calibration source|
@@ -16,7 +16,7 @@ The `ntia-sensor` extension defines the following datatypes:
 |`Filter`|filter specification|JSON [`Filter`](#06-the-filter-object) object specifying a filter in the RF path|
 |`RFPath`|RF path specification|JSON [`RFPath`](#07-the-rfpath-object) object specifying an RF path as a combination of a filter, amplifier, and calibration source|
 
-### 0.1 The `Sensor` Object
+### 0.1 The Sensor Object
 
 Sensor definition follows a simplified hardware model composed of the following elements: antenna, preselector, signal analyzer, and computer. The antenna converts electromagnetic energy to a voltage. The preselector can provide local calibration signals, RF filtering to protect from strong out-of-band signals, and low-noise amplification to improve sensitivity. The signal analyzer (e.g., software defined radio) provides tuning, down conversion, sampling, and digital signal processing. Sensor implementations are not required to have each component, but metadata SHOULD specify the presence, model numbers, and operational parameters associated with each.
 
