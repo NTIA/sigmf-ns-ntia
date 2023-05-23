@@ -47,7 +47,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 |`max_power`|false|double|dBm|Maximum input power of the signal analyzer.|
 |`a2d_bits`|false|integer|bits|Number of bits in A/D converter.|
 
-### 0.3 The `Preselector` Object
+### 0.3 The Preselector Object
 
 `Preselector` has the following properties:
 
