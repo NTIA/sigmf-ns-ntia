@@ -601,7 +601,11 @@
 				},
 				"baseband":{
 				    "type": "boolean"
+				},
+				"description":{
+				    "type": "string"
 				}
+
 			},
 			"required": [
 				"id",
