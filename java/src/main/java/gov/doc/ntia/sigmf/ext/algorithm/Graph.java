@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.NotNull;
 
-public class Graph implements IDataProduct {
+public class Graph<T> implements IDataProduct {
 
   @NotNull @JsonProperty protected String name;
 
@@ -27,6 +27,9 @@ public class Graph implements IDataProduct {
   @JsonProperty(value = "x_step")
   protected List<Double> xStep;
 
+  @JsonProperty(value = "x_axis")
+  protected List<T> xAxis;
+
   @JsonProperty(value = "y_label")
   protected String yLabel;
 
@@ -38,6 +41,9 @@ public class Graph implements IDataProduct {
 
   @JsonProperty(value = "y_step")
   protected List<Double> yStep;
+
+  @JsonProperty(value = "y_axis")
+  protected List<T> yAxis;
 
   @JsonProperty protected List<String> processing;
 
@@ -172,5 +178,21 @@ public class Graph implements IDataProduct {
     if (series != null) {
       series.remove(s);
     }
+  }
+
+  public List<T> getxAxis() {
+    return xAxis;
+  }
+
+  public void setxAxis(List<T> xAxis) {
+    this.xAxis = xAxis;
+  }
+
+  public List<T> getyAxis() {
+    return yAxis;
+  }
+
+  public void setyAxis(List<T> yAxis) {
+    this.yAxis = yAxis;
   }
 }

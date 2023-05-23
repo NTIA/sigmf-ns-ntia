@@ -652,6 +652,16 @@
 					}
 
 				},
+				"x_axis":{
+				    "type" : "array",
+				    "items": {
+				        "oneOf":[
+				            { "type": "string" },
+				            {"type": "number"},
+				            {"type": "integer"}
+				        ]
+				    }
+				},
 				"y_start": {
 					"type": "array",
 					"items": {
@@ -670,6 +680,16 @@
 					    "type": "number"
 					}
 				},
+				"y_axis":{
+                		"type" : "array",
+                	    "items": {
+                		    "oneOf":[
+                		        { "type": "string" },
+                				{"type": "number"},
+                				{"type": "integer"}
+                		    ]
+                	    }
+                },
 				"y_label": {
 					"type": "string"
 				},
