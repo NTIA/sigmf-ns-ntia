@@ -59,7 +59,7 @@ public class DataProductsExample implements Example {
     Graph psd = new Graph();
     psd.addSeries("max");
     psd.addSeries("mean");
-    psd.setLength(625L);
+    psd.setLength(625);
     FFT fft = new FFT();
     fft.setEquivalentNoiseBandwidth(60323.94);
     //psd.setSamples(875L);
@@ -70,7 +70,7 @@ public class DataProductsExample implements Example {
     global.addDataProduct(psd);
 
     Graph tsp = new Graph();
-    tsp.setLength(400L);
+    tsp.setLength(400);
     //tsp.setSamples(56000000L);
     tsp.setYLabel("dBm");
     tsp.addSeries("max");
@@ -86,12 +86,12 @@ public class DataProductsExample implements Example {
     pfp.addSeries("max of min");
     pfp.addSeries("max of max");
     pfp.addSeries("max of mean");
-    pfp.setLength(560L);
+    pfp.setLength(560);
     pfp.setYLabel("dBm");
     global.addDataProduct(pfp);
 
     Graph apd = new Graph();
-    apd.setLength(560L);
+    apd.setLength(560);
     apd.setYLabel("dBm");
     ArrayList<Double> yStep = new ArrayList();
     yStep.add(1.0);

@@ -89,7 +89,7 @@ public class NasctnSensorTest {
     Assertions.assertEquals("mean", series.get(1));
     Assertions.assertEquals(625L, psd.getLength().longValue());
     Assertions.assertEquals("dBm/Hz", psd.getYLabel());
-    Assertions.assertEquals(-5000000, psd.getxStart().get(0).intValue());
+    Assertions.assertEquals(-5000000, psd.getXStart().get(0).intValue());
     Assertions.assertEquals(16000, psd.getXStep().get(0).intValue());
     Assertions.assertEquals(5000000, psd.getXStop().get(0).intValue());
     Assertions.assertEquals("fft", psd.getProcessing().get(0));

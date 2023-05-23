@@ -201,7 +201,7 @@ public class RadarExample implements Example {
    // psd.setSamples(64L);
     fft.setWindow("Gauss-top");
     fft.setEquivalentNoiseBandwidth(962500.0);
-    psd.setLength(458L);
+    psd.setLength(458);
 
     MetaDoc metaDoc = new MetaDoc();
     metaDoc.setGlobal(global);
