@@ -8,11 +8,11 @@ The `ntia-diagnostics` extension defines the following datatypes:
 
 |name|long-form name|description|
 |----|--------------|-----------|
-|`Diagnostics`|general diagnostics information|JSON [`Diagnostics`](#01-the-diagnostics-object) object containing general diagnostics information and sub-objects with diagnostics from specific components|
-|`Preselector`|preselector diagnostics|JSON [`Preselector`](#02-the-preselector-diagnostics-object) object containing diagnostics for a preselector|
-|`SPU`|signal processing unit diagnostics|JSON [`SPU`](#03-the-spu-diagnostics-object) object containing diagnostics for a signal processing unit|
-|`Computer`|computer diagnostics|JSON [`Computer`](#04-the-computer-diagnostics-object) object containing diagnostics for a computer which runs SCOS|
-|`SsdSmartData`|solid-state drive SMART diagnostics|JSON [`SsdSmartData`](#05-the-ssdsmartdata-diagnostics-object) object containing results of SMART diagnostics for an SSD|
+|`Diagnostics`|general diagnostics information|JSON [Diagnostics](#01-the-diagnostics-object) object containing general diagnostics information and sub-objects with diagnostics from specific components|
+|`Preselector`|preselector diagnostics|JSON [Preselector](#02-the-preselector-diagnostics-object) object containing diagnostics for a preselector|
+|`SPU`|signal processing unit diagnostics|JSON [SPU](#03-the-spu-diagnostics-object) object containing diagnostics for a signal processing unit|
+|`Computer`|computer diagnostics|JSON [Computer](#04-the-computer-diagnostics-object) object containing diagnostics for a computer which runs SCOS|
+|`SsdSmartData`|solid-state drive SMART diagnostics|JSON [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) object containing results of SMART diagnostics for an SSD|
 
 Multiple key/value pairs in the objects defined by this extension MUST be ISO-8601 strings, as defined by [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), where the only allowed `time-offset` is `z`, indicating the UTC/Zulu timezone. Thus, timestamps take the form of `YYYY-MM-DDTHH:MM:SS.SSSZ`, where any number of digits for fractional seconds is permitted.
 

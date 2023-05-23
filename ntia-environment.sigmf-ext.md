@@ -4,11 +4,11 @@ This document defines the `ntia-environment` extension namespace for the Signal 
 
 ## 0 Datatypes
 
-The `ntia-environment` extension defines the following datatype, which is referenced by [`ntia-sensor`](/ntia-sensor.sigmf-ext.md) and [`ntia-emitter`](/ntia-emitter.sigmf-ext.md):
+The `ntia-environment` extension defines the following datatype, which is referenced by [ntia-sensor](/ntia-sensor.sigmf-ext.md) and [ntia-emitter](/ntia-emitter.sigmf-ext.md):
 
-|name|long-form name|description|
-|----|--------------|-----------|
-|`Environment`|environment|JSON [`Environment`](#01-the-environment-object) object containing information describing the physical environment surrounding a sensor or emitter|
+|name|long-form name| description                                                                                                                                      |
+|----|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
+|`Environment`|environment| JSON [Environment](#01-the-environment-object) object containing information describing the physical environment surrounding a sensor or emitter |
 
 ### 0.1 The `Environment` Object
 

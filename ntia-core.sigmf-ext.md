@@ -8,8 +8,8 @@ The `ntia-core` extension provides the following datatypes, which are referenced
 
 |name|long-form name|description|
 |----|--------------|-----------|
-|`Antenna`|antenna specification|JSON [`Antenna`](#01-the-antenna-object) object specifying an antenna|
-|`HardwareSpec`|hardware specification|JSON [`HardwareSpec`](#02-the-hardwarespec-object) object, used to provide hardware details within other objects|
+|`Antenna`|antenna specification|JSON [Antenna](#01-the-antenna-object) object specifying an antenna|
+|`HardwareSpec`|hardware specification|JSON [HardwareSpec](#02-the-hardwarespec-object) object, used to provide hardware details within other objects|
 
 ## 0.1 The `Antenna` Object
 

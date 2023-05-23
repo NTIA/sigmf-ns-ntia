@@ -8,7 +8,7 @@ The `ntia-emitter` extension defines the following datatype:
 
 |name|long-form name|description|
 |----|--------------|-----------|
-|`Emitter`|signal emitter|JSON [`Emitter`](#01-the-emitter-object) object containing information describing a signal emitter, including its physical properties, emitted waveform, and environment|
+|`Emitter`|signal emitter|JSON [Emitter](#01-the-emitter-object) object containing information describing a signal emitter, including its physical properties, emitted waveform, and environment|
 
 ### 0.1 The `Emitter` Object
 
