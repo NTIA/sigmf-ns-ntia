@@ -2,7 +2,7 @@ package gov.doc.ntia.sigmf;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectMapper;import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -13,11 +13,11 @@ public class Acquisition implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  private String schedule;
-
-  @JsonProperty protected MetaDoc metaDoc;
+  @JsonProperty
+  protected MetaDoc metaDoc;
 
   @JsonProperty protected transient ByteBuffer data;
+  private String schedule;
 
   public Acquisition() {}
 
@@ -73,7 +73,7 @@ public class Acquisition implements Serializable {
     String sensorId = metaDoc.getGlobal().getSensor().getId();
     Integer recording = metaDoc.getGlobal().getRecording();
     String taskId = getTaskId();
-    String name = sensorId + "_" + getSchedule();
+    String name = sensorId + "_" + getScheduleId();
     if (taskId != null) {
       name += "_" + taskId;
     }
@@ -84,26 +84,18 @@ public class Acquisition implements Serializable {
     return name;
   }
 
-  public String getSchedule(){
-    return schedule;
-  }
-
-  public void setSchedule(String s){
-    schedule = s;
-  }
-/*
   private String getScheduleId() {
-    ScheduleEntry scheduleEntry = metaDoc.getGlobal().getSchedule();
-    String missingScheduleInfo = "unknown";
-    if (scheduleEntry == null) {
-      return missingScheduleInfo;
-    } else if (scheduleEntry.getId() == null) {
-      return missingScheduleInfo;
-    } else {
-      return scheduleEntry.getId();
+      ScheduleEntry scheduleEntry = metaDoc.getGlobal().getSchedule();
+      String missingScheduleInfo = "unknown";
+      if (scheduleEntry == null) {
+        return missingScheduleInfo;
+      } else if (scheduleEntry.getId() == null) {
+        return missingScheduleInfo;
+      } else {
+        return scheduleEntry.getId();
+      }
     }
-  }
-*/
+
 
   private String getTaskId() {
     String taskId = metaDoc.getGlobal().getTask().toString();

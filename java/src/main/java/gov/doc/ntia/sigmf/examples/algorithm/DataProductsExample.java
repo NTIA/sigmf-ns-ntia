@@ -6,7 +6,8 @@ import gov.doc.ntia.sigmf.examples.Example;
 import gov.doc.ntia.sigmf.examples.ExampleUtils;
 import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.global.algorithm.FFT;
-import gov.doc.ntia.sigmf.ext.global.algorithm.Graph;import java.util.ArrayList;
+import gov.doc.ntia.sigmf.ext.global.algorithm.Graph;
+import java.util.ArrayList;
 
 public class DataProductsExample implements Example {
   @Override
@@ -62,7 +63,7 @@ public class DataProductsExample implements Example {
     psd.setLength(625);
     FFT fft = new FFT();
     fft.setEquivalentNoiseBandwidth(60323.94);
-    //psd.setSamples(875L);
+    // psd.setSamples(875L);
     fft.setFfts(64000);
     fft.setUnits("dBm/Hz");
     fft.setWindow("flattop");
@@ -71,11 +72,10 @@ public class DataProductsExample implements Example {
 
     Graph tsp = new Graph();
     tsp.setLength(400);
-    //tsp.setSamples(56000000L);
+    // tsp.setSamples(56000000L);
     tsp.setYLabel("dBm");
     tsp.addSeries("max");
     tsp.addSeries("mean");
-
 
     global.addDataProduct(tsp);
 

@@ -29,27 +29,26 @@ public class FFT implements IProcessing {
   @JsonProperty(required = true)
   protected Boolean baseband;
 
-  @JsonProperty
-  protected String description;
+  @JsonProperty protected String description;
 
-  public FFT(){}
-
-  public void setId(String id){
-    this.id = id;
-  }
+  public FFT() {}
 
   @Override
   public String getId() {
     return id;
   }
 
-  public void setDescription(String d){
-    description = d;
+  public void setId(String id) {
+    this.id = id;
   }
 
   @Override
   public String getDescription() {
     return description;
+  }
+
+  public void setDescription(String d) {
+    description = d;
   }
 
   public Double getEquivalentNoiseBandwidth() {
@@ -99,6 +98,4 @@ public class FFT implements IProcessing {
   public void setBaseband(Boolean baseband) {
     this.baseband = baseband;
   }
-
-
 }

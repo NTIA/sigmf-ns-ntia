@@ -1,16 +1,18 @@
 package gov.doc.ntia.sigmf.ext.global.algorithm;
 
-import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import static com.fasterxml.jackson.annotation.JsonTypeInfo.Id.DEDUCTION;
 
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 @JsonTypeInfo(use = DEDUCTION)
-@JsonSubTypes({@JsonSubTypes.Type(value = FFT.class),
-        @JsonSubTypes.Type(value = DigitalFilter.class)})
+@JsonSubTypes({
+  @JsonSubTypes.Type(value = FFT.class),
+  @JsonSubTypes.Type(value = DigitalFilter.class)
+})
 public interface IProcessing {
 
-    public String getId();
+  String getId();
 
-    public String getDescription();
-
+  String getDescription();
 }

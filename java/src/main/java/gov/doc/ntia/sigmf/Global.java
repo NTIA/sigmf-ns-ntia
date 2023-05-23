@@ -537,5 +537,4 @@ public class Global implements Serializable {
   public void setAction(Action action) {
     this.action = action;
   }
-
 }

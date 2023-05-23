@@ -1,7 +1,8 @@
 package gov.doc.ntia.sigmf.ext.global.algorithm;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import java.util.ArrayList;import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
 import javax.validation.constraints.NotNull;
 
 public class Graph implements IDataProduct {
@@ -42,20 +43,17 @@ public class Graph implements IDataProduct {
 
   @JsonProperty protected String reference;
 
-  @JsonProperty
-  protected String description;
+  @JsonProperty protected String description;
 
-  public Graph(){
-
-  }
+  public Graph() {}
 
   @Override
   public String getName() {
     return name;
   }
 
-  public void setDescription(String description){
-    this.description = description;
+  public void setName(String name) {
+    this.name = name;
   }
 
   @Override
@@ -63,8 +61,8 @@ public class Graph implements IDataProduct {
     return description;
   }
 
-  public void setName(String name) {
-    this.name = name;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   public List<String> getSeries() {
@@ -119,8 +117,8 @@ public class Graph implements IDataProduct {
     return yLabel;
   }
 
-  public void setYLabel(String label){
-      yLabel = label;
+  public void setYLabel(String label) {
+    yLabel = label;
   }
 
   public List<Double> getYStart() {
@@ -163,17 +161,16 @@ public class Graph implements IDataProduct {
     this.reference = reference;
   }
 
-  public void addSeries(String s){
-    if(this.series == null){
+  public void addSeries(String s) {
+    if (this.series == null) {
       series = new ArrayList<>();
     }
     series.add(s);
   }
 
-  public void removeSeries(String s){
-    if(series != null){
+  public void removeSeries(String s) {
+    if (series != null) {
       series.remove(s);
     }
   }
-
 }
