@@ -40,7 +40,7 @@ public class FFT implements IProcessing {
 
   @Override
   public String getId() {
-    return null;
+    return id;
   }
 
   public void setDescription(String d){

@@ -71,6 +71,7 @@ in the associated data represents the x-value at y-start.
 | `window`                     | true     | string  | N/A  | E.g. `"blackman-harris"`, `"flattop"`, `"gaussian_a3.5"`, `"gauss top"`, `"hamming"`, `"hanning"`, `"rectangular"`. |
 | `units`                      | false    | string  | N/A  | E.g. `"dBm/Hz"`.                                                                                                    |
 | `baseband`                   | true     | boolean | N/A  | Boolean indicating whether or not the results should be interpreted as baseband.                                    |
+| `description`                | false    | string  | N/A  | Description of the processing.                                                                                      |
 
 
 ## 1 Global

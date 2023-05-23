@@ -5,7 +5,7 @@ import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.ext.capture.sensor.*;
 import gov.doc.ntia.sigmf.ext.capture.sensor.SensorCapture;
-import gov.doc.ntia.sigmf.ext.global.algorithm.Graph;import gov.doc.ntia.sigmf.ext.global.algorithm.IDataProduct;import gov.doc.ntia.sigmf.ext.global.diagnostics.Computer;
+import gov.doc.ntia.sigmf.ext.global.algorithm.FFT;import gov.doc.ntia.sigmf.ext.global.algorithm.Graph;import gov.doc.ntia.sigmf.ext.global.algorithm.IDataProduct;import gov.doc.ntia.sigmf.ext.global.algorithm.IProcessing;import gov.doc.ntia.sigmf.ext.global.diagnostics.Computer;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -93,6 +93,26 @@ public class NasctnSensorTest {
     Assertions.assertEquals(16000, psd.getXStep().get(0).intValue());
     Assertions.assertEquals(5000000, psd.getXStop().get(0).intValue());
     Assertions.assertEquals("fft", psd.getProcessing().get(0));
+  }
+
+  @Test
+  public void testDeserializeFFT(){
+    List<IProcessing> dataProcessing = metaDoc.getGlobal().getDataProcessing();
+    boolean foundFFT = false;
+    for(IProcessing processing : dataProcessing){
+      if(processing instanceof FFT){
+        FFT fft = (FFT)processing;
+        foundFFT = true;
+        Assertions.assertEquals("fft", fft.getId() );
+        Assertions.assertEquals(60323.94, fft.getEquivalentNoiseBandwidth().doubleValue());
+        Assertions.assertEquals(875, fft.getSamples().intValue());
+        Assertions.assertEquals(64000,fft.getFfts().intValue());
+        Assertions.assertEquals("flattop", fft.getWindow());
+        Assertions.assertTrue(fft.getBaseband());
+      }
+
+    }
+    Assertions.assertTrue(foundFFT);
   }
 
   @Test
