@@ -11,7 +11,6 @@ import gov.doc.ntia.sigmf.ext.algorithm.IDataProduct;
 import gov.doc.ntia.sigmf.ext.algorithm.IProcessing;
 import gov.doc.ntia.sigmf.ext.diagnostics.Diagnostics;
 import gov.doc.ntia.sigmf.ext.emitter.Emitter;
-import gov.doc.ntia.sigmf.ext.global.core.Measurement;
 import gov.doc.ntia.sigmf.ext.scos.Action;
 import gov.doc.ntia.sigmf.ext.scos.ScheduleEntry;
 import gov.doc.ntia.sigmf.ext.sensor.Sensor;
@@ -141,10 +140,6 @@ public class Global implements Serializable {
   @JsonProperty protected ScheduleEntry schedule;
 
   @JsonProperty protected Action action;
-
-  @Deprecated
-  @JsonProperty(value = "ntia-core:measurement", required = true)
-  protected Measurement measurement;
 
   @NotNull
   @JsonProperty(value = "ntia-core:classification", required = true)
@@ -338,16 +333,6 @@ public class Global implements Serializable {
   @Deprecated
   public void setFilepath(String filePath) {
     this.filePath = filePath;
-  }
-
-  @Deprecated
-  public Measurement getMeasurement() {
-    return measurement;
-  }
-
-  @Deprecated
-  public void setMeasurement(Measurement measurement) {
-    this.measurement = measurement;
   }
 
   public String getClassification() {

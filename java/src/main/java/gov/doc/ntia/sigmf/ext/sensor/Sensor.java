@@ -7,7 +7,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.ext.core.Antenna;
 import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.environment.Environment;
-import gov.doc.ntia.sigmf.ext.global.location.Location;
 import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
@@ -39,10 +38,6 @@ public class Sensor implements Serializable {
 
   @JsonProperty(value = "mobile", required = false)
   protected Boolean mobile;
-
-  @Deprecated
-  @JsonProperty(value = "location", required = false)
-  protected Location location;
 
   @JsonProperty(value = "environment", required = false)
   protected Environment environment;
@@ -110,16 +105,6 @@ public class Sensor implements Serializable {
 
   public void setSignalAnalyzer(SignalAnalyzer signalAnalyzer) {
     this.signalAnalyzer = signalAnalyzer;
-  }
-
-  @Deprecated
-  public Location getLocation() {
-    return location;
-  }
-
-  @Deprecated
-  public void setLocation(Location location) {
-    this.location = location;
   }
 
   public Environment getEnvironment() {

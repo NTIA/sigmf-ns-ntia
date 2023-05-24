@@ -4,7 +4,6 @@ import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.ext.core.Antenna;
 import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
-import gov.doc.ntia.sigmf.ext.global.core.Measurement;
 import gov.doc.ntia.sigmf.ext.sensor.Amplifier;
 import gov.doc.ntia.sigmf.ext.sensor.Filter;
 import gov.doc.ntia.sigmf.ext.sensor.Preselector;
@@ -90,8 +89,4 @@ public class SensorExample implements Example {
     return antenna;
   }
 
-  private Measurement getMeasurement() {
-    Measurement measurement = new Measurement();
-    return measurement;
-  }
 }

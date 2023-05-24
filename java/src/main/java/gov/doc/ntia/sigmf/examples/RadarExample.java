@@ -9,7 +9,6 @@ import gov.doc.ntia.sigmf.ext.algorithm.FFT;
 import gov.doc.ntia.sigmf.ext.algorithm.Graph;
 import gov.doc.ntia.sigmf.ext.core.Antenna;
 import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
-import gov.doc.ntia.sigmf.ext.global.core.Measurement;
 import gov.doc.ntia.sigmf.ext.environment.Environment;
 import gov.doc.ntia.sigmf.ext.sensor.Amplifier;
 import gov.doc.ntia.sigmf.ext.sensor.CalSource;
@@ -27,21 +26,6 @@ import java.util.List;
 /** Generates an example based on coastal monitoring of the CBRS band. */
 public class RadarExample implements Example {
 
-  public static Measurement getMeasurement() {
-    Measurement measurement = new Measurement();
-    measurement.setFrequencyTunedLow(3.45021875E9);
-    measurement.setFrequencyTunedHigh(3.65015625E9);
-    measurement.setDomain("frequency");
-    measurement.setMeasurementType("scan");
-    Calendar calendar = Calendar.getInstance();
-    calendar.set(2018, 02, 01, 07, 01, 00);
-    measurement.setTimeStart(calendar.getTime());
-    calendar.add(Calendar.MILLISECOND, 30);
-    measurement.setTimeStop(calendar.getTime());
-    measurement.setFrequencyTunedStep(437500.0);
-    measurement.setClassification("UNCLASSIFIED");
-    return measurement;
-  }
 
   public static List<Extension> getExtensions() {
 
@@ -192,7 +176,6 @@ public class RadarExample implements Example {
     global.setExtensions(getExtensions());
     Sensor sensor = getSensor();
     global.setSensor(getSensor());
-    global.setMeasurement(getMeasurement());
 
     Graph psd = new Graph();
     psd.addSeries("max");
