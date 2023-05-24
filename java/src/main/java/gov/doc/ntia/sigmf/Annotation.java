@@ -32,14 +32,6 @@ public class Annotation implements Serializable {
   @JsonProperty(value = "uuid", required = false)
   protected String uuid;
 
-  @Deprecated
-  @JsonProperty(value = "core:latitude", required = false)
-  protected Double latitude;
-
-  @Deprecated
-  @JsonProperty(value = "core:longitude", required = false)
-  protected Double longitude;
-
   protected Map<String, Object> otherFields = new HashMap<>();
 
   public Long getSampleStart() {
@@ -96,26 +88,6 @@ public class Annotation implements Serializable {
 
   public void setUuid(String uuid) {
     this.uuid = uuid;
-  }
-
-  @Deprecated
-  public Double getLatitude() {
-    return latitude;
-  }
-
-  @Deprecated
-  public void setLatitude(Double latitude) {
-    this.latitude = latitude;
-  }
-
-  @Deprecated
-  public Double getLongitude() {
-    return longitude;
-  }
-
-  @Deprecated
-  public void setLongitude(Double longitude) {
-    this.longitude = longitude;
   }
 
   @JsonAnyGetter
