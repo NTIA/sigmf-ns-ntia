@@ -23,7 +23,6 @@ class SensorTest {
     String sensorId = "TestSensor123";
     Sensor sensor = new Sensor();
     sensor.setId(sensorId);
-    sensor.setId(sensorId);
     global.setSensor(sensor);
     metaDoc.setGlobal(global);
     ObjectMapper mapper = new ObjectMapper();
@@ -39,7 +38,6 @@ class SensorTest {
     Global global = new Global();
     String sensorId = "TestSensor123";
     Sensor sensor = new Sensor();
-    sensor.setId(sensorId);
     sensor.setId(sensorId);
     sensor.setMobile(Boolean.TRUE);
     global.setSensor(sensor);
