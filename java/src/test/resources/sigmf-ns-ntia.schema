@@ -102,11 +102,9 @@
 				"ntia-algorithm:data_products": {
 					"type": "array",
 					"items": {
-						"anyOf": [
-							{
-								"$ref": "#/$defs/Graph"
-							}
-						]
+						"anyOf": [{
+							"$ref": "#/$defs/Graph"
+						}]
 					}
 				},
 				"ntia-algorithm:digital_filters": {
@@ -136,30 +134,29 @@
 				"ntia-algorithm:data_products_reference": {
 					"type": "string"
 				},
-				"ntia-algorithm:data_processing":{
-				    "type": "array",
-				    "items":{
-				        "anyOf": [
-				            {
-                                "$ref": "#/$defs/FFT"
-                            },
-                            {
-                                 "$ref": "#/$defs/DigitalFilter"
-                            }
-				        ]
-				    }
+				"ntia-algorithm:data_processing": {
+					"type": "array",
+					"items": {
+						"anyOf": [{
+								"$ref": "#/$defs/FFT"
+							},
+							{
+								"$ref": "#/$defs/DigitalFilter"
+							}
+						]
+					}
 				},
-				"ntia-algorithm:data_products_processing":{
-				    "type": "array",
-				    "items":{
-				        "type": "string"
-				    }
+				"ntia-algorithm:data_products_processing": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
 				},
-				"ntia-scos:schedule":{
-				     "$ref": "#/$defs/ScheduleEntry"
+				"ntia-scos:schedule": {
+					"$ref": "#/$defs/ScheduleEntry"
 				},
-				"ntia-scos:action":{
-				     "$ref": "#/$defs/Action"
+				"ntia-scos:action": {
+					"$ref": "#/$defs/Action"
 				}
 			},
 			"required": [
@@ -215,12 +212,6 @@
 				},
 				"uuid": {
 					"type": "string"
-				},
-				"core:latitude": {
-					"type": "number"
-				},
-				"core:longitude": {
-					"type": "number"
 				}
 			},
 			"required": [
@@ -241,7 +232,11 @@
 					"minItems": 2,
 					"maxItems": 3
 				}
-			}
+			},
+			"required": [
+				"type",
+				"coordinates"
+			]
 		},
 		"Extension": {
 			"type": "object",
@@ -256,6 +251,7 @@
 					"type": "boolean"
 				}
 			},
+			"additionalProperties": false,
 			"required": [
 				"name",
 				"version",
@@ -280,7 +276,11 @@
 				"supplemental_information": {
 					"type": "string"
 				}
-			}
+			},
+			"additionalProperties": false,
+			"required": [
+				"id"
+			]
 		},
 		"Antenna": {
 			"type": "object",
@@ -297,13 +297,13 @@
 				"frequency_high": {
 					"type": "number"
 				},
-				"gain": {
-					"type": "number"
-				},
 				"polarization": {
 					"type": "string"
 				},
 				"cross_polar_discrimination": {
+					"type": "number"
+				},
+				"gain": {
 					"type": "number"
 				},
 				"horizontal_gain_pattern": {
@@ -340,6 +340,7 @@
 					"type": "number"
 				}
 			},
+			"additionalProperties": false,
 			"required": [
 				"antenna_spec"
 			]
@@ -359,7 +360,8 @@
 				"max_power": {
 					"type": "number"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"CalSource": {
 			"type": "object",
@@ -373,7 +375,8 @@
 				"enr": {
 					"type": "number"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"Filter": {
 			"type": "object",
@@ -393,12 +396,13 @@
 				"frequency_high_stopband": {
 					"type": "number"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"RFPath": {
 			"type": "object",
 			"properties": {
-				"name": {
+				"id": {
 					"type": "string"
 				},
 				"cal_source_id": {
@@ -411,10 +415,9 @@
 					"type": "string"
 				}
 			},
+			"additionalProperties": false,
 			"required": [
-				"cal_source_id",
-				"filter_id",
-				"amplifier_id"
+				"id"
 			]
 		},
 		"Preselector": {
@@ -447,7 +450,8 @@
 						"$ref": "#/$defs/RFPath"
 					}
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"SignalAnalyzer": {
 			"type": "object",
@@ -470,14 +474,12 @@
 				"a2d_bits": {
 					"type": "number"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"Sensor": {
 			"type": "object",
 			"properties": {
-				"id": {
-					"type": "string"
-				},
 				"sensor_spec": {
 					"$ref": "#/$defs/HardwareSpec"
 				},
@@ -503,8 +505,9 @@
 					"type": "string"
 				}
 			},
+			"additionalProperties": false,
 			"required": [
-				"id"
+				"sensor_spec"
 			]
 		},
 		"Environment": {
@@ -525,7 +528,8 @@
 				"description": {
 					"type": "string"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"DigitalFilter": {
 			"type": "object",
@@ -536,19 +540,13 @@
 				"filter_type": {
 					"type": "string"
 				},
-				"FIR_coefficients": {
+				"feedforward_coefficients": {
 					"type": "array",
 					"items": {
 						"type": "number"
 					}
 				},
-				"IIR_numerator_coefficients": {
-					"type": "array",
-					"items": {
-						"type": "number"
-					}
-				},
-				"IIR_denominator_coefficients": {
+				"feedback_coefficients": {
 					"type": "array",
 					"items": {
 						"type": "number"
@@ -560,25 +558,18 @@
 				"attenuation_cutoff": {
 					"type": "number"
 				},
-				"ripple_passband": {
-					"type": "number"
-				},
-				"attenuation_stopband": {
-					"type": "number"
-				},
-				"frequency_stopband": {
-					"type": "number"
-				},
-				"description":{
-				    "type": "string"
+				"description": {
+					"type": "string"
 				}
 
 			},
+			"additionalProperties": false,
 			"required": [
-				"id"
+				"id",
+				"filter_type"
 			]
 		},
-		"FFT": {
+		"DFT": {
 			"type": "object",
 			"properties": {
 				"id": {
@@ -590,27 +581,25 @@
 				"samples": {
 					"type": "integer"
 				},
-				"ffts": {
+				"dfts": {
 					"type": "integer"
-				},
-				"units": {
-					"type": "string"
 				},
 				"window": {
 					"type": "string"
 				},
-				"baseband":{
-				    "type": "boolean"
+				"baseband": {
+					"type": "boolean"
 				},
-				"description":{
-				    "type": "string"
+				"description": {
+					"type": "string"
 				}
 
 			},
+			"additionalProperties": false,
 			"required": [
 				"id",
 				"equivalent_noise_bandwidth",
-				"ffts",
+				"dfts",
 				"window",
 				"baseband"
 			]
@@ -630,67 +619,77 @@
 				"length": {
 					"type": "integer"
 				},
-				"x_label": {
+				"x_units": {
 					"type": "string"
 				},
 				"x_start": {
 					"type": "array",
-					"items":{
-					    "type": "number"
+					"items": {
+						"type": "number"
 					}
 				},
 				"x_stop": {
 					"type": "array",
-                    "items":{
-                        "type": "number"
-                    }
+					"items": {
+						"type": "number"
+					}
 				},
 				"x_step": {
 					"type": "array",
-					"items":{
-					    "type": "number"
+					"items": {
+						"type": "number"
 					}
 
 				},
-				"x_axis":{
-				    "type" : "array",
-				    "items": {
-				        "oneOf":[
-				            { "type": "string" },
-				            {"type": "number"},
-				            {"type": "integer"}
-				        ]
-				    }
+				"x_axis": {
+					"type": "array",
+					"items": {
+						"oneOf": [{
+								"type": "string"
+							},
+							{
+								"type": "number"
+							},
+							{
+								"type": "integer"
+							}
+						]
+					}
 				},
 				"y_start": {
 					"type": "array",
 					"items": {
-					    "type": "number"
+						"type": "number"
 					}
 				},
 				"y_stop": {
 					"type": "array",
-					"items":{
-					    "type":"number"
+					"items": {
+						"type": "number"
 					}
 				},
 				"y_step": {
 					"type": "array",
-					"items":{
-					    "type": "number"
+					"items": {
+						"type": "number"
 					}
 				},
-				"y_axis":{
-                		"type" : "array",
-                	    "items": {
-                		    "oneOf":[
-                		        { "type": "string" },
-                				{"type": "number"},
-                				{"type": "integer"}
-                		    ]
-                	    }
-                },
-				"y_label": {
+				"y_axis": {
+					"type": "array",
+					"items": {
+						"oneOf": [{
+								"type": "string"
+							},
+							{
+								"type": "number"
+							},
+							{
+								"type": "integer"
+							}
+						]
+					}
+				},
+				"y_units": {
 					"type": "string"
 				},
 				"reference": {
@@ -698,12 +697,15 @@
 				},
 				"processing": {
 					"type": "array",
-					"items":{
-					    "type": "string"
+					"items": {
+						"type": "string"
 					}
+				},
+				"description": {
+					"type": "string"
 				}
 			},
-			"additionaProperties": false,
+			"additionalProperties": false,
 			"required": [
 				"name",
 				"length"
@@ -736,7 +738,8 @@
 				"integrity_errors": {
 					"type": "integer"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"Computer": {
 			"type": "object",
@@ -778,7 +781,8 @@
 				"ssd_smart_data": {
 					"$ref": "#/$defs/SsdSmartData"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"PreselectorDiagnostics": {
 			"type": "object",
@@ -798,7 +802,8 @@
 				"door_closed": {
 					"type": "boolean"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"SPU": {
 			"type": "object",
@@ -824,7 +829,8 @@
 				"sigan_internal_temp": {
 					"type": "number"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"Diagnostics": {
 			"type": "object",
@@ -845,7 +851,8 @@
 				"action_runtime": {
 					"type": "number"
 				}
-			}
+			},
+			"additionalProperties": false
 		},
 		"Waveform": {
 			"type": "object",
@@ -857,6 +864,7 @@
 					"type": "string"
 				}
 			},
+			"additionalProperties": false,
 			"required": [
 				"model"
 			]
@@ -892,58 +900,62 @@
 					"$ref": "#/$defs/Environment"
 				}
 			},
+			"additionalProperties": false,
 			"required": [
 				"id"
 			]
 		},
-		"ScheduleEntry":{
-		    "type": "object",
-		    "properties":{
-		        "id":{
-		            "type": "string"
-		        },
-		        "name":{
-		            "type": "string"
-		        },
-		        "start": {
-		            "type": "string",
-		            "format": "date-time"
-		        },
-		        "stop": {
-                    "type": "string",
-                    "format": "date-time"
-                },
-                "interval": {
-                    "type": "integer"
-                },
-                "priority":{
-                    "type": "integer"
-                },
-                "roles":{
-                    "type": "array",
-                    "items":{
-                        "type": "string"
-                    }
-                }
-
-
-		    },
-		    "required": ["id", "name"]
+		"ScheduleEntry": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "string"
+				},
+				"name": {
+					"type": "string"
+				},
+				"start": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"stop": {
+					"type": "string",
+					"format": "date-time"
+				},
+				"interval": {
+					"type": "integer"
+				},
+				"priority": {
+					"type": "integer"
+				},
+				"roles": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				}
+			},
+			"additionalProperties": false,
+			"required": [
+				"id",
+				"name"
+			]
 		},
-		"Action":{
-		    "type": "object",
-		    "properties":{
-		        "name":{
-		            "type": "string"
-		        },
-		        "description":{
-		            "type": "string"
-		        },
-		        "summary":{
-		            "type": "string"
-		        }
-		    },
-		    "required": ["name"]
+		"Action": {
+			"type": "object",
+			"properties": {
+				"name": {
+					"type": "string"
+				},
+				"description": {
+					"type": "string"
+				},
+				"summary": {
+					"type": "string"
+				}
+			},
+			"additionalProperties": false,
+			"required": ["name"]
 		}
 
 	}
