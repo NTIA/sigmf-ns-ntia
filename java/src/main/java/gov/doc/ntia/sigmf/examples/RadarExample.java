@@ -5,7 +5,7 @@ import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.Extension;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.ext.algorithm.FFT;
+import gov.doc.ntia.sigmf.ext.algorithm.DFT;
 import gov.doc.ntia.sigmf.ext.algorithm.Graph;
 import gov.doc.ntia.sigmf.ext.core.Antenna;
 import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
@@ -181,9 +181,9 @@ public class RadarExample implements Example {
     psd.addSeries("max");
     // psd.addTrace(max);
 
-    FFT fft = new FFT();
+    DFT fft = new DFT();
     fft.setId("FFT_1");
-    fft.setFfts(458);
+    fft.setDfts(458);
     // psd.setSamples(64L);
     fft.setWindow("Gauss-top");
     fft.setEquivalentNoiseBandwidth(962500.0);
