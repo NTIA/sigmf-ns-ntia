@@ -99,7 +99,7 @@ public class DataProductsExample implements Example {
     apd.setYStop(yStop);
     ArrayList<Double> yStart = new ArrayList<>();
     yStart.add(-130.0);
-    global.addDigitalFilter(digitalFilter);
+    global.addDataProcessing(digitalFilter);
     global.addDataProduct(apd);
     global.addDataProductProcessing("iir_1");
     global.setDataProductsReference("noise source output");
