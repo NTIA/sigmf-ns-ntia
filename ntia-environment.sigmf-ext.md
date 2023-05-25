@@ -47,21 +47,21 @@ The `ntia-environment` extension does not extend the `collection` SigMF object.
     "core:sample_rate": 1.5360000011967678E7,
     "core:version": "0.0.2",
     "core:sha512": "5b522660c1406db41a7c05c564b902fa658de8755eaf77a35fea635ff97fd1293fe9e8b799c7ffca70d22cff8fa97cef0633ef29a08bdbc1b629165db72f81e3",
-    "core:extensions" : [
+    "core:extensions": [
       {
-        "name" : "ntia-sensor",
-        "version" : "v2.0.0",
-        "required" : true
+        "name": "ntia-sensor",
+        "version": "v2.0.0",
+        "required": true
       },
       {
-        "name" : "ntia-environment",
-        "version" : "v1.0.0",
-        "required" : true
+        "name": "ntia-environment",
+        "version": "v1.0.0",
+        "required": true
       }
     ],
-    "core:geolocation" : {
-      "type" : "Point",
-      "coordinates" : [-105.2715, 40.0067]
+    "core:geolocation": {
+      "type": "Point",
+      "coordinates": [-105.2715, 40.0067]
     },
     "ntia-sensor:sensor": {
       "id": "greyhound8.sms.internal",

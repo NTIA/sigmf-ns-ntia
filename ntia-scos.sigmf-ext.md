@@ -62,7 +62,7 @@ The `ntia-scos` extension does not extend the `collection` SigMF object.
 
 ```json
 {
-  "global" : {
+  "global": {
     ...
     "core:extensions": [
       {

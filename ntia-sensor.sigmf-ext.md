@@ -161,16 +161,16 @@ The `ntia-sensor` extension does not extend the `collection` SigMF object.
 ```json
 {
   "global": {
-    "core:extensions" : [
+    "core:extensions": [
       {
-        "name" : "ntia-sensor",
-        "version" : "v2.0.0",
-        "required" : true
+        "name": "ntia-sensor",
+        "version": "v2.0.0",
+        "required": true
       },
       {
-        "name" : "ntia-environment",
-        "version" : "v2.0.0",
-        "required" : true
+        "name": "ntia-environment",
+        "version": "v2.0.0",
+        "required": true
       }
     ],
     "ntia-sensor:sensor": {

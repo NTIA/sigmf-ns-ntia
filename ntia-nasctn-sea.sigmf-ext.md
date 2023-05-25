@@ -86,7 +86,7 @@ The `ntia-nasctn-sea` extension does not extend the `collection` SigMF object.
       -85.8125
     ]
   }
-  "captures" : [... ],
-  "annotations" : [ ...]
+  "captures": [... ],
+  "annotations": [ ...]
 }
 ```

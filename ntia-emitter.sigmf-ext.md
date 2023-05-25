@@ -50,55 +50,55 @@ The `ntia-emitter` extension does not extend the `collection` SigMF object.
 
 ```json
 {
-  "global" : {
-    "core:datatype" : "rf32_le",
-    "core:sample_rate" : 2.8E7,
-    "core:extensions" : [
+  "global": {
+    "core:datatype": "rf32_le",
+    "core:sample_rate": 2.8E7,
+    "core:extensions": [
       {
-        "name" : "ntia-emitter",
-        "version" : "v2.0.0",
-        "required" : true
+        "name": "ntia-emitter",
+        "version": "v2.0.0",
+        "required": true
       }
     ],
-    "ntia-emitter:emitters" : [ {
-      "id" : "N5182B-1",
-      "power" : 19.0,
-      "antenna" : {
-        "antenna_spec" : {
-          "model" : "Cobham_OA2-0.3-10.0V/1505",
-          "description" : "Ultra Wide Band Omni Antenna",
-          "supplemental_information" : "https://www.european-antennas.co.uk/media/1638/ds1505-060510.pdf"
+    "ntia-emitter:emitters": [ {
+      "id": "N5182B-1",
+      "power": 19.0,
+      "antenna": {
+        "antenna_spec": {
+          "model": "Cobham_OA2-0.3-10.0V/1505",
+          "description": "Ultra Wide Band Omni Antenna",
+          "supplemental_information": "https://www.european-antennas.co.uk/media/1638/ds1505-060510.pdf"
         },
-        "type" : "omni-directional",
-        "frequency_low" : 3.0E8,
-        "frequency_high" : 1.0E10,
-        "gain" : 2.0,
-        "polarization" : "horizontal",
-        "cross_polar_discrimination" : 20.0,
-        "horizontal_beamwidth" : 360.0,
-        "vertical_beamwidth" : 65.0,
-        "voltage_standing_wave_ratio" : 2.5,
-        "cable_loss" : 0.15,
-        "steerable" : false,
-        "elevation_angle" : 90.0
+        "type": "omni-directional",
+        "frequency_low": 3.0E8,
+        "frequency_high": 1.0E10,
+        "gain": 2.0,
+        "polarization": "horizontal",
+        "cross_polar_discrimination": 20.0,
+        "horizontal_beamwidth": 360.0,
+        "vertical_beamwidth": 65.0,
+        "voltage_standing_wave_ratio": 2.5,
+        "cable_loss": 0.15,
+        "steerable": false,
+        "elevation_angle": 90.0
       },
-      "transmitter" : {
-        "model" : "N5182B",
-        "version" : "v1.0.0",
-        "description" : "Keysight MxG X-series RF Vector Signal Generator",
-        "supplemental_information" : "https://www.keysight.com/us/en/assets/7018-03380/data-sheets/5991-0038.pdf"
+      "transmitter": {
+        "model": "N5182B",
+        "version": "v1.0.0",
+        "description": "Keysight MxG X-series RF Vector Signal Generator",
+        "supplemental_information": "https://www.keysight.com/us/en/assets/7018-03380/data-sheets/5991-0038.pdf"
       },
-      "center_frequency" : 4.35E8,
-      "waveform" : {
-        "model" : "Waveform",
-        "description" : "continuous wave"
+      "center_frequency": 4.35E8,
+      "waveform": {
+        "model": "Waveform",
+        "description": "continuous wave"
       },
-      "environment" : {
-        "category" : "Underground, coal mine"
+      "environment": {
+        "category": "Underground, coal mine"
       }
     } ]
   },
-  "captures" : [ ],
-  "annotations" : [ ]
+  "captures": [ ],
+  "annotations": [ ]
 }
 ```
