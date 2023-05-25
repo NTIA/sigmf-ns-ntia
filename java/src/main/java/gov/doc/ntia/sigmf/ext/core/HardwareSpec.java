@@ -4,12 +4,15 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class HardwareSpec implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  @JsonProperty(value = "id", required = false)
+  @NotNull
+  @JsonProperty(value = "id", required = true)
   protected String id;
 
   @JsonProperty(value = "model", required = false)
