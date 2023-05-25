@@ -136,21 +136,17 @@ public class Global implements Serializable {
   protected String classification;
 
   @JsonProperty(value = "ntia-algorithm:data_products", required = false)
-  protected ArrayList<IDataProduct> dataProducts;
-
-  @Valid
-  @JsonProperty(value = "ntia-algorithm:digital_filters")
-  protected ArrayList<DigitalFilter> digitalFilters;
+  protected List<IDataProduct> dataProducts;
 
   @Valid
   @JsonProperty(value = "ntia-diagnostics:diagnostics")
   protected Diagnostics diagnostics;
 
   @JsonProperty(value = "ntia-nasctn-sea:max_of_max_channel_powers")
-  protected ArrayList<Double> maxOfMaxChannelPowers;
+  protected List<Double> maxOfMaxChannelPowers;
 
   @JsonProperty(value = "ntia-nasctn-sea:median_of_mean_channel_powers")
-  protected ArrayList<Double> medianOfMeanChannelPowers;
+  protected List<Double> medianOfMeanChannelPowers;
 
   @JsonProperty(value = "ntia-algorithm:data_products_processing")
   protected List<String> dataProductsProcessing;
@@ -378,29 +374,8 @@ public class Global implements Serializable {
     return dataProducts;
   }
 
-  public void setDataProducts(ArrayList<IDataProduct> dataProducts) {
+  public void setDataProducts(List<IDataProduct> dataProducts) {
     this.dataProducts = dataProducts;
-  }
-
-  public void addDigitalFilter(DigitalFilter df) {
-    if (this.digitalFilters == null) {
-      digitalFilters = new ArrayList<DigitalFilter>();
-    }
-    digitalFilters.add(df);
-  }
-
-  public void removeDigitalFilter(DigitalFilter df) {
-    if (digitalFilters != null) {
-      digitalFilters.remove(df);
-    }
-  }
-
-  public ArrayList<DigitalFilter> getDigitalFilters() {
-    return digitalFilters;
-  }
-
-  public void setDigitalFilters(ArrayList<DigitalFilter> digitalFilters) {
-    this.digitalFilters = digitalFilters;
   }
 
   public Diagnostics getDiagnostics() {
@@ -411,19 +386,19 @@ public class Global implements Serializable {
     this.diagnostics = diagnostics;
   }
 
-  public ArrayList<Double> getMaxOfMaxChannelPowers() {
+  public List<Double> getMaxOfMaxChannelPowers() {
     return maxOfMaxChannelPowers;
   }
 
-  public void setMaxOfMaxChannelPowers(ArrayList<Double> maxOfMaxChannelPowers) {
+  public void setMaxOfMaxChannelPowers(List<Double> maxOfMaxChannelPowers) {
     this.maxOfMaxChannelPowers = maxOfMaxChannelPowers;
   }
 
-  public ArrayList<Double> getMedianOfMeanChannelPowers() {
+  public List<Double> getMedianOfMeanChannelPowers() {
     return medianOfMeanChannelPowers;
   }
 
-  public void setMedianOfMeanChannelPowers(ArrayList<Double> medianOfMeanChannelPowers) {
+  public void setMedianOfMeanChannelPowers(List<Double> medianOfMeanChannelPowers) {
     this.medianOfMeanChannelPowers = medianOfMeanChannelPowers;
   }
 

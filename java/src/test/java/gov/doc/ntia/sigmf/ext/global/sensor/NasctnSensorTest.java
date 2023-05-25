@@ -241,7 +241,7 @@ public class NasctnSensorTest {
 
   @Test
   public void testDeserializeMaxOfMaxChannelPowers() {
-    ArrayList<Double> maxPowers = metaDoc.getGlobal().getMaxOfMaxChannelPowers();
+    List<Double> maxPowers = metaDoc.getGlobal().getMaxOfMaxChannelPowers();
     Assertions.assertEquals(15, maxPowers.size());
     Assertions.assertEquals(-65.3125, maxPowers.get(0).doubleValue());
     Assertions.assertEquals(-42.8125, maxPowers.get(14).doubleValue());
@@ -249,7 +249,7 @@ public class NasctnSensorTest {
 
   @Test
   public void testDeserializeMedianOfMean() {
-    ArrayList<Double> medianOfMeanPowers = metaDoc.getGlobal().getMedianOfMeanChannelPowers();
+    List<Double> medianOfMeanPowers = metaDoc.getGlobal().getMedianOfMeanChannelPowers();
     Assertions.assertEquals(15, medianOfMeanPowers.size());
     Assertions.assertEquals(-83.875, medianOfMeanPowers.get(0).doubleValue());
     Assertions.assertEquals(-85.8125, medianOfMeanPowers.get(14).doubleValue());
