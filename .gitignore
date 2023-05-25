@@ -213,3 +213,4 @@ fabric.properties
 # gradle/intellij from java folder
 java/.gradle
 java/.idea
+java/bin
