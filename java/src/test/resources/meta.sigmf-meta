@@ -41,7 +41,6 @@
     "core:num_channels": 15,
     "ntia-core:classification":"unclassified",
     "ntia-sensor:sensor": {
-      "id": "NASCTN SEA Sensor",
       "sensor_spec": {
         "id": "NASCTN SEA Sensor",
         "model": "NASCTN SEA Sensor",

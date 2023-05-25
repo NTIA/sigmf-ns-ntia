@@ -18,7 +18,9 @@ public class AntennaTests {
     MetaDoc metaDoc = new MetaDoc();
     Global global = new Global();
     Sensor sensor = new Sensor();
-    sensor.setId("Sensor1");
+    HardwareSpec sensorSpec = new HardwareSpec();
+    sensorSpec.setId("Sensor1");
+    sensor.setSensorSpec(sensorSpec);
     Antenna antenna = new Antenna();
     sensor.setAntenna(antenna);
     global.setSensor(sensor);

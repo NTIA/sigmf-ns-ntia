@@ -70,7 +70,7 @@ public class Acquisition implements Serializable {
    */
   public String getName() {
 
-    String sensorId = metaDoc.getGlobal().getSensor().getId();
+    String sensorId = metaDoc.getGlobal().getSensor().getSensorSpec().getId();
     Integer recording = metaDoc.getGlobal().getRecording();
     String taskId = getTaskId();
     String name = sensorId + "_" + getScheduleId();

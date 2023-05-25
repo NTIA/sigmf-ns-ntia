@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.SigMfReader;
+import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.sensor.Sensor;
 import java.io.File;
 import java.io.IOException;
@@ -22,7 +23,9 @@ class SensorTest {
     Global global = new Global();
     String sensorId = "TestSensor123";
     Sensor sensor = new Sensor();
-    sensor.setId(sensorId);
+    HardwareSpec sensorSpec = new HardwareSpec();
+    sensorSpec.setId(sensorId);
+    sensor.setSensorSpec(sensorSpec);
     global.setSensor(sensor);
     metaDoc.setGlobal(global);
     ObjectMapper mapper = new ObjectMapper();
@@ -30,7 +33,7 @@ class SensorTest {
     output.deleteOnExit();
     mapper.writeValue(output, metaDoc);
     MetaDoc readMetaDoc = mapper.readValue(output, MetaDoc.class);
-    assertEquals(sensorId, readMetaDoc.getGlobal().getSensor().getId());
+    assertEquals(sensorId, readMetaDoc.getGlobal().getSensor().getSensorSpec().getId());
   }
 
   @Test
@@ -38,7 +41,9 @@ class SensorTest {
     Global global = new Global();
     String sensorId = "TestSensor123";
     Sensor sensor = new Sensor();
-    sensor.setId(sensorId);
+    HardwareSpec sensorSpec = new HardwareSpec();
+    sensorSpec.setId(sensorId);
+    sensor.setSensorSpec(sensorSpec);
     sensor.setMobile(Boolean.TRUE);
     global.setSensor(sensor);
     MetaDoc metaDoc = new MetaDoc();

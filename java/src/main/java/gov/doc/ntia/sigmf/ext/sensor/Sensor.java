@@ -6,18 +6,13 @@ import gov.doc.ntia.sigmf.ext.core.Antenna;
 import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.environment.Environment;
 import java.io.Serializable;
-import javax.validation.constraints.NotNull;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Sensor implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
-  @NotNull
-  @JsonProperty(value = "id", required = true)
-  protected String id;
-
-  @JsonProperty(value = "sensor_spec", required = false)
+  @JsonProperty(value = "sensor_spec", required = true)
   protected HardwareSpec sensorSpec;
 
   @JsonProperty(value = "antenna", required = false)
@@ -67,14 +62,6 @@ public class Sensor implements Serializable {
 
   public Boolean isMobile() {
     return mobile;
-  }
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
   }
 
   public Antenna getAntenna() {
