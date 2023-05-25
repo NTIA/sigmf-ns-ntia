@@ -130,7 +130,7 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-scos:schedule", required = false)
   protected ScheduleEntry schedule;
 
-  @JsonProperty(value = "ntia-scos-action", required = false)
+  @JsonProperty(value = "ntia-scos:action", required = false)
   protected Action action;
 
   @NotNull
