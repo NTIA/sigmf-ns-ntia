@@ -1,21 +1,12 @@
 package gov.doc.ntia.sigmf.ext.algorithm;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class DigitalFilter implements Serializable, IProcessing {
-
-  @NotNull
-  @JsonProperty(required = true)
-  protected String id;
-
-  @JsonFormat(shape = JsonFormat.Shape.STRING)
-  public enum FilterTypeEnum {
-    FIR, IIR;
-  }
+public class DigitalFilter extends AbstractProcessing implements Serializable {
 
   @JsonProperty(value = "filter_type", required = true)
   protected FilterTypeEnum filterType;
@@ -32,19 +23,7 @@ public class DigitalFilter implements Serializable, IProcessing {
   @JsonProperty(value = "frequency_cutoff", required = false)
   protected Double frequencyCutoff;
 
-  @JsonProperty
-  protected String description;
-
   public DigitalFilter() {}
-
-  @Override
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public FilterTypeEnum getFilterType() {
     return filterType;
@@ -86,12 +65,4 @@ public class DigitalFilter implements Serializable, IProcessing {
     this.frequencyCutoff = frequencyCutoff;
   }
 
-  @Override
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
 }

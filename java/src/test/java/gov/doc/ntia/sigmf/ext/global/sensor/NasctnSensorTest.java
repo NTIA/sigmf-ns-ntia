@@ -3,10 +3,13 @@ package gov.doc.ntia.sigmf.ext.global.sensor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.MetaDoc;
+import gov.doc.ntia.sigmf.ext.algorithm.AbstractProcessing;
 import gov.doc.ntia.sigmf.ext.algorithm.DFT;
+import gov.doc.ntia.sigmf.ext.algorithm.Graph;
+import gov.doc.ntia.sigmf.ext.algorithm.IDataProduct;
+import gov.doc.ntia.sigmf.ext.diagnostics.Computer;
 import gov.doc.ntia.sigmf.ext.sensor.Calibration;
 import gov.doc.ntia.sigmf.ext.sensor.SensorCapture;
-import gov.doc.ntia.sigmf.ext.algorithm.Graph;import gov.doc.ntia.sigmf.ext.algorithm.IDataProduct;import gov.doc.ntia.sigmf.ext.algorithm.IProcessing;import gov.doc.ntia.sigmf.ext.diagnostics.Computer;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -80,7 +83,7 @@ public class NasctnSensorTest {
   }
 
   @Test
-  public void testDeserializeDataProducts(){
+  public void testDeserializeDataProducts() {
     List<IDataProduct> dataProducts = metaDoc.getGlobal().getDataProducts();
     Assertions.assertEquals(4, dataProducts.size());
     Graph psd = (Graph)dataProducts.get(0);
@@ -89,7 +92,7 @@ public class NasctnSensorTest {
     Assertions.assertEquals("max", series.get(0));
     Assertions.assertEquals("mean", series.get(1));
     Assertions.assertEquals(625L, psd.getLength().longValue());
-    Assertions.assertEquals("dBm/Hz", psd.getYLabel());
+    Assertions.assertEquals("dBm/Hz", psd.getYUnits());
     Assertions.assertEquals(-5000000, ((Double)psd.getXStart().get(0)).intValue());
     Assertions.assertEquals(16000, ((Double)psd.getXStep().get(0)).intValue());
     Assertions.assertEquals(5000000, ((Double)psd.getXStop().get(0)).intValue());
@@ -97,23 +100,23 @@ public class NasctnSensorTest {
   }
 
   @Test
-  public void testDeserializeFFT(){
-    List<IProcessing> dataProcessing = metaDoc.getGlobal().getDataProcessing();
-    boolean foundFFT = false;
-    for(IProcessing processing : dataProcessing){
-      if(processing instanceof DFT){
+  public void testDeserializeFft() {
+    List<AbstractProcessing> dataProcessing = metaDoc.getGlobal().getDataProcessing();
+    boolean foundFft = false;
+    for (AbstractProcessing processing : dataProcessing) {
+      if (processing instanceof DFT) {
         DFT fft = (DFT)processing;
-        foundFFT = true;
-        Assertions.assertEquals("fft", fft.getId() );
+        foundFft = true;
+        Assertions.assertEquals("fft", fft.getId());
         Assertions.assertEquals(60323.94, fft.getEquivalentNoiseBandwidth().doubleValue());
         Assertions.assertEquals(875, fft.getSamples().intValue());
-        Assertions.assertEquals(64000,fft.getDfts().intValue());
+        Assertions.assertEquals(64000, fft.getDfts().intValue());
         Assertions.assertEquals("flattop", fft.getWindow());
         Assertions.assertTrue(fft.getBaseband());
       }
 
     }
-    Assertions.assertTrue(foundFFT);
+    Assertions.assertTrue(foundFft);
   }
 
   @Test

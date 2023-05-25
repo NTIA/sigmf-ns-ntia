@@ -7,10 +7,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.SigMfReader;
+import gov.doc.ntia.sigmf.ext.sensor.Sensor;
 import java.io.File;
 import java.io.IOException;
 import javax.validation.ValidationException;
-import gov.doc.ntia.sigmf.ext.sensor.Sensor;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -3,11 +3,7 @@ package gov.doc.ntia.sigmf.ext.algorithm;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.constraints.NotNull;
 
-public class DFT implements IProcessing {
-
-  @NotNull
-  @JsonProperty(required = true)
-  protected String id;
+public class DFT extends AbstractProcessing {
 
   @NotNull
   @JsonProperty(value = "equivalent_noise_bandwidth", required = true)
@@ -29,19 +25,7 @@ public class DFT implements IProcessing {
   @JsonProperty(required = true)
   protected Boolean baseband;
 
-  @JsonProperty(required = false)
-  protected String description;
-
   public DFT() {}
-
-  @Override
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
-  }
 
   public Double getEquivalentNoiseBandwidth() {
     return equivalentNoiseBandwidth;
@@ -83,12 +67,4 @@ public class DFT implements IProcessing {
     this.baseband = baseband;
   }
 
-  @Override
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
 }

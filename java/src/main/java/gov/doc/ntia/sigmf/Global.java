@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.ext.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.algorithm.IDataProduct;
-import gov.doc.ntia.sigmf.ext.algorithm.IProcessing;
+import gov.doc.ntia.sigmf.ext.algorithm.AbstractProcessing;
 import gov.doc.ntia.sigmf.ext.diagnostics.Diagnostics;
 import gov.doc.ntia.sigmf.ext.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.scos.Action;
@@ -159,7 +159,7 @@ public class Global implements Serializable {
   private String dataProductsReference;
 
   @JsonProperty(value = "ntia-algorithm:data_processing")
-  private List<IProcessing> dataProcessing;
+  private List<AbstractProcessing> dataProcessing;
 
   public Integer getRecording() {
     return recording;
@@ -456,22 +456,22 @@ public class Global implements Serializable {
     }
   }
 
-  public List<IProcessing> getDataProcessing() {
+  public List<AbstractProcessing> getDataProcessing() {
     return dataProcessing;
   }
 
-  public void setDataProcessing(List<IProcessing> dataProcessing) {
+  public void setDataProcessing(List<AbstractProcessing> dataProcessing) {
     this.dataProcessing = dataProcessing;
   }
 
-  public void addDataProcessing(IProcessing processing) {
+  public void addDataProcessing(AbstractProcessing processing) {
     if (dataProcessing != null) {
       dataProcessing = new ArrayList<>();
     }
     dataProcessing.add(processing);
   }
 
-  public void remove(IProcessing processing) {
+  public void remove(AbstractProcessing processing) {
     if (dataProcessing != null) {
       dataProcessing.remove(processing);
     }

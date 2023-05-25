@@ -209,3 +209,7 @@ fabric.properties
 /dist/
 /nbdist/
 /.nb-gradle/
+
+# gradle/intellij from java folder
+java/.gradle
+java/.idea
