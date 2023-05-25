@@ -7,16 +7,22 @@ import javax.validation.constraints.NotNull;
 
 public class Graph<T> implements IDataProduct {
 
-  @NotNull @JsonProperty protected String name;
+  @NotNull
+  @JsonProperty(required = true)
+  protected String name;
 
-  @JsonProperty protected List<String> series;
+  @JsonProperty(required = false)
+  protected List<String> series;
 
   @NotNull
   @JsonProperty(required = true)
   protected Integer length;
 
-  @JsonProperty(value = "x_label")
-  protected String xLabel;
+  @JsonProperty(value = "x_units")
+  protected String xUnits;
+
+  @JsonProperty(value = "x_axis")
+  protected List<T> xAxis;
 
   @JsonProperty(value = "x_start")
   protected List<Double> xStart;
@@ -27,11 +33,11 @@ public class Graph<T> implements IDataProduct {
   @JsonProperty(value = "x_step")
   protected List<Double> xStep;
 
-  @JsonProperty(value = "x_axis")
-  protected List<T> xAxis;
+  @JsonProperty(value = "y_units")
+  protected String yUnits;
 
-  @JsonProperty(value = "y_label")
-  protected String yLabel;
+  @JsonProperty(value = "y_axis")
+  protected List<T> yAxis;
 
   @JsonProperty(value = "y_start")
   protected List<Double> yStart;
@@ -42,14 +48,14 @@ public class Graph<T> implements IDataProduct {
   @JsonProperty(value = "y_step")
   protected List<Double> yStep;
 
-  @JsonProperty(value = "y_axis")
-  protected List<T> yAxis;
+  @JsonProperty(required = false)
+  protected List<String> processing;
 
-  @JsonProperty protected List<String> processing;
+  @JsonProperty(required = false)
+  protected String reference;
 
-  @JsonProperty protected String reference;
-
-  @JsonProperty protected String description;
+  @JsonProperty(required = false)
+  protected String description;
 
   public Graph() {}
 
@@ -87,12 +93,12 @@ public class Graph<T> implements IDataProduct {
     this.length = length;
   }
 
-  public String getXLabel() {
-    return xLabel;
+  public String getXUnits() {
+    return xUnits;
   }
 
-  public void setXLabel(String xLabel) {
-    this.xLabel = xLabel;
+  public void setXUnits(String xUnits) {
+    this.xUnits = xUnits;
   }
 
   public List<Double> getXStart() {
@@ -119,12 +125,12 @@ public class Graph<T> implements IDataProduct {
     this.xStep = xStep;
   }
 
-  public String getYLabel() {
-    return yLabel;
+  public String getYUnits() {
+    return yUnits;
   }
 
-  public void setYLabel(String label) {
-    yLabel = label;
+  public void setYUnits(String yUnits) {
+    this.yUnits = yUnits;
   }
 
   public List<Double> getYStart() {

@@ -124,7 +124,6 @@ The `DFT` object provides fields to describe the parameters of a data product ge
 | `samples`                    | true     | integer | N/A  | Length of the DFT                                                                                                                       |
 | `dfts`                       | true     | integer | N/A  | Number of DFTs (each of length `samples`) integrated over by detectors, e.g., when using the Bartlett method or M4S detection           |
 | `window`                     | true     | string  | N/A  | E.g. `"blackman-harris"`, `"flattop"`, `"gaussian_a3.5"`, `"gauss top"`, `"hamming"`, `"hanning"`, `"rectangular"`.                     |
-| `units`                      | false    | string  | N/A  | E.g. `"dBm/Hz"`.                                                                                                                        |
 | `baseband`                   | true     | boolean | N/A  | Indicates whether or not the frequency axis described in the corresponding `Graph` object should be interpreted as baseband frequencies |
 | `description`                | false    | string  | N/A  | Supplemental description of the processing                                                                                              |
 

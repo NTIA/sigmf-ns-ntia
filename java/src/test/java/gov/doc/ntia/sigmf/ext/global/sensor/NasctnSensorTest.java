@@ -3,7 +3,7 @@ package gov.doc.ntia.sigmf.ext.global.sensor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.ext.algorithm.FFT;
+import gov.doc.ntia.sigmf.ext.algorithm.DFT;
 import gov.doc.ntia.sigmf.ext.sensor.Calibration;
 import gov.doc.ntia.sigmf.ext.sensor.SensorCapture;
 import gov.doc.ntia.sigmf.ext.algorithm.Graph;import gov.doc.ntia.sigmf.ext.algorithm.IDataProduct;import gov.doc.ntia.sigmf.ext.algorithm.IProcessing;import gov.doc.ntia.sigmf.ext.diagnostics.Computer;
@@ -101,13 +101,13 @@ public class NasctnSensorTest {
     List<IProcessing> dataProcessing = metaDoc.getGlobal().getDataProcessing();
     boolean foundFFT = false;
     for(IProcessing processing : dataProcessing){
-      if(processing instanceof FFT){
-        FFT fft = (FFT)processing;
+      if(processing instanceof DFT){
+        DFT fft = (DFT)processing;
         foundFFT = true;
         Assertions.assertEquals("fft", fft.getId() );
         Assertions.assertEquals(60323.94, fft.getEquivalentNoiseBandwidth().doubleValue());
         Assertions.assertEquals(875, fft.getSamples().intValue());
-        Assertions.assertEquals(64000,fft.getFfts().intValue());
+        Assertions.assertEquals(64000,fft.getDfts().intValue());
         Assertions.assertEquals("flattop", fft.getWindow());
         Assertions.assertTrue(fft.getBaseband());
       }

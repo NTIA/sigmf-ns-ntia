@@ -3,6 +3,7 @@ package gov.doc.ntia.sigmf.ext.algorithm;
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.util.HashMap;
@@ -11,82 +12,66 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DigitalFilter implements Serializable, IProcessing {
 
-  private static final long serialVersionUID = 1L;
-
+  @NotNull
   @JsonProperty(required = true)
   protected String id;
 
-  @JsonProperty(value = "filter_type", required = false)
-  protected String filterType;
+  @JsonFormat(shape = JsonFormat.Shape.STRING)
+  public enum FilterTypeEnum {
+    FIR, IIR;
+  }
 
-  @JsonProperty(value = "FIR_coefficients", required = false)
-  protected Double[] firCoefficients;
+  @JsonProperty(value = "filter_type", required = true)
+  protected FilterTypeEnum filterType;
 
-  @JsonProperty(value = "IIR_numerator_coefficients", required = false)
-  protected Double[] iirNumeratorCoefficients;
+  @JsonProperty(value = "feedforward_coefficients", required = false)
+  protected Double[] feedforwardCoefficients;
 
-  @JsonProperty(value = "IIR_denominator_coefficients", required = false)
-  protected Double[] iirDenominatorCoefficients;
-
-  @JsonProperty(value = "frequency_cutoff", required = false)
-  protected Double frequencyCutoff;
+  @JsonProperty(value = "feedback_coefficients", required = false)
+  protected Double[] feedbackCoefficients;
 
   @JsonProperty(value = "attenuation_cutoff", required = false)
   protected Double attenuationCutoff;
 
-  @JsonProperty(value = "ripple_passband", required = false)
-  protected Double ripplePassband;
+  @JsonProperty(value = "frequency_cutoff", required = false)
+  protected Double frequencyCutoff;
 
-  @JsonProperty(value = "attenuation_stopband", required = false)
-  protected Double attenuationStopband;
-
-  @JsonProperty(value = "frequency_stopband", required = false)
-  protected Double frequencyStopband;
-
-  protected Map<String, Object> otherFields = new HashMap<>();
-
-  @JsonProperty protected String description;
+  @JsonProperty
+  protected String description;
 
   public DigitalFilter() {}
 
-  public String getFilterType() {
+  @Override
+  public String getId() {
+    return id;
+  }
+
+  public void setId(String id) {
+    this.id = id;
+  }
+
+  public FilterTypeEnum getFilterType() {
     return filterType;
   }
 
-  public void setFilterType(String filterType) {
+  public void setFilterType(FilterTypeEnum filterType) {
     this.filterType = filterType;
   }
 
-  public Double[] getFirCoefficients() {
-    return firCoefficients;
+  public Double[] getFeedforwardCoefficients() {
+    return feedforwardCoefficients;
   }
 
-  public void setFirCoefficients(Double[] firCoefficients) {
-    this.firCoefficients = firCoefficients;
+  public void setFeedforwardCoefficients(Double[] feedforwardCoefficients) {
+    this.feedforwardCoefficients = feedforwardCoefficients;
   }
 
-  public Double[] getIirNumeratorCoefficients() {
-    return iirNumeratorCoefficients;
+  public Double[] getFeedbackCoefficients() {
+    return feedbackCoefficients;
   }
 
-  public void setIirNumeratorCoefficients(Double[] iirNumeratorCoefficients) {
-    this.iirNumeratorCoefficients = iirNumeratorCoefficients;
-  }
-
-  public Double[] getIirDenominatorCoefficients() {
-    return iirDenominatorCoefficients;
-  }
-
-  public void setIirDenominatorCoefficients(Double[] iirDenominatorCoefficients) {
-    this.iirDenominatorCoefficients = iirDenominatorCoefficients;
-  }
-
-  public Double getFrequencyCutoff() {
-    return frequencyCutoff;
-  }
-
-  public void setFrequencyCutoff(Double frequencyCutoff) {
-    this.frequencyCutoff = frequencyCutoff;
+  public void setfeedbackCoefficients(Double[] feedbackCoefficients) {
+    this.feedbackCoefficients = feedbackCoefficients;
   }
 
   public Double getAttenuationCutoff() {
@@ -97,46 +82,12 @@ public class DigitalFilter implements Serializable, IProcessing {
     this.attenuationCutoff = attenuationCutoff;
   }
 
-  public Double getRipplePassband() {
-    return ripplePassband;
+  public Double getFrequencyCutoff() {
+    return frequencyCutoff;
   }
 
-  public void setRipplePassband(Double ripplePassband) {
-    this.ripplePassband = ripplePassband;
-  }
-
-  public Double getAttenuationStopband() {
-    return attenuationStopband;
-  }
-
-  public void setAttenuationStopband(Double attenuationStopband) {
-    this.attenuationStopband = attenuationStopband;
-  }
-
-  public Double getFrequencyStopband() {
-    return frequencyStopband;
-  }
-
-  public void setFrequencyStopband(Double frequencyStopband) {
-    this.frequencyStopband = frequencyStopband;
-  }
-
-  @JsonAnyGetter
-  public Map<String, Object> getOtherFields() {
-    return otherFields;
-  }
-
-  @JsonAnySetter
-  public void add(String key, Object value) {
-    otherFields.put(key, value);
-  }
-
-  public String getId() {
-    return id;
-  }
-
-  public void setId(String id) {
-    this.id = id;
+  public void setFrequencyCutoff(Double frequencyCutoff) {
+    this.frequencyCutoff = frequencyCutoff;
   }
 
   @Override

@@ -3,7 +3,7 @@ package gov.doc.ntia.sigmf.ext.algorithm;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.constraints.NotNull;
 
-public class FFT implements IProcessing {
+public class DFT implements IProcessing {
 
   @NotNull
   @JsonProperty(required = true)
@@ -13,25 +13,26 @@ public class FFT implements IProcessing {
   @JsonProperty(value = "equivalent_noise_bandwidth", required = true)
   protected Double equivalentNoiseBandwidth;
 
-  @JsonProperty protected Integer samples;
+  @NotNull
+  @JsonProperty(required = true)
+  protected Integer samples;
 
   @NotNull
   @JsonProperty(required = true)
-  protected Integer ffts;
+  protected Integer dfts;
 
   @NotNull
   @JsonProperty(required = true)
   protected String window;
 
-  @JsonProperty protected String units;
-
   @NotNull
   @JsonProperty(required = true)
   protected Boolean baseband;
 
-  @JsonProperty protected String description;
+  @JsonProperty(required = false)
+  protected String description;
 
-  public FFT() {}
+  public DFT() {}
 
   @Override
   public String getId() {
@@ -40,15 +41,6 @@ public class FFT implements IProcessing {
 
   public void setId(String id) {
     this.id = id;
-  }
-
-  @Override
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String d) {
-    description = d;
   }
 
   public Double getEquivalentNoiseBandwidth() {
@@ -67,12 +59,12 @@ public class FFT implements IProcessing {
     this.samples = samples;
   }
 
-  public Integer getFfts() {
-    return ffts;
+  public Integer getDfts() {
+    return dfts;
   }
 
-  public void setFfts(Integer ffts) {
-    this.ffts = ffts;
+  public void setDfts(Integer dfts) {
+    this.dfts = dfts;
   }
 
   public String getWindow() {
@@ -83,19 +75,20 @@ public class FFT implements IProcessing {
     this.window = window;
   }
 
-  public String getUnits() {
-    return units;
-  }
-
-  public void setUnits(String units) {
-    this.units = units;
-  }
-
   public Boolean getBaseband() {
     return baseband;
   }
 
   public void setBaseband(Boolean baseband) {
     this.baseband = baseband;
+  }
+
+  @Override
+  public String getDescription() {
+    return description;
+  }
+
+  public void setDescription(String description) {
+    this.description = description;
   }
 }

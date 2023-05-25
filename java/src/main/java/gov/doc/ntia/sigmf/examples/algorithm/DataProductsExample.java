@@ -5,7 +5,7 @@ import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
 import gov.doc.ntia.sigmf.examples.ExampleUtils;
 import gov.doc.ntia.sigmf.ext.algorithm.DigitalFilter;
-import gov.doc.ntia.sigmf.ext.algorithm.FFT;
+import gov.doc.ntia.sigmf.ext.algorithm.DFT;
 import gov.doc.ntia.sigmf.ext.algorithm.Graph;
 import java.util.ArrayList;
 
@@ -61,11 +61,11 @@ public class DataProductsExample implements Example {
     psd.addSeries("max");
     psd.addSeries("mean");
     psd.setLength(625);
-    FFT fft = new FFT();
+    psd.setYUnits("dBm/Hz");
+    DFT fft = new DFT();
     fft.setEquivalentNoiseBandwidth(60323.94);
     // psd.setSamples(875L);
-    fft.setFfts(64000);
-    fft.setUnits("dBm/Hz");
+    fft.setDfts(64000);
     fft.setWindow("flattop");
     MetaDoc metaDoc = new MetaDoc();
     global.addDataProduct(psd);
