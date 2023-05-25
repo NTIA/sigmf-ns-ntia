@@ -127,9 +127,11 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-scos:recording", required = false)
   protected Integer recording;
 
-  @JsonProperty protected ScheduleEntry schedule;
+  @JsonProperty(value = "ntia-scos:schedule", required = false)
+  protected ScheduleEntry schedule;
 
-  @JsonProperty protected Action action;
+  @JsonProperty(value = "ntia-scos-action", required = false)
+  protected Action action;
 
   @NotNull
   @JsonProperty(value = "ntia-core:classification", required = true)
