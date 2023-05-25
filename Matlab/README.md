@@ -15,7 +15,7 @@ There are several alternative ways to add the jar file to Matlab.
 Adding the jar file to the dynamic path allows you to add the jar file to only your current session of Matlab. To add the jar file only to the current session, execute the following command in Matlab after replacing the path to the jar file with the path to the jar file on your computer.
 
 ```matlab
-javaclasspath({'C:\path\to\sigmf-ns-ntia-1.0.1.jar'});
+javaclasspath({'C:\path\to\sigmf-ns-ntia-2.0.0.jar'});
 ```
 
 #### 1.2 Adding the jar to the static path
