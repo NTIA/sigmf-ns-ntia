@@ -41,7 +41,7 @@ The `ntia-core` extension provides the following datatypes, which are referenced
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
-|`id`|false|string|N/A|Unique ID of hardware. E.g., serial number.|
+|`id`|true|string|N/A|Unique ID of hardware. E.g., serial number.|
 |`model`|false|string|N/A|Hardware make and model.|
 |`version`|false|string|N/A|Hardware version.|
 |`description`|false|string|N/A|Description of the hardware.|
@@ -127,6 +127,7 @@ The `ntia-core` extension does not extend the `collection` SigMF object.
       },
       "antenna": {
         "antenna_spec": {
+          "id": "1000AAA",
           "model": "ARA BSB-26",
           "description": "RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications"
         },
@@ -174,7 +175,7 @@ The `ntia-core` extension does not extend the `collection` SigMF object.
           "max_power": 13.0
         } ],
         "rf_paths": [ {
-          "name": "Path 1",
+          "id": "Path 1",
           "cal_source_id": "37501",
           "filter_id": "13FV40-00014, SN 6",
           "amplifier_id": "1904044"
