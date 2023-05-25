@@ -25,7 +25,9 @@ public class SensorExample implements Example {
 
   private Sensor getSensor() {
     Sensor sensor = new Sensor();
-    sensor.setId("Greyhound_1");
+    HardwareSpec sensorSpec = new HardwareSpec();
+    sensorSpec.setId("Greyhound_1");
+    sensor.setSensorSpec(sensorSpec);
     sensor.setAntenna(getAntenna());
     sensor.setSignalAnalyzer(getSignalAnalyzer());
     sensor.setPreselector(getPreselector());

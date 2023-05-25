@@ -50,7 +50,9 @@ public class RadarExample implements Example {
 
   public static Sensor getSensor() {
     Sensor sensor = new Sensor();
-    sensor.setId("Radar_Sensor_1");
+    HardwareSpec sensorSpec = new HardwareSpec();
+    sensorSpec.setId("Radar_Sensor_1");
+    sensor.setSensorSpec(sensorSpec);
     sensor.setAntenna(getAntenna());
     sensor.setPreselector(getPreselector());
     Environment environment = new Environment();
