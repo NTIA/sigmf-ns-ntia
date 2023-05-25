@@ -1,7 +1,5 @@
 package gov.doc.ntia.sigmf.ext.emitter;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.GeoJsonPoint;
@@ -10,8 +8,6 @@ import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.environment.Environment;
 import gov.doc.ntia.sigmf.ext.waveform.Waveform;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Emitter implements Serializable {
@@ -44,8 +40,6 @@ public class Emitter implements Serializable {
 
   @JsonProperty(value = "environment", required = false)
   protected Environment environment;
-
-  protected Map<String, Object> otherFields = new HashMap<>();
 
   public HardwareSpec getTransmitter() {
     return transmitter;
@@ -119,17 +113,4 @@ public class Emitter implements Serializable {
     this.environment = environment;
   }
 
-  @JsonAnyGetter
-  public Map<String, Object> getOtherFields() {
-    return otherFields;
-  }
-
-  public void setOtherFields(Map<String, Object> otherFields) {
-    this.otherFields = otherFields;
-  }
-
-  @JsonAnySetter
-  public void add(String key, Object value) {
-    otherFields.put(key, value);
-  }
 }

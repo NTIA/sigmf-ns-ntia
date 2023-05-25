@@ -1,7 +1,5 @@
 package gov.doc.ntia.sigmf;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -17,9 +15,7 @@ import gov.doc.ntia.sigmf.ext.sensor.Sensor;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
@@ -120,8 +116,6 @@ public class Global implements Serializable {
   @Valid
   @JsonProperty(value = "ntia-emitter:emitters", required = false)
   protected List<Emitter> emitters;
-
-  protected Map<String, Object> otherFields = new HashMap<>();
 
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
   @JsonProperty(value = "ntia-sensor:calibration_datetime", required = false)
@@ -301,16 +295,6 @@ public class Global implements Serializable {
 
   public void setSensor(Sensor sensor) {
     this.sensor = sensor;
-  }
-
-  @JsonAnyGetter
-  public Map<String, Object> getOtherFields() {
-    return otherFields;
-  }
-
-  @JsonAnySetter
-  public void add(String key, Object value) {
-    otherFields.put(key, value);
   }
 
   public Date getCalibrationDate() {

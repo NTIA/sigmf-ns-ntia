@@ -1,16 +1,12 @@
 package gov.doc.ntia.sigmf.ext.scos;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ScheduleEntry implements Serializable {
@@ -37,7 +33,6 @@ public class ScheduleEntry implements Serializable {
   @JsonProperty(value = "start", required = false)
   protected Date start;
 
-  protected Map<String, Object> otherFields = new HashMap<>();
   @JsonProperty List<String> roles;
 
   public String getId() {
@@ -86,16 +81,6 @@ public class ScheduleEntry implements Serializable {
 
   public void setStart(Date start) {
     this.start = start;
-  }
-
-  @JsonAnyGetter
-  public Map<String, Object> getOtherFields() {
-    return otherFields;
-  }
-
-  @JsonAnySetter
-  public void add(String key, Object value) {
-    otherFields.put(key, value);
   }
 
   public List<String> getRoles() {

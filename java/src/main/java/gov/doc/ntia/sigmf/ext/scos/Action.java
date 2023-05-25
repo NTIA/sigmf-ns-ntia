@@ -1,12 +1,8 @@
 package gov.doc.ntia.sigmf.ext.scos;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Action implements Serializable {
@@ -22,8 +18,6 @@ public class Action implements Serializable {
   @JsonProperty(value = "summary", required = false)
   protected String summary;
 
-  protected Map<String, Object> otherFields = new HashMap<>();
-
   public String getName() {
     return name;
   }
@@ -38,16 +32,6 @@ public class Action implements Serializable {
 
   public void setDescription(String description) {
     this.description = description;
-  }
-
-  @JsonAnyGetter
-  public Map<String, Object> getOtherFields() {
-    return otherFields;
-  }
-
-  @JsonAnySetter
-  public void add(String key, Object value) {
-    otherFields.put(key, value);
   }
 
   public String getSummary() {

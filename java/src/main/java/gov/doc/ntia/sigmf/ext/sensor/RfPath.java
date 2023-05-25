@@ -1,12 +1,8 @@
 package gov.doc.ntia.sigmf.ext.sensor;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RfPath implements Serializable {
@@ -25,8 +21,6 @@ public class RfPath implements Serializable {
   @JsonProperty(value = "amplifier_id", required = false)
   protected String amplifierId;
 
-  protected Map<String, Object> otherFields = new HashMap<>();
-
   public String getCalSourceId() {
     return calSourceId;
   }
@@ -34,21 +28,7 @@ public class RfPath implements Serializable {
   public void setCalSourceId(String calSourceId) {
     this.calSourceId = calSourceId;
   }
-
-  @JsonAnyGetter
-  public Map<String, Object> getOtherFields() {
-    return otherFields;
-  }
-
-  public void setOtherFields(Map<String, Object> otherFields) {
-    this.otherFields = otherFields;
-  }
-
-  @JsonAnySetter
-  public void add(String key, Object value) {
-    otherFields.put(key, value);
-  }
-
+  
   public String getFilterId() {
     return filterId;
   }

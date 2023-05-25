@@ -1,15 +1,11 @@
 package gov.doc.ntia.sigmf.ext.sensor;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.ext.core.Antenna;
 import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.environment.Environment;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 import javax.validation.constraints.NotNull;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -41,8 +37,6 @@ public class Sensor implements Serializable {
 
   @JsonProperty(value = "environment", required = false)
   protected Environment environment;
-
-  protected Map<String, Object> otherFields = new HashMap<>();
 
   @JsonProperty(value = "sensor_sha512")
   protected String sensorSha512;
@@ -113,20 +107,6 @@ public class Sensor implements Serializable {
 
   public void setEnvironment(Environment environment) {
     this.environment = environment;
-  }
-
-  @JsonAnyGetter
-  public Map<String, Object> getOtherFields() {
-    return otherFields;
-  }
-
-  public void setOtherFields(Map<String, Object> otherFields) {
-    this.otherFields = otherFields;
-  }
-
-  @JsonAnySetter
-  public void add(String key, Object value) {
-    otherFields.put(key, value);
   }
 
   public String getSensorSha512() {

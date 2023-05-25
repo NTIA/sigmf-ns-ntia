@@ -1,11 +1,7 @@
 package gov.doc.ntia.sigmf;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Annotation implements Serializable {
 
@@ -31,8 +27,6 @@ public class Annotation implements Serializable {
 
   @JsonProperty(value = "uuid", required = false)
   protected String uuid;
-
-  protected Map<String, Object> otherFields = new HashMap<>();
 
   public Long getSampleStart() {
     return sampleStart;
@@ -90,13 +84,4 @@ public class Annotation implements Serializable {
     this.uuid = uuid;
   }
 
-  @JsonAnyGetter
-  public Map<String, Object> getOtherFields() {
-    return otherFields;
-  }
-
-  @JsonAnySetter
-  public void add(String key, Object value) {
-    otherFields.put(key, value);
-  }
 }
