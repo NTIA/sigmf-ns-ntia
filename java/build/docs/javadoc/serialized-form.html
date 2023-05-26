@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="script.js"></script>
-<script type="text/javascript" src="script-dir/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="script-dir/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="serialized-form-page">
@@ -139,11 +139,11 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>sampleCount</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a> sampleCount</pre>
+<pre>@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a> sampleCount</pre>
 </li>
 <li class="block-list">
 <h5>sampleStart</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a> sampleStart</pre>
+<pre>@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a> sampleStart</pre>
 </li>
 <li class="block-list">
 <h5>uuid</h5>
@@ -186,7 +186,7 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>sampleStart</h5>
-<pre>long sampleStart</pre>
+<pre>@javax.validation.constraints.NotNull long sampleStart</pre>
 </li>
 </ul>
 </section>
@@ -209,15 +209,15 @@ loadScripts(document, 'script');</script>
 <ul class="block-list">
 <li class="block-list">
 <h5>name</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> name</pre>
+<pre>@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> name</pre>
 </li>
 <li class="block-list">
 <h5>optional</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a> optional</pre>
+<pre>@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a> optional</pre>
 </li>
 <li class="block-list">
 <h5>version</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> version</pre>
+<pre>@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> version</pre>
 </li>
 </ul>
 </section>
@@ -240,7 +240,7 @@ loadScripts(document, 'script');</script>
 <ul class="block-list">
 <li class="block-list">
 <h5>action</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/scos/Action.html" title="class in gov.doc.ntia.sigmf.ext.scos">Action</a> action</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/scos/Action.html" title="class in gov.doc.ntia.sigmf.ext.scos">Action</a> action</pre>
 </li>
 <li class="block-list">
 <h5>author</h5>
@@ -263,20 +263,8 @@ loadScripts(document, 'script');</script>
 <pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> dataDoi</pre>
 </li>
 <li class="block-list">
-<h5>dataProcessing</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="gov/doc/ntia/sigmf/ext/algorithm/AbstractProcessing.html" title="class in gov.doc.ntia.sigmf.ext.algorithm">AbstractProcessing</a>&gt; dataProcessing</pre>
-</li>
-<li class="block-list">
 <h5>dataProducts</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="gov/doc/ntia/sigmf/ext/algorithm/IDataProduct.html" title="interface in gov.doc.ntia.sigmf.ext.algorithm">IDataProduct</a>&gt; dataProducts</pre>
-</li>
-<li class="block-list">
-<h5>dataProductsProcessing</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt; dataProductsProcessing</pre>
-</li>
-<li class="block-list">
-<h5>dataProductsReference</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> dataProductsReference</pre>
+<pre>@Valid <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="gov/doc/ntia/sigmf/ext/algorithm/AbstractDataProduct.html" title="class in gov.doc.ntia.sigmf.ext.algorithm">AbstractDataProduct</a>&gt; dataProducts</pre>
 </li>
 <li class="block-list">
 <h5>dataset</h5>
@@ -339,6 +327,14 @@ loadScripts(document, 'script');</script>
 <pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a> offset</pre>
 </li>
 <li class="block-list">
+<h5>processing</h5>
+<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt; processing</pre>
+</li>
+<li class="block-list">
+<h5>processingInfo</h5>
+<pre>@Valid <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="gov/doc/ntia/sigmf/ext/algorithm/AbstractProcessing.html" title="class in gov.doc.ntia.sigmf.ext.algorithm">AbstractProcessing</a>&gt; processingInfo</pre>
+</li>
+<li class="block-list">
 <h5>recorder</h5>
 <pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> recorder</pre>
 </li>
@@ -352,7 +348,7 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>schedule</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/scos/ScheduleEntry.html" title="class in gov.doc.ntia.sigmf.ext.scos">ScheduleEntry</a> schedule</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/scos/ScheduleEntry.html" title="class in gov.doc.ntia.sigmf.ext.scos">ScheduleEntry</a> schedule</pre>
 </li>
 <li class="block-list">
 <h5>sensor</h5>
@@ -445,7 +441,7 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>filterType</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/algorithm/FilterTypeEnum.html" title="enum class in gov.doc.ntia.sigmf.ext.algorithm">FilterTypeEnum</a> filterType</pre>
+<pre>@NotNull <a href="gov/doc/ntia/sigmf/ext/algorithm/FilterTypeEnum.html" title="enum class in gov.doc.ntia.sigmf.ext.algorithm">FilterTypeEnum</a> filterType</pre>
 </li>
 <li class="block-list">
 <h5>frequencyCutoff</h5>
@@ -479,7 +475,7 @@ loadScripts(document, 'script');</script>
 <ul class="block-list">
 <li class="block-list">
 <h5>antennaSpec</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> antennaSpec</pre>
+<pre>@Valid @NotNull <a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> antennaSpec</pre>
 </li>
 <li class="block-list">
 <h5>azimuthAngle</h5>
@@ -608,11 +604,11 @@ loadScripts(document, 'script');</script>
 <ul class="block-list">
 <li class="block-list">
 <h5>antenna</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/core/Antenna.html" title="class in gov.doc.ntia.sigmf.ext.core">Antenna</a> antenna</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/core/Antenna.html" title="class in gov.doc.ntia.sigmf.ext.core">Antenna</a> antenna</pre>
 </li>
 <li class="block-list">
 <h5>centerFrequency</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a> centerFrequency</pre>
+<pre>@Valid <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a> centerFrequency</pre>
 </li>
 <li class="block-list">
 <h5>description</h5>
@@ -620,15 +616,15 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>environment</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/environment/Environment.html" title="class in gov.doc.ntia.sigmf.ext.environment">Environment</a> environment</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/environment/Environment.html" title="class in gov.doc.ntia.sigmf.ext.environment">Environment</a> environment</pre>
 </li>
 <li class="block-list">
 <h5>geolocation</h5>
-<pre><a href="gov/doc/ntia/sigmf/GeoJsonPoint.html" title="class in gov.doc.ntia.sigmf">GeoJsonPoint</a> geolocation</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/GeoJsonPoint.html" title="class in gov.doc.ntia.sigmf">GeoJsonPoint</a> geolocation</pre>
 </li>
 <li class="block-list">
 <h5>id</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> id</pre>
+<pre>@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> id</pre>
 </li>
 <li class="block-list">
 <h5>power</h5>
@@ -636,11 +632,11 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>transmitter</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> transmitter</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> transmitter</pre>
 </li>
 <li class="block-list">
 <h5>waveform</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/waveform/Waveform.html" title="class in gov.doc.ntia.sigmf.ext.waveform">Waveform</a> waveform</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/waveform/Waveform.html" title="class in gov.doc.ntia.sigmf.ext.waveform">Waveform</a> waveform</pre>
 </li>
 </ul>
 </section>
@@ -720,7 +716,7 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>name</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> name</pre>
+<pre>@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> name</pre>
 </li>
 <li class="block-list">
 <h5>summary</h5>
@@ -747,7 +743,7 @@ loadScripts(document, 'script');</script>
 <ul class="block-list">
 <li class="block-list">
 <h5>filterSpec</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> filterSpec</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> filterSpec</pre>
 </li>
 <li class="block-list">
 <h5>frequencyHighPassband</h5>
@@ -786,7 +782,7 @@ loadScripts(document, 'script');</script>
 <ul class="block-list">
 <li class="block-list">
 <h5>id</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> id</pre>
+<pre>@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> id</pre>
 </li>
 <li class="block-list">
 <h5>interval</h5>
@@ -794,7 +790,7 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>name</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> name</pre>
+<pre>@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> name</pre>
 </li>
 <li class="block-list">
 <h5>priority</h5>
@@ -840,7 +836,7 @@ loadScripts(document, 'script');</script>
 <ul class="block-list">
 <li class="block-list">
 <h5>amplifierSpec</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> amplifierSpec</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> amplifierSpec</pre>
 </li>
 <li class="block-list">
 <h5>gain</h5>
@@ -875,7 +871,7 @@ loadScripts(document, 'script');</script>
 <ul class="block-list">
 <li class="block-list">
 <h5>calSourceSpec</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> calSourceSpec</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> calSourceSpec</pre>
 </li>
 <li class="block-list">
 <h5>enr</h5>
@@ -906,7 +902,7 @@ loadScripts(document, 'script');</script>
 <ul class="block-list">
 <li class="block-list">
 <h5>filterSpec</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> filterSpec</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> filterSpec</pre>
 </li>
 <li class="block-list">
 <h5>frequencyHighPassband</h5>
@@ -945,23 +941,23 @@ loadScripts(document, 'script');</script>
 <ul class="block-list">
 <li class="block-list">
 <h5>amplifiers</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/sensor/Amplifier.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Amplifier</a>[] amplifiers</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/Amplifier.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Amplifier</a>[] amplifiers</pre>
 </li>
 <li class="block-list">
 <h5>calSources</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/sensor/CalSource.html" title="class in gov.doc.ntia.sigmf.ext.sensor">CalSource</a>[] calSources</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/CalSource.html" title="class in gov.doc.ntia.sigmf.ext.sensor">CalSource</a>[] calSources</pre>
 </li>
 <li class="block-list">
 <h5>filters</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/sensor/Filter.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Filter</a>[] filters</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/Filter.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Filter</a>[] filters</pre>
 </li>
 <li class="block-list">
 <h5>preselectorSpec</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> preselectorSpec</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> preselectorSpec</pre>
 </li>
 <li class="block-list">
 <h5>rfPaths</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/sensor/RfPath.html" title="class in gov.doc.ntia.sigmf.ext.sensor">RfPath</a>[] rfPaths</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/RfPath.html" title="class in gov.doc.ntia.sigmf.ext.sensor">RfPath</a>[] rfPaths</pre>
 </li>
 </ul>
 </section>
@@ -996,7 +992,7 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>id</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> id</pre>
+<pre>@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> id</pre>
 </li>
 </ul>
 </section>
@@ -1019,15 +1015,15 @@ loadScripts(document, 'script');</script>
 <ul class="block-list">
 <li class="block-list">
 <h5>antenna</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/core/Antenna.html" title="class in gov.doc.ntia.sigmf.ext.core">Antenna</a> antenna</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/core/Antenna.html" title="class in gov.doc.ntia.sigmf.ext.core">Antenna</a> antenna</pre>
 </li>
 <li class="block-list">
 <h5>computerSpec</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> computerSpec</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> computerSpec</pre>
 </li>
 <li class="block-list">
 <h5>environment</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/environment/Environment.html" title="class in gov.doc.ntia.sigmf.ext.environment">Environment</a> environment</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/environment/Environment.html" title="class in gov.doc.ntia.sigmf.ext.environment">Environment</a> environment</pre>
 </li>
 <li class="block-list">
 <h5>mobile</h5>
@@ -1043,11 +1039,11 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>sensorSpec</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> sensorSpec</pre>
+<pre>@Valid @NotNull <a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> sensorSpec</pre>
 </li>
 <li class="block-list">
 <h5>signalAnalyzer</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/sensor/SignalAnalyzer.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SignalAnalyzer</a> signalAnalyzer</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/SignalAnalyzer.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SignalAnalyzer</a> signalAnalyzer</pre>
 </li>
 </ul>
 </section>
@@ -1074,15 +1070,15 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>sensorCalibration</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/sensor/SensorCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SensorCalibration</a> sensorCalibration</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/SensorCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SensorCalibration</a> sensorCalibration</pre>
 </li>
 <li class="block-list">
 <h5>siganCalibration</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/sensor/SiganCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganCalibration</a> siganCalibration</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/SiganCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganCalibration</a> siganCalibration</pre>
 </li>
 <li class="block-list">
 <h5>siganSettings</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/sensor/SiganSettings.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganSettings</a> siganSettings</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/SiganSettings.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganSettings</a> siganSettings</pre>
 </li>
 </ul>
 </section>
@@ -1125,7 +1121,7 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>siganSpec</h5>
-<pre><a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> siganSpec</pre>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> siganSpec</pre>
 </li>
 </ul>
 </section>
@@ -1240,7 +1236,7 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>model</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> model</pre>
+<pre>@NotNull <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a> model</pre>
 </li>
 </ul>
 </section>

@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../../../../script.js"></script>
-<script type="text/javascript" src="../../../../../../script-dir/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../../../../script-dir/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../../../../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -102,19 +102,19 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>protected <a href="Amplifier.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Amplifier</a>[]</code></div>
+<div class="col-first even-row-color"><code>protected @Valid <a href="Amplifier.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Amplifier</a>[]</code></div>
 <div class="col-second even-row-color"><code><a href="#amplifiers" class="member-name-link">amplifiers</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected <a href="CalSource.html" title="class in gov.doc.ntia.sigmf.ext.sensor">CalSource</a>[]</code></div>
+<div class="col-first odd-row-color"><code>protected @Valid <a href="CalSource.html" title="class in gov.doc.ntia.sigmf.ext.sensor">CalSource</a>[]</code></div>
 <div class="col-second odd-row-color"><code><a href="#calSources" class="member-name-link">calSources</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected <a href="Filter.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Filter</a>[]</code></div>
+<div class="col-first even-row-color"><code>protected @Valid <a href="Filter.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Filter</a>[]</code></div>
 <div class="col-second even-row-color"><code><a href="#filters" class="member-name-link">filters</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected <a href="../core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a></code></div>
+<div class="col-first odd-row-color"><code>protected @Valid <a href="../core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#preselectorSpec" class="member-name-link">preselectorSpec</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected <a href="RfPath.html" title="class in gov.doc.ntia.sigmf.ext.sensor">RfPath</a>[]</code></div>
+<div class="col-first even-row-color"><code>protected @Valid <a href="RfPath.html" title="class in gov.doc.ntia.sigmf.ext.sensor">RfPath</a>[]</code></div>
 <div class="col-second even-row-color"><code><a href="#rfPaths" class="member-name-link">rfPaths</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
@@ -194,31 +194,36 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <li>
 <section class="detail" id="preselectorSpec">
 <h3>preselectorSpec</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a></span>&nbsp;<span class="element-name">preselectorSpec</span></div>
+<div class="member-signature"><span class="annotations">@Valid
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">@Valid <a href="../core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a></span>&nbsp;<span class="element-name">preselectorSpec</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="calSources">
 <h3>calSources</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="CalSource.html" title="class in gov.doc.ntia.sigmf.ext.sensor">CalSource</a>[]</span>&nbsp;<span class="element-name">calSources</span></div>
+<div class="member-signature"><span class="annotations">@Valid
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">@Valid <a href="CalSource.html" title="class in gov.doc.ntia.sigmf.ext.sensor">CalSource</a>[]</span>&nbsp;<span class="element-name">calSources</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="filters">
 <h3>filters</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="Filter.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Filter</a>[]</span>&nbsp;<span class="element-name">filters</span></div>
+<div class="member-signature"><span class="annotations">@Valid
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">@Valid <a href="Filter.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Filter</a>[]</span>&nbsp;<span class="element-name">filters</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="amplifiers">
 <h3>amplifiers</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="Amplifier.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Amplifier</a>[]</span>&nbsp;<span class="element-name">amplifiers</span></div>
+<div class="member-signature"><span class="annotations">@Valid
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">@Valid <a href="Amplifier.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Amplifier</a>[]</span>&nbsp;<span class="element-name">amplifiers</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="rfPaths">
 <h3>rfPaths</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="RfPath.html" title="class in gov.doc.ntia.sigmf.ext.sensor">RfPath</a>[]</span>&nbsp;<span class="element-name">rfPaths</span></div>
+<div class="member-signature"><span class="annotations">@Valid
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">@Valid <a href="RfPath.html" title="class in gov.doc.ntia.sigmf.ext.sensor">RfPath</a>[]</span>&nbsp;<span class="element-name">rfPaths</span></div>
 </section>
 </li>
 </ul>

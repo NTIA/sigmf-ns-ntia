@@ -11,7 +11,7 @@
 <link rel="stylesheet" type="text/css" href="../../../../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../../../../script.js"></script>
-<script type="text/javascript" src="../../../../../../script-dir/jquery-3.6.1.min.js"></script>
+<script type="text/javascript" src="../../../../../../script-dir/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../../../../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -102,13 +102,13 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>protected <a href="../core/Antenna.html" title="class in gov.doc.ntia.sigmf.ext.core">Antenna</a></code></div>
+<div class="col-first even-row-color"><code>protected @Valid <a href="../core/Antenna.html" title="class in gov.doc.ntia.sigmf.ext.core">Antenna</a></code></div>
 <div class="col-second even-row-color"><code><a href="#antenna" class="member-name-link">antenna</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected <a href="../core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a></code></div>
+<div class="col-first odd-row-color"><code>protected @Valid <a href="../core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#computerSpec" class="member-name-link">computerSpec</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected <a href="../environment/Environment.html" title="class in gov.doc.ntia.sigmf.ext.environment">Environment</a></code></div>
+<div class="col-first even-row-color"><code>protected @Valid <a href="../environment/Environment.html" title="class in gov.doc.ntia.sigmf.ext.environment">Environment</a></code></div>
 <div class="col-second even-row-color"><code><a href="#environment" class="member-name-link">environment</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a></code></div>
@@ -120,10 +120,10 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#sensorSha512" class="member-name-link">sensorSha512</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected <a href="../core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a></code></div>
+<div class="col-first even-row-color"><code>protected @Valid @NotNull <a href="../core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a></code></div>
 <div class="col-second even-row-color"><code><a href="#sensorSpec" class="member-name-link">sensorSpec</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected <a href="SignalAnalyzer.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SignalAnalyzer</a></code></div>
+<div class="col-first odd-row-color"><code>protected @Valid <a href="SignalAnalyzer.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SignalAnalyzer</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#signalAnalyzer" class="member-name-link">signalAnalyzer</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
@@ -224,31 +224,37 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <li>
 <section class="detail" id="sensorSpec">
 <h3>sensorSpec</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a></span>&nbsp;<span class="element-name">sensorSpec</span></div>
+<div class="member-signature"><span class="annotations">@Valid
+@NotNull
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">@Valid @NotNull <a href="../core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a></span>&nbsp;<span class="element-name">sensorSpec</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="antenna">
 <h3>antenna</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../core/Antenna.html" title="class in gov.doc.ntia.sigmf.ext.core">Antenna</a></span>&nbsp;<span class="element-name">antenna</span></div>
+<div class="member-signature"><span class="annotations">@Valid
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">@Valid <a href="../core/Antenna.html" title="class in gov.doc.ntia.sigmf.ext.core">Antenna</a></span>&nbsp;<span class="element-name">antenna</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="preselector">
 <h3>preselector</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="Preselector.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Preselector</a></span>&nbsp;<span class="element-name">preselector</span></div>
+<div class="member-signature"><span class="annotations">@Valid
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="Preselector.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Preselector</a></span>&nbsp;<span class="element-name">preselector</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="signalAnalyzer">
 <h3>signalAnalyzer</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="SignalAnalyzer.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SignalAnalyzer</a></span>&nbsp;<span class="element-name">signalAnalyzer</span></div>
+<div class="member-signature"><span class="annotations">@Valid
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">@Valid <a href="SignalAnalyzer.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SignalAnalyzer</a></span>&nbsp;<span class="element-name">signalAnalyzer</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="computerSpec">
 <h3>computerSpec</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a></span>&nbsp;<span class="element-name">computerSpec</span></div>
+<div class="member-signature"><span class="annotations">@Valid
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">@Valid <a href="../core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a></span>&nbsp;<span class="element-name">computerSpec</span></div>
 </section>
 </li>
 <li>
@@ -260,7 +266,8 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <li>
 <section class="detail" id="environment">
 <h3>environment</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../environment/Environment.html" title="class in gov.doc.ntia.sigmf.ext.environment">Environment</a></span>&nbsp;<span class="element-name">environment</span></div>
+<div class="member-signature"><span class="annotations">@Valid
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">@Valid <a href="../environment/Environment.html" title="class in gov.doc.ntia.sigmf.ext.environment">Environment</a></span>&nbsp;<span class="element-name">environment</span></div>
 </section>
 </li>
 <li>

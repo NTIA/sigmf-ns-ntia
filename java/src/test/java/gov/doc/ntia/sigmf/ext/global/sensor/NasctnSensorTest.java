@@ -6,7 +6,7 @@ import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.ext.algorithm.AbstractProcessing;
 import gov.doc.ntia.sigmf.ext.algorithm.DFT;
 import gov.doc.ntia.sigmf.ext.algorithm.Graph;
-import gov.doc.ntia.sigmf.ext.algorithm.IDataProduct;
+import gov.doc.ntia.sigmf.ext.algorithm.AbstractDataProduct;
 import gov.doc.ntia.sigmf.ext.diagnostics.Computer;
 import gov.doc.ntia.sigmf.ext.sensor.Calibration;
 import gov.doc.ntia.sigmf.ext.sensor.SensorCapture;
@@ -16,7 +16,6 @@ import java.net.URL;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
@@ -84,7 +83,7 @@ public class NasctnSensorTest {
 
   @Test
   public void testDeserializeDataProducts() {
-    List<IDataProduct> dataProducts = metaDoc.getGlobal().getDataProducts();
+    List<AbstractDataProduct> dataProducts = metaDoc.getGlobal().getDataProducts();
     Assertions.assertEquals(4, dataProducts.size());
     Graph psd = (Graph)dataProducts.get(0);
     Assertions.assertEquals("power_spectral_density", psd.getName());
@@ -112,7 +111,7 @@ public class NasctnSensorTest {
         Assertions.assertEquals(875, fft.getSamples().intValue());
         Assertions.assertEquals(64000, fft.getDfts().intValue());
         Assertions.assertEquals("flattop", fft.getWindow());
-        Assertions.assertTrue(fft.getBaseband());
+        Assertions.assertTrue(fft.isBaseband());
       }
 
     }

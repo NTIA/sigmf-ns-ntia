@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import gov.doc.ntia.sigmf.ext.algorithm.IDataProduct;
+import gov.doc.ntia.sigmf.ext.algorithm.AbstractDataProduct;
 import gov.doc.ntia.sigmf.ext.algorithm.AbstractProcessing;
 import gov.doc.ntia.sigmf.ext.diagnostics.Diagnostics;
 import gov.doc.ntia.sigmf.ext.emitter.Emitter;
@@ -140,7 +140,7 @@ public class Global implements Serializable {
 
   @Valid
   @JsonProperty(value = "ntia-algorithm:data_products", required = false)
-  protected List<IDataProduct> dataProducts;
+  protected List<AbstractDataProduct> dataProducts;
 
   @Valid
   @JsonProperty(value = "ntia-diagnostics:diagnostics")
@@ -359,24 +359,24 @@ public class Global implements Serializable {
     this.collection = collection;
   }
 
-  public void addDataProduct(IDataProduct dataProduct) {
+  public void addDataProduct(AbstractDataProduct dataProduct) {
     if (this.dataProducts == null) {
       dataProducts = new ArrayList<>();
     }
     dataProducts.add(dataProduct);
   }
 
-  public void removeDataProduct(IDataProduct dataProduct) {
+  public void removeDataProduct(AbstractDataProduct dataProduct) {
     if (dataProducts != null) {
       dataProducts.remove(dataProduct);
     }
   }
 
-  public List<IDataProduct> getDataProducts() {
+  public List<AbstractDataProduct> getDataProducts() {
     return dataProducts;
   }
 
-  public void setDataProducts(List<IDataProduct> dataProducts) {
+  public void setDataProducts(List<AbstractDataProduct> dataProducts) {
     this.dataProducts = dataProducts;
   }
 

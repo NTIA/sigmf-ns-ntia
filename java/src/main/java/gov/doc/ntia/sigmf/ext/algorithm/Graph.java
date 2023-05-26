@@ -5,11 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.NotNull;
 
-public class Graph<T> implements IDataProduct {
+public class Graph<T> extends AbstractDataProduct {
 
-  @NotNull
-  @JsonProperty(required = true)
-  protected String name;
 
   @JsonProperty(required = false)
   protected List<String> series;
@@ -49,33 +46,9 @@ public class Graph<T> implements IDataProduct {
   protected List<Double> yStep;
 
   @JsonProperty(required = false)
-  protected List<String> processing;
-
-  @JsonProperty(required = false)
   protected String reference;
 
-  @JsonProperty(required = false)
-  protected String description;
-
   public Graph() {}
-
-  @Override
-  public String getName() {
-    return name;
-  }
-
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  @Override
-  public String getDescription() {
-    return description;
-  }
-
-  public void setDescription(String description) {
-    this.description = description;
-  }
 
   public List<String> getSeries() {
     return series;
@@ -155,14 +128,6 @@ public class Graph<T> implements IDataProduct {
 
   public void setYStep(List<Double> yStep) {
     this.yStep = yStep;
-  }
-
-  public List<String> getProcessing() {
-    return processing;
-  }
-
-  public void setProcessing(List<String> processing) {
-    this.processing = processing;
   }
 
   public String getReference() {
