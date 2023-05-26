@@ -77,7 +77,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 | `amplifier_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#03-the-hardwarespec-object) | N/A  | Metadata to describe the amplifier specification |
 | `gain`           | false    | double                                                            | dB   | Gain of the low noise amplifier                  |
 | `noise_figure`   | false    | double                                                            | dB   | Noise figure of the low noise amplifier          |
-| `max_power`      | false    | double                                                            | dB   | Maximum power of the low noise amplifier         |
+| `max_power`      | false    | double                                                            | dBm  | Maximum power of the low noise amplifier         |
 
 ### 0.6 The `Filter` Object
 
