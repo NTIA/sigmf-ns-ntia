@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import gov.doc.ntia.sigmf.ext.algorithm.DigitalFilter;
 import gov.doc.ntia.sigmf.ext.algorithm.IDataProduct;
 import gov.doc.ntia.sigmf.ext.algorithm.AbstractProcessing;
 import gov.doc.ntia.sigmf.ext.diagnostics.Diagnostics;

@@ -7,11 +7,14 @@ import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.environment.Environment;
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Sensor implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
+  @NotNull
   @JsonProperty(value = "sensor_spec", required = true)
   protected HardwareSpec sensorSpec;
 

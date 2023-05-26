@@ -3,13 +3,17 @@ package gov.doc.ntia.sigmf;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+
 public class Annotation implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
+  @NotNull
   @JsonProperty(value = "core:sample_start", required = true)
   protected Long sampleStart;
 
+  @NotNull
   @JsonProperty(value = "core:sample_count", required = true)
   protected Long sampleCount;
 

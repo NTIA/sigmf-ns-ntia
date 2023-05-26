@@ -8,14 +8,18 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
+import javax.validation.constraints.NotNull;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ScheduleEntry implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
+  @NotNull
   @JsonProperty(value = "id", required = true)
   protected String id;
 
+  @NotNull
   @JsonProperty(value = "name", required = true)
   protected String name;
 

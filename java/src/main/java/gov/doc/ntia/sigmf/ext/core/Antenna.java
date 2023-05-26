@@ -4,11 +4,14 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
 
+import javax.validation.constraints.NotNull;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Antenna implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
+  @NotNull
   @JsonProperty(value = "antenna_spec", required = true)
   protected HardwareSpec antennaSpec;
 

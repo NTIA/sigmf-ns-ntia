@@ -11,6 +11,8 @@ import gov.doc.ntia.sigmf.ext.sensor.SensorCapture;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.validation.constraints.NotNull;
+
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = DEDUCTION)
 @JsonSubTypes({@JsonSubTypes.Type(SensorCapture.class)})
@@ -18,6 +20,7 @@ public class Capture implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
+  @NotNull
   @JsonProperty(value = "core:sample_start", required = true)
   protected long sampleStart;
 
