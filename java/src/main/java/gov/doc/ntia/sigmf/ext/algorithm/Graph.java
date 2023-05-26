@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.NotNull;
 
-public class Graph<T> extends AbstractDataProduct {
+public class Graph<X,Y> extends AbstractDataProduct {
 
 
   @JsonProperty(required = false)
@@ -19,7 +19,7 @@ public class Graph<T> extends AbstractDataProduct {
   protected String xUnits;
 
   @JsonProperty(value = "x_axis")
-  protected List<T> xAxis;
+  protected List<X> xAxis;
 
   @JsonProperty(value = "x_start")
   protected List<Double> xStart;
@@ -34,7 +34,7 @@ public class Graph<T> extends AbstractDataProduct {
   protected String yUnits;
 
   @JsonProperty(value = "y_axis")
-  protected List<T> yAxis;
+  protected List<Y> yAxis;
 
   @JsonProperty(value = "y_start")
   protected List<Double> yStart;
@@ -151,19 +151,19 @@ public class Graph<T> extends AbstractDataProduct {
     }
   }
 
-  public List<T> getxAxis() {
+  public List<X> getxAxis() {
     return xAxis;
   }
 
-  public void setxAxis(List<T> xAxis) {
+  public void setxAxis(List<X> xAxis) {
     this.xAxis = xAxis;
   }
 
-  public List<T> getyAxis() {
+  public List<Y> getyAxis() {
     return yAxis;
   }
 
-  public void setyAxis(List<T> yAxis) {
+  public void setyAxis(List<Y> yAxis) {
     this.yAxis = yAxis;
   }
 }
