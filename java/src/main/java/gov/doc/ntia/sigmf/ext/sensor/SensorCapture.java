@@ -6,6 +6,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import gov.doc.ntia.sigmf.Capture;
+import javax.validation.Valid;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = DEDUCTION)
@@ -14,15 +15,18 @@ public class SensorCapture extends Capture {
   @JsonProperty(value = "ntia-sensor:overload")
   protected Boolean overload;
 
+  @Valid
   @JsonProperty(value = "ntia-sensor:sigan_calibration")
   protected SiganCalibration siganCalibration;
 
+  @Valid
   @JsonProperty(value = "ntia-sensor:sensor_calibration")
   protected SensorCalibration sensorCalibration;
 
   @JsonProperty(value = "ntia-sensor:duration")
   protected Integer duration;
 
+  @Valid
   @JsonProperty(value = "ntia-sensor:sigan_settings")
   protected SiganSettings siganSettings;
 

@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.ext.waveform.CodingRate;
 import gov.doc.ntia.sigmf.ext.waveform.Waveform;
+import javax.validation.Valid;
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -14,6 +15,7 @@ public class Ieee80211p extends Waveform implements Serializable {
   @JsonProperty(value = "info_bit_generation", required = false)
   protected String infoBitGeneration;
 
+  @Valid
   @JsonProperty(value = "coding_rate", required = false)
   protected gov.doc.ntia.sigmf.ext.waveform.CodingRate codingRate;
 
