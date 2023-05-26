@@ -14,7 +14,7 @@ public class DataProductsExample implements Example {
   @Override
   public MetaDoc getExample() {
     Global global = ExampleUtils.getGlobal();
-    global.setVersion("0.0.2");
+    global.setVersion("1.0.0");
 
     DigitalFilter digitalFilter = new DigitalFilter();
     digitalFilter.setId("iir_1");
