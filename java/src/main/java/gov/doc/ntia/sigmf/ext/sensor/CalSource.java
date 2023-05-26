@@ -17,7 +17,7 @@ public class CalSource implements Serializable {
   protected String type;
 
   @JsonProperty(value = "enr", required = false)
-  protected String enr;
+  protected Double enr;
 
   public HardwareSpec getCalSourceSpec() {
     return calSourceSpec;
@@ -35,11 +35,11 @@ public class CalSource implements Serializable {
     this.type = type;
   }
 
-  public String getEnr() {
+  public Double getEnr() {
     return enr;
   }
 
-  public void setEnr(String enr) {
+  public void setEnr(Double enr) {
     this.enr = enr;
   }
 }
