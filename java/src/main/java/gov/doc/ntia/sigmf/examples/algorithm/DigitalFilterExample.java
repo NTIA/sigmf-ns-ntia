@@ -13,7 +13,7 @@ public class DigitalFilterExample implements Example {
   @Override
   public MetaDoc getExample() {
     Global global = ExampleUtils.getGlobal();
-    global.setVersion("0.0.2");
+    global.setVersion("1.0.0");
     DigitalFilter digitalFilter = new DigitalFilter();
     Double[] firCoefficients = new Double[] {1.0, 4.0, 5.0, 3.2};
     digitalFilter.setFilterType(FilterTypeEnum.FIR);

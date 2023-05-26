@@ -162,19 +162,20 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
   "global": {
     "core:datatype": "rf32_le",
     "core:sample_rate": 15360000,
-    "core:version": "0.0.2",
+    "core:version": "1.0.0",
     "ntia-algorithm:processing_info": [
         {
           "id": "anti-alias-filter",
           "filter_type": "FIR",
-          "FIR_coefficients": [
+          "feedforward_coefficients": [
             1.0,
             4.0,
             5.0,
             3.2
           ],
           "attenuation_cutoff": -3,
-          "frequency_cutoff": 7500000
+          "frequency_cutoff": 7500000,
+          "description": "An example anti-aliasing filter, with dummy coefficients"
         }
     ],
     "ntia-algorithm:processing": ["anti-alias-filter"]
@@ -202,7 +203,7 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
       },
       {
         "name": "ntia-core",
-        "version": "v1.0.0",
+        "version": "v2.0.0",
         "optional": false
       },
       {
@@ -241,26 +242,29 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
         "version": "Prototype Rev. 3"
       }
     },
-    "ntia-algorithm:data_products_reference": "noise source output",
     "ntia-algorithm:data_products": [
       {
         "name": "power_spectral_density",
         "series": [ "max","mean"],
         "length": 625,
-        "y_label": "dBm/Hz",
-        "x_start": [-5000000],
+        "y_units": "dBm/Hz",
+        "x_units": "Hz",
+        "x_start": [-4992000],
         "x_step": [16000],
-        "x_stop": [5000000],
-        "processing": ["fft"]
+        "x_stop": [4992000],
+        "processing": ["fft"],
+        "reference": "noise source output"
       },
       {
         "name": "time_series_power",
         "series": ["max", "mean"],
         "length": 400,
-        "y_label": "dBm",
+        "y_units": "dBm",
+        "x_units": "ms",
         "x_start": [0],
         "x_stop": [4000],
-        "x_step": [10]
+        "x_step": [10],
+        "reference": "noise source output"
       },
       {
         "name": "periodic_frame_power",
@@ -268,20 +272,22 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
           "mean of mean", "max of min", "max of max",
           "max of mean"],
         "length": 560,
-        "y_label": "dBm",
+        "y_units": "dBm",
         "x_start": [0],
         "x_stop": [10.0061],
         "x_step": [0.0179],
-        "x_label": "Cyclic Time (ms)"
+        "x_units": "ms",
+        "reference": "noise source output"
       },
       {
         "name": "amplitude_probability_distribution",
         "length": 151,
-        "y_label": "dBm",
+        "y_units": "dBm",
         "y_step": [1.0],
         "y_start": [-180],
         "y_stop": [-30],
-        "x_label": "Percent Exceeding Ordinate"
+        "x_units": "percent",
+        "reference": "noise source output"
       }
     ],
     "ntia-algorithm:processing": ["iir_1"],
@@ -289,7 +295,7 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
       {
         "id": "iir_1",
         "filter_type": "IIR",
-        "IIR_numerator_coefficients": [
+        "feedforward_coefficients": [
           0.22001755985277486,
           1.8950858799155859,
           8.083698129129007,
@@ -304,7 +310,7 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
           1.8950858799155853,
           0.22001755985277483
         ],
-        "IIR_denominator_coefficients": [
+        "feedback_coefficients": [
           1.0,
           5.984606843057637,
           19.199454663117217,
@@ -319,10 +325,8 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
           0.6363986832562693,
           0.07408086875619748
         ],
-        "ripple_passband": 0.1,
-        "attenuation_stopband": 40,
-        "frequency_stopband": 5008000.0,
-        "frequency_cutoff": 5000000.0
+        "frequency_cutoff": 5000000.0,
+        "attenuation_cutoff": 40.0
       },
       {
         "id": "fft",

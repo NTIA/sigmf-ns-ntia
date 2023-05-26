@@ -110,7 +110,7 @@ The `ntia-core` extension does not extend the `collection` SigMF object.
       },
       {
         "name": "ntia-sensor",
-        "version": "v1.0.0",
+        "version": "v2.0.0",
         "optional": false
       }
     ],

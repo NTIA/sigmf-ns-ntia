@@ -45,7 +45,7 @@ The `ntia-environment` extension does not extend the `collection` SigMF object.
   "global": {
     "core:datatype": "cf32_le",
     "core:sample_rate": 1.5360000011967678E7,
-    "core:version": "0.0.2",
+    "core:version": "1.0.0",
     "core:sha512": "5b522660c1406db41a7c05c564b902fa658de8755eaf77a35fea635ff97fd1293fe9e8b799c7ffca70d22cff8fa97cef0633ef29a08bdbc1b629165db72f81e3",
     "core:extensions": [
       {
