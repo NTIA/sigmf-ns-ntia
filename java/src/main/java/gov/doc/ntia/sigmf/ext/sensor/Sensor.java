@@ -7,6 +7,7 @@ import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.environment.Environment;
 import java.io.Serializable;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -14,25 +15,31 @@ public class Sensor implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
+  @Valid
   @NotNull
   @JsonProperty(value = "sensor_spec", required = true)
   protected HardwareSpec sensorSpec;
 
+  @Valid
   @JsonProperty(value = "antenna", required = false)
   protected Antenna antenna;
 
+  @Valid
   @JsonProperty(value = "preselector", required = false)
   protected gov.doc.ntia.sigmf.ext.sensor.Preselector preselector;
 
+  @Valid
   @JsonProperty(value = "signal_analyzer", required = false)
   protected SignalAnalyzer signalAnalyzer;
 
+  @Valid
   @JsonProperty(value = "computer_spec", required = false)
   protected HardwareSpec computerSpec;
 
   @JsonProperty(value = "mobile", required = false)
   protected Boolean mobile;
 
+  @Valid
   @JsonProperty(value = "environment", required = false)
   protected Environment environment;
 

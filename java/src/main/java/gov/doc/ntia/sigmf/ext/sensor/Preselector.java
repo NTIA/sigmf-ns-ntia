@@ -7,6 +7,7 @@ import gov.doc.ntia.sigmf.ext.sensor.Amplifier;
 import gov.doc.ntia.sigmf.ext.sensor.CalSource;
 import gov.doc.ntia.sigmf.ext.sensor.Filter;
 import gov.doc.ntia.sigmf.ext.sensor.RfPath;
+import javax.validation.Valid;
 import java.io.Serializable;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -14,18 +15,23 @@ public class Preselector implements Serializable {
 
   private static final long serialVersionUID = 1L;
 
+  @Valid
   @JsonProperty(value = "preselector_spec", required = false)
   protected HardwareSpec preselectorSpec;
 
+  @Valid
   @JsonProperty(value = "cal_sources", required = false)
   protected gov.doc.ntia.sigmf.ext.sensor.CalSource[] calSources;
 
+  @Valid
   @JsonProperty(value = "filters", required = false)
   protected Filter[] filters;
 
+  @Valid
   @JsonProperty(value = "amplifiers", required = false)
   protected gov.doc.ntia.sigmf.ext.sensor.Amplifier[] amplifiers;
 
+  @Valid
   @JsonProperty(value = "rf_paths", required = false)
   protected RfPath[] rfPaths;
 

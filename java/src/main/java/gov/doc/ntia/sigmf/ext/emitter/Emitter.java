@@ -9,6 +9,7 @@ import gov.doc.ntia.sigmf.ext.environment.Environment;
 import gov.doc.ntia.sigmf.ext.waveform.Waveform;
 import java.io.Serializable;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -26,21 +27,27 @@ public class Emitter implements Serializable {
   @JsonProperty(value = "power", required = false)
   protected Double power;
 
+  @Valid
   @JsonProperty(value = "antenna", required = false)
   protected Antenna antenna;
 
+  @Valid
   @JsonProperty(value = "transmitter", required = false)
   protected HardwareSpec transmitter;
 
+  @Valid
   @JsonProperty(value = "center_frequency", required = false)
   protected Double centerFrequency;
 
+  @Valid
   @JsonProperty(value = "waveform", required = false)
   protected Waveform waveform;
 
+  @Valid
   @JsonProperty(value = "geolocation", required = false)
   protected GeoJsonPoint geolocation;
 
+  @Valid
   @JsonProperty(value = "environment", required = false)
   protected Environment environment;
 

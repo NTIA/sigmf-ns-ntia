@@ -126,9 +126,11 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-scos:recording", required = false)
   protected Integer recording;
 
+  @Valid
   @JsonProperty(value = "ntia-scos:schedule", required = false)
   protected ScheduleEntry schedule;
 
+  @Valid
   @JsonProperty(value = "ntia-scos:action", required = false)
   protected Action action;
 
@@ -136,6 +138,7 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-core:classification", required = true)
   protected String classification;
 
+  @Valid
   @JsonProperty(value = "ntia-algorithm:data_products", required = false)
   protected List<IDataProduct> dataProducts;
 
@@ -152,6 +155,7 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-algorithm:processing")
   protected List<String> processing;
 
+  @Valid
   @JsonProperty(value = "ntia-algorithm:processing_info")
   private List<AbstractProcessing> processingInfo;
 
