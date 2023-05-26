@@ -126,7 +126,7 @@
 					"type": "array",
 					"items": {
 						"anyOf": [{
-								"$ref": "#/$defs/FFT"
+								"$ref": "#/$defs/DFT"
 							},
 							{
 								"$ref": "#/$defs/DigitalFilter"
@@ -831,7 +831,7 @@
 					"$ref": "#/$defs/Computer"
 				},
 				"preselector": {
-					"$ref": "#/$defs/Preselector"
+					"$ref": "#/$defs/PreselectorDiagnostics"
 				},
 				"spu": {
 					"$ref": "#/$defs/SPU"
