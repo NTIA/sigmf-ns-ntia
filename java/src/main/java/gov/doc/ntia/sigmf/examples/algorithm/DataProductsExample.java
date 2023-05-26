@@ -60,6 +60,7 @@ public class DataProductsExample implements Example {
     psd.addSeries("mean");
     psd.setLength(625);
     psd.setYUnits("dBm/Hz");
+    psd.setReference("noise source output");
     DFT fft = new DFT();
     fft.setEquivalentNoiseBandwidth(60323.94);
     // psd.setSamples(875L);
@@ -74,7 +75,7 @@ public class DataProductsExample implements Example {
     tsp.setYUnits("dBm");
     tsp.addSeries("max");
     tsp.addSeries("mean");
-
+    tsp.setReference("noise source output");
     global.addDataProduct(tsp);
 
     Graph pfp = new Graph();
@@ -86,6 +87,7 @@ public class DataProductsExample implements Example {
     pfp.addSeries("max of mean");
     pfp.setLength(560);
     pfp.setYUnits("dBm");
+    pfp.setReference("noise source output");
     global.addDataProduct(pfp);
 
     Graph apd = new Graph();
@@ -94,15 +96,15 @@ public class DataProductsExample implements Example {
     ArrayList<Double> yStep = new ArrayList();
     yStep.add(1.0);
     apd.setYStep(yStep);
+    apd.setReference("noise source output");
     ArrayList<Double> yStop = new ArrayList<>();
     yStop.add(-85.0);
     apd.setYStop(yStop);
     ArrayList<Double> yStart = new ArrayList<>();
     yStart.add(-130.0);
-    global.addDataProcessing(digitalFilter);
+    global.addProcessingInfo(digitalFilter);
     global.addDataProduct(apd);
-    global.addDataProductProcessing("iir_1");
-    global.setDataProductsReference("noise source output");
+    global.addProcessing(digitalFilter.getId());
     metaDoc.setGlobal(global);
     return metaDoc;
   }

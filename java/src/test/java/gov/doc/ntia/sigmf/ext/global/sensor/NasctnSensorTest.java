@@ -101,7 +101,7 @@ public class NasctnSensorTest {
 
   @Test
   public void testDeserializeFft() {
-    List<AbstractProcessing> dataProcessing = metaDoc.getGlobal().getDataProcessing();
+    List<AbstractProcessing> dataProcessing = metaDoc.getGlobal().getProcessingInfo();
     boolean foundFft = false;
     for (AbstractProcessing processing : dataProcessing) {
       if (processing instanceof DFT) {

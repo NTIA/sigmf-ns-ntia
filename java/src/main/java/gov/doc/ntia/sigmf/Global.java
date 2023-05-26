@@ -149,14 +149,11 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-nasctn-sea:median_of_mean_channel_powers")
   protected List<Double> medianOfMeanChannelPowers;
 
-  @JsonProperty(value = "ntia-algorithm:data_products_processing")
-  protected List<String> dataProductsProcessing;
+  @JsonProperty(value = "ntia-algorithm:processing")
+  protected List<String> processing;
 
-  @JsonProperty(value = "ntia-algorithm:data_products_reference")
-  private String dataProductsReference;
-
-  @JsonProperty(value = "ntia-algorithm:data_processing")
-  private List<AbstractProcessing> dataProcessing;
+  @JsonProperty(value = "ntia-algorithm:processing_info")
+  private List<AbstractProcessing> processingInfo;
 
   public Integer getRecording() {
     return recording;
@@ -403,53 +400,45 @@ public class Global implements Serializable {
     this.medianOfMeanChannelPowers = medianOfMeanChannelPowers;
   }
 
-  public String getDataProductsReference() {
-    return dataProductsReference;
+  public List<String> getProcessing() {
+    return processing;
   }
 
-  public void setDataProductsReference(String dataProductsReference) {
-    this.dataProductsReference = dataProductsReference;
+  public void setProcessing(List<String> processing) {
+    this.processing = processing;
   }
 
-  public List<String> getDataProductsProcessing() {
-    return dataProductsProcessing;
-  }
-
-  public void setDataProductsProcessing(List<String> processing) {
-    dataProductsProcessing = processing;
-  }
-
-  public void addDataProductProcessing(String id) {
-    if (dataProductsProcessing == null) {
-      dataProductsProcessing = new ArrayList<>();
+  public void addProcessing(String id) {
+    if (this.processing == null) {
+      this.processing = new ArrayList<>();
     }
-    dataProductsProcessing.add(id);
+    this.processing.add(id);
   }
 
-  public void removeDataProductProcessing(String id) {
-    if (dataProductsProcessing != null) {
-      dataProductsProcessing.remove(id);
+  public void removeProcessing(String id) {
+    if (this.processing != null) {
+      this.processing.remove(id);
     }
   }
 
-  public List<AbstractProcessing> getDataProcessing() {
-    return dataProcessing;
+  public List<AbstractProcessing> getProcessingInfo() {
+    return processingInfo;
   }
 
-  public void setDataProcessing(List<AbstractProcessing> dataProcessing) {
-    this.dataProcessing = dataProcessing;
+  public void setProcessingInfo(List<AbstractProcessing> processingInfo) {
+    this.processingInfo = processingInfo;
   }
 
-  public void addDataProcessing(AbstractProcessing processing) {
-    if (dataProcessing != null) {
-      dataProcessing = new ArrayList<>();
+  public void addProcessingInfo(AbstractProcessing processingInfoObj) {
+    if (this.processingInfo == null) {
+      this.processingInfo = new ArrayList<>();
     }
-    dataProcessing.add(processing);
+    this.processingInfo.add(processingInfoObj);
   }
 
-  public void remove(AbstractProcessing processing) {
-    if (dataProcessing != null) {
-      dataProcessing.remove(processing);
+  public void removeProcessingInfo(AbstractProcessing processingInfoObj) {
+    if (this.processingInfo != null) {
+      this.processingInfo.remove(processingInfoObj);
     }
   }
 
