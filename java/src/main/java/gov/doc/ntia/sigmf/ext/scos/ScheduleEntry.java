@@ -5,6 +5,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -93,6 +94,19 @@ public class ScheduleEntry implements Serializable {
 
   public void setRoles(List<String> roles) {
     this.roles = roles;
+  }
+
+  public void addRole(String role) {
+    if (this.roles == null) {
+      roles = new ArrayList<>();
+    }
+    roles.add(role);
+  }
+
+  public void removeRole(String role) {
+    if (roles != null) {
+      roles.remove(role);
+    }
   }
 
   /**
