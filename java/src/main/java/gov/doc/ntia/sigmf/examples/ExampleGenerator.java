@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.examples.CaptureExample;
 import gov.doc.ntia.sigmf.examples.ext.AlgorithmExample;
 import gov.doc.ntia.sigmf.examples.ext.CoreExample;
 import gov.doc.ntia.sigmf.examples.ext.DiagnosticsExample;
@@ -55,7 +54,7 @@ public class ExampleGenerator {
     save("ntia-sensor.json", sensorExample.getExample());
 
     WaveformExample waveformExample = new WaveformExample();
-    save("waveformExample.json", waveformExample.getExample());
+    save("ntia-waveform.json", waveformExample.getExample());
 
     // Now, generate specific examples
     RadarExample radarExample = new RadarExample();
