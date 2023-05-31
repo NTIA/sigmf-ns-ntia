@@ -1,4 +1,4 @@
-package gov.doc.ntia.sigmf.examples.emitter;
+package gov.doc.ntia.sigmf.examples.ext;
 
 import gov.doc.ntia.sigmf.GeoJsonPoint;
 import gov.doc.ntia.sigmf.Global;
@@ -14,17 +14,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmitterExample implements Example {
-  @Override
-  public MetaDoc getExample() {
+
+  public static Emitter getEmitter() {
     Emitter emitter = new Emitter();
     emitter.setId("N5182B-1");
+    emitter.setDescription("Example emitter");
     emitter.setPower(19d);
+    emitter.setAntenna(CoreExample.getAntenna());
     emitter.setCenterFrequency(435000000d);
+    GeoJsonPoint geolocation = new GeoJsonPoint(40.304983, -79.980916);
+    emitter.setGeolocation(geolocation);
+    return emitter;
+  }
+
+  @Override
+  public MetaDoc getExample() {
+    Emitter emitter = getEmitter();
+
     Waveform waveform = new Waveform();
     waveform.setDescription("continuous wave");
     emitter.setWaveform(waveform);
 
     HardwareSpec antennaSpec = new HardwareSpec();
+    antennaSpec.setId("emitter-antenna");
     antennaSpec.setModel("Cobham_OA2-0.3-10.0V/1505");
     antennaSpec.setDescription("Ultra Wide Band Omni Antenna");
     antennaSpec.setSupplementalInformation(
@@ -48,6 +60,7 @@ public class EmitterExample implements Example {
     emitter.setAntenna(antenna);
 
     HardwareSpec transmitter = new HardwareSpec();
+    transmitter.setId("tx_1");
     transmitter.setModel("N5182B");
     transmitter.setVersion("v1.0.0");
     transmitter.setDescription("Keysight MxG X-series RF Vector Signal Generator");
@@ -61,8 +74,6 @@ public class EmitterExample implements Example {
     emitter.setEnvironment(environment);
 
     Global global = ExampleUtils.getGlobal();
-    GeoJsonPoint geolocation = new GeoJsonPoint(40.304983, -79.980916);
-    global.setGeolocation(geolocation);
     List<Emitter> emitters = new ArrayList<>();
     emitters.add(emitter);
     global.setEmitters(emitters);

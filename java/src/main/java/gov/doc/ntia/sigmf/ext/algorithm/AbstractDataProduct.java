@@ -2,8 +2,12 @@ package gov.doc.ntia.sigmf.ext.algorithm;
 
 import static com.fasterxml.jackson.annotation.JsonTypeInfo.Id.DEDUCTION;
 
-import com.fasterxml.jackson.annotation.JsonProperty;import com.fasterxml.jackson.annotation.JsonSubTypes;
-import com.fasterxml.jackson.annotation.JsonTypeInfo;import javax.validation.constraints.NotNull;import java.util.List;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.List;
 
 @JsonTypeInfo(use = DEDUCTION)
 @JsonSubTypes({@JsonSubTypes.Type(value = Graph.class)})
@@ -40,5 +44,18 @@ public abstract class AbstractDataProduct {
 
   public void setProcessing(List<String> processing) {
     this.processing = processing;
+  }
+
+  public void addProcessing(String processingID) {
+    if (this.processing == null) {
+      processing = new ArrayList<>();
+    }
+    processing.add(processingID);
+  }
+
+  public void removeProcessing(String processingID) {
+    if (this.processing != null) {
+      processing.remove(processingID);
+    }
   }
 }

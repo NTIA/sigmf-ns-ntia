@@ -6,6 +6,7 @@ import gov.doc.ntia.sigmf.ext.core.Antenna;
 import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -22,7 +23,7 @@ public class ExampleUtils {
   public static List<Capture> getCaptures(Date dateTime) {
     int sampleStart = 0;
     Capture capture = new Capture();
-    capture.setSampleStart(0);
+    capture.setSampleStart(sampleStart);
     capture.setDateTime(dateTime);
     capture.setFrequency(700000000.);
     ArrayList<Capture> captures = new ArrayList<>();
@@ -31,7 +32,7 @@ public class ExampleUtils {
   }
 
   /**
-   * Generates a bare bones Global object with data type rf32_le, sample_rate = 2.8E7.
+   * Generates a bare bones Global object with data type rf32_le, sample_rate = 2.8E7, and version 1.0.0.
    *
    * @return Global object.
    */
@@ -39,11 +40,12 @@ public class ExampleUtils {
     Global global = new Global();
     global.setDatatype("rf32_le");
     global.setSampleRate(2.8E7);
+    global.setVersion("1.0.0");
     return global;
   }
 
   /**
-   * Geneartes a bare bones Antenna object with an AntennaSpec with model = 'model xyz'.
+   * Generates a bare bones Antenna object with an AntennaSpec with model = 'model xyz'.
    *
    * @return Antenna object.
    */
@@ -53,5 +55,13 @@ public class ExampleUtils {
     spec.setModel("model xyz");
     antenna.setAntennaSpec(spec);
     return antenna;
+  }
+
+  /**
+   * Generates a Date object with the current datetime.
+   */
+  public static Date getDatetimeNow() {
+    Date now = Calendar.getInstance().getTime();
+    return now;
   }
 }

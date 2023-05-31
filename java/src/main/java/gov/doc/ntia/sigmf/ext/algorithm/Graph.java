@@ -82,6 +82,19 @@ public class Graph<X,Y> extends AbstractDataProduct {
     this.xStart = xStart;
   }
 
+  public void addXStart(Double xStartVal) {
+    if (this.xStart == null) {
+      xStart = new ArrayList<>();
+    }
+    xStart.add(xStartVal);
+  }
+
+  public void removeXStart(Double xStartVal) {
+    if (this.xStart != null) {
+      xStart.remove(xStartVal);
+    }
+  }
+
   public List<Double> getXStop() {
     return xStop;
   }
@@ -90,12 +103,38 @@ public class Graph<X,Y> extends AbstractDataProduct {
     this.xStop = xStop;
   }
 
+  public void addXStop(Double xStopVal) {
+    if (this.xStop == null) {
+      xStop = new ArrayList<>();
+    }
+    xStop.add(xStopVal);
+  }
+
+  public void removeXStop(Double xStopVal) {
+    if (this.xStop != null) {
+      xStop.remove(xStopVal);
+    }
+  }
+
   public List<Double> getXStep() {
     return xStep;
   }
 
   public void setXStep(List<Double> xStep) {
     this.xStep = xStep;
+  }
+
+  public void addXStep(Double xStepVal) {
+    if (this.xStep == null) {
+      xStep = new ArrayList<>();
+    }
+    xStep.add(xStepVal);
+  }
+
+  public void removeXStep(Double xStepVal) {
+    if (this.xStep != null) {
+      xStep.remove(xStepVal);
+    }
   }
 
   public String getYUnits() {
@@ -114,6 +153,19 @@ public class Graph<X,Y> extends AbstractDataProduct {
     this.yStart = yStart;
   }
 
+  public void addYStart(Double yStartVal) {
+    if (this.yStart == null) {
+      yStart = new ArrayList<>();
+    }
+    yStart.add(yStartVal);
+  }
+
+  public void removeYStart(Double yStartVal) {
+    if (this.yStart != null) {
+      yStart.remove(yStartVal);
+    }
+  }
+
   public List<Double> getYStop() {
     return yStop;
   }
@@ -122,12 +174,38 @@ public class Graph<X,Y> extends AbstractDataProduct {
     this.yStop = yStop;
   }
 
+  public void addYStop(Double yStopVal) {
+    if (this.yStop == null) {
+      yStop = new ArrayList<>();
+    }
+    yStop.add(yStopVal);
+  }
+
+  public void removeYStop(Double yStopVal) {
+    if (this.yStop != null) {
+      yStop.remove(yStopVal);
+    }
+  }
+
   public List<Double> getYStep() {
     return yStep;
   }
 
   public void setYStep(List<Double> yStep) {
     this.yStep = yStep;
+  }
+
+  public void addYStep(Double yStepVal) {
+    if (this.yStep == null) {
+      yStep = new ArrayList<>();
+    }
+    yStep.add(yStepVal);
+  }
+
+  public void removeYStep(Double yStepVal) {
+    if (this.yStep != null) {
+      yStep.remove(yStepVal);
+    }
   }
 
   public String getReference() {

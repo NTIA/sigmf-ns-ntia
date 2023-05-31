@@ -4,14 +4,17 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.examples.algorithm.DataProductsExample;
-import gov.doc.ntia.sigmf.examples.algorithm.DigitalFilterExample;
-import gov.doc.ntia.sigmf.examples.capture.CaptureExample;
-import gov.doc.ntia.sigmf.examples.diagnostics.DiagnosticsExample;
-import gov.doc.ntia.sigmf.examples.emitter.EmitterExample;
-import gov.doc.ntia.sigmf.examples.environment.EmitterEnvironmentExample;
-import gov.doc.ntia.sigmf.examples.environment.SensorEnvironmentExample;
-import gov.doc.ntia.sigmf.examples.waveform.WaveformExample;
+import gov.doc.ntia.sigmf.examples.CaptureExample;
+import gov.doc.ntia.sigmf.examples.ext.AlgorithmExample;
+import gov.doc.ntia.sigmf.examples.ext.CoreExample;
+import gov.doc.ntia.sigmf.examples.ext.DiagnosticsExample;
+import gov.doc.ntia.sigmf.examples.ext.EmitterExample;
+import gov.doc.ntia.sigmf.examples.ext.EnvironmentExample;
+import gov.doc.ntia.sigmf.examples.ext.NasctnSeaExample;
+import gov.doc.ntia.sigmf.examples.ext.ScosExample;
+import gov.doc.ntia.sigmf.examples.ext.SensorExample;
+import gov.doc.ntia.sigmf.examples.ext.WaveformExample;
+
 import java.io.File;
 import java.io.IOException;
 
@@ -19,45 +22,47 @@ public class ExampleGenerator {
 
   /**
    * Generates a number of example JSON files to demonstrate the format of various objects specified
-   * in the NTIA SigMF extensions. Note: currently the examples do not necessarily specify values
-   * for all required parameters.
+   * in the NTIA SigMF extensions.
    *
    * @param args None.
    */
   public static void main(String[] args) {
 
-    SensorExample sensorExample = new SensorExample();
-    save("sensor.json", sensorExample.getExample());
+    // First, generate example JSON for all pieces of each extension
 
-    DigitalFilterExample digitalFilterExample = new DigitalFilterExample();
-    save("digitalFilter.json", digitalFilterExample.getExample());
+    AlgorithmExample algorithmExample = new AlgorithmExample();
+    save("ntia-algorithm.json", algorithmExample.getExample());
 
-    DigitalFilterExample digitalFilterAnnotationExample = new DigitalFilterExample();
-    save("digitalFilterAnnotation.json", digitalFilterAnnotationExample.getExample());
+    CoreExample coreExample = new CoreExample();
+    save("ntia-core.json", coreExample.getExample());
+
+    DiagnosticsExample diagnosticsExample = new DiagnosticsExample();
+    save("ntia-diagnostics.json", diagnosticsExample.getExample());
 
     EmitterExample emitterExample = new EmitterExample();
-    save("emitterGlobal.json", emitterExample.getExample());
+    save("ntia-emitter.json", emitterExample.getExample());
 
-    SensorEnvironmentExample sensorEnvironmentExample = new SensorEnvironmentExample();
-    save("sensorEnvironment.json", sensorEnvironmentExample.getExample());
+    EnvironmentExample environmentExample = new EnvironmentExample();
+    save("ntia-environment.json", environmentExample.getExample());
 
-    EmitterEnvironmentExample emitterEnvironmentExample = new EmitterEnvironmentExample();
-    save("emitterEnvironment.json", emitterEnvironmentExample.getExample());
+    NasctnSeaExample nasctnSeaExample = new NasctnSeaExample();
+    save("ntia-nasctn-sea.json", nasctnSeaExample.getExample());
+
+    ScosExample scosExample = new ScosExample();
+    save("ntia-scos.json", scosExample.getExample());
+
+    SensorExample sensorExample = new SensorExample();
+    save("ntia-sensor.json", sensorExample.getExample());
 
     WaveformExample waveformExample = new WaveformExample();
     save("waveformExample.json", waveformExample.getExample());
 
+    // Now, generate specific examples
     RadarExample radarExample = new RadarExample();
     save("radarExample.json", radarExample.getExample());
 
-    DataProductsExample dataProductsExample = new DataProductsExample();
-    save("data_products.json", dataProductsExample.getExample());
-
     CaptureExample captureExample = new CaptureExample();
     save("capture_example.json", captureExample.getExample());
-
-    DiagnosticsExample diagnosticsExample = new DiagnosticsExample();
-    save("diagnostics_example.json", diagnosticsExample.getExample());
   }
 
   private static void save(String filename, MetaDoc example) {

@@ -48,7 +48,7 @@ public class DigitalFilter extends AbstractProcessing implements Serializable {
     return feedbackCoefficients;
   }
 
-  public void setfeedbackCoefficients(Double[] feedbackCoefficients) {
+  public void setFeedbackCoefficients(Double[] feedbackCoefficients) {
     this.feedbackCoefficients = feedbackCoefficients;
   }
 

@@ -1,4 +1,4 @@
-package gov.doc.ntia.sigmf.examples.waveform;
+package gov.doc.ntia.sigmf.examples.ext;
 
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
@@ -12,7 +12,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WaveformExample implements Example {
-  private static Waveform getWaveform() {
+
+  public static Waveform getWaveform() {
+    Waveform waveform = new Waveform();
+    waveform.setModel("Example waveform type");
+    waveform.setDescription("This is just an example description");
+    return waveform;
+  }
+  
+  public static Waveform getIeee80211pWaveform() {
     Ieee80211p waveform = new Ieee80211p();
     CodingRate codingRate = new CodingRate();
     codingRate.setK(1L);
@@ -35,7 +43,7 @@ public class WaveformExample implements Example {
     Emitter emitter = new Emitter();
     emitter.setId("test80211pEmitter");
     emitter.setDescription("Test 80211p emitter");
-    Waveform waveform = getWaveform();
+    Waveform waveform = getIeee80211pWaveform();
     emitter.setWaveform(waveform);
     Global global = ExampleUtils.getGlobal();
     List<Emitter> emitters = new ArrayList<>();
