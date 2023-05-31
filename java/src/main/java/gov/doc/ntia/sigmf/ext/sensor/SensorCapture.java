@@ -17,11 +17,11 @@ public class SensorCapture extends Capture {
 
   @Valid
   @JsonProperty(value = "ntia-sensor:sigan_calibration")
-  protected SiganCalibration siganCalibration;
+  protected Calibration siganCalibration;
 
   @Valid
   @JsonProperty(value = "ntia-sensor:sensor_calibration")
-  protected SensorCalibration sensorCalibration;
+  protected Calibration sensorCalibration;
 
   @JsonProperty(value = "ntia-sensor:duration")
   protected Integer duration;
@@ -38,19 +38,19 @@ public class SensorCapture extends Capture {
     this.overload = overload;
   }
 
-  public SiganCalibration getSiganCalibration() {
+  public Calibration getSiganCalibration() {
     return siganCalibration;
   }
 
-  public void setSiganCalibration(SiganCalibration siganCalibration) {
+  public void setSiganCalibration(Calibration siganCalibration) {
     this.siganCalibration = siganCalibration;
   }
 
-  public SensorCalibration getSensorCalibration() {
+  public Calibration getSensorCalibration() {
     return sensorCalibration;
   }
 
-  public void setSensorCalibration(SensorCalibration sensorCalibration) {
+  public void setSensorCalibration(Calibration sensorCalibration) {
     this.sensorCalibration = sensorCalibration;
   }
 
