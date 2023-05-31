@@ -9,7 +9,6 @@ import gov.doc.ntia.sigmf.ext.algorithm.Graph;
 import gov.doc.ntia.sigmf.ext.algorithm.AbstractDataProduct;
 import gov.doc.ntia.sigmf.ext.diagnostics.Computer;
 import gov.doc.ntia.sigmf.ext.sensor.Calibration;
-import gov.doc.ntia.sigmf.ext.sensor.SensorCapture;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -260,7 +259,7 @@ public class NasctnSensorTest {
     Assertions.assertEquals(15, captureList.size());
     Capture capture = captureList.get(0);
     Assertions.assertEquals(3555000000.0, capture.getFrequency().doubleValue());
-    SensorCapture sensorCapture = (SensorCapture) capture;
+    Capture sensorCapture = (Capture) capture;
     Assertions.assertEquals(false, sensorCapture.getOverload());
     Assertions.assertEquals(4000, sensorCapture.getDuration().intValue());
     Calibration calibration = sensorCapture.getSensorCalibration();

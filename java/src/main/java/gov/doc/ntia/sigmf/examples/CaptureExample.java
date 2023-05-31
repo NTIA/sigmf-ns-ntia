@@ -1,8 +1,8 @@
 package gov.doc.ntia.sigmf.examples;
 
+import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.ext.sensor.SensorCalibration;
-import gov.doc.ntia.sigmf.ext.sensor.SensorCapture;
 import gov.doc.ntia.sigmf.ext.sensor.SiganSettings;
 import java.util.Calendar;
 
@@ -12,7 +12,7 @@ public class CaptureExample implements Example {
   public MetaDoc getExample() {
 
     MetaDoc metaDoc = new MetaDoc();
-    SensorCapture sensorCapture = new SensorCapture();
+    Capture sensorCapture = new Capture();
     sensorCapture.setFrequency(3615000000.0);
     sensorCapture.setDateTime(Calendar.getInstance().getTime());
     sensorCapture.setSampleStart(0);

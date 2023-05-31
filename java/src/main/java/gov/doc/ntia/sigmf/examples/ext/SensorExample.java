@@ -1,5 +1,6 @@
 package gov.doc.ntia.sigmf.examples.ext;
 
+import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
@@ -12,7 +13,6 @@ import gov.doc.ntia.sigmf.ext.sensor.Preselector;
 import gov.doc.ntia.sigmf.ext.sensor.RfPath;
 import gov.doc.ntia.sigmf.ext.sensor.Sensor;
 import gov.doc.ntia.sigmf.ext.sensor.SensorCalibration;
-import gov.doc.ntia.sigmf.ext.sensor.SensorCapture;
 import gov.doc.ntia.sigmf.ext.sensor.SiganCalibration;
 import gov.doc.ntia.sigmf.ext.sensor.SiganSettings;
 import gov.doc.ntia.sigmf.ext.sensor.SignalAnalyzer;
@@ -158,7 +158,7 @@ public class SensorExample implements Example {
     Sensor sensor = getSensor();
     global.setSensor(sensor);
 
-    SensorCapture capture = new SensorCapture();
+    Capture capture = new Capture();
     capture.setSampleStart(0);
     capture.setDuration(100);
     capture.setOverload(false);
