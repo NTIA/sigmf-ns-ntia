@@ -56,9 +56,7 @@ public class ExampleGenerator {
     WaveformExample waveformExample = new WaveformExample();
     save("ntia-waveform.json", waveformExample.getExample());
 
-    // Now, generate specific examples
-    RadarExample radarExample = new RadarExample();
-    save("radarExample.json", radarExample.getExample());
+    // Now, generate any other examples
 
     CaptureExample captureExample = new CaptureExample();
     save("capture_example.json", captureExample.getExample());
