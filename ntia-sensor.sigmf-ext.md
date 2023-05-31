@@ -15,6 +15,8 @@ The `ntia-sensor` extension defines the following datatypes:
 | `Amplifier`      | amplifier specification          | JSON [Amplifier](#05-the-amplifier-object) object specifying an amplifier in the RF path                                          |
 | `Filter`         | filter specification             | JSON [Filter](#06-the-filter-object) object specifying a filter in the RF path                                                    |
 | `RFPath`         | RF path specification            | JSON [RFPath](#07-the-rfpath-object) object specifying an RF path as a combination of a filter, amplifier, and calibration source |
+| `Calibration`    | calibration result               | JSON [Calibration](#08-the-calibration-object) object specifying the results of a calibration                                     |
+| `SiganSettings`  | signal analyzer settings         | JSON [SiganSettings](#09-the-sigansettings-object) object specifying signal analyzer settings                                     |
 
 ### 0.1 The `Sensor` Object
 
