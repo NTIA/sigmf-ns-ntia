@@ -1,7 +1,7 @@
 package gov.doc.ntia.sigmf.examples;
 
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.ext.sensor.Calibration;
+import gov.doc.ntia.sigmf.ext.sensor.SensorCalibration;
 import gov.doc.ntia.sigmf.ext.sensor.SensorCapture;
 import gov.doc.ntia.sigmf.ext.sensor.SiganSettings;
 import java.util.Calendar;
@@ -19,7 +19,7 @@ public class CaptureExample implements Example {
     sensorCapture.setGlobalIndex(0L);
     sensorCapture.setHeaderBytes(0L);
     sensorCapture.setOverload(false);
-    Calibration sensorCalibration = new Calibration();
+    SensorCalibration sensorCalibration = new SensorCalibration();
     sensorCalibration.setGain(31.003);
     sensorCalibration.setNoiseFigure(4.069);
     sensorCapture.setDuration(4000);
