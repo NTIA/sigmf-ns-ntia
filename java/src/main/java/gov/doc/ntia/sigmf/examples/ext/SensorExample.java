@@ -11,7 +11,9 @@ import gov.doc.ntia.sigmf.ext.sensor.Filter;
 import gov.doc.ntia.sigmf.ext.sensor.Preselector;
 import gov.doc.ntia.sigmf.ext.sensor.RfPath;
 import gov.doc.ntia.sigmf.ext.sensor.Sensor;
+import gov.doc.ntia.sigmf.ext.sensor.SensorCalibration;
 import gov.doc.ntia.sigmf.ext.sensor.SensorCapture;
+import gov.doc.ntia.sigmf.ext.sensor.SiganCalibration;
 import gov.doc.ntia.sigmf.ext.sensor.SiganSettings;
 import gov.doc.ntia.sigmf.ext.sensor.SignalAnalyzer;
 
@@ -111,6 +113,34 @@ public class SensorExample implements Example {
     return cal;
   }
 
+  public static SensorCalibration getSensorCalibration() {
+    SensorCalibration cal = new SensorCalibration();
+    cal.setDatetime(ExampleUtils.getDatetimeNow());
+    cal.setGain(30.0);
+    cal.setNoiseFigure(4.9);
+    cal.setCompressionPoint(33.0);
+    cal.setEnbw(10000000.0);
+    cal.setMeanNoisePower(-100.0);
+    cal.setMeanNoisePowerUnits("dBm");
+    cal.setReference("antenna terminal");
+    cal.setTemperature(28.0);
+    return cal;
+  }
+
+  public static SiganCalibration getSiganCalibration() {
+    SiganCalibration cal = new SiganCalibration();
+    cal.setDatetime(ExampleUtils.getDatetimeNow());
+    cal.setGain(30.0);
+    cal.setNoiseFigure(4.9);
+    cal.setCompressionPoint(33.0);
+    cal.setEnbw(10000000.0);
+    cal.setMeanNoisePower(-100.0);
+    cal.setMeanNoisePowerUnits("dBm");
+    cal.setReference("antenna terminal");
+    cal.setTemperature(28.0);
+    return cal;
+  }
+
   public static SiganSettings getSiganSettings() {
     SiganSettings settings = new SiganSettings();
     settings.setGain(15.0);
@@ -132,9 +162,8 @@ public class SensorExample implements Example {
     capture.setSampleStart(0);
     capture.setDuration(100);
     capture.setOverload(false);
-    Calibration cal = getCalibration();
-    capture.setSensorCalibration(cal);
-    capture.setSiganCalibration(cal);
+    capture.setSensorCalibration(getSensorCalibration());
+    capture.setSiganCalibration(getSiganCalibration());
     capture.setSiganSettings(getSiganSettings());
     metaDoc.addCapture(capture);
     
