@@ -147,10 +147,10 @@ public class Global implements Serializable {
   protected Diagnostics diagnostics;
 
   @JsonProperty(value = "ntia-nasctn-sea:max_of_max_channel_powers")
-  protected List<Double> maxOfMaxChannelPowers;
+  protected Double[] maxOfMaxChannelPowers;
 
   @JsonProperty(value = "ntia-nasctn-sea:median_of_mean_channel_powers")
-  protected List<Double> medianOfMeanChannelPowers;
+  protected Double[] medianOfMeanChannelPowers;
 
   @JsonProperty(value = "ntia-algorithm:processing")
   protected List<String> processing;
@@ -279,6 +279,19 @@ public class Global implements Serializable {
     this.emitters = emitters;
   }
 
+  public void addEmitter(Emitter emitter) {
+    if (this.emitters == null) {
+      emitters = new ArrayList<>();
+    }
+    emitters.add(emitter);
+  }
+
+  public void removeEmitter(Emitter emitter) {
+    if (this.emitters != null) {
+      emitters.remove(emitter);
+    }
+  }
+
   public Integer getTask() {
     return task;
   }
@@ -388,19 +401,19 @@ public class Global implements Serializable {
     this.diagnostics = diagnostics;
   }
 
-  public List<Double> getMaxOfMaxChannelPowers() {
+  public Double[] getMaxOfMaxChannelPowers() {
     return maxOfMaxChannelPowers;
   }
 
-  public void setMaxOfMaxChannelPowers(List<Double> maxOfMaxChannelPowers) {
+  public void setMaxOfMaxChannelPowers(Double[] maxOfMaxChannelPowers) {
     this.maxOfMaxChannelPowers = maxOfMaxChannelPowers;
   }
 
-  public List<Double> getMedianOfMeanChannelPowers() {
+  public Double[] getMedianOfMeanChannelPowers() {
     return medianOfMeanChannelPowers;
   }
 
-  public void setMedianOfMeanChannelPowers(List<Double> medianOfMeanChannelPowers) {
+  public void setMedianOfMeanChannelPowers(Double[] medianOfMeanChannelPowers) {
     this.medianOfMeanChannelPowers = medianOfMeanChannelPowers;
   }
 
