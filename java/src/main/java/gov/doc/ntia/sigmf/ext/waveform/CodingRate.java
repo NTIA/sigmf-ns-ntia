@@ -1,11 +1,10 @@
 package gov.doc.ntia.sigmf.ext.waveform;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import java.io.Serializable;
 import java.util.ArrayList;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CodingRate extends ArrayList<Long> implements Serializable {
+public class CodingRate extends ArrayList<Long> {
 
   private static final long serialVersionUID = 1L;
 

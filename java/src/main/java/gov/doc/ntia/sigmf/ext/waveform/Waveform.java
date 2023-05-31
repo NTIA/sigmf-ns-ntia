@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
-import gov.doc.ntia.sigmf.ext.waveform.Ieee80211p;
 import java.io.Serializable;
 
 import javax.validation.constraints.NotNull;

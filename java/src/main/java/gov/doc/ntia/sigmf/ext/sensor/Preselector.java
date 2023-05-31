@@ -3,10 +3,6 @@ package gov.doc.ntia.sigmf.ext.sensor;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
-import gov.doc.ntia.sigmf.ext.sensor.Amplifier;
-import gov.doc.ntia.sigmf.ext.sensor.CalSource;
-import gov.doc.ntia.sigmf.ext.sensor.Filter;
-import gov.doc.ntia.sigmf.ext.sensor.RfPath;
 import javax.validation.Valid;
 import java.io.Serializable;
 
