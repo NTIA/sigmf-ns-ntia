@@ -9,8 +9,6 @@ import gov.doc.ntia.sigmf.ext.scos.ScheduleEntry;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 
-import java.util.ArrayList;
-
 public class ScosExample implements Example {
     
     public static Extension getExtension() {
@@ -23,31 +21,29 @@ public class ScosExample implements Example {
 
     public static ScheduleEntry getScheduleEntry() {
         ScheduleEntry sched = new ScheduleEntry();
-        sched.setId("example_entry");
-        sched.setName("Example_Schedule_Entry");
+        sched.setId("m4s_action_id");
+        sched.setName("M4S_Every_Second");
         sched.setStart(ExampleUtils.getDatetimeNow());
-        sched.setInterval(90);
+        sched.setInterval(1);
         sched.setPriority(10);
-        ArrayList<String> roles = new ArrayList<>();
-        roles.add("admin");
-        roles.add("user");
-        sched.setRoles(roles);
+        sched.addRole("admin");
+        sched.addRole("user");
         sched.setStop(ExampleUtils.getDatetimeNow());
         return sched;
     }
 
     public static Action getAction() {
         Action action = new Action();
-        action.setName("example_action_name");
+        action.setName("example_acquire_m4s");
         action.setDescription("Placeholder text for a high-detail action description");
-        action.setSummary("Some example metadata for a SCOS action");
+        action.setSummary("Example description of an M4S detection action");
         return action;
     }
 
     @Override
     public MetaDoc getExample() {
         MetaDoc metaDoc = new MetaDoc();
-        Global global = new Global();
+        Global global = ExampleUtils.getGlobal();
         global.addExtension(getExtension());
 
         global.setSchedule(getScheduleEntry());

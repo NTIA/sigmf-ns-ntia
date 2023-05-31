@@ -62,31 +62,40 @@ The `ntia-scos` extension does not extend the `collection` SigMF object.
 
 ```json
 {
-  "global": {
-    ...
-    "core:extensions": [
-      {
-        "name": "ntia-scos",
-        "version": "v1.0.0",
-        "optional": true
-      }
-    ],
-    "ntia-scos:action": {
-      "name": "acquire_m4s_700MHz_Verizon_UL",
-      "summary": "Apply M4S detector over 300 1024-pt FFTs at 782 MHz."
+  "global" : {
+    "core:datatype" : "rf32_le",
+    "core:sample_rate" : 2.8E7,
+    "core:version" : "1.0.0",
+    "core:num_channels" : 1,
+    "core:extensions" : [ {
+      "name" : "ntia-core",
+      "version" : "v2.0.0",
+      "optional" : false
+    }, {
+      "name" : "ntia-scos",
+      "version" : "v1.0.0",
+      "optional" : false
+    } ],
+    "ntia-scos:task" : 1,
+    "ntia-scos:recording" : 1,
+    "ntia-scos:schedule" : {
+      "roles" : [ "admin", "user" ],
+      "id" : "m4s_action_id",
+      "name" : "M4S_Every_Second",
+      "stop" : "2023-05-31T19:57:33.341Z",
+      "interval" : 1,
+      "priority" : 10,
+      "start" : "2023-05-31T19:57:33.341Z"
     },
-    "ntia-scos:schedule": {
-      "id": "m4_123",
-      "name": "M4 every Second",
-      "stop": "2020-02-03T15:35Z",
-      "interval": 1,
-      "start": "2020-01-27T15:35:45.000610Z"
+    "ntia-scos:action" : {
+      "name" : "example_acquire_m4s",
+      "description" : "Placeholder text for a high-detail action description",
+      "summary" : "Example description of an M4S detection action"
     },
-    "ntia-scos:task": 1,
-    "ntia-scos:recording": 1,
-    ...
+    "ntia-core:classification" : "UNCLASSIFIED"
   },
-  "captures": [...],
-  "annotations": [...]
+  ...
+  "captures" : [ ... ],
+  "annotations" : [ ... ]
 }
 ```

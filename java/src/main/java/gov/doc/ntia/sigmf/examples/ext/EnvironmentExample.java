@@ -37,6 +37,7 @@ public class EnvironmentExample implements Example {
     MetaDoc metaDoc = new MetaDoc();
     Global global = ExampleUtils.getGlobal();
     global.addExtension(getExtension());
+    global.addExtension(SensorExample.getExtension());
 
     Emitter emitter = new Emitter();
     emitter.setId("EmitterXYZ");

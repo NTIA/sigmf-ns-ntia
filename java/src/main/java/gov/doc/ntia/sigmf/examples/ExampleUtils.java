@@ -43,6 +43,7 @@ public class ExampleUtils {
     global.setSampleRate(2.8E7);
     global.setVersion("1.0.0");
     global.addExtension(CoreExample.getExtension());
+    global.setClassification("UNCLASSIFIED");
     return global;
   }
 

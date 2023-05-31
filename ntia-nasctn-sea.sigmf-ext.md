@@ -29,64 +29,30 @@ The `ntia-nasctn-sea` extension does not extend the `collection` SigMF object.
 
 ## 5 Example
 
+The example shown below uses this extension to record channel power summaries for a 4-channel capture. In this case, the Captures array should have 4 elements.
+
 ```json
 {
-  "global": {
-    "core:version": "v1.0.0",
-    "core:extensions": [
-      {
-        "name": "ntia-nasctn-sea",
-        "version": "v0.4.0",
-        "optional": false
-      }
-    ],
-    "core:geolocation": {
-      "type": "Point",
-      "coordinates": [
-        -100.0,
-        100.0,
-        50.0
-      ]
-    },
-    "core:datatype": "rf16",
-    "core:sample_rate": 14000000.0,
-    "core:num_channels": 15,
-    "ntia-nasctn-sea:max_of_max_channel_powers": [
-      -65.3125,
-      -64.875,
-      -64.375,
-      -64.8125,
-      -75.5625,
-      -55.375,
-      -55.125,
-      -52.90625,
-      -55.09375,
-      -56.75,
-      -56.4375,
-      -70.0625,
-      -70.5625,
-      -47.03125,
-      -42.8125
-    ],
-    "ntia-nasctn-sea:median_of_mean_channel_powers": [
-      -83.875,
-      -84.4375,
-      -83.6875,
-      -82.1875,
-      -93.25,
-      -77.375,
-      -79.25,
-      -74.25,
-      -78.3125,
-      -81.0625,
-      -82.4375,
-      -93.5,
-      -91.875,
-      -92.0625,
-      -85.8125
-    ]
-  }
-  "captures": [... ],
-  "annotations": [ ...]
+  "global" : {
+    "core:datatype" : "rf32_le",
+    "core:sample_rate" : 2.8E7,
+    "core:version" : "1.0.0",
+    "core:num_channels" : 4,
+    "core:extensions" : [ {
+      "name" : "ntia-core",
+      "version" : "v2.0.0",
+      "optional" : false
+    }, {
+      "name" : "ntia-nasctn-sea",
+      "version" : "v1.0.0",
+      "optional" : false
+    } ],
+    "ntia-core:classification" : "UNCLASSIFIED",
+    "ntia-nasctn-sea:max_of_max_channel_powers" : [ -89.0, -93.0, -95.0, -87.0 ],
+    "ntia-nasctn-sea:median_of_mean_channel_powers" : [ -99.0, -103.0, -105.0, -97.0 ]
+  },
+  ...
+  "captures" : [ ... ],
+  "annotations" : [ ... ]
 }
 ```

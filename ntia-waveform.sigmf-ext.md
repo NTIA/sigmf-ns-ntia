@@ -57,27 +57,44 @@ The `ntia-waveform` extension does not extend the `collection` SigMF object.
 
 ```json
 {
-  "global": {
-    "core:datatype": "rf32_le",
-    "core:sample_rate": 2.8E7,
-    "ntia-emitter:emitters": [ {
-      "id": "test80211pEmitter",
-      "description": "Simulated IEEE 802.11p",
-      "waveform": {
-        "model": "IEEE80211p",
-        "info_bit_generation": "random",
-        "coding_rate": [ 1, 2 ],
-        "packet_length": 3200,
-        "modulation": "16QAM",
-        "encoder": "convolutional",
-        "number_of_subcarriers": 64,
-        "number_of_data_subcarriers": 48,
-        "number_of_pilots": 4,
-        "short_inter_frame_space": 80000.0
+  "global" : {
+    "core:datatype" : "rf32_le",
+    "core:sample_rate" : 2.8E7,
+    "core:version" : "1.0.0",
+    "core:num_channels" : 1,
+    "core:extensions" : [ {
+      "name" : "ntia-core",
+      "version" : "v2.0.0",
+      "optional" : false
+    }, {
+      "name" : "ntia-waveform",
+      "version" : "v1.0.0",
+      "optional" : false
+    }, {
+      "name" : "ntia-waveform",
+      "version" : "v1.0.0",
+      "optional" : false
+    } ],
+    "ntia-emitter:emitters" : [ {
+      "id" : "test80211pEmitter",
+      "description" : "Test 80211p emitter",
+      "waveform" : {
+        "model" : "IEEE80211p",
+        "info_bit_generation" : "random",
+        "coding_rate" : [ 1, 2 ],
+        "packet_length" : 3200,
+        "modulation" : "16QAM",
+        "encoder" : "convolutional",
+        "number_of_subcarriers" : 64,
+        "number_of_data_subcarriers" : 48,
+        "number_of_pilots" : 4,
+        "short_inter_frame_space" : 80000.0
       }
-    } ]
-  } ... ,
-  "captures": [ ... ],
-  "annotations": [... ]
+    } ],
+    "ntia-core:classification" : "UNCLASSIFIED"
+  },
+  ...
+  "captures" : [ ... ],
+  "annotations" : [ ... ]
 }
 ```

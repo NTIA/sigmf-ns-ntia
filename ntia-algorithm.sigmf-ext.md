@@ -207,210 +207,134 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
         "optional": false
       },
       {
-        "name": "ntia-environment",
-        "version": "v1.0.0",
-        "optional": false
-      },
-      {
         "name": "ntia-sensor",
         "version": "v2.0.0",
         "optional": false
       },
-      {
-        "name": "ntia-nasctn-sea",
-        "version": "v0.4",
-        "optional": false
-      }
     ],
-    "core:geolocation": {
-      "type": "Point",
-      "coordinates": [
-        -100.0,
-        100.0,
-        50.0
-      ]
-    },
     "core:datatype": "rf16",
     "core:sample_rate": 14000000.0,
     "core:num_channels": 15,
-    "ntia-core:classification":"unclassified",
-    "ntia-sensor:sensor": {
-      "id": "NASCTN SEA Sensor",
-      "sensor_spec": {
-        "id": "NASCTN SEA Sensor",
-        "model": "NASCTN SEA Sensor",
-        "version": "Prototype Rev. 3"
-      }
-    },
-    "ntia-algorithm:data_products": [
-      {
-        "name": "power_spectral_density",
-        "series": [ "max","mean"],
-        "length": 625,
-        "y_units": "dBm/Hz",
-        "x_units": "Hz",
-        "x_start": [-4992000],
-        "x_step": [16000],
-        "x_stop": [4992000],
-        "processing": ["fft"],
-        "reference": "noise source output"
-      },
-      {
-        "name": "time_series_power",
-        "series": ["max", "mean"],
-        "length": 400,
-        "y_units": "dBm",
-        "x_units": "ms",
-        "x_start": [0],
-        "x_stop": [4000],
-        "x_step": [10],
-        "reference": "noise source output"
-      },
-      {
-        "name": "periodic_frame_power",
-        "series": [ "mean of min", "mean of max",
-          "mean of mean", "max of min", "max of max",
-          "max of mean"],
-        "length": 560,
-        "y_units": "dBm",
-        "x_start": [0],
-        "x_stop": [10.0061],
-        "x_step": [0.0179],
-        "x_units": "ms",
-        "reference": "noise source output"
-      },
-      {
-        "name": "amplitude_probability_distribution",
-        "length": 151,
-        "y_units": "dBm",
-        "y_step": [1.0],
-        "y_start": [-180],
-        "y_stop": [-30],
-        "x_units": "percent",
-        "reference": "noise source output"
-      }
-    ],
-    "ntia-algorithm:processing": ["iir_1"],
-    "ntia-algorithm:processing_info": [
-      {
-        "id": "iir_1",
-        "filter_type": "IIR",
-        "feedforward_coefficients": [
-          0.22001755985277486,
-          1.8950858799155859,
-          8.083698129129007,
-          22.28438408611688,
-          43.93585109754826,
-          65.02462875088665,
-          73.93117717291233,
-          65.02462875088665,
-          43.93585109754826,
-          22.284384086116878,
-          8.083698129129007,
-          1.8950858799155853,
-          0.22001755985277483
-        ],
-        "feedback_coefficients": [
-          1.0,
-          5.984606843057637,
-          19.199454663117217,
-          40.791247158352408,
-          63.2429677473874,
-          74.33110989910304,
-          67.69826765401139,
-          47.873252810169407,
-          26.149624421307168,
-          10.75285488653393,
-          3.2164061393115994,
-          0.6363986832562693,
-          0.07408086875619748
-        ],
-        "frequency_cutoff": 5000000.0,
-        "attenuation_cutoff": 40.0
-      },
-      {
-        "id": "fft",
-        "equivalent_noise_bandwidth": 60323.94,
-        "samples": 875,
-        "dfts": 64000,
-        "window": "flattop",
-        "baseband": true
-      }
-    ],
-    "ntia-nasctn-sea:max_of_max_channel_powers": [
-      -65.3125,
-      -64.875,
-      -64.375,
-      -64.8125,
-      -75.5625,
-      -55.375,
-      -55.125,
-      -52.90625,
-      -55.09375,
-      -56.75,
-      -56.4375,
-      -70.0625,
-      -70.5625,
-      -47.03125,
-      -42.8125
-    ],
-    "ntia-nasctn-sea:median_of_mean_channel_powers": [
-      -83.875,
-      -84.4375,
-      -83.6875,
-      -82.1875,
-      -93.25,
-      -77.375,
-      -79.25,
-      -74.25,
-      -78.3125,
-      -81.0625,
-      -82.4375,
-      -93.5,
-      -91.875,
-      -92.0625,
-      -85.8125
-    ],
-    "ntia-diagnostics:diagnostics": {
-      "datetime": "2023-04-06T21:31:39.356Z",
-      "preselector": {
-        "noise_diode_temp": 22.7,
-        "door_closed": false
-      },
-      "spu": {
-        "rf_tray_powered": true,
-        "preselector_powered": true,
-        "28v_aux_powered": true,
-        "pwr_box_temp": 26.0,
-        "rf_box_temp": 26.1,
-        "pwr_box_humidity": 11.2,
-        "sigan_internal_temp": 54.44
-      },
-      "computer": {
-        "cpu_temp": 59.0,
-        "cpu_overheating": false,
-        "cpu_uptime": 21.04,
-        "cpu_max_clock": 4533.5,
-        "cpu_min_clock": 1240.5,
-        "cpu_mean_clock": 3222.1,
-        "action_cpu_usage": 42.1,
-        "system_load_5m": 18.1,
-        "memory_usage": 14.9,
-        "scos_start_time": "2023-04-06T21:28:45.532Z",
-        "scos_uptime": 0.002,
-        "ssd_smart_data": {
-          "test_passed": true,
-          "critical_warning": "0x00",
-          "temp": 35,
-          "available_spare": 100,
-          "available_spare_threshold": 10,
-          "percentage_used": 1,
-          "unsafe_shutdowns": 18,
-          "integrity_errors": 0
-        }
-      },
-      "action_runtime": 81.8970819178503
-    }
+    "ntia-core:classification": "UNCLASSIFIED",
+    "ntia-algorithm:data_products" : [ {
+      "processing" : [ "psd_fft" ],
+      "name" : "power_spectral_density",
+      "description" : "Power spectral density with first and last 125 samples removed, computed from filtered data",
+      "series" : [ "max", "mean" ],
+      "length" : 625,
+      "reference" : "calibration terminal",
+      "xunits" : "Hz",
+      "xstart" : [ -4992000.0 ],
+      "xstep" : [ 16000.0 ],
+      "ystep" : null,
+      "yunits" : "dBm/Hz",
+      "ystop" : null,
+      "ystart" : null,
+      "xstop" : [ 4992000.0 ],
+      "x_units" : "Hz",
+      "x_axis" : null,
+      "x_start" : [ -4992000.0 ],
+      "x_stop" : [ 4992000.0 ],
+      "x_step" : [ 16000.0 ],
+      "y_units" : "dBm/Hz",
+      "y_axis" : null,
+      "y_start" : null,
+      "y_stop" : null,
+      "y_step" : null
+    }, {
+      "processing" : null,
+      "name" : "power_vs_time",
+      "description" : "Time series mean and max power computed from filtered data",
+      "series" : [ "max", "mean" ],
+      "length" : 400,
+      "reference" : "calibration terminal",
+      "xunits" : "ms",
+      "xstart" : [ 0.0 ],
+      "xstep" : [ 10.0 ],
+      "ystep" : null,
+      "yunits" : "dBm",
+      "ystop" : null,
+      "ystart" : null,
+      "xstop" : [ 4000.0 ],
+      "x_units" : "ms",
+      "x_axis" : null,
+      "x_start" : [ 0.0 ],
+      "x_stop" : [ 4000.0 ],
+      "x_step" : [ 10.0 ],
+      "y_units" : "dBm",
+      "y_axis" : null,
+      "y_start" : null,
+      "y_stop" : null,
+      "y_step" : null
+    }, {
+      "processing" : null,
+      "name" : "periodic_frame_power",
+      "description" : "Periodic frame power with (min, max, mean) of mean and max detectors",
+      "series" : [ "max-of-max", "mean-of-max", "min-of-max", "max-of-mean", "mean-of-mean", "min-of-mean" ],
+      "length" : 560,
+      "reference" : "calibration terminal",
+      "xunits" : "ms",
+      "xstart" : [ 0.0 ],
+      "xstep" : [ 0.01785714285 ],
+      "ystep" : null,
+      "yunits" : "dBm",
+      "ystop" : null,
+      "ystart" : null,
+      "xstop" : [ 10.0 ],
+      "x_units" : "ms",
+      "x_axis" : null,
+      "x_start" : [ 0.0 ],
+      "x_stop" : [ 10.0 ],
+      "x_step" : [ 0.01785714285 ],
+      "y_units" : "dBm",
+      "y_axis" : null,
+      "y_start" : null,
+      "y_stop" : null,
+      "y_step" : null
+    }, {
+      "processing" : null,
+      "name" : "amplitude_probability_distribution",
+      "description" : "Downsampled APD with 1 dBm bins",
+      "series" : null,
+      "length" : 151,
+      "reference" : "calibration terminal",
+      "xunits" : "percent",
+      "xstart" : null,
+      "xstep" : null,
+      "ystep" : [ 1.0 ],
+      "yunits" : "dBm",
+      "ystop" : [ -30.0 ],
+      "ystart" : [ -180.0 ],
+      "xstop" : null,
+      "x_units" : "percent",
+      "x_axis" : null,
+      "x_start" : null,
+      "x_stop" : null,
+      "x_step" : null,
+      "y_units" : "dBm",
+      "y_axis" : null,
+      "y_start" : [ -180.0 ],
+      "y_stop" : [ -30.0 ],
+      "y_step" : [ 1.0 ]
+    } ],
+    "ntia-algorithm:processing" : [ "iir_1" ],
+    "ntia-algorithm:processing_info" : [ {
+      "id" : "psd_fft",
+      "description" : "An example DFT object for 1000x 875-sample DFTs, using the flat top window and providing amplitudes at baseband frequencies.",
+      "samples" : 875,
+      "dfts" : 1000,
+      "window" : "flattop",
+      "baseband" : true,
+      "equivalent_noise_bandwidth" : 51546.33
+    }, {
+      "id" : "iir_1",
+      "description" : "An example IIR 5 MHz lowpass filter",
+      "filter_type" : "IIR",
+      "feedforward_coefficients" : [ 0.22001755985277485, 1.8950858799155859, 8.083698129129006, 22.28438408611688, 43.93585109754826, 65.02462875088665, 73.93117717291233, 65.02462875088665, 43.93585109754826, 22.284384086116876, 8.083698129129006, 1.8950858799155852, 0.22001755985277482 ],
+      "feedback_coefficients" : [ 1.0, 5.984606843057637, 19.199454663117216, 40.791247158352405, 63.2429677473874, 74.33110989910304, 67.69826765401139, 47.873252810169404, 26.149624421307166, 10.75285488653393, 3.2164061393115992, 0.6363986832562692, 0.07408086875619747 ],
+      "attenuation_cutoff" : 80.0,
+      "frequency_cutoff" : 5008000.0
+    } ]
   },
   "captures": [
     {

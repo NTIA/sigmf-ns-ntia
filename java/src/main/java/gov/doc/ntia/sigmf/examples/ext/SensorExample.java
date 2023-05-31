@@ -177,6 +177,7 @@ public class SensorExample implements Example {
     capture.setSiganSettings(getSiganSettings());
     metaDoc.addCapture(capture);
     
+    metaDoc.setGlobal(global);
     return metaDoc;
   }
 

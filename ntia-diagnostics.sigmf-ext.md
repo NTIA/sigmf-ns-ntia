@@ -112,62 +112,67 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
 
 ```json
 {
-  "global": {
-    "core:version": "v1.0.0",
-    "core:extensions": [
-      {
-        "name": "ntia-diagnostics",
-        "version": "v1.0.0",
-        "optional": false
-      }
-    ],
-    "core:datatype": "rf16",
-    "core:sample_rate": 14000000.0,
-    "core:num_channels": 15,
-    "ntia-diagnostics:diagnostics": {
-      "datetime": "2023-04-06T21:31:39.356Z",
-      "preselector": {
-        "noise_diode_temp": 22.7,
-        "door_closed": false
-      },
-      "spu": {
-        "rf_tray_powered": true,
-        "preselector_powered": true,
-        "28v_aux_powered": true,
-        "pwr_box_temp": 26.0,
-        "rf_box_temp": 26.1,
-        "pwr_box_humidity": 11.2,
-        "sigan_internal_temp": 54.44
-      },
-      "computer": {
-        "cpu_temp": 59.0,
-        "cpu_overheating": false,
-        "cpu_uptime": 21.04,
-        "cpu_max_clock": 4533.5,
-        "cpu_min_clock": 1240.5,
-        "cpu_mean_clock": 3222.1,
-        "action_cpu_usage": 42.1,
-        "system_load_5m": 18.1,
-        "memory_usage": 14.9,
-        "scos_start_time": "2023-04-06T21:28:45.532Z",
-        "scos_uptime": 0.002,
-        "ssd_smart_data": {
-          "test_passed": true,
-          "critical_warning": "0x00",
-          "temp": 35,
-          "available_spare": 100,
-          "available_spare_threshold": 10,
-          "percentage_used": 1,
-          "unsafe_shutdowns": 18,
-          "integrity_errors": 0
+  "global" : {
+    "core:datatype" : "rf32_le",
+    "core:sample_rate" : 2.8E7,
+    "core:version" : "1.0.0",
+    "core:num_channels" : 1,
+    "core:extensions" : [ {
+      "name" : "ntia-core",
+      "version" : "v2.0.0",
+      "optional" : false
+    }, {
+      "name" : "ntia-diagnostics",
+      "version" : "v1.0.0",
+      "optional" : false
+    } ],
+    "ntia-core:classification": "UNCLASSIFIED",
+    "ntia-diagnostics:diagnostics" : {
+      "computer" : {
+        "cpu_max_clock" : 4800.0,
+        "cpu_min_clock" : 1120.0,
+        "cpu_mean_clock" : 3100.0,
+        "action_cpu_usage" : 44.3,
+        "system_load_5m" : 24.62,
+        "memory_usage" : 23.8,
+        "cpu_temp" : 67.0,
+        "cpu_overheating" : false,
+        "cpu_uptime" : 10.0,
+        "scos_uptime" : 1.0,
+        "scos_start_time" : "2023-05-31T19:39:34.399Z",
+        "ssd_smart_data" : {
+          "temp" : 41.0,
+          "test_passed" : true,
+          "critical_warning" : "0x00",
+          "available_spare" : 100.0,
+          "available_spare_threshold" : 10.0,
+          "percentage_used" : 1.0,
+          "unsafe_shutdowns" : 18,
+          "integrity_errors" : 0
         }
       },
-      "action_runtime": 81.8970819178503
+      "datetime" : "2023-05-31T19:39:34.378Z",
+      "preselector" : {
+        "temp" : 21.6,
+        "humidity" : 65.0,
+        "noise_diode_temp" : 21.8,
+        "lna_temp" : 21.8,
+        "door_closed" : true
+      },
+      "spu" : {
+        "rf_tray_powered" : true,
+        "preselector_powered" : true,
+        "28v_aux_powered" : true,
+        "pwr_box_temp" : 28.8,
+        "rf_box_temp" : 31.4,
+        "pwr_box_humidity" : 11.2,
+        "sigan_internal_temp" : 50.0
+      },
+      "action_runtime" : 100.0
     }
   },
-  "captures": [
-    ...
-  ],
-  "annotations": []
+  ...
+  "captures" : [ ... ],
+  "annotations" : [ ... ]
 }
 ```

@@ -163,137 +163,170 @@ The `ntia-sensor` extension does not extend the `collection` SigMF object.
 
 ```json
 {
-  "global": {
-    "core:extensions": [
-      {
-        "name": "ntia-sensor",
-        "version": "v2.0.0",
-        "required": true
+  "global" : {
+    "core:datatype" : "rf32_le",
+    "core:sample_rate" : 2.8E7,
+    "core:version" : "1.0.0",
+    "core:num_channels" : 1,
+    "core:extensions" : [ {
+      "name" : "ntia-core",
+      "version" : "v2.0.0",
+      "optional" : false
+    }, {
+      "name" : "ntia-sensor",
+      "version" : "v2.0.0",
+      "optional" : false
+    } ],
+    "ntia-sensor:sensor" : {
+      "sensor_spec" : {
+        "id" : "Greyhound_1",
+        "model" : "Example model",
+        "version" : "v1.0",
+        "description" : "Example description",
+        "supplemental_information" : "Example supplemental information"
       },
-      {
-        "name": "ntia-environment",
-        "version": "v2.0.0",
-        "required": true
-      }
-    ],
-    "ntia-sensor:sensor": {
-      "sensor_spec": {
-        "id": "bh-5",
-        "model": "bassethound",
-        "version": "v1.0.0",
-        "description": ""
-      },
-      "antenna": {
-        "antenna_spec": {
-          "model": "ARA BSB-26",
-          "description": "RF antenna ideally suited for reception of signals on the horizon for nautical and broadband surveillance applications"
+      "antenna" : {
+        "antenna_spec" : {
+          "id" : "123-xyzpdq",
+          "model" : "Example model",
+          "version" : "v1.0",
+          "description" : "Example description",
+          "supplemental_information" : "Example supplemental information"
         },
-        "type": "Omni-directional",
-        "frequency_low": 2000000000.0,
-        "frequency_high": 6000000000.0,
-        "gain": 0.0,
-        "polarization": "Slant",
-        "cross_polar_discrimination": 13.0,
-        "horizontal_beamwidth": 360.0,
-        "vertical_beamwidth": 68.38,
-        "voltage_standing_wave_ratio": 2.0,
-        "cable_loss": 0.79,
-        "steerable": false
+        "type" : "omnidirectional",
+        "frequency_low" : 3.0E8,
+        "frequency_high" : 3.0E9,
+        "gain" : 2.0,
+        "polarization" : "vertical",
+        "cross_polar_discrimination" : 9.1,
+        "horizontal_gain_pattern" : [ 1.0, 2.0, 3.0 ],
+        "vertical_gain_pattern" : [ 4.0, 5.0, 6.0 ],
+        "horizontal_beamwidth" : 360.0,
+        "vertical_beamwidth" : 10.0,
+        "voltage_standing_wave_ratio" : 1.5,
+        "cable_loss" : 1.0,
+        "steerable" : false,
+        "azimuth_angle" : 0.0,
+        "elevation_angle" : 5.0
       },
-      "preselector": {
-        "cal_sources": [
-          {
-            "cal_source_spec": {
-              "id": "37501",
-              "model": "Mercury Systems NS36B-1",
-              "supplemental_information": "https://www.everythingrf.com/products/noise-sources/mercury-systems/608-220-ns346b-1"
-            },
-            "type": "Calibrated noise source",
-            "enr": "14.53 dB"
-          }
-        ],
-        "filters": [
-          {
-            "filter_spec": {
-              "id": "13FV40-00014, SN 6",
-              "model": "K&L 13FV40-3550/U200-o/o",
-              "supplemental_information": "http://www.klfilterwizard.com/klfwpart.aspx?FWS=1112001&PN=13FV40-3550%2fU200-O%2fO"
-            },
-            "frequency_low_passband": 3430000000.0,
-            "frequency_high_passband": 3670000000.0,
-            "frequency_low_stopband": 3390000000.0,
-            "frequency_high_stopband": 3710000000.0
-          },
-          {}
-        ],
-        "amplifiers": [
-          {
-            "amplifier_spec": {
-              "id": "1904044",
-              "model": "MITEQ AFS3-02000400-30-25P-6",
-              "supplemental_information": "https://nardamiteq.com/docs/MITEQ_Amplifier-AFS.JS_c41.pdf"
-            },
-            "gain": 32.85,
-            "noise_figure": 2.59,
-            "max_power": 13.0
-          }
-        ],
-        "rf_paths": [
-          {
-            "id": "Path 1",
-            "cal_source_id": "37501",
-            "filter_id": "13FV40-00014, SN 6",
-            "amplifier_id": "1904044"
-          },
-          {
-            "id": "Bypass",
-            "cal_source_id": "37501"
-          }
-        ]
-      },
-      "signal_analyzer": {
-        "sigan_spec": {
-          "id": "502725",
-          "model": "Keysight N6841A",
-          "supplemental_information": "https://www.keysight.com/us/en/assets/7018-02113/data-sheets/5990-3839.pdf"
+      "preselector" : {
+        "preselector_spec" : {
+          "id" : "preselector_1",
+          "model" : "Example model",
+          "version" : "v1.0",
+          "description" : "Example description",
+          "supplemental_information" : "Example supplemental information"
         },
-        "frequency_low": 20000000.0,
-        "frequency_high": 6000000000.0,
-        "noise_figure": 20.0,
-        "max_power": 20.0,
-        "a2d_bits": 14
+        "cal_sources" : [ {
+          "cal_source_spec" : {
+            "id" : "noise_diode_1",
+            "model" : "Example model",
+            "version" : "v1.0",
+            "description" : "Example description",
+            "supplemental_information" : "Example supplemental information"
+          },
+          "type" : "Calibrated noise diode",
+          "enr" : 15.0
+        } ],
+        "filters" : [ {
+          "filter_spec" : {
+            "id" : "filter_1",
+            "model" : "Example model",
+            "version" : "v1.0",
+            "description" : "Example description",
+            "supplemental_information" : "Example supplemental information"
+          },
+          "frequency_low_passband" : 7.0E8,
+          "frequency_high_passband" : 7.5E8,
+          "frequency_low_stopband" : 7.0E8,
+          "frequency_high_stopband" : 7.5E8
+        } ],
+        "amplifiers" : [ {
+          "amplifier_spec" : {
+            "id" : "lna_1",
+            "model" : "Example model",
+            "version" : "v1.0",
+            "description" : "Example description",
+            "supplemental_information" : "Example supplemental information"
+          },
+          "gain" : 30.0,
+          "noise_figure" : 2.5,
+          "max_power" : 35.0
+        } ],
+        "rf_paths" : [ {
+          "id" : "path_1",
+          "cal_source_id" : "noise_diode_1",
+          "filter_id" : "filter_1",
+          "amplifier_id" : "lna_1"
+        } ]
       },
-      "computer_spec": {
-        "id": "MC 9",
-        "description": "Custom computer with Intel i7 processor, MSI motherboard, 16 GB of Ram and running Windows 7"
+      "signal_analyzer" : {
+        "sigan_spec" : {
+          "id" : "875649305NLDKDJN",
+          "model" : "Example model",
+          "version" : "v1.0",
+          "description" : "Example description",
+          "supplemental_information" : "Example supplemental information"
+        },
+        "frequency_low" : 1.0E8,
+        "frequency_high" : 7.0E8,
+        "noise_figure" : 20.0,
+        "max_power" : 35.0,
+        "a2d_bits" : 16
       },
-      "environment": {
-        "category": "Outside. Coastal."
-      }
+      "computer_spec" : {
+        "id" : "Example_PC",
+        "model" : "Example model",
+        "version" : "v1.0",
+        "description" : "Example description",
+        "supplemental_information" : "Example supplemental information"
+      },
+      "mobile" : false,
+      "environment" : {
+        "temperature" : 100.0,
+        "humidity" : 50.0,
+        "weather" : "overcast",
+        "category" : "outdoor",
+        "description" : "A fake example environment"
+      },
+      "sensor_sha512" : "657bd59b8e46609411b9ba53d77fbc1dee75885fc6f3e4a744c6cfd80e2d85279a940f3e749733e91a2289cf728b83e0d76befb44b356d7933dc236f8f742556"
     },
-    "ntia-sensor:calibration_datetime": "2018-01-01T10:49:58.236Z"
+    "ntia-core:classification" : "UNCLASSIFIED"
   },
-  "captures": [
-    {
-      "core:frequency": 3545000000.0,
-      "core:datetime": "2023-04-14T17:04:20.118Z",
-      "ntia-sensor:overload": true,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 4.649,
-        "gain": 30.708,
-        "temperature": 24.2,
-        "datetime": "2023-04-14T17:01:03.679Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 0
+  ...
+  "captures" : [ {
+    "core:sample_start" : 0,
+    "ntia-sensor:overload" : false,
+    "ntia-sensor:sigan_calibration" : {
+      "gain" : 30.0,
+      "temperature" : 28.0,
+      "datetime" : "2023-05-31T19:59:19.651Z",
+      "enbw" : 1.0E7,
+      "reference" : "antenna terminal",
+      "noise_figure" : 4.9,
+      "1db_compression_point" : 33.0,
+      "mean_noise_power" : -100.0,
+      "mean_noise_power_units" : "dBm"
+    },
+    "ntia-sensor:sensor_calibration" : {
+      "gain" : 30.0,
+      "temperature" : 28.0,
+      "datetime" : "2023-05-31T19:59:19.651Z",
+      "enbw" : 1.0E7,
+      "reference" : "antenna terminal",
+      "noise_figure" : 4.9,
+      "1db_compression_point" : 33.0,
+      "mean_noise_power" : -100.0,
+      "mean_noise_power_units" : "dBm"
+    },
+    "ntia-sensor:duration" : 100,
+    "ntia-sensor:sigan_settings" : {
+      "attenuation" : 10.0,
+      "gain" : 15.0,
+      "reference_level" : -33.0,
+      "preamp_enable" : true
     }
-    ...
-  ],
-  "annotations": []
+  } ],
+  "annotations" : [ ... ]
 }
 ```

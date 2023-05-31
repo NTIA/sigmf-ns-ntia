@@ -1,6 +1,7 @@
 package gov.doc.ntia.sigmf.examples.ext;
 
 import gov.doc.ntia.sigmf.examples.Example;
+import gov.doc.ntia.sigmf.examples.ExampleUtils;
 import gov.doc.ntia.sigmf.Extension;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
@@ -12,7 +13,7 @@ public class NasctnSeaExample implements Example {
     public static Extension getExtension() {
         Extension extension = new Extension();
         extension.setName("ntia-nasctn-sea");
-        extension.setVersion("v1.0.0");
+        extension.setVersion("v0.4.0");
         extension.setOptional(false);
         return extension;
     }
@@ -20,8 +21,9 @@ public class NasctnSeaExample implements Example {
     @Override
     public MetaDoc getExample() {
         MetaDoc metaDoc = new MetaDoc();
-        Global global = new Global();
+        Global global = ExampleUtils.getGlobal();
         global.addExtension(getExtension());
+        global.setNumChannels(4L);
 
         ArrayList<Double> maxOfMax = new ArrayList<>();
         maxOfMax.add(-89.0);
