@@ -247,6 +247,19 @@ public class Global implements Serializable {
     this.extensions = extensions;
   }
 
+  public void addExtension(Extension extension) {
+    if (this.extensions == null) {
+      extensions = new ArrayList<>();
+    }
+    extensions.add(extension);
+  }
+
+  public void removeExtension(Extension extension) {
+    if (this.extensions != null) {
+      extensions.remove(extension);
+    }
+  }
+
   public String getDatatype() {
     return datatype;
   }
