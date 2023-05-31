@@ -1,5 +1,6 @@
 package gov.doc.ntia.sigmf.examples.ext;
 
+import gov.doc.ntia.sigmf.Extension;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
@@ -8,6 +9,15 @@ import gov.doc.ntia.sigmf.ext.core.Antenna;
 import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 
 public class CoreExample implements Example {
+
+    public static Extension getExtension() {
+        Extension extension = new Extension();
+        extension.setName("ntia-core");
+        extension.setVersion("v2.0.0");
+        extension.setOptional(false);
+        return extension;
+    }
+    
     public static Antenna getAntenna() {
         Antenna antenna = new Antenna();
         HardwareSpec spec = getHardwareSpec("123-xyzpdq");

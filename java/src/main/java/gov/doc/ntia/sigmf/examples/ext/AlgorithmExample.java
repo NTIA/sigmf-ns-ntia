@@ -1,5 +1,6 @@
 package gov.doc.ntia.sigmf.examples.ext;
 
+import gov.doc.ntia.sigmf.Extension;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
@@ -10,6 +11,14 @@ import gov.doc.ntia.sigmf.ext.algorithm.FilterTypeEnum;
 import gov.doc.ntia.sigmf.ext.algorithm.Graph;
 
 public class AlgorithmExample implements Example {
+
+  public static Extension getExtension() {
+    Extension extension = new Extension();
+    extension.setName("ntia-algorithm");
+    extension.setVersion("v2.0.0");
+    extension.setOptional(false);
+    return extension;
+  }
 
   /** Generates an example IIR filter object. */
   public static DigitalFilter getIIRFilter(String id) {
@@ -173,6 +182,7 @@ public class AlgorithmExample implements Example {
   public MetaDoc getExample() {
     MetaDoc metaDoc = new MetaDoc();
     Global global = ExampleUtils.getGlobal();
+    global.addExtension(getExtension());
 
     DigitalFilter digitalFilter = getIIRFilter("iir_1");
     DFT fft = getDFT("psd_fft");

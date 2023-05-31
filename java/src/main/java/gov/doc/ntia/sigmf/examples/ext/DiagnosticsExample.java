@@ -1,5 +1,6 @@
 package gov.doc.ntia.sigmf.examples.ext;
 
+import gov.doc.ntia.sigmf.Extension;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
@@ -11,6 +12,14 @@ import gov.doc.ntia.sigmf.ext.diagnostics.SPU;
 import gov.doc.ntia.sigmf.ext.diagnostics.SsdSmartData;
 
 public class DiagnosticsExample implements Example {
+
+  public static Extension getExtension() {
+    Extension extension = new Extension();
+    extension.setName("ntia-diagnostics");
+    extension.setVersion("v1.0.0");
+    extension.setOptional(false);
+    return extension;
+  }
 
   public static Diagnostics getDiagnostics() {
     Diagnostics diagnostics = new Diagnostics(); 
@@ -87,6 +96,7 @@ public class DiagnosticsExample implements Example {
   public MetaDoc getExample() {
     MetaDoc metaDoc = new MetaDoc();
     Global global = ExampleUtils.getGlobal();
+    global.addExtension(getExtension());
 
     Diagnostics diagnostics = getDiagnostics();
     global.setDiagnostics(diagnostics);

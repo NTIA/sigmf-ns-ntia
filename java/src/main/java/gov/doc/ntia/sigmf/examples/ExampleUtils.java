@@ -2,6 +2,7 @@ package gov.doc.ntia.sigmf.examples;
 
 import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.Global;
+import gov.doc.ntia.sigmf.examples.ext.CoreExample;
 import gov.doc.ntia.sigmf.ext.core.Antenna;
 import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import java.text.SimpleDateFormat;
@@ -41,6 +42,7 @@ public class ExampleUtils {
     global.setDatatype("rf32_le");
     global.setSampleRate(2.8E7);
     global.setVersion("1.0.0");
+    global.addExtension(CoreExample.getExtension());
     return global;
   }
 

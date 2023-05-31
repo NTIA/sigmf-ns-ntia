@@ -1,6 +1,7 @@
 package gov.doc.ntia.sigmf.examples.ext;
 
 import gov.doc.ntia.sigmf.Capture;
+import gov.doc.ntia.sigmf.Extension;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
@@ -18,6 +19,14 @@ import gov.doc.ntia.sigmf.ext.sensor.SiganSettings;
 import gov.doc.ntia.sigmf.ext.sensor.SignalAnalyzer;
 
 public class SensorExample implements Example {
+
+  public static Extension getExtension() {
+    Extension extension = new Extension();
+    extension.setName("ntia-sensor");
+    extension.setVersion("v2.0.0");
+    extension.setOptional(false);
+    return extension;
+  }
 
   public static Sensor getSensor() {
     Sensor sensor = new Sensor();
@@ -154,6 +163,7 @@ public class SensorExample implements Example {
   public MetaDoc getExample() {
     MetaDoc metaDoc = new MetaDoc();
     Global global = ExampleUtils.getGlobal();
+    global.addExtension(getExtension());
 
     Sensor sensor = getSensor();
     global.setSensor(sensor);

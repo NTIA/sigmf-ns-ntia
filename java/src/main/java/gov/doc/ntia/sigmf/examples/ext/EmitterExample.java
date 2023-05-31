@@ -1,5 +1,6 @@
 package gov.doc.ntia.sigmf.examples.ext;
 
+import gov.doc.ntia.sigmf.Extension;
 import gov.doc.ntia.sigmf.GeoJsonPoint;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
@@ -10,10 +11,16 @@ import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.environment.Environment;
 import gov.doc.ntia.sigmf.ext.waveform.Waveform;
-import java.util.ArrayList;
-import java.util.List;
 
 public class EmitterExample implements Example {
+
+  public static Extension getExtension() {
+    Extension extension = new Extension();
+    extension.setName("ntia-emitter");
+    extension.setVersion("v2.0.0");
+    extension.setOptional(false);
+    return extension;
+  }
 
   public static Emitter getEmitter() {
     Emitter emitter = new Emitter();
@@ -74,9 +81,8 @@ public class EmitterExample implements Example {
     emitter.setEnvironment(environment);
 
     Global global = ExampleUtils.getGlobal();
-    List<Emitter> emitters = new ArrayList<>();
-    emitters.add(emitter);
-    global.setEmitters(emitters);
+    global.addExtension(getExtension());
+    global.addEmitter(emitter);
     MetaDoc metaDoc = new MetaDoc();
     metaDoc.setGlobal(global);
     return metaDoc;

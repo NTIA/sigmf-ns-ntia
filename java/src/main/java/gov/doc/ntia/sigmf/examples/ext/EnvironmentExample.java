@@ -1,5 +1,6 @@
 package gov.doc.ntia.sigmf.examples.ext;
 
+import gov.doc.ntia.sigmf.Extension;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
@@ -9,6 +10,14 @@ import gov.doc.ntia.sigmf.ext.environment.Environment;
 import gov.doc.ntia.sigmf.ext.sensor.Sensor;
 
 public class EnvironmentExample implements Example {
+
+  public static Extension getExtension() {
+    Extension extension = new Extension();
+    extension.setName("ntia-environment");
+    extension.setVersion("v1.0.0");
+    extension.setOptional(false);
+    return extension;
+  }
 
   public static Environment getEnvironment() {
     Environment env = new Environment();
@@ -27,7 +36,7 @@ public class EnvironmentExample implements Example {
   public MetaDoc getExample() {
     MetaDoc metaDoc = new MetaDoc();
     Global global = ExampleUtils.getGlobal();
-    metaDoc.setGlobal(global);
+    global.addExtension(getExtension());
 
     Emitter emitter = new Emitter();
     emitter.setId("EmitterXYZ");
@@ -40,6 +49,7 @@ public class EnvironmentExample implements Example {
     // getSensor uses getEnvironment from above
     Sensor sensor = SensorExample.getSensor();
     global.setSensor(sensor);
+    metaDoc.setGlobal(global);
 
     return metaDoc;
   }

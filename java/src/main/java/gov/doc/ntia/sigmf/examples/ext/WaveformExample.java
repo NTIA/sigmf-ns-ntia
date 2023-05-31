@@ -1,5 +1,6 @@
 package gov.doc.ntia.sigmf.examples.ext;
 
+import gov.doc.ntia.sigmf.Extension;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
@@ -8,10 +9,16 @@ import gov.doc.ntia.sigmf.ext.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.waveform.CodingRate;
 import gov.doc.ntia.sigmf.ext.waveform.Ieee80211p;
 import gov.doc.ntia.sigmf.ext.waveform.Waveform;
-import java.util.ArrayList;
-import java.util.List;
 
 public class WaveformExample implements Example {
+  
+  public static Extension getExtension() {
+    Extension extension = new Extension();
+    extension.setName("ntia-waveform");
+    extension.setVersion("v1.0.0");
+    extension.setOptional(false);
+    return extension;
+  }
 
   public static Waveform getWaveform() {
     Waveform waveform = new Waveform();
@@ -40,16 +47,19 @@ public class WaveformExample implements Example {
 
   @Override
   public MetaDoc getExample() {
+    MetaDoc metaDoc = new MetaDoc();
+    Global global = ExampleUtils.getGlobal();
+    global.addExtension(getExtension());
+    global.addExtension(WaveformExample.getExtension());
+
+    Waveform waveform = getIeee80211pWaveform();
+
     Emitter emitter = new Emitter();
     emitter.setId("test80211pEmitter");
     emitter.setDescription("Test 80211p emitter");
-    Waveform waveform = getIeee80211pWaveform();
     emitter.setWaveform(waveform);
-    Global global = ExampleUtils.getGlobal();
-    List<Emitter> emitters = new ArrayList<>();
-    emitters.add(emitter);
-    global.setEmitters(emitters);
-    MetaDoc metaDoc = new MetaDoc();
+    global.addEmitter(emitter);
+
     metaDoc.setGlobal(global);
     return metaDoc;
   }
