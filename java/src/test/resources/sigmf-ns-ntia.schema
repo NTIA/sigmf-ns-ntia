@@ -182,10 +182,10 @@
 					"$ref": "#/$defs/Calibration"
 				},
 				"ntia-sensor:sigan_calibration": {
-					"$ref": "#/defs/Calibration"
+					"$ref": "#/$defs/Calibration"
 				},
 				"ntia-sensor:sigan_settings": {
-					"$ref": "#/defs/SiganSettings"
+					"$ref": "#/$defs/SiganSettings"
 				}
 			},
 			"required": [
