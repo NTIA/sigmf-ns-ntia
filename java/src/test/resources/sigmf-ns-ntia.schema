@@ -171,7 +171,14 @@
 				"core:datetime": {
 					"type": "string",
 					"format": "date-time"
-				}
+				},
+				"ntia-sensor:duration": {
+					"type": "integer"
+				},
+				"ntia-sensor:overload": {
+					"type": "boolean"
+				},
+				"ntia-sensor:sensor_calibration": 
 			},
 			"required": [
 				"core:sample_start"
@@ -351,6 +358,40 @@
 			},
 			"additionalProperties": false
 		},
+		"Calibration": {
+			"type": "object",
+			"properties": {
+				"datetime": {
+					"type": "string",
+					"format": "date-time" 
+				},
+				"gain": {
+					"type": "number"
+				},
+				"noise_figure": {
+					"type": "number"
+				},
+				"1db_compression_point": {
+					"type": "number"
+				},
+				"enbw": {
+					"type": "number"
+				},
+				"mean_noise_power": {
+					"type": "number"
+				},
+				"mean_noise_power_units": {
+					"type": "string"
+				},
+				"reference": {
+					"type": "string"
+				},
+				"temperature": {
+					"type": "number"
+				}
+			},
+			"additionalProperties": false
+		},
 		"CalSource": {
 			"type": "object",
 			"properties": {
@@ -465,6 +506,24 @@
 			},
 			"additionalProperties": false
 		},
+		"SiganSettings": {
+			"type": "object",
+			"properties": {
+				"gain": {
+					"type": "number"
+				},
+				"reference_level": {
+					"type": "number"
+				},
+				"attenuation": {
+					"type": "number"
+				},
+				"preamp_enable": {
+					"type": "boolean"
+				}
+			},
+			"additionalProperties": false
+		}
 		"Sensor": {
 			"type": "object",
 			"properties": {
