@@ -2,6 +2,7 @@ package gov.doc.ntia.sigmf.ext.algorithm;
 
 import static com.fasterxml.jackson.annotation.JsonTypeInfo.Id.DEDUCTION;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -11,6 +12,7 @@ import java.util.List;
 
 @JsonTypeInfo(use = DEDUCTION)
 @JsonSubTypes({@JsonSubTypes.Type(value = Graph.class)})
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public abstract class AbstractDataProduct {
 
   @JsonProperty(required = false)

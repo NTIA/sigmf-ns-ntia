@@ -122,17 +122,22 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../ext/core/Antenna.html" title="class in gov.doc.ntia.sigmf.ext.core">Antenna</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getAntenna()" class="member-name-link">getAntenna</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Geneartes a bare bones Antenna object with an AntennaSpec with model = 'model xyz'.</div>
+<div class="block">Generates a bare bones Antenna object with an AntennaSpec with model = 'model xyz'.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../Capture.html" title="class in gov.doc.ntia.sigmf">Capture</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getCaptures(java.util.Date)" class="member-name-link">getCaptures</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a>&nbsp;dateTime)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Generates an example Capture.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../Global.html" title="class in gov.doc.ntia.sigmf">Global</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getGlobal()" class="member-name-link">getGlobal</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getDatetimeNow()" class="member-name-link">getDatetimeNow</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
-<div class="block">Generates a bare bones Global object with data type rf32_le, sample_rate = 2.8E7.</div>
+<div class="block">Generates a Date object with the current datetime.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../Global.html" title="class in gov.doc.ntia.sigmf">Global</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getGlobal()" class="member-name-link">getGlobal</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Generates a bare bones Global object with data type rf32_le, sample_rate = 2.8E7, and version 1.0.0.</div>
 </div>
 </div>
 </div>
@@ -196,7 +201,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getGlobal()">
 <h3>getGlobal</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../Global.html" title="class in gov.doc.ntia.sigmf">Global</a></span>&nbsp;<span class="element-name">getGlobal</span>()</div>
-<div class="block">Generates a bare bones Global object with data type rf32_le, sample_rate = 2.8E7.</div>
+<div class="block">Generates a bare bones Global object with data type rf32_le, sample_rate = 2.8E7, and version 1.0.0.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>Global object.</dd>
@@ -207,11 +212,18 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="getAntenna()">
 <h3>getAntenna</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../ext/core/Antenna.html" title="class in gov.doc.ntia.sigmf.ext.core">Antenna</a></span>&nbsp;<span class="element-name">getAntenna</span>()</div>
-<div class="block">Geneartes a bare bones Antenna object with an AntennaSpec with model = 'model xyz'.</div>
+<div class="block">Generates a bare bones Antenna object with an AntennaSpec with model = 'model xyz'.</div>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>Antenna object.</dd>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getDatetimeNow()">
+<h3>getDatetimeNow</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a></span>&nbsp;<span class="element-name">getDatetimeNow</span>()</div>
+<div class="block">Generates a Date object with the current datetime.</div>
 </section>
 </li>
 </ul>

@@ -1,7 +1,9 @@
 package gov.doc.ntia.sigmf;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
 
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class GeoJsonPoint {
 
   protected String type = "Point";

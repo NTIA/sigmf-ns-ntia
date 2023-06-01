@@ -1,12 +1,13 @@
 package gov.doc.ntia.sigmf.ext.algorithm;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.ArrayList;
 import java.util.List;
 import javax.validation.constraints.NotNull;
 
-public class Graph<X,Y> extends AbstractDataProduct {
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
+public class Graph<X, Y> extends AbstractDataProduct {
 
   @JsonProperty(required = false)
   protected List<String> series;

@@ -193,29 +193,21 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
 
 ```json
 {
-  "global": {
-    "core:version": "v1.0.0",
-    "core:extensions": [
-      {
-        "name": "ntia-algorithm",
-        "version": "v2.0.0",
-        "optional": false
-      },
-      {
-        "name": "ntia-core",
-        "version": "v2.0.0",
-        "optional": false
-      },
-      {
-        "name": "ntia-sensor",
-        "version": "v2.0.0",
-        "optional": false
-      },
-    ],
-    "core:datatype": "rf16",
-    "core:sample_rate": 14000000.0,
-    "core:num_channels": 15,
-    "ntia-core:classification": "UNCLASSIFIED",
+  "global" : {
+    "core:datatype" : "rf32_le",
+    "core:sample_rate" : 2.8E7,
+    "core:version" : "1.0.0",
+    "core:num_channels" : 1,
+    "core:extensions" : [ {
+      "name" : "ntia-core",
+      "version" : "v2.0.0",
+      "optional" : false
+    }, {
+      "name" : "ntia-algorithm",
+      "version" : "v2.0.0",
+      "optional" : false
+    } ],
+    "ntia-core:classification" : "UNCLASSIFIED",
     "ntia-algorithm:data_products" : [ {
       "processing" : [ "psd_fft" ],
       "name" : "power_spectral_density",
@@ -224,95 +216,59 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
       "length" : 625,
       "reference" : "calibration terminal",
       "xunits" : "Hz",
-      "xstart" : [ -4992000.0 ],
-      "xstep" : [ 16000.0 ],
-      "ystep" : null,
       "yunits" : "dBm/Hz",
-      "ystop" : null,
-      "ystart" : null,
+      "xstep" : [ 16000.0 ],
       "xstop" : [ 4992000.0 ],
+      "xstart" : [ -4992000.0 ],
       "x_units" : "Hz",
-      "x_axis" : null,
       "x_start" : [ -4992000.0 ],
       "x_stop" : [ 4992000.0 ],
       "x_step" : [ 16000.0 ],
-      "y_units" : "dBm/Hz",
-      "y_axis" : null,
-      "y_start" : null,
-      "y_stop" : null,
-      "y_step" : null
+      "y_units" : "dBm/Hz"
     }, {
-      "processing" : null,
       "name" : "power_vs_time",
       "description" : "Time series mean and max power computed from filtered data",
       "series" : [ "max", "mean" ],
       "length" : 400,
       "reference" : "calibration terminal",
       "xunits" : "ms",
-      "xstart" : [ 0.0 ],
-      "xstep" : [ 10.0 ],
-      "ystep" : null,
       "yunits" : "dBm",
-      "ystop" : null,
-      "ystart" : null,
+      "xstep" : [ 10.0 ],
       "xstop" : [ 4000.0 ],
+      "xstart" : [ 0.0 ],
       "x_units" : "ms",
-      "x_axis" : null,
       "x_start" : [ 0.0 ],
       "x_stop" : [ 4000.0 ],
       "x_step" : [ 10.0 ],
-      "y_units" : "dBm",
-      "y_axis" : null,
-      "y_start" : null,
-      "y_stop" : null,
-      "y_step" : null
+      "y_units" : "dBm"
     }, {
-      "processing" : null,
       "name" : "periodic_frame_power",
       "description" : "Periodic frame power with (min, max, mean) of mean and max detectors",
       "series" : [ "max-of-max", "mean-of-max", "min-of-max", "max-of-mean", "mean-of-mean", "min-of-mean" ],
       "length" : 560,
       "reference" : "calibration terminal",
       "xunits" : "ms",
-      "xstart" : [ 0.0 ],
-      "xstep" : [ 0.01785714285 ],
-      "ystep" : null,
       "yunits" : "dBm",
-      "ystop" : null,
-      "ystart" : null,
+      "xstep" : [ 0.01785714285 ],
       "xstop" : [ 10.0 ],
+      "xstart" : [ 0.0 ],
       "x_units" : "ms",
-      "x_axis" : null,
       "x_start" : [ 0.0 ],
       "x_stop" : [ 10.0 ],
       "x_step" : [ 0.01785714285 ],
-      "y_units" : "dBm",
-      "y_axis" : null,
-      "y_start" : null,
-      "y_stop" : null,
-      "y_step" : null
+      "y_units" : "dBm"
     }, {
-      "processing" : null,
       "name" : "amplitude_probability_distribution",
       "description" : "Downsampled APD with 1 dBm bins",
-      "series" : null,
       "length" : 151,
       "reference" : "calibration terminal",
       "xunits" : "percent",
-      "xstart" : null,
-      "xstep" : null,
-      "ystep" : [ 1.0 ],
       "yunits" : "dBm",
-      "ystop" : [ -30.0 ],
+      "ystep" : [ 1.0 ],
       "ystart" : [ -180.0 ],
-      "xstop" : null,
+      "ystop" : [ -30.0 ],
       "x_units" : "percent",
-      "x_axis" : null,
-      "x_start" : null,
-      "x_stop" : null,
-      "x_step" : null,
       "y_units" : "dBm",
-      "y_axis" : null,
       "y_start" : [ -180.0 ],
       "y_stop" : [ -30.0 ],
       "y_step" : [ 1.0 ]
@@ -336,278 +292,7 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
       "frequency_cutoff" : 5008000.0
     } ]
   },
-  "captures": [
-    {
-      "core:frequency": 3555000000.0,
-      "core:datetime": "2023-04-06T21:30:17.539Z",
-      "ntia-sensor:overload": false,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 6.159,
-        "gain": 23.008,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:29:17.134Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 0
-    },
-    {
-      "core:frequency": 3565000000.0,
-      "core:datetime": "2023-04-06T21:30:24.572Z",
-      "ntia-sensor:overload": false,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 5.662,
-        "gain": 23.826,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:29:20.970Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 5561
-    },
-    {
-      "core:frequency": 3575000000.0,
-      "core:datetime": "2023-04-06T21:30:29.212Z",
-      "ntia-sensor:overload": false,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 5.781,
-        "gain": 23.581,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:29:25.184Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 11122
-    },
-    {
-      "core:frequency": 3585000000.0,
-      "core:datetime": "2023-04-06T21:30:34.219Z",
-      "ntia-sensor:overload": false,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 5.599,
-        "gain": 23.95,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:29:29.543Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 16683
-    },
-    {
-      "core:frequency": 3595000000.0,
-      "core:datetime": "2023-04-06T21:30:39.435Z",
-      "ntia-sensor:overload": false,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 6.133,
-        "gain": 22.916,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:29:33.413Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 22244
-    },
-    {
-      "core:frequency": 3605000000.0,
-      "core:datetime": "2023-04-06T21:30:44.047Z",
-      "ntia-sensor:overload": false,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 6.007,
-        "gain": 24.246,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:29:38.360Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 27805
-    },
-    {
-      "core:frequency": 3615000000.0,
-      "core:datetime": "2023-04-06T21:30:49.851Z",
-      "ntia-sensor:overload": false,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 6.42,
-        "gain": 23.082,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:29:43.220Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 33366
-    },
-    {
-      "core:frequency": 3625000000.0,
-      "core:datetime": "2023-04-06T21:30:54.471Z",
-      "ntia-sensor:overload": false,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 6.126,
-        "gain": 23.348,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:29:46.985Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 38927
-    },
-    {
-      "core:frequency": 3635000000.0,
-      "core:datetime": "2023-04-06T21:30:59.081Z",
-      "ntia-sensor:overload": false,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 5.72,
-        "gain": 24.127,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:29:51.247Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 44488
-    },
-    {
-      "core:frequency": 3645000000.0,
-      "core:datetime": "2023-04-06T21:31:04.096Z",
-      "ntia-sensor:overload": false,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 6.131,
-        "gain": 23.257,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:29:55.695Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 50049
-    },
-    {
-      "core:frequency": 3655000000.0,
-      "core:datetime": "2023-04-06T21:31:09.311Z",
-      "ntia-sensor:overload": false,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 5.79,
-        "gain": 23.964,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:30:00.613Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 55610
-    },
-    {
-      "core:frequency": 3665000000.0,
-      "core:datetime": "2023-04-06T21:31:15.107Z",
-      "ntia-sensor:overload": false,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 6.373,
-        "gain": 22.784,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:30:04.457Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 61171
-    },
-    {
-      "core:frequency": 3675000000.0,
-      "core:datetime": "2023-04-06T21:31:19.727Z",
-      "ntia-sensor:overload": false,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 5.789,
-        "gain": 23.731,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:30:08.362Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 66732
-    },
-    {
-      "core:frequency": 3685000000.0,
-      "core:datetime": "2023-04-06T21:31:24.355Z",
-      "ntia-sensor:overload": true,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 6.267,
-        "gain": 23.017,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:30:12.516Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 72293
-    },
-    {
-      "core:frequency": 3695000000.0,
-      "core:datetime": "2023-04-06T21:31:29.350Z",
-      "ntia-sensor:overload": true,
-      "ntia-sensor:duration": 4000,
-      "ntia-sensor:sensor_calibration": {
-        "noise_figure": 6.041,
-        "gain": 23.427,
-        "temperature": 22.6,
-        "datetime": "2023-04-06T21:30:17.430Z"
-      },
-      "ntia-sensor:sigan_settings": {
-        "reference_level": -25.0,
-        "attenuation": 0.0,
-        "preamp_enable": true
-      },
-      "core:sample_start": 77854
-    }
-  ],
-  "annotations": []
+  "captures" : [ ],
+  "annotations" : [ ]
 }
 ```

@@ -229,6 +229,12 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addDataProduct(gov.doc.ntia.sigmf.ext.algorithm.AbstractDataProduct)" class="member-name-link">addDataProduct</a><wbr>(<a href="ext/algorithm/AbstractDataProduct.html" title="class in gov.doc.ntia.sigmf.ext.algorithm">AbstractDataProduct</a>&nbsp;dataProduct)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addEmitter(gov.doc.ntia.sigmf.ext.emitter.Emitter)" class="member-name-link">addEmitter</a><wbr>(<a href="ext/emitter/Emitter.html" title="class in gov.doc.ntia.sigmf.ext.emitter">Emitter</a>&nbsp;emitter)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addExtension(gov.doc.ntia.sigmf.Extension)" class="member-name-link">addExtension</a><wbr>(<a href="Extension.html" title="class in gov.doc.ntia.sigmf">Extension</a>&nbsp;extension)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addProcessing(java.lang.String)" class="member-name-link">addProcessing</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
@@ -335,6 +341,12 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeDataProduct(gov.doc.ntia.sigmf.ext.algorithm.AbstractDataProduct)" class="member-name-link">removeDataProduct</a><wbr>(<a href="ext/algorithm/AbstractDataProduct.html" title="class in gov.doc.ntia.sigmf.ext.algorithm">AbstractDataProduct</a>&nbsp;dataProduct)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeEmitter(gov.doc.ntia.sigmf.ext.emitter.Emitter)" class="member-name-link">removeEmitter</a><wbr>(<a href="ext/emitter/Emitter.html" title="class in gov.doc.ntia.sigmf.ext.emitter">Emitter</a>&nbsp;emitter)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeExtension(gov.doc.ntia.sigmf.Extension)" class="member-name-link">removeExtension</a><wbr>(<a href="Extension.html" title="class in gov.doc.ntia.sigmf">Extension</a>&nbsp;extension)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeProcessing(java.lang.String)" class="member-name-link">removeProcessing</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</code></div>
@@ -816,6 +828,18 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 </section>
 </li>
 <li>
+<section class="detail" id="addExtension(gov.doc.ntia.sigmf.Extension)">
+<h3>addExtension</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addExtension</span><wbr><span class="parameters">(<a href="Extension.html" title="class in gov.doc.ntia.sigmf">Extension</a>&nbsp;extension)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="removeExtension(gov.doc.ntia.sigmf.Extension)">
+<h3>removeExtension</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeExtension</span><wbr><span class="parameters">(<a href="Extension.html" title="class in gov.doc.ntia.sigmf">Extension</a>&nbsp;extension)</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="getDatatype()">
 <h3>getDatatype</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getDatatype</span>()</div>
@@ -861,6 +885,18 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <section class="detail" id="setEmitters(java.util.List)">
 <h3>setEmitters</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setEmitters</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ext/emitter/Emitter.html" title="class in gov.doc.ntia.sigmf.ext.emitter">Emitter</a>&gt;&nbsp;emitters)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="addEmitter(gov.doc.ntia.sigmf.ext.emitter.Emitter)">
+<h3>addEmitter</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addEmitter</span><wbr><span class="parameters">(<a href="ext/emitter/Emitter.html" title="class in gov.doc.ntia.sigmf.ext.emitter">Emitter</a>&nbsp;emitter)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="removeEmitter(gov.doc.ntia.sigmf.ext.emitter.Emitter)">
+<h3>removeEmitter</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeEmitter</span><wbr><span class="parameters">(<a href="ext/emitter/Emitter.html" title="class in gov.doc.ntia.sigmf.ext.emitter">Emitter</a>&nbsp;emitter)</span></div>
 </section>
 </li>
 <li>

@@ -78,10 +78,6 @@ loadScripts(document, 'script');</script>
 <dt>All Implemented Interfaces:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></code></dd>
 </dl>
-<dl class="notes">
-<dt>Direct Known Subclasses:</dt>
-<dd><code><a href="ext/sensor/SensorCapture.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SensorCapture</a></code></dd>
-</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Capture</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
@@ -109,18 +105,33 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a></code></div>
 <div class="col-second even-row-color"><code><a href="#dateTime" class="member-name-link">dateTime</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#frequency" class="member-name-link">frequency</a></code></div>
+<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#duration" class="member-name-link">duration</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
-<div class="col-second even-row-color"><code><a href="#globalIndex" class="member-name-link">globalIndex</a></code></div>
+<div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
+<div class="col-second even-row-color"><code><a href="#frequency" class="member-name-link">frequency</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#headerBytes" class="member-name-link">headerBytes</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#globalIndex" class="member-name-link">globalIndex</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
+<div class="col-second even-row-color"><code><a href="#headerBytes" class="member-name-link">headerBytes</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#overload" class="member-name-link">overload</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>protected @javax.validation.constraints.NotNull long</code></div>
 <div class="col-second even-row-color"><code><a href="#sampleStart" class="member-name-link">sampleStart</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected @Valid <a href="ext/sensor/SensorCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SensorCalibration</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#sensorCalibration" class="member-name-link">sensorCalibration</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected @Valid <a href="ext/sensor/SiganCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganCalibration</a></code></div>
+<div class="col-second even-row-color"><code><a href="#siganCalibration" class="member-name-link">siganCalibration</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected @Valid <a href="ext/sensor/SiganSettings.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganSettings</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#siganSettings" class="member-name-link">siganSettings</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -151,20 +162,38 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDateTime()" class="member-name-link">getDateTime</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFrequency()" class="member-name-link">getFrequency</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDuration()" class="member-name-link">getDuration</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getGlobalIndex()" class="member-name-link">getGlobalIndex</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFrequency()" class="member-name-link">getFrequency</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHeaderBytes()" class="member-name-link">getHeaderBytes</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getGlobalIndex()" class="member-name-link">getGlobalIndex</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHeaderBytes()" class="member-name-link">getHeaderBytes</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOverload()" class="member-name-link">getOverload</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSampleStart()" class="member-name-link">getSampleStart</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ext/sensor/SensorCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SensorCalibration</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSensorCalibration()" class="member-name-link">getSensorCalibration</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ext/sensor/SiganCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganCalibration</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSiganCalibration()" class="member-name-link">getSiganCalibration</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ext/sensor/SiganSettings.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganSettings</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSiganSettings()" class="member-name-link">getSiganSettings</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDateTime(java.util.Date)" class="member-name-link">setDateTime</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a>&nbsp;dateTime)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDateTime(java.util.Date)" class="member-name-link">setDateTime</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a>&nbsp;dateTime)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDuration(java.lang.Integer)" class="member-name-link">setDuration</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;duration)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFrequency(java.lang.Double)" class="member-name-link">setFrequency</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;frequency)</code></div>
@@ -176,7 +205,19 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setHeaderBytes(java.lang.Long)" class="member-name-link">setHeaderBytes</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&nbsp;headerBytes)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSampleStart(int)" class="member-name-link">setSampleStart</a><wbr>(int&nbsp;sampleStart)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOverload(java.lang.Boolean)" class="member-name-link">setOverload</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;overload)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSampleStart(int)" class="member-name-link">setSampleStart</a><wbr>(int&nbsp;sampleStart)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSensorCalibration(gov.doc.ntia.sigmf.ext.sensor.SensorCalibration)" class="member-name-link">setSensorCalibration</a><wbr>(<a href="ext/sensor/SensorCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SensorCalibration</a>&nbsp;sensorCalibration)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSiganCalibration(gov.doc.ntia.sigmf.ext.sensor.SiganCalibration)" class="member-name-link">setSiganCalibration</a><wbr>(<a href="ext/sensor/SiganCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganCalibration</a>&nbsp;siganCalibration)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSiganSettings(gov.doc.ntia.sigmf.ext.sensor.SiganSettings)" class="member-name-link">setSiganSettings</a><wbr>(<a href="ext/sensor/SiganSettings.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganSettings</a>&nbsp;siganSettings)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -224,6 +265,39 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <section class="detail" id="dateTime">
 <h3>dateTime</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a></span>&nbsp;<span class="element-name">dateTime</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="overload">
+<h3>overload</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a></span>&nbsp;<span class="element-name">overload</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="siganCalibration">
+<h3>siganCalibration</h3>
+<div class="member-signature"><span class="annotations">@Valid
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">@Valid <a href="ext/sensor/SiganCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganCalibration</a></span>&nbsp;<span class="element-name">siganCalibration</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="sensorCalibration">
+<h3>sensorCalibration</h3>
+<div class="member-signature"><span class="annotations">@Valid
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">@Valid <a href="ext/sensor/SensorCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SensorCalibration</a></span>&nbsp;<span class="element-name">sensorCalibration</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="duration">
+<h3>duration</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">duration</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="siganSettings">
+<h3>siganSettings</h3>
+<div class="member-signature"><span class="annotations">@Valid
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type">@Valid <a href="ext/sensor/SiganSettings.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganSettings</a></span>&nbsp;<span class="element-name">siganSettings</span></div>
 </section>
 </li>
 </ul>
@@ -306,6 +380,66 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <section class="detail" id="setSampleStart(int)">
 <h3>setSampleStart</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSampleStart</span><wbr><span class="parameters">(int&nbsp;sampleStart)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="getOverload()">
+<h3>getOverload</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a></span>&nbsp;<span class="element-name">getOverload</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setOverload(java.lang.Boolean)">
+<h3>setOverload</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setOverload</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;overload)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSiganCalibration()">
+<h3>getSiganCalibration</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ext/sensor/SiganCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganCalibration</a></span>&nbsp;<span class="element-name">getSiganCalibration</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setSiganCalibration(gov.doc.ntia.sigmf.ext.sensor.SiganCalibration)">
+<h3>setSiganCalibration</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSiganCalibration</span><wbr><span class="parameters">(<a href="ext/sensor/SiganCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganCalibration</a>&nbsp;siganCalibration)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSensorCalibration()">
+<h3>getSensorCalibration</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ext/sensor/SensorCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SensorCalibration</a></span>&nbsp;<span class="element-name">getSensorCalibration</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setSensorCalibration(gov.doc.ntia.sigmf.ext.sensor.SensorCalibration)">
+<h3>setSensorCalibration</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSensorCalibration</span><wbr><span class="parameters">(<a href="ext/sensor/SensorCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SensorCalibration</a>&nbsp;sensorCalibration)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="getDuration()">
+<h3>getDuration</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">getDuration</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setDuration(java.lang.Integer)">
+<h3>setDuration</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDuration</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;duration)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSiganSettings()">
+<h3>getSiganSettings</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ext/sensor/SiganSettings.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganSettings</a></span>&nbsp;<span class="element-name">getSiganSettings</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setSiganSettings(gov.doc.ntia.sigmf.ext.sensor.SiganSettings)">
+<h3>setSiganSettings</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSiganSettings</span><wbr><span class="parameters">(<a href="ext/sensor/SiganSettings.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganSettings</a>&nbsp;siganSettings)</span></div>
 </section>
 </li>
 </ul>

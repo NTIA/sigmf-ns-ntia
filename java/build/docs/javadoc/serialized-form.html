@@ -173,6 +173,10 @@ loadScripts(document, 'script');</script>
 <pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Date.html" title="class or interface in java.util" class="external-link">Date</a> dateTime</pre>
 </li>
 <li class="block-list">
+<h5>duration</h5>
+<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a> duration</pre>
+</li>
+<li class="block-list">
 <h5>frequency</h5>
 <pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a> frequency</pre>
 </li>
@@ -185,8 +189,24 @@ loadScripts(document, 'script');</script>
 <pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a> headerBytes</pre>
 </li>
 <li class="block-list">
+<h5>overload</h5>
+<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a> overload</pre>
+</li>
+<li class="block-list">
 <h5>sampleStart</h5>
 <pre>@javax.validation.constraints.NotNull long sampleStart</pre>
+</li>
+<li class="block-list">
+<h5>sensorCalibration</h5>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/SensorCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SensorCalibration</a> sensorCalibration</pre>
+</li>
+<li class="block-list">
+<h5>siganCalibration</h5>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/SiganCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganCalibration</a> siganCalibration</pre>
+</li>
+<li class="block-list">
+<h5>siganSettings</h5>
+<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/SiganSettings.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganSettings</a> siganSettings</pre>
 </li>
 </ul>
 </section>
@@ -729,45 +749,6 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="serialized-class-details" id="gov.doc.ntia.sigmf.ext.scos.Filter">
-<h3>Class&nbsp;<a href="gov/doc/ntia/sigmf/ext/scos/Filter.html" title="class in gov.doc.ntia.sigmf.ext.scos">gov.doc.ntia.sigmf.ext.scos.Filter</a></h3>
-<div class="type-signature">class Filter extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a> implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></div>
-<dl class="name-value">
-<dt>serialVersionUID:</dt>
-<dd>1L</dd>
-</dl>
-<ul class="block-list">
-<li>
-<section class="detail">
-<h4>Serialized Fields</h4>
-<ul class="block-list">
-<li class="block-list">
-<h5>filterSpec</h5>
-<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/core/HardwareSpec.html" title="class in gov.doc.ntia.sigmf.ext.core">HardwareSpec</a> filterSpec</pre>
-</li>
-<li class="block-list">
-<h5>frequencyHighPassband</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a> frequencyHighPassband</pre>
-</li>
-<li class="block-list">
-<h5>frequencyHighStopband</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a> frequencyHighStopband</pre>
-</li>
-<li class="block-list">
-<h5>frequencyLowPassband</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a> frequencyLowPassband</pre>
-</li>
-<li class="block-list">
-<h5>frequencyLowStopband</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a> frequencyLowStopband</pre>
-</li>
-</ul>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li>
 <section class="serialized-class-details" id="gov.doc.ntia.sigmf.ext.scos.ScheduleEntry">
 <h3>Class&nbsp;<a href="gov/doc/ntia/sigmf/ext/scos/ScheduleEntry.html" title="class in gov.doc.ntia.sigmf.ext.scos">gov.doc.ntia.sigmf.ext.scos.ScheduleEntry</a></h3>
 <div class="type-signature">class ScheduleEntry extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a> implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></div>
@@ -941,15 +922,15 @@ loadScripts(document, 'script');</script>
 <ul class="block-list">
 <li class="block-list">
 <h5>amplifiers</h5>
-<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/Amplifier.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Amplifier</a>[] amplifiers</pre>
+<pre>@Valid <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="gov/doc/ntia/sigmf/ext/sensor/Amplifier.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Amplifier</a>&gt; amplifiers</pre>
 </li>
 <li class="block-list">
 <h5>calSources</h5>
-<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/CalSource.html" title="class in gov.doc.ntia.sigmf.ext.sensor">CalSource</a>[] calSources</pre>
+<pre>@Valid <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="gov/doc/ntia/sigmf/ext/sensor/CalSource.html" title="class in gov.doc.ntia.sigmf.ext.sensor">CalSource</a>&gt; calSources</pre>
 </li>
 <li class="block-list">
 <h5>filters</h5>
-<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/Filter.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Filter</a>[] filters</pre>
+<pre>@Valid <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="gov/doc/ntia/sigmf/ext/sensor/Filter.html" title="class in gov.doc.ntia.sigmf.ext.sensor">Filter</a>&gt; filters</pre>
 </li>
 <li class="block-list">
 <h5>preselectorSpec</h5>
@@ -957,7 +938,7 @@ loadScripts(document, 'script');</script>
 </li>
 <li class="block-list">
 <h5>rfPaths</h5>
-<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/RfPath.html" title="class in gov.doc.ntia.sigmf.ext.sensor">RfPath</a>[] rfPaths</pre>
+<pre>@Valid <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="gov/doc/ntia/sigmf/ext/sensor/RfPath.html" title="class in gov.doc.ntia.sigmf.ext.sensor">RfPath</a>&gt; rfPaths</pre>
 </li>
 </ul>
 </section>
@@ -1044,41 +1025,6 @@ loadScripts(document, 'script');</script>
 <li class="block-list">
 <h5>signalAnalyzer</h5>
 <pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/SignalAnalyzer.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SignalAnalyzer</a> signalAnalyzer</pre>
-</li>
-</ul>
-</section>
-</li>
-</ul>
-</section>
-</li>
-<li>
-<section class="serialized-class-details" id="gov.doc.ntia.sigmf.ext.sensor.SensorCapture">
-<h3>Class&nbsp;<a href="gov/doc/ntia/sigmf/ext/sensor/SensorCapture.html" title="class in gov.doc.ntia.sigmf.ext.sensor">gov.doc.ntia.sigmf.ext.sensor.SensorCapture</a></h3>
-<div class="type-signature">class SensorCapture extends <a href="gov/doc/ntia/sigmf/Capture.html" title="class in gov.doc.ntia.sigmf">Capture</a> implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a></div>
-<ul class="block-list">
-<li>
-<section class="detail">
-<h4>Serialized Fields</h4>
-<ul class="block-list">
-<li class="block-list">
-<h5>duration</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a> duration</pre>
-</li>
-<li class="block-list">
-<h5>overload</h5>
-<pre><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a> overload</pre>
-</li>
-<li class="block-list">
-<h5>sensorCalibration</h5>
-<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/SensorCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SensorCalibration</a> sensorCalibration</pre>
-</li>
-<li class="block-list">
-<h5>siganCalibration</h5>
-<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/SiganCalibration.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganCalibration</a> siganCalibration</pre>
-</li>
-<li class="block-list">
-<h5>siganSettings</h5>
-<pre>@Valid <a href="gov/doc/ntia/sigmf/ext/sensor/SiganSettings.html" title="class in gov.doc.ntia.sigmf.ext.sensor">SiganSettings</a> siganSettings</pre>
 </li>
 </ul>
 </section>
