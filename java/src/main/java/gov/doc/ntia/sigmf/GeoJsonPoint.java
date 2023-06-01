@@ -83,6 +83,10 @@ public class GeoJsonPoint {
     return coordinates;
   }
 
+  public void setCoordinates(Double[] coordinates){
+    this.coordinates = coordinates;
+  }
+
   public String getType() {
     return type;
   }
