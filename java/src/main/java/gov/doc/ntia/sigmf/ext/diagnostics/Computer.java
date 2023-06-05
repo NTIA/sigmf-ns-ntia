@@ -40,8 +40,8 @@ public class Computer {
   protected Double scosUptime;
 
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
-  @JsonProperty(value = "scos_start_time")
-  protected Date scosStartTime;
+  @JsonProperty(value = "scos_start")
+  protected Date scosStart;
 
   @Valid
   @JsonProperty(value = "ssd_smart_data")
@@ -119,12 +119,12 @@ public class Computer {
     this.cpuUptime = cpuUptime;
   }
 
-  public Date getScosStartTime() {
-    return scosStartTime;
+  public Date getScosStart() {
+    return scosStart;
   }
 
-  public void setScosStartTime(Date scosStartTime) {
-    this.scosStartTime = scosStartTime;
+  public void setScosStart(Date scosStart) {
+    this.scosStart = scosStart;
   }
 
   public Double getScosUptime() {

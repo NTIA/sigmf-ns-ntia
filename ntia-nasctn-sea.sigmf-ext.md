@@ -44,7 +44,7 @@ The example shown below uses this extension to record channel power summaries fo
       "optional" : false
     }, {
       "name" : "ntia-nasctn-sea",
-      "version" : "v1.0.0",
+      "version" : "v0.4.0",
       "optional" : false
     } ],
     "ntia-core:classification" : "UNCLASSIFIED",

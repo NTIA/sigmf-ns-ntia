@@ -20,13 +20,13 @@ Multiple key/value pairs in the objects defined by this extension MUST be ISO-86
 
 `Diagnostics` has the following properties:
 
-| name             |required| type                                              | unit    | description                                                                         |
-|------------------|--------------|---------------------------------------------------|---------|-------------------------------------------------------------------------------------|
-| `datetime`       |false| string                                            |ISO-8601 (see above)| The time at which the diagnostics were gathered. |
+| name             |required| type                                                  | unit    | description                                                                         |
+|------------------|--------------|-------------------------------------------------------|---------|-------------------------------------------------------------------------------------|
+| `datetime`       |false| string                                                |ISO-8601 (see above)| The time at which the diagnostics were gathered. |
 | `preselector`    |false| [Preselector](#02-the-preselector-diagnostics-object) | N/A     | Metadata to capture preselector diagnostics.                                        |
 | `spu`            |false| [SPU](#03-the-spu-diagnostics-object)                 | N/A     | Metadata to capture sensor processing unit diagnostics.                             |
-| `computer`       |false| [CPU](#04-the-computer-diagnostics-object)            | N/A     | Metadata to capture computer diagnostics.                                           |
-| `action_runtime` |false| double                                            | seconds | Total action execution time.                                                        |
+| `computer`       |false| [Computer](#04-the-computer-diagnostics-object)       | N/A     | Metadata to capture computer diagnostics.                                           |
+| `action_runtime` |false| double                                                | seconds | Total action execution time.                                                        |
 
 ### 0.2 The `Preselector` Diagnostics Object
 
@@ -58,19 +58,19 @@ The `SPU` diagnostics object has the following properties, which are defined bas
 
 The `Computer` diagnostics object has the following properties:
 
-| name               |required| type                            | unit           | description                                                                                             |
-|--------------------|--------------|---------------------------------|----------------|---------------------------------------------------------------------------------------------------------|
-| `cpu_min_clock`  |false| double                          | MHz            | Minimum sampled clock speed.                                                                            |
-| `cpu_max_clock`  |false| double                          | MHz            | Maximum sampled clock speed.                                                                            |
-| `cpu_mean_clock` |false| double                          | MHz            | Mean sampled clock speed.                                                                               |
-| `cpu_uptime`        |false| string                          |days| Number of days since the computer started                        |
-| `action_cpu_usage`        |false| double                          | percent        | CPU utilization during action execution.                                                                |
-| `system_load_5m`          |false| double                          | percent        | Number of processes in a runnable state over the previous 5 minutes as a percent of the number of CPUs. |
-| `memory_usage`     |false| double                          | percent        | Average percent of memory used during action execution.                                                  |
-| `cpu_overheating`      |false| boolean                         | N/A            | True if the CPU is overheating.                                                                             |
-| `cpu_temp`             |false| double                          | degree Celsius | CPU temperature.                                                                                   |
-| `scos_start`       |false| string                          |ISO-8601 (see above)| The time at which the SCOS API container started.                   |
-| `scos_uptime`      |false| double                          | days           | Number of days since the SCOS API container started.                                                    |
+| name               |required| type                                                    | unit           | description                                                                                             |
+|--------------------|--------------|---------------------------------------------------------|----------------|---------------------------------------------------------------------------------------------------------|
+| `cpu_min_clock`  |false| double                                                  | MHz            | Minimum sampled clock speed.                                                                            |
+| `cpu_max_clock`  |false| double                                                  | MHz            | Maximum sampled clock speed.                                                                            |
+| `cpu_mean_clock` |false| double                                                  | MHz            | Mean sampled clock speed.                                                                               |
+| `cpu_uptime`        |false| double                                                  |days| Number of days since the computer started                        |
+| `action_cpu_usage`        |false| double                                                  | percent        | CPU utilization during action execution.                                                                |
+| `system_load_5m`          |false| double                                                  | percent        | Number of processes in a runnable state over the previous 5 minutes as a percent of the number of CPUs. |
+| `memory_usage`     |false| double                                                  | percent        | Average percent of memory used during action execution.                                                  |
+| `cpu_overheating`      |false| boolean                                                 | N/A            | True if the CPU is overheating.                                                                             |
+| `cpu_temp`             |false| double                                                  | degree Celsius | CPU temperature.                                                                                   |
+| `scos_start`       |false| string                                                  |ISO-8601 (see above)| The time at which the SCOS API container started.                   |
+| `scos_uptime`      |false| double                                                  | days           | Number of days since the SCOS API container started.                                                    |
 | `ssd_smart_data`   |false| [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) | N/A           | Information provided by the drive Self-Monitoring, Analysis, and Reporting Technology.                  |
 
 ### 0.5 The `SsdSmartData` Diagnostics Object

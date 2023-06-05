@@ -70,10 +70,6 @@ The `ntia-waveform` extension does not extend the `collection` SigMF object.
       "name" : "ntia-waveform",
       "version" : "v1.0.0",
       "optional" : false
-    }, {
-      "name" : "ntia-waveform",
-      "version" : "v1.0.0",
-      "optional" : false
     } ],
     "ntia-emitter:emitters" : [ {
       "id" : "test80211pEmitter",

@@ -19,8 +19,8 @@ An `Emitter` object describes the physical and environmental characteristics of 
 | `id`               |true|string|N/A| Unique ID of the emitter                            |
 | `description`      |false|string|N/A| Description of the emitter                          |
 | `power`            |false|double|dBm| Power referenced to antenna input                   |
-| `antenna`          |false|[Antenna](ntia-core.sigmf-ext.md#02-the-antenna-object)|N/A| Metadata that describes the antenna                 |
-| `transmitter`      |false|[HardwareSpec](ntia-core.sigmf-ext.md#03-the-hardwarespec-object)|N/A| Metadata that describes the transmitter             |
+| `antenna`          |false|[Antenna](ntia-core.sigmf-ext.md#01-the-antenna-object)|N/A| Metadata that describes the antenna                 |
+| `transmitter`      |false|[HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object)|N/A| Metadata that describes the transmitter             |
 | `center_frequency` |false|double|Hz| Center frequency                                    |
 | `waveform`         |false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A| Metadata that describes transmitted waveform        |
 | `geolocation`      |false|GeoJSON point Object|N/A| The location of the emitter                       |

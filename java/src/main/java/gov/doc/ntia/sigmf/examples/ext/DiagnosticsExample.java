@@ -75,7 +75,7 @@ public class DiagnosticsExample implements Example {
     computer.setCpuOverheating(false);
     computer.setCpuUptime(10.0);
     computer.setScosUptime(1.0);
-    computer.setScosStartTime(ExampleUtils.getDatetimeNow());
+    computer.setScosStart(ExampleUtils.getDatetimeNow());
     return computer;
   }
 

@@ -26,11 +26,11 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 | name              | required | type                                                                   | unit | description                                        |
 |-------------------|----------|------------------------------------------------------------------------|------|----------------------------------------------------|
-| `sensor_spec`     | true     | [HardwareSpec](ntia-core.sigmf-ext.md#03-the-hardwarespec-object)      | N/A  | Specifies the sensor                               |
-| `antenna`         | false    | [Antenna](ntia-core.sigmf-ext.md#02-the-antenna-object)                | N/A  | Specifies the antenna                              |
+| `sensor_spec`     | true     | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object)      | N/A  | Specifies the sensor                               |
+| `antenna`         | false    | [Antenna](ntia-core.sigmf-ext.md#01-the-antenna-object)                | N/A  | Specifies the antenna                              |
 | `preselector`     | false    | [Preselector](#03-the-preselector-object)                              | N/A  | Specifies the preselector                          |
 | `signal_analyzer` | false    | [SignalAnalyzer](#02-the-signalanalyzer-object)                        | N/A  | Specifies the signal analyzer                      |
-| `computer_spec`   | false    | [HardwareSpec](ntia-core.sigmf-ext.md#03-the-hardwarespec-object)      | N/A  | Specifies the onboard computer                     |
+| `computer_spec`   | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object)      | N/A  | Specifies the onboard computer                     |
 | `mobile`          | false    | boolean                                                                | N/A  | Whether the sensor is mobile                       |
 | `environment`     | false    | [Environment](ntia-environment.sigmf-ext.md#01-the-environment-object) | N/A  | Specifies the environment surrounding the `Sensor` |
 | `sensor_sha512`   | false    | string                                                                 | N/A  | SHA-512 hash of the sensor definition              |
@@ -41,7 +41,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 | name             | required | type                                                              | unit | description                                                |
 |------------------|----------|-------------------------------------------------------------------|------|------------------------------------------------------------|
-| `sigan_spec`     | false    | [HardwareSpec](ntia-core.sigmf-ext.md#03-the-hardwarespec-object) | N/A  | Metadata to describe/specify the signal analyzer           |
+| `sigan_spec`     | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe/specify the signal analyzer           |
 | `frequency_low`  | false    | double                                                            | Hz   | Low frequency of operational range of the signal analyzer  |
 | `frequency_high` | false    | double                                                            | Hz   | High frequency of operational range of the signal analyzer |
 | `noise_figure`   | false    | double                                                            | dB   | Noise figure of the signal analyzer                        |
@@ -54,7 +54,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 | name               | required | type                                                              | unit | description                                                       |
 |--------------------|----------|-------------------------------------------------------------------|------|-------------------------------------------------------------------|
-| `preselector_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#03-the-hardwarespec-object) | N/A  | Metadata to describe/specify the preselector                      |
+| `preselector_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe/specify the preselector                      |
 | `cal_sources`      | false    | [CalSource[]](#04-the-calsource-object)                           | N/A  | Metadata to describe/specify the preselector calibration source   |
 | `amplifiers`       | false    | [Amplifier[]](#05-the-amplifier-object)                           | N/A  | Metadata to describe/specify the preselector low noise amplifiers |
 | `filters`          | false    | [Filter[]](#06-the-filter-object)                                 | N/A  | Metadata to describe the preselector RF filters                   |
@@ -66,7 +66,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 | name              | required | type                                                              | unit | description                                               |
 |-------------------|----------|-------------------------------------------------------------------|------|-----------------------------------------------------------|
-| `cal_source_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#03-the-hardwarespec-object) | N/A  | Metadata to describe the calibration source specification |
+| `cal_source_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe the calibration source specification |
 | `type`            | false    | string                                                            | N/A  | Type of the calibration source                            |
 | `enr`             | false    | double                                                            | dB   | Excess noise ratio                                        |
 
@@ -76,7 +76,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 | name             | required | type                                                              | unit | description                                      |
 |------------------|----------|-------------------------------------------------------------------|------|--------------------------------------------------|
-| `amplifier_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#03-the-hardwarespec-object) | N/A  | Metadata to describe the amplifier specification |
+| `amplifier_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe the amplifier specification |
 | `gain`           | false    | double                                                            | dB   | Gain of the low noise amplifier                  |
 | `noise_figure`   | false    | double                                                            | dB   | Noise figure of the low noise amplifier          |
 | `max_power`      | false    | double                                                            | dBm  | Maximum power of the low noise amplifier         |
@@ -87,7 +87,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 | name                      | required | type                                       | unit | description                                            |
 |---------------------------|----------|--------------------------------------------|------|--------------------------------------------------------|
-| `filter_spec`             | false    | [HardwareSpec](/ntia-core.sigmf-ext.md#03) | N/A  | Metadata to describe/specify the filter specification. |
+| `filter_spec`             | false    | [HardwareSpec](/ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe/specify the filter specification. |
 | `frequency_low_passband`  | false    | double                                     | Hz   | Low frequency of filter 1 dB passband                  |
 | `frequency_high_passband` | false    | double                                     | Hz   | High frequency of filter 1 dB passband                 |
 | `frequency_low_stopband`  | false    | double                                     | Hz   | Low frequency of filter 60 dB stopband                 |

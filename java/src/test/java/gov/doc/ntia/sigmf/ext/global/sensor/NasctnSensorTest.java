@@ -197,7 +197,7 @@ public class NasctnSensorTest {
     Assertions.assertEquals(42.1, computer.getActionCpuUsage().doubleValue());
     Assertions.assertEquals(18.1, computer.getSystemLoad5m().doubleValue());
     Assertions.assertEquals(14.9, computer.getMemoryUsage().doubleValue());
-    ZonedDateTime zdt = computer.getScosStartTime().toInstant().atZone(ZoneId.of("UTC"));
+    ZonedDateTime zdt = computer.getScosStart().toInstant().atZone(ZoneId.of("UTC"));
     Assertions.assertEquals("2023-04-06T21:28:45.532Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
     Assertions.assertEquals(0.002, computer.getScosUptime().doubleValue());
     Assertions.assertEquals(true, computer.getSmartData().getTestPassed());
@@ -223,7 +223,7 @@ public class NasctnSensorTest {
     Assertions.assertEquals(42.1, computer.getActionCpuUsage().doubleValue());
     Assertions.assertEquals(18.1, computer.getSystemLoad5m().doubleValue());
     Assertions.assertEquals(14.9, computer.getMemoryUsage().doubleValue());
-    ZonedDateTime zdt = computer.getScosStartTime().toInstant().atZone(ZoneId.of("UTC"));
+    ZonedDateTime zdt = computer.getScosStart().toInstant().atZone(ZoneId.of("UTC"));
     Assertions.assertEquals("2023-04-06T21:28:45.532Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
     Assertions.assertEquals(0.002, computer.getScosUptime().doubleValue());
     Assertions.assertEquals(true, computer.getSmartData().getTestPassed());

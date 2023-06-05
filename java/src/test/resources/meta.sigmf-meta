@@ -199,7 +199,7 @@
         "action_cpu_usage": 42.1,
         "system_load_5m": 18.1,
         "memory_usage": 14.9,
-        "scos_start_time": "2023-04-06T21:28:45.532Z",
+        "scos_start": "2023-04-06T21:28:45.532Z",
         "scos_uptime": 0.002,
         "ssd_smart_data": {
           "test_passed": true,
