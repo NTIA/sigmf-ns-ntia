@@ -139,7 +139,7 @@ The `ntia-algorithm` extension adds the following name/value pairs to the `globa
 
 The `processing` array is used to record the IDs of processing objects which apply to ALL data. For example, this may include the ID of a `DigitalFilter` object which provides the metadata of a lowpass filter which was applied to each capture.
 
-The `data_products` array consists of `Graph` objects, which may define additional `processing` object iDs. If the global level `processing` array exists and is not empty, it is assumed that `processing` IDs included in a `Graph` object occurred sequentially, following those recorded in the global level `processing` array. For example, if the global level `processing` object records the ID of a `DigitalFilter` object, and the `processing` field of a `Graph` object in the `data_products` array includes the ID of a `DFT` object, the indication is that the data product is a DFT computed on filtered data.
+The `data_products` array consists of `Graph` objects, which may define additional `processing` object IDs. If the global level `processing` array exists and is not empty, it is assumed that `processing` IDs included in a `Graph` object occurred sequentially, following those recorded in the global level `processing` array. For example, if the global level `processing` object records the ID of a `DigitalFilter` object, and the `processing` field of a `Graph` object in the `data_products` array includes the ID of a `DFT` object, the indication is that the data product is a DFT computed on filtered data.
 
 ## 2 Captures
 
