@@ -3,6 +3,7 @@ package gov.doc.ntia.sigmf;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import gov.doc.ntia.sigmf.ext.scos.Action;
 import gov.doc.ntia.sigmf.ext.scos.ScheduleEntry;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -84,6 +85,23 @@ public class Acquisition implements Serializable {
     return name;
   }
 
+  /**
+   * Get the action that produced the Acquisition, or unknown if it is not in the metadata.
+   * @return The name of the action that produced the Acquisition, or "unknown" if it is not in the metadata.
+   */
+  public String getActionName() {
+    Action action = metaDoc.getGlobal().getAction();
+    if (action == null || action.getName() == null) {
+      return "unknown";
+    } else {
+      return action.getName();
+    }
+  }
+
+  /**
+   * Return the schedule id, or "unknown" if it is not set.
+   * @return  the schedule id, or "unknown" if it is not set.
+   */
   private String getScheduleId() {
     ScheduleEntry scheduleEntry = metaDoc.getGlobal().getSchedule();
     String missingScheduleInfo = "unknown";
