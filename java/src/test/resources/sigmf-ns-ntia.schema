@@ -829,7 +829,7 @@
 				"scos_uptime": {
 					"type": "number"
 				},
-				"scos_start_time": {
+				"scos_start": {
 					"type": "string",
 					"format": "date-time"
 				},
