@@ -3,8 +3,8 @@ package gov.doc.ntia.sigmf;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import gov.doc.ntia.sigmf.ext.global.scos.Action;
-import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
+import gov.doc.ntia.sigmf.ext.scos.Action;
+import gov.doc.ntia.sigmf.ext.scos.ScheduleEntry;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -18,6 +18,7 @@ public class Acquisition implements Serializable {
   @JsonProperty protected MetaDoc metaDoc;
 
   @JsonProperty protected transient ByteBuffer data;
+  private String schedule;
 
   public Acquisition() {}
 
@@ -65,18 +66,19 @@ public class Acquisition implements Serializable {
 
   /**
    * Utility method to create a name for the Acquisition equal to the sensor_sheduleId_taskId.
+   *
    * @return the name for the acquisition.
    */
   public String getName() {
 
-    String sensorId = metaDoc.getGlobal().getSensor().getId();
+    String sensorId = metaDoc.getGlobal().getSensor().getSensorSpec().getId();
     Integer recording = metaDoc.getGlobal().getRecording();
     String taskId = getTaskId();
     String name = sensorId + "_" + getScheduleId();
-    if(taskId != null){
+    if (taskId != null) {
       name += "_" + taskId;
     }
-    if(recording != null){
+    if (recording != null) {
       name += "_" + recording;
     }
 
@@ -85,7 +87,7 @@ public class Acquisition implements Serializable {
 
   /**
    * Get the action that produced the Acquisition, or unknown if it is not in the metadata.
-   * @return The name of the action that produced the Acquisition.
+   * @return The name of the action that produced the Acquisition, or "unknown" if it is not in the metadata.
    */
   public String getActionName() {
     Action action = metaDoc.getGlobal().getAction();
@@ -96,6 +98,10 @@ public class Acquisition implements Serializable {
     }
   }
 
+  /**
+   * Return the schedule id, or "unknown" if it is not set.
+   * @return  the schedule id, or "unknown" if it is not set.
+   */
   private String getScheduleId() {
     ScheduleEntry scheduleEntry = metaDoc.getGlobal().getSchedule();
     String missingScheduleInfo = "unknown";

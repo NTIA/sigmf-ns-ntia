@@ -4,82 +4,62 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.examples.algorithm.DigitalFilterAnnotationExample;
-import gov.doc.ntia.sigmf.examples.algorithm.DigitalFilterExample;
-import gov.doc.ntia.sigmf.examples.algorithm.FrequencyDomainDetectionExample;
-import gov.doc.ntia.sigmf.examples.algorithm.TimeDomainDetectionExample;
-import gov.doc.ntia.sigmf.examples.calibration.CalibrationAnnotationExample;
-import gov.doc.ntia.sigmf.examples.emitter.EmitterExample;
-import gov.doc.ntia.sigmf.examples.environment.EmitterEnvironmentExample;
-import gov.doc.ntia.sigmf.examples.environment.SensorEnvironmentExample;
-import gov.doc.ntia.sigmf.examples.location.GcsWithSpheroidExample;
-import gov.doc.ntia.sigmf.examples.location.ProjectedExample;
-import gov.doc.ntia.sigmf.examples.location.SimpleGcs;
-import gov.doc.ntia.sigmf.examples.location.SpeedAndBearingExample;
-import gov.doc.ntia.sigmf.examples.scos.ScosExample;
-import gov.doc.ntia.sigmf.examples.waveform.WaveformExample;
+import gov.doc.ntia.sigmf.examples.ext.AlgorithmExample;
+import gov.doc.ntia.sigmf.examples.ext.CoreExample;
+import gov.doc.ntia.sigmf.examples.ext.DiagnosticsExample;
+import gov.doc.ntia.sigmf.examples.ext.EmitterExample;
+import gov.doc.ntia.sigmf.examples.ext.EnvironmentExample;
+import gov.doc.ntia.sigmf.examples.ext.NasctnSeaExample;
+import gov.doc.ntia.sigmf.examples.ext.ScosExample;
+import gov.doc.ntia.sigmf.examples.ext.SensorExample;
+import gov.doc.ntia.sigmf.examples.ext.WaveformExample;
+
 import java.io.File;
 import java.io.IOException;
 
 public class ExampleGenerator {
 
   /**
-   * Generates a number of example JSON files to demonstrate the format of various
-   * objects specified in the NTIA SigMF extensions. Note: currently the examples do
-   * not necessarily specify values for all required parameters.
+   * Generates a number of example JSON files to demonstrate the format of various objects specified
+   * in the NTIA SigMF extensions.
+   *
    * @param args None.
    */
   public static void main(String[] args) {
 
-    SensorExample sensorExample = new SensorExample();
-    save("sensor.json", sensorExample.getExample());
+    // First, generate example JSON for all pieces of each extension
 
-    TimeDomainDetectionExample tddExample = new TimeDomainDetectionExample();
-    save("tdd.json", tddExample.getExample());
+    AlgorithmExample algorithmExample = new AlgorithmExample();
+    save("ntia-algorithm.json", algorithmExample.getExample());
 
-    DigitalFilterExample digitalFilterExample = new DigitalFilterExample();
-    save("digitalFilter.json", digitalFilterExample.getExample());
+    CoreExample coreExample = new CoreExample();
+    save("ntia-core.json", coreExample.getExample());
 
-    FrequencyDomainDetectionExample frequencyDomainDetection =
-        new FrequencyDomainDetectionExample();
-    save("frequencyDomainDetection.json", frequencyDomainDetection.getExample());
-
-    DigitalFilterAnnotationExample digitalFilterAnnotationExample =
-        new DigitalFilterAnnotationExample();
-    save("digitalFilterAnnotation.json", digitalFilterAnnotationExample.getExample());
-
-    CalibrationAnnotationExample cal = new CalibrationAnnotationExample();
-    save("calibration.json", cal.getExample());
+    DiagnosticsExample diagnosticsExample = new DiagnosticsExample();
+    save("ntia-diagnostics.json", diagnosticsExample.getExample());
 
     EmitterExample emitterExample = new EmitterExample();
-    save("emitterGlobal.json", emitterExample.getExample());
+    save("ntia-emitter.json", emitterExample.getExample());
 
-    SensorEnvironmentExample sensorEnvironmentExample = new SensorEnvironmentExample();
-    save("sensorEnvironment.json", sensorEnvironmentExample.getExample());
+    EnvironmentExample environmentExample = new EnvironmentExample();
+    save("ntia-environment.json", environmentExample.getExample());
 
-    EmitterEnvironmentExample emitterEnvironmentExample = new EmitterEnvironmentExample();
-    save("emitterEnvironment.json", emitterEnvironmentExample.getExample());
-
-    WaveformExample waveformExample = new WaveformExample();
-    save("waveformExample.json", waveformExample.getExample());
-
-    RadarExample radarExample = new RadarExample();
-    save("radarExample.json", radarExample.getExample());
-
-    GcsWithSpheroidExample gcsExample = new GcsWithSpheroidExample();
-    save("gcsExample.json", gcsExample.getExample());
-
-    ProjectedExample projectedExample = new ProjectedExample();
-    save("projectedSpatialRef.json", projectedExample.getExample());
-
-    SpeedAndBearingExample speedAndBearingExample = new SpeedAndBearingExample();
-    save("speedAndBearing.json", speedAndBearingExample.getExample());
-
-    SimpleGcs simpleGcs = new SimpleGcs();
-    save("simpleGcs.json", simpleGcs.getExample());
+    NasctnSeaExample nasctnSeaExample = new NasctnSeaExample();
+    save("ntia-nasctn-sea.json", nasctnSeaExample.getExample());
 
     ScosExample scosExample = new ScosExample();
-    save("scos.json", scosExample.getExample());
+    save("ntia-scos.json", scosExample.getExample());
+
+    SensorExample sensorExample = new SensorExample();
+    save("ntia-sensor.json", sensorExample.getExample());
+
+    WaveformExample waveformExample = new WaveformExample();
+    save("ntia-waveform.json", waveformExample.getExample());
+
+    // Now, generate any other examples
+
+    CaptureExample captureExample = new CaptureExample();
+    save("capture_example.json", captureExample.getExample());
   }
 
   private static void save(String filename, MetaDoc example) {
@@ -92,8 +72,4 @@ public class ExampleGenerator {
       e.printStackTrace();
     }
   }
-
-
-
-
 }

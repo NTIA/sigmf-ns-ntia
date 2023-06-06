@@ -1,24 +1,25 @@
-# ntia-waveform Extension v1.0.0
-The `ntia-waveform` namespace provides models and parameters for textbook and standardized complex-baseband waveforms. The intention is to build a library of simulated waveforms for testing and training signal identification algorithms. The waveform library can also be used for signal generation purposes in system level interference tests.   
+# The `ntia-waveform` SigMF Extension Namespace v1.0.0
 
-`ntia-waveform` is fully compliant with the [SigMF](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#namespaces) specification and conventions.
+This document defines the `ntia-waveform` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides models and parameters for textbook and standardized complex-baseband waveforms. The intention is to build a library of simulated waveforms for testing and training signal identification algorithms. The waveform library can also be used for signal generation purposes in system level interference tests.
 
-## 1 Global
-`ntia-waveform` does not directly extend the [Global](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#global-object). `ntia-waveform` defines a waveform object and additional extensions of the waveform object.  The waveform objects may be utilized within the `emitter` object provided by [ntia-emitter](ntia-emitter.sigmf-ext.md).
+## 0 Datatypes
 
-### 1.1 Waveform Object
-The waveform object has the following properties:
+The `ntia-waveform` extension provides a waveform object and additional extensions of the waveform object, which are referenced by the `Emitter` object provided by [ntia-emitter](ntia-emitter.sigmf-ext.md).
+
+### 0.1 The `Waveform` Object
+
+The `Waveform` object has the following properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`model`|true|string|N/A|The type of the waveform E.g. `"IEEE80211p"`.|
 |`description`|false|string|N/A|Description of the waveform.|
 
+### 0.2 The `IEEE80211p` Extension of the `Waveform` Object
 
-### 1.2 IEEE80211p Object
-IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wireless access in vehicular environments (WAVE), a vehicular communication system. It defines enhancements to 802.11 (the basis of products marketed as Wi-Fi) required to support Intelligent Transportation Systems (ITS) applications. This includes data exchange between high-speed vehicles and between the vehicles and the roadside infrastructure, so called V2X communication, in the licensed ITS band of 5.9 GHz (5.85-5.925 GHz). 
+IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wireless access in vehicular environments (WAVE), a vehicular communication system. It defines enhancements to 802.11 (the basis of products marketed as Wi-Fi) required to support Intelligent Transportation Systems (ITS) applications. This includes data exchange between high-speed vehicles and between the vehicles and the roadside infrastructure, so called V2X communication, in the licensed ITS band of 5.9 GHz (5.85-5.925 GHz).
 
-`IEEE80211p` extends Waveform with the following additional properties:
+`IEEE80211p` extends `Waveform` with the following additional properties:
 
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
@@ -36,22 +37,43 @@ IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wire
 |`number_of_info_bits`|false|integer|N/A|Number of information bits.|
 |`signal_to_noise_ratio`|false|float|dB|Signal-to-noise ratio. If unspecified, assumed no noise present.|
 
+## 1 Global
+
+The `ntia-waveform` extension does not extend the `global` SigMF object.
 
 ## 2 Captures
-`ntia-waveform` does not provide additional keys to [Captures](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#captures-array).
+
+The `ntia-waveform` extension does not extend the `captures` SigMF object.
 
 ## 3 Annotations
-`ntia-waveform` does not extend [Annotations](https://github.com/gnuradio/SigMF/blob/master/sigmf-spec.md#annotations-array)..
 
-## 4 Example
+The `ntia-waveform` extension does not extend the `annotations` SigMF object.
+
+## 4 Collection
+
+The `ntia-waveform` extension does not extend the `collection` SigMF object.
+
+## 5 Example
+
 ```json
 {
   "global" : {
     "core:datatype" : "rf32_le",
     "core:sample_rate" : 2.8E7,
+    "core:version" : "1.0.0",
+    "core:num_channels" : 1,
+    "core:extensions" : [ {
+      "name" : "ntia-core",
+      "version" : "v2.0.0",
+      "optional" : false
+    }, {
+      "name" : "ntia-waveform",
+      "version" : "v1.0.0",
+      "optional" : false
+    } ],
     "ntia-emitter:emitters" : [ {
       "id" : "test80211pEmitter",
-      "description" : "Simulated IEEE 802.11p",
+      "description" : "Test 80211p emitter",
       "waveform" : {
         "model" : "IEEE80211p",
         "info_bit_generation" : "random",
@@ -64,9 +86,11 @@ IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wire
         "number_of_pilots" : 4,
         "short_inter_frame_space" : 80000.0
       }
-    } ]
-  } ... ,
+    } ],
+    "ntia-core:classification" : "UNCLASSIFIED"
+  },
+  ...
   "captures" : [ ... ],
-  "annotations" : [... ]
+  "annotations" : [ ... ]
 }
 ```

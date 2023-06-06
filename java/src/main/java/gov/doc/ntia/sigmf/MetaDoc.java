@@ -12,29 +12,20 @@ import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.List;
+import javax.validation.Valid;
 import org.apache.commons.io.IOUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.data.annotation.Id;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MetaDoc implements Serializable {
 
   private static final long serialVersionUID = 1L;
-
   @Id protected String id;
-
-  protected Global global;
-
+  @Valid protected Global global;
   protected List<Capture> captures;
-
   protected List<Annotation> annotations;
 
-  private static final Logger log = LoggerFactory.getLogger(MetaDoc.class);
-
-  /**
-   * Create a MetaDoc.
-   */
+  /** Create a MetaDoc. */
   public MetaDoc() {
     global = new Global();
     captures = new ArrayList<>();
@@ -71,6 +62,7 @@ public class MetaDoc implements Serializable {
 
   /**
    * Set the Global object in the MetaDoc.
+   *
    * @param global The Global object.
    */
   public void setGlobal(Global global) {
@@ -79,6 +71,7 @@ public class MetaDoc implements Serializable {
 
   /**
    * Save the MetaDoc to a file.
+   *
    * @param filename The full path of where to save the file.
    */
   public void saveToFile(String filename) {
@@ -101,8 +94,8 @@ public class MetaDoc implements Serializable {
   }
 
   /**
-   * Creates an Acquisition (MetaDoc + Data) by reading the data file in
-   * Global dataFilePath.
+   * Creates an Acquisition (MetaDoc + Data) by reading the data file in Global dataFilePath.
+   *
    * @return the Acquisition.
    * @throws IOException when unable to read the file specified in the Global dataFilePath.
    */
@@ -110,11 +103,15 @@ public class MetaDoc implements Serializable {
   public Acquisition getAcquisition() throws IOException {
     Acquisition acquisition = new Acquisition();
     acquisition.setMetaDoc(this);
-    log.debug("reading datafile:" + global.getDataFilePath());
-    BufferedInputStream inputStream =
-        new BufferedInputStream(new FileInputStream(global.getDataFilePath()));
-    byte[] sensedData = IOUtils.toByteArray(inputStream);
-    acquisition.setData(ByteBuffer.wrap(sensedData));
+    String datasetFile = global.getDataset();
+    if (!datasetFile.endsWith(".sigmf-data")) {
+      datasetFile = datasetFile + ".sigmf-data";
+    }
+    try (FileInputStream fis = new FileInputStream(datasetFile);
+        BufferedInputStream inputStream = new BufferedInputStream(fis)) {
+      byte[] sensedData = IOUtils.toByteArray(inputStream);
+      acquisition.setData(ByteBuffer.wrap(sensedData));
+    }
     return acquisition;
   }
 }

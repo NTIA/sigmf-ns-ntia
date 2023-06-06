@@ -5,8 +5,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import gov.doc.ntia.sigmf.Global;
 import gov.doc.ntia.sigmf.MetaDoc;
-import gov.doc.ntia.sigmf.ext.global.core.Antenna;
-import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
+import gov.doc.ntia.sigmf.ext.core.Antenna;
+import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
+import gov.doc.ntia.sigmf.ext.sensor.Sensor;
 import java.io.File;
 import java.io.IOException;
 import org.junit.jupiter.api.Test;
@@ -17,6 +18,9 @@ public class AntennaTests {
     MetaDoc metaDoc = new MetaDoc();
     Global global = new Global();
     Sensor sensor = new Sensor();
+    HardwareSpec sensorSpec = new HardwareSpec();
+    sensorSpec.setId("Sensor1");
+    sensor.setSensorSpec(sensorSpec);
     Antenna antenna = new Antenna();
     sensor.setAntenna(antenna);
     global.setSensor(sensor);
@@ -38,7 +42,7 @@ public class AntennaTests {
     File output = File.createTempFile("output", ".json");
     output.deleteOnExit();
     mapper.writeValue(output, metaDoc);
-    MetaDoc readMetaDoc = (MetaDoc) mapper.readValue(output, MetaDoc.class);
+    MetaDoc readMetaDoc = mapper.readValue(output, MetaDoc.class);
     assertEquals(
         metaDoc.getGlobal().getSensor().getAntenna().getAntennaSpec().getId(),
         readMetaDoc.getGlobal().getSensor().getAntenna().getAntennaSpec().getId());
@@ -58,7 +62,7 @@ public class AntennaTests {
     File output = File.createTempFile("output", ".json");
     output.deleteOnExit();
     mapper.writeValue(output, metaDoc);
-    MetaDoc readMetaDoc = (MetaDoc) mapper.readValue(output, MetaDoc.class);
+    MetaDoc readMetaDoc = mapper.readValue(output, MetaDoc.class);
     assertEquals(
         metaDoc.getGlobal().getSensor().getAntenna().getType(),
         readMetaDoc.getGlobal().getSensor().getAntenna().getType());
@@ -72,7 +76,7 @@ public class AntennaTests {
     File output = File.createTempFile("output", ".json");
     output.deleteOnExit();
     mapper.writeValue(output, metaDoc);
-    MetaDoc readMetaDoc = (MetaDoc) mapper.readValue(output, MetaDoc.class);
+    MetaDoc readMetaDoc = mapper.readValue(output, MetaDoc.class);
     assertEquals(
         metaDoc.getGlobal().getSensor().getAntenna().getFrequencyLow(),
         readMetaDoc.getGlobal().getSensor().getAntenna().getFrequencyLow());
@@ -86,7 +90,7 @@ public class AntennaTests {
     File output = File.createTempFile("output", ".json");
     output.deleteOnExit();
     mapper.writeValue(output, metaDoc);
-    MetaDoc readMetaDoc = (MetaDoc) mapper.readValue(output, MetaDoc.class);
+    MetaDoc readMetaDoc = mapper.readValue(output, MetaDoc.class);
     assertEquals(
         metaDoc.getGlobal().getSensor().getAntenna().getFrequencyHigh(),
         readMetaDoc.getGlobal().getSensor().getAntenna().getFrequencyHigh());
@@ -100,7 +104,7 @@ public class AntennaTests {
     File output = File.createTempFile("output", ".json");
     output.deleteOnExit();
     mapper.writeValue(output, metaDoc);
-    MetaDoc readMetaDoc = (MetaDoc) mapper.readValue(output, MetaDoc.class);
+    MetaDoc readMetaDoc = mapper.readValue(output, MetaDoc.class);
     assertEquals(
         metaDoc.getGlobal().getSensor().getAntenna().getGain(),
         readMetaDoc.getGlobal().getSensor().getAntenna().getGain());
@@ -114,7 +118,7 @@ public class AntennaTests {
     File output = File.createTempFile("output", ".json");
     output.deleteOnExit();
     mapper.writeValue(output, metaDoc);
-    MetaDoc readMetaDoc = (MetaDoc) mapper.readValue(output, MetaDoc.class);
+    MetaDoc readMetaDoc = mapper.readValue(output, MetaDoc.class);
     assertEquals(
         metaDoc.getGlobal().getSensor().getAntenna().getPolarization(),
         readMetaDoc.getGlobal().getSensor().getAntenna().getPolarization());

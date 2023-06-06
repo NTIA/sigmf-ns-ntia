@@ -1,23 +1,22 @@
 package gov.doc.ntia.sigmf;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
-import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import gov.doc.ntia.sigmf.ext.global.algorithm.DigitalFilter;
-import gov.doc.ntia.sigmf.ext.global.core.Measurement;
-import gov.doc.ntia.sigmf.ext.global.emitter.Emitter;
-import gov.doc.ntia.sigmf.ext.global.location.CoordinateSystem;
-import gov.doc.ntia.sigmf.ext.global.scos.Action;
-import gov.doc.ntia.sigmf.ext.global.scos.ScheduleEntry;
-import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
+import gov.doc.ntia.sigmf.ext.algorithm.AbstractDataProduct;
+import gov.doc.ntia.sigmf.ext.algorithm.AbstractProcessing;
+import gov.doc.ntia.sigmf.ext.diagnostics.Diagnostics;
+import gov.doc.ntia.sigmf.ext.emitter.Emitter;
+import gov.doc.ntia.sigmf.ext.scos.Action;
+import gov.doc.ntia.sigmf.ext.scos.ScheduleEntry;
+import gov.doc.ntia.sigmf.ext.sensor.Sensor;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
 
 @JsonInclude(Include.NON_NULL)
 public class Global implements Serializable {
@@ -26,6 +25,7 @@ public class Global implements Serializable {
 
   // The format of the stored samples in the dataset file.
   // Its value must be a valid SigMF dataset format type string.
+  @NotNull
   @JsonProperty(value = "core:datatype", required = true)
   protected String datatype;
 
@@ -34,8 +34,14 @@ public class Global implements Serializable {
   protected Double sampleRate;
 
   // The version of the SigMF specification used to create the metadata file.
+  @NotNull
   @JsonProperty(value = "core:version", required = true)
   protected String version;
+
+  // Total number of interleaved channels in the dataset file.
+  // If omitted, this defaults to one.
+  @JsonProperty(value = "core:num_channels", required = false)
+  protected Long numChannels = 1L;
 
   // The SHA512 hash of the dataset file associated with the SigMF file.
   @JsonProperty(value = "core:sha512", required = false)
@@ -76,35 +82,43 @@ public class Global implements Serializable {
   @JsonProperty(value = "core:hw", required = false)
   protected String hw;
 
-  @JsonProperty(value = "core:extensions", required = false)
-  protected Extensions extensions;
+  // The full filename of the dataset this metadata describes
+  @JsonProperty(value = "core:dataset", required = false)
+  protected String dataset;
 
+  // The number of bytes to ignore at the end of a Non-Conforming dataset file
+  @JsonProperty(value = "core:trailing_bytes", required = false)
+  protected Long trailingBytes;
+
+  // Indicates the metadata is intentionally distributed without the dataset
+  @JsonProperty(value = "core:metadata_only", required = false)
+  protected Boolean metadataOnly;
+
+  // the location of the recording system
+  @Valid
+  @JsonProperty(value = "core:geolocation", required = false)
+  protected GeoJsonPoint geolocation;
+
+  // A list of JSON objects describing extensions used by this recording
+  @Valid
+  @JsonProperty(value = "core:extensions", required = false)
+  protected List<Extension> extensions;
+
+  // The base filename of a SigMF collection with which this recording is associated
+  @JsonProperty(value = "core:collection", required = false)
+  protected String collection;
+
+  @Valid
   @JsonProperty(value = "ntia-sensor:sensor", required = false)
   protected Sensor sensor;
 
+  @Valid
   @JsonProperty(value = "ntia-emitter:emitters", required = false)
   protected List<Emitter> emitters;
-
-  @JsonProperty(value = "ntia-scos:action", required = true)
-  protected Action action;
-
-  @JsonProperty(value = "ntia-scos:schedule", required = true)
-  protected ScheduleEntry schedule;
-
-  @JsonProperty(value = "ntia-location:coordinate_system", required = false)
-  private CoordinateSystem coordinateSystem;
-
-  protected Map<String, Object> otherFields = new HashMap<>();
-
-  @JsonProperty(value = "ntia-algorithm:anti_aliasing_filter", required = false)
-  protected DigitalFilter antiAliasingFilter;
 
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
   @JsonProperty(value = "ntia-sensor:calibration_datetime", required = false)
   protected Date calibrationDate;
-
-  @JsonProperty(value = "ntia-scos:data_file_path", required = false)
-  protected String dataFilePath;
 
   @JsonProperty(value = "ntia-scos:task", required = false)
   protected Integer task;
@@ -112,8 +126,38 @@ public class Global implements Serializable {
   @JsonProperty(value = "ntia-scos:recording", required = false)
   protected Integer recording;
 
-  @JsonProperty(value = "ntia-core:measurement", required = true)
-  protected Measurement measurement;
+  @Valid
+  @JsonProperty(value = "ntia-scos:schedule", required = false)
+  protected ScheduleEntry schedule;
+
+  @Valid
+  @JsonProperty(value = "ntia-scos:action", required = false)
+  protected Action action;
+
+  @NotNull
+  @JsonProperty(value = "ntia-core:classification", required = true)
+  protected String classification;
+
+  @Valid
+  @JsonProperty(value = "ntia-algorithm:data_products", required = false)
+  protected List<AbstractDataProduct> dataProducts;
+
+  @Valid
+  @JsonProperty(value = "ntia-diagnostics:diagnostics")
+  protected Diagnostics diagnostics;
+
+  @JsonProperty(value = "ntia-nasctn-sea:max_of_max_channel_powers")
+  protected List<Double> maxOfMaxChannelPowers;
+
+  @JsonProperty(value = "ntia-nasctn-sea:median_of_mean_channel_powers")
+  protected List<Double> medianOfMeanChannelPowers;
+
+  @JsonProperty(value = "ntia-algorithm:processing")
+  protected List<String> processing;
+
+  @Valid
+  @JsonProperty(value = "ntia-algorithm:processing_info")
+  private List<AbstractProcessing> processingInfo;
 
   public Integer getRecording() {
     return recording;
@@ -121,14 +165,6 @@ public class Global implements Serializable {
 
   public void setRecording(Integer recording) {
     this.recording = recording;
-  }
-
-  public DigitalFilter getAntiAliasingFilter() {
-    return antiAliasingFilter;
-  }
-
-  public void setAntiAliasingFilter(DigitalFilter antiAliasingFilter) {
-    this.antiAliasingFilter = antiAliasingFilter;
   }
 
   public String getSha512() {
@@ -203,12 +239,25 @@ public class Global implements Serializable {
     this.hw = hw;
   }
 
-  public Extensions getExtensions() {
+  public List<Extension> getExtensions() {
     return extensions;
   }
 
-  public void setExtensions(Extensions extensions) {
+  public void setExtensions(List<Extension> extensions) {
     this.extensions = extensions;
+  }
+
+  public void addExtension(Extension extension) {
+    if (this.extensions == null) {
+      extensions = new ArrayList<>();
+    }
+    extensions.add(extension);
+  }
+
+  public void removeExtension(Extension extension) {
+    if (this.extensions != null) {
+      extensions.remove(extension);
+    }
   }
 
   public String getDatatype() {
@@ -243,20 +292,17 @@ public class Global implements Serializable {
     this.emitters = emitters;
   }
 
-  public Action getAction() {
-    return action;
+  public void addEmitter(Emitter emitter) {
+    if (this.emitters == null) {
+      emitters = new ArrayList<>();
+    }
+    emitters.add(emitter);
   }
 
-  public void setAction(Action action) {
-    this.action = action;
-  }
-
-  public ScheduleEntry getSchedule() {
-    return schedule;
-  }
-
-  public void setSchedule(ScheduleEntry schedule) {
-    this.schedule = schedule;
+  public void removeEmitter(Emitter emitter) {
+    if (this.emitters != null) {
+      emitters.remove(emitter);
+    }
   }
 
   public Integer getTask() {
@@ -275,16 +321,6 @@ public class Global implements Serializable {
     this.sensor = sensor;
   }
 
-  @JsonAnyGetter
-  public Map<String, Object> getOtherFields() {
-    return otherFields;
-  }
-
-  @JsonAnySetter
-  public void add(String key, Object value) {
-    otherFields.put(key, value);
-  }
-
   public Date getCalibrationDate() {
     return calibrationDate;
   }
@@ -293,27 +329,162 @@ public class Global implements Serializable {
     this.calibrationDate = calibrationDate;
   }
 
-  public String getDataFilePath() {
-    return dataFilePath;
+  public String getClassification() {
+    return classification;
   }
 
-  public void setDataFilePath(String dataFilePath) {
-    this.dataFilePath = dataFilePath;
+  public void setClassification(String classification) {
+    this.classification = classification;
   }
 
-  public CoordinateSystem getCoordinateSystem() {
-    return coordinateSystem;
+  public Long getNumChannels() {
+    return numChannels;
   }
 
-  public void setCoordinateSystem(CoordinateSystem coordinateSystem) {
-    this.coordinateSystem = coordinateSystem;
+  public void setNumChannels(Long numChannels) {
+    this.numChannels = numChannels;
   }
 
-  public Measurement getMeasurement() {
-    return measurement;
+  public String getDataset() {
+    return dataset;
   }
 
-  public void setMeasurement(Measurement measurement) {
-    this.measurement = measurement;
+  public void setDataset(String dataset) {
+    this.dataset = dataset;
+  }
+
+  public Long getTrailingBytes() {
+    return trailingBytes;
+  }
+
+  public void setTrailingBytes(Long trailingBytes) {
+    this.trailingBytes = trailingBytes;
+  }
+
+  public Boolean getMetadataOnly() {
+    return metadataOnly;
+  }
+
+  public void setMetadataOnly(Boolean metadataOnly) {
+    this.metadataOnly = metadataOnly;
+  }
+
+  public GeoJsonPoint getGeolocation() {
+    return this.geolocation;
+  }
+
+  public void setGeolocation(GeoJsonPoint location) {
+    this.geolocation = location;
+  }
+
+  public String getCollection() {
+    return collection;
+  }
+
+  public void setCollection(String collection) {
+    this.collection = collection;
+  }
+
+  public void addDataProduct(AbstractDataProduct dataProduct) {
+    if (this.dataProducts == null) {
+      dataProducts = new ArrayList<>();
+    }
+    dataProducts.add(dataProduct);
+  }
+
+  public void removeDataProduct(AbstractDataProduct dataProduct) {
+    if (dataProducts != null) {
+      dataProducts.remove(dataProduct);
+    }
+  }
+
+  public List<AbstractDataProduct> getDataProducts() {
+    return dataProducts;
+  }
+
+  public void setDataProducts(List<AbstractDataProduct> dataProducts) {
+    this.dataProducts = dataProducts;
+  }
+
+  public Diagnostics getDiagnostics() {
+    return diagnostics;
+  }
+
+  public void setDiagnostics(Diagnostics diagnostics) {
+    this.diagnostics = diagnostics;
+  }
+
+  public List<Double> getMaxOfMaxChannelPowers() {
+    return maxOfMaxChannelPowers;
+  }
+
+  public void setMaxOfMaxChannelPowers(List<Double> maxOfMaxChannelPowers) {
+    this.maxOfMaxChannelPowers = maxOfMaxChannelPowers;
+  }
+
+  public List<Double> getMedianOfMeanChannelPowers() {
+    return medianOfMeanChannelPowers;
+  }
+
+  public void setMedianOfMeanChannelPowers(List<Double> medianOfMeanChannelPowers) {
+    this.medianOfMeanChannelPowers = medianOfMeanChannelPowers;
+  }
+
+  public List<String> getProcessing() {
+    return processing;
+  }
+
+  public void setProcessing(List<String> processing) {
+    this.processing = processing;
+  }
+
+  public void addProcessing(String id) {
+    if (this.processing == null) {
+      this.processing = new ArrayList<>();
+    }
+    this.processing.add(id);
+  }
+
+  public void removeProcessing(String id) {
+    if (this.processing != null) {
+      this.processing.remove(id);
+    }
+  }
+
+  public List<AbstractProcessing> getProcessingInfo() {
+    return processingInfo;
+  }
+
+  public void setProcessingInfo(List<AbstractProcessing> processingInfo) {
+    this.processingInfo = processingInfo;
+  }
+
+  public void addProcessingInfo(AbstractProcessing processingInfoObj) {
+    if (this.processingInfo == null) {
+      this.processingInfo = new ArrayList<>();
+    }
+    this.processingInfo.add(processingInfoObj);
+  }
+
+  public void removeProcessingInfo(AbstractProcessing processingInfoObj) {
+    if (this.processingInfo != null) {
+      this.processingInfo.remove(processingInfoObj);
+    }
+  }
+
+  public ScheduleEntry getSchedule() {
+    return schedule;
+  }
+
+  public void setSchedule(ScheduleEntry schedule) {
+    this.schedule = schedule;
+  }
+
+  public Action getAction() {
+    return action;
+  }
+
+  public void setAction(Action action) {
+    this.action = action;
   }
 }

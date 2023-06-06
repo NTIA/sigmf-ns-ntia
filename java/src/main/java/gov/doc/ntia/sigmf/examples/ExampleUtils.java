@@ -2,10 +2,9 @@ package gov.doc.ntia.sigmf.examples;
 
 import gov.doc.ntia.sigmf.Capture;
 import gov.doc.ntia.sigmf.Global;
-import gov.doc.ntia.sigmf.ext.global.core.Antenna;
-import gov.doc.ntia.sigmf.ext.global.core.HardwareSpec;
-import gov.doc.ntia.sigmf.ext.global.scos.Action;
-import gov.doc.ntia.sigmf.ext.global.sensor.Sensor;
+import gov.doc.ntia.sigmf.examples.ext.CoreExample;
+import gov.doc.ntia.sigmf.ext.core.Antenna;
+import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -18,13 +17,14 @@ public class ExampleUtils {
 
   /**
    * Generates an example Capture.
+   *
    * @param dateTime The Date of the Capture.
    * @return A List containing one Capture at dateTime.
    */
   public static List<Capture> getCaptures(Date dateTime) {
     int sampleStart = 0;
     Capture capture = new Capture();
-    capture.setSampleStart(0);
+    capture.setSampleStart(sampleStart);
     capture.setDateTime(dateTime);
     capture.setFrequency(700000000.);
     ArrayList<Capture> captures = new ArrayList<>();
@@ -33,18 +33,23 @@ public class ExampleUtils {
   }
 
   /**
-   * Generates a bare bones Global object with data type rf32_le, sample_rate = 2.8E7.
+   * Generates a bare bones Global object with data type rf32_le, sample_rate = 2.8E7, and version 1.0.0.
+   *
    * @return Global object.
    */
   public static Global getGlobal() {
     Global global = new Global();
     global.setDatatype("rf32_le");
     global.setSampleRate(2.8E7);
+    global.setVersion("1.0.0");
+    global.addExtension(CoreExample.getExtension());
+    global.setClassification("UNCLASSIFIED");
     return global;
   }
 
   /**
-   * Geneartes a bare bones Antenna object with an AntennaSpec with model = 'model xyz'.
+   * Generates a bare bones Antenna object with an AntennaSpec with model = 'model xyz'.
+   *
    * @return Antenna object.
    */
   public static Antenna getAntenna() {
@@ -55,4 +60,11 @@ public class ExampleUtils {
     return antenna;
   }
 
+  /**
+   * Generates a Date object with the current datetime.
+   */
+  public static Date getDatetimeNow() {
+    Date now = Calendar.getInstance().getTime();
+    return now;
+  }
 }
