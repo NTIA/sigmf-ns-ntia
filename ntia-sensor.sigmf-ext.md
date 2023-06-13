@@ -54,7 +54,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 | name               | required | type                                                              | unit | description                                                         |
 |--------------------|----------|-------------------------------------------------------------------|------|---------------------------------------------------------------------|
-| `preselector_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#03-the-hardwarespec-object) | N/A  | Metadata to describe/specify the preselector                        |
+| `preselector_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe/specify the preselector                        |
 | `cal_sources`      | false    | [CalSource[]](#04-the-calsource-object)                           | N/A  | Metadata to describe/specify the preselector calibration source(s)  |
 | `amplifiers`       | false    | [Amplifier[]](#05-the-amplifier-object)                           | N/A  | Metadata to describe/specify the preselector low noise amplifier(s) |
 | `filters`          | false    | [Filter[]](#06-the-filter-object)                                 | N/A  | Metadata to describe/specify the preselector RF filter(s)           |
@@ -66,7 +66,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 | name              | required | type                                                              | unit | description                                 |
 |-------------------|----------|-------------------------------------------------------------------|------|---------------------------------------------|
-| `cal_source_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#03-the-hardwarespec-object) | N/A  | Metadata to describe the calibration source |
+| `cal_source_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe the calibration source |
 | `type`            | false    | string                                                            | N/A  | Type of the calibration source              |
 | `enr`             | false    | double                                                            | dB   | Excess noise ratio                          |
 
@@ -76,7 +76,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 
 | name             | required | type                                                              | unit | description                                |
 |------------------|----------|-------------------------------------------------------------------|------|--------------------------------------------|
-| `amplifier_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#03-the-hardwarespec-object) | N/A  | Metadata to describe/specify the amplifier |
+| `amplifier_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe/specify the amplifier |
 | `gain`           | false    | double                                                            | dB   | Gain of the low noise amplifier            |
 | `noise_figure`   | false    | double                                                            | dB   | Noise figure of the low noise amplifier    |
 | `max_power`      | false    | double                                                            | dBm  | Maximum power of the low noise amplifier   |
