@@ -17,8 +17,8 @@ An `Environment` object describes the physical environment surrounding an emitte
 |name|required|type|unit|description|
 |----|--------------|-------|-------|-----------|
 |`category`|false|string|N/A|Categorical description of the environment where sensor is mounted. E.g. `"indoor"`, `"outdoor-urban"`, `"outdoor-rural"`.|
-|`temperature`|false|float|celsius|Environmental temperature.|
-|`humidity`|false|float|%|Relative humidity.|
+|`temperature`|false|double|celsius|Environmental temperature.|
+|`humidity`|false|double|%|Relative humidity.|
 |`weather`|false|string|N/A|Weather around the sensor, e.g., `"rain"`, `"snow"`|
 |`description`|false|string|N/A|A description of the environment.|
 
