@@ -1,4 +1,4 @@
-# The `ntia-algorithm` SigMF Extension Namespace v2.0.0
+# The `ntia-algorithm` SigMF Extension Namespace v2.0.1
 
 This document defines the `ntia-algorithm` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace contains objects which describe algorithms applied to measurements.
 
@@ -18,6 +18,7 @@ A `DigitalFilter` object is used to describe a discrete-time linear time-invaria
 
 | name                       | required | type                                         | unit | description                                                                                                                                                       |
 |----------------------------|----------|----------------------------------------------|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type`                     | true     | string                                       | N/A  | MUST be set to `"DigitalFilter"`. Used to identify the object type when parsing.                                                                                  |
 | `id`                       | true     | string                                       | N/A  | Unique ID of the filter                                                                                                                                           |
 | `filter_type`              | true     | [enum](./ntia-core.sigmf-ext.md#0-datatypes) | N/A  | Type of the digital filter, given by the [FilterType](#011-the-filtertype-enum) enum                                                                              |
 | `feedforward_coefficients` | false    | double[]                                     | N/A  | Coefficients that define the feedforward filter stage (see [below](#012-detailed-description-of-a-digital-filter)).                                               |
@@ -119,6 +120,7 @@ The `DFT` object provides fields to describe the parameters of a data product ge
 
 | name                         | required | type    | unit | description                                                                                                                             |
 |------------------------------|----------|---------|------|-----------------------------------------------------------------------------------------------------------------------------------------|
+| `type`                       | true     | string  | N/A  | MUST be set to `"DFT"`. Used to identify the object type when parsing.                                                                  |
 | `id`                         | true     | string  | N/A  | A unique ID that may be referenced to associate a data product with these parameters                                                    |
 | `equivalent_noise_bandwidth` | true     | double  | Hz   | Bandwidth of brickwall filter that has the same integrated noise power as that of a sample of the DFT                                   |
 | `samples`                    | true     | integer | N/A  | Length of the DFT                                                                                                                       |
@@ -135,7 +137,7 @@ The `ntia-algorithm` extension adds the following name/value pairs to the `globa
 |-------------------|----------|---------------------------------|------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `data_products`   | false    | [Graph[]](#02-the-graph-object) | N/A  | List of data products produced for each capture                                                                                                                                                                                                                                                                   |
 | `processing`      | false    | string[]                        | N/A  | IDs associated with the additional metadata describing processing applied to ALL data                                                                                                                                                                                                                             |
-| `processing_info` | false    | array                           | N/A  | List of objects that describe processing used to generate some of the data products listed in `data_products`. Supported objects include [DigitalFilter](#01-the-digitalfilter-object), and [DFT](#03-the-dft-object). The IDs of any processing performed on ALL data products should be listed in `processing`. |
+| `processing_info` | false    | array                           | N/A  | List of objects that describe processing used to generate some of the data products listed in `data_products`. Supported objects include [DigitalFilter](#01-the-digitalfilter-object), and [DFT](#03-the-dft-object). Any object in this array MUST have a `type` field which distinguishes it from other types of objects in this array. The IDs of any processing performed on ALL data products should be listed in `processing`. |
 
 The `processing` array is used to record the IDs of processing objects which apply to ALL data. For example, this may include the ID of a `DigitalFilter` object which provides the metadata of a lowpass filter which was applied to each capture.
 
