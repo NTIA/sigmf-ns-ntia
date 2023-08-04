@@ -19,14 +19,14 @@ class SensorTest {
 
   @Test
   public void testId() throws IOException {
-    MetaDoc metaDoc = new MetaDoc();
-    Global global = new Global();
     String sensorId = "TestSensor123";
     Sensor sensor = new Sensor();
     HardwareSpec sensorSpec = new HardwareSpec();
     sensorSpec.setId(sensorId);
     sensor.setSensorSpec(sensorSpec);
+    Global global = new Global();
     global.setSensor(sensor);
+    MetaDoc metaDoc = new MetaDoc();
     metaDoc.setGlobal(global);
     ObjectMapper mapper = new ObjectMapper();
     File output = File.createTempFile("output", ".json");
@@ -38,13 +38,13 @@ class SensorTest {
 
   @Test
   public void testMobile() throws IOException {
-    Global global = new Global();
     String sensorId = "TestSensor123";
     Sensor sensor = new Sensor();
     HardwareSpec sensorSpec = new HardwareSpec();
     sensorSpec.setId(sensorId);
     sensor.setSensorSpec(sensorSpec);
     sensor.setMobile(Boolean.TRUE);
+    Global global = new Global();
     global.setSensor(sensor);
     MetaDoc metaDoc = new MetaDoc();
     metaDoc.setGlobal(global);
