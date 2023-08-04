@@ -15,7 +15,7 @@ public class AlgorithmExample implements Example {
   public static Extension getExtension() {
     Extension extension = new Extension();
     extension.setName("ntia-algorithm");
-    extension.setVersion("v2.0.0");
+    extension.setVersion("v2.0.1");
     extension.setOptional(false);
     return extension;
   }

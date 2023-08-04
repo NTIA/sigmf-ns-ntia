@@ -4,7 +4,7 @@
     "core:extensions": [
       {
         "name": "ntia-algorithm",
-        "version": "v2.0.0",
+        "version": "v2.0.1",
         "optional": false
       },
       {
@@ -24,7 +24,7 @@
       },
       {
         "name": "ntia-nasctn-sea",
-        "version": "v0.4",
+        "version": "v0.5.0",
         "optional": false
       }
     ],
@@ -96,6 +96,7 @@
     "ntia-algorithm:processing": ["iir_1"],
     "ntia-algorithm:processing_info": [
       {
+        "type": "DigitalFilter",
         "id": "iir_1",
         "filter_type": "IIR",
         "feedforward_coefficients": [
@@ -132,6 +133,7 @@
         "attenuation_cutoff": 40.0
       },
       {
+        "type": "DFT",
         "id": "fft",
         "equivalent_noise_bandwidth": 60323.94,
         "samples": 875,

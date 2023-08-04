@@ -202,11 +202,11 @@ The `ntia-algorithm` extension does not extend the `collection` SigMF object.
     "core:num_channels" : 1,
     "core:extensions" : [ {
       "name" : "ntia-core",
-      "version" : "v2.0.0",
+      "version" : "v2.0.1",
       "optional" : false
     }, {
       "name" : "ntia-algorithm",
-      "version" : "v2.0.0",
+      "version" : "v2.0.1",
       "optional" : false
     } ],
     "ntia-core:classification" : "UNCLASSIFIED",
