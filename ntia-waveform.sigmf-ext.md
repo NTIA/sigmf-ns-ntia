@@ -32,10 +32,10 @@ IEEE 802.11p is an approved amendment to the IEEE 802.11 standard that adds wire
 |`number_of_data_subcarriers`|false|integer|N/A|Number of data subcarriers.|
 |`number_of_pilots`|false|integer|N/A|Number of pilots.|
 |`cyclic_prefix`|false|integer|bits|Size of cyclic prefix.|
-|`short_inter_frame_space`|false|float|microseconds|Time required to process a received frame and to respond with a response frame.|
+|`short_inter_frame_space`|false|double|microseconds|Time required to process a received frame and to respond with a response frame.|
 |`preamble_frame`|false|integer[]|N/A|Preamble of 0's and 1's used for synchronization and to ID beginning of frame.|
 |`number_of_info_bits`|false|integer|N/A|Number of information bits.|
-|`signal_to_noise_ratio`|false|float|dB|Signal-to-noise ratio. If unspecified, assumed no noise present.|
+|`signal_to_noise_ratio`|false|double|dB|Signal-to-noise ratio. If unspecified, assumed no noise present.|
 
 ## 1 Global
 

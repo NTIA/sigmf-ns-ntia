@@ -46,52 +46,52 @@ Sensor definition follows a simplified hardware model composed of the following 
 | `frequency_high` | false    | double                                                            | Hz   | High frequency of operational range of the signal analyzer |
 | `noise_figure`   | false    | double                                                            | dB   | Noise figure of the signal analyzer                        |
 | `max_power`      | false    | double                                                            | dBm  | Maximum input power of the signal analyzer                 |
-| `a2d_bits`       | false    | integer                                                           | bits | Number of bits in A/D converter                            |
+| `a2d_bits`       | false    | integer                                                           | N/A  | Number of bits in A/D converter                            |
 
 ### 0.3 The `Preselector` Object
 
 `Preselector` has the following properties:
 
-| name               | required | type                                                              | unit | description                                                       |
-|--------------------|----------|-------------------------------------------------------------------|------|-------------------------------------------------------------------|
-| `preselector_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe/specify the preselector                      |
-| `cal_sources`      | false    | [CalSource[]](#04-the-calsource-object)                           | N/A  | Metadata to describe/specify the preselector calibration source   |
-| `amplifiers`       | false    | [Amplifier[]](#05-the-amplifier-object)                           | N/A  | Metadata to describe/specify the preselector low noise amplifiers |
-| `filters`          | false    | [Filter[]](#06-the-filter-object)                                 | N/A  | Metadata to describe the preselector RF filters                   |
-| `rf_paths`         | false    | [RFPath[]](#07-the-rfpath-object)                                 | N/A  | Metadata that describes preselector RF paths                      |
+| name               | required | type                                                              | unit | description                                                         |
+|--------------------|----------|-------------------------------------------------------------------|------|---------------------------------------------------------------------|
+| `preselector_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe/specify the preselector                        |
+| `cal_sources`      | false    | [CalSource[]](#04-the-calsource-object)                           | N/A  | Metadata to describe/specify the preselector calibration source(s)  |
+| `amplifiers`       | false    | [Amplifier[]](#05-the-amplifier-object)                           | N/A  | Metadata to describe/specify the preselector low noise amplifier(s) |
+| `filters`          | false    | [Filter[]](#06-the-filter-object)                                 | N/A  | Metadata to describe/specify the preselector RF filter(s)           |
+| `rf_paths`         | false    | [RFPath[]](#07-the-rfpath-object)                                 | N/A  | Metadata to specify the preselector RF path(s)                      |
 
 ### 0.4 The `CalSource` Object
 
 `CalSource` has the following properties:
 
-| name              | required | type                                                              | unit | description                                               |
-|-------------------|----------|-------------------------------------------------------------------|------|-----------------------------------------------------------|
-| `cal_source_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe the calibration source specification |
-| `type`            | false    | string                                                            | N/A  | Type of the calibration source                            |
-| `enr`             | false    | double                                                            | dB   | Excess noise ratio                                        |
+| name              | required | type                                                              | unit | description                                 |
+|-------------------|----------|-------------------------------------------------------------------|------|---------------------------------------------|
+| `cal_source_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe the calibration source |
+| `type`            | false    | string                                                            | N/A  | Type of the calibration source              |
+| `enr`             | false    | double                                                            | dB   | Excess noise ratio                          |
 
 ### 0.5 The `Amplifier` Object
 
 `Amplifier` has the following properties:
 
-| name             | required | type                                                              | unit | description                                      |
-|------------------|----------|-------------------------------------------------------------------|------|--------------------------------------------------|
-| `amplifier_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe the amplifier specification |
-| `gain`           | false    | double                                                            | dB   | Gain of the low noise amplifier                  |
-| `noise_figure`   | false    | double                                                            | dB   | Noise figure of the low noise amplifier          |
-| `max_power`      | false    | double                                                            | dBm  | Maximum power of the low noise amplifier         |
+| name             | required | type                                                              | unit | description                                |
+|------------------|----------|-------------------------------------------------------------------|------|--------------------------------------------|
+| `amplifier_spec` | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe/specify the amplifier |
+| `gain`           | false    | double                                                            | dB   | Gain of the low noise amplifier            |
+| `noise_figure`   | false    | double                                                            | dB   | Noise figure of the low noise amplifier    |
+| `max_power`      | false    | double                                                            | dBm  | Maximum power of the low noise amplifier   |
 
 ### 0.6 The `Filter` Object
 
 `Filter` has the following properties:
 
-| name                      | required | type                                       | unit | description                                            |
-|---------------------------|----------|--------------------------------------------|------|--------------------------------------------------------|
-| `filter_spec`             | false    | [HardwareSpec](/ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe/specify the filter specification. |
-| `frequency_low_passband`  | false    | double                                     | Hz   | Low frequency of filter 1 dB passband                  |
-| `frequency_high_passband` | false    | double                                     | Hz   | High frequency of filter 1 dB passband                 |
-| `frequency_low_stopband`  | false    | double                                     | Hz   | Low frequency of filter 60 dB stopband                 |
-| `frequency_high_stopband` | false    | double                                     | Hz   | High frequency of filter 60 dB stopband                |
+| name                      | required | type                                                               | unit | description                             |
+|---------------------------|----------|--------------------------------------------------------------------|------|-----------------------------------------|
+| `filter_spec`             | false    | [HardwareSpec](/ntia-core.sigmf-ext.md#02-the-hardwarespec-object) | N/A  | Metadata to describe/specify the filter |
+| `frequency_low_passband`  | false    | double                                                             | Hz   | Low frequency of filter 1 dB passband   |
+| `frequency_high_passband` | false    | double                                                             | Hz   | High frequency of filter 1 dB passband  |
+| `frequency_low_stopband`  | false    | double                                                             | Hz   | Low frequency of filter 60 dB stopband  |
+| `frequency_high_stopband` | false    | double                                                             | Hz   | High frequency of filter 60 dB stopband |
 
 ### 0.7 The `RFPath` Object
 
@@ -108,28 +108,28 @@ The `cal_source_id`, `filter_id`, and `amplifier_id` values SHOULD match the `id
 
 ### 0.8 The `Calibration` Object
 
-| name                     | required | type   | unit                     | description                                                                                       |
-|--------------------------|----------|--------|--------------------------|---------------------------------------------------------------------------------------------------|
-| `datetime`               | false    | string | ISO-8601 (see below)     | Timestamp for the calibration data in this object. RECOMMENDED                                    |
-| `gain`                   | false    | double | N/A                      | Calibrated gain of signal analyzer or sensor (may differ with signal analyzer gain setting)       |
-| `noise_figure`           | false    | double | dB                       | Noise figure of signal analyzer or sensor                                                         |
-| `1db_compression_point`  | false    | double | dBm                      | Maximum input of signal analyzer or sensor                                                        |
-| `enbw`                   | false    | double | Hz                       | Equivalent noise bandwidth of signal analyzer or sensor                                           |
-| `mean_noise_power`       | false    | double | `mean_noise_power_units` | Mean sensor noise floor power                                                                     |
-| `mean_noise_power_units` | false    | string | N/A                      | The units of the `mean_noise_power`                                                               |
-| `reference`              | false    | string | N/A                      | Reference source for the calibration data, e.g., `"signal analyzer input"`, `"preselector input"` |
-| `temperature`            | false    | double | degrees Celsius          | Temperature during calibration                                                                    |
+| name                     | required | type   | unit                     | description                                                                                                  |
+|--------------------------|----------|--------|--------------------------|--------------------------------------------------------------------------------------------------------------|
+| `datetime`               | false    | string | ISO-8601 (see below)     | Timestamp for the calibration data in this object. RECOMMENDED                                               |
+| `gain`                   | false    | double | dB                       | Calibrated gain of signal analyzer or sensor (may differ with signal analyzer gain setting)                  |
+| `noise_figure`           | false    | double | dB                       | Calibrated noise figure of signal analyzer or sensor                                                         |
+| `1db_compression_point`  | false    | double | dBm                      | Level of input to signal analyzer or sensor at which the received power level is compressed by 1 dB, in dBm. |
+| `enbw`                   | false    | double | Hz                       | Equivalent noise bandwidth of signal analyzer or sensor                                                      |
+| `mean_noise_power`       | false    | double | `mean_noise_power_units` | Mean sensor noise floor power                                                                                |
+| `mean_noise_power_units` | false    | string | N/A                      | The units of the `mean_noise_power`                                                                          |
+| `reference`              | false    | string | N/A                      | Reference point for the calibration data, e.g., `"signal analyzer input"`, `"preselector input"`            |
+| `temperature`            | false    | double | degrees Celsius          | Temperature during calibration                                                                               |
 
 The `datetime` MUST be an ISO-8601 string, as defined by [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), where the only allowed `time-offset` is `z`, indicating the UTC/Zulu timezone. Thus, timestamps take the form of `YYYY-MM-DDTHH:MM:SS.SSSZ`, where any number of digits for fractional seconds is permitted.
 
 ### 0.9 The `SiganSettings` Object
 
-| name              | required | type    | unit | description                               |
-|-------------------|----------|---------|------|-------------------------------------------|
-| `gain`            | false    | double  | dB   | Gain of signal analyzer                   |
-| `reference_level` | false    | double  | dBm  | Reference level of the signal analyzer    |
-| `attenuation`     | false    | double  | dB   | Attenuation of the signal analyzer        |
-| `preamp_enable`   | false    | boolean | N/A  | True if signal analyzer preamp is enabled |
+| name              | required | type    | unit | description                                    |
+|-------------------|----------|---------|------|------------------------------------------------|
+| `gain`            | false    | double  | dB   | Gain setting of signal analyzer                |
+| `reference_level` | false    | double  | dBm  | Reference level setting of the signal analyzer |
+| `attenuation`     | false    | double  | dB   | Attenuation setting of the signal analyzer     |
+| `preamp_enable`   | false    | boolean | N/A  | True if signal analyzer preamp is enabled      |
 
 ## 1 Global
 
