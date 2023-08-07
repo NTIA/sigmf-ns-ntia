@@ -12,8 +12,8 @@ The `ntia-nasctn-sea` extension adds the following fields to the `global` SigMF 
 
 | name                            | required | type     | unit | description                                   |
 |---------------------------------|----------|----------|------|-----------------------------------------------|
-| `max_of_max_channel_powers`     | false    | double[] | N/A  | The maximum of the maximum power per channel. |
-| `median_of_mean_channel_powers` | false    | double[] | N/A  | The median of the mean power per channel.     |
+| `max_of_max_channel_powers`     | false    | double[] | dBm  | The maximum of the maximum power per channel. |
+| `median_of_mean_channel_powers` | false    | double[] | dBm  | The median of the mean power per channel.     |
 
 ## 2 Captures
 
