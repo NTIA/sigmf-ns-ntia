@@ -15,15 +15,15 @@ import org.junit.jupiter.api.Test;
 public class AntennaTests {
 
   private MetaDoc getMetaDocWithSensorAndAntenna() {
-    MetaDoc metaDoc = new MetaDoc();
-    Global global = new Global();
-    Sensor sensor = new Sensor();
     HardwareSpec sensorSpec = new HardwareSpec();
     sensorSpec.setId("Sensor1");
+    Sensor sensor = new Sensor();
     sensor.setSensorSpec(sensorSpec);
     Antenna antenna = new Antenna();
     sensor.setAntenna(antenna);
+    Global global = new Global();
     global.setSensor(sensor);
+    MetaDoc metaDoc = new MetaDoc();
     metaDoc.setGlobal(global);
     return metaDoc;
   }

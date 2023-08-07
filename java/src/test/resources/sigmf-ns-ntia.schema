@@ -589,6 +589,11 @@
 		"DigitalFilter": {
 			"type": "object",
 			"properties": {
+			    "type": {
+                    "type": "string",
+                    "enum": [ "DigitalFilter" ],
+                    "default": "DigitalFilter"
+                },
 				"id": {
 					"type": "string"
 				},
@@ -620,6 +625,7 @@
 			},
 			"additionalProperties": false,
 			"required": [
+			    "type",
 				"id",
 				"filter_type"
 			]
@@ -627,6 +633,11 @@
 		"DFT": {
 			"type": "object",
 			"properties": {
+			    "type": {
+			        "type": "string",
+			        "enum": [ "DFT" ],
+			        "default": "DFT"
+			    },
 				"id": {
 					"type": "string"
 				},
@@ -652,6 +663,7 @@
 			},
 			"additionalProperties": false,
 			"required": [
+			    "type",
 				"id",
 				"equivalent_noise_bandwidth",
 				"dfts",

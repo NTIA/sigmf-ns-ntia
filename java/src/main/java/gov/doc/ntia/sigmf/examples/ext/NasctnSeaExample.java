@@ -13,7 +13,7 @@ public class NasctnSeaExample implements Example {
     public static Extension getExtension() {
         Extension extension = new Extension();
         extension.setName("ntia-nasctn-sea");
-        extension.setVersion("v0.4.0");
+        extension.setVersion("v0.5.0");
         extension.setOptional(false);
         return extension;
     }

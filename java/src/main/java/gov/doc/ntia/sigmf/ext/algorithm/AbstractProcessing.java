@@ -1,7 +1,5 @@
 package gov.doc.ntia.sigmf.ext.algorithm;
 
-import static com.fasterxml.jackson.annotation.JsonTypeInfo.Id.DEDUCTION;
-
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
@@ -9,7 +7,10 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 
 import javax.validation.constraints.NotNull;
 
-@JsonTypeInfo(use = DEDUCTION)
+@JsonTypeInfo(
+        use = JsonTypeInfo.Id.NAME,
+        include = JsonTypeInfo.As.PROPERTY,
+        property = "type")
 @JsonSubTypes({
   @JsonSubTypes.Type(value = DFT.class),
   @JsonSubTypes.Type(value = DigitalFilter.class)
