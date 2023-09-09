@@ -137,10 +137,10 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
       "optional" : false
     }, {
       "name" : "ntia-diagnostics",
-      "version" : "v1.0.0",
+      "version" : "v1.1.0",
       "optional" : false
     } ],
-    "ntia-core:classification": "UNCLASSIFIED",
+    "ntia-core:classification" : "UNCLASSIFIED",
     "ntia-diagnostics:diagnostics" : {
       "computer" : {
         "cpu_max_clock" : 4800.0,
@@ -153,7 +153,7 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
         "cpu_overheating" : false,
         "cpu_uptime" : 10.0,
         "scos_uptime" : 1.0,
-        "scos_start_time" : "2023-05-31T19:39:34.399Z",
+        "scos_start" : "2023-09-09T10:17:29.726Z",
         "ssd_smart_data" : {
           "temp" : 41.0,
           "test_passed" : true,
@@ -165,13 +165,20 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
           "integrity_errors" : 0
         }
       },
-      "datetime" : "2023-05-31T19:39:34.378Z",
+      "datetime" : "2023-09-09T10:17:29.722Z",
       "preselector" : {
         "temp" : 21.6,
         "humidity" : 65.0,
         "noise_diode_temp" : 21.8,
         "lna_temp" : 21.8,
         "door_closed" : true
+      },
+      "software" : {
+        "system_platform" : "Linux-9.9.9-example-platform",
+        "python_version" : "3.11.5",
+        "scos_sensor_version" : "1.0.0-gcbb75ad",
+        "scos_actions_version" : "2.0.0",
+        "preselector_api_version" : "1.0.0"
       },
       "spu" : {
         "rf_tray_powered" : true,

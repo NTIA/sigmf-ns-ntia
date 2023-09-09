@@ -46,12 +46,14 @@ The example shown below uses this extension to record channel power summaries fo
       "optional" : false
     }, {
       "name" : "ntia-nasctn-sea",
-      "version" : "v0.5.0",
+      "version" : "v0.6.0",
       "optional" : false
     } ],
     "ntia-core:classification" : "UNCLASSIFIED",
-    "ntia-nasctn-sea:max_of_max_channel_powers" : [ -89.0, -93.0, -95.0, -87.0 ],
-    "ntia-nasctn-sea:median_of_mean_channel_powers" : [ -99.0, -103.0, -105.0, -97.0 ]
+    "ntia-nasctn-sea:max_of_max_channel_powers" : [ -89.0, -93.0, -95.0 ],
+    "ntia-nasctn-sea:mean_channel_powers" : [ -98.0, -102.0, -104.0 ],
+    "ntia-nasctn-sea:median_channel_powers" : [ -98.5, -102.5, -104.5 ],
+    "ntia-nasctn-sea:median_of_mean_channel_powers" : [ -99.0, -103.0, -105.0 ]
   },
   ...
   "captures" : [ ... ],

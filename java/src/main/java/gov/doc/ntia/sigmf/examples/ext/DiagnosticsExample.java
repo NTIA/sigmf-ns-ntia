@@ -8,6 +8,7 @@ import gov.doc.ntia.sigmf.examples.ExampleUtils;
 import gov.doc.ntia.sigmf.ext.diagnostics.Computer;
 import gov.doc.ntia.sigmf.ext.diagnostics.Diagnostics;
 import gov.doc.ntia.sigmf.ext.diagnostics.Preselector;
+import gov.doc.ntia.sigmf.ext.diagnostics.Software;
 import gov.doc.ntia.sigmf.ext.diagnostics.SPU;
 import gov.doc.ntia.sigmf.ext.diagnostics.SsdSmartData;
 
@@ -16,7 +17,7 @@ public class DiagnosticsExample implements Example {
   public static Extension getExtension() {
     Extension extension = new Extension();
     extension.setName("ntia-diagnostics");
-    extension.setVersion("v1.0.0");
+    extension.setVersion("v1.1.0");
     extension.setOptional(false);
     return extension;
   }
@@ -27,6 +28,9 @@ public class DiagnosticsExample implements Example {
 
     Preselector preselector = getPreselectorDiagnostics();
     diagnostics.setPreselector(preselector);
+
+    Software software = getSoftwareDiagnostics();
+    diagnostics.setSoftware(software);
 
     SPU spu = getSPUDiagnostics();
     diagnostics.setSpu(spu);
@@ -47,6 +51,16 @@ public class DiagnosticsExample implements Example {
     preselector.setHumidity(65.0);
     preselector.setDoorClosed(true);
     return preselector;
+  }
+
+  public static Software getSoftwareDiagnostics() {
+    Software software = new Software();
+    software.setSystemPlatform("Linux-9.9.9-example-platform");
+    software.setPythonVersion("3.11.5");
+    software.setScosSensorVersion("1.0.0-gcbb75ad");
+    software.setScosActionsVersion("2.0.0");
+    software.setPreselectorApiVersion("1.0.0");
+    return software;
   }
 
   public static SPU getSPUDiagnostics() {
