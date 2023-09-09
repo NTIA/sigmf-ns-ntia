@@ -19,6 +19,9 @@ public class Diagnostics {
   private Preselector preselector;
 
   @Valid
+  private Software software;
+
+  @Valid
   private SPU spu;
 
   @JsonProperty(value = "action_runtime")
@@ -39,6 +42,10 @@ public class Diagnostics {
   public void setPreselector(Preselector preselector) {
     this.preselector = preselector;
   }
+
+  public Software getSoftware() { return software; }
+
+  public void setSoftware(Software software) { this.software = software; }
 
   public SPU getSpu() {
     return spu;
