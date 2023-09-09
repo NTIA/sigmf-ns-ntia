@@ -1,4 +1,4 @@
-# The `ntia-diagnostics` SigMF Extension Namespace v1.0.0
+# The `ntia-diagnostics` SigMF Extension Namespace v1.1.0
 
 This document defines the `ntia-diagnostics` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides metadata to describe system diagnostic information.
 
@@ -12,6 +12,7 @@ The `ntia-diagnostics` extension defines the following datatypes:
 |`Preselector`|preselector diagnostics|JSON [Preselector](#02-the-preselector-diagnostics-object) object containing diagnostics for a preselector|
 |`SPU`|signal processing unit diagnostics|JSON [SPU](#03-the-spu-diagnostics-object) object containing diagnostics for a signal processing unit|
 |`Computer`|computer diagnostics|JSON [Computer](#04-the-computer-diagnostics-object) object containing diagnostics for a computer which runs SCOS|
+|`Software`|software versions|JSON [Software](#06-the-software-versions-object) object containing software version information|
 |`SsdSmartData`|solid-state drive SMART diagnostics|JSON [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) object containing results of SMART diagnostics for an SSD|
 
 Multiple key/value pairs in the objects defined by this extension MUST be ISO-8601 strings, as defined by [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), where the only allowed `time-offset` is `z`, indicating the UTC/Zulu timezone. Thus, timestamps take the form of `YYYY-MM-DDTHH:MM:SS.SSSZ`, where any number of digits for fractional seconds is permitted.
@@ -26,6 +27,7 @@ Multiple key/value pairs in the objects defined by this extension MUST be ISO-86
 | `preselector`    |false| [Preselector](#02-the-preselector-diagnostics-object) | N/A     | Metadata to capture preselector diagnostics.                                        |
 | `spu`            |false| [SPU](#03-the-spu-diagnostics-object)                 | N/A     | Metadata to capture signal processing unit diagnostics.                             |
 | `computer`       |false| [Computer](#04-the-computer-diagnostics-object)       | N/A     | Metadata to capture computer diagnostics.                                           |
+| `software`       |false| [Software](#06-the-software-versions-object)          | N/A     | Metadata to capture software versions.                                              |
 | `action_runtime` |false| double                                                | seconds | Total action execution time.                                                        |
 
 ### 0.2 The `Preselector` Diagnostics Object
@@ -87,6 +89,18 @@ The `SsdSmartData` diagnostics object has the following properties:
 | `percentage_used`           |false| double  | percent        | Contains a vendor specific estimate of the percentage of NVM subsystem life used based on the actual usage and the manufacturer’s prediction of NVM life. A value of 100 indicates that the estimated endurance of the NVM in the NVM subsystem has been consumed, but may not indicate an NVM subsystem failure. Values may exceed 100 and percentages greater than 254 shall be represented as 255. |
 | `unsafe_shutdowns`          |false| int     | N/A            | Number of unsafe shutdowns.                                                                                                                                                                                                                                                                                                                                                                           |
 | `integrity_errors`          |false| int     | N/A            | Number of occurrences where the controller detected an unrecovered data integrity error                  |
+
+### 0.6 The Software Versions Object
+
+The `Software` versions object has the following properties:
+
+| name                      | required | type   | description                                                                                                                                          |
+|---------------------------|----------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `system_platform`         | false    | string | A human-readable representation of the generator's software platform, e.g. "Linux-5.4.0-153-generic-x86_64-with-glibc2.29"                           |
+| `python_version`          | false    | string | [SemVer](https://semver.org/) representation of the Python version used by the generator                                                             |
+| `scos_sensor_version`     | false    | string | The [SCOS Sensor](https://github.com/NTIA/scos-sensor) version of the generator, in the form output by `git describe --tags`, e.g., "1.0.0-gebbc956" |
+| `scos_actions_version`    | false    | string | [SemVer](https://semver.org/) representation of the [SCOS Actions](https://github.com/NTIA/scos-actions) plugin version used by the generator        |
+| `preselector_api_version` | false    | string | [SemVer](https://semver.org/) representation of the [ITS Preselector API](https://github.com/NTIA/Preselector) version used by the generator         |
 
 ## 1 Global
 
