@@ -94,13 +94,13 @@ The `SsdSmartData` diagnostics object has the following properties:
 
 The `Software` versions object has the following properties:
 
-| name                      | required | type   | description                                                                                                                                          |
-|---------------------------|----------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `system_platform`         | false    | string | A human-readable representation of the generator's software platform, e.g. "Linux-5.4.0-153-generic-x86_64-with-glibc2.29"                           |
-| `python_version`          | false    | string | [SemVer](https://semver.org/) representation of the Python version used by the generator                                                             |
+| name                      | required | type   | description                                                                                                                                         |
+|---------------------------|----------|--------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `system_platform`         | false    | string | A human-readable representation of the generator's software platform, e.g. "Linux-5.4.0-153-generic-x86_64-with-glibc2.29"                          |
+| `python_version`          | false    | string | [SemVer](https://semver.org/) representation of the Python version used by the generator                                                            |
 | `scos_sensor_version`     | false    | string | The [SCOS Sensor](https://github.com/NTIA/scos-sensor) version of the generator, in the form output by `git describe --tags`, e.g., "1.0.0-gebbc956" |
-| `scos_actions_version`    | false    | string | [SemVer](https://semver.org/) representation of the [SCOS Actions](https://github.com/NTIA/scos-actions) plugin version used by the generator        |
-| `preselector_api_version` | false    | string | [SemVer](https://semver.org/) representation of the [ITS Preselector API](https://github.com/NTIA/Preselector) version used by the generator         |
+| `scos_actions_version`    | false    | string | [Semantic version](https://semver.org/) of the [SCOS Actions](https://github.com/NTIA/scos-actions) plugin used by the generator             |
+| `preselector_api_version` | false    | string | [Semantic version](https://semver.org/) of the [ITS Preselector API](https://github.com/NTIA/Preselector) used by the generator |
 
 ## 1 Global
 
