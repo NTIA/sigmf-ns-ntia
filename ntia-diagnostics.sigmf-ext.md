@@ -1,4 +1,4 @@
-# The `ntia-diagnostics` SigMF Extension Namespace v1.0.0
+# The `ntia-diagnostics` SigMF Extension Namespace v1.1.0
 
 This document defines the `ntia-diagnostics` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides metadata to describe system diagnostic information.
 
@@ -12,6 +12,7 @@ The `ntia-diagnostics` extension defines the following datatypes:
 |`Preselector`|preselector diagnostics|JSON [Preselector](#02-the-preselector-diagnostics-object) object containing diagnostics for a preselector|
 |`SPU`|signal processing unit diagnostics|JSON [SPU](#03-the-spu-diagnostics-object) object containing diagnostics for a signal processing unit|
 |`Computer`|computer diagnostics|JSON [Computer](#04-the-computer-diagnostics-object) object containing diagnostics for a computer which runs SCOS|
+|`Software`|software versions|JSON [Software](#06-the-software-versions-object) object containing software version information|
 |`SsdSmartData`|solid-state drive SMART diagnostics|JSON [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) object containing results of SMART diagnostics for an SSD|
 
 Multiple key/value pairs in the objects defined by this extension MUST be ISO-8601 strings, as defined by [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), where the only allowed `time-offset` is `z`, indicating the UTC/Zulu timezone. Thus, timestamps take the form of `YYYY-MM-DDTHH:MM:SS.SSSZ`, where any number of digits for fractional seconds is permitted.
@@ -26,6 +27,7 @@ Multiple key/value pairs in the objects defined by this extension MUST be ISO-86
 | `preselector`    |false| [Preselector](#02-the-preselector-diagnostics-object) | N/A     | Metadata to capture preselector diagnostics.                                        |
 | `spu`            |false| [SPU](#03-the-spu-diagnostics-object)                 | N/A     | Metadata to capture signal processing unit diagnostics.                             |
 | `computer`       |false| [Computer](#04-the-computer-diagnostics-object)       | N/A     | Metadata to capture computer diagnostics.                                           |
+| `software`       |false| [Software](#06-the-software-versions-object)          | N/A     | Metadata to capture software versions.                                              |
 | `action_runtime` |false| double                                                | seconds | Total action execution time.                                                        |
 
 ### 0.2 The `Preselector` Diagnostics Object
@@ -88,6 +90,18 @@ The `SsdSmartData` diagnostics object has the following properties:
 | `unsafe_shutdowns`          |false| int     | N/A            | Number of unsafe shutdowns.                                                                                                                                                                                                                                                                                                                                                                           |
 | `integrity_errors`          |false| int     | N/A            | Number of occurrences where the controller detected an unrecovered data integrity error                  |
 
+### 0.6 The Software Versions Object
+
+The `Software` versions object has the following properties:
+
+| name                      | required | type   | description                                                                                                                                          |
+|---------------------------|----------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `system_platform`         | false    | string | A human-readable representation of the generator's software platform, e.g. "Linux-5.4.0-153-generic-x86_64-with-glibc2.29"                           |
+| `python_version`          | false    | string | [Semantic version](https://semver.org/) of Python used by the generator                                                                              |
+| `scos_sensor_version`     | false    | string | The [SCOS Sensor](https://github.com/NTIA/scos-sensor) version of the generator, in the form output by `git describe --tags`, e.g., "1.0.0-gebbc956" |
+| `scos_actions_version`    | false    | string | [Semantic version](https://semver.org/) of the [SCOS Actions](https://github.com/NTIA/scos-actions) plugin used by the generator                     |
+| `preselector_api_version` | false    | string | [Semantic version](https://semver.org/) of the [ITS Preselector API](https://github.com/NTIA/Preselector) used by the generator                      |
+
 ## 1 Global
 
 The `ntia-sensor` extension adds the following name/value pairs to the `global` SigMF object:
@@ -123,10 +137,10 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
       "optional" : false
     }, {
       "name" : "ntia-diagnostics",
-      "version" : "v1.0.0",
+      "version" : "v1.1.0",
       "optional" : false
     } ],
-    "ntia-core:classification": "UNCLASSIFIED",
+    "ntia-core:classification" : "UNCLASSIFIED",
     "ntia-diagnostics:diagnostics" : {
       "computer" : {
         "cpu_max_clock" : 4800.0,
@@ -139,7 +153,7 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
         "cpu_overheating" : false,
         "cpu_uptime" : 10.0,
         "scos_uptime" : 1.0,
-        "scos_start_time" : "2023-05-31T19:39:34.399Z",
+        "scos_start" : "2023-09-09T10:17:29.726Z",
         "ssd_smart_data" : {
           "temp" : 41.0,
           "test_passed" : true,
@@ -151,13 +165,20 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
           "integrity_errors" : 0
         }
       },
-      "datetime" : "2023-05-31T19:39:34.378Z",
+      "datetime" : "2023-09-09T10:17:29.722Z",
       "preselector" : {
         "temp" : 21.6,
         "humidity" : 65.0,
         "noise_diode_temp" : 21.8,
         "lna_temp" : 21.8,
         "door_closed" : true
+      },
+      "software" : {
+        "system_platform" : "Linux-9.9.9-example-platform",
+        "python_version" : "3.11.5",
+        "scos_sensor_version" : "1.0.0-gcbb75ad",
+        "scos_actions_version" : "2.0.0",
+        "preselector_api_version" : "1.0.0"
       },
       "spu" : {
         "rf_tray_powered" : true,
