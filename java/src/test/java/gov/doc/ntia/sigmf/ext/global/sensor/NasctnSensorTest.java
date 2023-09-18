@@ -8,6 +8,7 @@ import gov.doc.ntia.sigmf.ext.algorithm.AbstractProcessing;
 import gov.doc.ntia.sigmf.ext.algorithm.DFT;
 import gov.doc.ntia.sigmf.ext.algorithm.Graph;
 import gov.doc.ntia.sigmf.ext.diagnostics.Computer;
+import gov.doc.ntia.sigmf.ext.diagnostics.Software;
 import gov.doc.ntia.sigmf.ext.sensor.Calibration;
 import java.io.File;
 import java.io.IOException;
@@ -238,6 +239,16 @@ public class NasctnSensorTest {
   }
 
   @Test
+  public void testDeserializeDiagnosticsSoftware(){
+    Software software = metaDoc.getGlobal().getDiagnostics().getSoftware();
+    Assertions.assertEquals("Linux-5.4.0-153-generic-x86_64-with-glibc2.29", software.getSystemPlatform());
+    Assertions.assertEquals("3.8.10", software.getPythonVersion());
+    Assertions.assertEquals("6.3.3",software.getScosActionsVersion());
+    Assertions.assertEquals( "3.0.2", software.getPreselectorApiVersion());
+    Assertions.assertEquals("1.0.0-gcbb75ad", software.getScosSensorVersion());
+  }
+
+  @Test
   public void testDeserializeMaxOfMaxChannelPowers() {
     List<Double> maxPowers = metaDoc.getGlobal().getMaxOfMaxChannelPowers();
     Assertions.assertEquals(15, maxPowers.size());
@@ -251,6 +262,22 @@ public class NasctnSensorTest {
     Assertions.assertEquals(15, medianOfMeanPowers.size());
     Assertions.assertEquals(-83.875, medianOfMeanPowers.get(0).doubleValue());
     Assertions.assertEquals(-85.8125, medianOfMeanPowers.get(14).doubleValue());
+  }
+
+  @Test
+  public void testDeserializeMeanChannelPowers() {
+    List<Double> meanChannelPowers = metaDoc.getGlobal().getMeanChannelPowers();
+    Assertions.assertEquals(15, meanChannelPowers.size());
+    Assertions.assertEquals( -76.0, meanChannelPowers.get(0).doubleValue());
+    Assertions.assertEquals(-75.1875, meanChannelPowers.get(14).doubleValue());
+  }
+
+  @Test
+  public void testDeserializeMedianChannelPowers() {
+    List<Double> medianChannelPowers = metaDoc.getGlobal().getMedianChannelPowers();
+    Assertions.assertEquals(15, medianChannelPowers.size());
+    Assertions.assertEquals( -83.3125, medianChannelPowers.get(0).doubleValue());
+    Assertions.assertEquals(-95.9375, medianChannelPowers.get(14).doubleValue());
   }
 
   @Test

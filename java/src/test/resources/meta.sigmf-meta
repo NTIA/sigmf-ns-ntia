@@ -176,6 +176,40 @@
       -92.0625,
       -85.8125
     ],
+    "ntia-nasctn-sea:mean_channel_powers": [
+      -76.0,
+      -75.625,
+      -76.375,
+      -79.5625,
+      -77.875,
+      -75.0,
+      -86.8125,
+      -85.6875,
+      -83.6875,
+      -88.0,
+      -87.875,
+      -86.5625,
+      -92.875,
+      -90.75,
+      -75.1875
+    ],
+    "ntia-nasctn-sea:median_channel_powers": [
+      -83.3125,
+      -81.3125,
+      -81.5,
+      -83.0,
+      -83.5,
+      -81.5,
+      -91.8125,
+      -89.375,
+      -90.75,
+      -92.125,
+      -96.0625,
+      -95.875,
+      -96.625,
+      -95.125,
+      -95.9375
+    ],
     "ntia-diagnostics:diagnostics": {
       "datetime": "2023-04-06T21:31:39.356Z",
       "preselector": {
@@ -213,6 +247,13 @@
           "unsafe_shutdowns": 18,
           "integrity_errors": 0
         }
+      },
+      "software": {
+        "system_platform": "Linux-5.4.0-153-generic-x86_64-with-glibc2.29",
+        "python_version": "3.8.10",
+        "scos_actions_version": "6.3.3",
+        "preselector_api_version": "3.0.2",
+        "scos_sensor_version": "1.0.0-gcbb75ad"
       },
       "action_runtime": 81.8970819178503
     }
