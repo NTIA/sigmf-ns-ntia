@@ -243,7 +243,8 @@ public class NasctnSensorTest {
     Software software = metaDoc.getGlobal().getDiagnostics().getSoftware();
     Assertions.assertEquals("Linux-5.4.0-153-generic-x86_64-with-glibc2.29", software.getSystemPlatform());
     Assertions.assertEquals("3.8.10", software.getPythonVersion());
-    Assertions.assertEquals("6.3.3",software.getScosActionsVersion());
+    Assertions.assertEquals("6.3.3", software.getScosActionsVersion());
+    Assertions.assertEquals("3.1.3", software.getScosTekrsaVersion());
     Assertions.assertEquals( "3.0.2", software.getPreselectorApiVersion());
     Assertions.assertEquals("1.0.0-gcbb75ad", software.getScosSensorVersion());
   }
