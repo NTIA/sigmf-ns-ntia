@@ -18,6 +18,9 @@ public class Software {
     @JsonProperty(value = "scos_actions_version")
     protected String scosActionsVersion;
 
+    @JsonProperty(value = "scos_tekrsa_version")
+    protected String scosTekrsaVersion;
+
     @JsonProperty(value = "preselector_api_version")
     protected String preselectorApiVersion;
 
@@ -52,6 +55,10 @@ public class Software {
     public void setScosActionsVersion(String scosActionsVersion) {
         this.scosActionsVersion = scosActionsVersion;
     }
+
+    public String getScosTekrsaVersion() { return scosTekrsaVersion; }
+
+    public void setScosTekrsaVersion(String scosTekrsaVersion) { this.scosTekrsaVersion = scosTekrsaVersion; }
 
     public String getPreselectorApiVersion() {
         return preselectorApiVersion;

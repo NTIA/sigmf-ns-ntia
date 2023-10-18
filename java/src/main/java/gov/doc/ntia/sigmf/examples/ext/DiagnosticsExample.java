@@ -17,7 +17,7 @@ public class DiagnosticsExample implements Example {
   public static Extension getExtension() {
     Extension extension = new Extension();
     extension.setName("ntia-diagnostics");
-    extension.setVersion("v1.1.0");
+    extension.setVersion("v1.1.1");
     extension.setOptional(false);
     return extension;
   }
@@ -59,6 +59,7 @@ public class DiagnosticsExample implements Example {
     software.setPythonVersion("3.11.5");
     software.setScosSensorVersion("1.0.0-gcbb75ad");
     software.setScosActionsVersion("2.0.0");
+    software.setScosTekrsaVersion("3.1.3");
     software.setPreselectorApiVersion("1.0.0");
     return software;
   }
