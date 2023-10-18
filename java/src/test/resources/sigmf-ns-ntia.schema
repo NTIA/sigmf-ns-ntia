@@ -116,6 +116,18 @@
 						"type": "number"
 					}
 				},
+				"ntia-nasctn-sea:mean_channel_powers": {
+				    "type": "array",
+				    "items": {
+				        "type": "number"
+				    }
+				},
+				"ntia-nasctn-sea:median_channel_powers": {
+				    "type": "array",
+				    "items": {
+				        "type": "number"
+				    }
+				},
 				"ntia-nasctn-sea:median_of_mean_channel_powers": {
 					"type": "array",
 					"items": {
@@ -872,6 +884,30 @@
 			},
 			"additionalProperties": false
 		},
+		"Software": {
+		    "type": "object",
+		    "properties": {
+		        "system_platform": {
+		            "type": "string"
+		        },
+		        "python_version": {
+		            "type": "string"
+		        },
+		        "scos_sensor_version": {
+		            "type": "string"
+		        },
+		        "scos_actions_version": {
+		            "type": "string"
+		        },
+		        "scos_tekrsa_version": {
+		            "type": "string"
+		        },
+		        "preselector_api_version": {
+		            "type": "string"
+		        }
+		    },
+		    "additionalProperties": false
+		},
 		"SPU": {
 			"type": "object",
 			"properties": {
@@ -911,6 +947,9 @@
 				},
 				"preselector": {
 					"$ref": "#/$defs/PreselectorDiagnostics"
+				},
+				"software": {
+				    "$ref": "#/$defs/Software"
 				},
 				"spu": {
 					"$ref": "#/$defs/SPU"
