@@ -1,4 +1,4 @@
-# The `ntia-diagnostics` SigMF Extension Namespace v1.1.0
+# The `ntia-diagnostics` SigMF Extension Namespace v1.1.1
 
 This document defines the `ntia-diagnostics` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides metadata to describe system diagnostic information.
 
@@ -100,6 +100,7 @@ The `Software` versions object has the following properties:
 | `python_version`          | false    | string | [Semantic version](https://semver.org/) of Python used by the generator                                                                              |
 | `scos_sensor_version`     | false    | string | The [SCOS Sensor](https://github.com/NTIA/scos-sensor) version of the generator, in the form output by `git describe --tags`, e.g., "1.0.0-gebbc956" |
 | `scos_actions_version`    | false    | string | [Semantic version](https://semver.org/) of the [SCOS Actions](https://github.com/NTIA/scos-actions) plugin used by the generator                     |
+| `scos_tekrsa_version`     | false    | string | [Semantic version](https://semver.org/) of the [SCOS TekRSA](https://github.com/NTIA/scos-tekrsa) plugin used by the generator                       |
 | `preselector_api_version` | false    | string | [Semantic version](https://semver.org/) of the [ITS Preselector API](https://github.com/NTIA/Preselector) used by the generator                      |
 
 ## 1 Global
@@ -137,7 +138,7 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
       "optional" : false
     }, {
       "name" : "ntia-diagnostics",
-      "version" : "v1.1.0",
+      "version" : "v1.1.1",
       "optional" : false
     } ],
     "ntia-core:classification" : "UNCLASSIFIED",
@@ -153,7 +154,7 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
         "cpu_overheating" : false,
         "cpu_uptime" : 10.0,
         "scos_uptime" : 1.0,
-        "scos_start" : "2023-09-09T10:17:29.726Z",
+        "scos_start" : "2023-10-18T20:33:43.779Z",
         "ssd_smart_data" : {
           "temp" : 41.0,
           "test_passed" : true,
@@ -165,7 +166,7 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
           "integrity_errors" : 0
         }
       },
-      "datetime" : "2023-09-09T10:17:29.722Z",
+      "datetime" : "2023-10-18T20:33:43.776Z",
       "preselector" : {
         "temp" : 21.6,
         "humidity" : 65.0,
@@ -178,6 +179,7 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
         "python_version" : "3.11.5",
         "scos_sensor_version" : "1.0.0-gcbb75ad",
         "scos_actions_version" : "2.0.0",
+        "scos_tekrsa_version" : "3.1.3",
         "preselector_api_version" : "1.0.0"
       },
       "spu" : {
