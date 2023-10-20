@@ -884,6 +884,18 @@
 			},
 			"additionalProperties": false
 		},
+		"ScosPlugin": {
+		    "type": "object",
+		    "properties": {
+		        "name": {
+		            "type": "string"
+		        },
+		        "version": {
+		            "type": "string"
+		        }
+		    },
+		    "additionalProperties": false
+		},
 		"Software": {
 		    "type": "object",
 		    "properties": {
@@ -899,8 +911,8 @@
 		        "scos_actions_version": {
 		            "type": "string"
 		        },
-		        "scos_tekrsa_version": {
-		            "type": "string"
+		        "scos_sigan_plugin": {
+		            "$ref": "#/$defs/ScosPlugin"
 		        },
 		        "preselector_api_version": {
 		            "type": "string"
