@@ -6,14 +6,15 @@ This document defines the `ntia-diagnostics` extension namespace for the Signal 
 
 The `ntia-diagnostics` extension defines the following datatypes:
 
-|name|long-form name|description|
-|----|--------------|-----------|
-|`Diagnostics`|general diagnostics information|JSON [Diagnostics](#01-the-diagnostics-object) object containing general diagnostics information and sub-objects with diagnostics from specific components|
-|`Preselector`|preselector diagnostics|JSON [Preselector](#02-the-preselector-diagnostics-object) object containing diagnostics for a preselector|
-|`SPU`|signal processing unit diagnostics|JSON [SPU](#03-the-spu-diagnostics-object) object containing diagnostics for a signal processing unit|
-|`Computer`|computer diagnostics|JSON [Computer](#04-the-computer-diagnostics-object) object containing diagnostics for a computer which runs SCOS|
-|`Software`|software versions|JSON [Software](#06-the-software-versions-object) object containing software version information|
-|`SsdSmartData`|solid-state drive SMART diagnostics|JSON [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) object containing results of SMART diagnostics for an SSD|
+| name           | long-form name                      | description                                                                                                                                                |
+|----------------|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Diagnostics`  | general diagnostics information     | JSON [Diagnostics](#01-the-diagnostics-object) object containing general diagnostics information and sub-objects with diagnostics from specific components |
+| `Preselector`  | preselector diagnostics             | JSON [Preselector](#02-the-preselector-diagnostics-object) object containing diagnostics for a preselector                                                 |
+| `SPU`          | signal processing unit diagnostics  | JSON [SPU](#03-the-spu-diagnostics-object) object containing diagnostics for a signal processing unit                                                      |
+| `Computer`     | computer diagnostics                | JSON [Computer](#04-the-computer-diagnostics-object) object containing diagnostics for a computer which runs SCOS                                          |
+| `Software`     | software versions                   | JSON [Software](#06-the-software-versions-object) object containing software version information                                                           |
+| `SsdSmartData` | solid-state drive SMART diagnostics | JSON [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) object containing results of SMART diagnostics for an SSD                                     |
+| `ScosPlugin`   | SCOS plugins                        | JSON [ScosPlugin](#07-the-scos-plugin-object) object containing SCOS plugin names and versions                                                             |
 
 Multiple key/value pairs in the objects defined by this extension MUST be ISO-8601 strings, as defined by [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), where the only allowed `time-offset` is `z`, indicating the UTC/Zulu timezone. Thus, timestamps take the form of `YYYY-MM-DDTHH:MM:SS.SSSZ`, where any number of digits for fractional seconds is permitted.
 
@@ -94,14 +95,23 @@ The `SsdSmartData` diagnostics object has the following properties:
 
 The `Software` versions object has the following properties:
 
-| name                      | required | type   | description                                                                                                                                          |
-|---------------------------|----------|--------|------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `system_platform`         | false    | string | A human-readable representation of the generator's software platform, e.g. "Linux-5.4.0-153-generic-x86_64-with-glibc2.29"                           |
-| `python_version`          | false    | string | [Semantic version](https://semver.org/) of Python used by the generator                                                                              |
-| `scos_sensor_version`     | false    | string | The [SCOS Sensor](https://github.com/NTIA/scos-sensor) version of the generator, in the form output by `git describe --tags`, e.g., "1.0.0-gebbc956" |
-| `scos_actions_version`    | false    | string | [Semantic version](https://semver.org/) of the [SCOS Actions](https://github.com/NTIA/scos-actions) plugin used by the generator                     |
-| `scos_sigan_version`      | false    | string | [Semantic version](https://semver.org/) of the [SCOS TekRSA](https://github.com/NTIA/scos-tekrsa) plugin used by the generator                       |
-| `preselector_api_version` | false    | string | [Semantic version](https://semver.org/) of the [ITS Preselector API](https://github.com/NTIA/Preselector) used by the generator                      |
+| name                      | required | type         | description                                                                                                                                          |
+|---------------------------|----------|--------------|------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `system_platform`         | false    | string       | A human-readable representation of the generator's software platform, e.g. "Linux-5.4.0-153-generic-x86_64-with-glibc2.29"                           |
+| `python_version`          | false    | string       | [Semantic version](https://semver.org/) of Python used by the generator                                                                              |
+| `scos_sensor_version`     | false    | string       | The [SCOS Sensor](https://github.com/NTIA/scos-sensor) version of the generator, in the form output by `git describe --tags`, e.g., "1.0.0-gebbc956" |
+| `scos_actions_version`    | false    | string       | [Semantic version](https://semver.org/) of the [SCOS Actions](https://github.com/NTIA/scos-actions) plugin used by the generator                     |
+| `scos_sigan`              | false    | `ScosPlugin` | [ScosPlugin](#07-the-scos-plugin-object) object containing the SCOS plugin name and version for the signal analyzer interface                        |
+| `preselector_api_version` | false    | string       | [Semantic version](https://semver.org/) of the [ITS Preselector API](https://github.com/NTIA/Preselector) used by the generator                      |
+
+### 0.7 The SCOS Plugin Object
+
+The ``ScosPlugin``
+
+| name      | required | type   | description                                                                |
+|-----------|----------|--------|----------------------------------------------------------------------------|
+| `name`    | true     | string | Python package name as it is imported, e.g., `"scos_tekrsa`"               |
+| `version` | false    | string | [Semantic version](https://semver.org/) of the SCOS signal analyzer plugin |
 
 ## 1 Global
 
