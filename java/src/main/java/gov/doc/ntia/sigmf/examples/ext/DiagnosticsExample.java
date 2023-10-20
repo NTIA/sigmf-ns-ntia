@@ -8,6 +8,7 @@ import gov.doc.ntia.sigmf.examples.ExampleUtils;
 import gov.doc.ntia.sigmf.ext.diagnostics.Computer;
 import gov.doc.ntia.sigmf.ext.diagnostics.Diagnostics;
 import gov.doc.ntia.sigmf.ext.diagnostics.Preselector;
+import gov.doc.ntia.sigmf.ext.diagnostics.ScosPlugin;
 import gov.doc.ntia.sigmf.ext.diagnostics.Software;
 import gov.doc.ntia.sigmf.ext.diagnostics.SPU;
 import gov.doc.ntia.sigmf.ext.diagnostics.SsdSmartData;
@@ -17,7 +18,7 @@ public class DiagnosticsExample implements Example {
   public static Extension getExtension() {
     Extension extension = new Extension();
     extension.setName("ntia-diagnostics");
-    extension.setVersion("v1.1.1");
+    extension.setVersion("v1.1.2");
     extension.setOptional(false);
     return extension;
   }
@@ -59,7 +60,10 @@ public class DiagnosticsExample implements Example {
     software.setPythonVersion("3.11.5");
     software.setScosSensorVersion("1.0.0-gcbb75ad");
     software.setScosActionsVersion("2.0.0");
-    software.setScosTekrsaVersion("3.1.3");
+    ScosPlugin scosSiganPlugin = new ScosPlugin();
+    scosSiganPlugin.setName("scos_tekrsa");
+    scosSiganPlugin.setVersion("3.1.4");
+    software.setScosSiganPlugin(scosSiganPlugin);
     software.setPreselectorApiVersion("1.0.0");
     return software;
   }

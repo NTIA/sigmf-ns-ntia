@@ -148,7 +148,7 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
       "optional" : false
     }, {
       "name" : "ntia-diagnostics",
-      "version" : "v1.1.1",
+      "version" : "v1.1.2",
       "optional" : false
     } ],
     "ntia-core:classification" : "UNCLASSIFIED",
@@ -164,7 +164,7 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
         "cpu_overheating" : false,
         "cpu_uptime" : 10.0,
         "scos_uptime" : 1.0,
-        "scos_start" : "2023-10-18T20:33:43.779Z",
+        "scos_start" : "2023-10-20T19:56:29.601Z",
         "ssd_smart_data" : {
           "temp" : 41.0,
           "test_passed" : true,
@@ -176,7 +176,7 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
           "integrity_errors" : 0
         }
       },
-      "datetime" : "2023-10-18T20:33:43.776Z",
+      "datetime" : "2023-10-20T19:56:29.597Z",
       "preselector" : {
         "temp" : 21.6,
         "humidity" : 65.0,
@@ -189,7 +189,10 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
         "python_version" : "3.11.5",
         "scos_sensor_version" : "1.0.0-gcbb75ad",
         "scos_actions_version" : "2.0.0",
-        "scos_tekrsa_version" : "3.1.3",
+        "scos_sigan_plugin" : {
+          "name" : "scos_tekrsa",
+          "version" : "3.1.4"
+        },
         "preselector_api_version" : "1.0.0"
       },
       "spu" : {

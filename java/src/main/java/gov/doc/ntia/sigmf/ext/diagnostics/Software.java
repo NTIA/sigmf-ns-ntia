@@ -18,8 +18,8 @@ public class Software {
     @JsonProperty(value = "scos_actions_version")
     protected String scosActionsVersion;
 
-    @JsonProperty(value = "scos_tekrsa_version")
-    protected String scosTekrsaVersion;
+    @JsonProperty(value = "scos_sigan_plugin")
+    protected ScosPlugin scosSiganPlugin;
 
     @JsonProperty(value = "preselector_api_version")
     protected String preselectorApiVersion;
@@ -56,9 +56,9 @@ public class Software {
         this.scosActionsVersion = scosActionsVersion;
     }
 
-    public String getScosTekrsaVersion() { return scosTekrsaVersion; }
+    public ScosPlugin getScosSiganPlugin() { return scosSiganPlugin; }
 
-    public void setScosTekrsaVersion(String scosTekrsaVersion) { this.scosTekrsaVersion = scosTekrsaVersion; }
+    public void setScosSiganPlugin(ScosPlugin scosSiganPlugin) { this.scosSiganPlugin = scosSiganPlugin; }
 
     public String getPreselectorApiVersion() {
         return preselectorApiVersion;
