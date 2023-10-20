@@ -101,17 +101,17 @@ The `Software` versions object has the following properties:
 | `python_version`          | false    | string       | [Semantic version](https://semver.org/) of Python used by the generator                                                                              |
 | `scos_sensor_version`     | false    | string       | The [SCOS Sensor](https://github.com/NTIA/scos-sensor) version of the generator, in the form output by `git describe --tags`, e.g., "1.0.0-gebbc956" |
 | `scos_actions_version`    | false    | string       | [Semantic version](https://semver.org/) of the [SCOS Actions](https://github.com/NTIA/scos-actions) plugin used by the generator                     |
-| `scos_sigan`              | false    | `ScosPlugin` | [ScosPlugin](#07-the-scos-plugin-object) object containing the SCOS plugin name and version for the signal analyzer interface                        |
+| `scos_sigan_plugin`       | false    | `ScosPlugin` | [ScosPlugin](#07-the-scos-plugin-object) object containing the name and version of the plugin defining the signal analyzer interfa                   |
 | `preselector_api_version` | false    | string       | [Semantic version](https://semver.org/) of the [ITS Preselector API](https://github.com/NTIA/Preselector) used by the generator                      |
 
 ### 0.7 The SCOS Plugin Object
 
 The ``ScosPlugin`` object has the following properties: 
 
-| name      | required | type   | description                                                                |
-|-----------|----------|--------|----------------------------------------------------------------------------|
-| `name`    | true     | string | Python package name as it is imported, e.g., `"scos_tekrsa`"               |
-| `version` | false    | string | [Semantic version](https://semver.org/) of the SCOS signal analyzer plugin |
+| name      | required | type   | description                                                  |
+|-----------|----------|--------|--------------------------------------------------------------|
+| `name`    | true     | string | Python package name as it is imported, e.g., `"scos_tekrsa`" |
+| `version` | false    | string | [Semantic version](https://semver.org/) of the SCOS plugin   |
 
 ## 1 Global
 
