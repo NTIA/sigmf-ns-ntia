@@ -111,7 +111,7 @@ The ``ScosPlugin`` object has the following properties:
 | name      | required | type   | description                                                  |
 |-----------|----------|--------|--------------------------------------------------------------|
 | `name`    | true     | string | Python package name as it is imported, e.g., `"scos_tekrsa`" |
-| `version` | false    | string | [Semantic version](https://semver.org/) of the SCOS plugin   |
+| `version` | true     | string | [Semantic version](https://semver.org/) of the SCOS plugin   |
 
 ## 1 Global
 
