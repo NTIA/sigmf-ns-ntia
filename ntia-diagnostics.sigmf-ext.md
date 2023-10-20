@@ -106,7 +106,7 @@ The `Software` versions object has the following properties:
 
 ### 0.7 The SCOS Plugin Object
 
-The ``ScosPlugin``
+The ``ScosPlugin`` object has the following properties: 
 
 | name      | required | type   | description                                                                |
 |-----------|----------|--------|----------------------------------------------------------------------------|
