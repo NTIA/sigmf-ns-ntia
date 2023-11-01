@@ -1,14 +1,12 @@
 package gov.doc.ntia.sigmf;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import jakarta.validation.ConstraintViolation;import jakarta.validation.Validation;
+import jakarta.validation.ValidationException;import jakarta.validation.Validator;
+import jakarta.validation.ValidatorFactory;
 import java.io.File;
-import java.io.IOException;
-import java.util.Set;
-import javax.validation.ConstraintViolation;
-import javax.validation.Validation;
-import javax.validation.ValidationException;
-import javax.validation.Validator;
-import javax.validation.ValidatorFactory;
+import java.io.IOException;import java.util.Set;
+
 
 public class SigMfReader {
 

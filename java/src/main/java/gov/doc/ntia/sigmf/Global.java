@@ -11,12 +11,13 @@ import gov.doc.ntia.sigmf.ext.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.scos.Action;
 import gov.doc.ntia.sigmf.ext.scos.ScheduleEntry;
 import gov.doc.ntia.sigmf.ext.sensor.Sensor;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+
 
 @JsonInclude(Include.NON_NULL)
 public class Global implements Serializable {

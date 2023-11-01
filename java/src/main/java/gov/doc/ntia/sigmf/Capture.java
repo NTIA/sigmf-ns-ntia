@@ -10,12 +10,12 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import gov.doc.ntia.sigmf.ext.sensor.SensorCalibration;
 import gov.doc.ntia.sigmf.ext.sensor.SiganCalibration;
 import gov.doc.ntia.sigmf.ext.sensor.SiganSettings;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.validation.constraints.NotNull;
-import javax.validation.Valid;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonTypeInfo(use = DEDUCTION)
