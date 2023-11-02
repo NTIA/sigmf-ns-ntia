@@ -11,7 +11,7 @@ import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.sensor.Sensor;
 import java.io.File;
 import java.io.IOException;
-import jakarta.validation.ValidationException;
+import javax.validation.ValidationException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

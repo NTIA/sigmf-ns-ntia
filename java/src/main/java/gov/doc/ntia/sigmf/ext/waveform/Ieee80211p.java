@@ -2,7 +2,7 @@ package gov.doc.ntia.sigmf.ext.waveform;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.validation.Valid;
+import javax.validation.Valid;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Ieee80211p extends Waveform {
