@@ -7,10 +7,10 @@ import gov.doc.ntia.sigmf.ext.core.Antenna;
 import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.environment.Environment;
 import gov.doc.ntia.sigmf.ext.waveform.Waveform;
-import java.io.Serializable;
-
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
+import java.io.Serializable;
+
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Emitter implements Serializable {

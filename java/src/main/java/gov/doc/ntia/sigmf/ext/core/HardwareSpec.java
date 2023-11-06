@@ -2,9 +2,10 @@ package gov.doc.ntia.sigmf.ext.core;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-import javax.validation.constraints.NotNull;
+
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class HardwareSpec implements Serializable {
