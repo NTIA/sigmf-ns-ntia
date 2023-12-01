@@ -297,6 +297,7 @@
         "humidity": 17.0
       },
       "spu": {
+        "door_closed": true,
         "sigan_powered": true,
         "temperature_control_powered": false,
         "preselector_powered": true,
