@@ -182,7 +182,7 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
       "optional" : false
     }, {
       "name" : "ntia-diagnostics",
-      "version" : "v1.1.2",
+      "version" : "v2.0.0",
       "optional" : false
     } ],
     "ntia-core:classification" : "UNCLASSIFIED",
