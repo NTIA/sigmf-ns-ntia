@@ -140,7 +140,7 @@ The ``DiagnosticSensor`` object has the following properties:
 | `description`     | false    | string | A description of the sensor                                             |
 | `expected_value`  | false    | double | The value expected from the sensor                                      |
 | `maximum_allowed` | false    | double | The maximum value allowed from the sensor before action should be taken |
-| `minimum_allowed` | false    | double | The minimum value allowed fromt eh sensor before action should be taken |
+| `minimum_allowed` | false    | double | The minimum value allowed from the sensor before action should be taken |
 | `value`           | true     | double | The value provided by the sensor                                        |
 
 
