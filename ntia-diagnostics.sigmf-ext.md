@@ -52,21 +52,21 @@ The `Preselector` diagnostics object has the following properties:
 
 The `SPU` diagnostics object has the following properties, which are defined based on the components of an SPU in a NASCTN SEA Prototype Rev3 sensor:
 
-| name                          | required | type               | unit           | description                                                        |
-|-------------------------------|----------|--------------------|----------------|--------------------------------------------------------------------|
-| `sigan_powered`               | false    | boolean            | N/A            | Boolean indicating if the signal analyzer is powered.              |
-| `preselector_powered`         | false    | boolean            | N/A            | Boolean indicating if the preselector is powered.                  |
-| `humidity_sensors`            | false    | DiagnosticSensor[] | percent        | Humidity at specified locations.                                   |
-| `temperature_sensors`         | false    | DiagnosticSensor[] | degree Celsius | Temperature at specified locations.                                |
-| `power_sensors`               | false    | DiagnosticSensor[] | Volts          | Power readings at specified locations.                             |
-| `door_closed`                 | false    | boolean            | N/A            | Boolean indicating whether the door of the enclosure is closed.    |
-| `temperature_control_powered` | false    | boolean            | N/A            | Boolean indicating whether the temperature control is powered.     |
-| `heating`                     | false    | boolean            | N/A            | Boolean indicating whether the heat is on.                         |
-| `cooling`                     | false    | boolean            | N/A            | Boolean indicating whether the cooling is on.                      |
-| `battery_backup`              | false    | boolean            | N/A            | Boolean indicating True if the device is running on battery backup |
-| `low_battery`                 | false    | boolean            | N/A            | Boolean indicating True if the battery backup is low               |
-| `battery_healthy`             | false    | boolean            | N/A            | Boolean indicating True if the battery backup needs to be replaced |
-| `ups_healthy`                 | false    | boolean            | N/A            | Boolean indicating false if the UPS has a failure                  |
+| name                          | required | type                                                      | unit           | description                                                        |
+|-------------------------------|----------|-----------------------------------------------------------|----------------|--------------------------------------------------------------------|
+| `sigan_powered`               | false    | boolean                                                   | N/A            | Boolean indicating if the signal analyzer is powered.              |
+| `preselector_powered`         | false    | boolean                                                   | N/A            | Boolean indicating if the preselector is powered.                  |
+| `humidity_sensors`            | false    | [DiagnosticSensor[]](#08-the-diagnostic-sensor-object)    | percent        | Humidity at specified locations.                                   |
+| `temperature_sensors`         | false    | [DiagnosticSensor[]](#08-the-diagnostic-sensor-object)    | degree Celsius | Temperature at specified locations.                                |
+| `power_sensors`               | false    | [DiagnosticSensor[]](#08-the-diagnostic-sensor-object)    | Volts          | Power readings at specified locations.                             |
+| `door_closed`                 | false    | boolean                                                   | N/A            | Boolean indicating whether the door of the enclosure is closed.    |
+| `temperature_control_powered` | false    | boolean                                                   | N/A            | Boolean indicating whether the temperature control is powered.     |
+| `heating`                     | false    | boolean                                                   | N/A            | Boolean indicating whether the heat is on.                         |
+| `cooling`                     | false    | boolean                                                   | N/A            | Boolean indicating whether the cooling is on.                      |
+| `battery_backup`              | false    | boolean                                                   | N/A            | Boolean indicating True if the device is running on battery backup |
+| `low_battery`                 | false    | boolean                                                   | N/A            | Boolean indicating True if the battery backup is low               |
+| `battery_healthy`             | false    | boolean                                                   | N/A            | Boolean indicating True if the battery backup needs to be replaced |
+| `ups_healthy`                 | false    | boolean                                                   | N/A            | Boolean indicating false if the UPS has a failure                  |
 
 
 
