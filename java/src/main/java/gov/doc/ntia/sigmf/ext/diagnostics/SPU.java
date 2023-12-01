@@ -2,38 +2,35 @@ package gov.doc.ntia.sigmf.ext.diagnostics;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import java.util.List;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SPU {
 
-  @JsonProperty(value = "rf_tray_powered")
-  protected Boolean rfTrayPowered;
-
   @JsonProperty(value = "preselector_powered")
   protected Boolean preselectorPowered;
 
-  @JsonProperty(value = "28v_aux_powered")
-  protected Boolean aux28vPowered;
+  @JsonProperty(value = "sigan_powered")
+  protected Boolean siganPowered;
 
-  @JsonProperty(value = "pwr_box_temp")
-  protected Double pwrBoxTemp;
+  @JsonProperty(value = "temperature_control_powered")
+  protected Boolean tempControlPowered;
 
-  @JsonProperty(value = "rf_box_temp")
-  protected Double rfBoxTemp;
+  @JsonProperty protected Boolean cooling;
 
-  @JsonProperty(value = "pwr_box_humidity")
-  protected Double pwrBoxHumidity;
+  @JsonProperty protected Boolean heating;
 
-  @JsonProperty(value = "sigan_internal_temp")
-  protected Double siganInternalTemp;
+  @JsonProperty(value = "door_closed")
+  protected Boolean doorClosed;
 
-  public Boolean getRfTrayPowered() {
-    return rfTrayPowered;
-  }
+  @JsonProperty(value = "humidity_sensors")
+  protected List<DiagnosticSensor> humiditySensors;
 
-  public void setRfTrayPowered(Boolean rfTrayPowered) {
-    this.rfTrayPowered = rfTrayPowered;
-  }
+  @JsonProperty(value = "temperature_sensors")
+  protected List<DiagnosticSensor> temperatureSensors;
+
+  @JsonProperty(value = "power_sensors")
+  protected List<DiagnosticSensor> powerSensors;
 
   public Boolean getPreselectorPowered() {
     return preselectorPowered;
@@ -43,43 +40,67 @@ public class SPU {
     this.preselectorPowered = preselectorPowered;
   }
 
-  public Boolean getAux28vPowered() {
-    return aux28vPowered;
+  public Boolean getSiganPowered() {
+    return siganPowered;
   }
 
-  public void setAux28vPowered(Boolean aux28vPowered) {
-    this.aux28vPowered = aux28vPowered;
+  public void setSiganPowered(Boolean siganPowered) {
+    this.siganPowered = siganPowered;
   }
 
-  public Double getPwrBoxTemp() {
-    return pwrBoxTemp;
+  public Boolean getTempControlPowered() {
+    return tempControlPowered;
   }
 
-  public void setPwrBoxTemp(Double pwrBoxTemp) {
-    this.pwrBoxTemp = pwrBoxTemp;
+  public void setTempControlPowered(Boolean tempControlPowered) {
+    this.tempControlPowered = tempControlPowered;
   }
 
-  public Double getRfBoxTemp() {
-    return rfBoxTemp;
+  public Boolean getCooling() {
+    return cooling;
   }
 
-  public void setRfBoxTemp(Double rfBoxTemp) {
-    this.rfBoxTemp = rfBoxTemp;
+  public void setCooling(Boolean cooling) {
+    this.cooling = cooling;
   }
 
-  public Double getPwrBoxHumidity() {
-    return pwrBoxHumidity;
+  public Boolean getHeating() {
+    return heating;
   }
 
-  public void setPwrBoxHumidity(Double pwrBoxHumidity) {
-    this.pwrBoxHumidity = pwrBoxHumidity;
+  public void setHeating(Boolean heating) {
+    this.heating = heating;
   }
 
-  public Double getSiganInternalTemp() {
-    return siganInternalTemp;
+  public Boolean getDoorClosed() {
+    return doorClosed;
   }
 
-  public void setSiganInternalTemp(Double siganInternalTemp) {
-    this.siganInternalTemp = siganInternalTemp;
+  public void setDoorClosed(Boolean doorClosed) {
+    this.doorClosed = doorClosed;
+  }
+
+  public List<DiagnosticSensor> getHumiditySensors() {
+    return humiditySensors;
+  }
+
+  public void setHumiditySensors(List<DiagnosticSensor> humiditySensors) {
+    this.humiditySensors = humiditySensors;
+  }
+
+  public List<DiagnosticSensor> getTemperatureSensors() {
+    return temperatureSensors;
+  }
+
+  public void setTemperatureSensors(List<DiagnosticSensor> temperatureSensors) {
+    this.temperatureSensors = temperatureSensors;
+  }
+
+  public List<DiagnosticSensor> getPowerSensors() {
+    return powerSensors;
+  }
+
+  public void setPowerSensors(List<DiagnosticSensor> powerSensors) {
+    this.powerSensors = powerSensors;
   }
 }

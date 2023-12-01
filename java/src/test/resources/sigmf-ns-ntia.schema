@@ -850,15 +850,21 @@
 				"cpu_uptime": {
 					"type": "number"
 				},
-				"scos_uptime": {
+				"software_uptime": {
 					"type": "number"
 				},
-				"scos_start": {
+				"software_start": {
 					"type": "string",
 					"format": "date-time"
 				},
 				"ssd_smart_data": {
 					"$ref": "#/$defs/SsdSmartData"
+				},
+				"ntp_active":{
+				    "type": "boolean"
+				},
+				"ntp_sync":{
+				    "type": "boolean"
 				}
 			},
 			"additionalProperties": false
@@ -880,6 +886,18 @@
 				},
 				"door_closed": {
 					"type": "boolean"
+				},
+				"lna_powered":{
+				    "type": "boolean"
+				},
+				"noise_diode_powered":{
+				    "type": "boolean"
+				},
+				"antenna_path_enabled":{
+				    "type": "boolean"
+				},
+				"noise_diode_path_enabled":{
+				    "type": "boolean"
 				}
 			},
 			"additionalProperties": false
@@ -923,26 +941,53 @@
 		"SPU": {
 			"type": "object",
 			"properties": {
-				"rf_tray_powered": {
-					"type": "boolean"
-				},
+			    "sigan_powered":{
+			        "type": "boolean"
+			    },
+			    "heating":{
+			        "type": "boolean"
+			    },
+			    "cooling":{
+			        "type": "boolean"
+			    },
+			    "temperature_control_powered":{
+			        "type": "boolean"
+			    },
 				"preselector_powered": {
 					"type": "boolean"
 				},
-				"28v_aux_powered": {
-					"type": "boolean"
+				"door_closed":{
+				    "type": "boolean"
 				},
-				"pwr_box_temp": {
-					"type": "number"
+				"battery_backup":{
+				    "type": "boolean"
 				},
-				"rf_box_temp": {
-					"type": "number"
+				"low_battery":{
+				    "type": "boolean"
 				},
-				"pwr_box_humidity": {
-					"type": "number"
+				"battery_healthy":{
+				    "type": "boolean"
 				},
-				"sigan_internal_temp": {
-					"type": "number"
+				"ups_healthy":{
+				    "type": "boolean"
+				},
+				"temperature_sensors":{
+				    "type": "array",
+					"items": {
+						"$ref": "#/$defs/DiagnosticSensor"
+					}
+				},
+				"humidity_sensors":{
+				    "type": "array",
+					"items": {
+						"$ref": "#/$defs/DiagnosticSensor"
+					}
+				},
+				"power_sensors":{
+				    "type": "array",
+					"items": {
+						"$ref": "#/$defs/DiagnosticSensor"
+					}
 				}
 			},
 			"additionalProperties": false
@@ -1074,6 +1119,29 @@
 			},
 			"additionalProperties": false,
 			"required": ["name"]
+		},
+		"DiagnosticSensor":{
+		    "type": "object",
+		    "properties":{
+		        "name":{
+		            "type": "string"
+		        },
+		        "value":{
+		            "type": "number"
+		        },
+		        "maximum_allowed":{
+		            "type": "number"
+		        },
+		        "minimum_allowed":{
+		            "type": "number"
+		        },
+		        "expected_value":{
+		            "type": "number"
+		        }
+
+		    },
+		    "additionalProperties":false,
+		    "required":["name", "value"]
 		}
 
 	}

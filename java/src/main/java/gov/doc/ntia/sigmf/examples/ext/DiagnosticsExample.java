@@ -6,12 +6,12 @@ import gov.doc.ntia.sigmf.MetaDoc;
 import gov.doc.ntia.sigmf.examples.Example;
 import gov.doc.ntia.sigmf.examples.ExampleUtils;
 import gov.doc.ntia.sigmf.ext.diagnostics.Computer;
-import gov.doc.ntia.sigmf.ext.diagnostics.Diagnostics;
+import gov.doc.ntia.sigmf.ext.diagnostics.DiagnosticSensor;import gov.doc.ntia.sigmf.ext.diagnostics.Diagnostics;
 import gov.doc.ntia.sigmf.ext.diagnostics.Preselector;
 import gov.doc.ntia.sigmf.ext.diagnostics.ScosPlugin;
 import gov.doc.ntia.sigmf.ext.diagnostics.Software;
 import gov.doc.ntia.sigmf.ext.diagnostics.SPU;
-import gov.doc.ntia.sigmf.ext.diagnostics.SsdSmartData;
+import gov.doc.ntia.sigmf.ext.diagnostics.SsdSmartData;import java.util.ArrayList;
 
 public class DiagnosticsExample implements Example {
 
@@ -51,6 +51,9 @@ public class DiagnosticsExample implements Example {
     preselector.setLnaTemp(21.8);
     preselector.setHumidity(65.0);
     preselector.setDoorClosed(true);
+    preselector.setAntennaPathEnabled(true);
+    preselector.setNoiseDiodePathEnabled(false);
+    preselector.setNoiseDiodePowered(false);
     return preselector;
   }
 
@@ -70,13 +73,29 @@ public class DiagnosticsExample implements Example {
 
   public static SPU getSPUDiagnostics() {
     SPU spu = new SPU();
-    spu.setRfTrayPowered(true);
     spu.setPreselectorPowered(true);
-    spu.setAux28vPowered(true);
-    spu.setPwrBoxTemp(28.8);
-    spu.setRfBoxTemp(31.4);
-    spu.setPwrBoxHumidity(11.2);
-    spu.setSiganInternalTemp(50.0);
+    DiagnosticSensor internalTemp = new DiagnosticSensor();
+    internalTemp.setName("internal_temp");
+    internalTemp.setValue(32.0);
+    ArrayList<DiagnosticSensor> tempSensors = new ArrayList<>();
+    tempSensors.add(internalTemp);
+    spu.setTemperatureSensors(tempSensors);
+    spu.setCooling(false);
+    spu.setHeating(false);
+    spu.setDoorClosed(true);
+    DiagnosticSensor internalHumidity = new DiagnosticSensor();
+    internalHumidity.setName("internal_humidity");
+    internalHumidity.setValue(17.0);
+    ArrayList<DiagnosticSensor> humiditySensors = new ArrayList<>();
+    humiditySensors.add(internalHumidity);
+    spu.setHumiditySensors(humiditySensors);
+    DiagnosticSensor powerMonitor5V = new DiagnosticSensor();
+    powerMonitor5V.setName("5V_power_monitor");
+    powerMonitor5V.setValue(5.0);
+    powerMonitor5V.setExpectedValue(5.0);
+    ArrayList<DiagnosticSensor> powerSensors = new ArrayList<>();
+    powerSensors.add(powerMonitor5V);
+    spu.setPowerSensors(powerSensors);
     return spu;
   }
 
@@ -93,8 +112,10 @@ public class DiagnosticsExample implements Example {
     computer.setCpuTemp(67.0);
     computer.setCpuOverheating(false);
     computer.setCpuUptime(10.0);
-    computer.setScosUptime(1.0);
-    computer.setScosStart(ExampleUtils.getDatetimeNow());
+    computer.setSoftwareUptime(1.0);
+    computer.setSoftwareStart(ExampleUtils.getDatetimeNow());
+    computer.setNtpActive(true);
+    computer.setNtpSync(true);
     return computer;
   }
 

@@ -146,44 +146,16 @@ public class NasctnSensorTest {
 
   @Test
   public void testDeserializeSpu() {
-    Assertions.assertEquals(true, metaDoc.getGlobal().getDiagnostics().getSpu().getRfTrayPowered());
     Assertions.assertEquals(
         true, metaDoc.getGlobal().getDiagnostics().getSpu().getPreselectorPowered());
-    Assertions.assertEquals(true, metaDoc.getGlobal().getDiagnostics().getSpu().getAux28vPowered());
-    Assertions.assertEquals(
-        26.0, metaDoc.getGlobal().getDiagnostics().getSpu().getPwrBoxTemp().doubleValue());
-    Assertions.assertEquals(
-        26.1, metaDoc.getGlobal().getDiagnostics().getSpu().getRfBoxTemp().doubleValue());
-    Assertions.assertEquals(
-        11.2, metaDoc.getGlobal().getDiagnostics().getSpu().getPwrBoxHumidity().doubleValue());
-    Assertions.assertEquals(
-        54.44, metaDoc.getGlobal().getDiagnostics().getSpu().getSiganInternalTemp().doubleValue());
   }
 
   @Test
   public void testSerializeDeserializeSpu() {
     Assertions.assertEquals(
-        true, metaDocFromString.getGlobal().getDiagnostics().getSpu().getRfTrayPowered());
-    Assertions.assertEquals(
         true, metaDocFromString.getGlobal().getDiagnostics().getSpu().getPreselectorPowered());
-    Assertions.assertEquals(
-        true, metaDocFromString.getGlobal().getDiagnostics().getSpu().getAux28vPowered());
-    Assertions.assertEquals(
-        26.0,
-        metaDocFromString.getGlobal().getDiagnostics().getSpu().getPwrBoxTemp().doubleValue());
-    Assertions.assertEquals(
-        26.1, metaDocFromString.getGlobal().getDiagnostics().getSpu().getRfBoxTemp().doubleValue());
-    Assertions.assertEquals(
-        11.2,
-        metaDocFromString.getGlobal().getDiagnostics().getSpu().getPwrBoxHumidity().doubleValue());
-    Assertions.assertEquals(
-        54.44,
-        metaDocFromString
-            .getGlobal()
-            .getDiagnostics()
-            .getSpu()
-            .getSiganInternalTemp()
-            .doubleValue());
+
+
   }
 
   @Test
@@ -198,9 +170,9 @@ public class NasctnSensorTest {
     Assertions.assertEquals(42.1, computer.getActionCpuUsage().doubleValue());
     Assertions.assertEquals(18.1, computer.getSystemLoad5m().doubleValue());
     Assertions.assertEquals(14.9, computer.getMemoryUsage().doubleValue());
-    ZonedDateTime zdt = computer.getScosStart().toInstant().atZone(ZoneId.of("UTC"));
+    ZonedDateTime zdt = computer.getSoftwareStart().toInstant().atZone(ZoneId.of("UTC"));
     Assertions.assertEquals("2023-04-06T21:28:45.532Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
-    Assertions.assertEquals(0.002, computer.getScosUptime().doubleValue());
+    Assertions.assertEquals(0.002, computer.getSoftwareUptime().doubleValue());
     Assertions.assertEquals(true, computer.getSmartData().getTestPassed());
     Assertions.assertEquals("0x00", computer.getSmartData().getCriticalWarning());
     Assertions.assertEquals(35.0, computer.getSmartData().getTemp().doubleValue());
@@ -224,9 +196,9 @@ public class NasctnSensorTest {
     Assertions.assertEquals(42.1, computer.getActionCpuUsage().doubleValue());
     Assertions.assertEquals(18.1, computer.getSystemLoad5m().doubleValue());
     Assertions.assertEquals(14.9, computer.getMemoryUsage().doubleValue());
-    ZonedDateTime zdt = computer.getScosStart().toInstant().atZone(ZoneId.of("UTC"));
+    ZonedDateTime zdt = computer.getSoftwareStart().toInstant().atZone(ZoneId.of("UTC"));
     Assertions.assertEquals("2023-04-06T21:28:45.532Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
-    Assertions.assertEquals(0.002, computer.getScosUptime().doubleValue());
+    Assertions.assertEquals(0.002, computer.getSoftwareUptime().doubleValue());
     Assertions.assertEquals(true, computer.getSmartData().getTestPassed());
     Assertions.assertEquals("0x00", computer.getSmartData().getCriticalWarning());
     Assertions.assertEquals(35.0, computer.getSmartData().getTemp().doubleValue());

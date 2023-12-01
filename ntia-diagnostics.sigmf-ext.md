@@ -1,4 +1,4 @@
-# The `ntia-diagnostics` SigMF Extension Namespace v1.1.1
+# The `ntia-diagnostics` SigMF Extension Namespace v2.0.0
 
 This document defines the `ntia-diagnostics` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides metadata to describe system diagnostic information.
 
@@ -6,15 +6,16 @@ This document defines the `ntia-diagnostics` extension namespace for the Signal 
 
 The `ntia-diagnostics` extension defines the following datatypes:
 
-| name           | long-form name                      | description                                                                                                                                                |
-|----------------|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Diagnostics`  | general diagnostics information     | JSON [Diagnostics](#01-the-diagnostics-object) object containing general diagnostics information and sub-objects with diagnostics from specific components |
-| `Preselector`  | preselector diagnostics             | JSON [Preselector](#02-the-preselector-diagnostics-object) object containing diagnostics for a preselector                                                 |
-| `SPU`          | signal processing unit diagnostics  | JSON [SPU](#03-the-spu-diagnostics-object) object containing diagnostics for a signal processing unit                                                      |
-| `Computer`     | computer diagnostics                | JSON [Computer](#04-the-computer-diagnostics-object) object containing diagnostics for a computer which runs SCOS                                          |
-| `Software`     | software versions                   | JSON [Software](#06-the-software-versions-object) object containing software version information                                                           |
-| `SsdSmartData` | solid-state drive SMART diagnostics | JSON [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) object containing results of SMART diagnostics for an SSD                                     |
-| `ScosPlugin`   | SCOS plugins                        | JSON [ScosPlugin](#07-the-scos-plugin-object) object containing SCOS plugin names and versions                                                             |
+| name               | long-form name                      | description                                                                                                                                                |
+|--------------------|-------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `Diagnostics`      | general diagnostics information     | JSON [Diagnostics](#01-the-diagnostics-object) object containing general diagnostics information and sub-objects with diagnostics from specific components |
+| `Preselector`      | preselector diagnostics             | JSON [Preselector](#02-the-preselector-diagnostics-object) object containing diagnostics for a preselector                                                 |
+| `SPU`              | signal processing unit diagnostics  | JSON [SPU](#03-the-spu-diagnostics-object) object containing diagnostics for a signal processing unit                                                      |
+| `Computer`         | computer diagnostics                | JSON [Computer](#04-the-computer-diagnostics-object) object containing diagnostics for a computer which runs SCOS                                          |
+| `Software`         | software versions                   | JSON [Software](#06-the-software-versions-object) object containing software version information                                                           |
+| `SsdSmartData`     | solid-state drive SMART diagnostics | JSON [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) object containing results of SMART diagnostics for an SSD                                     |
+| `ScosPlugin`       | SCOS plugins                        | JSON [ScosPlugin](#07-the-scos-plugin-object) object containing SCOS plugin names and versions                                                             |
+| `DIagnosticSensor` | Diagnostic sensor                   | JSON [DiagnosticSensor](#08-the-diagnostic-sensor-object) object describing a temperature sensor                                                           |
 
 Multiple key/value pairs in the objects defined by this extension MUST be ISO-8601 strings, as defined by [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), where the only allowed `time-offset` is `z`, indicating the UTC/Zulu timezone. Thus, timestamps take the form of `YYYY-MM-DDTHH:MM:SS.SSSZ`, where any number of digits for fractional seconds is permitted.
 
@@ -35,27 +36,40 @@ Multiple key/value pairs in the objects defined by this extension MUST be ISO-86
 
 The `Preselector` diagnostics object has the following properties:
 
-| name               | required | type    | unit           | description                                                     |
-|--------------------|----------|---------|----------------|-----------------------------------------------------------------|
-| `temp`             | false    | double  | degree Celsius | Temperature inside the preselector enclosure.                   |
-| `noise_diode_temp` | false    | double  | degree Celsius | Temperature of the noise diode.                                 |
-| `lna_temp`         | false    | double  | degree Celsius | Temperature of the low noise amplifier.                         |
-| `humidity`         | false    | double  | percent        | Relative humidity inside the preselector enclosure.             |
-| `door_closed`      | false    | boolean | N/A            | Boolean indicating whether the door of the enclosure is closed. |
+| name                       | required | type    | unit           | description                                                     |
+|----------------------------|----------|---------|----------------|-----------------------------------------------------------------|
+| `temp`                     | false    | double  | degree Celsius | Temperature inside the preselector enclosure.                   |
+| `noise_diode_temp`         | false    | double  | degree Celsius | Temperature of the noise diode.                                 |
+| `lna_temp`                 | false    | double  | degree Celsius | Temperature of the low noise amplifier.                         |
+| `humidity`                 | false    | double  | percent        | Relative humidity inside the preselector enclosure.             |
+| `door_closed`              | false    | boolean | N/A            | Boolean indicating whether the door of the enclosure is closed. |
+| `noise_diode_powered`      | false    | boolean | N/A            | Boolean indicating whether the noise diode is powered.          |
+| `antenna_path_enabled`     | false    | boolean | N/A            | Boolean indicating whether the antenna path is enabled.         |
+| `noise_diode_path_enabled` | false    | boolean | N/A            | Boolean indicating whether the noise diode path is enabled.     |
+
 
 ### 0.3 The `SPU` Diagnostics Object
 
 The `SPU` diagnostics object has the following properties, which are defined based on the components of an SPU in a NASCTN SEA Prototype Rev3 sensor:
 
-| name                  | required | type    | unit           | description                                              |
-|-----------------------|----------|---------|----------------|----------------------------------------------------------|
-| `rf_tray_powered`     | false    | boolean | N/A            | Boolean indicating if the RF tray is powered.            |
-| `preselector_powered` | false    | boolean | N/A            | Boolean indicating if the preselector is powered.        |
-| `28v_aux_powered`     | false    | boolean | N/A            | Boolean indicating if the 28 volt auxillary power is on. |
-| `pwr_box_temp`        | false    | double  | degree Celsius | Ambient temperature at power distribution.               |
-| `pwr_box_humidity`    | false    | double  | percent        | Humidity at power distribution.                          |
-| `rf_box_temp`         | false    | double  | degree Celsius | Ambient temperature around the signal analyzer.          |
-| `sigan_internal_temp` | false    | double  | degree Celsius | Internal temperature reported by the signal analyzer     |
+| name                          | required | type               | unit           | description                                                        |
+|-------------------------------|----------|--------------------|----------------|--------------------------------------------------------------------|
+| `sigan_powered`               | false    | boolean            | N/A            | Boolean indicating if the signal analyzer is powered.              |
+| `preselector_powered`         | false    | boolean            | N/A            | Boolean indicating if the preselector is powered.                  |
+| `humidity_sensors`            | false    | DiagnosticSensor[] | percent        | Humidity at specified locations.                                   |
+| `temperature_sensors`         | false    | DiagnosticSensor[] | degree Celsius | Temperature at specified locations.                                |
+| `power_sensors`               | false    | DiagnosticSensor[] | Volts          | Temperature at specified locations.                                |
+| `door_closed`                 | false    | boolean            | N/A            | Boolean indicating whether the door of the enclosure is closed.    |
+| `temperature_control_powered` | false    | boolean            | N/A            | Boolean indicating whether the temperature control is powered.     |
+| `heating`                     | false    | boolean            | N/A            | Boolean indicating whether the heat is on.                         |
+| `cooling`                     | false    | boolean            | N/A            | Boolean indicating whether the cooling is on.                      |
+| `battery_backup`              | false    | boolean            | N/A            | Boolean indicating True if the device is running on battery backup |
+| `low_battery`                 | false    | boolean            | N/A            | Boolean indicating True if the battery backup is low               |
+| `battery_healthy`             | false    | boolean            | N/A            | Boolean indicating True if the battery backup needs to be replaced |
+| `ups_healthy`                 | false    | boolean            | N/A            | Boolean indicating false if the UPS has a failure                  |
+
+
+
 
 ### 0.4 The `Computer` Diagnostics Object
 
@@ -72,9 +86,12 @@ The `Computer` diagnostics object has the following properties:
 | `memory_usage`     | false    | double                                                  | percent              | Average percent of memory used during action execution.                                                 |
 | `cpu_overheating`  | false    | boolean                                                 | N/A                  | True if the CPU is overheating.                                                                         |
 | `cpu_temp`         | false    | double                                                  | degree Celsius       | CPU temperature.                                                                                        |
-| `scos_start`       | false    | string                                                  | ISO-8601 (see above) | The time at which the SCOS API container started.                                                       |
-| `scos_uptime`      | false    | double                                                  | days                 | Number of days since the SCOS API container started.                                                    |
+| `software_start`   | false    | string                                                  | ISO-8601 (see above) | The time at which the sensor software started.                                                          |
+| `software_uptime`  | false    | double                                                  | days                 | Number of days since the sensor software started.                                                       |
 | `ssd_smart_data`   | false    | [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) | N/A                  | Information provided by the drive Self-Monitoring, Analysis, and Reporting Technology.                  |
+| `ntp_active`       | false    | boolean                                                 | N/A                  | True if NTP service is active on the computer                                                           |
+| `ntp_sync`         | false    | boolean                                                 | N/A                  | True if the system clock is synchronized with NTP                                                       |
+
 
 ### 0.5 The `SsdSmartData` Diagnostics Object
 
@@ -112,6 +129,23 @@ The ``ScosPlugin`` object has the following properties:
 |-----------|----------|--------|--------------------------------------------------------------|
 | `name`    | true     | string | Python package name as it is imported, e.g., `"scos_tekrsa`" |
 | `version` | true     | string | [Semantic version](https://semver.org/) of the SCOS plugin   |
+
+### 0.7 The Diagnostic Sensor Object
+
+The ``DiagnosticSensor`` object has the following properties: 
+
+| name              | required | type   | description                                                             |
+|-------------------|----------|--------|-------------------------------------------------------------------------|
+| `name`            | true     | string | Then name of the sensor                                                 |
+| `description`     | false    | string | A description of the sensor                                             |
+| `expected_value`  | false    | double | The value expected from the sensor                                      |
+| `maximum_allowed` | false    | double | The maximum value allowed from the sensor before action should be taken |
+| `minimum_allowed` | false    | double | The minimum value allowed fromt eh sensor before action should be taken |
+| `value`           | true     | double | The value provided by the sensor                                        |
+
+
+
+
 
 ## 1 Global
 

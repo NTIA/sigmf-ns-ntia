@@ -19,6 +19,18 @@ public class Preselector {
   @JsonProperty(value = "door_closed")
   protected Boolean doorClosed;
 
+  @JsonProperty(value = "noise_diode_path_enabled")
+  protected Boolean noiseDiodePathEnabled;
+
+  @JsonProperty(value = "antenna_path_enabled")
+  protected Boolean antennaPathEnabled;
+
+  @JsonProperty(value = "noise_diode_powered")
+  protected Boolean noiseDiodePowered;
+
+  @JsonProperty(value = "lna_powered")
+  protected Boolean lnaPowered;
+
   public Double getNoiseDiodeTemp() {
     return noiseDiodeTemp;
   }
@@ -57,5 +69,37 @@ public class Preselector {
 
   public void setTemp(Double temp) {
     this.temp = temp;
+  }
+
+  public Boolean getNoiseDiodePathEnabled() {
+    return noiseDiodePathEnabled;
+  }
+
+  public void setNoiseDiodePathEnabled(Boolean noiseDiodePathEnabled) {
+    this.noiseDiodePathEnabled = noiseDiodePathEnabled;
+  }
+
+  public Boolean getAntennaPathEnabled() {
+    return antennaPathEnabled;
+  }
+
+  public void setAntennaPathEnabled(Boolean antennaPathEnabled) {
+    this.antennaPathEnabled = antennaPathEnabled;
+  }
+
+  public Boolean getNoiseDiodePowered() {
+    return noiseDiodePowered;
+  }
+
+  public void setNoiseDiodePowered(Boolean noiseDiodePowered) {
+    this.noiseDiodePowered = noiseDiodePowered;
+  }
+
+  public Boolean getLnaPowered() {
+    return lnaPowered;
+  }
+
+  public void setLnaPowered(Boolean lnaPowered) {
+    this.lnaPowered = lnaPowered;
   }
 }
