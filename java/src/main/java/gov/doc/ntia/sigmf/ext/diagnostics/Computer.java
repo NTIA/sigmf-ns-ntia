@@ -53,6 +53,9 @@ public class Computer {
   @JsonProperty(value = "ssd_smart_data")
   private SsdSmartData smartData;
 
+  @JsonProperty(value = "action_runtime")
+  private Double actionRuntime;
+
   public Double getCpuMaxClock() {
     return cpuMaxClock;
   }
@@ -163,5 +166,13 @@ public class Computer {
 
   public void setNtpSync(Boolean ntpSync) {
     this.ntpSync = ntpSync;
+  }
+
+  public Double getActionRuntime() {
+    return actionRuntime;
+  }
+
+  public void setActionRuntime(Double actionRuntime) {
+    this.actionRuntime = actionRuntime;
   }
 }

@@ -865,7 +865,10 @@
 				},
 				"ntp_sync":{
 				    "type": "boolean"
-				}
+				},
+			    "action_runtime": {
+                    "type": "number"
+                }
 			},
 			"additionalProperties": false
 		},
@@ -1010,9 +1013,6 @@
 				},
 				"spu": {
 					"$ref": "#/$defs/SPU"
-				},
-				"action_runtime": {
-					"type": "number"
 				}
 			},
 			"additionalProperties": false

@@ -39,7 +39,6 @@ public class DiagnosticsExample implements Example {
     Computer computer = getComputerDiagnostics();
     diagnostics.setComputer(computer);
 
-    diagnostics.setActionRuntime(100.0);
 
     return diagnostics;
   }
@@ -116,6 +115,7 @@ public class DiagnosticsExample implements Example {
     computer.setSoftwareStart(ExampleUtils.getDatetimeNow());
     computer.setNtpActive(true);
     computer.setNtpSync(true);
+    computer.setActionRuntime(100.0);
     return computer;
   }
 

@@ -348,6 +348,7 @@
         ]
       },
       "computer": {
+        "action_runtime": 94.88,
         "cpu_min_clock": 1457.0,
         "cpu_max_clock": 4295.5,
         "cpu_mean_clock": 3000.1,
@@ -380,8 +381,7 @@
           "version": "3.1.5"
         },
         "preselector_api_version": "3.1.0"
-      },
-      "action_runtime": 94.88
+      }
     },
     "core:sha512": "94a59d3d0e9fbf9a1775115c2c4ef69ab684cfd014f375257367c1ed7bddd63d28deb6dd18e259548a727eccfe3123c9bf7d613bdcef30a35ec8e52b1d9af268"
   },

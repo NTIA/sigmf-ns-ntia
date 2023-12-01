@@ -70,14 +70,14 @@ public class NasctnSensorTest {
 
   @Test
   public void testDeserializeActionRuntime() {
-    Assertions.assertEquals(94.88, metaDoc.getGlobal().getDiagnostics().getActionRuntime().doubleValue());
+    Assertions.assertEquals(94.88, metaDoc.getGlobal().getDiagnostics().getComputer().getActionRuntime().doubleValue());
   }
 
   @Test
   public void testSerializeDeserializeActionRuntime() {
     Assertions.assertEquals(
             94.88,
-        metaDocFromString.getGlobal().getDiagnostics().getActionRuntime().doubleValue());
+        metaDocFromString.getGlobal().getDiagnostics().getComputer().getActionRuntime().doubleValue());
   }
 
   @Test
