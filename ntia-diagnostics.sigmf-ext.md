@@ -49,7 +49,7 @@ The `Preselector` diagnostics object has the following properties:
 
 ### 0.3 The `SPU` Diagnostics Object
 
-The `SPU` diagnostics object has the following properties, which are defined based on the components of an SPU in a NASCTN SEA Prototype Rev3 sensor:
+The `SPU` diagnostics object has the following properties:
 
 | name                          | required | type                                                      | unit           | description                                                        |
 |-------------------------------|----------|-----------------------------------------------------------|----------------|--------------------------------------------------------------------|
