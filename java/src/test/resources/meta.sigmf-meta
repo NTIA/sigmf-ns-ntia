@@ -14,7 +14,7 @@
       },
       {
         "name": "ntia-diagnostics",
-        "version": "v1.1.2",
+        "version": "v2.0.0",
         "optional": true
       },
       {
@@ -40,9 +40,9 @@
     ],
     "core:recorder": "SCOS",
     "ntia-scos:schedule": {
-      "id": "MetaTest",
-      "name": "MetaTest",
-      "start": "2023-11-30T22:05:51.000Z",
+      "id": "MetaTest4",
+      "name": "MetaTest4",
+      "start": "2023-12-01T16:13:32.000Z",
       "priority": 10
     },
     "ntia-scos:action": {
@@ -210,89 +210,91 @@
       }
     ],
     "ntia-nasctn-sea:max_of_max_channel_powers": [
-      -87.4375,
-      -87.4375,
+      -86.8125,
       -87.375,
-      -87.4375,
-      -86.875,
-      -87.625,
-      -87.25,
-      -87.75,
-      -87.75,
-      -86.875,
-      -87.625,
       -87.5625,
-      -87.8125,
-      -87.5,
-      -86.875,
+      -86.75,
+      -86.625,
       -87.375,
-      -86.1875
+      -87.75,
+      -87.5625,
+      -87.0625,
+      -87.25,
+      -87.1875,
+      -87.375,
+      -87.0,
+      -87.4375,
+      -87.375,
+      -87.125,
+      -86.4375
     ],
     "ntia-nasctn-sea:median_of_mean_channel_powers": [
+      -99.5625,
       -99.75,
       -99.875,
+      -99.9375,
       -100.0625,
-      -100.0625,
-      -100.25,
-      -100.125,
-      -100.1875,
-      -100.25,
-      -100.25,
-      -100.25,
-      -100.125,
-      -100.1875,
-      -100.125,
       -100.0,
-      -99.8125,
-      -99.6875,
-      -99.1875
+      -100.0625,
+      -100.0625,
+      -100.0625,
+      -100.125,
+      -99.9375,
+      -100.0,
+      -99.9375,
+      -99.875,
+      -99.625,
+      -99.5625,
+      -99.0625
     ],
     "ntia-nasctn-sea:mean_channel_powers": [
+      -99.625,
       -99.75,
       -99.875,
+      -99.9375,
+      -100.0625,
+      -100.0,
+      -100.0625,
+      -100.0625,
       -100.0625,
       -100.125,
-      -100.25,
-      -100.125,
-      -100.25,
-      -100.25,
-      -100.25,
-      -100.25,
-      -100.125,
-      -100.1875,
-      -100.125,
       -100.0,
-      -99.8125,
-      -99.75,
-      -99.1875
+      -100.0,
+      -99.9375,
+      -99.875,
+      -99.6875,
+      -99.5625,
+      -99.0625
     ],
     "ntia-nasctn-sea:median_channel_powers": [
-      -101.375,
-      -101.5,
-      -101.625,
-      -101.6875,
-      -101.8125,
-      -101.75,
-      -101.8125,
-      -101.8125,
-      -101.8125,
-      -101.875,
-      -101.75,
-      -101.75,
-      -101.6875,
-      -101.625,
-      -101.4375,
+      -101.1875,
       -101.3125,
-      -100.8125
+      -101.5,
+      -101.5,
+      -101.6875,
+      -101.5625,
+      -101.6875,
+      -101.6875,
+      -101.6875,
+      -101.6875,
+      -101.5625,
+      -101.625,
+      -101.5625,
+      -101.4375,
+      -101.25,
+      -101.125,
+      -100.625
     ],
     "ntia-diagnostics:diagnostics": {
-      "datetime": "2023-11-30T22:07:42.505Z",
+      "datetime": "2023-12-01T16:15:06.908Z",
       "preselector": {
-        "noise_diode_powered": true,
+        "noise_diode_temp": 22.7,
+        "noise_diode_powered": false,
         "lna_powered": true,
         "antenna_path_enabled": true,
         "noise_diode_path_enabled": false,
-        "noise_diode_temp": 22.7
+        "door_closed": true,
+        "humidity": 17.0
       },
       "spu": {
         "sigan_powered": true,
@@ -301,41 +303,62 @@
         "temperature_sensors": [
           {
             "name": "internal_temp",
-            "value": 81.2
+            "value": 79.9
           },
           {
             "name": "sigan_internal_temp",
-            "value": 50.56
+            "value": 48.69
           },
           {
             "name": "tec_intake_temp",
-            "value": 81.2
+            "value": 79.9
           },
           {
             "name": "tec_exhaust_temp",
-            "value": 81.2
+            "value": 79.9
           }
         ],
         "humidity_sensors": [
           {
             "name": "internal_humidity",
-            "value": 81.2
+            "value": 79.9
           }
         ],
-        "power_sensors": []
+        "power_sensors": [
+          {
+            "name": "5v Monitor",
+            "value": 79.9,
+            "expected_value": 5.0
+          },
+          {
+            "name": "15v Monitor",
+            "value": 79.9,
+            "expected_value": 15.0
+          },
+          {
+            "name": "24v Monitor",
+            "value": 79.9,
+            "expected_value": 24.0
+          },
+          {
+            "name": "28v Monitor",
+            "value": 79.9,
+            "expected_value": 28.0
+          }
+        ]
       },
       "computer": {
-        "cpu_min_clock": 1475.2,
-        "cpu_max_clock": 4317.7,
-        "cpu_mean_clock": 3207.4,
-        "cpu_uptime": 6.24,
+        "cpu_min_clock": 1457.0,
+        "cpu_max_clock": 4295.5,
+        "cpu_mean_clock": 3000.1,
+        "cpu_uptime": 6.99,
         "action_cpu_usage": 42.8,
-        "system_load_5m": 15.2,
+        "system_load_5m": 19.9,
         "memory_usage": 11.2,
         "cpu_overheating": false,
         "cpu_temp": 55.0,
-        "scos_start": "2023-11-30T21:29:51.568Z",
-        "scos_uptime": 0.0263,
+        "software_start": "2023-12-01T16:11:06.092Z",
+        "software_uptime": 0.0028,
         "ssd_smart_data": {
           "test_passed": true,
           "critical_warning": "0x00",
@@ -350,7 +373,7 @@
       "software": {
         "system_platform": "Linux-5.4.0-167-generic-x86_64-with-glibc2.29",
         "python_version": "3.8.10",
-        "scos_sensor_version": "sea-prototype-v0.4.2-3-g4f5f153",
+        "scos_sensor_version": "sea-prototype-v0.4.2-4-gbc10e57",
         "scos_actions_version": "6.4.2",
         "scos_sigan_plugin": {
           "name": "scos_tekrsa",
@@ -358,14 +381,14 @@
         },
         "preselector_api_version": "3.1.0"
       },
-      "action_runtime": 92.79
+      "action_runtime": 94.88
     },
-    "core:sha512": "131837621cfffb7f5e62ab7893cacb7c68b8348f0a51ef7fa2cf4bc8e7a5f94c1bee0b9f71574c33adc9e2429efc8196f3232690d49702067bfea6e8b9122f0d"
+    "core:sha512": "94a59d3d0e9fbf9a1775115c2c4ef69ab684cfd014f375257367c1ed7bddd63d28deb6dd18e259548a727eccfe3123c9bf7d613bdcef30a35ec8e52b1d9af268"
   },
   "captures": [
     {
       "core:frequency": 3545000000.0,
-      "core:datetime": "2023-11-30T22:06:09.807Z",
+      "core:datetime": "2023-12-01T16:13:33.557Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -384,7 +407,7 @@
     },
     {
       "core:frequency": 3555000000.0,
-      "core:datetime": "2023-11-30T22:06:14.389Z",
+      "core:datetime": "2023-12-01T16:13:39.102Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -403,7 +426,7 @@
     },
     {
       "core:frequency": 3565000000.0,
-      "core:datetime": "2023-11-30T22:06:20.522Z",
+      "core:datetime": "2023-12-01T16:13:45.201Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -422,7 +445,7 @@
     },
     {
       "core:frequency": 3575000000.0,
-      "core:datetime": "2023-11-30T22:06:25.147Z",
+      "core:datetime": "2023-12-01T16:13:49.770Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -441,7 +464,7 @@
     },
     {
       "core:frequency": 3585000000.0,
-      "core:datetime": "2023-11-30T22:06:30.333Z",
+      "core:datetime": "2023-12-01T16:13:54.870Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -460,7 +483,7 @@
     },
     {
       "core:frequency": 3595000000.0,
-      "core:datetime": "2023-11-30T22:06:35.681Z",
+      "core:datetime": "2023-12-01T16:14:00.197Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -479,7 +502,7 @@
     },
     {
       "core:frequency": 3605000000.0,
-      "core:datetime": "2023-11-30T22:06:40.313Z",
+      "core:datetime": "2023-12-01T16:14:04.802Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -498,7 +521,7 @@
     },
     {
       "core:frequency": 3615000000.0,
-      "core:datetime": "2023-11-30T22:06:46.442Z",
+      "core:datetime": "2023-12-01T16:14:10.981Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -517,7 +540,7 @@
     },
     {
       "core:frequency": 3625000000.0,
-      "core:datetime": "2023-11-30T22:06:51.071Z",
+      "core:datetime": "2023-12-01T16:14:15.585Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -536,7 +559,7 @@
     },
     {
       "core:frequency": 3635000000.0,
-      "core:datetime": "2023-11-30T22:06:55.688Z",
+      "core:datetime": "2023-12-01T16:14:20.180Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -555,7 +578,7 @@
     },
     {
       "core:frequency": 3645000000.0,
-      "core:datetime": "2023-11-30T22:07:00.823Z",
+      "core:datetime": "2023-12-01T16:14:25.270Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -574,7 +597,7 @@
     },
     {
       "core:frequency": 3655000000.0,
-      "core:datetime": "2023-11-30T22:07:06.193Z",
+      "core:datetime": "2023-12-01T16:14:30.601Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -593,7 +616,7 @@
     },
     {
       "core:frequency": 3665000000.0,
-      "core:datetime": "2023-11-30T22:07:12.349Z",
+      "core:datetime": "2023-12-01T16:14:36.717Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -612,7 +635,7 @@
     },
     {
       "core:frequency": 3675000000.0,
-      "core:datetime": "2023-11-30T22:07:16.974Z",
+      "core:datetime": "2023-12-01T16:14:41.322Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -631,7 +654,7 @@
     },
     {
       "core:frequency": 3685000000.0,
-      "core:datetime": "2023-11-30T22:07:21.613Z",
+      "core:datetime": "2023-12-01T16:14:45.952Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -650,7 +673,7 @@
     },
     {
       "core:frequency": 3695000000.0,
-      "core:datetime": "2023-11-30T22:07:26.700Z",
+      "core:datetime": "2023-12-01T16:14:51.004Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {
@@ -669,7 +692,7 @@
     },
     {
       "core:frequency": 3705000000.0,
-      "core:datetime": "2023-11-30T22:07:32.817Z",
+      "core:datetime": "2023-12-01T16:14:57.116Z",
       "ntia-sensor:duration": 4000,
       "ntia-sensor:overload": false,
       "ntia-sensor:sensor_calibration": {

@@ -58,26 +58,25 @@ public class NasctnSensorTest {
             .getDatetime()
             .toInstant()
             .atZone(ZoneId.of("UTC"));
-    Assertions.assertEquals("2023-04-06T21:31:39.356Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
+    Assertions.assertEquals("2023-12-01T16:15:06.908Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
   }
 
   @Test
   public void testDeserializeDatetime() {
     ZonedDateTime zdt =
         metaDoc.getGlobal().getDiagnostics().getDatetime().toInstant().atZone(ZoneId.of("UTC"));
-    Assertions.assertEquals("2023-04-06T21:31:39.356Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
+    Assertions.assertEquals("2023-12-01T16:15:06.908Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
   }
 
   @Test
   public void testDeserializeActionRuntime() {
-    Assertions.assertEquals(
-        81.8970819178503, metaDoc.getGlobal().getDiagnostics().getActionRuntime().doubleValue());
+    Assertions.assertEquals(94.88, metaDoc.getGlobal().getDiagnostics().getActionRuntime().doubleValue());
   }
 
   @Test
   public void testSerializeDeserializeActionRuntime() {
     Assertions.assertEquals(
-        81.8970819178503,
+            94.88,
         metaDocFromString.getGlobal().getDiagnostics().getActionRuntime().doubleValue());
   }
 
@@ -86,16 +85,16 @@ public class NasctnSensorTest {
     List<AbstractDataProduct> dataProducts = metaDoc.getGlobal().getDataProducts();
     Assertions.assertEquals(4, dataProducts.size());
     Graph psd = (Graph)dataProducts.get(0);
-    Assertions.assertEquals("power_spectral_density", psd.getName());
+    Assertions.assertEquals("Power Spectral Density", psd.getName());
     List<String> series = psd.getSeries();
-    Assertions.assertEquals("max", series.get(0));
+    Assertions.assertEquals("maximum", series.get(0));
     Assertions.assertEquals("mean", series.get(1));
     Assertions.assertEquals(625L, psd.getLength().longValue());
     Assertions.assertEquals("dBm/Hz", psd.getYUnits());
-    Assertions.assertEquals(-5000000, ((Double)psd.getXStart().get(0)).intValue());
+    Assertions.assertEquals(-4992000, ((Double)psd.getXStart().get(0)).intValue());
     Assertions.assertEquals(16000, ((Double)psd.getXStep().get(0)).intValue());
-    Assertions.assertEquals(5000000, ((Double)psd.getXStop().get(0)).intValue());
-    Assertions.assertEquals("fft", psd.getProcessing().get(0));
+    Assertions.assertEquals(4992000, ((Double)psd.getXStop().get(0)).intValue());
+    Assertions.assertEquals("psd_fft", psd.getProcessing().get(0));
   }
 
   @Test
@@ -106,7 +105,7 @@ public class NasctnSensorTest {
       if (processing instanceof DFT) {
         DFT fft = (DFT)processing;
         foundFft = true;
-        Assertions.assertEquals("fft", fft.getId());
+        Assertions.assertEquals("psd_fft", fft.getId());
         Assertions.assertEquals(60323.94, fft.getEquivalentNoiseBandwidth().doubleValue());
         Assertions.assertEquals(875, fft.getSamples().intValue());
         Assertions.assertEquals(64000, fft.getDfts().intValue());
@@ -123,9 +122,9 @@ public class NasctnSensorTest {
     Assertions.assertEquals(
         22.7,
         metaDoc.getGlobal().getDiagnostics().getPreselector().getNoiseDiodeTemp().doubleValue());
-    Assertions.assertFalse(metaDoc.getGlobal().getDiagnostics().getPreselector().getDoorClosed());
+    Assertions.assertTrue(metaDoc.getGlobal().getDiagnostics().getPreselector().getDoorClosed());
     Assertions.assertEquals(
-        null, metaDoc.getGlobal().getDiagnostics().getPreselector().getHumidity());
+        17.0, metaDoc.getGlobal().getDiagnostics().getPreselector().getHumidity().doubleValue());
   }
 
   @Test
@@ -138,10 +137,10 @@ public class NasctnSensorTest {
             .getPreselector()
             .getNoiseDiodeTemp()
             .doubleValue());
-    Assertions.assertFalse(
+    Assertions.assertTrue(
         metaDocFromString.getGlobal().getDiagnostics().getPreselector().getDoorClosed());
     Assertions.assertEquals(
-        null, metaDocFromString.getGlobal().getDiagnostics().getPreselector().getHumidity());
+        17.0, metaDocFromString.getGlobal().getDiagnostics().getPreselector().getHumidity().doubleValue());
   }
 
   @Test
@@ -161,113 +160,114 @@ public class NasctnSensorTest {
   @Test
   public void testDeserializeComputer() {
     Computer computer = metaDoc.getGlobal().getDiagnostics().getComputer();
-    Assertions.assertEquals(59.0, computer.getCpuTemp().doubleValue());
+    Assertions.assertEquals(55.0, computer.getCpuTemp().doubleValue());
     Assertions.assertEquals(false, computer.getCpuOverheating());
-    Assertions.assertEquals(21.04, computer.getCpuUptime().doubleValue());
-    Assertions.assertEquals(4533.5, computer.getCpuMaxClock().doubleValue());
-    Assertions.assertEquals(1240.5, computer.getCpuMinClock().doubleValue());
-    Assertions.assertEquals(3222.1, computer.getCpuMeanClock().doubleValue());
-    Assertions.assertEquals(42.1, computer.getActionCpuUsage().doubleValue());
-    Assertions.assertEquals(18.1, computer.getSystemLoad5m().doubleValue());
-    Assertions.assertEquals(14.9, computer.getMemoryUsage().doubleValue());
+    Assertions.assertEquals(6.99, computer.getCpuUptime().doubleValue());
+    Assertions.assertEquals(4295.5, computer.getCpuMaxClock().doubleValue());
+    Assertions.assertEquals(1457.0, computer.getCpuMinClock().doubleValue());
+    Assertions.assertEquals(3000.1, computer.getCpuMeanClock().doubleValue());
+    Assertions.assertEquals(42.8, computer.getActionCpuUsage().doubleValue());
+    Assertions.assertEquals(19.9, computer.getSystemLoad5m().doubleValue());
+    Assertions.assertEquals(11.2, computer.getMemoryUsage().doubleValue());
     ZonedDateTime zdt = computer.getSoftwareStart().toInstant().atZone(ZoneId.of("UTC"));
-    Assertions.assertEquals("2023-04-06T21:28:45.532Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
-    Assertions.assertEquals(0.002, computer.getSoftwareUptime().doubleValue());
+    Assertions.assertEquals("2023-12-01T16:11:06.092Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
+    Assertions.assertEquals(0.0028, computer.getSoftwareUptime().doubleValue());
     Assertions.assertEquals(true, computer.getSmartData().getTestPassed());
     Assertions.assertEquals("0x00", computer.getSmartData().getCriticalWarning());
-    Assertions.assertEquals(35.0, computer.getSmartData().getTemp().doubleValue());
+    Assertions.assertEquals(36.0, computer.getSmartData().getTemp().doubleValue());
     Assertions.assertEquals(100.0, computer.getSmartData().getAvailableSpare().doubleValue());
     Assertions.assertEquals(
         10.0, computer.getSmartData().getAvailableSpareThreshold().doubleValue());
     Assertions.assertEquals(1.0, computer.getSmartData().getPercentageUsed().doubleValue());
-    Assertions.assertEquals(18, computer.getSmartData().getUnsafeShutdowns().intValue());
+    Assertions.assertEquals(70, computer.getSmartData().getUnsafeShutdowns().intValue());
     Assertions.assertEquals(0, computer.getSmartData().getIntegrityErrors().intValue());
   }
 
   @Test
   public void testSerializeDeserializeComputer() {
     Computer computer = metaDocFromString.getGlobal().getDiagnostics().getComputer();
-    Assertions.assertEquals(59.0, computer.getCpuTemp().doubleValue());
+    Assertions.assertEquals(55.0, computer.getCpuTemp().doubleValue());
     Assertions.assertEquals(false, computer.getCpuOverheating());
-    Assertions.assertEquals(21.04, computer.getCpuUptime().doubleValue());
-    Assertions.assertEquals(4533.5, computer.getCpuMaxClock().doubleValue());
-    Assertions.assertEquals(1240.5, computer.getCpuMinClock().doubleValue());
-    Assertions.assertEquals(3222.1, computer.getCpuMeanClock().doubleValue());
-    Assertions.assertEquals(42.1, computer.getActionCpuUsage().doubleValue());
-    Assertions.assertEquals(18.1, computer.getSystemLoad5m().doubleValue());
-    Assertions.assertEquals(14.9, computer.getMemoryUsage().doubleValue());
+    Assertions.assertEquals(6.99, computer.getCpuUptime().doubleValue());
+    Assertions.assertEquals(4295.5, computer.getCpuMaxClock().doubleValue());
+    Assertions.assertEquals(1457.0, computer.getCpuMinClock().doubleValue());
+    Assertions.assertEquals(3000.1, computer.getCpuMeanClock().doubleValue());
+    Assertions.assertEquals(42.8, computer.getActionCpuUsage().doubleValue());
+    Assertions.assertEquals(19.9, computer.getSystemLoad5m().doubleValue());
+    Assertions.assertEquals(11.2, computer.getMemoryUsage().doubleValue());
     ZonedDateTime zdt = computer.getSoftwareStart().toInstant().atZone(ZoneId.of("UTC"));
-    Assertions.assertEquals("2023-04-06T21:28:45.532Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
-    Assertions.assertEquals(0.002, computer.getSoftwareUptime().doubleValue());
+    Assertions.assertEquals("2023-12-01T16:11:06.092Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
+    Assertions.assertEquals(0.0028, computer.getSoftwareUptime().doubleValue());
     Assertions.assertEquals(true, computer.getSmartData().getTestPassed());
     Assertions.assertEquals("0x00", computer.getSmartData().getCriticalWarning());
-    Assertions.assertEquals(35.0, computer.getSmartData().getTemp().doubleValue());
+    Assertions.assertEquals(36.0, computer.getSmartData().getTemp().doubleValue());
     Assertions.assertEquals(100.0, computer.getSmartData().getAvailableSpare().doubleValue());
     Assertions.assertEquals(
         10.0, computer.getSmartData().getAvailableSpareThreshold().doubleValue());
     Assertions.assertEquals(1.0, computer.getSmartData().getPercentageUsed().doubleValue());
-    Assertions.assertEquals(18, computer.getSmartData().getUnsafeShutdowns().intValue());
+    Assertions.assertEquals(70, computer.getSmartData().getUnsafeShutdowns().intValue());
     Assertions.assertEquals(0, computer.getSmartData().getIntegrityErrors().intValue());
   }
 
   @Test
   public void testDeserializeDiagnosticsSoftware(){
     Software software = metaDoc.getGlobal().getDiagnostics().getSoftware();
-    Assertions.assertEquals("Linux-5.4.0-153-generic-x86_64-with-glibc2.29", software.getSystemPlatform());
+    Assertions.assertEquals("Linux-5.4.0-167-generic-x86_64-with-glibc2.29", software.getSystemPlatform());
     Assertions.assertEquals("3.8.10", software.getPythonVersion());
-    Assertions.assertEquals("6.3.3", software.getScosActionsVersion());
+    Assertions.assertEquals("6.4.2", software.getScosActionsVersion());
     Assertions.assertEquals("scos_tekrsa", software.getScosSiganPlugin().getName());
-    Assertions.assertEquals("3.1.4", software.getScosSiganPlugin().getVersion());
-    Assertions.assertEquals( "3.0.2", software.getPreselectorApiVersion());
-    Assertions.assertEquals("1.0.0-gcbb75ad", software.getScosSensorVersion());
+    Assertions.assertEquals("3.1.5", software.getScosSiganPlugin().getVersion());
+    Assertions.assertEquals( "3.1.0", software.getPreselectorApiVersion());
+    Assertions.assertEquals("sea-prototype-v0.4.2-4-gbc10e57", software.getScosSensorVersion());
   }
 
   @Test
   public void testDeserializeMaxOfMaxChannelPowers() {
     List<Double> maxPowers = metaDoc.getGlobal().getMaxOfMaxChannelPowers();
-    Assertions.assertEquals(15, maxPowers.size());
-    Assertions.assertEquals(-65.3125, maxPowers.get(0).doubleValue());
-    Assertions.assertEquals(-42.8125, maxPowers.get(14).doubleValue());
+    Assertions.assertEquals(17, maxPowers.size());
+    Assertions.assertEquals(-86.8125, maxPowers.get(0).doubleValue());
+    Assertions.assertEquals(-87.375, maxPowers.get(14).doubleValue());
   }
 
   @Test
   public void testDeserializeMedianOfMean() {
     List<Double> medianOfMeanPowers = metaDoc.getGlobal().getMedianOfMeanChannelPowers();
-    Assertions.assertEquals(15, medianOfMeanPowers.size());
-    Assertions.assertEquals(-83.875, medianOfMeanPowers.get(0).doubleValue());
-    Assertions.assertEquals(-85.8125, medianOfMeanPowers.get(14).doubleValue());
+    Assertions.assertEquals(17, medianOfMeanPowers.size());
+    Assertions.assertEquals(-99.5625, medianOfMeanPowers.get(0).doubleValue());
+    Assertions.assertEquals(-99.625, medianOfMeanPowers.get(14).doubleValue());
   }
 
   @Test
   public void testDeserializeMeanChannelPowers() {
     List<Double> meanChannelPowers = metaDoc.getGlobal().getMeanChannelPowers();
-    Assertions.assertEquals(15, meanChannelPowers.size());
-    Assertions.assertEquals( -76.0, meanChannelPowers.get(0).doubleValue());
-    Assertions.assertEquals(-75.1875, meanChannelPowers.get(14).doubleValue());
+    Assertions.assertEquals(17, meanChannelPowers.size());
+    Assertions.assertEquals( -99.625, meanChannelPowers.get(0).doubleValue());
+    Assertions.assertEquals(-99.6875, meanChannelPowers.get(14).doubleValue());
   }
 
   @Test
   public void testDeserializeMedianChannelPowers() {
     List<Double> medianChannelPowers = metaDoc.getGlobal().getMedianChannelPowers();
-    Assertions.assertEquals(15, medianChannelPowers.size());
-    Assertions.assertEquals( -83.3125, medianChannelPowers.get(0).doubleValue());
-    Assertions.assertEquals(-95.9375, medianChannelPowers.get(14).doubleValue());
+    Assertions.assertEquals(17, medianChannelPowers.size());
+    Assertions.assertEquals( -101.1875, medianChannelPowers.get(0).doubleValue());
+    Assertions.assertEquals(-101.25, medianChannelPowers.get(14).doubleValue());
   }
 
   @Test
   public void testCaptures() {
     List<Capture> captureList = metaDoc.getCaptures();
-    Assertions.assertEquals(15, captureList.size());
+    Assertions.assertEquals(17, captureList.size());
     Capture capture = captureList.get(0);
-    Assertions.assertEquals(3555000000.0, capture.getFrequency().doubleValue());
+    Assertions.assertEquals(3.545E9, capture.getFrequency().doubleValue());
     Capture sensorCapture = (Capture) capture;
     Assertions.assertEquals(false, sensorCapture.getOverload());
     Assertions.assertEquals(4000, sensorCapture.getDuration().intValue());
     Calibration calibration = sensorCapture.getSensorCalibration();
-    Assertions.assertEquals(6.159, calibration.getNoiseFigure().doubleValue());
-    Assertions.assertEquals(23.008, calibration.getGain().doubleValue());
-    Assertions.assertEquals(22.6, calibration.getTemperature().doubleValue());
+    Assertions.assertEquals(4.173, calibration.getNoiseFigure().doubleValue());
+    Assertions.assertEquals(39.079, calibration.getGain().doubleValue());
+    Assertions.assertEquals(25.7, calibration.getTemperature().doubleValue());
     ZonedDateTime zdt = calibration.getDatetime().toInstant().atZone(ZoneId.of("UTC"));
-    Assertions.assertEquals("2023-04-06T21:29:17.134Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
+    Assertions.assertEquals("2023-11-30T22:04:58.961Z", zdt.format(DateTimeFormatter.ISO_INSTANT));
+
   }
 }

@@ -58,7 +58,7 @@ The `SPU` diagnostics object has the following properties, which are defined bas
 | `preselector_powered`         | false    | boolean            | N/A            | Boolean indicating if the preselector is powered.                  |
 | `humidity_sensors`            | false    | DiagnosticSensor[] | percent        | Humidity at specified locations.                                   |
 | `temperature_sensors`         | false    | DiagnosticSensor[] | degree Celsius | Temperature at specified locations.                                |
-| `power_sensors`               | false    | DiagnosticSensor[] | Volts          | Temperature at specified locations.                                |
+| `power_sensors`               | false    | DiagnosticSensor[] | Volts          | Power readings at specified locations.                             |
 | `door_closed`                 | false    | boolean            | N/A            | Boolean indicating whether the door of the enclosure is closed.    |
 | `temperature_control_powered` | false    | boolean            | N/A            | Boolean indicating whether the temperature control is powered.     |
 | `heating`                     | false    | boolean            | N/A            | Boolean indicating whether the heat is on.                         |
