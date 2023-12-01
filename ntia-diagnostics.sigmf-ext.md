@@ -186,60 +186,102 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
       "optional" : false
     } ],
     "ntia-core:classification" : "UNCLASSIFIED",
-    "ntia-diagnostics:diagnostics" : {
-      "computer" : {
-        "cpu_max_clock" : 4800.0,
-        "cpu_min_clock" : 1120.0,
-        "cpu_mean_clock" : 3100.0,
-        "action_cpu_usage" : 44.3,
-        "system_load_5m" : 24.62,
-        "memory_usage" : 23.8,
-        "cpu_temp" : 67.0,
-        "cpu_overheating" : false,
-        "cpu_uptime" : 10.0,
-        "scos_uptime" : 1.0,
-        "scos_start" : "2023-10-20T19:56:29.601Z",
-        "ssd_smart_data" : {
-          "temp" : 41.0,
-          "test_passed" : true,
-          "critical_warning" : "0x00",
-          "available_spare" : 100.0,
-          "available_spare_threshold" : 10.0,
-          "percentage_used" : 1.0,
-          "unsafe_shutdowns" : 18,
-          "integrity_errors" : 0
-        }
-      },
-      "datetime" : "2023-10-20T19:56:29.597Z",
-      "preselector" : {
-        "temp" : 21.6,
-        "humidity" : 65.0,
-        "noise_diode_temp" : 21.8,
-        "lna_temp" : 21.8,
-        "door_closed" : true
-      },
-      "software" : {
-        "system_platform" : "Linux-9.9.9-example-platform",
-        "python_version" : "3.11.5",
-        "scos_sensor_version" : "1.0.0-gcbb75ad",
-        "scos_actions_version" : "2.0.0",
-        "scos_sigan_plugin" : {
-          "name" : "scos_tekrsa",
-          "version" : "3.1.4"
-        },
-        "preselector_api_version" : "1.0.0"
-      },
-      "spu" : {
-        "rf_tray_powered" : true,
-        "preselector_powered" : true,
-        "28v_aux_powered" : true,
-        "pwr_box_temp" : 28.8,
-        "rf_box_temp" : 31.4,
-        "pwr_box_humidity" : 11.2,
-        "sigan_internal_temp" : 50.0
-      },
-      "action_runtime" : 100.0
-    }
+    "ntia-diagnostics:diagnostics": {
+			"datetime": "2023-12-01T16:45:51.618Z",
+			"preselector": {
+				"noise_diode_powered": false,
+				"lna_powered": true,
+				"antenna_path_enabled": true,
+				"noise_diode_path_enabled": false
+			},
+			"spu": {
+				"sigan_powered": true,
+				"temperature_control_powered": false,
+				"preselector_powered": true,
+				"temperature_sensors": [
+					{
+						"name": "internal_temp",
+						"value": 22.0
+					},
+					{
+						"name": "sigan_internal_temp",
+						"value": 49.16
+					},
+					{
+						"name": "tec_intake_temp",
+						"value": 22.0
+					},
+					{
+						"name": "tec_exhaust_temp",
+						"value": 22.0
+					}
+				],
+				"humidity_sensors": [
+					{
+						"name": "internal_humidity",
+						"value": 55.3
+					}
+				],
+				"power_sensors": [
+					{
+						"name": "5v Monitor",
+						"value": 5.0,
+						"expected_value": 5.0
+					},
+					{
+						"name": "15v Monitor",
+						"value": 15.1,
+						"expected_value": 15.0
+					},
+					{
+						"name": "24v Monitor",
+						"value": 24.0,
+						"expected_value": 24.0
+					},
+					{
+						"name": "28v Monitor",
+						"value": 28.0,
+						"expected_value": 28.0
+					}
+				]
+			},
+			"computer": {
+				"cpu_min_clock": 1643.8,
+				"cpu_max_clock": 4528.6,
+				"cpu_mean_clock": 3295.3,
+				"cpu_uptime": 7.02,
+				"action_cpu_usage": 43.3,
+				"action_runtime": 92.58
+				"system_load_5m": 14.8,
+				"memory_usage": 11.2,
+				"cpu_overheating": false,
+				"cpu_temp": 53.0,
+				"software_start": "2023-12-01T16:11:06.092Z",
+				"software_uptime": 0.0241,
+				"ssd_smart_data": {
+					"test_passed": true,
+					"critical_warning": "0x00",
+					"temp": 34,
+					"available_spare": 100,
+					"available_spare_threshold": 10,
+					"percentage_used": 1,
+					"unsafe_shutdowns": 70,
+					"integrity_errors": 0
+				}
+			},
+			"software": {
+				"system_platform": "Linux-5.4.0-167-generic-x86_64-with-glibc2.29",
+				"python_version": "3.8.10",
+				"scos_sensor_version": "sea-prototype-v0.4.2-4-gbc10e57",
+				"scos_actions_version": "6.4.2",
+				"scos_sigan_plugin": {
+					"name": "scos_tekrsa",
+					"version": "3.1.5"
+				},
+				"preselector_api_version": "3.1.0"
+			}
+			
+		},
   },
   ...
   "captures" : [ ... ],
