@@ -3,8 +3,8 @@ package gov.doc.ntia.sigmf.ext.diagnostics;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import javax.validation.Valid;
 import java.util.Date;
+import javax.validation.Valid;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Computer {
@@ -36,16 +36,25 @@ public class Computer {
   @JsonProperty(value = "cpu_uptime")
   protected Double cpuUptime;
 
-  @JsonProperty(value = "scos_uptime")
-  protected Double scosUptime;
+  @JsonProperty(value = "software_uptime")
+  protected Double softwareUptime;
 
   @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss.SSSX")
-  @JsonProperty(value = "scos_start")
-  protected Date scosStart;
+  @JsonProperty(value = "software_start")
+  protected Date softwareStart;
+
+  @JsonProperty(value = "ntp_active")
+  protected Boolean ntpActive;
+
+  @JsonProperty(value = "ntp_sync")
+  protected Boolean ntpSync;
 
   @Valid
   @JsonProperty(value = "ssd_smart_data")
   private SsdSmartData smartData;
+
+  @JsonProperty(value = "action_runtime")
+  private Double actionRuntime;
 
   public Double getCpuMaxClock() {
     return cpuMaxClock;
@@ -119,20 +128,20 @@ public class Computer {
     this.cpuUptime = cpuUptime;
   }
 
-  public Date getScosStart() {
-    return scosStart;
+  public Date getSoftwareStart() {
+    return softwareStart;
   }
 
-  public void setScosStart(Date scosStart) {
-    this.scosStart = scosStart;
+  public void setSoftwareStart(Date softwareStart) {
+    this.softwareStart = softwareStart;
   }
 
-  public Double getScosUptime() {
-    return scosUptime;
+  public Double getSoftwareUptime() {
+    return softwareUptime;
   }
 
-  public void setScosUptime(Double scosUptime) {
-    this.scosUptime = scosUptime;
+  public void setSoftwareUptime(Double softwareUptime) {
+    this.softwareUptime = softwareUptime;
   }
 
   public SsdSmartData getSmartData() {
@@ -141,5 +150,29 @@ public class Computer {
 
   public void setSmartData(SsdSmartData smartData) {
     this.smartData = smartData;
+  }
+
+  public Boolean getNtpActive() {
+    return ntpActive;
+  }
+
+  public void setNtpActive(Boolean ntpActive) {
+    this.ntpActive = ntpActive;
+  }
+
+  public Boolean getNtpSync() {
+    return ntpSync;
+  }
+
+  public void setNtpSync(Boolean ntpSync) {
+    this.ntpSync = ntpSync;
+  }
+
+  public Double getActionRuntime() {
+    return actionRuntime;
+  }
+
+  public void setActionRuntime(Double actionRuntime) {
+    this.actionRuntime = actionRuntime;
   }
 }

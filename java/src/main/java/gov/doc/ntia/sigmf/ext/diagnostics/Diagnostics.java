@@ -23,9 +23,6 @@ public class Diagnostics {
   @Valid
   private SPU spu;
 
-  @JsonProperty(value = "action_runtime")
-  private Double actionRuntime;
-
   public Date getDatetime() {
     return datetime;
   }
@@ -52,14 +49,6 @@ public class Diagnostics {
 
   public void setSpu(SPU spu) {
     this.spu = spu;
-  }
-
-  public Double getActionRuntime() {
-    return actionRuntime;
-  }
-
-  public void setActionRuntime(Double actionRuntime) {
-    this.actionRuntime = actionRuntime;
   }
 
   public Computer getComputer() {
