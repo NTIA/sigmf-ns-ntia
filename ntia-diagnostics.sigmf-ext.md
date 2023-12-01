@@ -15,7 +15,7 @@ The `ntia-diagnostics` extension defines the following datatypes:
 | `Software`         | software versions                   | JSON [Software](#06-the-software-versions-object) object containing software version information                                                           |
 | `SsdSmartData`     | solid-state drive SMART diagnostics | JSON [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) object containing results of SMART diagnostics for an SSD                                     |
 | `ScosPlugin`       | SCOS plugins                        | JSON [ScosPlugin](#07-the-scos-plugin-object) object containing SCOS plugin names and versions                                                             |
-| `DIagnosticSensor` | Diagnostic sensor                   | JSON [DiagnosticSensor](#08-the-diagnostic-sensor-object) object describing a temperature sensor                                                           |
+| `DiagnosticSensor` | Diagnostic sensor                   | JSON [DiagnosticSensor](#08-the-diagnostic-sensor-object) object describing a temperature sensor                                                           |
 
 Multiple key/value pairs in the objects defined by this extension MUST be ISO-8601 strings, as defined by [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt), where the only allowed `time-offset` is `z`, indicating the UTC/Zulu timezone. Thus, timestamps take the form of `YYYY-MM-DDTHH:MM:SS.SSSZ`, where any number of digits for fractional seconds is permitted.
 
@@ -130,7 +130,7 @@ The ``ScosPlugin`` object has the following properties:
 | `name`    | true     | string | Python package name as it is imported, e.g., `"scos_tekrsa`" |
 | `version` | true     | string | [Semantic version](https://semver.org/) of the SCOS plugin   |
 
-### 0.7 The Diagnostic Sensor Object
+### 0.8 The Diagnostic Sensor Object
 
 The ``DiagnosticSensor`` object has the following properties: 
 
