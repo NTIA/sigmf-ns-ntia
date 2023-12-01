@@ -149,7 +149,7 @@ The ``DiagnosticSensor`` object has the following properties:
 
 ## 1 Global
 
-The `ntia-sensor` extension adds the following name/value pairs to the `global` SigMF object:
+The `ntia-diagnostics` extension adds the following name/value pairs to the `global` SigMF object:
 
 | name          | required | type                                      | unit | description                                   |
 |---------------|----------|-------------------------------------------|------|-----------------------------------------------|
