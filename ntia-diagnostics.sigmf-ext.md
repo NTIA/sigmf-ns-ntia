@@ -64,7 +64,7 @@ The `SPU` diagnostics object has the following properties:
 | `cooling`                     | false    | boolean                                                   | N/A            | Boolean indicating whether the cooling is on.                      |
 | `battery_backup`              | false    | boolean                                                   | N/A            | Boolean indicating True if the device is running on battery backup |
 | `low_battery`                 | false    | boolean                                                   | N/A            | Boolean indicating True if the battery backup is low               |
-| `battery_healthy`             | false    | boolean                                                   | N/A            | Boolean indicating True if the battery backup needs to be replaced |
+| `replace_battery`             | false    | boolean                                                   | N/A            | Boolean indicating True if the battery backup needs to be replaced |
 | `ups_healthy`                 | false    | boolean                                                   | N/A            | Boolean indicating false if the UPS has a failure                  |
 
 
