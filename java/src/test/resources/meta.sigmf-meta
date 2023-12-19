@@ -297,7 +297,11 @@
         "humidity": 17.0
       },
       "spu": {
+        "replace_battery": false,
+        "battery_backup": false,
+        "ups_healthy": true,
         "door_closed": true,
+        "low_battery": false,
         "sigan_powered": true,
         "temperature_control_powered": false,
         "preselector_powered": true,

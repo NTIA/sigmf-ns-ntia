@@ -968,7 +968,7 @@
 				"low_battery":{
 				    "type": "boolean"
 				},
-				"battery_healthy":{
+				"replace_battery":{
 				    "type": "boolean"
 				},
 				"ups_healthy":{
