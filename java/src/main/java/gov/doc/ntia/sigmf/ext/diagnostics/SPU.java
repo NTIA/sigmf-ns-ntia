@@ -7,6 +7,9 @@ import java.util.List;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class SPU {
 
+  @JsonProperty(value = "battery_backup")
+  protected Boolean batteryBackup;
+
   @JsonProperty(value = "preselector_powered")
   protected Boolean preselectorPowered;
 
@@ -16,9 +19,11 @@ public class SPU {
   @JsonProperty(value = "temperature_control_powered")
   protected Boolean tempControlPowered;
 
-  @JsonProperty protected Boolean cooling;
+  @JsonProperty
+  protected Boolean cooling;
 
-  @JsonProperty protected Boolean heating;
+  @JsonProperty
+  protected Boolean heating;
 
   @JsonProperty(value = "door_closed")
   protected Boolean doorClosed;
@@ -103,4 +108,13 @@ public class SPU {
   public void setPowerSensors(List<DiagnosticSensor> powerSensors) {
     this.powerSensors = powerSensors;
   }
+
+  public Boolean getBatteryBackup() {
+    return batteryBackup;
+  }
+
+  public void setBatteryBackup(Boolean batteryBackup) {
+    this.batteryBackup = batteryBackup;
+  }
+
 }
