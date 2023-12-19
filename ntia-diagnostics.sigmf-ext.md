@@ -195,6 +195,11 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
 				"noise_diode_path_enabled": false
 			},
 			"spu": {
+                "replace_battery": false,
+                "battery_backup": false,
+                "ups_healthy": true,
+                "door_closed": true,
+                "low_battery": false,
 				"sigan_powered": true,
 				"temperature_control_powered": false,
 				"preselector_powered": true,
