@@ -1,4 +1,4 @@
-# The `ntia-diagnostics` SigMF Extension Namespace v2.0.0
+# The `ntia-diagnostics` SigMF Extension Namespace v2.1.0
 
 This document defines the `ntia-diagnostics` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides metadata to describe system diagnostic information.
 
@@ -120,6 +120,8 @@ The `Software` versions object has the following properties:
 | `scos_actions_version`    | false    | string       | [Semantic version](https://semver.org/) of the [SCOS Actions](https://github.com/NTIA/scos-actions) plugin used by the generator                     |
 | `scos_sigan_plugin`       | false    | `ScosPlugin` | [ScosPlugin](#07-the-scos-plugin-object) object containing the name and version of the plugin implementing the signal analyzer interface             |
 | `preselector_api_version` | false    | string       | [Semantic version](https://semver.org/) of the [ITS Preselector API](https://github.com/NTIA/Preselector) used by the generator                      |
+| `sigan_firmware_version`  | false    | string       | The version of the signal analyzer firmware, e.g. `"1.2"`, `"2.3.5"`, `"V3.4"`                                                                       |
+| `sigan_api_verision`      | false    | string       | The version of the signal analyzer API, e.g. `"v1.1.5"`, `"1.0.0"`, etc.                                                                             |
 
 ### 0.7 The SCOS Plugin Object
 
