@@ -18,7 +18,7 @@ public class DiagnosticsExample implements Example {
   public static Extension getExtension() {
     Extension extension = new Extension();
     extension.setName("ntia-diagnostics");
-    extension.setVersion("v1.1.2");
+    extension.setVersion("v2.1.0");
     extension.setOptional(false);
     return extension;
   }
@@ -45,14 +45,15 @@ public class DiagnosticsExample implements Example {
 
   public static Preselector getPreselectorDiagnostics() {
     Preselector preselector = new Preselector();
-    preselector.setTemp(21.6);
+    preselector.setTemp(20.0);
     preselector.setNoiseDiodeTemp(21.8);
-    preselector.setLnaTemp(21.8);
+    preselector.setLnaTemp(22.5);
     preselector.setHumidity(65.0);
     preselector.setDoorClosed(true);
+    preselector.setNoiseDiodePowered(false);
+    preselector.setLnaPowered(true);
     preselector.setAntennaPathEnabled(true);
     preselector.setNoiseDiodePathEnabled(false);
-    preselector.setNoiseDiodePowered(false);
     return preselector;
   }
 
@@ -67,27 +68,38 @@ public class DiagnosticsExample implements Example {
     scosSiganPlugin.setVersion("3.1.4");
     software.setScosSiganPlugin(scosSiganPlugin);
     software.setPreselectorApiVersion("1.0.0");
+    software.setSiganFirmwareVersion("1.2.3");
+    software.setSiganApiVersion("V1.0.0");
     return software;
   }
 
   public static SPU getSPUDiagnostics() {
     SPU spu = new SPU();
+    spu.setSiganPowered(true);
     spu.setPreselectorPowered(true);
+
     DiagnosticSensor internalTemp = new DiagnosticSensor();
     internalTemp.setName("internal_temp");
     internalTemp.setValue(32.0);
     ArrayList<DiagnosticSensor> tempSensors = new ArrayList<>();
     tempSensors.add(internalTemp);
     spu.setTemperatureSensors(tempSensors);
+
     spu.setCooling(false);
     spu.setHeating(false);
     spu.setDoorClosed(true);
+    spu.setBatteryBackup(false);
+    spu.setLowBattery(false);
+    spu.setReplaceBattery(false);
+    spu.setUpsHealthy(true);
+
     DiagnosticSensor internalHumidity = new DiagnosticSensor();
     internalHumidity.setName("internal_humidity");
     internalHumidity.setValue(17.0);
     ArrayList<DiagnosticSensor> humiditySensors = new ArrayList<>();
     humiditySensors.add(internalHumidity);
     spu.setHumiditySensors(humiditySensors);
+
     DiagnosticSensor powerMonitor5V = new DiagnosticSensor();
     powerMonitor5V.setName("5V_power_monitor");
     powerMonitor5V.setValue(5.0);
