@@ -43,6 +43,7 @@ The `Preselector` diagnostics object has the following properties:
 | `humidity`                 | false    | double  | percent        | Relative humidity inside the preselector enclosure.             |
 | `door_closed`              | false    | boolean | N/A            | Boolean indicating whether the door of the enclosure is closed. |
 | `noise_diode_powered`      | false    | boolean | N/A            | Boolean indicating whether the noise diode is powered.          |
+| `lna_powered`              | false    | boolean | N/A            | Boolean indicating whether the low noise amplifier is powered.  |
 | `antenna_path_enabled`     | false    | boolean | N/A            | Boolean indicating whether the antenna path is enabled.         |
 | `noise_diode_path_enabled` | false    | boolean | N/A            | Boolean indicating whether the noise diode path is enabled.     |
 
