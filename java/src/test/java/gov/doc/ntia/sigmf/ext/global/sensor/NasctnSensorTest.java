@@ -219,6 +219,8 @@ public class NasctnSensorTest {
     Assertions.assertEquals("3.1.5", software.getScosSiganPlugin().getVersion());
     Assertions.assertEquals( "3.1.0", software.getPreselectorApiVersion());
     Assertions.assertEquals("sea-prototype-v0.4.2-4-gbc10e57", software.getScosSensorVersion());
+    Assertions.assertEquals("1.2.3", software.getSiganFirmwareVersion());
+    Assertions.assertEquals("V1.0.0", software.getSiganApiVersion());
   }
 
   @Test

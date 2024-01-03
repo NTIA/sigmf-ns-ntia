@@ -24,6 +24,12 @@ public class Software {
     @JsonProperty(value = "preselector_api_version")
     protected String preselectorApiVersion;
 
+    @JsonProperty(value = "sigan_firmware_version")
+    protected String siganFirmwareVersion;
+
+    @JsonProperty(value = "sigan_api_version")
+    protected String siganApiVersion;
+
     public String getSystemPlatform() {
         return systemPlatform;
     }
@@ -66,5 +72,17 @@ public class Software {
 
     public void setPreselectorApiVersion(String preselectorApiVersion) {
         this.preselectorApiVersion = preselectorApiVersion;
+    }
+
+    public String getSiganFirmwareVersion() { return siganFirmwareVersion; }
+
+    public void setSiganFirmwareVersion(String siganFirmwareVersion) {
+        this.siganFirmwareVersion = siganFirmwareVersion;
+    }
+
+    public String getSiganApiVersion() { return siganApiVersion; }
+
+    public void setSiganApiVersion(String siganApiVersion) {
+        this.siganApiVersion = siganApiVersion;
     }
 }

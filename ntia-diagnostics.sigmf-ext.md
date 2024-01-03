@@ -1,4 +1,4 @@
-# The `ntia-diagnostics` SigMF Extension Namespace v2.0.0
+# The `ntia-diagnostics` SigMF Extension Namespace v2.1.0
 
 This document defines the `ntia-diagnostics` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides metadata to describe system diagnostic information.
 
@@ -43,6 +43,7 @@ The `Preselector` diagnostics object has the following properties:
 | `humidity`                 | false    | double  | percent        | Relative humidity inside the preselector enclosure.             |
 | `door_closed`              | false    | boolean | N/A            | Boolean indicating whether the door of the enclosure is closed. |
 | `noise_diode_powered`      | false    | boolean | N/A            | Boolean indicating whether the noise diode is powered.          |
+| `lna_powered`              | false    | boolean | N/A            | Boolean indicating whether the low noise amplifier is powered.  |
 | `antenna_path_enabled`     | false    | boolean | N/A            | Boolean indicating whether the antenna path is enabled.         |
 | `noise_diode_path_enabled` | false    | boolean | N/A            | Boolean indicating whether the noise diode path is enabled.     |
 
@@ -120,6 +121,8 @@ The `Software` versions object has the following properties:
 | `scos_actions_version`    | false    | string       | [Semantic version](https://semver.org/) of the [SCOS Actions](https://github.com/NTIA/scos-actions) plugin used by the generator                     |
 | `scos_sigan_plugin`       | false    | `ScosPlugin` | [ScosPlugin](#07-the-scos-plugin-object) object containing the name and version of the plugin implementing the signal analyzer interface             |
 | `preselector_api_version` | false    | string       | [Semantic version](https://semver.org/) of the [ITS Preselector API](https://github.com/NTIA/Preselector) used by the generator                      |
+| `sigan_firmware_version`  | false    | string       | The version of the signal analyzer firmware, e.g. `"1.2"`, `"2.3.5"`, `"V3.4"`                                                                       |
+| `sigan_api_verision`      | false    | string       | The version of the signal analyzer API, e.g. `"v1.1.5"`, `"1.0.0"`, etc.                                                                             |
 
 ### 0.7 The SCOS Plugin Object
 
@@ -182,111 +185,87 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
       "optional" : false
     }, {
       "name" : "ntia-diagnostics",
-      "version" : "v2.0.0",
+      "version" : "v2.1.0",
       "optional" : false
     } ],
     "ntia-core:classification" : "UNCLASSIFIED",
-    "ntia-diagnostics:diagnostics": {
-			"datetime": "2023-12-01T16:45:51.618Z",
-			"preselector": {
-				"noise_diode_powered": false,
-				"lna_powered": true,
-				"antenna_path_enabled": true,
-				"noise_diode_path_enabled": false
-			},
-			"spu": {
-                "replace_battery": false,
-                "battery_backup": false,
-                "ups_healthy": true,
-                "door_closed": true,
-                "low_battery": false,
-				"sigan_powered": true,
-				"temperature_control_powered": false,
-				"preselector_powered": true,
-				"temperature_sensors": [
-					{
-						"name": "internal_temp",
-						"value": 22.0
-					},
-					{
-						"name": "sigan_internal_temp",
-						"value": 49.16
-					},
-					{
-						"name": "tec_intake_temp",
-						"value": 22.0
-					},
-					{
-						"name": "tec_exhaust_temp",
-						"value": 22.0
-					}
-				],
-				"humidity_sensors": [
-					{
-						"name": "internal_humidity",
-						"value": 55.3
-					}
-				],
-				"power_sensors": [
-					{
-						"name": "5v Monitor",
-						"value": 5.0,
-						"expected_value": 5.0
-					},
-					{
-						"name": "15v Monitor",
-						"value": 15.1,
-						"expected_value": 15.0
-					},
-					{
-						"name": "24v Monitor",
-						"value": 24.0,
-						"expected_value": 24.0
-					},
-					{
-						"name": "28v Monitor",
-						"value": 28.0,
-						"expected_value": 28.0
-					}
-				]
-			},
-			"computer": {
-				"cpu_min_clock": 1643.8,
-				"cpu_max_clock": 4528.6,
-				"cpu_mean_clock": 3295.3,
-				"cpu_uptime": 7.02,
-				"action_cpu_usage": 43.3,
-				"action_runtime": 92.58
-				"system_load_5m": 14.8,
-				"memory_usage": 11.2,
-				"cpu_overheating": false,
-				"cpu_temp": 53.0,
-				"software_start": "2023-12-01T16:11:06.092Z",
-				"software_uptime": 0.0241,
-				"ssd_smart_data": {
-					"test_passed": true,
-					"critical_warning": "0x00",
-					"temp": 34,
-					"available_spare": 100,
-					"available_spare_threshold": 10,
-					"percentage_used": 1,
-					"unsafe_shutdowns": 70,
-					"integrity_errors": 0
-				}
-			},
-			"software": {
-				"system_platform": "Linux-5.4.0-167-generic-x86_64-with-glibc2.29",
-				"python_version": "3.8.10",
-				"scos_sensor_version": "sea-prototype-v0.4.2-4-gbc10e57",
-				"scos_actions_version": "6.4.2",
-				"scos_sigan_plugin": {
-					"name": "scos_tekrsa",
-					"version": "3.1.5"
-				},
-				"preselector_api_version": "3.1.0"
-			}
-			
-		},
+    "ntia-diagnostics:diagnostics" : {
+      "computer" : {
+        "action_runtime" : 100.0,
+        "cpu_max_clock" : 4800.0,
+        "cpu_min_clock" : 1120.0,
+        "cpu_mean_clock" : 3100.0,
+        "action_cpu_usage" : 44.3,
+        "system_load_5m" : 24.62,
+        "memory_usage" : 23.8,
+        "cpu_temp" : 67.0,
+        "cpu_overheating" : false,
+        "cpu_uptime" : 10.0,
+        "software_uptime" : 1.0,
+        "software_start" : "2024-01-02T19:16:50.514Z",
+        "ntp_active" : true,
+        "ntp_sync" : true,
+        "ssd_smart_data" : {
+          "temp": 41.0,
+          "test_passed": true,
+          "critical_warning": "0x00",
+          "available_spare": 100.0,
+          "available_spare_threshold": 10.0,
+          "percentage_used": 1.0,
+          "unsafe_shutdowns": 18,
+          "integrity_errors": 0
+        }
+      },
+      "datetime" : "2024-01-02T19:16:50.509Z",
+      "preselector" : {
+        "temp" : 20.0,
+        "humidity" : 65.0,
+        "noise_diode_temp" : 21.8,
+        "lna_temp" : 22.5,
+        "door_closed" : true,
+        "noise_diode_path_enabled" : false,
+        "antenna_path_enabled" : true,
+        "noise_diode_powered" : false,
+        "lna_powered" : true
+      },
+      "software" : {
+        "system_platform" : "Linux-9.9.9-example-platform",
+        "python_version" : "3.11.5",
+        "scos_sensor_version" : "1.0.0-gcbb75ad",
+        "scos_actions_version" : "2.0.0",
+        "scos_sigan_plugin" : {
+          "name" : "scos_tekrsa",
+          "version" : "3.1.4"
+        },
+        "preselector_api_version" : "1.0.0",
+        "sigan_firmware_version" : "1.2.3",
+        "sigan_api_version" : "V1.0.0"
+      },
+      "spu" : {
+        "cooling" : false,
+        "heating" : false,
+        "low_battery" : false,
+        "battery_backup" : false,
+        "preselector_powered" : true,
+        "sigan_powered" : true,
+        "door_closed" : true,
+        "humidity_sensors" : [ {
+          "name" : "internal_humidity",
+          "value" : 17.0
+        } ],
+        "temperature_sensors" : [ {
+          "name" : "internal_temp",
+          "value" : 32.0
+        } ],
+        "power_sensors" : [ {
+          "name" : "5V_power_monitor",
+          "value" : 5.0,
+          "expected_value" : 5.0
+        } ],
+        "ups_healthy" : true,
+        "replace_battery" : false
+      }
+    }
   },
   ...
   "captures" : [ ... ],

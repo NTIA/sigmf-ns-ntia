@@ -937,6 +937,12 @@
 		        },
 		        "preselector_api_version": {
 		            "type": "string"
+		        },
+		        "sigan_firmware_version": {
+		            "type": "string"
+		        },
+		        "sigan_api_version": {
+		            "type": "string"
 		        }
 		    },
 		    "additionalProperties": false

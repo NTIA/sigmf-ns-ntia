@@ -14,7 +14,7 @@
       },
       {
         "name": "ntia-diagnostics",
-        "version": "v2.0.0",
+        "version": "v2.1.0",
         "optional": true
       },
       {
@@ -385,7 +385,9 @@
           "name": "scos_tekrsa",
           "version": "3.1.5"
         },
-        "preselector_api_version": "3.1.0"
+        "preselector_api_version": "3.1.0",
+        "sigan_firmware_version": "1.2.3",
+        "sigan_api_version": "V1.0.0"
       }
     },
     "core:sha512": "94a59d3d0e9fbf9a1775115c2c4ef69ab684cfd014f375257367c1ed7bddd63d28deb6dd18e259548a727eccfe3123c9bf7d613bdcef30a35ec8e52b1d9af268"
