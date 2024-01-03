@@ -191,6 +191,7 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
     "ntia-core:classification" : "UNCLASSIFIED",
     "ntia-diagnostics:diagnostics" : {
       "computer" : {
+        "action_runtime" : 100.0,
         "cpu_max_clock" : 4800.0,
         "cpu_min_clock" : 1120.0,
         "cpu_mean_clock" : 3100.0,
@@ -205,16 +206,15 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
         "ntp_active" : true,
         "ntp_sync" : true,
         "ssd_smart_data" : {
-          "temp" : 41.0,
-          "test_passed" : true,
-          "critical_warning" : "0x00",
-          "available_spare" : 100.0,
-          "available_spare_threshold" : 10.0,
-          "percentage_used" : 1.0,
-          "unsafe_shutdowns" : 18,
-          "integrity_errors" : 0
-        },
-        "action_runtime" : 100.0
+          "temp": 41.0,
+          "test_passed": true,
+          "critical_warning": "0x00",
+          "available_spare": 100.0,
+          "available_spare_threshold": 10.0,
+          "percentage_used": 1.0,
+          "unsafe_shutdowns": 18,
+          "integrity_errors": 0
+        }
       },
       "datetime" : "2024-01-02T19:16:50.509Z",
       "preselector" : {
