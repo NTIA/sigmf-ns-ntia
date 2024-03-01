@@ -1,4 +1,4 @@
-# The `ntia-diagnostics` SigMF Extension Namespace v2.1.0
+# The `ntia-diagnostics` SigMF Extension Namespace v2.2.0
 
 This document defines the `ntia-diagnostics` extension namespace for the Signal Metadata Format (SigMF) specification. This extension namespace provides metadata to describe system diagnostic information.
 
@@ -47,7 +47,6 @@ The `Preselector` diagnostics object has the following properties:
 | `antenna_path_enabled`     | false    | boolean | N/A            | Boolean indicating whether the antenna path is enabled.         |
 | `noise_diode_path_enabled` | false    | boolean | N/A            | Boolean indicating whether the noise diode path is enabled.     |
 
-
 ### 0.3 The `SPU` Diagnostics Object
 
 The `SPU` diagnostics object has the following properties:
@@ -68,31 +67,28 @@ The `SPU` diagnostics object has the following properties:
 | `replace_battery`             | false    | boolean                                                   | N/A            | Boolean indicating True if the battery backup needs to be replaced |
 | `ups_healthy`                 | false    | boolean                                                   | N/A            | Boolean indicating false if the UPS has a failure                  |
 
-
-
-
 ### 0.4 The `Computer` Diagnostics Object
 
 The `Computer` diagnostics object has the following properties:
 
-| name               | required   | type                                                    | unit                 | description                                                                                              |
-|--------------------|------------|---------------------------------------------------------|----------------------|----------------------------------------------------------------------------------------------------------|
-| `cpu_min_clock`    | false      | double                                                  | MHz                  | Minimum sampled clock speed.                                                                             |
-| `cpu_max_clock`    | false      | double                                                  | MHz                  | Maximum sampled clock speed.                                                                             |
-| `cpu_mean_clock`   | false      | double                                                  | MHz                  | Mean sampled clock speed.                                                                                |
-| `cpu_uptime`       | false      | double                                                  | days                 | Number of days since the computer started                                                                |
-| `action_cpu_usage` | false      | double                                                  | percent              | CPU utilization during action execution.                                                                 |
-|  `action_runtime`  | false      | double                                                  | seconds              | Total action execution time.                                                                             |
-| `system_load_5m`   | false      | double                                                  | percent              | Number of processes in a runnable state over the previous 5 minutes as a percent of the number of CPUs.  |
-| `memory_usage`     | false      | double                                                  | percent              | Average percent of memory used during action execution.                                                  |
-| `cpu_overheating`  | false      | boolean                                                 | N/A                  | True if the CPU is overheating.                                                                          |
-| `cpu_temp`         | false      | double                                                  | degree Celsius       | CPU temperature.                                                                                         |
-| `software_start`   | false      | string                                                  | ISO-8601 (see above) | The time at which the sensor software started.                                                           |
-| `software_uptime`  | false      | double                                                  | days                 | Number of days since the sensor software started.                                                        |
-| `ssd_smart_data`   | false      | [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) | N/A                  | Information provided by the drive Self-Monitoring, Analysis, and Reporting Technology.                   |
-| `ntp_active`       | false      | boolean                                                 | N/A                  | True if NTP service is active on the computer                                                            |
-| `ntp_sync`         | false      | boolean                                                 | N/A                  | True if the system clock is synchronized with NTP                                                        |
-
+| name               | required | type                                                    | unit                 | description                                                                                             |
+|--------------------|----------|---------------------------------------------------------|----------------------|---------------------------------------------------------------------------------------------------------|
+| `cpu_min_clock`    | false    | double                                                  | MHz                  | Minimum sampled clock speed.                                                                            |
+| `cpu_max_clock`    | false    | double                                                  | MHz                  | Maximum sampled clock speed.                                                                            |
+| `cpu_mean_clock`   | false    | double                                                  | MHz                  | Mean sampled clock speed.                                                                               |
+| `cpu_uptime`       | false    | double                                                  | days                 | Number of days since the computer started                                                               |
+| `action_cpu_usage` | false    | double                                                  | percent              | CPU utilization during action execution.                                                                |
+| `action_runtime`   | false    | double                                                  | seconds              | Total action execution time.                                                                            |
+| `system_load_5m`   | false    | double                                                  | percent              | Number of processes in a runnable state over the previous 5 minutes as a percent of the number of CPUs. |
+| `memory_usage`     | false    | double                                                  | percent              | Average percent of memory used during action execution.                                                 |
+| `cpu_overheating`  | false    | boolean                                                 | N/A                  | True if the CPU is overheating.                                                                         |
+| `cpu_temp`         | false    | double                                                  | degree Celsius       | CPU temperature.                                                                                        |
+| `software_start`   | false    | string                                                  | ISO-8601 (see above) | The time at which the sensor software started.                                                          |
+| `software_uptime`  | false    | double                                                  | days                 | Number of days since the sensor software started.                                                       |
+| `ssd_smart_data`   | false    | [SsdSmartData](#05-the-ssdsmartdata-diagnostics-object) | N/A                  | Information provided by the drive Self-Monitoring, Analysis, and Reporting Technology.                  |
+| `ntp_active`       | false    | boolean                                                 | N/A                  | True if NTP service is active on the computer                                                           |
+| `ntp_sync`         | false    | boolean                                                 | N/A                  | True if the system clock is synchronized with NTP                                                       |
+| `disk_usage`       | false    | double                                                  | percent              | Percentage of total disk usage on the computer                                                          |
 
 ### 0.5 The `SsdSmartData` Diagnostics Object
 
@@ -126,7 +122,7 @@ The `Software` versions object has the following properties:
 
 ### 0.7 The SCOS Plugin Object
 
-The ``ScosPlugin`` object has the following properties: 
+The ``ScosPlugin`` object has the following properties:
 
 | name      | required | type   | description                                                  |
 |-----------|----------|--------|--------------------------------------------------------------|
@@ -135,7 +131,7 @@ The ``ScosPlugin`` object has the following properties:
 
 ### 0.8 The Diagnostic Sensor Object
 
-The ``DiagnosticSensor`` object has the following properties: 
+The ``DiagnosticSensor`` object has the following properties:
 
 | name              | required | type   | description                                                             |
 |-------------------|----------|--------|-------------------------------------------------------------------------|
@@ -145,10 +141,6 @@ The ``DiagnosticSensor`` object has the following properties:
 | `maximum_allowed` | false    | double | The maximum value allowed from the sensor before action should be taken |
 | `minimum_allowed` | false    | double | The minimum value allowed from the sensor before action should be taken |
 | `value`           | true     | double | The value provided by the sensor                                        |
-
-
-
-
 
 ## 1 Global
 
