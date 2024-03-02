@@ -177,13 +177,12 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
       "optional" : false
     }, {
       "name" : "ntia-diagnostics",
-      "version" : "v2.1.0",
+      "version" : "v2.2.0",
       "optional" : false
     } ],
     "ntia-core:classification" : "UNCLASSIFIED",
     "ntia-diagnostics:diagnostics" : {
       "computer" : {
-        "action_runtime" : 100.0,
         "cpu_max_clock" : 4800.0,
         "cpu_min_clock" : 1120.0,
         "cpu_mean_clock" : 3100.0,
@@ -194,21 +193,23 @@ The `ntia-diagnostics` extension does not extend the `collection` SigMF object.
         "cpu_overheating" : false,
         "cpu_uptime" : 10.0,
         "software_uptime" : 1.0,
-        "software_start" : "2024-01-02T19:16:50.514Z",
+        "software_start" : "2024-03-02T00:04:45.204Z",
         "ntp_active" : true,
         "ntp_sync" : true,
+        "disk_usage" : 25.0,
         "ssd_smart_data" : {
-          "temp": 41.0,
-          "test_passed": true,
-          "critical_warning": "0x00",
-          "available_spare": 100.0,
-          "available_spare_threshold": 10.0,
-          "percentage_used": 1.0,
-          "unsafe_shutdowns": 18,
-          "integrity_errors": 0
-        }
+          "temp" : 41.0,
+          "test_passed" : true,
+          "critical_warning" : "0x00",
+          "available_spare" : 100.0,
+          "available_spare_threshold" : 10.0,
+          "percentage_used" : 1.0,
+          "unsafe_shutdowns" : 18,
+          "integrity_errors" : 0
+        },
+        "action_runtime" : 100.0
       },
-      "datetime" : "2024-01-02T19:16:50.509Z",
+      "datetime" : "2024-03-02T00:04:45.191Z",
       "preselector" : {
         "temp" : 20.0,
         "humidity" : 65.0,
