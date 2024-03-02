@@ -18,7 +18,7 @@ public class DiagnosticsExample implements Example {
   public static Extension getExtension() {
     Extension extension = new Extension();
     extension.setName("ntia-diagnostics");
-    extension.setVersion("v2.1.0");
+    extension.setVersion("v2.2.0");
     extension.setOptional(false);
     return extension;
   }
@@ -127,6 +127,7 @@ public class DiagnosticsExample implements Example {
     computer.setSoftwareStart(ExampleUtils.getDatetimeNow());
     computer.setNtpActive(true);
     computer.setNtpSync(true);
+    computer.setDiskUsage(25.0);
     computer.setActionRuntime(100.0);
     return computer;
   }
