@@ -69,18 +69,6 @@ public class NasctnSensorTest {
   }
 
   @Test
-  public void testDeserializeActionRuntime() {
-    Assertions.assertEquals(94.88, metaDoc.getGlobal().getDiagnostics().getComputer().getActionRuntime().doubleValue());
-  }
-
-  @Test
-  public void testSerializeDeserializeActionRuntime() {
-    Assertions.assertEquals(
-            94.88,
-        metaDocFromString.getGlobal().getDiagnostics().getComputer().getActionRuntime().doubleValue());
-  }
-
-  @Test
   public void testDeserializeDataProducts() {
     List<AbstractDataProduct> dataProducts = metaDoc.getGlobal().getDataProducts();
     Assertions.assertEquals(4, dataProducts.size());
@@ -181,6 +169,10 @@ public class NasctnSensorTest {
     Assertions.assertEquals(1.0, computer.getSmartData().getPercentageUsed().doubleValue());
     Assertions.assertEquals(70, computer.getSmartData().getUnsafeShutdowns().intValue());
     Assertions.assertEquals(0, computer.getSmartData().getIntegrityErrors().intValue());
+    Assertions.assertEquals(5.0, computer.getDiskUsage().doubleValue());
+    Assertions.assertEquals(94.88, computer.getActionRuntime().doubleValue());
+    Assertions.assertEquals(true, computer.getNtpSync());
+    Assertions.assertEquals(true, computer.getNtpActive());
   }
 
   @Test
@@ -207,6 +199,10 @@ public class NasctnSensorTest {
     Assertions.assertEquals(1.0, computer.getSmartData().getPercentageUsed().doubleValue());
     Assertions.assertEquals(70, computer.getSmartData().getUnsafeShutdowns().intValue());
     Assertions.assertEquals(0, computer.getSmartData().getIntegrityErrors().intValue());
+    Assertions.assertEquals(5.0, computer.getDiskUsage().doubleValue());
+    Assertions.assertEquals(94.88, computer.getActionRuntime().doubleValue());
+    Assertions.assertEquals(true, computer.getNtpSync());
+    Assertions.assertEquals(true, computer.getNtpActive());
   }
 
   @Test
