@@ -868,7 +868,10 @@
 				},
 			    "action_runtime": {
                     "type": "number"
-                }
+                },
+				"disk_usage": {
+					"type": "number"
+				}
 			},
 			"additionalProperties": false
 		},

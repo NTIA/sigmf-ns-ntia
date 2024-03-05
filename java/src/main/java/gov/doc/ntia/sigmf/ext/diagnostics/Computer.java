@@ -49,6 +49,9 @@ public class Computer {
   @JsonProperty(value = "ntp_sync")
   protected Boolean ntpSync;
 
+  @JsonProperty(value = "disk_usage")
+  protected Double diskUsage;
+
   @Valid
   @JsonProperty(value = "ssd_smart_data")
   private SsdSmartData smartData;
@@ -166,6 +169,14 @@ public class Computer {
 
   public void setNtpSync(Boolean ntpSync) {
     this.ntpSync = ntpSync;
+  }
+
+  public Double getDiskUsage() {
+    return diskUsage;
+  }
+
+  public void setDiskUsage(Double diskUsage) {
+    this.diskUsage = diskUsage;
   }
 
   public Double getActionRuntime() {

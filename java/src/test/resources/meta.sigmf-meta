@@ -14,7 +14,7 @@
       },
       {
         "name": "ntia-diagnostics",
-        "version": "v2.1.0",
+        "version": "v2.2.0",
         "optional": true
       },
       {
@@ -374,7 +374,10 @@
           "percentage_used": 1,
           "unsafe_shutdowns": 70,
           "integrity_errors": 0
-        }
+        },
+        "ntp_sync": true,
+        "ntp_active": true,
+        "disk_usage": 5.0
       },
       "software": {
         "system_platform": "Linux-5.4.0-167-generic-x86_64-with-glibc2.29",
