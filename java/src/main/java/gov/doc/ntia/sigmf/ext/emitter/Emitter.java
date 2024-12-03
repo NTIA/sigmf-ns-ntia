@@ -7,8 +7,8 @@ import gov.doc.ntia.sigmf.ext.core.Antenna;
 import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 import gov.doc.ntia.sigmf.ext.environment.Environment;
 import gov.doc.ntia.sigmf.ext.waveform.Waveform;
-import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
 
 

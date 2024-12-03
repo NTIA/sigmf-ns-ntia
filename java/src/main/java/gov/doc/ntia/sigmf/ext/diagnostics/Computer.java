@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Computer {

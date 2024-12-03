@@ -2,7 +2,7 @@ package gov.doc.ntia.sigmf.ext.algorithm;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import javax.validation.constraints.NotNull;
+import jakarta.validation.constraints.NotNull;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DFT extends AbstractProcessing implements IBaseband {
