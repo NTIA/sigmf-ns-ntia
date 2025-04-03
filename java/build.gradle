@@ -14,7 +14,7 @@ def versions = [
 def archiveBaseName= 'sigmf-ns-ntia'
 
 group = 'gov.doc.ntia'
-version = '4.0.0'
+version = '5.0.0'
 
 
 repositories {
@@ -29,8 +29,8 @@ configurations {
 dependencies {
     implementation 'com.fasterxml.jackson.core:jackson-annotations:2.18.1'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.1'
-    implementation 'org.springframework.data:spring-data-commons:3.3.5'
-    implementation 'org.springframework.boot:spring-boot-starter-validation:3.3.5'
+    implementation 'org.springframework.data:spring-data-commons:3.4.4'
+    implementation 'org.springframework.boot:spring-boot-starter-validation:3.4.4'
     implementation 'commons-io:commons-io:2.16.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
