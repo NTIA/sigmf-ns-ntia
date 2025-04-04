@@ -14,17 +14,17 @@ The `ntia-emitter` extension defines the following datatype:
 
 An `Emitter` object describes the physical and environmental characteristics of a signal emitter, and has the following properties:
 
-| name               |required|type|unit| description                                          |
-|--------------------|--------------|-------|-------|------------------------------------------------------|
-| `id`               |true|string|N/A| Unique ID of the emitter                            |
-| `description`      |false|string|N/A| Description of the emitter                          |
-| `power`            |false|double|dBm| Power referenced to antenna input                   |
-| `antenna`          |false|[Antenna](ntia-core.sigmf-ext.md#01-the-antenna-object)|N/A| Metadata that describes the antenna                 |
-| `transmitter`      |false|[HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object)|N/A| Metadata that describes the transmitter             |
-| `center_frequency` |false|double|Hz| Center frequency                                    |
-| `waveform`         |false| [Waveform](ntia-waveform.sigmf-ext.md)|N/A| Metadata that describes transmitted waveform        |
-| `geolocation`      |false|GeoJSON point Object|N/A| The location of the emitter                       |
-| `environment`      |false|[Environment](ntia-environment.sigmf-ext.md#01-the-environment-object)|N/A| Specifies the environment surrounding the emitter |
+| name               |required| type                                                                   |unit| description                                          |
+|--------------------|--------------|------------------------------------------------------------------------|-------|------------------------------------------------------|
+| `id`               |true| string                                                                 |N/A| Unique ID of the emitter                            |
+| `description`      |false| string                                                                 |N/A| Description of the emitter                          |
+| `power`            |false| double                                                                 |dBm| Power referenced to antenna input                   |
+| `antenna`          |false| [Antenna[]](ntia-core.sigmf-ext.md#01-the-antenna-object)              |N/A| Metadata that describes the antenna                 |
+| `transmitter`      |false| [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object)      |N/A| Metadata that describes the transmitter             |
+| `center_frequency` |false| double                                                                 |Hz| Center frequency                                    |
+| `waveform`         |false| [Waveform](ntia-waveform.sigmf-ext.md)                                 |N/A| Metadata that describes transmitted waveform        |
+| `geolocation`      |false| GeoJSON point Object                                                   |N/A| The location of the emitter                       |
+| `environment`      |false| [Environment](ntia-environment.sigmf-ext.md#01-the-environment-object) |N/A| Specifies the environment surrounding the emitter |
 
 ## 1 Global
 
@@ -69,7 +69,7 @@ The `ntia-emitter` extension does not extend the `collection` SigMF object.
       "id" : "N5182B-1",
       "description" : "Example emitter",
       "power" : 19.0,
-      "antenna" : {
+      "antenna" : [{
         "antenna_spec" : {
           "id" : "emitter-antenna",
           "model" : "Cobham_OA2-0.3-10.0V/1505",
@@ -89,7 +89,7 @@ The `ntia-emitter` extension does not extend the `collection` SigMF object.
         "steerable" : false,
         "azimuth_angle" : 0.0,
         "elevation_angle" : 90.0
-      },
+      }],
       "transmitter" : {
         "id" : "tx_1",
         "model" : "N5182B",

@@ -8,6 +8,9 @@ import gov.doc.ntia.sigmf.examples.ExampleUtils;
 import gov.doc.ntia.sigmf.ext.core.Antenna;
 import gov.doc.ntia.sigmf.ext.core.HardwareSpec;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class CoreExample implements Example {
 
     public static Extension getExtension() {
@@ -18,7 +21,8 @@ public class CoreExample implements Example {
         return extension;
     }
     
-    public static Antenna getAntenna() {
+    public static List<Antenna> getAntenna() {
+        ArrayList<Antenna> antennas = new ArrayList<>();
         Antenna antenna = new Antenna();
         HardwareSpec spec = getHardwareSpec("123-xyzpdq");
         antenna.setAntennaSpec(spec);
@@ -39,7 +43,8 @@ public class CoreExample implements Example {
         antenna.setSteerable(false);
         antenna.setAzimuthAngle(0.0);
         antenna.setElevationAngle(5.0);
-        return antenna;
+        antennas.add(antenna);
+        return antennas;
       }
 
     /**

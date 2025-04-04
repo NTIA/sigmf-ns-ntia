@@ -25,6 +25,9 @@ public class RfPath implements Serializable {
   @JsonProperty(value = "amplifier_id", required = false)
   protected String amplifierId;
 
+  @JsonProperty(value = "antenna_id", required = false)
+  protected String antennaId;
+
   public String getCalSourceId() {
     return calSourceId;
   }
@@ -55,5 +58,13 @@ public class RfPath implements Serializable {
 
   public void setId(String id) {
     this.id = id;
+  }
+
+  public String getAntennaId() {
+    return antennaId;
+  }
+
+  public void setAntennaId(String antennaId) {
+    this.antennaId = antennaId;
   }
 }

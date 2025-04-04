@@ -12,6 +12,9 @@ import gov.doc.ntia.sigmf.ext.emitter.Emitter;
 import gov.doc.ntia.sigmf.ext.environment.Environment;
 import gov.doc.ntia.sigmf.ext.waveform.Waveform;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+
 public class EmitterExample implements Example {
 
   public static Extension getExtension() {
@@ -63,8 +66,9 @@ public class EmitterExample implements Example {
     antenna.setSteerable(false);
     antenna.setAzimuthAngle(0.0);
     antenna.setElevationAngle(90.0);
-
-    emitter.setAntenna(antenna);
+    ArrayList<Antenna> antennas = new ArrayList<>();
+    antennas.add(antenna);
+    emitter.setAntenna(antennas);
 
     HardwareSpec transmitter = new HardwareSpec();
     transmitter.setId("tx_1");

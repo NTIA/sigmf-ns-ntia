@@ -46,6 +46,9 @@ public class Capture implements Serializable {
   @JsonProperty(value = "ntia-sensor:overload")
   protected Boolean overload;
 
+  @JsonProperty(value = "ntia-sensor:rf_path")
+  protected String rfPath;
+
   @Valid
   @JsonProperty(value = "ntia-sensor:sigan_calibration")
   protected SiganCalibration siganCalibration;
@@ -142,5 +145,14 @@ public class Capture implements Serializable {
   public void setSiganSettings(SiganSettings siganSettings) {
     this.siganSettings = siganSettings;
   }
+
+  public String getRfPath() {
+    return rfPath;
+  }
+
+  public void setRfPath(String rfPath) {
+    this.rfPath = rfPath;
+  }
+
 
 }

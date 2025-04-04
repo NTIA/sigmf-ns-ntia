@@ -10,6 +10,8 @@ import gov.doc.ntia.sigmf.ext.waveform.Waveform;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -29,7 +31,7 @@ public class Emitter implements Serializable {
 
   @Valid
   @JsonProperty(value = "antenna", required = false)
-  protected Antenna antenna;
+  protected List<Antenna> antenna;
 
   @Valid
   @JsonProperty(value = "transmitter", required = false)
@@ -67,12 +69,19 @@ public class Emitter implements Serializable {
     this.power = power;
   }
 
-  public Antenna getAntenna() {
+  public List<Antenna> getAntenna() {
     return antenna;
   }
 
-  public void setAntenna(Antenna antenna) {
+  public void setAntenna(List<Antenna> antenna) {
     this.antenna = antenna;
+  }
+
+  public void addAntenna(Antenna antenna){
+    if(this.antenna == null){
+      this.antenna = new ArrayList<>();
+    }
+    this.antenna.add(antenna);
   }
 
   public String getId() {
