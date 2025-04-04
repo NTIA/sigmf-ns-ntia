@@ -27,7 +27,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 | name              | required | type                                                                   | unit | description                                        |
 |-------------------|----------|------------------------------------------------------------------------|------|----------------------------------------------------|
 | `sensor_spec`     | true     | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object)      | N/A  | Specifies the sensor                               |
-| `antenna`         | false    | [Antenna](ntia-core.sigmf-ext.md#01-the-antenna-object)                | N/A  | Specifies the antenna                              |
+| `antenna`         | false    | [Antenna[]](ntia-core.sigmf-ext.md#01-the-antenna-object)              | N/A  | Specifies the antenna                              |
 | `preselector`     | false    | [Preselector](#03-the-preselector-object)                              | N/A  | Specifies the preselector                          |
 | `signal_analyzer` | false    | [SignalAnalyzer](#02-the-signalanalyzer-object)                        | N/A  | Specifies the signal analyzer                      |
 | `computer_spec`   | false    | [HardwareSpec](ntia-core.sigmf-ext.md#02-the-hardwarespec-object)      | N/A  | Specifies the onboard computer                     |
@@ -103,6 +103,7 @@ Sensor definition follows a simplified hardware model composed of the following 
 | `cal_source_id` | false     | string | N/A  | ID of the calibration source      |
 | `filter_id`     | false     | string | N/A  | ID of the filter                  |
 | `amplifier_id`  | false     | string | N/A  | ID of the amplifier               |
+| `antenna_id`    | false     | string | N/A  | ID of the antenna                 |
 
 The `cal_source_id`, `filter_id`, and `amplifier_id` values SHOULD match the `id` field in corresponding `cal_source_spec`, `filter_spec`, or `amplifier_spec` objects. These fields are left optional since a given sensor may not make use of all three components. If a calibration source, filter, and amplifier exist for a given physical RF path, they SHOULD be recorded here.
 
@@ -143,13 +144,14 @@ The `ntia-sensor` extension adds the following field to the `global` SigMF objec
 
 `ntia-sensor` extends [Capture Segment Objects](https://github.com/sigmf/SigMF/blob/sigmf-v1.x/sigmf-spec.md#capture-segment-objects) with the following keys:
 
-| name                 | required | type                                          | unit | description                                  |
-|----------------------|----------|-----------------------------------------------|------|----------------------------------------------|
-| `duration`           | false    | int                                           | ms   | Duration of IQ signal capture                |
-| `overload`           | false    | boolean                                       | N/A  | Whether signal analyzer overload occurred    |
-| `sensor_calibration` | false    | [Calibration](#08-the-calibration-object)     | N/A  | Sensor calibration metadata                  |
-| `sigan_calibration`  | false    | [Calibration](#08-the-calibration-object)     | N/A  | Signal analyzer calibration metadata         |
-| `sigan_settings`     | false    | [SiganSettings](#09-the-sigansettings-object) | N/A  | Signal analyzer settings used during capture |
+| name                 | required | type                                          | unit | description                                        |
+|----------------------|----------|-----------------------------------------------|------|----------------------------------------------------|
+| `duration`           | false    | int                                           | ms   | Duration of IQ signal capture                      |
+| `overload`           | false    | boolean                                       | N/A  | Whether signal analyzer overload occurred          |
+| `rf_path`            | false    | string                                        | N/A  | The id of the `RFPath` used to produce the capture |
+| `sensor_calibration` | false    | [Calibration](#08-the-calibration-object)     | N/A  | Sensor calibration metadata                        |
+| `sigan_calibration`  | false    | [Calibration](#08-the-calibration-object)     | N/A  | Signal analyzer calibration metadata               |
+| `sigan_settings`     | false    | [SiganSettings](#09-the-sigansettings-object) | N/A  | Signal analyzer settings used during capture       |
 
 ## 3 Annotations
 
@@ -185,7 +187,7 @@ The `ntia-sensor` extension does not extend the `collection` SigMF object.
         "description" : "Example description",
         "supplemental_information" : "Example supplemental information"
       },
-      "antenna" : {
+      "antenna" : [{
         "antenna_spec" : {
           "id" : "123-xyzpdq",
           "model" : "Example model",
@@ -208,7 +210,7 @@ The `ntia-sensor` extension does not extend the `collection` SigMF object.
         "steerable" : false,
         "azimuth_angle" : 0.0,
         "elevation_angle" : 5.0
-      },
+      }],
       "preselector" : {
         "preselector_spec" : {
           "id" : "preselector_1",
@@ -257,7 +259,8 @@ The `ntia-sensor` extension does not extend the `collection` SigMF object.
           "id" : "path_1",
           "cal_source_id" : "noise_diode_1",
           "filter_id" : "filter_1",
-          "amplifier_id" : "lna_1"
+          "amplifier_id" : "lna_1", 
+          "antenna_id" : "123-xyzpdq"
         } ]
       },
       "signal_analyzer" : {
@@ -297,6 +300,7 @@ The `ntia-sensor` extension does not extend the `collection` SigMF object.
   "captures" : [ {
     "core:sample_start" : 0,
     "ntia-sensor:overload" : false,
+    "ntia-sensor:rf_path": "path_1",
     "ntia-sensor:sigan_calibration" : {
       "gain" : 30.0,
       "temperature" : 28.0,
