@@ -190,6 +190,9 @@
 				"ntia-sensor:overload": {
 					"type": "boolean"
 				},
+				"ntia-sensor:rf_path": {
+				    "type": "string"
+				},
 				"ntia-sensor:sensor_calibration": {
 					"$ref": "#/$defs/Calibration"
 				},

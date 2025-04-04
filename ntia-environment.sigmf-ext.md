@@ -68,7 +68,7 @@ The `ntia-environment` extension does not extend the `collection` SigMF object.
         "description" : "Example description",
         "supplemental_information" : "Example supplemental information"
       },
-      "antenna" : {
+      "antenna" : [{
         "antenna_spec" : {
           "id" : "123-xyzpdq",
           "model" : "Example model",
@@ -91,7 +91,7 @@ The `ntia-environment` extension does not extend the `collection` SigMF object.
         "steerable" : false,
         "azimuth_angle" : 0.0,
         "elevation_angle" : 5.0
-      },
+      }],
       "preselector" : {
         "preselector_spec" : {
           "id" : "preselector_1",

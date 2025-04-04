@@ -90,14 +90,14 @@ Now, if we open the file we will see the following:
   "global": {
     "ntia-sensor:sensor": {
       "id": "greyhound-1",
-      "antenna": {
+      "antenna": [{
         "antenna_spec": {
           "id": "antenna_1",
           "model": "ARA CSB-16"
         },
         "type": "dipole",
         "gain": 7,
-      }
+      }]
     }
   },
   "captures": [],
